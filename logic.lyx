@@ -1,0 +1,4485 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{titlesec}
+
+\titleformat*{\section}{\normalsize\bfseries}
+\end_preamble
+\options twocolumn
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+twocolumn[   
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{@twocolumnfalse}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+On the interpretation of the material conditional and the intuitive formalisatio
+n of implication by logical consequence
+\end_layout
+
+\begin_layout Author
+Christopher G.
+ Albert
+\end_layout
+
+\begin_layout Abstract
+The material conditional 
+\begin_inset Formula $a\rightarrow b\equiv\neg a\lor b$
+\end_inset
+
+ is a basic definition in formal logic and commonly used in mathematics.
+ Minimalistic or sloppy translation to natural language has led to substantial
+ confusion which can be restored either by making the translation precise
+ or by a change in the logical formalism.
+ Both involve leaving the result open in case the premise 
+\begin_inset Formula $a$
+\end_inset
+
+ is false.
+ Separating this 
+\emph on
+irrelevant 
+\emph default
+case recovers a consistent formalisation of logical consequence 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If a, then b.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph default
+at the cost of ambiguity.
+ Irrelevance is one way to introduce a paraconsistent logic and is realised
+ in particular in the 
+\emph on
+Logic of Paradox
+\emph default
+ and 
+\emph on
+Relevance Logic 
+\emph default
+(see 
+\emph on
+G.
+ Priest.
+ An Introduction to Non-Classical Logic: From If to Is.
+ 
+\emph default
+Cambridge, 2008
+\emph on
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "priest2008introduction"
+literal "false"
+
+\end_inset
+
+).
+ The discussed definition of implication breaks the principle of absolute
+ logical equivalence by making it dependent on the truth value of a statement.
+ For the case of an implication being true, logical equivalence and proofs
+ remain classical, including indirect proofs.
+ If an implication is false, differences appear due to ambiguity by irrelevant
+ cases.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{@twocolumnfalse}
+\end_layout
+
+\begin_layout Plain Layout
+
+]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Material consequence and its interpretation
+\end_layout
+
+\begin_layout Standard
+In mathematics the classical material consequence or conditional 
+\begin_inset Formula 
+\begin{equation}
+a\rightarrow b\equiv\neg a\lor b
+\end{equation}
+
+\end_inset
+
+is often spoken as 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If a, then b.
+\begin_inset Quotes erd
+\end_inset
+
+,
+\emph default
+ 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+a implies b.
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+b follows from a.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph default
+or 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+a only if b.
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ which, as we will see, can fail to capture its actual meaning
+\emph on
+.
+ 
+\emph default
+Values of 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ and its descendents depending on truth values of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ are shown in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classical-truth-table"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+a
+\emph default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+b
+\emph default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lnot(a\rightarrow b)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\leftrightarrow b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Classical truth table of material consequence, its negation, and equivalence.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Classical-truth-table"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An intuitive interpretation of the material conditional translated to words
+ runs into trouble for the case 
+\begin_inset Formula $a=F$
+\end_inset
+
+ leading to 
+\begin_inset Formula $(a\rightarrow b)=T$
+\end_inset
+
+, independent from 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ A well-known feature of (ab-)using the material conditional as a rule of
+ implication is the principle of explosion, i.e.
+ a single false statement in a formal system can be used to prove arbitrary
+ statements, thus destroying the system.
+ This will be resolved at the end of the section.
+\end_layout
+
+\begin_layout Standard
+Despite its counterintuitiveness, an advantage of setting 
+\begin_inset Formula $(a\rightarrow b)=T$
+\end_inset
+
+ for 
+\begin_inset Formula $A=F$
+\end_inset
+
+ lies in the simplification of proof.
+ To show that 
+\begin_inset Formula $(a\rightarrow b)=T$
+\end_inset
+
+ holds, it is enough to show that 
+\begin_inset Formula $a=T$
+\end_inset
+
+ and 
+\begin_inset Formula $b=F$
+\end_inset
+
+ cannot be realised at the same time.
+ Therefore, to show the universal truth of 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+, it is enough to show it under the condition that 
+\begin_inset Formula $a=T$
+\end_inset
+
+, as it is true per definition for 
+\begin_inset Formula $a=F$
+\end_inset
+
+.
+ This also eases proofs of equivalence 
+\begin_inset Formula 
+\begin{equation}
+a\leftrightarrow b\equiv(a\rightarrow b)\land(b\rightarrow a).\label{eq:equiv}
+\end{equation}
+
+\end_inset
+
+ In order to show 
+\begin_inset Formula $(a\leftrightarrow b)=T$
+\end_inset
+
+ it is enough to show truth of material consequences in both directions,
+ thereby also covering the case 
+\begin_inset Formula $(a,b)=(F,F)$
+\end_inset
+
+ per default.
+\end_layout
+
+\begin_layout Standard
+This seemingly advantage turns into a disadvantage for the negation of the
+ material consequence,
+\begin_inset Formula 
+\begin{equation}
+\lnot(a\rightarrow b)\equiv a\land\neg b,
+\end{equation}
+
+\end_inset
+
+which would translate to 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If a, then not b
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ when looking only at the last two columns of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classical-truth-table"
+
+\end_inset
+
+.
+ To prove 
+\begin_inset Formula $\lnot(a\rightarrow b)=T$
+\end_inset
+
+ (i.e.
+ 
+\begin_inset Formula $(a\rightarrow b)=F$
+\end_inset
+
+) we need not only exclude the possibility 
+\begin_inset Formula $(a,b)=(T,T)$
+\end_inset
+
+, but also avoid 
+\begin_inset Formula $a=F$
+\end_inset
+
+, so prove that 
+\begin_inset Formula $a=T$
+\end_inset
+
+.
+ The latter refers to 
+\begin_inset Formula $a$
+\end_inset
+
+ alone and should intuitively have nothing to do with a relation between
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The mentioned issues are resolved if language is made precise.
+ A minimalistic way to talk about the material conditional would be directly
+ based on its definition
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Here 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+a is false
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ is intentionally used instead of 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+not a
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ and 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+b is true
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ instead of 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+b
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ alone, as the truth values are respectively identical, but the language
+ is more clear in the present version.
+\end_layout
+
+\end_inset
+
+,
+\emph on
+
+\begin_inset Formula 
+\begin{equation}
+a\rightarrow b\equiv\neg a\lor b:\text{“a is false, or b is true.”}\label{eq:material-1}
+\end{equation}
+
+\end_inset
+
+
+\emph default
+and for its negation 
+\begin_inset Formula 
+\begin{equation}
+\lnot(a\rightarrow b)\equiv a\land\neg b:\emph{\text{“a is true, and b is false.”}}\label{eq:antimaterial-1}
+\end{equation}
+
+\end_inset
+
+Here we see that in particular the negation of the material conditional
+ intuitively 
+\emph on
+assigns
+\emph default
+ truth values to 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ The statement 
+\begin_inset Formula $\lnot(a\rightarrow b)$
+\end_inset
+
+ doesn't describe a relation, but rather two facts.
+\end_layout
+
+\begin_layout Standard
+For an interpretation of 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ as a consequence 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If a, then b
+\emph default
+
+\begin_inset Quotes erd
+\end_inset
+
+, one could argue that the case 
+\begin_inset Formula $a=F$
+\end_inset
+
+ is implicitly included by the law of the excluded middle, resulting in
+ a true statement per default.
+ As this can lead to misinterpretation, a slightly more redunant, but inuitive
+ translation of the material consequence into words should be
+\emph on
+
+\begin_inset Formula 
+\begin{equation}
+a\rightarrow b:\text{“If a, then b, or a is false.”}\label{eq:material}
+\end{equation}
+
+\end_inset
+
+
+\emph default
+and its negation
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Of course the following sentence is a rather complicated way to describe
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:antimaterial-1"
+
+\end_inset
+
+, but it is useful, as it allows its last part to be omitted.
+ 
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\lnot(a\rightarrow b):\,\emph{\text{“If a, then not b, and a is true.”}}\label{eq:antimaterial}
+\end{equation}
+
+\end_inset
+
+Thus we could translate the meaning of the material conditional into words
+ by making the extra conditions precise that we have omitted before.
+\end_layout
+
+\begin_layout Standard
+The explosion problem is resolved at least intuitively, since the addition
+ of 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+or a is false
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ when speaking of 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:material"
+
+\end_inset
+
+ exactly says that if 
+\begin_inset Formula $a$
+\end_inset
+
+ is false, so we don't care about the value of 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Only the omission of the last part of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:antimaterial"
+
+\end_inset
+
+ leads to the incorrect interpretation that we could 
+\emph on
+conclude
+\emph default
+ on the truth of 
+\begin_inset Formula $b$
+\end_inset
+
+ from the material conditional.
+ The material conditional says nothing about the truth value of 
+\begin_inset Formula $b$
+\end_inset
+
+ if 
+\begin_inset Formula $a=F$
+\end_inset
+
+, but only of the overall expression 
+\begin_inset Formula $(a\rightarrow b)\equiv(\lnot a\lor b)=T$
+\end_inset
+
+.
+ Explosion doesn't occur, as any chain of proofs containing a false premise
+ in a material conditional says nothing about the truth of the conclusion.
+ It is misleading and unintuitive to define a formal proof by checking if
+ 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ is true, as one would intuitively believe to have proven 
+\begin_inset Formula $b$
+\end_inset
+
+ in this manner.
+ The latter is only true for 
+\begin_inset Formula $a=T$
+\end_inset
+
+, but not for 
+\begin_inset Formula $a=F$
+\end_inset
+
+.
+ This must be kept in mind when using 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ as a rule of inference.
+\end_layout
+
+\begin_layout Section*
+Logical consequence and irrelevance
+\end_layout
+
+\begin_layout Standard
+The other possibility to fit intuitive language and logic consists in changing
+ to a logical rule 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ different from the material conditional 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ to represent the implication 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If a, then b.
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ This can be done by starting with 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ and postulating a false premise 
+\emph on
+
+\begin_inset Formula $a=F$
+\end_inset
+
+
+\emph default
+ doesn't matter.
+ Introducing this ambiguity restores an intuitive definition of implication
+ by the logical consequence
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+often spoken as 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+a entails b.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph default
+and denoted by 
+\begin_inset Formula $\models$
+\end_inset
+
+ in literature, but we intentionally keep the symbol 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ which is often used with a logical, rather than a material consequence
+ in mind.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+.
+ In such a case we say that the combinations 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ are 
+\emph on
+irrelevant
+\emph default
+ for 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+ and denote it with 
+\begin_inset Formula $I$
+\end_inset
+
+ rather than 
+\begin_inset Formula $T$
+\end_inset
+
+ or 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ For logical primitives 
+\begin_inset Formula $\land$
+\end_inset
+
+,
+\begin_inset Formula $\lor$
+\end_inset
+
+ involving 
+\begin_inset Formula $I$
+\end_inset
+
+ we introduce rules in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classical-truth-table-1-1"
+
+\end_inset
+
+ together with 
+\begin_inset Formula $\lnot I=I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="4">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top" width="0pt">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+a
+\emph default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+b
+\emph default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\lor b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\land b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logical primitives involving irrelevance.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Classical-truth-table-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The only cases 
+\emph on
+relevant
+\emph default
+ for 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+, where a fixed truth value should be assigned are the ones with 
+\begin_inset Formula $a=T$
+\end_inset
+
+.
+ After distinguishing irrelevant cases with 
+\begin_inset Formula $a=F$
+\end_inset
+
+, the logical consequence 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+ can be written inside the truth table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classical-truth-table-1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="6">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+a
+\emph default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+b
+\emph default
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lnot(a\Rightarrow b)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $a\Leftrightarrow b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\lnot b\Rightarrow\lnot a$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+I
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Logical implications with irrelevance.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Classical-truth-table-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+The material conditional and its negation can then be recovered by adding
+ truth values for 
+\begin_inset Formula $a$
+\end_inset
+
+ via
+\begin_inset Formula 
+\begin{align}
+a & \rightarrow b\equiv(a\Rightarrow b)\lor\lnot a,\\
+\lnot(a & \rightarrow b)\equiv(a\Rightarrow b)\lor\lnot a,
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This also corresponds exactly to the verbose way of translating the material
+ conditional into words in (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:material"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:antimaterial"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Weak equivalence 
+\begin_inset Formula 
+\begin{equation}
+a\Leftrightarrow b\equiv(a\Rightarrow b)\land(b\Rightarrow a)
+\end{equation}
+
+\end_inset
+
+can be considered a mixture of 
+\begin_inset Formula $a\land b$
+\end_inset
+
+ and 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ with only 
+\begin_inset Formula $a=T$
+\end_inset
+
+ or 
+\begin_inset Formula $b=T$
+\end_inset
+
+ being relevant, but not 
+\begin_inset Formula $(a,b)=(F,F)$
+\end_inset
+
+.
+ This reflects the fact that a proof from either direction by a logical
+ consequence takes at least one to be true, and we didn't assign a fixed
+ truth value for the case 
+\begin_inset Formula $(a,b)=(F,F)$
+\end_inset
+
+.
+ For strong equivalence 
+\begin_inset Formula $(a\leftrightarrow b)$
+\end_inset
+
+ we keep the classical definition 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:equiv"
+
+\end_inset
+
+ leading to values of Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classical-truth-table"
+
+\end_inset
+
+.
+ It is easily re-written in terms of weak equivalence by
+\begin_inset Formula 
+\begin{equation}
+a\leftrightarrow b\equiv(a\Leftrightarrow b)\land(\lnot a\Leftrightarrow\lnot b).
+\end{equation}
+
+\end_inset
+
+Thus, to show 
+\emph on
+strong 
+\emph default
+equivalency 
+\begin_inset Formula $\leftrightarrow$
+\end_inset
+
+ of two statements it is not enough to prove 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ from both directions.
+ Remember that when constructing a proof for 
+\begin_inset Formula $a\leftrightarrow b$
+\end_inset
+
+ from both directions of 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+, any sloppiness in language could be masked by the 
+\begin_inset Quotes eld
+\end_inset
+
+dirty trick
+\begin_inset Quotes erd
+\end_inset
+
+ of setting the default value 
+\begin_inset Formula $a\rightarrow b=T$
+\end_inset
+
+ in case 
+\begin_inset Formula $a=F$
+\end_inset
+
+.
+ If this is replaced by irrelevance, the verification of both, 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+ and 
+\begin_inset Formula $b\Rightarrow a$
+\end_inset
+
+ only states that if either 
+\begin_inset Formula $a=T$
+\end_inset
+
+ or 
+\begin_inset Formula $b=T$
+\end_inset
+
+, no contradiction to 
+\begin_inset Formula $a\leftrightarrow b$
+\end_inset
+
+ arises.
+ The case 
+\begin_inset Formula $(a,b)=(F,F)$
+\end_inset
+
+ is irrelevant to both directions, and stays so when they are combined.
+ 
+\end_layout
+
+\begin_layout Section*
+Example
+\end_layout
+
+\begin_layout Standard
+Let us analyse the unintuitive behavior of the material conditional and
+ its resolution by an example,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a$
+\end_inset
+
+: 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+The moon is (entirely) made of cheese.
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $b$
+\end_inset
+
+: 
+\begin_inset Quotes eld
+\end_inset
+
+
+\emph on
+My birthday is on date 
+\emph default
+
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Statement 
+\begin_inset Formula $a$
+\end_inset
+
+ is false
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+as in 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+It has been checked that at least parts of the moon are rocks, and we know
+ rocks are not cheese.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset Formula $b$
+\end_inset
+
+ may be either true or false, depending on 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ According to the usual translation of material conditional, the statement
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+If the moon is made of cheese, then my birthday is on date 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is true, independent from 
+\emph on
+x
+\emph default
+.
+ This sentence may be interpreted as paradoxical as soon as you see me celebrati
+ng every day because we started with a false premise.
+ The two possible resolutions are 
+\end_layout
+
+\begin_layout Enumerate
+A different translation of the material conditional into words as
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+The moon is not made of cheese, or my birthday is on any date 
+\begin_inset Formula $x$
+\end_inset
+
+ you can imagine
+\begin_inset Quotes erd
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+or,
+\emph on
+ 
+\emph default
+more verbosely,
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+If the moon is made of cheese, then my birthday is on date 
+\begin_inset Formula $x$
+\end_inset
+
+, or the moon is not made of cheese
+\begin_inset Quotes erd
+\end_inset
+
+,
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+which are perfectly true statements.
+\end_layout
+
+\begin_layout Enumerate
+The introduction of irrelevant cases for a false premise, in which case
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If the moon is made of cheese, then my birthday is on date 
+\begin_inset Formula $x$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+becomes an irrelevant statement which can be either true or false.
+\end_layout
+
+\begin_layout Standard
+It should be noted that if we interpret 
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+If the moon is made of cheese, then I'll eat my hat (, or the moon is not
+ made of cheese).
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+in the sense of a material conditional including the part in brackets, I
+ am actually saying
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Quotes eld
+\end_inset
+
+The moon is not made of cheese, or I'll eat my hat
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+In the material sense this statement is true, in the logical sense it is
+ irrelevant without brackets, and true with brackets.
+ Both variants leave me free choice whether or not to eat my hat, since
+ 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+the moon is made of cheese
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph default
+is false.
+ 
+\end_layout
+
+\begin_layout Section*
+Representing statements by logical rules
+\end_layout
+
+\begin_layout Standard
+For a more precise definition of logical equivalence and formal proof of
+ statements in a system including irrelevance we will now split the system
+ into cases where logical rules apply.
+ This also helps to illustrate how equivalence between two statements becomes
+ dependent on their truth value.
+ An insightful way to view the concept of irrelevance is by separation of
+ tables of allowed and forbidden combinations for the cases of a statement
+ being true or false, respectively.
+ The case 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+ is shown in Table
+\begin_inset space ~
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Logical-rules-for"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+allowed
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+forbidden
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $(a\Rightarrow b)=T\equiv(a\rightarrow b)=T\equiv(\lnot b\rightarrow\lnot a)=T$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Logical-rules-for"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rules for 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+ are the same as for 
+\begin_inset Formula $(a\rightarrow b)=T$
+\end_inset
+
+, leading to their equivalence in that case.
+ Combinations with false premise 
+\begin_inset Formula $a=F$
+\end_inset
+
+ are allowed for 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+, as this case is irrelevant for the truth of 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+, and are true per definition for 
+\begin_inset Formula $(a\rightarrow b)=T$
+\end_inset
+
+.
+ For a true premise 
+\begin_inset Formula $a=T$
+\end_inset
+
+, only the case of a true consequence 
+\begin_inset Formula $b=T$
+\end_inset
+
+ is allowed, but not 
+\begin_inset Formula $b=F$
+\end_inset
+
+.
+ From the perspective of rules of allowed and forbidden combinations of
+ 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+, the statement 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+ is further equivalent the contrapositive 
+\begin_inset Formula $(\lnot b\Rightarrow\lnot a)=T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The negation 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+ (
+\begin_inset Formula $\equiv$
+\end_inset
+
+ 
+\begin_inset Formula $\lnot(a\Rightarrow b)=T$
+\end_inset
+
+) has rules listed in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Logical-rules-for-1"
+
+\end_inset
+
+.
+ Here the two additional irrelevant cases with 
+\begin_inset Formula $a=F$
+\end_inset
+
+ appear in the allowed cases, as opposed to 
+\begin_inset Formula $(a\rightarrow b)=F$
+\end_inset
+
+ with rules in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Logical-rules-for-1-1"
+
+\end_inset
+
+.
+ Allowing irrelevant combinations of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ for 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+ has the advantage that for a false premise 
+\begin_inset Formula $a$
+\end_inset
+
+, no artificial limitations are imposed, e.g.
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\begin_inset Quotes eld
+\end_inset
+
+If the moon is made of cheese, then my birthday is not on day x.
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+can be true or not, independent from 
+\emph on
+x
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+allowed
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+forbidden
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Logical-rules-for-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+allowed
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+forbidden
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $(a\rightarrow b)=F$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Logical-rules-for-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The case 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+ is clearly not equivalent to 
+\begin_inset Formula $(a\rightarrow b)=F$
+\end_inset
+
+, where only a single case is allowed, and three are forbidden and also
+ not and also not to the negated contrapositive 
+\begin_inset Formula $(\lnot b\Rightarrow\lnot a)=F$
+\end_inset
+
+ listed in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Logical-rules-for-1-1-1"
+
+\end_inset
+
+.
+ Interestingly, 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+ is equivalent to 
+\begin_inset Formula $(b\Rightarrow a)=F$
+\end_inset
+
+ and 
+\begin_inset Formula $(a\Leftrightarrow b)=F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Truth of strong equivalence and weak equivalence has the same rules (Table
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Logical-rules-for-1-2"
+
+\end_inset
+
+), but their falsehood does not, since the case 
+\begin_inset Formula $(a,b)=(F,F)$
+\end_inset
+
+ is not allowed in the strong form.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+allowed
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+forbidden
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $(\lnot b\Rightarrow\lnot a)=F$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Logical-rules-for-1-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+allowed
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+forbidden
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $(a\Leftrightarrow b)=T\equiv(a\leftrightarrow b)=T$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Logical-rules-for-1-2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+allowed
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Box Frameless
+position "t"
+hor_pos "c"
+has_inner_box 1
+inner_pos "t"
+use_parbox 0
+use_makebox 0
+width "40col%"
+special "none"
+height "1in"
+height_special "totalheight"
+thickness "0.4pt"
+separation "3pt"
+shadowsize "4pt"
+framecolor "black"
+backgroundcolor "none"
+status open
+
+\begin_layout Plain Layout
+\align center
+
+\series bold
+forbidden
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="2">
+<features booktabs="true" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+b
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+F
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\emph on
+T
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Rules for 
+\begin_inset Formula $(a\leftrightarrow b)=F$
+\end_inset
+
+.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:Logical-rules-for-1-2-1-1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Additional properties and 
+\begin_inset Newline newline
+\end_inset
+
+formulation of proofs
+\end_layout
+
+\begin_layout Standard
+For both, classical operators such as 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ and non-classical 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+, allowed and forbidden cases are complete, i.e.
+ all cases are covered, and complementary to each other, i.e.
+ no case can ever be allowed and forbidden at once.
+ This feature is essential for the common definition of proof which we state
+ as
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+To prove a statement to be true, only the realisation of allowed cases may
+ be possible.
+\end_layout
+
+\begin_layout Standard
+or
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+To prove a statement to be true, the possibility of a forbidden case to
+ be realised must be excluded.
+\end_layout
+
+\begin_layout Standard
+To formulate proofs, one must show that a forbidden case is never realised.
+\end_layout
+
+\begin_layout Standard
+So to show 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+ one needs to show the impossibility of the case 
+\begin_inset Formula $(a,b)=(T,F)$
+\end_inset
+
+.
+ Ways to do this include the classical ones:
+\end_layout
+
+\begin_layout Enumerate
+Direct proof.
+ Take 
+\begin_inset Formula $a=T$
+\end_inset
+
+ and deduce that 
+\begin_inset Formula $b=T$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Indirect proof by contrapositive.
+ Take 
+\begin_inset Formula $b=F$
+\end_inset
+
+ and deduce 
+\begin_inset Formula $a=F$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Indirect proof by contradiction.
+ Assume 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+ and deduce that 
+\begin_inset Formula $(a,b)=(T,F)$
+\end_inset
+
+ is possible, thereby violating a forbidden case and proofing the opposite
+ 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+To show the negation 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+, one can use its equivalent 
+\begin_inset Formula $(a\Rightarrow\lnot b)=T$
+\end_inset
+
+ and apply the rules above.
+\end_layout
+
+\begin_layout Standard
+Truth of weak or strong equivalence 
+\begin_inset Formula $(a\Leftrightarrow b)=T\equiv(a\leftrightarrow b)=T$
+\end_inset
+
+ is shown as usual by 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+ and 
+\begin_inset Formula $(b\Rightarrow a)=T,$
+\end_inset
+
+ thus excluding mixed truth values for a and b.
+ To show the negation of strong equivalence, 
+\begin_inset Formula $(a\leftrightarrow b)=F$
+\end_inset
+
+, one must show that 
+\begin_inset Formula $(a,b)=(F,F)$
+\end_inset
+
+ is impossible in addition to 
+\begin_inset Formula $(a\Leftrightarrow b)=F\equiv((a\Rightarrow b)\land(b\Rightarrow a))=F$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Classical operators additionally fulfil the requirement of complementarity
+ between allowed cases for a statement and its negation, e.g.
+ 
+\begin_inset Formula $(a\rightarrow b)=T$
+\end_inset
+
+ and 
+\begin_inset Formula $(a\rightarrow b)=F$
+\end_inset
+
+ must not share any allowed cases.
+ This leads to a single classical truth table, containing only 
+\emph on
+T 
+\emph default
+and 
+\emph on
+F,
+\emph default
+ like in Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classical-truth-table"
+
+\end_inset
+
+.
+ In non-classical operators there is no restriction, e.g.
+ 
+\begin_inset Formula $(a\Rightarrow b)=T$
+\end_inset
+
+ and 
+\begin_inset Formula $(a\Rightarrow b)=F$
+\end_inset
+
+ share some allowed cases.
+ These are the irrelevant cases in the above definition and are marked by
+ 
+\emph on
+I
+\emph default
+ in a truth tables like Table
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:Classical-truth-table-1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section*
+Conclusion
+\end_layout
+
+\begin_layout Standard
+After pointing out possible misunderstandings of the material conditional
+ 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ and seemingly paradox results, two ways of resolution have been identified.
+ The first consists in adding an extra clause to 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If a, then b
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\emph default
+when speaking of a material conditional.
+ The principle of explosion can be avoided by restricting the use of 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ as a law of inference to true premisses 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Fo inference we should always ask: do we show 
+\begin_inset Formula $b$
+\end_inset
+
+ to be true, do we show 
+\begin_inset Formula $a\rightarrow b$
+\end_inset
+
+ to be true, or do we show 
+\begin_inset Formula $b$
+\end_inset
+
+ to be true already assuming that 
+\begin_inset Formula $a$
+\end_inset
+
+ is true.
+\end_layout
+
+\begin_layout Standard
+An alternative is the use of a logical consequence 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+ instead of a material conditional, containing the term 
+\emph on
+irrelevant
+\emph default
+ in addition to 
+\emph on
+true 
+\emph default
+and 
+\emph on
+false 
+\emph default
+for the case of a false premise
+\emph on
+ 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ 
+\emph default
+Considering allowed and forbidden cases for statements 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ individually for true and false logical consequence, identities and techniques
+ of proofs could be found to be classical if 
+\begin_inset Formula $a\Rightarrow b=T$
+\end_inset
+
+, and different from the classical case for 
+\begin_inset Formula $a\Rightarrow b=F$
+\end_inset
+
+.
+ This leads to the conclusion that for 
+\begin_inset Formula $a=T$
+\end_inset
+
+ it is irrelevant, which technique to use to prove 
+\begin_inset Formula $a\Rightarrow b=T$
+\end_inset
+
+.
+ For equivalance and negation, special care must be taken, especially when
+ using the contrapositive.
+ The case where irrelevant inputs 
+\begin_inset Formula $a,b$
+\end_inset
+
+ enter 
+\begin_inset Formula $a\Rightarrow b$
+\end_inset
+
+ has not been discussed.
+ This would most likely lead to a fourth possibility 
+\begin_inset Quotes eld
+\end_inset
+
+unknown
+\begin_inset Quotes erd
+\end_inset
+
+ or 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+U
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ to cover undecidable combinations.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintAll"
+bibfiles "logic"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\end_body
+\end_document

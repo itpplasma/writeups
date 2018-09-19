@@ -1,0 +1,682 @@
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[twocolumn]{article}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{amsmath}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{titlesec}
+
+\titleformat*{\section}{\normalsize\bfseries}
+
+\makeatother
+
+\begin{document}
+\twocolumn[   
+\begin{@twocolumnfalse}
+
+\title{On the interpretation of the material conditional and the intuitive
+formalisation of implication by logical consequence}
+
+\author{Christopher G. Albert}
+\maketitle
+\begin{abstract}
+The material conditional $a\rightarrow b\equiv\neg a\lor b$ is a
+basic definition in formal logic and commonly used in mathematics.
+Minimalistic or sloppy translation to natural language has led to
+substantial confusion which can be restored either by making the translation
+precise or by a change in the logical formalism. Both involve leaving
+the result open in case the premise $a$ is false. Separating this
+\emph{irrelevant }case recovers a consistent formalisation of logical
+consequence \emph{``If a, then b.'' }at the cost of ambiguity. Irrelevance
+is one way to introduce a paraconsistent logic and is realised in
+particular in the \emph{Logic of Paradox} and \emph{Relevance Logic
+}(see \emph{G. Priest. An Introduction to Non-Classical Logic: From
+If to Is. }Cambridge, 2008\emph{ }\cite{priest2008introduction}).
+The discussed definition of implication breaks the principle of absolute
+logical equivalence by making it dependent on the truth value of a
+statement. For the case of an implication being true, logical equivalence
+and proofs remain classical, including indirect proofs. If an implication
+is false, differences appear due to ambiguity by irrelevant cases.
+\end{abstract}
+\end{@twocolumnfalse}
+]
+
+\section*{Material consequence and its interpretation}
+
+In mathematics the classical material consequence or conditional 
+\begin{equation}
+a\rightarrow b\equiv\neg a\lor b
+\end{equation}
+is often spoken as \emph{``If a, then b.'',} ``\emph{a implies
+b.'', ``b follows from a.'' }or \emph{``a only if b.''} which,
+as we will see, can fail to capture its actual meaning\emph{. }Values
+of $a\rightarrow b$ and its descendents depending on truth values
+of $a$ and $b$ are shown in Table \ref{tab:Classical-truth-table}.
+
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{ccccc}
+\toprule 
+\emph{a}  & \emph{b}  & $a\rightarrow b$ & $\lnot(a\rightarrow b)$ & $a\leftrightarrow b$\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{F } & \emph{T} & \emph{F} & \emph{T}\tabularnewline
+\midrule 
+\emph{F } & \emph{T } & \emph{T} & \emph{F} & \emph{F}\tabularnewline
+\midrule 
+\emph{T } & \emph{F } & \emph{F} & \emph{T} & \emph{F}\tabularnewline
+\midrule 
+\emph{T } & \emph{T } & \emph{T} & \emph{F} & \emph{T}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{centering}
+\caption{Classical truth table of material consequence, its negation, and equivalence.\label{tab:Classical-truth-table}}
+\end{table}
+
+An intuitive interpretation of the material conditional translated
+to words runs into trouble for the case $a=F$ leading to $(a\rightarrow b)=T$,
+independent from $b$. A well-known feature of (ab-)using the material
+conditional as a rule of implication is the principle of explosion,
+i.e. a single false statement in a formal system can be used to prove
+arbitrary statements, thus destroying the system. This will be resolved
+at the end of the section.
+
+Despite its counterintuitiveness, an advantage of setting $(a\rightarrow b)=T$
+for $A=F$ lies in the simplification of proof. To show that $(a\rightarrow b)=T$
+holds, it is enough to show that $a=T$ and $b=F$ cannot be realised
+at the same time. Therefore, to show the universal truth of $a\rightarrow b$,
+it is enough to show it under the condition that $a=T$, as it is
+true per definition for $a=F$. This also eases proofs of equivalence
+\begin{equation}
+a\leftrightarrow b\equiv(a\rightarrow b)\land(b\rightarrow a).\label{eq:equiv}
+\end{equation}
+ In order to show $(a\leftrightarrow b)=T$ it is enough to show truth
+of material consequences in both directions, thereby also covering
+the case $(a,b)=(F,F)$ per default.
+
+This seemingly advantage turns into a disadvantage for the negation
+of the material consequence,
+\begin{equation}
+\lnot(a\rightarrow b)\equiv a\land\neg b,
+\end{equation}
+which would translate to \emph{``If a, then not b''} when looking
+only at the last two columns of Table \ref{tab:Classical-truth-table}.
+To prove $\lnot(a\rightarrow b)=T$ (i.e. $(a\rightarrow b)=F$) we
+need not only exclude the possibility $(a,b)=(T,T)$, but also avoid
+$a=F$, so prove that $a=T$. The latter refers to $a$ alone and
+should intuitively have nothing to do with a relation between $a$
+and $b$. 
+
+The mentioned issues are resolved if language is made precise. A minimalistic
+way to talk about the material conditional would be directly based
+on its definition\footnote{Here \emph{``a is false''} is intentionally used instead of \emph{``not
+a''} and \emph{``b is true''} instead of \emph{``b''} alone,
+as the truth values are respectively identical, but the language is
+more clear in the present version.},\emph{
+\begin{equation}
+a\rightarrow b\equiv\neg a\lor b:\text{\textquotedblleft a is false, or b is true.\textquotedblright}\label{eq:material-1}
+\end{equation}
+}and for its negation 
+\begin{equation}
+\lnot(a\rightarrow b)\equiv a\land\neg b:\emph{\text{\textquotedblleft a is true, and b is false.\textquotedblright}}\label{eq:antimaterial-1}
+\end{equation}
+Here we see that in particular the negation of the material conditional
+intuitively \emph{assigns} truth values to $a$ and $b$. The statement
+$\lnot(a\rightarrow b)$ doesn't describe a relation, but rather two
+facts.
+
+For an interpretation of $a\rightarrow b$ as a consequence \emph{``If
+a, then b}'', one could argue that the case $a=F$ is implicitly
+included by the law of the excluded middle, resulting in a true statement
+per default. As this can lead to misinterpretation, a slightly more
+redunant, but inuitive translation of the material consequence into
+words should be\emph{
+\begin{equation}
+a\rightarrow b:\text{\textquotedblleft If a, then b, or a is false.\textquotedblright}\label{eq:material}
+\end{equation}
+}and its negation\footnote{Of course the following sentence is a rather complicated way to describe
+\eqref{eq:antimaterial-1}, but it is useful, as it allows its last
+part to be omitted. } 
+\begin{equation}
+\lnot(a\rightarrow b):\,\emph{\text{\textquotedblleft If a, then not b, and a is true.\textquotedblright}}\label{eq:antimaterial}
+\end{equation}
+Thus we could translate the meaning of the material conditional into
+words by making the extra conditions precise that we have omitted
+before.
+
+The explosion problem is resolved at least intuitively, since the
+addition of \emph{``or a is false''} when speaking of $a\rightarrow b$
+in \eqref{eq:material} exactly says that if $a$ is false, so we
+don't care about the value of $b$. Only the omission of the last
+part of \eqref{eq:antimaterial} leads to the incorrect interpretation
+that we could \emph{conclude} on the truth of $b$ from the material
+conditional. The material conditional says nothing about the truth
+value of $b$ if $a=F$, but only of the overall expression $(a\rightarrow b)\equiv(\lnot a\lor b)=T$.
+Explosion doesn't occur, as any chain of proofs containing a false
+premise in a material conditional says nothing about the truth of
+the conclusion. It is misleading and unintuitive to define a formal
+proof by checking if $a\rightarrow b$ is true, as one would intuitively
+believe to have proven $b$ in this manner. The latter is only true
+for $a=T$, but not for $a=F$. This must be kept in mind when using
+``$\rightarrow$'' as a rule of inference.
+
+\section*{Logical consequence and irrelevance}
+
+The other possibility to fit intuitive language and logic consists
+in changing to a logical rule $\Rightarrow$ different from the material
+conditional $\rightarrow$ to represent the implication \emph{``If
+a, then b.''} This can be done by starting with $\rightarrow$ and
+postulating a false premise \emph{$a=F$} doesn't matter. Introducing
+this ambiguity restores an intuitive definition of implication by
+the logical consequence\footnote{often spoken as ``\emph{a entails b.'' }and denoted by $\models$
+in literature, but we intentionally keep the symbol $\Rightarrow$
+which is often used with a logical, rather than a material consequence
+in mind.} $a\Rightarrow b$. In such a case we say that the combinations $(a,b)$
+are \emph{irrelevant} for $a\Rightarrow b$ and denote it with $I$
+rather than $T$ or $F$. For logical primitives $\land$,$\lor$
+involving $I$ we introduce rules in Table~\ref{tab:Classical-truth-table-1-1}
+together with $\lnot I=I$.
+
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{cccc}
+\toprule 
+\emph{a}  & \emph{b}  & $a\lor b$ & $a\land b$\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{I } & \emph{I} & \emph{F}\tabularnewline
+\midrule
+\emph{T} & \emph{I } & \emph{T} & \emph{I}\tabularnewline
+\midrule
+\emph{I} & \emph{F} & \emph{I} & \emph{F}\tabularnewline
+\midrule
+\emph{I} & \emph{T} & \emph{T} & \emph{I}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{centering}
+\caption{Logical primitives involving irrelevance.\label{tab:Classical-truth-table-1-1}}
+\end{table}
+The only cases \emph{relevant} for $a\Rightarrow b$, where a fixed
+truth value should be assigned are the ones with $a=T$. After distinguishing
+irrelevant cases with $a=F$, the logical consequence $a\Rightarrow b$
+can be written inside the truth table~\ref{tab:Classical-truth-table-1}.
+
+\begin{table}[h]
+\begin{centering}
+\begin{tabular}{cccccc}
+\toprule 
+\emph{a}  & \emph{b}  & $a\Rightarrow b$ & $\lnot(a\Rightarrow b)$ & $a\Leftrightarrow b$ & $\lnot b\Rightarrow\lnot a$\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{F } & \emph{I} & \emph{I} & \emph{I} & \emph{T}\tabularnewline
+\midrule 
+\emph{F } & \emph{T } & \emph{I} & \emph{I} & \emph{F} & \emph{I}\tabularnewline
+\midrule 
+\emph{T } & \emph{F } & \emph{F} & \emph{T} & \emph{F} & \emph{F}\tabularnewline
+\midrule 
+\emph{T } & \emph{T } & \emph{T} & \emph{F} & \emph{T} & \emph{I}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{centering}
+\caption{Logical implications with irrelevance.\label{tab:Classical-truth-table-1}}
+\end{table}
+The material conditional and its negation can then be recovered by
+adding truth values for $a$ via
+\begin{align}
+a & \rightarrow b\equiv(a\Rightarrow b)\lor\lnot a,\\
+\lnot(a & \rightarrow b)\equiv(a\Rightarrow b)\lor\lnot a,
+\end{align}
+
+This also corresponds exactly to the verbose way of translating the
+material conditional into words in (\ref{eq:material}-\ref{eq:antimaterial}).
+
+Weak equivalence 
+\begin{equation}
+a\Leftrightarrow b\equiv(a\Rightarrow b)\land(b\Rightarrow a)
+\end{equation}
+can be considered a mixture of $a\land b$ and $a\rightarrow b$ with
+only $a=T$ or $b=T$ being relevant, but not $(a,b)=(F,F)$. This
+reflects the fact that a proof from either direction by a logical
+consequence takes at least one to be true, and we didn't assign a
+fixed truth value for the case $(a,b)=(F,F)$. For strong equivalence
+$(a\leftrightarrow b)$ we keep the classical definition \eqref{eq:equiv}
+leading to values of Table~\ref{tab:Classical-truth-table}. It is
+easily re-written in terms of weak equivalence by
+\begin{equation}
+a\leftrightarrow b\equiv(a\Leftrightarrow b)\land(\lnot a\Leftrightarrow\lnot b).
+\end{equation}
+Thus, to show \emph{strong }equivalency $\leftrightarrow$ of two
+statements it is not enough to prove ``$\Rightarrow$'' from both
+directions. Remember that when constructing a proof for $a\leftrightarrow b$
+from both directions of $\rightarrow$, any sloppiness in language
+could be masked by the ``dirty trick'' of setting the default value
+$a\rightarrow b=T$ in case $a=F$. If this is replaced by irrelevance,
+the verification of both, $a\Rightarrow b$ and $b\Rightarrow a$
+only states that if either $a=T$ or $b=T$, no contradiction to $a\leftrightarrow b$
+arises. The case $(a,b)=(F,F)$ is irrelevant to both directions,
+and stays so when they are combined. 
+
+\section*{Example}
+
+Let us analyse the unintuitive behavior of the material conditional
+and its resolution by an example,
+
+$a$: \emph{``The moon is (entirely) made of cheese.''} and 
+
+$b$: ``\emph{My birthday is on date }$x$.'' 
+
+Statement $a$ is false\footnote{as in \emph{``It has been checked that at least parts of the moon
+are rocks, and we know rocks are not cheese.''}}, and $b$ may be either true or false, depending on $x$. According
+to the usual translation of material conditional, the statement
+
+\emph{``If the moon is made of cheese, then my birthday is on date
+$x$.''}
+
+is true, independent from \emph{x}. This sentence may be interpreted
+as paradoxical as soon as you see me celebrating every day because
+we started with a false premise. The two possible resolutions are 
+\begin{enumerate}
+\item The correct translation of the material conditional into words as\emph{}\\
+\emph{``The moon is not made of cheese, or my birthday is on any
+date $x$ you can imagine'',}\\
+or\emph{}\\
+\emph{``If the moon is made of cheese, then my birthday is on date
+$x$, or the moon is not made of cheese'',}\\
+which are perfectly true statements.
+\item The introduction of irrelevant cases for a false premise, in which
+case\\
+\emph{``If the moon is made of cheese, then my birthday is on date
+$x$''}\\
+becomes an irrelevant statement which can be either true or false.
+\end{enumerate}
+It should be noted that if we interpret 
+
+\emph{``If the moon is made of cheese, then I'll eat my hat (, or
+the moon is not made of cheese).'' }
+
+in the sense of a material conditional including the part in brackets,
+I am actually saying\emph{}\\
+\emph{``The moon is not made of cheese, or I'll eat my hat''.}\\
+In the material sense this statement is true, in the logical sense
+it is irrelevant without brackets, and true with brackets. Both variants
+leave me free choice whether or not to eat my hat, since \emph{``the
+moon is made of cheese'' }is false. 
+
+\section*{Representing statements by logical rules}
+
+For a more precise definition of logical equivalence and formal proof
+of statements in a system including irrelevance we will now split
+the system into cases where logical rules apply. This also helps to
+illustrate how equivalence between two statements becomes dependent
+on their truth value. An insightful way to view the concept of irrelevance
+is by separation of tables of allowed and forbidden combinations for
+the cases of a statement being true or false, respectively. The case
+$(a\Rightarrow b)=T$ is shown in Table~ \ref{tab:Logical-rules-for}.
+
+\begin{table}[h]
+\begin{centering}
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{allowed}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{F}\tabularnewline
+\midrule 
+\emph{F } & \emph{T}\tabularnewline
+\midrule 
+\emph{T } & \emph{T}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{forbidden}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{T} & \emph{F}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+\par\end{centering}
+\caption{Rules for $(a\Rightarrow b)=T\equiv(a\rightarrow b)=T\equiv(\protect\lnot b\rightarrow\protect\lnot a)=T$.\label{tab:Logical-rules-for}}
+\end{table}
+
+Rules for $(a\Rightarrow b)=T$ are the same as for $(a\rightarrow b)=T$,
+leading to their equivalence in that case. Combinations with false
+premise $a=F$ are allowed for $(a\Rightarrow b)=T$, as this case
+is irrelevant for the truth of $a\Rightarrow b$, and are true per
+definition for $(a\rightarrow b)=T$. For a true premise $a=T$, only
+the case of a true consequence $b=T$ is allowed, but not $b=F$.
+From the perspective of rules of allowed and forbidden combinations
+of $a$ and $b$, the statement $(a\Rightarrow b)=T$ is further equivalent
+the contrapositive $(\lnot b\Rightarrow\lnot a)=T$.
+
+The negation $(a\Rightarrow b)=F$ ($\equiv$ $\lnot(a\Rightarrow b)=T$)
+has rules listed in Table~\ref{tab:Logical-rules-for-1}. Here the
+two additional irrelevant cases with $a=F$ appear in the allowed
+cases, as opposed to $(a\rightarrow b)=F$ with rules in Table~\ref{tab:Logical-rules-for-1-1}.
+Allowing irrelevant combinations of $a$ and $b$ for $(a\Rightarrow b)=F$
+has the advantage that for a false premise $a$, no artificial limitations
+are imposed, e.g.
+
+\emph{``If the moon is made of cheese, then my birthday is not on
+day x.''}
+
+can be true or not, independent from \emph{x}.
+
+\begin{table}[h]
+\begin{centering}
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{allowed}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{F}\tabularnewline
+\midrule 
+\emph{F } & \emph{T}\tabularnewline
+\midrule 
+\emph{T } & \emph{F}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{forbidden}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{T} & \emph{T}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+\par\end{centering}
+\caption{Rules for $(a\Rightarrow b)=F$.\label{tab:Logical-rules-for-1}}
+\end{table}
+
+\begin{table}[H]
+\begin{centering}
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{allowed}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{T } & \emph{F}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{forbidden}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F} & \emph{F}\tabularnewline
+\midrule 
+\emph{F } & \emph{T}\tabularnewline
+\midrule 
+\emph{T } & \emph{T}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+\par\end{centering}
+\caption{Rules for $(a\rightarrow b)=F$.\label{tab:Logical-rules-for-1-1}}
+\end{table}
+
+The case $(a\Rightarrow b)=F$ is clearly not equivalent to $(a\rightarrow b)=F$,
+where only a single case is allowed, and three are forbidden and also
+not and also not to the negated contrapositive $(\lnot b\Rightarrow\lnot a)=F$
+listed in Table~\ref{tab:Logical-rules-for-1-1-1}. Interestingly,
+$(a\Rightarrow b)=F$ is equivalent to $(b\Rightarrow a)=F$ and $(a\Leftrightarrow b)=F$.
+
+Truth of strong equivalence and weak equivalence has the same rules
+(Table \ref{tab:Logical-rules-for-1-2}), but their falsehood does
+not, since the case $(a,b)=(F,F)$ is not allowed in the strong form.
+
+\begin{table}[h]
+\begin{centering}
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{allowed}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{T}\tabularnewline
+\midrule 
+\emph{T} & \emph{F}\tabularnewline
+\midrule 
+\emph{T} & \emph{T}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{forbidden}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F} & \emph{F}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+\par\end{centering}
+\caption{Rules for $(\protect\lnot b\Rightarrow\protect\lnot a)=F$.\label{tab:Logical-rules-for-1-1-1}}
+\end{table}
+
+\begin{table}[h]
+\begin{centering}
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{allowed}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{F}\tabularnewline
+\midrule 
+\emph{T } & \emph{T}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{forbidden}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F} & \emph{T}\tabularnewline
+\midrule 
+\emph{T} & \emph{F}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+\par\end{centering}
+\caption{Rules for $(a\Leftrightarrow b)=T\equiv(a\leftrightarrow b)=T$.\label{tab:Logical-rules-for-1-2}}
+\end{table}
+
+\begin{table}[h]
+\begin{centering}
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{allowed}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F } & \emph{T}\tabularnewline
+\midrule 
+\emph{T } & \emph{F}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}%
+\begin{minipage}[t]{0.4\columnwidth}%
+\begin{center}
+\textbf{forbidden}
+\par\end{center}
+\begin{center}
+\begin{tabular}{cc}
+\toprule 
+a  & b\tabularnewline
+\midrule
+\midrule 
+\emph{F} & \emph{F}\tabularnewline
+\midrule 
+\emph{T} & \emph{T}\tabularnewline
+\bottomrule
+\end{tabular}
+\par\end{center}%
+\end{minipage}
+\par\end{centering}
+\caption{Rules for $(a\leftrightarrow b)=F$.\label{tab:Logical-rules-for-1-2-1-1}}
+\end{table}
+
+
+\section*{Additional properties and \protect \\
+formulation of proofs}
+
+For both, classical operators such as $\rightarrow$ and non-classical
+$\Rightarrow$, allowed and forbidden cases are complete, i.e. all
+cases are covered, and complementary to each other, i.e. no case can
+ever be allowed and forbidden at once. This feature is essential for
+the common definition of proof which we state as
+
+\emph{To prove a statement to be true, only the realisation of allowed
+cases may be possible.}
+
+or
+
+\emph{To prove a statement to be true, the possibility of a forbidden
+case to be realised must be excluded.}
+
+To formulate proofs, one must show that a forbidden case is never
+realised.
+
+So to show $(a\Rightarrow b)=T$ one needs to show the impossibility
+of the case $(a,b)=(T,F)$. Ways to do this include the classical
+ones:
+\begin{enumerate}
+\item Direct proof. Take $a=T$ and deduce that $b=T$. 
+\item Indirect proof by contrapositive. Take $b=F$ and deduce $a=F$. 
+\item Indirect proof by contradiction. Assume $(a\Rightarrow b)=F$ and
+deduce that $(a,b)=(T,F)$ is possible, thereby violating a forbidden
+case and proofing the opposite $(a\Rightarrow b)=T$. 
+\end{enumerate}
+To show the negation $(a\Rightarrow b)=F$, one can use its equivalent
+$(a\Rightarrow\lnot b)=T$ and apply the rules above.
+
+Truth of weak or strong equivalence $(a\Leftrightarrow b)=T\equiv(a\leftrightarrow b)=T$
+is shown as usual by $(a\Rightarrow b)=T$ and $(b\Rightarrow a)=T,$
+thus excluding mixed truth values for a and b. To show the negation
+of strong equivalence, $(a\leftrightarrow b)=F$, one must show that
+$(a,b)=(F,F)$ is impossible in addition to $(a\Leftrightarrow b)=F\equiv((a\Rightarrow b)\land(b\Rightarrow a))=F$.
+
+Classical operators additionally fulfil the requirement of complementarity
+between allowed cases for a statement and its negation, e.g. $(a\rightarrow b)=T$
+and $(a\rightarrow b)=F$ must not share any allowed cases. This leads
+to a single classical truth table, containing only \emph{T }and \emph{F,}
+like in Table~\ref{tab:Classical-truth-table}. In non-classical
+operators there is no restriction, e.g. $(a\Rightarrow b)=T$ and
+$(a\Rightarrow b)=F$ share some allowed cases. These are the irrelevant
+cases in the above definition and are marked by \emph{I} in a truth
+tables like Table~\ref{tab:Classical-truth-table-1}.
+
+\section*{Conclusion}
+
+After pointing out possible misunderstandings of the material conditional
+$a\rightarrow b$ and seemingly paradox results, two ways of resolution
+have been identified. The first consists in adding an extra clause
+to \emph{``If a, then b'' }when speaking of a material conditional.
+The principle of explosion can be avoided by restricting the use of
+$a\rightarrow b$ as a law of inference to true premisses $a$. Fo
+inference we should always ask: do we show $b$ to be true, do we
+show $a\rightarrow b$ to be true, or do we show $b$ to be true already
+assuming that $a$ is true.
+
+An alternative is the use of a logical consequence $a\Rightarrow b$
+instead of a material conditional, containing the term \emph{irrelevant}
+in addition to \emph{true }and \emph{false }for the case of a false
+premise\emph{ $a$. }Considering allowed and forbidden cases for statements
+$a$ and $b$ individually for true and false logical consequence,
+identities and techniques of proofs could be found to be classical
+if $a\Rightarrow b=T$, and different from the classical case for
+$a\Rightarrow b=F$. This leads to the conclusion that for $a=T$
+it is irrelevant, which technique to use to prove $a\Rightarrow b=T$.
+For equivalance and negation, special care must be taken, especially
+when using the contrapositive. The case where irrelevant inputs $a,b$
+enter $a\Rightarrow b$ has not been discussed. This would most likely
+lead to a fourth possibility ``unknown'' or \emph{``U''} to cover
+undecidable combinations.
+
+\bibliographystyle{plain}
+\nocite{*}
+\bibliography{logic}
+
+
+\end{document}
