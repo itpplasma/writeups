@@ -150,9 +150,19 @@ Exercise 1: Work needed to introduce charge density fluctuation
 \end_layout
 
 \begin_layout Standard
+...
+ TODO ...
+\end_layout
+
+\begin_layout Standard
 
 \series bold
 Exercise 2: Debye shielding - the easy way
+\end_layout
+
+\begin_layout Standard
+...
+ TODO ...
 \end_layout
 
 \begin_layout Standard
@@ -163,6 +173,7 @@ Exercise 3: Debye shielding - the hard way
 
 \begin_layout Standard
 ...
+ TODO ...
 \end_layout
 
 \begin_layout Standard
@@ -174,16 +185,16 @@ Helmholtz equation
 
 \end_inset
 
-Infinite or periodic space: Use spatial Fourier transform.
+Linear problem and infinite or periodic space: Use spatial Fourier transform.
  Be careful about normalization with 
 \begin_inset Formula $1/\sqrt{2\pi}$
 \end_inset
 
- (symmetric) or 
+ (symmetric, unitary) or 
 \begin_inset Formula $1/(2\pi)$
 \end_inset
 
- on one of either transform or inverse transform.
+ (non-unitary) on one of either transform or inverse transform.
 \end_layout
 
 \begin_layout Standard
@@ -194,7 +205,7 @@ Infinite or periodic space: Use spatial Fourier transform.
 : 
 \begin_inset Formula 
 \begin{align}
-\mathcal{F}(\delta(x)) & =\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\d x\,\delta(x)e^{-ikx}\nonumber \\
+\mathcal{F}\delta(x) & =\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\d x\,\delta(x)e^{-ikx}\nonumber \\
  & =\frac{e^{-ik0}}{\sqrt{2\pi}}=\frac{1}{\sqrt{2\pi}}.
 \end{align}
 
@@ -211,7 +222,7 @@ Infinite or periodic space: Use spatial Fourier transform.
 :
 \begin_inset Formula 
 \begin{align}
-\mathcal{F}_{N}(\delta(\v x)) & =\frac{1}{(2\pi)^{N/2}}\int_{-\infty}^{\infty}\d^{N}x\,\delta(\v x)e^{-i\v k\cdot\v x}\nonumber \\
+\mathcal{F}_{N}\delta(\v x) & =\frac{1}{(2\pi)^{N/2}}\int_{-\infty}^{\infty}\d^{N}x\,\delta(\v x)e^{-i\v k\cdot\v x}\nonumber \\
  & =\frac{e^{-i\v k\cdot\v 0}}{(2\pi)^{N/2}}=\frac{1}{(2\pi)^{N/2}}.
 \end{align}
 
@@ -240,7 +251,8 @@ Solution in
 Solution in real space:
 \begin_inset Formula 
 \begin{align}
-\Phi(\v x)=\mathcal{F}_{3}^{\,-1}(\Phi(\v k)) & =\frac{1}{(2\pi)^{3/2}}\int_{-\infty}^{\infty}\d^{3}k\,\frac{Q}{(2\pi)^{3/2}\varepsilon_{0}(k^{2}+1/\lambda_{D}^{\,2})}e^{i\v k\cdot\v x}.
+\Phi(\v x)=\mathcal{F}_{3}^{\,-1}\Phi(\v k) & =\frac{1}{(2\pi)^{3/2}}\int_{-\infty}^{\infty}\d^{3}k\,\Phi(\v k)\\
+ & =\frac{1}{(2\pi)^{3/2}}\int_{-\infty}^{\infty}\d^{3}k\,\frac{Q}{(2\pi)^{3/2}\varepsilon_{0}(k^{2}+1/\lambda_{D}^{\,2})}e^{i\v k\cdot\v x}.
 \end{align}
 
 \end_inset
@@ -327,17 +339,264 @@ We observe that the a
 With this trick, we can thus represent the term appearing in the complex
  exponent as
 \begin_inset Formula 
-\[
-e^{i\v k\cdot\v x}=e^{irk_{z}}=
-\]
+\begin{equation}
+e^{i\v k\cdot\v x}=e^{irk_{z}}=e^{ikr\cos\tht_{(k)}}.
+\end{equation}
+
+\end_inset
+
+Now back to our original problem.
+ We compute
+\begin_inset Formula 
+\begin{align}
+\Phi(\v x) & =\frac{Q}{(2\pi)^{3}\varepsilon_{0}}\int_{0}^{\infty}\d k\int_{0}^{\pi}\d\tht_{(k)}\int_{0}^{2\pi}\d\ph_{(k)}\,k^{2}\sin\tht\frac{k^{2}}{k^{2}+1/\lambda_{D}^{\,2}}e^{ikr\cos\tht_{(k)}}.
+\end{align}
+
+\end_inset
+
+The next trick is to substitute
+\begin_inset Formula 
+\begin{align}
+u= & \cos\tht_{(k)},\\
+\d u= & -\sin\tht_{(k)}\d\tht_{(k)}.
+\end{align}
+
+\end_inset
+
+We cancel the negative sign in 
+\begin_inset Formula $\d u$
+\end_inset
+
+ by swapping the integration boundaries, which become 
+\begin_inset Formula $(-1,1)$
+\end_inset
+
+ for 
+\begin_inset Formula $u$
+\end_inset
+
+ where 
+\begin_inset Formula $\tht_{(k)}=(\pi,0)$
+\end_inset
+
+.
+ As there are no dependencies on 
+\begin_inset Formula $\varphi_{(k)}$
+\end_inset
+
+ integration just adds a factor of 
+\begin_inset Formula $2\pi$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align}
+\Phi(\v x) & =\frac{Q}{(2\pi)^{2}\varepsilon_{0}}\int_{0}^{\infty}\d k\frac{k^{2}}{k^{2}+1/\lambda_{D}^{\,2}}\int_{-1}^{1}\d ue^{ikru}\\
+ & =\frac{Q}{(2\pi)^{2}\varepsilon_{0}}\int_{0}^{\infty}\d k\frac{k^{2}}{k^{2}+1/\lambda_{D}^{\,2}}\frac{1}{ikr}(e^{ikr}-e^{-ikr})
+\end{align}
+
+\end_inset
+
+The next trick is to replace the integral over the second term 
+\begin_inset Formula $e^{-ikr}$
+\end_inset
+
+ by setting 
+\begin_inset Formula $k\rightarrow-k$
+\end_inset
+
+, and include it by extending the remaining integral in the range 
+\begin_inset Formula $(-\infty,0)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\Phi(\v x)=\frac{Q}{ir(2\pi)^{2}\varepsilon_{0}}\int_{-\infty}^{\infty}\d k\frac{k}{k^{2}+1/\lambda_{D}^{\,2}}e^{ikr}.
+\end{equation}
+
+\end_inset
+
+We see that the integral is now an inverse 1D Fourier transform of an expression
+ of the form 
+\begin_inset Formula $k/(k^{2}+a^{2})$
+\end_inset
+
+ that we can look up to be
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}^{(-1)}\frac{a}{k^{2}+a^{2}}=\sqrt{\frac{\pi}{2}}e^{-a|x|},
+\end{equation}
+
+\end_inset
+
+so taking one derivative
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}^{(-1)}\frac{ik}{k^{2}+a^{2}}=\sqrt{\frac{\pi}{2}}\frac{1}{a}\frac{\d}{\d x}e^{-a|x|}=-\sqrt{\frac{\pi}{2}}e^{-a|x|}.
+\end{equation}
+
+\end_inset
+
+Finally, with 
+\begin_inset Formula $a=1/\lambda_{D}$
+\end_inset
+
+, and 
+\begin_inset Formula $x=r>0$
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\begin{align}
+\Phi(\v x) & =\frac{Q}{ir(2\pi)^{2}\varepsilon_{0}}\frac{\sqrt{2\pi}}{i}\mathcal{F}^{(-1)}\frac{ik}{k^{2}+1/\lambda_{D}^{\,2}}\nonumber \\
+ & =\frac{Q}{4\pi\varepsilon_{0}r}e^{-r/\lambda_{D}}.
+\end{align}
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Standard
-Fourier 
+\begin_layout Itemize
+Summary: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We computed 
+\emph on
+potential 
+\emph default
+of 
+\emph on
+point charge
+\emph default
+ inside 
+\emph on
+electron fluid
+\emph default
+ with a certain 
+\emph on
+temperature 
+\emph default
+where electrons are allowed to 
+\emph on
+move
+\emph default
+ and thus 
+\emph on
+shield
+\emph default
+ the potential.
+\end_layout
+
+\begin_layout Itemize
+First we used vortex-free 
+\emph on
+momentum law
+\emph default
+ (Euler/Navier-Stokes) to compute 
+\emph on
+local
+\emph default
+ 
+\emph on
+Boltzmann law
+\emph default
+ for 
+\emph on
+electron density
+\emph default
+ according to 
+\begin_inset Formula $V$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ and 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Then we inserted convection-free (
+\begin_inset Formula $V=0$
+\end_inset
+
+) case into 
+\emph on
+Poisson equation
+\series bold
+ 
+\series default
+\emph default
+and 
+\emph on
+linearized
+\emph default
+ to obtain linear 
+\emph on
+Helmholtz equation
+\emph default
+, where 
+\emph on
+Debye length 
+\emph default
+
+\begin_inset Formula $\lambda_{D}$
+\end_inset
+
+ appeared.
+\end_layout
+
+\begin_layout Itemize
+We solved the resulting linear equation via a spatial 
+\emph on
+Fourier transform
+\emph default
+ and a few tricks.
+\end_layout
+
+\begin_layout Itemize
+The result is the usual potential of a point charge weighted by an 
+\emph on
+exponential decaying
+\emph default
+ term on the scale of 
+\begin_inset Formula $\lambda_{D}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The interpretation is, that outside of 
+\begin_inset Formula $\lambda_{D}$
+\end_inset
+
+, perturbations in charge density become 
+\emph on
+invisible
+\emph default
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+Debye shielding
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Remember: Fourier 
 \emph on
 transform
 \emph default
@@ -353,7 +612,63 @@ series
 \emph default
  are similar and work with periodic boundary conditions (lattice) or topology
  (cylinder, torus, sphere).
- 
+ Both methods work only well for 
+\emph on
+linear
+\emph default
+ equations 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ no coupling between different Fourier harmonics.
+\end_layout
+
+\begin_layout Itemize
+Remark: Here we could see that notation introduces quite some ambiguity.
+ We often identify the coordinates of a point 
+\begin_inset Formula $\v x$
+\end_inset
+
+ with the coordinate system itself.
+ If we have another point 
+\begin_inset Formula $\v k$
+\end_inset
+
+ and switch to spherical coordinates 
+\begin_inset Formula $(r,\tht,\ph)$
+\end_inset
+
+ we cannot distinguish 
+\begin_inset Formula $r$
+\end_inset
+
+ from 
+\begin_inset Formula $|\v x|$
+\end_inset
+
+, even if it should mean 
+\begin_inset Formula $|\v k|$
+\end_inset
+
+ for another point.
+ To resolve this, we gave different names to our coordinates 
+\begin_inset Formula $(k,\tht_{(k)},\ph_{(k)})$
+\end_inset
+
+ in 
+\begin_inset Formula $k$
+\end_inset
+
+-space.
+ We could also have introduced the notation 
+\begin_inset Formula $r_{\v x}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{\v k}$
+\end_inset
+
+, which is non-standard and maybe even more confusing.
 \end_layout
 
 \end_body
