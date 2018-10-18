@@ -1,0 +1,631 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section*
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\de}[1]{\mathcal{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+MHD equilibrium in density form
+\end_layout
+
+\begin_layout Standard
+MHD equilibrium equations in vectorial notation relating current density
+ 
+\begin_inset Formula $\v J$
+\end_inset
+
+, magnetic flux density 
+\begin_inset Formula $\v B$
+\end_inset
+
+ and magnetic field 
+\begin_inset Formula $\v H$
+\end_inset
+
+ are the force balance equation
+\begin_inset Formula 
+\begin{equation}
+\v J\times\v B=\nabla p
+\end{equation}
+
+\end_inset
+
+and the magnetostatic limit Maxwell's equations - namely source-freeness
+ of 
+\begin_inset Formula $\v B$
+\end_inset
+
+, Ampère's law linking 
+\begin_inset Formula $\v J$
+\end_inset
+
+ and 
+\begin_inset Formula $\v H$
+\end_inset
+
+, and the linear constitutive relation, linking 
+\begin_inset Formula $\v B$
+\end_inset
+
+ and 
+\begin_inset Formula $\v H$
+\end_inset
+
+ by a given permeability tensor 
+\begin_inset Formula $\hat{\mu}$
+\end_inset
+
+, equal to 
+\begin_inset Formula $\mu_{0}$
+\end_inset
+
+ in a vacuum background,
+\begin_inset Formula 
+\begin{align}
+\nabla\cdot\v B & =0,\label{eq:divfree}\\
+\nabla\times\v H & =\v J,\\
+\v H & =\hat{\mu}^{-1}\v B.
+\end{align}
+
+\end_inset
+
+To fulfill divergence-freeness 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:divfree"
+
+\end_inset
+
+ often a vector potential 
+\begin_inset Formula $\v A$
+\end_inset
+
+ is introduced, replacing 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:divfree"
+
+\end_inset
+
+ by 
+\begin_inset Formula 
+\begin{equation}
+\v B=\nabla\times\v A.
+\end{equation}
+
+\end_inset
+
+This makes the solution in 
+\begin_inset Formula $\v A$
+\end_inset
+
+ non-unique up to gauge freedom of adding 
+\begin_inset Formula $\nabla\chi$
+\end_inset
+
+ to it.
+\end_layout
+
+\begin_layout Standard
+The natural way to represent the involved vector fields in curvilinear geometry
+ is via covariant vector field components for 
+\begin_inset Formula $\v A$
+\end_inset
+
+ and 
+\begin_inset Formula $\v H$
+\end_inset
+
+, and contravariant vector density components for 
+\begin_inset Formula $\v B$
+\end_inset
+
+ and 
+\begin_inset Formula $\v J$
+\end_inset
+
+, and covariant vector density components for the force density 
+\begin_inset Formula $\v F=\v J\times\v B=\nabla p$
+\end_inset
+
+ matching Lorentz force and thermodynamic force by the pressure gradient.
+ Those are usual components weighted via the Jacobian 
+\begin_inset Formula $\sqrt{g}$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align}
+\de J^{k} & =\sqrt{g}J^{k},\\
+\de B^{k} & =\sqrt{g}B^{k},\\
+\mathcal{F}_{k} & =\sqrt{g}F_{k}=\sqrt{g}\partial_{k}p.
+\end{align}
+
+\end_inset
+
+This way we obtain metric-free components of the Lorentz force
+\begin_inset Formula 
+\[
+\mathcal{F}_{i}=\varepsilon_{ijk}\mathcal{J}^{j}\mathcal{B}^{k}
+\]
+
+\end_inset
+
+and field equations
+\begin_inset Formula 
+\begin{align}
+\partial_{i}\mathcal{B}^{i} & =0,\label{eq:divfree2}\\
+\varepsilon^{ijk}\partial_{i}H_{j} & =\mathcal{J}^{k}.
+\end{align}
+
+\end_inset
+
+Again, Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:divfree2"
+
+\end_inset
+
+ can be replaced by 
+\begin_inset Formula 
+\begin{equation}
+\mathcal{B}^{i}=\varepsilon^{ijk}\partial_{j}A_{k},
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $A_{k}$
+\end_inset
+
+ replacing unknowns 
+\begin_inset Formula $\mathcal{B}^{i}$
+\end_inset
+
+ up to gauge freedom.
+ Equations involving the metric are relation to thermodynamic force and
+ consitutive relation,
+\begin_inset Formula 
+\begin{align}
+\mathcal{F}_{i} & =\sqrt{g}\partial_{i}p,\\
+H_{i} & =\mu_{ij}\mathcal{B}^{j}.
+\end{align}
+
+\end_inset
+
+The metric enters the permeability tensor density components 
+\begin_inset Formula $\mu_{jk}$
+\end_inset
+
+.
+ For a vacuum background we have
+\begin_inset Formula 
+\begin{equation}
+H_{j}=\frac{g_{jk}}{\mu_{0}}B^{k}=\frac{g_{jk}}{\mu_{0}\sqrt{g}}\mathcal{B}^{k}.
+\end{equation}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section*
+Flux coordinates
+\end_layout
+
+\begin_layout Standard
+For axisymmetric equilibria, the Hamiltonian form of 
+\begin_inset Formula $\v B$
+\end_inset
+
+ proves the existence of nested flux surfaces.
+ We use flux-surface aligned coordinates 
+\begin_inset Formula $(r,\tht,\ph)$
+\end_inset
+
+ with flux surfaces labelled by the radial coordinate 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ Taking a scalar product of the force-balance equation by 
+\begin_inset Formula $\v B$
+\end_inset
+
+ or 
+\begin_inset Formula $\v J$
+\end_inset
+
+ yields the result that both vector fields have field-lines lying on surfaces
+ of constant 
+\begin_inset Formula $p=p(r)$
+\end_inset
+
+.
+ Take unperturbed field to be straight in 
+\begin_inset Formula $\tht,\ph$
+\end_inset
+
+ on flux surfaces 
+\begin_inset Formula $r=\mathrm{const.}$
+\end_inset
+
+ In a metric-free representation, we use covariant components of the vector
+ potential depending only on the radial coordinate
+\series bold
+
+\begin_inset Formula 
+\begin{equation}
+A_{r}=0,\quad A_{\tht}=A_{\tht}(r),\quad A_{\ph}=A_{\ph}(r).
+\end{equation}
+
+\end_inset
+
+
+\series default
+Taking the magnetic flux density 
+\begin_inset Formula $\v B=\nabla\times\v A$
+\end_inset
+
+ yields contravariant density components depending only on 
+\begin_inset Formula $r$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align}
+\mathcal{B}^{r}(r) & =\sqrt{g}B^{r}=\varepsilon^{rjk}\partial_{j}A_{k}=0\\
+\mathcal{B}^{\tht}(r) & =\sqrt{g}B^{\tht}=\varepsilon^{\tht jk}\partial_{j}A_{k}=-\frac{\d A_{\ph}(r)}{\d r},\\
+\mathcal{B}^{\ph}(r) & =\sqrt{g}B^{\tht}=\varepsilon^{\ph jk}\partial_{j}A_{k}=\frac{\d A_{\tht}(r)}{\d r}.
+\end{align}
+
+\end_inset
+
+The magnetic field is then represented in contravariant density form by
+\begin_inset Formula 
+\begin{align}
+\v B(\v x) & =\sqrt{g(\v x)}^{-1}(\de B^{\tht}(r)\v e_{\tht}(\v x)+\de B^{\ph}(r)\v e_{\ph}(\v x))\nonumber \\
+ & =\sqrt{g(\v x)}^{-1}\de B^{\ph}(r)(\iota(r)\v e_{\tht}(\v x)+\v e_{\ph}(\v x)).
+\end{align}
+
+\end_inset
+
+with rotational transform
+\begin_inset Formula 
+\begin{equation}
+\iota(r)=\frac{\de B^{\tht}(r)}{\de B^{\ph}(r)}=\frac{B^{\tht}(\v x)}{B^{\ph}(\v x)}.
+\end{equation}
+
+\end_inset
+
+Covariant density components of the Lorentz force are
+\begin_inset Formula 
+\begin{align*}
+\mathcal{F}_{r}(\v x) & =\mathcal{J}^{\tht}(\v x)\mathcal{B}^{\ph}(r)-\mathcal{J}^{\ph}(\v x)\mathcal{B}^{\tht}(r)\\
+\mathcal{F}_{\tht}(\v x) & =0\\
+\mathcal{F}_{\ph}(\v x) & =0
+\end{align*}
+
+\end_inset
+
+where the metric enters the covariant thermodynamic force density components
+ via the counteracting pressure
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{r}(\v x)=\sqrt{g(\v x)}p^{\prime}(r).
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+F_{i}=\sqrt{g}\varepsilon_{ijk}J^{j}B^{k}=\sqrt{g}^{-1}\varepsilon_{ijk}\de J^{j}\de B^{k}
+\end{equation}
+
+\end_inset
+
+take
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}_{i}=\sqrt{g}F_{i}=\sqrt{g}\partial_{i}p
+\end{equation}
+
+\end_inset
+
+Take
+\begin_inset Formula 
+\begin{equation}
+p^{\prime}(r)=\mathcal{B}^{\ph}(r)(J^{\tht}(\v x)-\iota J^{\ph}(\v x)).
+\end{equation}
+
+\end_inset
+
+Thus
+\begin_inset Formula 
+\begin{equation}
+J^{\tht}(\v x)-\iota J^{\ph}(\v x)=f(r)
+\end{equation}
+
+\end_inset
+
+must be a flux function.
+\end_layout
+
+\begin_layout Section*
+Equilibrium
+\end_layout
+
+\begin_layout Standard
+Unperturbed equilibrium is
+\begin_inset Formula 
+\begin{align}
+\nabla p_{0} & =\v J_{0}\times\v B_{0},\\
+\nabla\times\v B_{0} & =\mu_{0}\v J_{0}.
+\end{align}
+
+\end_inset
+
+without dependencies on 
+\begin_inset Formula $\ph$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+\v J_{0}=
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\nabla p_{0}=\v J_{0}\times\v B_{0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Linear perturbation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\nabla p_{1}=\v J_{1}\times\v B_{0}+\v J_{0}\times\v B_{1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p_{mn}^{\prime}\nabla r+imp_{mn}\nabla\tht+inp_{mn}\nabla\ph=\v J_{mn}\times\v B_{0}+\v J_{0}\times\v B_{mn}
+\]
+
+\end_inset
+
+Take scalar product with 
+\begin_inset Formula $\sqrt{g}\v B_{0}$
+\end_inset
+
+ to obtain pressure perturbation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+imp_{mn}\de B^{\tht}+inp_{mn}\de B^{\ph}=\sqrt{g}\v J_{0}\times\v B_{mn}
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+ip_{mn}\de B^{\ph}(m\iota+n)=\sqrt{g}\v J_{0}\times\v B_{mn}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Cylinder geometry
+\end_layout
+
+\begin_layout Standard
+Simple model for equilibrium field in the periodic cylinder limit of a torus
+ with 
+\begin_inset Formula $y=\ph$
+\end_inset
+
+.
+ Coordinates 
+\begin_inset Formula $\v x=(r,\tht,\ph)$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align*}
+x(\v x) & =r\cos\tht\\
+y(\v x) & =-\ph\\
+z(\v x) & =r\sin\tht
+\end{align*}
+
+\end_inset
+
+and metric tensor
+\begin_inset Formula 
+\begin{equation}
+g_{ij}=\left(\begin{array}{ccc}
+1\\
+ & r^{2}\\
+ &  & 1
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

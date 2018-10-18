@@ -6,11 +6,10 @@
 \origin unavailable
 \textclass article
 \begin_preamble
-\usepackage{titlesec}
+%\usepackage{titlesec}
 
-\titleformat*{\section}{\normalsize\bfseries}
+%\titleformat*{\section}{\normalsize\bfseries}
 \end_preamble
-\options twocolumn
 \use_default_options false
 \maintain_unincluded_children false
 \language english
@@ -34,7 +33,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize default
+\paperfontsize 12
 \spacing single
 \use_hyperref false
 \papersize default
@@ -87,29 +86,6 @@
 
 \begin_body
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-twocolumn[   
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{@twocolumnfalse}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Title
 On the interpretation of the material conditional and the intuitive formalisatio
 n of implication by logical consequence
@@ -121,14 +97,7 @@ Christopher G.
 \end_layout
 
 \begin_layout Abstract
-The material conditional 
-\begin_inset Formula $a\rightarrow b\equiv\neg a\lor b$
-\end_inset
-
- is a basic definition in formal logic and commonly used in mathematics.
- Minimalistic or sloppy translation to natural language has led to substantial
- confusion which can be restored either by making the translation precise
- or by a change in the logical formalism.
+or by a change in the logical formalism.
  Both involve leaving the result open in case the premise 
 \begin_inset Formula $a$
 \end_inset
@@ -188,33 +157,12 @@ literal "false"
  cases.
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{@twocolumnfalse}
-\end_layout
-
-\begin_layout Plain Layout
-
-]
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section*
 Material consequence and its interpretation
 \end_layout
 
 \begin_layout Standard
-In mathematics the classical material consequence or conditional 
+The material conditional or consequence
 \begin_inset Formula 
 \begin{equation}
 a\rightarrow b\equiv\neg a\lor b
@@ -222,7 +170,11 @@ a\rightarrow b\equiv\neg a\lor b
 
 \end_inset
 
-is often spoken as 
+is a basic definition in formal logic used in mathematics.
+ Minimalistic or sloppy translation to natural language has led to substantial
+ confusion which can be restored by making the translation precise.
+ In mathematics the material consequence or conditional is often spoken
+ as 
 \emph on
 
 \begin_inset Quotes eld
@@ -1049,13 +1001,89 @@ conclude
  as a rule of inference.
 \end_layout
 
-\begin_layout Section*
-Logical consequence and irrelevance
+\begin_layout Section
+An attempt to introduce irrelevance into logics
 \end_layout
 
 \begin_layout Standard
-The other possibility to fit intuitive language and logic consists in changing
- to a logical rule 
+The ideas presented in this section are highly speculative at best, or simply
+ wrong.
+ They differ from the usual logical treatment via models and realisability,
+ which should solve most of the issues.
+ A comment from G.
+ Priest with arguments why the approach shouldn't work is attached below.
+ This section is thus only included for reference purposes and to leave
+ the possibility open to continue working on the concept.
+\end_layout
+
+\begin_layout Standard
+Another way to formulate the logical consequence 
+\emph on
+
+\begin_inset Quotes eld
+\end_inset
+
+If a, then b.
+\begin_inset Quotes erd
+\end_inset
+
+
+\emph default
+ could be made by a change in the logical formalism leaving the result open
+ in case the premise 
+\begin_inset Formula $a$
+\end_inset
+
+ is false.
+ Separating this 
+\emph on
+irrelevant 
+\emph default
+case could recover a consistent formalisation of
+\emph on
+ 
+\emph default
+at the cost of ambiguity.
+ Irrelevance could be one way to introduce a paraconsistent logic and related
+ to the 
+\emph on
+Logic of Paradox
+\emph default
+ and 
+\emph on
+Relevance Logic 
+\emph default
+(see 
+\emph on
+G.
+ Priest.
+ An Introduction to Non-Classical Logic: From If to Is.
+ 
+\emph default
+Cambridge, 2008
+\emph on
+ 
+\emph default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "priest2008introduction"
+literal "false"
+
+\end_inset
+
+).
+ The discussed definition of implication breaks the principle of absolute
+ logical equivalence by making it dependent on the truth value of a statement.
+ For the case of an implication being true, logical equivalence and proofs
+ remain classical, including indirect proofs.
+ If an implication is false, differences appear due to ambiguity by irrelevant
+ cases.
+\end_layout
+
+\begin_layout Standard
+We thus try to to fit intuitive language and logic by changing to a logical
+ rule 
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
@@ -2071,7 +2099,7 @@ dirty trick
  
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection
 Example
 \end_layout
 
@@ -2331,7 +2359,7 @@ is false.
  
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection
 Representing statements by logical rules
 \end_layout
 
@@ -4118,7 +4146,7 @@ name "tab:Logical-rules-for-1-2-1-1"
 
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection
 Additional properties and 
 \begin_inset Newline newline
 \end_inset
@@ -4326,7 +4354,7 @@ reference "tab:Classical-truth-table-1"
 .
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection
 Conclusion
 \end_layout
 
@@ -4463,6 +4491,79 @@ U
 
 \emph default
  to cover undecidable combinations.
+\end_layout
+
+\begin_layout Subsection
+Comment by G.
+ Priest
+\end_layout
+
+\begin_layout Standard
+First, one has to be clear on the difference between ⊃ and |=.
+ The first is a connective in the object language.
+ That is, inserting it between two sentences forms another sentence.
+ The second is a relation in the metalanguage between two sentences (or,
+ more generally, between a set of sentences and a sentence).
+ You can read it as ‘entails’.
+ Note that ‘the sun is red entails it is day’ is not a grammatical sentence:
+ it has three main verbs.
+ Unfortunately, people often confuse ⊃ and |= because the first is often
+ called ‘implication’, which it should not be.
+ In classical logic, the connection between the two notions is this: A |=
+ B iff |= A ⊃ B.
+ 
+\end_layout
+
+\begin_layout Standard
+Now, ⊃ does not behave anything much like the English conditional.
+ (For present purposes, think of this as being expressed by ‘if’.) You suggest
+ a different, three-valued connective, call this ⊃
+\begin_inset Formula $_{0}$
+\end_inset
+
+, as a better reading of ‘if’.
+ Exactly what this is is not completely specified.
+ (What, for example, is the output if an input is 
+\emph on
+I
+\emph default
+? You also do not say whether 
+\emph on
+I
+\emph default
+ is a designated value; I presume not.) Given what you do say, the connective
+ does not have some of the weaknesses of the material conditional.
+ For example, it does not satisfy ¬A |= A ⊃
+\begin_inset Formula $_{0}$
+\end_inset
+
+ B.
+ However, it would still have many others, e.g., A, B |= A ⊃
+\begin_inset Formula $_{0}$
+\end_inset
+
+ B (Trump is a narcissist, water is wet; so if Trump is a narcissist, water
+ is wet.) And depending on how you fill in some of the other values, it may
+ have new problems of its own.
+ I think that the consensus of most professional logicians nowadays is that
+ ‘if’ is not a truth function of any kind, two-valued or many-valued.
+ Incidentally, none of this has anything to do with Explosion, which concerns
+ |=, not ⊃ .
+ 
+\end_layout
+
+\begin_layout Standard
+What you suggest cannot apply to |= either.
+ As any classical logician will tell you, this is not a truth function.
+ That is, if I tell you the truth values of A and B, there is little you
+ can tell me about the truth or otherwise of A |= B.
+ Indeed, it’s not a connective at all (so it doesn’t make much sense to
+ embed it in truth functions, such as ¬).
+ And if you really insist that A |= B is not true if A is false, what you
+ are saying is that nothing validly follows from a false premise.
+ How can that be, since we reason, apparently correctly, from false premises
+ all the time? E.g.: Pluto is a planet.
+ Therefore there are planets outside the orbit of Neptune.
 \end_layout
 
 \begin_layout Standard

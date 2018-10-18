@@ -1,0 +1,472 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\c}[1]{\mathcal{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vd}{\text{\textbf{d}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Tensor analysis
+\end_layout
+
+\begin_layout Standard
+In this chapter we introduce the basics of tensor analysis in the co-contravaria
+nt formulation.
+ An excellent introduction with deeper mathematics can be found on https://www.yo
+utube.com/channel/UCUHKG3S9N_QeIE2jQXd2-VQ/videos .
+\end_layout
+
+\begin_layout Subsection
+Basis
+\end_layout
+
+\begin_layout Standard
+In a geometrical definition we can take
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{e}_{k}=\frac{\partial\boldsymbol{r}}{\partial x^{k}},\quad\boldsymbol{e}^{k}=\frac{\partial x^{k}}{\partial\boldsymbol{r}}=\nabla x^{k}.
+\end{equation}
+
+\end_inset
+
+In a more abstract sense we skip 
+\begin_inset Formula $\boldsymbol{r}$
+\end_inset
+
+ alltogether and define the basis in terms of differential operators and
+ differentials,
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{e}_{k} & =\frac{\partial}{\partial x^{k}},\quad\boldsymbol{e}^{k}=\vd x^{k}.
+\end{align}
+
+\end_inset
+
+A differential is defined as a linear map acting on a vector 
+\begin_inset Formula $\boldsymbol{v}$
+\end_inset
+
+ by the rule
+\begin_inset Formula 
+\begin{equation}
+\vd f\cdot\boldsymbol{v}=\boldsymbol{v}[f]\,.
+\end{equation}
+
+\end_inset
+
+This is a generalisation of the inner product, with 
+\begin_inset Formula $\vd f$
+\end_inset
+
+ being a covector from the dual space.
+ In practice this changes little.
+ If we would like to have a directional derivative along a vector field
+ 
+\begin_inset Formula $\boldsymbol{v}$
+\end_inset
+
+ we would write 
+\begin_inset Formula 
+\begin{equation}
+\v v\cdot\nabla f=(v^{j}\boldsymbol{e}_{j})\cdot(\boldsymbol{e}^{k}\frac{\partial}{\partial x^{k}}f)=v^{k}\frac{\partial}{\partial x^{k}}f.\label{eq:der}
+\end{equation}
+
+\end_inset
+
+This is true in both definitions of the basis since co- and contravariant
+ basis are dual to each other with
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{e}_{j}\cdot\boldsymbol{e}^{k}=\boldsymbol{e}^{k}\cdot\boldsymbol{e}_{j}=\delta_{j}^{k}.
+\end{equation}
+
+\end_inset
+
+Using the more abstract definition of the basis leads directly to the rightmost
+ expression in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:der"
+
+\end_inset
+
+, and components of 
+\begin_inset Formula $\boldsymbol{v}$
+\end_inset
+
+ are the same.
+ The difference is that we do not consider 
+\begin_inset Formula $\frac{\partial}{\partial x^{k}}$
+\end_inset
+
+ as covariant components of the gradient operator, but rather as basis vectors
+ on their own.
+ 
+\end_layout
+
+\begin_layout Section
+Flux coordinates
+\end_layout
+
+\begin_layout Standard
+Take magnetic field 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{B}=B_{k}\boldsymbol{e}^{k}=B^{k}\boldsymbol{e}_{k}.
+\end{equation}
+
+\end_inset
+
+The most natural representation of 
+\begin_inset Formula $\v B$
+\end_inset
+
+ is via its contravariant density components 
+\begin_inset Formula 
+\begin{equation}
+\c B^{k}=\sqrt{g}B^{k}
+\end{equation}
+
+\end_inset
+
+such that it is given by magnetic fluxes through infinitesimal surface elements
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{B}=\sqrt{g}^{-1}\c B^{k}\boldsymbol{e}_{k}=\varepsilon_{ijk}\boldsymbol{e}^{i}\times\v e^{j}\c B^{k}.
+\end{equation}
+
+\end_inset
+
+The magnetic flux is defined as
+\begin_inset Formula 
+\begin{equation}
+\Psi=\int\vd S\cdot\v B=\int\varepsilon_{ijk}(\vd x^{i}\times\vd x^{j})\c B^{k}.
+\end{equation}
+
+\end_inset
+
+For the flux through a coordinate surface 
+\begin_inset Formula $i$
+\end_inset
+
+ the only change occurs along the 
+\begin_inset Formula $jk$
+\end_inset
+
+-surface so
+\begin_inset Formula 
+\begin{equation}
+\Psi_{i}=\int\vd x^{i}\times\vd x^{j}\c B^{k}.
+\end{equation}
+
+\end_inset
+
+We define normalised toroidal and poloidal flux as
+\begin_inset Formula 
+\begin{align}
+\psi_{\text{pol}}(r) & =\frac{1}{(2\pi)^{2}}\int_{0}^{r}\d r^{\prime}\int_{0}^{2\pi}\d\tht\int_{0}^{2\pi}\d\ph\,\c B^{\tht},\\
+\psi_{\text{tor}}(r) & =\frac{1}{(2\pi)^{2}}\int_{0}^{r}\d r^{\prime}\int_{0}^{2\pi}\d\tht\int_{0}^{2\pi}\d\ph\,\c B^{\ph}.
+\end{align}
+
+\end_inset
+
+Their radial derivatives are
+\begin_inset Formula 
+\begin{align}
+\psi_{\text{pol}}^{\prime}(r) & =\frac{1}{(2\pi)^{2}}\int_{0}^{2\pi}\d\tht\int_{0}^{2\pi}\d\ph\,\c B^{\tht},\label{eq:psipol}\\
+\psi_{\text{tor}}^{\prime}(r) & =\frac{1}{(2\pi)^{2}}\int_{0}^{2\pi}\d\tht\int_{0}^{2\pi}\d\ph\,\c B^{\ph}.\label{eq:psitor}
+\end{align}
+
+\end_inset
+
+Those are the angle-averaged contravariant density components of 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+ at flux surface radius 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ We would like to find a class of coordinate systems where 
+\begin_inset Formula $\c B^{\tht}=\psi_{\mathrm{pol}}^{\prime}(r)$
+\end_inset
+
+ and 
+\begin_inset Formula $\c B^{\ph}=\psi_{\mathrm{tor}}^{\prime}(r)$
+\end_inset
+
+ are independent of angles 
+\begin_inset Formula $\tht$
+\end_inset
+
+ and 
+\begin_inset Formula $\ph$
+\end_inset
+
+.
+ In order to achieve this we split the magnetic field into an averaged part
+ and an oscillating part as
+\begin_inset Formula 
+\begin{equation}
+\v B=\psi_{\text{pol}}^{\prime}(r)\,(\v e^{\ph}\times\boldsymbol{e}^{r})+\psi_{\text{tor}}^{\prime}(r)\,(\v e^{r}\times\boldsymbol{e}^{\tht})+\tilde{\v B}.
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\c B^{r}=0$
+\end_inset
+
+ we can write the divergence law as
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\c B^{\tht}}{\partial\tht}+\frac{\partial\c B^{\ph}}{\partial\ph}=0.
+\end{equation}
+
+\end_inset
+
+An alternative way to derive this form of the magnetic field described in
+ D'haeseleer goes via the definition of a stream function 
+\begin_inset Formula $\nu(r,\tht,\ph)$
+\end_inset
+
+ with
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The proof that every divergence-free field in a simply connected 2D domain
+ can be represented by a stream function is based on Poincaré's lemma, where
+ we use the fact that the 2D divergence is equal to the 2D curl of a covector
+ with components and one sign swapped.
+ The same lemma allows us also to describe a 3D divergence-free field by
+ the curl of a vector potential.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+\c B^{\tht}=-\frac{\partial\nu}{\partial\ph},\quad\c B^{\ph}=\frac{\partial\nu}{\partial\tht}.
+\end{equation}
+
+\end_inset
+
+Since we would like 
+\begin_inset Formula $\c B^{\tht}$
+\end_inset
+
+ and 
+\begin_inset Formula $\c B^{\ph}$
+\end_inset
+
+ to depend only on 
+\begin_inset Formula $r$
+\end_inset
+
+, the angles 
+\begin_inset Formula $\tht$
+\end_inset
+
+ and 
+\begin_inset Formula $\ph$
+\end_inset
+
+ should appear in at most up to linear order, so we split this part from
+ the remaining oscillating terms by
+\begin_inset Formula 
+\begin{equation}
+\nu=\nu_{0}(r)+a(r)\ph+b(r)\tht+\tilde{\nu}(r,\tht,\ph).
+\end{equation}
+
+\end_inset
+
+Inserting this into the radial flux derivatives in Eqs.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:psipol"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:psitor"
+
+\end_inset
+
+) and using the fact that the integral over derivatives of the periodic
+ 
+\begin_inset Formula $\tilde{\nu}$
+\end_inset
+
+ vanishes, yields
+\begin_inset Formula 
+\begin{equation}
+a(r)=-\psi_{\text{pol}}^{\prime}(r),\quad b(r)=\psi_{\text{tor}}^{\prime}(r).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

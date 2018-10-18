@@ -1,0 +1,1083 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass revtex4-1
+\use_default_options true
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\non}{}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\difp}[2]{\frac{\partial#1}{\partial#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\br}{{\bf r}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bR}{{\bf R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bA}{{\bf A}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bB}{{\bf B}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bE}{{\bf E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bm}{{\bf m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bn}{{\bf n}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bN}{{\bf N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bp}{{\bf p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bF}{{\bf F}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bz}{{\bf z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bZ}{{\bf Z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bV}{{\bf V}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bv}{{\bf v}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bu}{{\bf u}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bx}{{\bf x}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bX}{{\bf X}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{{\bf J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bj}{{\bf j}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bk}{{\bf k}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bTheta}{{\bf \Theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bomega}{\boldsymbol{\omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\brho}{\boldsymbol{\rho}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rd}{{\rm d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rJ}{{\rm J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\te}{\theta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vparkb}{v_{\parallel k b}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vparkm}{v_{\parallel k m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Jpar}{J_{\parallel}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ppar}{p_{\parallel}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Bpstar}{B_{\parallel}^{*}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\intpi}{\int\limits _{0}^{2\pi}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\summ}{\sum\limits _{m=-\infty}^{\infty}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tb}{\tau_{b}(\uv)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bh}{{\bf h}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cE}{{\cal E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\odtwo}[2]{\frac{\rd#1}{\rd#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pdone}[1]{\frac{\partial}{\partial#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pdtwo}[2]{\frac{\partial#1}{\partial#2}}
+{\frac{\partial#1}{\partial#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ds}{{\displaystyle }}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\iotabar}{\mbox{\ensuremath{\iota\!\!}-}}
+{\tilde{\iota}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vpar}{v_{\parallel}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Electromagnetic Field Equations
+\end_layout
+
+\begin_layout Standard
+The aim of this write-up is to summarise numerical formulations for the
+ solution of Maxwell's equations
+\begin_inset Formula 
+\begin{eqnarray}
+{\rm div}\mathbf{E} & = & 4\pi\rho,\label{eq:divE}\\
+{\rm curl}\mathbf{E} & = & -\frac{1}{c}\difp{\bB}t,\label{eq:rotE}\\
+{\rm curl}\mathbf{B} & = & \frac{4\pi}{c}\bJ+\frac{1}{c}\difp{\bE}t,\label{eq:rotB}\\
+{\rm div}\mathbf{B} & = & 0.\label{eq:divB}
+\end{eqnarray}
+
+\end_inset
+
+The continuity equation 
+\begin_inset Formula 
+\begin{equation}
+{\rm div}\bJ+\difp{\rho}t=0\label{eq:cont}
+\end{equation}
+
+\end_inset
+
+for charges and currents follows from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:divE"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rotB"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To trivially fulfill and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rotE"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:divB"
+
+\end_inset
+
+ due to vector identities it is common to use the potential formulations
+\begin_inset Formula 
+\begin{eqnarray}
+\bE & = & -\nabla\Phi-\frac{1}{c}\difp{\mathbf{A}}t,\\
+\bB & = & {\rm curl}\bA.
+\end{eqnarray}
+
+\end_inset
+
+The equations for the potentials from the remaining Maxwell equations are
+\begin_inset Formula 
+\begin{eqnarray}
+-\Delta\Phi-\frac{1}{c}\pdone t{\rm div}\mathbf{A} & = & 4\pi\rho,\label{eq:pot1}\\
+\left({\rm curl}\,{\rm {\rm curl}}+\frac{1}{c^{2}}\frac{\partial^{2}}{\partial t^{2}}\right)\mathbf{A}+\frac{1}{c}\pdone t\nabla\Phi & = & \frac{4\pi}{c}\mathbf{J}.\label{eq:pot2}
+\end{eqnarray}
+
+\end_inset
+
+Their solution is unique up to an arbitrary gauge transformation
+\begin_inset Formula 
+\begin{eqnarray}
+\Phi^{\prime} & = & \Phi-\frac{1}{c}\difp{\chi}t,\\
+\mathbf{A}^{\prime} & = & \mathbf{A}+\nabla\chi
+\end{eqnarray}
+
+\end_inset
+
+with gauge function 
+\begin_inset Formula $\chi$
+\end_inset
+
+.
+ It is possible to decouple the potential equations by choice of the Lorentz
+ gauge.
+\end_layout
+
+\begin_layout Subsection
+Time-harmonic case
+\end_layout
+
+\begin_layout Standard
+By performing a Fourier transformation
+\begin_inset Formula 
+\begin{align*}
+f(t) & =\frac{1}{\sqrt{2\pi}}\int d\omega f(\omega)e^{-i\omega t}
+\end{align*}
+
+\end_inset
+
+for all functions one can write the basic equations as
+\begin_inset Formula 
+\begin{eqnarray}
+{\rm div}\mathbf{E} & = & 4\pi\rho,\label{eq:divE-1}\\
+{\rm curl}\mathbf{E} & = & \frac{i\omega}{c}\bB,\label{eq:rotE-1}\\
+{\rm curl}\mathbf{B} & = & \frac{4\pi}{c}\bJ-\frac{i\omega}{c}\bE,\label{eq:rotB-1}\\
+{\rm div}\mathbf{B} & = & 0,\label{eq:divB-1}
+\end{eqnarray}
+
+\end_inset
+
+the continuity equation as
+\begin_inset Formula 
+\begin{equation}
+{\rm div}\bJ-i\omega\rho=0,\label{eq:cont-1}
+\end{equation}
+
+\end_inset
+
+and the potential equations as
+\begin_inset Formula 
+\begin{eqnarray}
+-\Delta\Phi+\frac{i\omega}{c}{\rm div}\mathbf{A} & = & 4\pi\rho,\label{eq:pot1-1}\\
+\left({\rm curl}\,{\rm {\rm curl}}-\frac{\omega^{2}}{c^{2}}\right)\mathbf{A}-\frac{i\omega}{c}\nabla\Phi & = & \frac{4\pi}{c}\mathbf{J}.\label{eq:pot2-1}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Static case
+\end_layout
+
+\begin_layout Standard
+For the static case 
+\begin_inset Formula $\omega\rightarrow0$
+\end_inset
+
+ one can write the basic equations as
+\begin_inset Formula 
+\begin{eqnarray}
+{\rm div}\mathbf{E} & = & 4\pi\rho,\label{eq:divE-1-1}\\
+{\rm curl}\mathbf{E} & = & 0,\label{eq:rotE-1-1}\\
+{\rm curl}\mathbf{B} & = & \frac{4\pi}{c}\bJ,\label{eq:rotB-1-1}\\
+{\rm div}\mathbf{B} & = & 0,\label{eq:divB-1-1}
+\end{eqnarray}
+
+\end_inset
+
+the continuity equation as
+\begin_inset Formula 
+\begin{equation}
+{\rm div}\bJ=0,\label{eq:cont-1-1}
+\end{equation}
+
+\end_inset
+
+and the potential equations as
+\begin_inset Formula 
+\begin{eqnarray}
+-\Delta\Phi & = & 4\pi\rho,\label{eq:pot1-1-1}\\
+{\rm curl}\,{\rm {\rm curl}}\mathbf{A} & = & \frac{4\pi}{c}\mathbf{J}.\label{eq:pot2-1-1}
+\end{eqnarray}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Integrals for Coulomb's equation and Biot Savart law
+\end_layout
+
+\begin_layout Standard
+For open domains, the electrostatic field fulfilling the divergence equation
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:divE-1-1"
+
+\end_inset
+
+ can be written as a volume integral over the electric charge density by
+ Coulomb's equation
+\begin_inset Formula 
+\begin{align}
+\mathbf{E}(\mathbf{x}) & =\int d^{3}x^{\prime}\rho(\mathbf{x}^{\prime})\frac{(\mathbf{x}-\mathbf{x}^{\prime})}{|\mathbf{x}-\mathbf{x}^{\prime}|^{3}}.
+\end{align}
+
+\end_inset
+
+The magnetostatic field fulfilling Ampère's law 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rotB-1-1"
+
+\end_inset
+
+ can be written as a volume integral over the current density by the Biot
+ Savart law
+\begin_inset Formula 
+\begin{align}
+\mathbf{B}(\mathbf{x}) & =\frac{1}{c}\int d^{3}x^{\prime}\mathbf{J}(\mathbf{x}^{\prime})\times\frac{(\mathbf{x}-\mathbf{x}^{\prime})}{|\mathbf{x}-\mathbf{x}^{\prime}|^{3}}\label{eq:BiotSavart}
+\end{align}
+
+\end_inset
+
+in the free field.
+ Using the relation
+\begin_inset Formula 
+\begin{align}
+\frac{(\mathbf{x}-\mathbf{x}^{\prime})}{|\mathbf{x}-\mathbf{x}^{\prime}|^{3}} & =-\nabla\frac{1}{|\mathbf{x}-\mathbf{x}^{\prime}|}
+\end{align}
+
+\end_inset
+
+we can write the two laws for the free field potentials in Coulomb gauge
+ as
+\begin_inset Formula 
+\begin{align}
+\Phi(\mathbf{x}) & =\int d^{3}x^{\prime}\frac{\rho(\mathbf{x}^{\prime})}{|\mathbf{x}-\mathbf{x}^{\prime}|},\\
+\mathbf{A}(\mathbf{x}) & =\frac{1}{c}\nabla\times\int d^{3}x^{\prime}\frac{\mathbf{J}(\mathbf{x}^{\prime})}{|\mathbf{x}-\mathbf{x}^{\prime}|}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Stream function
+\end_layout
+
+\begin_layout Standard
+In an arbitrary (also finite) domain 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, the divergence-free current can be represented by 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{J}=\nabla\times\mathbf{T}
+\end{equation}
+
+\end_inset
+
+via the stream function
+\begin_inset Formula 
+\begin{align}
+\mathbf{T} & =\frac{1}{4\pi}\int_{\Omega}d^{3}x^{\prime}\mathbf{J}(\mathbf{x}^{\prime})\times\frac{(\mathbf{x}-\mathbf{x}^{\prime})}{|\mathbf{x}-\mathbf{x}^{\prime}|^{3}}.
+\end{align}
+
+\end_inset
+
+For the open space 
+\begin_inset Formula $\Omega=\mathbb{R}^{3}$
+\end_inset
+
+, we can identify
+\begin_inset Formula 
+\begin{align}
+\mathbf{B} & =\frac{4\pi}{c}\mathbf{T}
+\end{align}
+
+\end_inset
+
+by comparison to the Biot Savart law 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:BiotSavart"
+
+\end_inset
+
+.
+ In the most general case from Ampere's law 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rotB-1-1"
+
+\end_inset
+
+, the magnetic field is given by
+\begin_inset Formula 
+\begin{align}
+\mathbf{B} & =\frac{4\pi}{c}(\mathbf{T}-\nabla\Phi_{m}).\label{eq:BT}
+\end{align}
+
+\end_inset
+
+Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:BT"
+
+\end_inset
+
+ may be interpreted as a superposition of two solutions: 
+\begin_inset Formula $\mathbf{T}$
+\end_inset
+
+ represents the contributions from the inhomogenous equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rotB-1-1"
+
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\nabla\Phi_{m}$
+\end_inset
+
+ the ones from the boundary value problem of the current-free equation in
+ the finite domain 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+ To make 
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+ divergence free, the magnetic scalar potential 
+\begin_inset Formula $\Phi_{m}$
+\end_inset
+
+ has to fullfil Poisson's equation
+\begin_inset Formula 
+\begin{align}
+\Delta\Phi_{m} & ={\rm div}\mathbf{T}\label{eq:phim}
+\end{align}
+
+\end_inset
+
+in 
+\begin_inset Formula $\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Boundary value problems
+\end_layout
+
+\begin_layout Subsection
+Magnetostatics
+\end_layout
+
+\begin_layout Standard
+In the vector potential formulation by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pot2-1-1"
+
+\end_inset
+
+, two specific kinds of boundary values are
+\end_layout
+
+\begin_layout Enumerate
+Dirichlet boundary values for 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+\mathbf{n}\times\mathbf{A} & =\boldsymbol{\alpha},
+\end{align}
+
+\end_inset
+
+where taking the divergence yields
+\begin_inset Formula 
+\begin{align}
+{\rm div}(\mathbf{n}\times\mathbf{A}) & =\mathbf{n}\cdot{\rm curl}\mathbf{A}-\mathbf{A}\cdot\underbrace{{\rm curl}\mathbf{n}}_{=0}\nonumber \\
+\Rightarrow\mathbf{n}\cdot\mathbf{B} & ={\rm div}\boldsymbol{\alpha}=:b,\label{eq:diva}
+\end{align}
+
+\end_inset
+
+and
+\end_layout
+
+\begin_layout Enumerate
+Neumann boundary values for 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+\mathbf{n}\times{\rm curl}\mathbf{A} & =\mathbf{K}=\mathbf{n}\times\mathbf{B}.\label{eq:ncurlA}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the scalar potential formulation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:phim"
+
+\end_inset
+
+ the two types of boundary conditions swap their role with
+\end_layout
+
+\begin_layout Enumerate
+Dirichlet boundary values for 
+\begin_inset Formula $\Phi_{m}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\Phi_{m}=\Phi_{m0},
+\end{equation}
+
+\end_inset
+
+which is equivalent to 
+\begin_inset Formula 
+\begin{align}
+\mathbf{n}\times\mathbf{B} & =\mathbf{K}
+\end{align}
+
+\end_inset
+
+TODO: explain why, and
+\end_layout
+
+\begin_layout Enumerate
+Neumann boundary values for 
+\begin_inset Formula $\Phi_{m}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+\frac{\partial\Phi_{m}}{\partial n} & =b=\mathbf{n}\cdot\mathbf{B}.\label{eq:b2}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Open boundary conditions
+\end_layout
+
+\begin_layout Subsection
+Vector potential
+\end_layout
+
+\begin_layout Standard
+Let us consider the problem in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{align}
+{\rm curl}\,{\rm {\rm curl}}\mathbf{A} & =\frac{4\pi}{c}\mathbf{J},\\
+\mathbf{A} & {\rm decaying\, appropriately\, at\,\mbox{\infty}.}
+\end{align}
+
+\end_inset
+
+TODO: more accurate formulation.
+ We formulate an equivalent coupled problem in the bounded domain 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ with a magnetic scalar potential formulation in a current free exterior
+ domain,
+\begin_inset Formula 
+\begin{align}
+{\rm curl}\,{\rm {\rm curl}}\mathbf{A} & =\frac{4\pi}{c}\mathbf{J}\,{\rm in\,\Omega},\\
+\Delta\Phi_{m} & =0\,{\rm in}\,\mathbb{R}^{3}\backslash\Omega,\\
+{\rm compatibility} & {\rm between\,\Phi\, and\,\mathbf{A}\, on\,\Gamma}\\
+\Phi_{m} & {\rm decaying\, appropriately\, at\,\mbox{\infty}.}
+\end{align}
+
+\end_inset
+
+TODO: formulate more accurately.
+ The integral current must vanish inside 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ for the compatibility condition.
+ Let us assume the Neumann problem 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:b2"
+
+\end_inset
+
+ to be solved on the exterior domain by the linear operator (Neumann-to-Dirichle
+t-map) 
+\begin_inset Formula $L$
+\end_inset
+
+ acting on the boundary values,
+\begin_inset Formula 
+\begin{align}
+\Phi_{m} & =Lb\\
+\Rightarrow\mathbf{B} & ={\rm grad}\, Lb.
+\end{align}
+
+\end_inset
+
+Now we express 
+\begin_inset Formula $b$
+\end_inset
+
+ by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:diva"
+
+\end_inset
+
+ and insert the expression into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ncurlA"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+\mathbf{n}\times{\rm curl}\mathbf{A} & =\mathbf{K}\nonumber \\
+ & =\mathbf{n}\times\mathbf{B}\nonumber \\
+ & =\mathbf{n}\times{\rm grad}\, Lb\nonumber \\
+ & =\mathbf{n}\times{\rm grad}\, L({\rm div}(\mathbf{n}\times\mathbf{A})).
+\end{align}
+
+\end_inset
+
+Thus, we have reduced the exterior equations to a relation between Dirichlet
+ and Neumann values for 
+\begin_inset Formula $\mathbf{A}$
+\end_inset
+
+ and write the equivalent problem as
+\begin_inset Formula 
+\begin{align}
+{\rm curl}\,{\rm {\rm curl}}\mathbf{A} & =\frac{4\pi}{c}\mathbf{J}\,{\rm in\,\Omega},\\
+\mathbf{n}\times{\rm curl}\mathbf{A} & =M(\mathbf{n}\times\mathbf{A})\,{\rm on\,\Gamma},
+\end{align}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align}
+M\mathbf{u} & =\mathbf{n}\times{\rm grad}\, L({\rm div}\mathbf{u}).
+\end{align}
+
+\end_inset
+
+TODO: depending on the form of 
+\begin_inset Formula $L$
+\end_inset
+
+ this might be simplified by
+\begin_inset Formula 
+\begin{align}
+{\rm curl}(f\mathbf{v}) & =f{\rm curl}\mathbf{v}+{\rm grad}f\times\mathbf{v}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Variational form and Finite Elements
+\end_layout
+
+\begin_layout Standard
+For numerical treatment it is convenient to write the equivalent variational
+ problem to a partial differential equation.
+ It is the opposite strategy to the one used in mechanics where the equations
+ of motion are derived from a variational principle and solved in a differential
+ formulation.
+ In Lagrangian mechanics, the three equivalent formulations were
+\end_layout
+
+\begin_layout Enumerate
+Stationary action: The actual motion 
+\begin_inset Formula $\mathbf{q}(t)$
+\end_inset
+
+ of a mechanical system makes the action
+\begin_inset Formula 
+\begin{align}
+S[\mathbf{q}(t)] & =\int_{t_{0}}^{t_{1}}L(\mathbf{q}(t),\dot{\mathbf{q}}(t),t)dt
+\end{align}
+
+\end_inset
+
+stationary (a maximum, minimum or saddle point), where the Lagrangian 
+\begin_inset Formula $L$
+\end_inset
+
+ is given by the difference between kinetic and potential energy.
+ All paths 
+\begin_inset Formula $\mathbf{q}(t)$
+\end_inset
+
+ that start at the previously defined 
+\begin_inset Formula $\mathbf{q}(t_{1})$
+\end_inset
+
+ and end at 
+\begin_inset Formula $\mathbf{q}(t_{2})$
+\end_inset
+
+ are taken into account.
+ Since 
+\begin_inset Formula $S$
+\end_inset
+
+ assigns a scalar value to each possible path 
+\begin_inset Formula $\mathbf{q}(t)$
+\end_inset
+
+, it is also called the action functional.
+\end_layout
+
+\begin_layout Enumerate
+Vanishing first variation: The first variation of the action 
+\begin_inset Formula $\delta S[\mathbf{q}(t)]$
+\end_inset
+
+ must vanish.
+\begin_inset Newline newline
+\end_inset
+
+We assume that a solution 
+\begin_inset Formula $\mathbf{q}(t)$
+\end_inset
+
+ exists and develop the path around this solution by adding a small variation
+\begin_inset Formula 
+\begin{align}
+\delta\mathbf{q}(t) & =\varepsilon\boldsymbol{\eta}(t).
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ is a constant and the function 
+\begin_inset Formula $\boldsymbol{\eta}(t)$
+\end_inset
+
+ must vanish at the endpoints.
+ We notice that 
+\begin_inset Formula 
+\begin{align}
+\frac{d}{dt}\left(\mathbf{q}(t)+\delta\mathbf{q}(t)\right) & =\dot{\mathbf{q}}(t)+\varepsilon\dot{\boldsymbol{\eta}}(t)=\dot{\mathbf{q}}(t)+\delta\dot{\mathbf{q}}(t).
+\end{align}
+
+\end_inset
+
+For small 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, the variation of the action around the solution 
+\begin_inset Formula $\mathbf{q}(t)$
+\end_inset
+
+ is found by Taylor expansion of the Lagrangian,
+\begin_inset Formula 
+\begin{align}
+S[\mathbf{q}(t)+\varepsilon\boldsymbol{\eta}(t)]-S[\mathbf{q}(t)] & =\int_{t_{0}}^{t_{1}}L(\mathbf{q}(t)+\varepsilon\boldsymbol{\eta}(t),\dot{\mathbf{q}}(t)+\varepsilon\dot{\boldsymbol{\eta}}(t),t)dt-S[\mathbf{q}(t)]\nonumber \\
+ & =\varepsilon\int_{t_{0}}^{t_{1}}\left(\boldsymbol{\eta}\cdot\frac{\partial L}{\partial\mathbf{q}}+\dot{\boldsymbol{\eta}}\cdot\frac{\partial L}{\partial\dot{\mathbf{q}}}\right)dt+\mathcal{O}(\varepsilon^{2})\overset{!}{=}0.
+\end{align}
+
+\end_inset
+
+For arbitrarily small 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+, the first term of linear order (called the first variation 
+\begin_inset Formula $\delta S[\mathbf{q}(t)]$
+\end_inset
+
+ of 
+\begin_inset Formula $S[\mathbf{q}(t)]$
+\end_inset
+
+) dominates and must thus vanish individually.
+ Integration by parts (
+\begin_inset Formula $\boldsymbol{\eta}(t_{1})=\boldsymbol{\eta}(t_{2})=0$
+\end_inset
+
+) yields
+\begin_inset Formula 
+\begin{align}
+\delta S[\mathbf{q}(t)] & =\varepsilon\int_{t_{0}}^{t_{1}}\left(\boldsymbol{\eta}\cdot\frac{\partial L}{\partial\mathbf{q}}-\boldsymbol{\eta}\cdot\frac{d}{dt}\frac{\partial L}{\partial\dot{\mathbf{q}}}\right)dt\nonumber \\
+ & =\int_{t_{0}}^{t_{1}}\delta\mathbf{q}\cdot\left(\frac{\partial L}{\partial\mathbf{q}}-\frac{d}{dt}\frac{\partial L}{\partial\dot{\mathbf{q}}}\right)dt\overset{!}{=}0.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Euler-Lagrange differential equations: Since we can choose any function
+ 
+\begin_inset Formula $\boldsymbol{\eta}(t)$
+\end_inset
+
+ around the solution, we require the term inside the brackets to vanish,
+\begin_inset Formula 
+\begin{align}
+\frac{\partial L}{\partial\mathbf{q}}-\frac{d}{dt}\frac{\partial L}{\partial\dot{\mathbf{q}}} & =\mathbf{0}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For partial differential equations, the principle is the same, but with
+ more than one variable.
+ We have
+\end_layout
+
+\begin_layout Enumerate
+Stationary energy functional:
+\end_layout
+
+\end_body
+\end_document

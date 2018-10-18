@@ -1,0 +1,238 @@
+%% LyX 2.3.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{amsmath}
+\usepackage{babel}
+\begin{document}
+\global\long\def\tht{\vartheta}%
+\global\long\def\ph{\varphi}%
+\global\long\def\balpha{\boldsymbol{\alpha}}%
+\global\long\def\btheta{\boldsymbol{\theta}}%
+\global\long\def\bJ{\boldsymbol{J}}%
+\global\long\def\bGamma{\boldsymbol{\Gamma}}%
+\global\long\def\bOmega{\boldsymbol{\Omega}}%
+\global\long\def\d{\text{d}}%
+\global\long\def\t#1{\text{#1}}%
+\global\long\def\m{\text{m}}%
+\global\long\def\v#1{\boldsymbol{#1}}%
+
+\global\long\def\t#1{\mathbf{#1}}%
+
+
+\paragraph{Resistive MHD equations}
+
+(see Freidberg p. 9, beginning of Chap. 8 and for linear perturbations,
+and problem 8.1 on p. 377 to change Ohm's law)
+
+\begin{align}
+\text{Mass:}\, & \frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\v v)=0\\
+\text{Momentum:}\, & \rho\frac{\d\v v}{\d t}=\v J\times\v B-\nabla p\\
+\text{Energy (adiabatic):}\, & \frac{\d}{\d t}\left(\frac{p}{\rho^{\gamma}}\right)=0\\
+\text{Ohm's law:}\, & \v E+\v v\times\v B=\eta\v J\\
+\text{Faraday:}\, & \nabla\times\v E=-\frac{\partial\v B}{\partial t}\\
+\text{Ampère:}\, & \nabla\times\v B=\mu_{0}\v J\label{eq:ampere}\\
+\text{divB:}\, & \nabla\cdot\v B=0
+\end{align}
+Here $\d/\d t=\partial/\partial t+\v v\cdot\nabla$. We have 14 unknowns:
+$\rho,p,\v v,\v J,\v E,\v B$ for 17 equations (so many?). Parameters:
+$\mu_{0}$ (fixed by the universe), adiabatic index $\gamma$, which
+we usually set to $5/3$ (monoatomic ideal gas), and resistivity $\eta$
+in Ohms which can be computed from the Spitzer resistivity (bottom
+of p. 110 in Freidberg). Displacement currents neglected in Eq.~(\ref{eq:ampere}).
+Gauss' law $\varepsilon_{0}\nabla\cdot\v E=n_{i}-n_{e}\approx0$ replaced
+by quasineutrality condition $n_{i}=n_{e}$. Eq. (\ref{eq:ampere})
+
+\paragraph{Ideal MHD equilibrium}
+
+The usual starting point for further computations is the ideal MHD
+equilibrium given by 
+
+\begin{align}
+\nabla p_{0} & =\v J_{0}\times\v B_{0}\\
+\nabla\times\v B_{0} & =\mu_{0}\v J_{0}\\
+\nabla\cdot\v B_{0} & =0
+\end{align}
+7 unknowns: $p,\v J,\v B$ for 7 equations.
+
+\paragraph{Linear ideal MHD}
+
+Applying a perturbation with functions $g=g_{0}+g_{1}$ and neglecting
+flow $\boldsymbol{v}_{0}=\boldsymbol{v}_{1}=0$ yields
+
+\begin{align}
+\nabla p_{1} & =\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}\\
+\nabla\times\v B_{1} & =\mu_{0}\v J_{1}\\
+\nabla\cdot\v B_{1} & =0
+\end{align}
+
+Here we subtracted zero-index versions of each equations to make them
+disappear, e.g. $\nabla\times B_{0}=\mu_{0}\v J_{0}$ from Ampère's
+law. Usually, we split the force balance from Maxwell's equation and
+solve the two together iteratively (see Master's thesis of Patrick
+Lainer).
+
+\paragraph{Linear resistive MHD}
+
+We apply a perturbation $\propto e^{-i\omega t}$ to our MHD equilibrium
+and drop terms of second order. In the full resistive system this
+means that
+\begin{align}
+\text{Mass:}\, & -i\omega\rho_{1}+\nabla\cdot(\rho_{0}\v v_{1}+\rho_{1}\boldsymbol{v}_{0})=0\\
+\text{Momentum:}\, & -i\omega(\rho_{0}\v v_{1}+\rho_{1}\boldsymbol{v}_{0})=\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}\\
+\text{Energy (adiabatic):}\, & p_{1}\rho_{0}-\gamma p_{0}\rho_{1}=0\\
+\text{Ohm's law:}\, & \v E_{1}+\v v_{1}\times\v B_{0}+\boldsymbol{v}_{0}\times\boldsymbol{B}_{1}=\eta\v J_{1}\\
+\text{Faraday:}\, & \nabla\times\v E_{1}=-i\omega\v B_{1}\\
+\text{Ampère:}\, & \nabla\times\v B_{1}=\mu_{0}\v J_{1}\label{eq:ampere-1}\\
+\text{divB:}\, & \nabla\cdot\v B_{1}=0
+\end{align}
+In the energy equation we have used a Taylor expansion in the perturbation
+of $\rho$, and multiplied the equation by $\rho_{0}^{\gamma+1}/(i\omega)$.
+Again we already subtracted zero-index versions of each equations. 
+
+Expressing $\rho_{1}$ via the Energy law by
+\[
+\rho_{1}=\frac{p_{1}}{\gamma p_{0}}\rho_{0}
+\]
+and insertion into the Mass law yields
+\[
+-i\omega\frac{\rho_{0}}{\gamma p_{0}}p_{1}+\nabla\cdot(\rho_{0}\v v_{1}+\frac{p_{1}}{\gamma p_{0}}\rho_{0}\boldsymbol{v}_{0})=0,
+\]
+and in the Momentum law
+\[
+-i\omega(\rho_{0}\v v_{1}+\frac{\rho_{0}}{\gamma p_{0}}p_{1}\boldsymbol{v}_{0})=\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}.
+\]
+In the static case $\omega=0$, the equations reduce to linear ideal
+MHD, as velocities don't appear in the Momentum equation anymore. 
+
+\paragraph{Splitting the problem without flow}
+
+Part 1: Solve
+\begin{align}
+-i\omega\rho_{0}\v v_{1} & =\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}\\
+-i\omega\rho_{0}p_{1} & =-\gamma p_{0}\nabla\cdot(\rho_{0}\v v_{1})\\
+-i\omega\v B_{1} & =\nabla\times(\eta\v J_{1}-\v v_{1}\times\v B_{0})
+\end{align}
+for given $\v B_{1}$. 7 unknowns $p_{1},\v J_{1},\v v_{1}$ for 7
+equations.
+
+Part 2: Solve
+\begin{align}
+\nabla\times\v B_{1} & =\mu_{0}\v J_{1}\label{eq:ampere-1-1-1}\\
+\nabla\cdot\v B_{1} & =0
+\end{align}
+for given $\v J_{1}$. 3 unknowns $\v B_{1}$ for 4 equations. 
+
+\paragraph{Splitting the problem further}
+\begin{enumerate}
+\item Parallel momentum (pressure):
+\begin{equation}
+-i\omega(\rho_{0}v_{1\parallel})B_{0}=-\v B_{1}\cdot\nabla p_{0}-\v B_{0}\cdot\nabla p_{1}
+\end{equation}
+\item Perpendicular momentum (current):
+\begin{equation}
+-i\omega\rho_{0}\v h_{0}\times\v v_{1\perp}=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-\v B_{0}\times\nabla p_{1}
+\end{equation}
+\item Ohm+Faraday:
+\begin{equation}
+-i\omega\v B_{1}=\nabla\times(\eta\v J_{1}-\v v_{1\perp}\times\v B_{0})
+\end{equation}
+\item Mass+Adiabatic:
+\begin{equation}
+-i\omega\rho_{0}p_{1}=-\gamma p_{0}\nabla\cdot(\rho_{0}\v v_{1})
+\end{equation}
+Divergence
+\begin{align}
+\nabla\cdot\v u & =\nabla\cdot\left(\frac{u_{\parallel}}{B_{0}}\v B_{0}+\v u_{\perp}\right)=\v B_{0}\cdot\nabla\left(\frac{u_{\parallel}}{B_{0}}\right)+\nabla\cdot\v u_{\perp}\\
+\nabla\cdot(\rho_{0}\v v_{1}) & =\v B_{0}\cdot\nabla\left(\frac{\rho_{0}v_{1\parallel}}{B_{0}}\right)+\nabla\cdot(\rho_{0}\v v_{1\perp})
+\end{align}
+With the possibility to pull out $\rho_{0}$ if it is constant along
+field lines $(\v B_{0}\cdot\nabla\rho_{0})$. 
+\item Magnetostatics:
+\begin{align}
+\nabla\times\v B_{1} & =\mu_{0}\v J_{1}\label{eq:ampere-1-1-1-1}\\
+\nabla\cdot\v B_{1} & =0
+\end{align}
+\end{enumerate}
+Steps of solution
+\begin{enumerate}
+\item solve parallel Momentum with given $\v B_{1},v_{1\parallel}$ $\Rightarrow p_{1}$
+\item solve perpendicular Momentum with given $\v B_{1},\v v_{\perp},p_{1}\Rightarrow\v J_{1}$
+\item solve Ohm+Faraday with Mass+Adiabatic with given $\v B_{1},p_{1},\v J_{1}\Rightarrow v_{1\parallel},\v v_{1\perp}$
+\item solve Ampère with given $\v J_{1}$$\Rightarrow\v B_{1}$
+\end{enumerate}
+Rosenbluth (slab), Furth (cylinder) tearing modes. Those are ``classical''
+tearing modes as opposed to neoclassical ones. Generally, such modes
+describe formation of magnetic islands, where flux surfaces are ``torn
+apart''.
+
+Also: link to Alfven waves. There singularity is resolved by finite
+electron mass but problem is shifted to short-scale mode.
+
+\paragraph{Solution in flux coordinates coordinates at zero frequency and/or
+zero flow}
+\begin{enumerate}
+\item Parallel momentum (pressure)
+\begin{equation}
+\v B_{0}(\boldsymbol{x})\cdot\nabla p_{1}(\boldsymbol{x})=-\v B_{1}(\boldsymbol{x})\cdot\nabla p_{0}(r)
+\end{equation}
+becomes
+\begin{equation}
+B_{0}^{\tht}(\boldsymbol{x})\frac{\partial p_{1}(\boldsymbol{x})}{\partial\tht}+B_{0}^{\ph}\frac{\partial p_{1}(\boldsymbol{x})}{\partial\ph}=-B_{1}^{r}(\boldsymbol{x})p_{0}^{\prime}(r).
+\end{equation}
+Using vector density components $\sqrt{g}B^{k}\equiv\mathcal{B}^{k}$
+with $\mathcal{B}_{0}^{\tht}=\mathcal{B}_{0}^{\tht}(r)$ and $\mathcal{B}_{0}^{\ph}=\mathcal{B}_{0}^{\ph}(r)=q\mathcal{B}_{0}^{\tht}(r)$
+in flux coordinates for $\v B_{0}$ we have
+\begin{equation}
+\mathcal{B}_{0}^{\tht}(r)\left(\frac{\partial p_{1}(\boldsymbol{x})}{\partial\tht}+q(r)\frac{\partial p_{1}(\boldsymbol{x})}{\partial\ph}\right)=-\mathcal{B}_{1}^{r}(\boldsymbol{x})p_{0}^{\prime}(r).
+\end{equation}
+Written in harmonic expansion in angles $\tht,\ph$ we have
+\begin{equation}
+i\mathcal{B}_{0}^{\tht}(r)\left(mp_{mn}(r)+nq(r)p_{mn}(r)\right)=-\mathcal{B}_{mn}^{r}(\boldsymbol{x})p_{0}^{\prime}(r)
+\end{equation}
+with the solution at each flux surface given by
+\begin{equation}
+p_{mn}(r)=i\frac{\mathcal{B}_{mn}^{r}(r)}{\mathcal{B}_{0}^{\tht}(r)}\frac{p_{0}^{\prime}(r)}{m+nq(r)}.
+\end{equation}
+Here we clearly see that at flux surfaces where $q(r)=-m/n$ the solution
+diverges. 
+\item Perpendicular momentum (current)
+\begin{equation}
+0=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-\v B_{0}\times\nabla p_{1}
+\end{equation}
+becomes
+\begin{equation}
+0=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-i\v B_{0}\times\v kp_{1}
+\end{equation}
+\end{enumerate}
+
+\paragraph{Momentum equation with flow in flux coordinates}
+
+Adding a finite flow velocity $\v v$ results in the following equation,
+\begin{equation}
+-i\omega\rho_{0}(r)B_{0}(\boldsymbol{x})\left(v_{1\parallel}(\v x)+\frac{v_{0\parallel}(\boldsymbol{x})}{\gamma p_{0}(r)}p_{1}(\v x)\right)+\v B_{0}(\boldsymbol{x})\cdot\nabla p_{1}(\boldsymbol{x})=-\v B_{1}(\boldsymbol{x})\cdot\nabla p_{0}(r).
+\end{equation}
+Here $v_{0\parallel}=\v B_{0}\cdot\v v_{0}$ and $v_{1\parallel}=\v B_{0}\cdot\v v_{1}$.
+Written in flux coordinates we obtain
+\begin{equation}
+-i\omega\rho_{0}(r)\mathcal{B}_{0}^{\tht}(r)\left(v_{1\tht}(\v x)+q(r)v_{1\ph}(\v x)+\frac{v_{0\tht}(\v x)+q(r)v_{0\ph}(\v x)}{\gamma p_{0}(r)}p_{1}(\v x)\right)+\mathcal{B}_{0}^{\tht}(r)\left(\frac{\partial p_{1}(\boldsymbol{x})}{\partial\tht}+q(r)\frac{\partial p_{1}(\boldsymbol{x})}{\partial\ph}\right)=-\mathcal{B}_{1}^{r}(\boldsymbol{x})p_{0}^{\prime}(r).
+\end{equation}
+In the general case of non-zero equilibrium flow $v_{0\parallel}(\boldsymbol{x})$
+we cannot expand this in angles locally on a flux surface, as a non-linear
+term appears in its product with $p_{1}(\v x)$. Assuming $v_{0\tht}=v_{0\tht}(r)$
+and $v_{0\ph}=v_{0\ph}(r)$ we can still use this method and obtain
+a radially local Fourier expansion (skipping dependencies on $r$
+in notation) with
+\begin{equation}
+-i\omega\rho_{0}\left(v_{mn\,\tht}+qv_{mn\,\ph}+\frac{v_{0\tht}+qv_{0\ph}}{\gamma p_{0}}p_{mn}\right)+i\left(m+nq\right)p_{mn}=-\frac{p_{0}^{\prime}}{\mathcal{B}_{0}^{\tht}}B_{mn}^{r}.
+\end{equation}
+The solution in $p_{mn}$ is given by
+\begin{equation}
+p_{mn}=\frac{i\frac{p_{0}^{\prime}}{\mathcal{B}_{0}^{\tht}}B_{mn}^{r}+\omega\rho_{0}\left(v_{mn\,\tht}+qv_{mn\,\ph}\right)}{m+nq-\omega\frac{\rho_{0}}{\gamma p_{0}}(v_{0\tht}+qv_{0\ph})}.
+\end{equation}
+Here the introduction of $v_{0\parallel}$ just shifts the resonance
+radially and cannot resolve it. Only if the numerator tends towards
+zero faster than the numerator tends to infinity, a finite solution
+can follow in this model.
+\end{document}

@@ -1,0 +1,344 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Classical propagation of uncertainties
+\end_layout
+
+\begin_layout Standard
+In classical methods of uncertainty propagation, input quantities 
+\begin_inset Formula $x\pm\Delta x$
+\end_inset
+
+ are taken from their best estimate 
+\begin_inset Formula $x$
+\end_inset
+
+ together with a possible deviation 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+, usually drawn as error bars.
+ In a single experiment, 
+\begin_inset Formula $x$
+\end_inset
+
+ is the reading of the measured quantity and 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ is set according to the accuracy of the measurement device, e.g.
+ the last significant digit on a display if no other factors are known to
+ introduce uncertainties.
+ In a series of experiments, 
+\begin_inset Formula $x$
+\end_inset
+
+ is usually set to the sample mean and 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ to the sample standard deviation (or some multiple of it).
+ To know how the uncertainty in 
+\begin_inset Formula $x\pm\Delta x$
+\end_inset
+
+ propagates to a function 
+\begin_inset Formula $y(x\pm\Delta x)$
+\end_inset
+
+ there are two straightforward ways.
+\end_layout
+
+\begin_layout Enumerate
+Linear approximation
+\begin_inset Newline newline
+\end_inset
+
+For sufficiently small 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+ and if the analytic form of 
+\begin_inset Formula $y(x)$
+\end_inset
+
+ is known we can use a Taylor expansion
+\begin_inset Formula 
+\begin{equation}
+y(x\pm\Delta x)\approx y(x)\pm y^{\prime}(x)\Delta x+\mathcal{O}(\,(\Delta x)^{2}\,).
+\end{equation}
+
+\end_inset
+
+Thus we estimate 
+\begin_inset Formula $y$
+\end_inset
+
+ and its uncertainty 
+\begin_inset Formula $\Delta y$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{align}
+y & =y(x),\quad\Delta y=y^{\prime}(x)\Delta x.
+\end{align}
+
+\end_inset
+
+Within this linear approximation the estimated 
+\begin_inset Formula $y$
+\end_inset
+
+ stays centered within the error bars.
+\end_layout
+
+\begin_layout Enumerate
+Direct evaluation
+\begin_inset Newline newline
+\end_inset
+
+In the more general case one evaluates 
+\begin_inset Formula $y(x)$
+\end_inset
+
+, 
+\begin_inset Formula $y(x+\Delta x)$
+\end_inset
+
+ and 
+\begin_inset Formula $y(x-\Delta x)$
+\end_inset
+
+ directly.
+ This works also if no analytical expression for 
+\begin_inset Formula $y(x)$
+\end_inset
+
+ exists, e.g.
+ if it follows from a complicated numerical model.
+ Here 
+\begin_inset Formula $y(x)$
+\end_inset
+
+ does not necessarily lie centered between upper and lower error bar and
+ we obtain two uncertainties
+\begin_inset Formula 
+\begin{align}
+\Delta y^{+} & =y(x+\Delta x)-y(x),\\
+\Delta y^{-} & =y(x)-y(x-\Delta x).
+\end{align}
+
+\end_inset
+
+According to Taylor's theorem for differentiable functions 
+\begin_inset Formula $y(x)$
+\end_inset
+
+ the difference 
+\begin_inset Formula $\Delta y^{+}-\Delta y^{-}\approx y^{\prime\prime}(x)(\Delta x)^{2}$
+\end_inset
+
+ becomes ignorable for sufficiently small 
+\begin_inset Formula $\Delta x$
+\end_inset
+
+, leading to results close to the linear approximation described above.
+\end_layout
+
+\begin_layout Section
+Polynomial chaos expansion
+\end_layout
+
+\begin_layout Standard
+In a more general sense we can model out input quantity as a random variable
+ 
+\begin_inset Formula $X$
+\end_inset
+
+ according to some probability density function 
+\begin_inset Formula $f_{X}(x)$
+\end_inset
+
+.
+ In the pseudo-spectral approach we model
+\begin_inset Formula 
+\begin{equation}
+f_{Y}(y)\approx\sum_{n}f_{n}\phi_{n}(x)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $\phi_{n}$
+\end_inset
+
+ are chosen as orthogonal polynomials (Hermite, Legendre, Jacobi, Laguerre).
+ Their 
+\series bold
+weight function
+\series default
+ under which orthogonality holds corresponds to the 
+\series bold
+probability density function
+\series default
+ 
+\begin_inset Formula $f_{X}(x)$
+\end_inset
+
+ of the input variables.
+ Coefficients 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ are computed according to the optimum quadrature rule for the respective
+ problem.
+\end_layout
+
+\end_body
+\end_document

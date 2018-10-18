@@ -1,0 +1,313 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+\start_of_appendix
+Outline
+\end_layout
+
+\begin_layout Itemize
+Consider model on domain 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ (e.g.
+ positions in space or time) with unknown parameter fields 
+\begin_inset Formula $\boldsymbol{a}(\boldsymbol{x})$
+\end_inset
+
+ that fulfills
+\begin_inset Formula 
+\[
+\boldsymbol{F}(\boldsymbol{f}(\boldsymbol{x}),\boldsymbol{x};\boldsymbol{a}(\boldsymbol{x}))=0,
+\]
+
+\end_inset
+
+yielding fields 
+\begin_inset Formula $\boldsymbol{f}(\boldsymbol{x})$
+\end_inset
+
+ as a solution implicitly.
+\end_layout
+
+\begin_layout Itemize
+Replace 
+\begin_inset Formula $\boldsymbol{a}(\boldsymbol{x})$
+\end_inset
+
+ by (continuous) random fields.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Scalar quantities can be thought of as constant fields, axisymmetric quantities
+ as constant over 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ and plasma profiles as constant over 
+\begin_inset Formula $\vartheta$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Search for 
+\begin_inset Formula $\boldsymbol{f}(\boldsymbol{x})$
+\end_inset
+
+ as random fields now as an output.
+\end_layout
+
+\begin_layout Itemize
+Simplification 1: Parametrise 
+\begin_inset Formula $\boldsymbol{a}(\boldsymbol{x})$
+\end_inset
+
+ by a finite set of scalar random variables 
+\begin_inset Formula $\boldsymbol{\alpha}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Choose distribution of random variables according to measurement uncertainties
+ via (Bayesian) inference.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Simplification 2: Parametrise 
+\begin_inset Formula $\boldsymbol{f}(\boldsymbol{x})$
+\end_inset
+
+ by finite set of interpolation parameters 
+\begin_inset Formula $\boldsymbol{\beta}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Since 
+\begin_inset Formula $\boldsymbol{f}(\boldsymbol{x};\boldsymbol{\alpha})$
+\end_inset
+
+ is a random field, 
+\begin_inset Formula $\boldsymbol{\beta}(\boldsymbol{\alpha})$
+\end_inset
+
+ become random variables.
+\end_layout
+
+\begin_layout Itemize
+How to translate from 
+\begin_inset Formula $\boldsymbol{f}(\boldsymbol{x};\boldsymbol{\alpha})$
+\end_inset
+
+ to 
+\begin_inset Formula $\boldsymbol{\beta}(\boldsymbol{\alpha})$
+\end_inset
+
+? 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Question: In which way are quantities continuous?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Continuity in space/time: Should be valid up to certain order of differentiation
+ in physical quantities.
+\end_layout
+
+\begin_layout Itemize
+Continuity in parameters: Not necessarily, bifurcations possible.
+ Possible to assume locally, otherwise model makes no sense.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Need to discretize each 
+\begin_inset Formula $\beta_{k}(\boldsymbol{\alpha})$
+\end_inset
+
+ in parameter space to be able to interpolate/extrapolate over 
+\begin_inset Formula $\boldsymbol{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Methods: PCE and Gaussian processes
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Question: How to treat non-uniformly distributed random variables in PCE?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Answer: Use Hermite polynomials with support 
+\begin_inset Formula $(-\infty,\infty)$
+\end_inset
+
+ as a basis for Gaussian random variables (See Xiu).
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Question: How to treat structure-preserving algorithms in a consistent way?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Simple answer: use structure-preserving FEM degrees of freedom (e.g.
+ Raviart-Thomas) as 
+\begin_inset Formula $\boldsymbol{\beta}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Attention: the output is plotted over parameter space.
+ Uncertainties of output are evaluated either by Monte Carlo sampling of
+ surrogate model, or by explicit sum over squared coefficients in PCE.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Only 
+\emph on
+after
+\emph default
+ that, we can plot our random field over the domain 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ together with error bars.
+ The problem of interpolating this field is a different one from the one
+ of interpolating in parameter space, and for this, 
+\begin_inset Formula $\boldsymbol{\beta}$
+\end_inset
+
+ are used.
+\end_layout
+
+\begin_layout Itemize
+Question: How to translate uncertainties in 
+\begin_inset Formula $\boldsymbol{\beta}(\boldsymbol{\alpha})$
+\end_inset
+
+ back to uncertainties in 
+\begin_inset Formula $\boldsymbol{f}(\boldsymbol{x};\boldsymbol{\alpha})$
+\end_inset
+
+?
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Literature
+\end_layout
+
+\begin_layout Standard
+The Geometry of Random Fields + Random fields and Geometry by Adler
+\end_layout
+
+\end_body
+\end_document
