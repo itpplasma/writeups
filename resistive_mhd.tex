@@ -1,4 +1,4 @@
-%% LyX 2.3.1 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
@@ -6,19 +6,19 @@
 \usepackage{amsmath}
 \usepackage{babel}
 \begin{document}
-\global\long\def\tht{\vartheta}%
-\global\long\def\ph{\varphi}%
-\global\long\def\balpha{\boldsymbol{\alpha}}%
-\global\long\def\btheta{\boldsymbol{\theta}}%
-\global\long\def\bJ{\boldsymbol{J}}%
-\global\long\def\bGamma{\boldsymbol{\Gamma}}%
-\global\long\def\bOmega{\boldsymbol{\Omega}}%
-\global\long\def\d{\text{d}}%
-\global\long\def\t#1{\text{#1}}%
-\global\long\def\m{\text{m}}%
-\global\long\def\v#1{\boldsymbol{#1}}%
+\global\long\def\tht{\vartheta}
+\global\long\def\ph{\varphi}
+\global\long\def\balpha{\boldsymbol{\alpha}}
+\global\long\def\btheta{\boldsymbol{\theta}}
+\global\long\def\bJ{\boldsymbol{J}}
+\global\long\def\bGamma{\boldsymbol{\Gamma}}
+\global\long\def\bOmega{\boldsymbol{\Omega}}
+\global\long\def\d{\text{d}}
+\global\long\def\t#1{\text{#1}}
+\global\long\def\m{\text{m}}
+\global\long\def\v#1{\boldsymbol{#1}}
 
-\global\long\def\t#1{\mathbf{#1}}%
+\global\long\def\t#1{\mathbf{#1}}
 
 
 \paragraph{Resistive MHD equations}
@@ -193,18 +193,38 @@ i\mathcal{B}_{0}^{\tht}(r)\left(mp_{mn}(r)+nq(r)p_{mn}(r)\right)=-\mathcal{B}_{m
 \end{equation}
 with the solution at each flux surface given by
 \begin{equation}
-p_{mn}(r)=i\frac{\mathcal{B}_{mn}^{r}(r)}{\mathcal{B}_{0}^{\tht}(r)}\frac{p_{0}^{\prime}(r)}{m+nq(r)}.
+p_{mn}(r)=i\frac{\mathcal{B}_{mn}^{r}(r)}{\mathcal{B}_{0}^{\tht}(r)}\frac{p_{0}^{\prime}(r)}{m+nq(r)}.\label{eq:pmn}
 \end{equation}
 Here we clearly see that at flux surfaces where $q(r)=-m/n$ the solution
 diverges. 
-\item Perpendicular momentum (current)
+\item For current:
 \begin{equation}
-0=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-\v B_{0}\times\nabla p_{1}
+\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}
 \end{equation}
-becomes
+We have
 \begin{equation}
-0=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-i\v B_{0}\times\v kp_{1}
+\nabla\cdot\v J_{0}=\partial_{i}\mathcal{J}_{0}^{\,i}=0
 \end{equation}
+so 
+\begin{equation}
+\partial_{r}\mathcal{J}_{0}^{\,r}+\partial_{\tht}\mathcal{J}_{0}^{\tht}+\partial_{\ph}\mathcal{J}_{0}^{\ph}=0.
+\end{equation}
+and since we have axisymmetry, $\partial_{\ph}$ vanishes, and in
+flux coordinates $\mathcal{J}_{0}^{\,r}=0$. What remains is $\mathcal{J}_{0}^{\tht}$,
+so 
+\begin{equation}
+\partial_{\tht}\mathcal{J}_{0}^{\tht}=0\Rightarrow\mathcal{J}_{0}^{\,\tht}=\sqrt{g}J_{0}^{\,\tht}=\mathcal{J}_{0}^{\,\tht}(r).
+\end{equation}
+In addition we have
+\begin{equation}
+\mathcal{B}_{0}^{\,\tht}=\mathcal{B}_{0}^{\,\tht}(r),\quad\mathcal{B}_{0}^{\,\ph}=\mathcal{B}_{0}^{\,\ph}(r)
+\end{equation}
+due to flux coordinates. \textbf{For further derivations see section
+in cylindrical coordinates. Most likely this can be extended to special
+cases in flux coordinates with $\mathcal{J}_{0}^{\,\ph}=\mathcal{J}_{0}^{\,\ph}(r)$.
+This is the case in Hamada coordinates, but not necessarily in symmetry
+flux coordinates. One could start looking for conditions under which
+symmetry flux coordinates coincide with Hamada coordinates for testing.}
 \end{enumerate}
 
 \paragraph{Momentum equation with flow in flux coordinates}
@@ -235,4 +255,124 @@ Here the introduction of $v_{0\parallel}$ just shifts the resonance
 radially and cannot resolve it. Only if the numerator tends towards
 zero faster than the numerator tends to infinity, a finite solution
 can follow in this model.
+
+\paragraph{Solution in cylinder coordinates coordinates at zero frequency and/or
+zero flow}
+
+First we are going to approximate our torus by a periodic cylinder.
+Before, we had used a different kind of cylindrical coordinates $(R,\ph,Z)$
+with the cylinder axis coinciding with cartesian $Z$ axis in the
+center of the torus. Now we take the $z$-axis as the distance along
+the toroidal direction and define transformations
+\begin{align}
+R(r,\tht,z) & =R_{0}+r\cos\tht,\\
+\ph(r,\tht,z) & =z/R_{0},\\
+Z(r,\tht,z) & =r\sin\tht.
+\end{align}
+Non-vanishing derivatives are
+\begin{align}
+\partial_{r}R(r,\tht,z) & =\cos\tht,\\
+\partial_{\tht}R(r,\tht,z) & =-r\sin\tht,\\
+\\
+\partial_{z}\ph(r,\tht,z) & =1/R_{0},\\
+\\
+\partial_{r}Z(r,\tht,z) & =\sin\tht,\\
+\partial_{\tht}Z(r,\tht,z) & =r\cos\tht.
+\end{align}
+The metric tensor in original cylindrical coordinates was
+\begin{equation}
+g_{ij}=\left(\begin{array}{ccc}
+1\\
+ & R^{2}\\
+ &  & 1
+\end{array}\right).
+\end{equation}
+The metric tensor in the new \textquotedbl toroidal cylinder coordinates\textquotedbl{}
+are
+\begin{equation}
+\bar{g}_{ij}=\frac{\partial x^{a}}{\partial\bar{x}^{i}}\frac{\partial x^{b}}{\partial\bar{x}^{j}}g_{ab}.
+\end{equation}
+Thus with $\cos^{2}\tht+\sin^{2}\tht=1$ we obtain
+\begin{equation}
+\bar{g}_{ij}=\left(\begin{array}{ccc}
+1\\
+ & r^{2}\\
+ &  & \frac{R^{2}}{R_{0}^{\,2}}
+\end{array}\right)=\left(\begin{array}{ccc}
+1\\
+ & r^{2}\\
+ &  & (1+\frac{r}{R_{0}}\cos\tht)^{2}
+\end{array}\right).
+\end{equation}
+At large aspect ratios $r\ll R_{0}$ it follows that $\bar{g}_{zz}\approx1$
+and our new coordinates behave as usual cylinder coordinates, but
+with the topology of a torus, as $z$ closes on itself toroidally.
+Taking this approximation we now work in physical, rather than covariant
+components. Our unit basis vectors are
+\begin{equation}
+\hat{\boldsymbol{e}}_{r}=\nabla r,\quad\hat{\v e}_{\tht}=r\nabla\tht,\quad\hat{\v e}_{z}=\nabla z.
+\end{equation}
+We model our magnetic field $\boldsymbol{B}_{0}$ and currents $\boldsymbol{J}_{0}$
+winding around surfaces of $r=\text{const.}$ and physical components
+depending only on $r$,
+\begin{align}
+\v B_{0} & =B_{0\tht}(r)\hat{\v e}_{\tht}+B_{0z}(r)\hat{\v e}_{z},\\
+\v J_{0} & =J_{0\tht}(r)\hat{\v e}_{\tht}+B_{0z}(r)\hat{\v e}_{z}.
+\end{align}
+We can define the safety factor (TODO: check if this is correct) as
+\begin{equation}
+q(r)=\frac{B_{0z}(r)}{B_{0\tht}(r)}.
+\end{equation}
+Now we start with 
+\begin{align}
+\nabla p & =\frac{1}{c}\v J\times\boldsymbol{B},\\
+\nabla\cdot\boldsymbol{B} & =0,\\
+\nabla\cdot\boldsymbol{J} & =0.
+\end{align}
+The linear order equation is 
+\begin{align}
+\nabla p_{1} & =\frac{1}{c}(\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}),\\
+\nabla\cdot\boldsymbol{B}_{1} & =0,\\
+\nabla\cdot\boldsymbol{J}_{1} & =0.
+\end{align}
+Modeling quantities $p_{1},\boldsymbol{B}_{1}$ and $\boldsymbol{J}_{1}$
+in wavenumber space on each flux surface as
+\begin{equation}
+f(r,\tht,z)=f_{\boldsymbol{k}}(r)e^{i\boldsymbol{k}\cdot\boldsymbol{x}}=f(r)e^{i(k_{\tht}\tht+k_{z}z)}
+\end{equation}
+with $\v k=k_{\tht}\hat{\v e}_{\tht}+k_{z}\hat{\v e}_{z}$ there is
+no product of two harmonics, as unperturbed quantities depend only
+on $r$. So we can write independent equations for each $\boldsymbol{k}$
+with
+\begin{align}
+p_{\boldsymbol{k}}^{\prime}(r)\hat{\boldsymbol{e}}_{r}+i\boldsymbol{k}p_{\boldsymbol{k}}(r) & =\frac{1}{c}(\v J_{0}(r)\times\v B_{\boldsymbol{k}}(r)+\v J_{\boldsymbol{k}}(r)\times\v B_{0}(r)),\\
+B_{\boldsymbol{k}r}^{\prime}(r)+i\boldsymbol{k}\cdot\boldsymbol{B}_{\boldsymbol{k}}(r) & =0,\\
+J_{\boldsymbol{k}r}^{\prime}(r)+i\boldsymbol{k}\cdot\boldsymbol{J}_{\boldsymbol{k}}(r) & =0.
+\end{align}
+Here, vector quantities depending on $r$ mean that their components
+in $(r,\tht,z)$ depend only on $r$, and primes mean radial derivatives.
+Repeating the exercise from above we first take the parallel part
+by a scalar product with $\boldsymbol{B}_{0}$
+\begin{align}
+i\boldsymbol{k}\cdot\boldsymbol{B}_{0}p_{\boldsymbol{k}} & =\frac{1}{c}(\boldsymbol{B}_{0}\cdot(\v J_{0}\times\v B_{\boldsymbol{k}}))\nonumber \\
+ & =-\boldsymbol{B}_{\boldsymbol{k}}\cdot\nabla p_{0}=-\frac{1}{c}B_{\boldsymbol{k}r}p_{0}^{\prime}.
+\end{align}
+This means that Eq.~(\ref{eq:pmn}) is represented by
+\begin{equation}
+p_{\boldsymbol{k}}=i\frac{B_{\boldsymbol{k}r}p_{0}^{\prime}}{\boldsymbol{k}\cdot\boldsymbol{B}_{0}}.
+\end{equation}
+Resonance is obtained for $\boldsymbol{k}\parallel\boldsymbol{B}_{0}$.
+\textbf{This is already one term inside Heyn08, Eq. (6), inside $F_{p}$.}
+
+Now we look at Ampere's law for the perturbation with
+\begin{equation}
+\nabla\times\boldsymbol{B}_{1}=\frac{4\pi}{c}\boldsymbol{J}_{1}.
+\end{equation}
+Note that we don't assume it to be true for unperturbed quantities.
+Then in $\boldsymbol{k}$-space
+\begin{equation}
+i\boldsymbol{k}\times\boldsymbol{B}_{\boldsymbol{k}}-B_{\boldsymbol{k}z}^{\prime}\hat{\boldsymbol{e}}_{\tht}+B_{\boldsymbol{k}\tht}^{\prime}\hat{\boldsymbol{e}}_{r}=\frac{4\pi}{c}\boldsymbol{J}_{\boldsymbol{k}}.
+\end{equation}
+
+\textbf{TODO: put everything together to obtain Heyn08, Eq. (6).}
 \end{document}

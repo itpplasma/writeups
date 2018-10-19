@@ -691,7 +691,7 @@ i\mathcal{B}_{0}^{\tht}(r)\left(mp_{mn}(r)+nq(r)p_{mn}(r)\right)=-\mathcal{B}_{m
 with the solution at each flux surface given by
 \begin_inset Formula 
 \begin{equation}
-p_{mn}(r)=i\frac{\mathcal{B}_{mn}^{r}(r)}{\mathcal{B}_{0}^{\tht}(r)}\frac{p_{0}^{\prime}(r)}{m+nq(r)}.
+p_{mn}(r)=i\frac{\mathcal{B}_{mn}^{r}(r)}{\mathcal{B}_{0}^{\tht}(r)}\frac{p_{0}^{\prime}(r)}{m+nq(r)}.\label{eq:pmn}
 \end{equation}
 
 \end_inset
@@ -705,23 +705,73 @@ Here we clearly see that at flux surfaces where
 \end_layout
 
 \begin_layout Enumerate
-Perpendicular momentum (current)
+For current:
 \begin_inset Formula 
 \begin{equation}
-0=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-\v B_{0}\times\nabla p_{1}
+\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}
 \end{equation}
 
 \end_inset
 
-becomes
+We have
 \begin_inset Formula 
 \begin{equation}
-0=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-i\v B_{0}\times\v kp_{1}
+\nabla\cdot\v J_{0}=\partial_{i}\mathcal{J}_{0}^{\,i}=0
 \end{equation}
 
 \end_inset
 
+so 
+\begin_inset Formula 
+\begin{equation}
+\partial_{r}\mathcal{J}_{0}^{\,r}+\partial_{\tht}\mathcal{J}_{0}^{\tht}+\partial_{\ph}\mathcal{J}_{0}^{\ph}=0.
+\end{equation}
 
+\end_inset
+
+and since we have axisymmetry, 
+\begin_inset Formula $\partial_{\ph}$
+\end_inset
+
+ vanishes, and in flux coordinates 
+\begin_inset Formula $\mathcal{J}_{0}^{\,r}=0$
+\end_inset
+
+.
+ What remains is 
+\begin_inset Formula $\mathcal{J}_{0}^{\tht}$
+\end_inset
+
+, so 
+\begin_inset Formula 
+\begin{equation}
+\partial_{\tht}\mathcal{J}_{0}^{\tht}=0\Rightarrow\mathcal{J}_{0}^{\,\tht}=\sqrt{g}J_{0}^{\,\tht}=\mathcal{J}_{0}^{\,\tht}(r).
+\end{equation}
+
+\end_inset
+
+In addition we have
+\begin_inset Formula 
+\begin{equation}
+\mathcal{B}_{0}^{\,\tht}=\mathcal{B}_{0}^{\,\tht}(r),\quad\mathcal{B}_{0}^{\,\ph}=\mathcal{B}_{0}^{\,\ph}(r)
+\end{equation}
+
+\end_inset
+
+due to flux coordinates.
+ 
+\series bold
+For further derivations see section in cylindrical coordinates.
+ Most likely this can be extended to special cases in flux coordinates with
+ 
+\begin_inset Formula $\mathcal{J}_{0}^{\,\ph}=\mathcal{J}_{0}^{\,\ph}(r)$
+\end_inset
+
+.
+ This is the case in Hamada coordinates, but not necessarily in symmetry
+ flux coordinates.
+ One could start looking for conditions under which symmetry flux coordinates
+ coincide with Hamada coordinates for testing.
 \end_layout
 
 \begin_layout Paragraph
@@ -808,6 +858,300 @@ Here the introduction of
  just shifts the resonance radially and cannot resolve it.
  Only if the numerator tends towards zero faster than the numerator tends
  to infinity, a finite solution can follow in this model.
+\end_layout
+
+\begin_layout Paragraph
+Solution in cylinder coordinates coordinates at zero frequency and/or zero
+ flow
+\end_layout
+
+\begin_layout Standard
+First we are going to approximate our torus by a periodic cylinder.
+ Before, we had used a different kind of cylindrical coordinates 
+\begin_inset Formula $(R,\ph,Z)$
+\end_inset
+
+ with the cylinder axis coinciding with cartesian 
+\begin_inset Formula $Z$
+\end_inset
+
+ axis in the center of the torus.
+ Now we take the 
+\begin_inset Formula $z$
+\end_inset
+
+-axis as the distance along the toroidal direction and define transformations
+\begin_inset Formula 
+\begin{align}
+R(r,\tht,z) & =R_{0}+r\cos\tht,\\
+\ph(r,\tht,z) & =z/R_{0},\\
+Z(r,\tht,z) & =r\sin\tht.
+\end{align}
+
+\end_inset
+
+Non-vanishing derivatives are
+\begin_inset Formula 
+\begin{align}
+\partial_{r}R(r,\tht,z) & =\cos\tht,\\
+\partial_{\tht}R(r,\tht,z) & =-r\sin\tht,\\
+\\
+\partial_{z}\ph(r,\tht,z) & =1/R_{0},\\
+\\
+\partial_{r}Z(r,\tht,z) & =\sin\tht,\\
+\partial_{\tht}Z(r,\tht,z) & =r\cos\tht.
+\end{align}
+
+\end_inset
+
+The metric tensor in original cylindrical coordinates was
+\begin_inset Formula 
+\begin{equation}
+g_{ij}=\left(\begin{array}{ccc}
+1\\
+ & R^{2}\\
+ &  & 1
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+The metric tensor in the new "toroidal cylinder coordinates" are
+\begin_inset Formula 
+\begin{equation}
+\bar{g}_{ij}=\frac{\partial x^{a}}{\partial\bar{x}^{i}}\frac{\partial x^{b}}{\partial\bar{x}^{j}}g_{ab}.
+\end{equation}
+
+\end_inset
+
+Thus with 
+\begin_inset Formula $\cos^{2}\tht+\sin^{2}\tht=1$
+\end_inset
+
+ we obtain
+\begin_inset Formula 
+\begin{equation}
+\bar{g}_{ij}=\left(\begin{array}{ccc}
+1\\
+ & r^{2}\\
+ &  & \frac{R^{2}}{R_{0}^{\,2}}
+\end{array}\right)=\left(\begin{array}{ccc}
+1\\
+ & r^{2}\\
+ &  & (1+\frac{r}{R_{0}}\cos\tht)^{2}
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+At large aspect ratios 
+\begin_inset Formula $r\ll R_{0}$
+\end_inset
+
+ it follows that 
+\begin_inset Formula $\bar{g}_{zz}\approx1$
+\end_inset
+
+ and our new coordinates behave as usual cylinder coordinates, but with
+ the topology of a torus, as 
+\begin_inset Formula $z$
+\end_inset
+
+ closes on itself toroidally.
+ Taking this approximation we now work in physical, rather than covariant
+ components.
+ Our unit basis vectors are
+\begin_inset Formula 
+\begin{equation}
+\hat{\boldsymbol{e}}_{r}=\nabla r,\quad\hat{\v e}_{\tht}=r\nabla\tht,\quad\hat{\v e}_{z}=\nabla z.
+\end{equation}
+
+\end_inset
+
+We model our magnetic field 
+\begin_inset Formula $\boldsymbol{B}_{0}$
+\end_inset
+
+ and currents 
+\begin_inset Formula $\boldsymbol{J}_{0}$
+\end_inset
+
+ winding around surfaces of 
+\begin_inset Formula $r=\text{const.}$
+\end_inset
+
+ and physical components depending only on 
+\begin_inset Formula $r$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+\v B_{0} & =B_{0\tht}(r)\hat{\v e}_{\tht}+B_{0z}(r)\hat{\v e}_{z},\\
+\v J_{0} & =J_{0\tht}(r)\hat{\v e}_{\tht}+B_{0z}(r)\hat{\v e}_{z}.
+\end{align}
+
+\end_inset
+
+We can define the safety factor (TODO: check if this is correct) as 
+\begin_inset Formula 
+\begin{equation}
+q(r)=\frac{B_{0z}(r)}{B_{0\tht}(r)}.
+\end{equation}
+
+\end_inset
+
+Now we start with 
+\begin_inset Formula 
+\begin{align}
+\nabla p & =\frac{1}{c}\v J\times\boldsymbol{B},\\
+\nabla\cdot\boldsymbol{B} & =0,\\
+\nabla\cdot\boldsymbol{J} & =0.
+\end{align}
+
+\end_inset
+
+The linear order equation is 
+\begin_inset Formula 
+\begin{align}
+\nabla p_{1} & =\frac{1}{c}(\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}),\\
+\nabla\cdot\boldsymbol{B}_{1} & =0,\\
+\nabla\cdot\boldsymbol{J}_{1} & =0.
+\end{align}
+
+\end_inset
+
+Modeling quantities 
+\begin_inset Formula $p_{1},\boldsymbol{B}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{J}_{1}$
+\end_inset
+
+ in wavenumber space on each flux surface as
+\begin_inset Formula 
+\begin{equation}
+f(r,\tht,z)=f_{\boldsymbol{k}}(r)e^{i\boldsymbol{k}\cdot\boldsymbol{x}}=f(r)e^{i(k_{\tht}\tht+k_{z}z)}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\v k=k_{\tht}\hat{\v e}_{\tht}+k_{z}\hat{\v e}_{z}$
+\end_inset
+
+ there is no product of two harmonics, as unperturbed quantities depend
+ only on 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ So we can write independent equations for each 
+\begin_inset Formula $\boldsymbol{k}$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align}
+p_{\boldsymbol{k}}^{\prime}(r)\hat{\boldsymbol{e}}_{r}+i\boldsymbol{k}p_{\boldsymbol{k}}(r) & =\frac{1}{c}(\v J_{0}(r)\times\v B_{\boldsymbol{k}}(r)+\v J_{\boldsymbol{k}}(r)\times\v B_{0}(r)),\\
+B_{\boldsymbol{k}r}^{\prime}(r)+i\boldsymbol{k}\cdot\boldsymbol{B}_{\boldsymbol{k}}(r) & =0,\\
+J_{\boldsymbol{k}r}^{\prime}(r)+i\boldsymbol{k}\cdot\boldsymbol{J}_{\boldsymbol{k}}(r) & =0.
+\end{align}
+
+\end_inset
+
+Here, vector quantities depending on 
+\begin_inset Formula $r$
+\end_inset
+
+ mean that their components in 
+\begin_inset Formula $(r,\tht,z)$
+\end_inset
+
+ depend only on 
+\begin_inset Formula $r$
+\end_inset
+
+, and primes mean radial derivatives.
+ Repeating the exercise from above we first take the parallel part by a
+ scalar product with 
+\begin_inset Formula $\boldsymbol{B}_{0}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+i\boldsymbol{k}\cdot\boldsymbol{B}_{0}p_{\boldsymbol{k}} & =\frac{1}{c}(\boldsymbol{B}_{0}\cdot(\v J_{0}\times\v B_{\boldsymbol{k}}))\nonumber \\
+ & =-\boldsymbol{B}_{\boldsymbol{k}}\cdot\nabla p_{0}=-\frac{1}{c}B_{\boldsymbol{k}r}p_{0}^{\prime}.
+\end{align}
+
+\end_inset
+
+This means that Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pmn"
+
+\end_inset
+
+ is represented by
+\begin_inset Formula 
+\begin{equation}
+p_{\boldsymbol{k}}=i\frac{B_{\boldsymbol{k}r}p_{0}^{\prime}}{\boldsymbol{k}\cdot\boldsymbol{B}_{0}}.
+\end{equation}
+
+\end_inset
+
+Resonance is obtained for 
+\begin_inset Formula $\boldsymbol{k}\parallel\boldsymbol{B}_{0}$
+\end_inset
+
+.
+ 
+\series bold
+This is already one term inside Heyn08, Eq.
+ (6), inside 
+\begin_inset Formula $F_{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Now we look at Ampere's law for the perturbation with
+\begin_inset Formula 
+\begin{equation}
+\nabla\times\boldsymbol{B}_{1}=\frac{4\pi}{c}\boldsymbol{J}_{1}.
+\end{equation}
+
+\end_inset
+
+Note that we don't assume it to be true for unperturbed quantities.
+ Then in 
+\begin_inset Formula $\boldsymbol{k}$
+\end_inset
+
+-space
+\begin_inset Formula 
+\begin{equation}
+i\boldsymbol{k}\times\boldsymbol{B}_{\boldsymbol{k}}-B_{\boldsymbol{k}z}^{\prime}\hat{\boldsymbol{e}}_{\tht}+B_{\boldsymbol{k}\tht}^{\prime}\hat{\boldsymbol{e}}_{r}=\frac{4\pi}{c}\boldsymbol{J}_{\boldsymbol{k}}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO: put everything together to obtain Heyn08, Eq.
+ (6).
 \end_layout
 
 \end_body
