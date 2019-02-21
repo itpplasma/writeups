@@ -1,0 +1,609 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\options notitlepage
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "tgpagella" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\u}[1]{\underline{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bA}{\boldsymbol{A}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bB}{\boldsymbol{B}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\c}{\mathrm{c}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\difp}[2]{\frac{\partial#1}{\partial#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\xset}{{\bf x}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\zset}{{\bf z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\qset}{{\bf q}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pset}{{\bf p}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Neoclassical Toroidal Viscous Torque
+\end_layout
+
+\begin_layout Author
+Christopher Albert
+\end_layout
+
+\begin_layout Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Neoclassical toroidal viscous torque, often called neoclassical toroidal
+ viscosity or NTV, is a result from non-axisymmetric perturbations in an
+ originally axisymmetric plasma equilibrium of a tokamak.
+ The underlying theory of neoclassical transport relies on distorted but
+ still nested flux surfaces, i.e.
+ 
+\emph on
+non-resonant 
+\emph default
+magnetic perturbations.
+ In case of 
+\emph on
+resonant
+\emph default
+ magnetic perturbations (RMPs) one must exclude resonant surfaces from the
+ analysis that yield a different mechanism of 
+\emph on
+resonant torque
+\emph default
+.
+ At sufficient distance from the resonant regions NTV theory is then applicable,
+ and the overall torque is the sum of non-resonant NTV torque and resonant
+ torque, respectively dominant in different radial regions of the plasma.
+ Apart from additional resonant torque contributions an important point
+ affecting the expected accuracy of NTV results is the reliance on a on
+ a given perturbed plasma equilibrium for neoclassical computations.
+ Finally, both, resonant and NTV torque affect this equilibrium, so it must
+ be found in a self-consistent way.
+ Such an effort including only NTV has been undertaken in
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Park2017"
+literal "false"
+
+\end_inset
+
+.
+ A full treatment must however also include resonant torque, requiring a
+ full Monte-Carlo kinetic computation coupled to Maxwell's equations necessary
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Albert2016"
+literal "false"
+
+\end_inset
+
+.
+ Analysis of NTV is still useful, as it allows to study and quantify the
+ influence of the non-resonant part of the perturbation on its own and is
+ much less computationally intensive than the full kinetic treatment of
+ perturbed equilibria.
+\end_layout
+
+\begin_layout Standard
+Generally we speak of toroidal torque as the driving term affecting 
+\emph on
+kinematic 
+\emph default
+toroidal angular momentum, as opposed to the total toroidal momentum including
+ electromagnetic effects that is always conserved.
+ Apart from a possible kinematic momentum source term from neutral beam
+ injection, internal torque affecting toroidal plasma rotation is always
+ electromagnetic, i.e.
+ linked to the Lorentz 
+\begin_inset Formula $\v J\times\v B$
+\end_inset
+
+ force.
+ Within ideal MHD equilibria, currents 
+\begin_inset Formula $\v J$
+\end_inset
+
+ and magnetic field 
+\begin_inset Formula $\v B$
+\end_inset
+
+ are parallel to flux surfaces and do not produce any forces, since radial
+ Lorentz forces balanced by 
+\begin_inset Formula $\nabla p$
+\end_inset
+
+ via
+\begin_inset Formula 
+\begin{equation}
+\nabla p=\v J\times\v B.
+\end{equation}
+
+\end_inset
+
+The MHD force balance is also valid in non-axisymmetric fields, where ideal
+ treatment is only possible away from resonant regions where surfaces of
+ 
+\begin_inset Formula $p=p_{0}+\delta p=\mathrm{const.}$
+\end_inset
+
+ coincide with perturbed flux surfaces 
+\begin_inset Formula $r=r_{0}+\delta r=\mathrm{const}$
+\end_inset
+
+.
+ When taking neoclassical transport into account one can show that it is
+ radially 
+\emph on
+ambipolar
+\emph default
+ in axisymmetric devices to leading order, i.e.
+ there is no net radial charge transport by different species.
+ This changes in a perturbed configuration, where the transport across the
+ perturbed flux surfaces (see Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Perturbed-and-unperturbed"
+
+\end_inset
+
+) becomes 
+\emph on
+non-ambipolar
+\emph default
+ and generates a net radial current.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+input{pertunpert.tpx}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Perturbed and unperturbed flux surfaces.
+ The projection of perturbed currents 
+\begin_inset Formula $J^{r_{0}}=\v J\cdot\nabla r_{0}$
+\end_inset
+
+ to the original radial direction 
+\begin_inset Formula $\nabla r_{0}$
+\end_inset
+
+ is of the order one and periodic in flux surface angles.
+ For NTV we are rather interested in the small 
+\begin_inset Formula $\delta J^{r}=\v J\cdot\nabla r$
+\end_inset
+
+ produced by non-ambipolar transport across perturbed flux surfaces 
+\begin_inset Formula $r=\mathrm{const.}$
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Perturbed-and-unperturbed"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The resulting toroidal torque density is defined as the covariant component
+ with respect to the toroidal angle 
+\begin_inset Formula $\ph$
+\end_inset
+
+ parametrizing the 
+\emph on
+perturbed
+\emph default
+ flux surfaces,
+\begin_inset Formula 
+\begin{equation}
+\pi_{\ph}=(\v J\times\v B)_{\ph}=\frac{1}{\sqrt{g}}\varepsilon\delta J^{r}B^{\tht}.\label{eq:lag}
+\end{equation}
+
+\end_inset
+
+Here we have marked 
+\begin_inset Formula $\delta J^{r}=\v J\cdot\nabla r$
+\end_inset
+
+ as a small quantity resulting from 
+\begin_inset Formula $\v J=\v J_{0}+\delta\v J$
+\end_inset
+
+.
+ This is not to be confused with the torque with respect to 
+\emph on
+unperturbed
+\emph default
+ flux surfaces having different coordinates 
+\begin_inset Formula $(r_{0},\tht_{0},\ph_{0})$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\pi_{\ph_{0}}=(\v J\times\v B)_{\ph_{0}}=\frac{1}{\sqrt{g}}(\delta J^{r_{0}}B^{\tht_{0}}-J^{\tht_{0}}\delta B^{r_{0}}).\label{eq:eul}
+\end{equation}
+
+\end_inset
+
+Here also the radial component 
+\begin_inset Formula $\delta B^{r_{0}}=\v B\cdot\nabla r_{0}$
+\end_inset
+
+ from 
+\begin_inset Formula $\v B=\v B_{0}+\delta\v B$
+\end_inset
+
+ enters, where 
+\begin_inset Formula $\v B_{0}\cdot\nabla r_{0}=0$
+\end_inset
+
+ on unperturbed flux surfaces.
+ The contribution 
+\begin_inset Formula 
+\begin{equation}
+J^{r_{0}}=\v J\cdot\nabla r_{0}=\v J\cdot\nabla(r-\delta r)=\delta J^{r}-\v J\cdot\nabla\delta r.
+\end{equation}
+
+\end_inset
+
+now contains not only small currents from 
+\begin_inset Formula $\delta J^{r}$
+\end_inset
+
+ non-ambipolar transport , but also currents parallel to perturbed flux
+ surfaces, containing angular components of the overall (order of 
+\begin_inset Formula $\v J_{0}$
+\end_inset
+
+) current 
+\begin_inset Formula $\v J$
+\end_inset
+
+ that is not parallel to surfaces 
+\begin_inset Formula $r_{0}=\mathrm{const.}$
+\end_inset
+
+ but rather to 
+\begin_inset Formula $r=\mathrm{const.}$
+\end_inset
+
+ due to the distortion.
+ Since the perturbation is periodic in angles, those additional periodic
+ contribution cancel out when computing the flux-surface averaged radial
+ torque density, and the two results become equivalant to leading order
+ in the perturbation.
+ In case of destroyed flux surfaces it is no longer possible to use Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lag"
+
+\end_inset
+
+ and one can only compute overall (including resonant) torque within Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eul"
+
+\end_inset
+
+ and flux-surface averaging.
+ In contrast, NTV torque corresponds to the toroidal component of the torque
+ generate by radial currents of non-ambipolar neoclassical transport with
+ respect to perturbed flux surfaces and can be most compactly formulated
+ in the Lagrangian picture working 
+\emph on
+on 
+\emph default
+those surfaces in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:lag"
+
+\end_inset
+
+.
+ Later we can make use of the assumption that the separation of perturbed
+ from unperturbed flux surfaces is infintesimal, and use flux coordinates
+ and orbits with regard to the unperturbed surfaces while evaluating toroidal
+ torque on perturbed surfaces.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Park2017"
+literal "false"
+
+\end_inset
+
+J.-K.
+ Park and N.
+ C.
+ Logan, “Self-consistent perturbed equilibrium with neoclassical toroidal
+ torque in tokamaks,” Phys.
+ Plasmas, vol.
+ 24, no.
+ 3, p.
+ 032505, Mar.
+ 2017.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Albert2016"
+literal "false"
+
+\end_inset
+
+C.
+ G.
+ Albert, M.
+ F.
+ Heyn, S.
+ V Kasilov, W.
+ Kernbichler, A.
+ F.
+ Martitsch, and A.
+ M.
+ Runov, “Kinetic modeling of 3D equilibria in a tokamak,” J.
+ Phys.
+ Conf.
+ Ser., vol.
+ 775, no.
+ 1, p.
+ 012001, Nov.
+ 2016.
+\end_layout
+
+\end_body
+\end_document

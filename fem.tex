@@ -1,0 +1,178 @@
+%% LyX 2.3.2-2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[naustrian]{article}
+\usepackage[T2A,T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2cm,bmargin=2cm,lmargin=2cm,rmargin=2cm}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{amsmath}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\DeclareRobustCommand{\cyrtext}{%
+  \fontencoding{T2A}\selectfont\def\encodingdefault{T2A}}
+\DeclareRobustCommand{\textcyr}[1]{\leavevmode{\cyrtext #1}}
+
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\title{Einführung in die Finite-Elemente-Methode}
+\author{Christopher Albert}
+\maketitle
+
+\subsection*{Poisson-Gleichung als Beispiel für ein Randwertproblem}
+
+Mit der Finite-Elemente-Methode (FEM) lassen sich Randwertprobleme
+partieller Differentialgleichungen (PDEs) auf nahezu beliebig geformten,
+endlichen Geometrien numerisch lösen. Als Beispiel betrachten wir
+die Potentialgleichung (Poissongleichung, per Konvention mit negativem
+Vorzeichen) in zwei Dimensionen $\boldsymbol{r}=(x,y)$,
+\begin{align}
+-\Delta u(\mathbf{r}) & =q(\mathbf{r}).\label{eq:Poisson}
+\end{align}
+Sie tritt z.B. in Elektrostatik und Elastizitätstheorie auf und besitzt
+typische Merkmale eines Randwertproblems:
+\begin{itemize}
+\item Elliptische partielle Differentialgleichung 2. Ordnung
+\item Mögliche Randbedingungen (pro Randstück immer nur eine auf einmal):
+
+\begin{itemize}
+\item 1. Randwertproblem (Dirichlet): Die Werte $u(\mathbf{r})$ werden
+am Rand vorgegeben. In der Elektrostatik (Potential $u(\mathbf{r}):=\phi(\mathbf{r})$
+und $q(\mathbf{r})=-\rho(\mathbf{r})/\varepsilon$) wird am Rand eine
+Spannung (Randpotential) angelegt.
+\item 2. Randwertproblem (Neumann): Die Normalableitungen $\frac{\partial u(\mathbf{r})}{\partial n}=\mathbf{n}\cdot\nabla u(\mathbf{r})$
+werden vorgegeben. In der Elektrostatik entspricht das der Normalkomponente
+des elektrischen Feldes $\mathbf{E}=-\nabla\phi$ und damit einer
+Randladungsdichte. 
+\item Gemischtes Randwertproblem (Robin): Eine Linearkombination aus Dirichlet-
+und Neumann-Problem $a(\mathbf{r})u(\mathbf{r})+b(\mathbf{r})\frac{\partial u(\mathbf{r})}{\partial\mathbf{n}}=c(\mathbf{r})$
+wird am Rand vorgegeben.
+\end{itemize}
+\end{itemize}
+
+\subsection*{Schwache Form der Poisson-Gleichung}
+
+Für die numerische Behandlung muss die Gleichung in Integralform gebracht
+werden. Das geschieht, indem man in (\ref{eq:Poisson}) alles auf
+die linke Seite bringt, mit einer beliebigen Testfunktion $v(\mathbf{r})$
+multipliziert und über das betrachtete Gebiet $\Omega$ integriert,
+\begin{align}
+-\int_{\Omega}v(\boldsymbol{r})\Delta u(\mathbf{r})\,d\Omega & -\int_{\Omega}v(\boldsymbol{r})q(\mathbf{r})\,d\Omega=0.
+\end{align}
+
+Das 2-dimensionale Volumenelement ist hier $d\Omega=dx\,dy$. Da wir
+$v(\boldsymbol{r})$ beliebig wählen können, ist es naheliegend, dass
+diese Form äquivalent zu Gleichung~(\ref{eq:Poisson}) ist. Das kann
+unter entsprechenden Voraussetzungen an die Funktionen $u$ und $v$
+bewiesen werden, wobei auf die mathematische Literatur zu dem Thema
+verwiesen sei. Die Anwendung der ersten Greenschen Identität (mehrdimensionale
+partielle Integration),
+\begin{align}
+\int_{\Omega}v\Delta u(\mathbf{r})+\nabla v(\mathbf{r})\cdot\nabla u(\mathbf{r})\,d\Omega & =\int_{\Gamma}v(\mathbf{r})\frac{\partial u(\mathbf{r})}{\partial\mathbf{n}}\,d\Gamma
+\end{align}
+führt zur Reduktion auf 1. Ableitungen und zur automatischen Berücksichtigung
+von Neumann-Randwerten auf dem Rand des Gebietes $\Gamma$. Die schwache
+Form kann nach Vorzeichenwechsel schließlich als
+\begin{align}
+\int_{\Omega}\nabla v(\mathbf{r})\cdot\nabla u(\mathbf{r})\,d\Omega-\int_{\Omega}v(\boldsymbol{r})q(\mathbf{r})\,d\Omega+\int_{\Gamma}v(\mathbf{r})\frac{\partial u(\mathbf{r})}{\partial\mathbf{n}}\,d\Gamma & =0
+\end{align}
+geschrieben werden. Wird der letzte Term nicht angegeben, entspricht
+die schwache Form einem homogenen Neumann-Problem mit verschwindender
+Normalableitung $\frac{\partial u(\mathbf{r})}{\partial\mathbf{n}}=0$
+am Rand. Achtung: Bei Neumann-Problemen muss immer (auch in der ursprünglichen
+Form) zusätzlich noch eine Kompatibilitätsbedingung
+\begin{align}
+-\int_{\Gamma}\frac{\partial u(\mathbf{r})}{\partial n}d\Gamma & =\int_{\Omega}q(\mathbf{r})d\Omega
+\end{align}
+erfüllen, die mit der Poisson-Gleichung aus dem Satz von Gauß folgt
+(entsprechend \emph{elektrischer Fluss = Gesamtladung im Inneren}).
+Dirichlet-Randwerte werden gesondert behandelt (z.B. Penalty-Methode).
+
+Da sie auf anderem Weg auch aus dem Variationsproblem der Minimierung
+eines Energiefunktionals folgt, wird die schwache Form auch Variationsform
+genannt. In diesem Sinn kann $v(\boldsymbol{r})=\delta u(\boldsymbol{r})$
+auch als Variation der Funktion $u(\boldsymbol{r})$ gesehen werden
+(siehe Literatur für Details). Bei der Poisson-Gleichung wird beispielsweise
+tatsächlich die physikalische Gesamtenergie minimal, das Konzept lässt
+sich aber auch verallgemeinern. Die \textquotedbl starke\textquotedbl{}
+Form, also die ursprünglichen partielle Differentialgleichung ist
+im Bezug auf diese Form analog zu sehen zu den Euler-Lagrange-Gleichungen
+eines Variationsproblems im Rahmen der Theorie der gewöhnlichen Differentialgleichungen
+($\rightarrow$ klassische Mechanik).
+
+\subsection*{Diskretisierung mit dem Ritz-Galerkin-Verfahren}
+
+Die schwache Form war der erste Schritt auf dem Weg zur numerischen
+Behandlung der PDE. Auf den ersten Blick erscheint das widersinnig,
+da wir jetzt ja sogar zwei Funktionen $u(\boldsymbol{r})$ und $v(\boldsymbol{r})$
+haben, die wir jeweils aus einem unendlichdimensionalen Funktionenraum
+wählen können. Um das Problem behandelbar zu machen, wählen wir einen
+endlichdimensionalen Unterraum, in dem wir die Funktionen näherungsweise
+darstellen. Das kann z.B. der Raum der Funktionen $\sin(k_{x}x+k_{y}y)$
+mit diskreten und nach oben begrenzten $k_{x},k_{y}$, oder wie im
+Fall der klassischen FEM der Raum der lokalen Polynomfunktionen, z.B.
+$a_{0i}+a_{1i}x+a_{2i}y$, wobei die Koeffizienten $a$ auf jedem
+Element $i$ (z.B. Dreiecke in 2D) des Rechengitters verschieden sein
+können, aber Übergangsbedingungen erfüllt sein müssen.
+
+Die Darstellung von Funktionen erfolgt als Linearkombination über
+Basisfunktionen $\varphi_{k}(\boldsymbol{r})$, also
+\begin{align}
+u(\boldsymbol{r}) & \approx\sum_{k=1}^{N}u_{k}\varphi_{k}(\boldsymbol{r}),
+\end{align}
+Wobei $N$ die Dimension des Unterraums ist. Werden auch die Testfunktion
+$v(\boldsymbol{r})$ aus diesem Raum gewählt, nennt man die Methode
+\emph{Ritz-Galerkin-Verfahren.}\footnote{Nach Walter Ritz und \textcyr{\CYRB\cyro\cyrr\cyri\cyrs} \textcyr{\CYRG\cyrr\cyri\cyrg\cyro\cyrr\cyrsftsn\cyre\cyrv\cyri\cyrch}
+\textcyr{\CYRG\cyra\cyrl\cyryo\cyrr\cyrk\cyri\cyrn}, dessen Nachname
+eigentlich \emph{Galjorkin} ausgesprochen wird.} Um den kompletten Unterraum aufspannen, genügen $N$ Testfunktionen,
+die wir direkt mit den Basisfunktionen gleichsetzen, $v_{j}(\boldsymbol{r})=\varphi_{j}(\boldsymbol{r})$. 
+
+Mit diesem Ansatz verwandelt sich die schwache Form der Poisson-Gleichung
+in 
+\begin{align}
+\sum_{k=1}^{N}\int_{\Omega}\nabla\varphi_{j}(\mathbf{r})\cdot(u_{k}\nabla\varphi_{k}(\mathbf{r}))\,d\Omega-\sum_{k=1}^{N}\int_{\Omega}\varphi_{j}(\mathbf{r})q_{k}\varphi_{k}(\mathbf{r})\,d\Omega+\sum_{k}^{\mathrm{Rand}}\int_{\Gamma}\varphi_{j}(\mathbf{r})u_{k}\frac{\partial\varphi_{k}(\mathbf{r})}{\partial\mathbf{n}}\,d\Gamma & =0,
+\end{align}
+wobei wir Konstanten $u_{k}$ und $q_{k}$ aus Ableitungen und Integralen
+herausziehen können. Die verbleibenden Integralausdrücke sind nur
+über die $\varphi_{j}(\mathbf{r})$, $\varphi_{k}(\mathbf{r})$
+\begin{align}
+\sum_{k=1}^{N}\,A_{jk}u_{k} & =\sum_{k=1}^{N}M_{jk}\,q_{k}-\sum_{k}^{\mathrm{Rand}}D_{jk}u_{k}=b_{j}
+\end{align}
+mit Matrizen
+\begin{align}
+A_{jk} & =\int_{\Omega}\nabla\varphi_{j}(\mathbf{r})\cdot\nabla\varphi_{k}(\mathbf{r})\,d\Omega,\qquad M_{jk}=\int_{\Omega}\varphi_{j}(\mathbf{r})\varphi_{k}(\mathbf{r})\,d\Omega,\qquad D_{jk}=\int_{\Gamma}\varphi_{j}(\mathbf{r})\frac{\partial\varphi_{k}(\mathbf{r})}{\partial\mathbf{n}}\,d\Gamma.
+\end{align}
+Das ist ein $N$-dimentionales lineares Gleichungssystem $A\boldsymbol{u}=\boldsymbol{b}$
+für den unbekanntem Vektor $\boldsymbol{u}$ und bekanntem Vektor
+$\boldsymbol{q}$ bzw. bekannten $D_{jk}u_{k}$ aus Neumann-Randwerten
+im Vektor $\boldsymbol{b}$ auf der rechten Seite. Entsprechend dem
+Ursprung der FEM in der Elastomechanik wird $A$ die Steifigkeitsmatrix,
+und $M$ die Massenmatrix genannt. Da die Funktionen $\varphi_{j}(\mathbf{r}),\,\varphi_{k}(\mathbf{r})$
+nur an Elementgrenzen im Gitter lokal überlappen, sind diese Matrizen
+dünn besetzt (\emph{sparse}) und das lineare System kann numerisch
+(Direkte, z.B. LU-Zerlegung, für kleine Systeme, iterative Verfahren
+wie GMRES für große) effizient gelöst werden.
+
+\subsection*{Vektorwertige Gleichungen}
+
+Um in Elektrodynamik, Fluidmechanik und Elastodynamik auftretende
+Gleichungen der Form
+\begin{align}
+\text{z.B.}\quad\nabla\times\nabla\times\boldsymbol{A} & =\boldsymbol{J}\quad\text{oder}\quad\nabla\cdot\boldsymbol{v}=0
+\end{align}
+zu lösen, ist es nicht ideal, Vektorfelder kompenentenweise in $A_{x},\,A_{y},\,A_{z}$
+mit gewöhnlichen Ansatzfunktionen zu behandeln. Stattdessen sind vektorwertige
+Ansatzfunktionen geeignet, welche die Stetigkeitsbedingung von Parallel-
+bzw. Normalkomponenten von Vektorfeldern korrekt wiedergeben. Stichworte
+hierzu sind \emph{Edge Elements, Vector Finite Elements }insbesondere
+Elemente benannt nach\emph{ Raviart-Thomas, Nédélec }und \emph{Brezzi-Douglas-Marini.
+}Die Sprache \emph{FreeFEM++} verfügt über Implementierungen solcher
+Elemente in 2D und 3D in erster und teilweise zweiter Ordnung (RT0,
+RT0Ortho, RT1, BDM0).
+\end{document}

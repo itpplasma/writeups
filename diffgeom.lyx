@@ -1,0 +1,498 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Itemize
+What is the use of differential forms?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We can write even more stuff coordinate-independent than with usual co-contravar
+iant notation.
+\end_layout
+
+\begin_layout Itemize
+The geometric structure of equations and how conservation laws follow become
+ apparent.
+\end_layout
+
+\begin_layout Itemize
+Discrete version tells us how to do numerics the 
+\begin_inset Quotes eld
+\end_inset
+
+right
+\begin_inset Quotes erd
+\end_inset
+
+ way.
+\end_layout
+
+\begin_layout Itemize
+A prime example are Maxwell's equations.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is a vector?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It points along a curve as a tangent.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What can we do with a vector?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We can differentiate along its direction.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is a covector (1-form)?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A map that yields a scalar to each vector.
+\end_layout
+
+\begin_layout Itemize
+A quantity associated with a surface.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What can we do with a covector?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Apply it to a vector.
+ 
+\end_layout
+
+\begin_layout Itemize
+This yields a scalar product i.e.
+ the angle between the tangent vector and the surface normal.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is the metric?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It defines how lengths and distances work.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+How can we use the metric?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Get the covector to a vector that yields scalar product 1.
+\end_layout
+
+\begin_layout Itemize
+i.e.
+ the plane whose normal vector coincides with a given vector.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is an inner product?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Apply 
+\begin_inset Formula $p$
+\end_inset
+
+-form to vector and get a 
+\begin_inset Formula $p-1$
+\end_inset
+
+-form.
+\end_layout
+
+\begin_layout Itemize
+But wait, didn't you say that a 
+\begin_inset Formula $p$
+\end_inset
+
+-form acts on 
+\begin_inset Formula $p$
+\end_inset
+
+ vectors?
+\end_layout
+
+\begin_layout Itemize
+Yes, we define our 
+\begin_inset Formula $p-1$
+\end_inset
+
+-form such that it gives the same scalar as the 
+\begin_inset Formula $p$
+\end_inset
+
+-form when the vector is inserted at the first position.
+\end_layout
+
+\begin_layout Itemize
+Examples:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\v E\cdot\vec{v}=i_{v}\v E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\vec{v}\times\v B=i_{v}\v B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\rho\vec{v}=i_{v}\rho$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+What is a Hodge operator?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Associates a 
+\begin_inset Formula $n-p$
+\end_inset
+
+-form to a 
+\begin_inset Formula $p$
+\end_inset
+
+-form.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+How to do a Fourier expansion in curvilinear coordinates?
+\end_layout
+
+\begin_layout Subsection
+Simple cases
+\end_layout
+
+\begin_layout Standard
+In Cartesian coordinates the basis 
+\begin_inset Formula $\v e_{x},\v e_{y},\v e_{z}$
+\end_inset
+
+ doesn't depend on the coordinates and is orthonormal.
+ Thus, physical, co- and contravariant components of vector fields become
+ one, and we can write any vector field 
+\begin_inset Formula $\v B$
+\end_inset
+
+ as a Fourier series in either up to all coordinates, i.e.
+\begin_inset Formula 
+\begin{align}
+\v B & =B^{x}(x,y,z)\v e_{x}+B^{y}(x,y,z)\v e_{y}+B^{z}(x,y,z)\v e_{z}\\
+ & =\sum_{k=-\infty}^{\infty}\left(B_{k}^{x}(x,y)\v e_{x}+B_{k}^{y}(x,y)\v e_{y}+B_{k}^{z}(x,y)\v e_{z}\right)e^{ikz}\\
+ & =\sum_{\v k}(B_{\v k}^{x}\v e_{x}+B_{\v k}^{y}\v e_{y}+B_{\v k}^{z}\v e_{z})e^{i\v k\cdot\v x},
+\end{align}
+
+\end_inset
+
+where also in the latter 
+\begin_inset Formula $\v k=(k_{x},k_{y},k_{z})$
+\end_inset
+
+ all three indexes run from 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ to 
+\begin_inset Formula $\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+General co- and contravariant case
+\end_layout
+
+\begin_layout Standard
+In any curvilinear coordinates 
+\begin_inset Formula $\v x=(x^{1},x^{2},x^{3})$
+\end_inset
+
+ we can write a Fourier series for a vector in contravariant components
+ with
+\begin_inset Formula 
+\begin{align*}
+\v B & =B^{1}(\v x)\v e_{1}(\v x)+B^{2}(\v x)\v e_{2}(\v x)+B^{3}(\v x)\v e_{3}\\
+ & =\sum_{n=-\infty}^{\infty}\left(B_{n}^{1}(x^{1},x^{2})\v e_{1}(\v x)+B_{n}^{2}(x^{1},x^{2})\v e_{2}(\v x)+B_{n}^{3}(x^{1},x^{2})\v e_{3}(\v x)\right)e^{inx^{3}}
+\end{align*}
+
+\end_inset
+
+or for a vector 
+\begin_inset Formula $\v A$
+\end_inset
+
+ in covariant components with
+\begin_inset Formula 
+\begin{align*}
+\v A & =A_{1}(\v x)\nabla x^{1}(\v x)+A_{2}(\v x)\nabla x^{2}(\v x)+A_{3}(\v x)\nabla x^{3}(\v x)\\
+ & =\sum_{n=-\infty}^{\infty}\left(A_{1n}(x^{1},x^{2})\nabla x^{1}(\v x)+A_{2n}(x^{1},x^{2})\nabla x^{2}(\v x)+A_{3n}(x^{1},x^{2})\nabla x^{3}(\v x)\right)e^{inx^{3}}.
+\end{align*}
+
+\end_inset
+
+Here we intentionally keep the full dependency on all coordinates in the
+ basis vectors 
+\begin_inset Formula $\v e_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\v e^{k}=\nabla x^{k}$
+\end_inset
+
+ and apply the Fourier expansion only on vector components.
+ It makes a difference whether one expands in co- or contravariant components.
+ E.g.
+ a vector potential 
+\begin_inset Formula $\v A$
+\end_inset
+
+ is naturally given in covariant form such that its curl can be nicely separated
+ in Fourier form (try it).
+\end_layout
+
+\begin_layout Subsection
+Contravariant vector densities aka 2-forms
+\end_layout
+
+\begin_layout Standard
+Take a solenoidal vector field 
+\begin_inset Formula $\v B$
+\end_inset
+
+.
+ In usual contravariant notation this would mean
+\begin_inset Formula 
+\begin{equation}
+0=\nabla\cdot\v B=\frac{1}{\sqrt{g}}\partial_{k}(\sqrt{g}B^{k})=0.
+\end{equation}
+
+\end_inset
+
+Using instead of contravariant components 
+\begin_inset Formula $B^{k}$
+\end_inset
+
+ contravariant density components 
+\begin_inset Formula $\mathcal{B}^{k}=\sqrt{g}B^{k}$
+\end_inset
+
+ (or, equivalently, the entries of 
+\begin_inset Formula $\v B$
+\end_inset
+
+ written as an antisymmetric 2-form) we can simplify this to
+\begin_inset Formula 
+\begin{equation}
+\partial_{k}\mathcal{B}^{k}=0.
+\end{equation}
+
+\end_inset
+
+In cylindrical coordinates with 
+\begin_inset Formula $\sqrt{g}=R$
+\end_inset
+
+ or magnetic flux coordinates in an axisymmetric tokamak this doesn't make
+ a difference for toroidal expansion in 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, as 
+\begin_inset Formula $\sqrt{g}$
+\end_inset
+
+ doesn't depend on 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

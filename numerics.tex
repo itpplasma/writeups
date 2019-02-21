@@ -1,0 +1,244 @@
+%% LyX 2.3.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[british,english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\usepackage{amsmath}
+\usepackage{babel}
+\begin{document}
+\selectlanguage{british}%
+\global\long\def\tht{\vartheta}%
+\global\long\def\ph{\varphi}%
+\global\long\def\balpha{\boldsymbol{\alpha}}%
+\global\long\def\btheta{\boldsymbol{\theta}}%
+\global\long\def\bJ{\boldsymbol{J}}%
+\global\long\def\bGamma{\boldsymbol{\Gamma}}%
+\global\long\def\bOmega{\boldsymbol{\Omega}}%
+\global\long\def\d{\text{d}}%
+\global\long\def\t#1{\text{#1}}%
+\global\long\def\m{\text{m}}%
+\global\long\def\v#1{\boldsymbol{#1}}%
+
+\global\long\def\t#1{\mathbf{#1}}%
+
+\selectlanguage{english}%
+
+\section{Global interpolation techniques}
+
+\subsection{Series expansion in a Hilbert space}
+
+Consider a complete basis $\{\ph_{n}\}$ for functions in a Hilbert
+space with inner product $\left\langle f,g\right\rangle $. This means
+we can write every function as
+
+\begin{equation}
+f(x)=\sum_{n=0}^{\infty}f_{n}\ph_{n}(x).
+\end{equation}
+To find the coefficients $f_{n}$ we do a projection
+\begin{equation}
+\left\langle \ph_{m},f\right\rangle =\left\langle \ph_{m},\sum_{n=0}^{\infty}f_{n}\ph_{n}\right\rangle =\sum_{n=0}^{\infty}\left\langle \ph_{m},\ph_{n}\right\rangle f_{n}.
+\end{equation}
+Here we could move the infinite sum and the coefficients $f_{n}$
+out of the inner product, as the latter is linear and continuous in
+both arguments. To solve this problem for $f_{n}$ we can truncate
+the sum with $m,n\leq N$ and solve a set of $N+1$ linear equations
+\begin{align}
+\sum_{n=0}^{N}A_{mn}f_{n} & =b_{m},\quad\text{where}\\
+A_{mn} & =\left\langle \ph_{m},\ph_{n}\right\rangle ,\quad b_{m}=\left\langle \ph_{m},f\right\rangle .
+\end{align}
+If the property of \textbf{\emph{orthogonality }}
+
+\[
+\left\langle \ph_{m},\ph_{n}\right\rangle =\left\langle \ph_{n},\ph_{n}\right\rangle \delta_{mn}
+\]
+is fulfilled we don't need to limit ourself to a finite system, but
+can solve exactly
+\begin{equation}
+f_{n}=\frac{\left\langle \ph_{n},f\right\rangle }{\left\langle \ph_{n},\ph_{n}\right\rangle }.\label{eq:coeff}
+\end{equation}
+Two bases that are orthogonal under the usual $L_{2}$ norm
+\begin{equation}
+\left\langle f,g\right\rangle =\int_{a}^{b}f(x)g(x)\,\d x
+\end{equation}
+over some finite interval $[a,b]$ are Fourier (sine/cosine/complex
+exponential) series bases and Legendre polynomials. There exists a
+wider class of \emph{orthogonal polynomials }that are orthogonal with
+respect to an inner product with a weight function $w$ with
+\begin{equation}
+\left\langle f,g\right\rangle =\int_{a}^{b}w(x)f(x)g(x)\,\d x,
+\end{equation}
+where either $a$ or $b$ or both limits can be infinite.
+
+\subsection{Fourier series}
+
+TODO
+
+\subsection{Legendre polynomials}
+
+Every square-integrable function $f$ on the interval $[0,1]$ can
+be represented as
+\begin{equation}
+f(x)=\sum_{n=0}^{\infty}f_{n}P_{n}(x).
+\end{equation}
+The coefficients $f_{n}$ can be computed by using the especially
+simple orthogonality relation with
+\begin{equation}
+\left\langle P_{m},P_{n}\right\rangle =\int_{-1}^{1}P_{m}(x)P_{n}(x)\d x=\frac{2}{2n+1}\delta_{mn}.
+\end{equation}
+According to Eq.~(\ref{eq:coeff}) coefficients in the Legendre basis
+are given by
+\begin{equation}
+f_{n}=\frac{2n+1}{2}\int_{-1}^{1}P_{n}(x)f(x)\d x.
+\end{equation}
+
+
+\subsubsection{Derivatives}
+
+We can compute derivatives of Legendre polynomials by
+\begin{equation}
+(n-m)P_{n}^{(m)}(x)=(2n-1)xP_{n}^{(m)}(x)-(n-1+m)P_{n-2}^{(m)}(x)
+\end{equation}
+and
+\begin{align}
+P_{m}^{(m)}(x) & =\frac{(2m)!}{2^{m}m!},\\
+P_{k}^{(m)}(x) & =0\quad\text{for }k<m.
+\end{align}
+In particular, first derivatives are given by
+\begin{equation}
+(n-1)P_{n}^{\prime}(x)=(2n-1)xP_{n}^{\prime}(x)-(n-1+m)P_{n-2}^{\prime}(x)
+\end{equation}
+starting the recursion with
+\begin{align}
+P_{0}^{\prime}(x) & =0,\\
+P_{1}^{\prime}(x) & =1.
+\end{align}
+
+
+\subsection{Hierarchical combination of different bases}
+
+The described method seems to be closely related to hierarchical and
+multigrid/multilevel methods, and coarse grid preconditioners. The
+advantage of this method is that we can ``filter out'' coarse scales
+of the problem by a global basis and treat the remaining fine scales
+in a local basis. This way we get the ``best of both worlds'' and
+retain global continuity.
+
+Say we have two (incomplete/finite) bases $\{\ph_{n}^{(1)}\}$ and
+$\{\ph_{k}^{(2)}\}$. We want to solve a linear differential equations
+\begin{equation}
+Df(x)=g(x)\label{eq:D}
+\end{equation}
+on some domain. Now we first solve a discrete equation in the coefficients
+with
+\begin{equation}
+\sum_{n}D_{mn}^{(1)}f_{n}^{(1)}=g_{m}^{(1)},\label{eq:D1}
+\end{equation}
+where
+\begin{equation}
+f^{(1)}(x)=\sum_{n}f_{n}^{(1)}\ph_{n}(x),\quad g^{(1)}(x)=\sum_{n}g_{n}^{(1)}\ph_{n}(x).
+\end{equation}
+Solving Eq.~(\ref{eq:D1}) leads an approximate solution of Eq.~(\ref{eq:D})
+but yields the exact relation
+\begin{equation}
+Df^{(1)}(x)=g^{(1)}(x).\label{eq:D-1}
+\end{equation}
+In the second step we subtract the solution from the right-hand side
+and try to solve
+\begin{equation}
+Df(x)=g(x)-g^{(1)}(x)\equiv g^{(2)}(x).
+\end{equation}
+Thus
+\begin{equation}
+\sum_{n}D_{jk}^{(2)}f_{k}^{(2)}=g_{j}^{(2)}.
+\end{equation}
+Again the solution is not exact but we obtain rather
+\[
+Df^{(2)}(x)=g^{(2)}(x)-g^{(\text{res})}(x)
+\]
+with some residual $g^{(\text{res})}$.
+
+To sum up, we have split the problem into 
+\begin{align}
+Df^{(1)}(x) & =g^{(1)}(x)\equiv g(x)-g^{(2)}(x),\\
+Df^{(2)}(x) & =g^{(2)}(x)-g^{(\text{res})}(x),
+\end{align}
+where the first equation is exactly solved since $g^{(2)}$ is set
+to the residual with respect to the exact solution. The approximation
+appears at the very bottom with $g^{(\text{res})}(x)$. If we take
+a sum we see that $g^{(2)}$ cancels and the overall approximate solution
+\[
+f^{(h)}=f^{(1)}+f^{(2)}
+\]
+fulfills
+\begin{align}
+Df^{(h)}(x) & =g(x)-g^{(\text{res})}(x).
+\end{align}
+We could continue this process for an arbitrary number of hierarchy
+levels by setting $g^{(\text{res})}$ to $g^{(3)}$ and so on.
+
+\section{Root finding}
+
+When sufficiently close to a local minimum we use a Taylor expansion
+\begin{equation}
+0=f(x_{0})=f(x)+(x_{0}-x)f^{\prime}(x)+\mathcal{O}(|x-x_{0}|^{2})
+\end{equation}
+to obtain the next best guess $x_{k+1}\approx x_{0}$ via
+\begin{equation}
+x_{k+1}=x_{k}-\frac{f(x_{k})}{f^{\prime}(x_{k})}.\label{eq:xkp1}
+\end{equation}
+Or in $n$ dimensions
+\begin{equation}
+0=\boldsymbol{F}(\boldsymbol{x}_{0})=\boldsymbol{F}(\boldsymbol{x})+(D_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}))(\boldsymbol{x}-\boldsymbol{x}_{0})+\mathcal{O}(|\boldsymbol{x}-\boldsymbol{x}_{0}|^{2})
+\end{equation}
+The equivalent iteration rule to Eq.~(\ref{eq:xkp1}) would be
+\begin{equation}
+\boldsymbol{x}_{k+1}=\boldsymbol{x}_{k}-(D_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}))^{-1}\boldsymbol{F}(\boldsymbol{x}_{k}).
+\end{equation}
+Instead of inverting the Jacobian $D_{\boldsymbol{x}}\boldsymbol{F}$
+here it is often more efficient and numerically stable to solve the
+linear system
+\begin{equation}
+(D_{\boldsymbol{x}}\boldsymbol{F}(\boldsymbol{x}))\Delta\boldsymbol{x}_{k+1}=-\boldsymbol{F}(\boldsymbol{x}_{k})
+\end{equation}
+in $\Delta\boldsymbol{x}_{k+1}\equiv\boldsymbol{x}_{k+1}-\boldsymbol{x}_{k}$
+instead.
+
+\subsection{Linear extrapolation}
+
+Since $\boldsymbol{F}$ and $\nabla\boldsymbol{F}$ are only evaluated
+at the second-last position $\boldsymbol{x}_{N-1}$ before convergence
+is reached at $\boldsymbol{x}_{N}$, we cannot directly re-use quantities
+that have been computed during this evaluation without another evaluation
+at $\boldsymbol{x}_{N}$. Consider a quantity $a(\boldsymbol{x})$.
+In case both $a(\boldsymbol{x}_{N-1})$ and $\nabla a(\boldsymbol{x}_{N-1})$
+are known from the last iteration step, a good approximation at $\boldsymbol{x}_{N}$
+is given by the linear extrapolation
+\begin{equation}
+a(\boldsymbol{x}_{N})=a(\boldsymbol{x}_{N-1})+(\boldsymbol{x}_{N}-\boldsymbol{x}_{N-1})\cdot\nabla a(\boldsymbol{x}_{N-1})+\mathcal{O}(|\boldsymbol{x}_{N}-\boldsymbol{x}_{N-1}|^{2}).
+\end{equation}
+Thus we can save one evaluation of $a$ in computations done at the
+final position $\boldsymbol{x}_{N}$ after convergence of a root-finding
+scheme.
+
+\subsection{Error analysis}
+
+See also http://www.math.usm.edu/lambers/mat460/fall09/lecture12.pdf
+and http://www.math.niu.edu/\textasciitilde dattab/MATH435.2013/ROOT\_FINDING.pdf
+
+Suppose we are performing a fixed-point iteration
+\begin{equation}
+x_{k+1}=g(x_{k})
+\end{equation}
+converging towards $x^{\star}$ with $f(x^{\star})=0$. In practice
+we stop either if either
+\begin{equation}
+|f(x_{n})|<\text{atol}
+\end{equation}
+or
+\begin{equation}
+\frac{|x_{n}-x_{n-1}|}{|x_{n}|}<\text{rtol}
+\end{equation}
+or the number of iteration has reached its maximum.
+\end{document}

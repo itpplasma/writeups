@@ -1,0 +1,6764 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass revtex4-1
+\options nofootinbib, tightenlines, notitlepage
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "tgpagella" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype true
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_title "Plasma Physics"
+\pdf_author "Christopher Albert"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type numerical
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\mathrm{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tT}{\boldsymbol{\mathsf{T}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tI}{\boldsymbol{\mathsf{I}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tP}{\boldsymbol{\mathsf{P}}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vv}{\boldsymbol{v}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Plasma Physics
+\end_layout
+
+\begin_layout Author
+Christopher Albert
+\end_layout
+
+\begin_layout Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This document is a write-up for the plasma physics course at TU Graz with
+ the goal of becoming the new lecture notes.
+ While derivations in the original lecture notes are kept short, they are
+ listed more extensively here for better understanding.
+ Before going to the actual problems, we summarize some general concepts
+ that are required for treating them.
+ Most of those concepts have a much wider application than plasma physics,
+ so it's a good idea to be familiar with them.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Common Concepts
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Concept 1: Tensor calculus
+\end_layout
+
+\begin_layout Standard
+First we summarize some rules of tensor calculus that are required for certain
+ tasks within plasma physics.
+ A summary of rules of vector and tensor calculus is available in the NRL
+ plasma formulary.
+ Some rules are
+\end_layout
+
+\begin_layout Standard
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+BAC-CAB rule: 
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\begin{equation}
+\v a\times(\v b\times\v c)=(\v c\times\v b)\times\v a=\v b(\v a\cdot\v c)-\v c(\v a\cdot\v b)
+\end{equation}
+
+\end_inset
+
+The scalar product is not commutative for tensors:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\v a\cdot\nabla\v b=(\v a\cdot\nabla)\v b=\v a\cdot(\nabla\v b)\neq(\nabla\v b)\cdot\v a
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cross-product with a curl:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\v a\times(\nabla\times\v b)=(\nabla\v b)\cdot\v a-\v a\cdot\nabla\v b\label{eq:eq3}
+\end{equation}
+
+\end_inset
+
+Divergence of a dyad:
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot(\v a\v b)=(\v a\cdot\nabla)\v b+(\nabla\cdot\v a)\v b\label{eq:diaddiv}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Those rules can be deduced from using index notation for the respective
+ operations.
+ For application in research and engineering it is important to note that
+ tensor calculus can be formulated in a flexible and coordinate-independent
+ way within the co-contravariant formalism.
+ More detailed derivations on this very convenient way of treating curvilinear
+ coordinates can be found in the first chapters of the book of Callen/d'haeselee
+r 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Callen1991"
+literal "false"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+
+\series bold
+Taylor expansion of vector fields
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Taylor-expansion-of"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second order expansion of a vector field 
+\begin_inset Formula $\v A(\v r)$
+\end_inset
+
+ around a point 
+\begin_inset Formula $\v R$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\begin{align}
+\v A(\v R+\v{\rho}) & =\v A(\v R)+(\v{\rho}\cdot\nabla)\v A(\v R)+(\v{\rho}\v{\rho}:\nabla\nabla))\v A(\v R)+\mathcal{O}(\rho^{3}).
+\end{align}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\v{\rho}\v{\rho}$
+\end_inset
+
+ and 
+\begin_inset Formula $\nabla\nabla$
+\end_inset
+
+ are two dyades combined by a scalar product.
+ where differentiation doesn't act on 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+.
+ In index notation this means
+\begin_inset Formula 
+\begin{equation}
+A_{i}(\v R+\v{\rho})=A_{i}(\v R)+\rho_{j}\partial_{j}A_{i}(\v R)+(\rho_{k}\rho_{l}\partial_{k}\partial_{l})A_{i}(\v R)+\mathcal{O}(\rho^{3}).
+\end{equation}
+
+\end_inset
+
+The convention is that a sum is taken automatically over indexes appearing
+ twice, and we skip the sum sign.
+ If we consider the dyade
+\begin_inset Formula 
+\begin{equation}
+(\nabla\v A)_{kl}=\partial_{k}A_{l}.
+\end{equation}
+
+\end_inset
+
+We see that the first order term can be written without brackets as
+\begin_inset Formula 
+\begin{equation}
+(\v{\rho}\cdot\nabla)\v A=\v{\rho}\cdot\nabla\v A.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the second order term we combine
+\begin_inset Formula 
+\begin{equation}
+\rho_{k}\rho_{l}\partial_{k}\partial_{l}=(\rho_{k}\partial_{k})(\rho_{l}\partial_{l}).
+\end{equation}
+
+\end_inset
+
+Thus it can also be written as a dyad itself via
+\begin_inset Formula 
+\begin{equation}
+\v{\rho}\v{\rho}:\nabla\nabla=(\v{\rho}\cdot\nabla)(\v{\rho}\cdot\nabla),
+\end{equation}
+
+\end_inset
+
+where derivatives don't act on 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+.
+ As an example we can look at Cartesian coordinates 
+\begin_inset Formula $(x^{1},x^{2})$
+\end_inset
+
+ in 2D and a vector component
+\begin_inset Formula 
+\begin{align*}
+A_{i}(\v R+\v{\rho}) & =A_{i}(\v R)\\
+ & +\rho^{1}\partial_{1}A_{i}(\v R)+\rho^{2}\partial_{2}A_{i}(\v R)\\
+ & +(\rho^{1})^{2}\partial_{11}A_{i}(\v R)+2\rho^{1}\rho^{2}\partial_{12}A_{i}(\v R)+(\rho^{2})^{2}\partial_{22}A_{i}(\v R)\\
+ & +\mathcal{O}(\rho^{3}).
+\end{align*}
+
+\end_inset
+
+Here we used the shorthand notation 
+\begin_inset Formula $\partial_{k}\partial_{l}\equiv\partial_{kl}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\rho^{1}\rho^{2}\partial_{12}=\rho^{2}\rho^{1}\partial_{21}$
+\end_inset
+
+ a coefficient 
+\begin_inset Formula $2$
+\end_inset
+
+ appears in front of this term in the second order term of the Taylor expansion.
+ Going to higher orders, such factors will be binomial coefficients in 2D
+ and multinomial coefficients in 
+\begin_inset Formula $N$
+\end_inset
+
+-D.
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Concept 2: Fluid mechanics
+\end_layout
+
+\begin_layout Standard
+Let's look at the general form of fluid equations.
+ The derivation relies on the intuitive picture what a 
+\begin_inset Quotes eld
+\end_inset
+
+flux
+\begin_inset Quotes erd
+\end_inset
+
+ is.
+ A rigorous derivation of fluid equations can be performed from individual
+ particles via kinetic theory.
+\end_layout
+
+\begin_layout Standard
+We start with the conservation law for mass density 
+\begin_inset Formula $\rho_{m}(\v r,t)$
+\end_inset
+
+ known as the continuity equation.
+ In a fluid moving with velocity 
+\begin_inset Formula $\v v(\v r,t)$
+\end_inset
+
+, mass is transported by the mass flux 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\Gamma}_{m}(\v r,t)=\rho_{m}(\v r,t)\v v(\v r,t).
+\end{equation}
+
+\end_inset
+
+The mass flux is a vector field parallel to 
+\begin_inset Formula $\v v(\v r,t)$
+\end_inset
+
+ and of scales with the mass available to move in 
+\begin_inset Formula $\v x$
+\end_inset
+
+ quantified by 
+\begin_inset Formula $\rho_{m}(\v r,t)$
+\end_inset
+
+.
+ Now we consider a volume 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ fixed to the lab frame.
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This is the Eulerian picture, as opposed to the Lagrangian picture, where
+ a volume is moved and distorted together with the fluid flow.
+ 
+\end_layout
+
+\end_inset
+
+ We compute the total mass inside 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ via a volume integral over 
+\begin_inset Formula $\rho_{m}$
+\end_inset
+
+.
+ If the system's total mass should be conserved, a change in mass in the
+ volume 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ can only be caused by an in-/outflux of mass via 
+\begin_inset Formula $\v{\Gamma}_{m}$
+\end_inset
+
+ over its boundary surface 
+\begin_inset Formula $\partial\Omega$
+\end_inset
+
+.
+ Mathematically we formulate this as a relation between a partial time derivativ
+e over the total mass and a surface integral over 
+\begin_inset Formula $\v{\Gamma}_{m}$
+\end_inset
+
+ and obtain the law of
+\series bold
+
+\begin_inset Newline newline
+\end_inset
+
+Mass conservation (integral)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial t}\int_{\Omega}\rho_{m}(\v r,t)\d V+\int_{\partial\Omega}\boldsymbol{\Gamma}_{m}(\v r,t)\cdot\d\v S=0.
+\end{equation}
+
+\end_inset
+
+Note that a positive flux 
+\begin_inset Formula $\boldsymbol{\Gamma}_{m}$
+\end_inset
+
+ points outwards, such that it needs to be compensated by a reduction of
+ integral mass via its partial time derivative.
+ Now we can exchange derivative and integral, as 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is fixed during time and use the divergence theorem to obtain
+\begin_inset Formula 
+\begin{equation}
+\int_{\Omega}\frac{\partial\rho_{m}(\v r,t)}{\partial t}+\nabla\cdot\boldsymbol{\Gamma}_{m}(\v r,t)\d V=0.
+\end{equation}
+
+\end_inset
+
+Since this relation is true independent on the choice of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, it must hold for the integrand.
+ Thus we obtain the law of
+\series bold
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Mass conservation (differential) / continuity equation
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\rho_{m}(\v r,t)}{\partial t}+\nabla\cdot\boldsymbol{\Gamma}_{m}(\v r,t)=0.
+\end{equation}
+
+\end_inset
+
+or explicitly
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\rho_{m}(\v r,t)}{\partial t}+\nabla\cdot(\rho_{m}(\v r,t)\v v(\v r,t))=0.
+\end{equation}
+
+\end_inset
+
+For a single species of particles of mass 
+\begin_inset Formula $m$
+\end_inset
+
+ we can write 
+\begin_inset Formula $\rho_{m}(\v r,t)=m\,n(\v r,t)$
+\end_inset
+
+ via the number density 
+\begin_inset Formula $n(\v x,t)$
+\end_inset
+
+ and write the law of
+\series bold
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Number density conservation
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial n(\v r,t)}{\partial t}+\nabla\cdot(\v v(\v r,t)n(\v r,t))=0.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The second conserved quantity we are interested in is the momentum density
+ 
+\begin_inset Formula $\boldsymbol{p}$
+\end_inset
+
+ in absence of external forces.
+ Since momentum is a vector, its flux 
+\begin_inset Formula $\boldsymbol{\Gamma}_{\v p}$
+\end_inset
+
+ must be a rank-2 tensor.
+ The result is still the same as for mass or any other conservation law,
+ yielding the
+\series bold
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Total momentum conservation
+\series default
+ 
+\series bold
+law (differential)
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\boldsymbol{p}(\v r,t)}{\partial t}+\nabla\cdot\boldsymbol{\Gamma}_{\v p}(\v r,t)=0.
+\end{equation}
+
+\end_inset
+
+In case of external forces, they would appear as a 
+\emph on
+source
+\emph default
+ on the right-hand side as force densities 
+\begin_inset Formula $\boldsymbol{f}$
+\end_inset
+
+.
+ The overall momentum density consists of 
+\emph on
+kinematic fluid
+\emph default
+ 
+\begin_inset Formula $\v p^{\text{fl}}=\rho_{m}\v v$
+\end_inset
+
+ and 
+\emph on
+electromagnetic
+\emph default
+ momentum density 
+\begin_inset Formula $\v p^{\text{EM}}=\boldsymbol{S}/c^{2}$
+\end_inset
+
+, where 
+\begin_inset Formula $\boldsymbol{S}$
+\end_inset
+
+ is the Poynting vector.
+ The momentum flux consists of a fluid part
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Here 
+\begin_inset Formula $\t T=\boldsymbol{v}\v w$
+\end_inset
+
+ means the outer product 
+\begin_inset Formula $\boldsymbol{v}\otimes\boldsymbol{w}$
+\end_inset
+
+, being a rank-2 tensor with Cartesian components 
+\begin_inset Formula $T_{ij}=v_{i}w_{j}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\boldsymbol{\Gamma}_{\v p}^{\text{fl}}=\v v\v p_{\text{fl}}$
+\end_inset
+
+, but is also influenced by 
+\emph on
+thermodynamic
+\emph default
+ effects, namely the width of the distribution around the average velocity
+ 
+\begin_inset Formula $\boldsymbol{v}$
+\end_inset
+
+.
+ We separate out 
+\emph on
+electrodynamic
+\emph default
+ and 
+\emph on
+thermodynamic
+\emph default
+ effects in the total momentum conservation law, such that they appear as
+ forces on the right-hand side, leading to the
+\series bold
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Kinematic fluid momentum law
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\v p^{\mathrm{fl}}(\v r,t)}{\partial t}+\nabla\cdot(\v v(\v r,t)\v p^{\mathrm{fl}}(\v r,t))=-\nabla p(\v r,t)+q\nabla\Phi(\v r,t).
+\end{equation}
+
+\end_inset
+
+In Cartesian coordinates the divergence of a rank-2 tensor 
+\begin_inset Formula $\t T$
+\end_inset
+
+ is a column vector whose components are the divergence of tensor columns,
+ so
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot\t T=\left(\begin{array}{c}
+\nabla\cdot\boldsymbol{T}_{\cdot1}\\
+\nabla\cdot\boldsymbol{T}_{\cdot2}\\
+\nabla\cdot\boldsymbol{T}_{\cdot3}
+\end{array}\right)=\left(\begin{array}{c}
+\frac{\partial}{\partial x^{1}}T_{11}+\frac{\partial}{\partial x^{2}}T_{21}+\frac{\partial}{\partial x^{3}}T_{31}\\
+\frac{\partial}{\partial x^{1}}T_{12}+\frac{\partial}{\partial x^{2}}T_{22}+\frac{\partial}{\partial x^{3}}T_{32}\\
+\frac{\partial}{\partial x^{1}}T_{13}+\frac{\partial}{\partial x^{2}}T_{23}+\frac{\partial}{\partial x^{3}}T_{33}
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+Now we can further modify this using mass continuity by using a rule from
+ tensor calculus to write the flux vector 
+\begin_inset Formula $\nabla\cdot\boldsymbol{\Gamma}_{\v p}^{\text{fl}}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{align}
+\nabla\cdot\boldsymbol{\Gamma}_{\v p}^{\mathrm{fl}}=\nabla\cdot(\v v\v p^{\mathrm{fl}}) & =\v p^{\mathrm{fl}}(\nabla\cdot\v v)+(\v v\cdot\nabla)\v p^{\mathrm{fl}}.\\
+ & =\rho_{m}\boldsymbol{v}
+\end{align}
+
+\end_inset
+
+Here, 
+\begin_inset Formula $\boldsymbol{v}\cdot\nabla$
+\end_inset
+
+ performs a convective derivative, i.e.
+ 
+\begin_inset Formula 
+\begin{equation}
+(\v v\cdot\nabla)\boldsymbol{w}=v_{1}\frac{\partial}{\partial x^{1}}\boldsymbol{w}+v_{2}\frac{\partial}{\partial x^{2}}\boldsymbol{w}+v_{3}\frac{\partial}{\partial x^{3}}\boldsymbol{w}.
+\end{equation}
+
+\end_inset
+
+Now let's look back and see that 
+\emph on
+incidentally 
+\emph default
+(well, not entirely) the 
+\emph on
+fluid momentum density
+\emph default
+ 
+\begin_inset Formula $\v p^{\mathrm{fl}}=\rho_{m}\v v=\boldsymbol{\Gamma}_{m}$
+\end_inset
+
+ matches the 
+\emph on
+mass flux
+\emph default
+ defined before.
+ 
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Subsection*
+1.1 Criteria for a plasma
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Problem 1: Work needed to introduce charge density fluctuation
+\end_layout
+
+\begin_layout Standard
+see lecture notes
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Problem 2: Debye shielding - the easy way
+\end_layout
+
+\begin_layout Standard
+see lecture notes
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Problem 3: Debye shielding - the hard way
+\end_layout
+
+\begin_layout Standard
+see lecture notes
+\end_layout
+
+\begin_layout Standard
+Helmholtz equation
+\begin_inset Formula 
+\begin{equation}
+\Delta\Phi(\v x)-\frac{1}{\lambda^{2}}\Phi(\v x)=-\frac{Q}{\varepsilon_{0}}\delta(\v x).
+\end{equation}
+
+\end_inset
+
+Linear problem and infinite or periodic space: Use spatial Fourier transform.
+ Be careful about normalization with 
+\begin_inset Formula $1/\sqrt{2\pi}$
+\end_inset
+
+ (symmetric, unitary) or 
+\begin_inset Formula $1/(2\pi)$
+\end_inset
+
+ (non-unitary) on one of either transform or inverse transform.
+\end_layout
+
+\begin_layout Standard
+1-dimensional Fourier transform of 
+\begin_inset Formula $\delta(x)$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{align}
+\mathcal{F}\delta(x) & =\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\d x\,\delta(x)e^{-ikx}\nonumber \\
+ & =\frac{e^{-ik0}}{\sqrt{2\pi}}=\frac{1}{\sqrt{2\pi}}.
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula $N$
+\end_inset
+
+-dimensional Fourier transform of 
+\begin_inset Formula $\delta(\v x)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+\mathcal{F}_{N}\delta(\v x) & =\frac{1}{(2\pi)^{N/2}}\int_{-\infty}^{\infty}\d^{N}x\,\delta(\v x)e^{-i\v k\cdot\v x}\nonumber \\
+ & =\frac{e^{-i\v k\cdot\v 0}}{(2\pi)^{N/2}}=\frac{1}{(2\pi)^{N/2}}.
+\end{align}
+
+\end_inset
+
+So in our 3D equation:
+\begin_inset Formula 
+\begin{equation}
+-k^{2}\Phi(\v k)-\frac{1}{\lambda^{2}}\Phi(\v k)=-\frac{Q}{(2\pi)^{3/2}\varepsilon_{0}}.
+\end{equation}
+
+\end_inset
+
+Solution in 
+\begin_inset Formula $\v k$
+\end_inset
+
+-space:
+\begin_inset Formula 
+\begin{equation}
+\Phi(\v k)=\frac{Q}{(2\pi)^{3/2}\varepsilon_{0}(k^{2}+1/\lambda_{D}^{\,2})}.
+\end{equation}
+
+\end_inset
+
+Solution in real space:
+\begin_inset Formula 
+\begin{align}
+\Phi(\v x)=\mathcal{F}_{3}^{\,-1}\Phi(\v k) & =\frac{1}{(2\pi)^{3/2}}\int_{-\infty}^{\infty}\d^{3}k\,\Phi(\v k)\\
+ & =\frac{1}{(2\pi)^{3/2}}\int_{-\infty}^{\infty}\d^{3}k\,\frac{Q}{(2\pi)^{3/2}\varepsilon_{0}(k^{2}+1/\lambda_{D}^{\,2})}e^{i\v k\cdot\v x}.
+\end{align}
+
+\end_inset
+
+How do we represent solve this? Represent scalar product by
+\begin_inset Formula 
+\begin{equation}
+\v k\cdot\v x=|\v k|\,|\v x|\cos\tht_{(k)}=kr\cos\tht_{kx}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $k=|\v k|$
+\end_inset
+
+, 
+\begin_inset Formula $r=|\v x|$
+\end_inset
+
+ and 
+\begin_inset Formula $\tht_{kx}$
+\end_inset
+
+ is the angle between vectors 
+\begin_inset Formula $\v k$
+\end_inset
+
+ and 
+\begin_inset Formula $\v x$
+\end_inset
+
+.
+ For the integral we first rotate the coordinate system of 
+\begin_inset Formula $\v k$
+\end_inset
+
+-space such that the 
+\begin_inset Formula $z$
+\end_inset
+
+-axis coincides with the vector 
+\begin_inset Formula $\v x$
+\end_inset
+
+.
+ The advantage of this coordinate frame is that
+\begin_inset Formula 
+\begin{equation}
+k_{z}=\v k\cdot\frac{\v x}{|\v x|}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we switch from 
+\begin_inset Formula $(k_{x},k_{y},k_{z})$
+\end_inset
+
+ to spherical coordinates 
+\begin_inset Formula $(k,\tht_{(k)},\ph_{(k)})$
+\end_inset
+
+ where
+\begin_inset Formula 
+\begin{align}
+k & =|\v k|,\\
+k_{z} & =k\cos\tht_{(k)}.
+\end{align}
+
+\end_inset
+
+We observe that the a
+\begin_inset Formula 
+\begin{equation}
+\v k\cdot\v x=kr\cos\tht_{(k)}=rk_{z}.
+\end{equation}
+
+\end_inset
+
+With this trick, we can thus represent the term appearing in the complex
+ exponent as
+\begin_inset Formula 
+\begin{equation}
+e^{i\v k\cdot\v x}=e^{irk_{z}}=e^{ikr\cos\tht_{(k)}}.
+\end{equation}
+
+\end_inset
+
+Now back to our original problem.
+ We compute
+\begin_inset Formula 
+\begin{align}
+\Phi(\v x) & =\frac{Q}{(2\pi)^{3}\varepsilon_{0}}\int_{0}^{\infty}\d k\int_{0}^{\pi}\d\tht_{(k)}\int_{0}^{2\pi}\d\ph_{(k)}\,k^{2}\sin\tht\frac{k^{2}}{k^{2}+1/\lambda_{D}^{\,2}}e^{ikr\cos\tht_{(k)}}.
+\end{align}
+
+\end_inset
+
+The next trick is to substitute
+\begin_inset Formula 
+\begin{align}
+u= & \cos\tht_{(k)},\\
+\d u= & -\sin\tht_{(k)}\d\tht_{(k)}.
+\end{align}
+
+\end_inset
+
+We cancel the negative sign in 
+\begin_inset Formula $\d u$
+\end_inset
+
+ by swapping the integration boundaries, which become 
+\begin_inset Formula $(-1,1)$
+\end_inset
+
+ for 
+\begin_inset Formula $u$
+\end_inset
+
+ where 
+\begin_inset Formula $\tht_{(k)}=(\pi,0)$
+\end_inset
+
+.
+ As there are no dependencies on 
+\begin_inset Formula $\varphi_{(k)}$
+\end_inset
+
+ integration just adds a factor of 
+\begin_inset Formula $2\pi$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align}
+\Phi(\v x) & =\frac{Q}{(2\pi)^{2}\varepsilon_{0}}\int_{0}^{\infty}\d k\frac{k^{2}}{k^{2}+1/\lambda_{D}^{\,2}}\int_{-1}^{1}\d ue^{ikru}\\
+ & =\frac{Q}{(2\pi)^{2}\varepsilon_{0}}\int_{0}^{\infty}\d k\frac{k^{2}}{k^{2}+1/\lambda_{D}^{\,2}}\frac{1}{ikr}(e^{ikr}-e^{-ikr})
+\end{align}
+
+\end_inset
+
+The next trick is to replace the integral over the second term 
+\begin_inset Formula $e^{-ikr}$
+\end_inset
+
+ by setting 
+\begin_inset Formula $k\rightarrow-k$
+\end_inset
+
+, and include it by extending the remaining integral in the range 
+\begin_inset Formula $(-\infty,0)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\Phi(\v x)=\frac{Q}{ir(2\pi)^{2}\varepsilon_{0}}\int_{-\infty}^{\infty}\d k\frac{k}{k^{2}+1/\lambda_{D}^{\,2}}e^{ikr}.
+\end{equation}
+
+\end_inset
+
+We see that the integral is now an inverse 1D Fourier transform of an expression
+ of the form 
+\begin_inset Formula $k/(k^{2}+a^{2})$
+\end_inset
+
+ that we can look up to be
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}^{(-1)}\frac{a}{k^{2}+a^{2}}=\sqrt{\frac{\pi}{2}}e^{-a|x|},
+\end{equation}
+
+\end_inset
+
+so taking one derivative
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}^{(-1)}\frac{ik}{k^{2}+a^{2}}=\sqrt{\frac{\pi}{2}}\frac{1}{a}\frac{\d}{\d x}e^{-a|x|}=-\sqrt{\frac{\pi}{2}}e^{-a|x|}.
+\end{equation}
+
+\end_inset
+
+Finally, with 
+\begin_inset Formula $a=1/\lambda_{D}$
+\end_inset
+
+, and 
+\begin_inset Formula $x=r>0$
+\end_inset
+
+ we obtain 
+\begin_inset Formula 
+\begin{align}
+\Phi(\v x) & =\frac{Q}{ir(2\pi)^{2}\varepsilon_{0}}\frac{\sqrt{2\pi}}{i}\mathcal{F}^{(-1)}\frac{ik}{k^{2}+1/\lambda_{D}^{\,2}}\nonumber \\
+ & =\frac{Q}{4\pi\varepsilon_{0}r}e^{-r/\lambda_{D}}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Summary: 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We computed 
+\emph on
+potential 
+\emph default
+of 
+\emph on
+point charge
+\emph default
+ inside 
+\emph on
+electron fluid
+\emph default
+ with a certain 
+\emph on
+temperature 
+\emph default
+where electrons are allowed to 
+\emph on
+move
+\emph default
+ and thus 
+\emph on
+shield
+\emph default
+ the potential.
+\end_layout
+
+\begin_layout Itemize
+First we used vortex-free 
+\emph on
+momentum law
+\emph default
+ (Euler/Navier-Stokes) to compute 
+\emph on
+local
+\emph default
+ 
+\emph on
+Boltzmann law
+\emph default
+ for 
+\emph on
+electron density
+\emph default
+ according to 
+\begin_inset Formula $V$
+\end_inset
+
+, 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ and 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Then we inserted convection-free (
+\begin_inset Formula $V=0$
+\end_inset
+
+) case into 
+\emph on
+Poisson equation
+\series bold
+ 
+\series default
+\emph default
+and 
+\emph on
+linearized
+\emph default
+ to obtain linear 
+\emph on
+Helmholtz equation
+\emph default
+, where 
+\emph on
+Debye length 
+\emph default
+
+\begin_inset Formula $\lambda_{D}$
+\end_inset
+
+ appeared.
+\end_layout
+
+\begin_layout Itemize
+We solved the resulting linear equation via a spatial 
+\emph on
+Fourier transform
+\emph default
+ and a few tricks.
+\end_layout
+
+\begin_layout Itemize
+The result is the usual potential of a point charge weighted by an 
+\emph on
+exponential decaying
+\emph default
+ term on the scale of 
+\begin_inset Formula $\lambda_{D}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The interpretation is, that outside of 
+\begin_inset Formula $\lambda_{D}$
+\end_inset
+
+, perturbations in charge density become 
+\emph on
+invisible
+\emph default
+ 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\emph on
+Debye shielding
+\emph default
+.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Remember: Fourier 
+\emph on
+transform
+\emph default
+ works only in an infinite domain 
+\begin_inset Formula $\mathbb{R}^{N}$
+\end_inset
+
+ where no boundary conditions are imposed, since we need to take integrals
+ up to infinity.
+ Fourier 
+\emph on
+series
+\emph default
+ are similar and work with periodic boundary conditions (lattice) or topology
+ (cylinder, torus, sphere).
+ Both methods work only well for 
+\emph on
+linear
+\emph default
+ equations 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ no coupling between different Fourier harmonics.
+\end_layout
+
+\begin_layout Itemize
+Remark: Here we could see that notation introduces quite some ambiguity.
+ We often identify the coordinates of a point 
+\begin_inset Formula $\v x$
+\end_inset
+
+ with the coordinate system itself.
+ If we have another point 
+\begin_inset Formula $\v k$
+\end_inset
+
+ and switch to spherical coordinates 
+\begin_inset Formula $(r,\tht,\ph)$
+\end_inset
+
+ we cannot distinguish 
+\begin_inset Formula $r$
+\end_inset
+
+ from 
+\begin_inset Formula $|\v x|$
+\end_inset
+
+, even if it could be the radius 
+\begin_inset Formula $|\v y|$
+\end_inset
+
+ of another point 
+\begin_inset Formula $\v y$
+\end_inset
+
+.
+ To resolve this, we gave different names to our coordinates 
+\begin_inset Formula $(k,\tht_{(k)},\ph_{(k)})$
+\end_inset
+
+ in 
+\begin_inset Formula $k$
+\end_inset
+
+-space.
+ We could also have introduced the notation 
+\begin_inset Formula $r_{\v x}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{\v k}$
+\end_inset
+
+, which is non-standard and maybe even more confusing.
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Problem 4: Electron plasma oscillations - the easier way
+\end_layout
+
+\begin_layout Standard
+see lecture notes
+\end_layout
+
+\begin_layout Subsection*
+
+\series bold
+Problem 5: Electron plasma oscillations - the harder way
+\end_layout
+
+\begin_layout Standard
+We look at oscillations/waves in an unmagnetized plasma due to electrostatic
+ forces.
+\end_layout
+
+\begin_layout Standard
+Approximations:
+\end_layout
+
+\begin_layout Enumerate
+Ions are resting compared to fast electron dynamics.
+\end_layout
+
+\begin_layout Enumerate
+Electrons modeled as fluid.
+\end_layout
+
+\begin_layout Enumerate
+Electrostatic forces are stronger than thermodynamics forces (
+\begin_inset Quotes eld
+\end_inset
+
+cold plasma
+\begin_inset Quotes erd
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Enumerate
+Linear expansion around equilibrium with subsonic flow and quasineutrality.
+\end_layout
+
+\begin_layout Standard
+Take mass continuity and momentum equation for electron fluid with particles
+ of mass 
+\begin_inset Formula $m_{e}$
+\end_inset
+
+ and charge 
+\begin_inset Formula $q_{e}=-e$
+\end_inset
+
+, as well as Poisson equation for electric potential and constant and static
+ ion density 
+\begin_inset Formula $n_{i}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+m_{e}\frac{\partial n_{e}(\v x,t)}{\partial t}+\nabla\cdot\v p_{\text{fl}}(\v x,t) & =0,\label{eq:conti}\\
+\frac{\partial\v p_{\text{fl}}(\v x,t)}{\partial t}+m_{e}\nabla\cdot(\v v(\v x,t)\v p_{\text{fl}}(\v x,t)) & =-\nabla p(\v x,t)+e\nabla\Phi(\v x,t),\\
+\Delta\Phi(\v x,t) & =-\frac{e}{\varepsilon_{0}}(n_{i}-n_{e}(\v x,t)).\label{eq:poiss}
+\end{align}
+
+\end_inset
+
+Here we could pull out 
+\begin_inset Formula $m_{e}$
+\end_inset
+
+ as a constant, and replaced mass flux 
+\begin_inset Formula $\v{\Gamma}_{m}$
+\end_inset
+
+ by the identical kinematic momentum density 
+\begin_inset Formula $\v p^{fl}$
+\end_inset
+
+.
+ In order to combine all three equations we now take the time derivative
+ of the continuity equation, and the divergence of the momentum equation
+ to obtain
+\begin_inset Formula 
+\begin{align}
+m_{e}\frac{\partial^{2}n_{e}(\v x,t)}{\partial t^{2}}+\frac{\partial}{\partial t}\nabla\cdot\v p_{\text{fl}}(\v x,t) & =0,\label{eq:conti-1}\\
+\nabla\cdot\frac{\partial\v p_{\text{fl}}(\v x,t)}{\partial t}+\nabla\cdot(\nabla\cdot(\v v(\v x,t)\v p_{\text{fl}}(\v x,t))) & =-\Delta p(\v x,t)+en_{e}(\v x,t)\Delta\Phi(\v x,t),\\
+\Delta\Phi(\v x,t) & =-\frac{e}{\varepsilon_{0}}(n_{i}-n_{e}(\v x,t)).\label{eq:poiss-1}
+\end{align}
+
+\end_inset
+
+Exchanging divergence and time derivative in front of 
+\begin_inset Formula $\v p^{fl}$
+\end_inset
+
+ we can eliminate the respective terms by subtracting the momentum equation
+ from the continuity equation.
+ The Laplacian 
+\begin_inset Formula $\Delta\Phi$
+\end_inset
+
+ is substituted from Poisson's equation to yield a single equation
+\begin_inset Formula 
+\begin{align}
+\frac{\partial^{2}n_{e}(\v x,t)}{\partial t^{2}}+\frac{e^{2}n_{e}(\v x,t)}{m_{e}\varepsilon_{0}}(n_{e}(\v x,t)-n_{i}(\v x))-\nabla\cdot(\nabla\cdot(\v v(\v x,t)\v v(\v x,t))) & =\frac{\Delta p(\v x,t)}{m_{e}}.
+\end{align}
+
+\end_inset
+
+Now we start with a stationary equilibrium without time derivatives, and
+ flow velocity small enough (
+\begin_inset Quotes eld
+\end_inset
+
+subsonic
+\begin_inset Quotes erd
+\end_inset
+
+) such that the term 
+\begin_inset Formula $\nabla\cdot(\nabla\cdot(\v v(\v x,t)\v v(\v x,t)))$
+\end_inset
+
+ can be neglected.
+ The equilibrium should fulfill quasineutrality,
+\begin_inset Formula 
+\begin{equation}
+n_{0}(\v x)=n_{e}^{0}(\v x)=n_{i}^{0}(\v x),
+\end{equation}
+
+\end_inset
+
+so 
+\begin_inset Formula $\Delta p^{0}=0$
+\end_inset
+
+ in the subsonic approximation.
+\end_layout
+
+\begin_layout Standard
+Now we introduce a perturbation in 
+\begin_inset Formula $n_{e}(\v x,t)=n_{e}^{0}(\v x)+\delta n_{e}(\v x,t)$
+\end_inset
+
+ and 
+\begin_inset Formula $\v v=\v v^{0}+\delta\v v(\v x,t)$
+\end_inset
+
+, but neglect changes in 
+\begin_inset Formula $p$
+\end_inset
+
+ (
+\begin_inset Quotes eld
+\end_inset
+
+cold plasma
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Keeping only first order terms (remember, 
+\begin_inset Formula $n_{e}^{0}-n_{i}^{0}=0$
+\end_inset
+
+), we obtain
+\begin_inset Formula 
+\begin{align}
+\frac{\partial^{2}\delta n_{e}(\v x,t)}{\partial t^{2}}+\frac{e^{2}n_{0}(\v x)}{m_{e}\varepsilon_{0}}\delta n_{e}(\v x,t) & =0.
+\end{align}
+
+\end_inset
+
+Here the electron plasma frequency appears locally at position 
+\begin_inset Formula $\v x$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{equation}
+\omega_{\text{pe}}^{\,2}(\v x)=\frac{e^{2}n_{0}(\v x)}{m_{e}\varepsilon_{0}}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Collisions
+\end_layout
+
+\begin_layout Subsection*
+2.1 Binary Coulomb Collisions
+\end_layout
+
+\begin_layout Standard
+see lecture notes
+\end_layout
+
+\begin_layout Section
+Charged Particle Dynamics
+\end_layout
+
+\begin_layout Subsection*
+3.2 Motion in static and homogeneous fields
+\end_layout
+
+\begin_layout Standard
+Our 
+\series bold
+goal
+\series default
+ is to solve
+\begin_inset Formula 
+\begin{align}
+m\ddot{\v r} & =\frac{e}{c}\dot{\v r}\times\v B+e\v E.\label{eq:Lorentz}
+\end{align}
+
+\end_inset
+
+or written in terms of a 
+\emph on
+linear
+\emph default
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Lorentz
+\begin_inset Quotes erd
+\end_inset
+
+ operator for homogeneous 
+\begin_inset Formula $\v B$
+\end_inset
+
+ field:
+\begin_inset Formula 
+\begin{equation}
+\hat{L}\v r\equiv\left(\frac{\d^{2}}{\d t^{2}}+\frac{e\v B}{mc}\frac{\d}{\d t}\times\right)\v r=\frac{e}{m}\v E\label{eq:LorentzOperator}
+\end{equation}
+
+\end_inset
+
+and identify
+\emph on
+ gyromotion
+\emph default
+ circling perpendicular around 
+\begin_inset Formula $\v B$
+\end_inset
+
+ with 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+parallel 
+\emph default
+motion along 
+\begin_inset Formula $\v B$
+\end_inset
+
+ with 
+\begin_inset Formula $v_{\parallel}$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Standard
+average 
+\emph on
+drift
+\emph default
+ motion perpendicular to 
+\begin_inset Formula $\v B$
+\end_inset
+
+ with 
+\begin_inset Formula $\v v_{D}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Our 
+\series bold
+strategy
+\series default
+ is to separate out gyromotion in 
+\begin_inset Formula $\v B$
+\end_inset
+
+-field alone and solve its equations first.
+ Then we could solve parallel and drift motion with the constraint that
+ 
+\begin_inset Formula $\v v_{D}$
+\end_inset
+
+ remains constant.
+ In the combined solution we verified there are 6 free parameters that can
+ reproduce any initial conditions.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The
+\series bold
+ assumption
+\emph on
+ 
+\series default
+\emph default
+is that we considere only static and homogeneous fields.
+ Under this simplification the solution describes particle motion exactly,
+ as 
+\begin_inset Formula $\hat{L}$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:LorentzOperator"
+
+\end_inset
+
+ is linear, so the overall solution can be described as a linear superposition
+ of two solutions.
+\end_layout
+
+\begin_layout Standard
+Splitting Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Lorentz"
+
+\end_inset
+
+ into a sum of two solutions 
+\begin_inset Formula $\v R+\v{\rho}$
+\end_inset
+
+ with 
+\begin_inset Formula $\v r=\v R+\v{\rho}$
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\begin{align}
+m(\ddot{\v R}+\ddot{\v{\rho}}) & =e\v E+\frac{e}{c}(\dot{\v R}+\dot{\v{\rho}})\times\v B.\label{eq:split}
+\end{align}
+
+\end_inset
+
+Since we introduced 3 more variables, we can also introduce 3 more equations,
+ as long as they are not in conflict with Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:split"
+
+\end_inset
+
+.
+ We choose
+\begin_inset Formula 
+\begin{align}
+m\ddot{\v{\rho}} & =\frac{e}{c}\dot{\v{\rho}}\times\v B,\\
+m\ddot{\v R} & =e\v E+\frac{e}{c}\dot{\v R}\times\v B.
+\end{align}
+
+\end_inset
+
+This way, the gyromotion in 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+ is only affected by the magnetic, but not the electric field.
+\end_layout
+
+\begin_layout Subsection*
+Solution for gyration
+\end_layout
+
+\begin_layout Standard
+First we solve 
+\begin_inset Formula $m\ddot{\v{\rho}}=\frac{e}{c}\dot{\v{\rho}}\times\v B$
+\end_inset
+
+.
+ We choose our coordinate system such that field 
+\begin_inset Formula $\v B=B\v b=B\v e_{1}\times\v e_{2}$
+\end_inset
+
+.
+ (or: 
+\begin_inset Formula $\v e_{3}=\v b$
+\end_inset
+
+) Then
+\begin_inset Formula 
+\begin{align}
+m\ddot{\v{\rho}} & =\frac{e}{c}\dot{\v{\rho}}\times(B\v b)=\frac{eB}{c}(\dot{\rho}_{1}\v e_{1}+\dot{\rho}_{2}\v e_{2})\times\v e_{3}\nonumber \\
+ & =\frac{eB}{c}(-\dot{\rho}_{1}\v e_{2}+\dot{\rho}_{2}\v e_{1}).
+\end{align}
+
+\end_inset
+
+We combine this to
+\begin_inset Formula 
+\begin{align}
+\ddot{\rho}_{1} & =\frac{eB}{mc}\dot{\rho}_{2}=\omega_{c}\dot{\rho}_{2},\\
+\ddot{\rho}_{2} & =-\frac{eB}{mc}\dot{\rho}_{1}=-\omega_{c}\dot{\rho}_{1}.
+\end{align}
+
+\end_inset
+
+Taking another time derivative and denoting 
+\begin_inset Formula $v_{1}\equiv\dot{\rho}_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $v_{2}\equiv\dot{\rho}_{2}$
+\end_inset
+
+ we obtain
+\begin_inset Formula 
+\begin{equation}
+\ddot{v}_{1}=\omega_{c}\dot{v}_{2}=-\omega_{c}^{\,2}v_{1}.
+\end{equation}
+
+\end_inset
+
+In this second order equation we have six free constants.
+ We choose one to be the 
+\series bold
+perpendicular velocity
+\series default
+ 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+, which is the amplitude of the gyration velocity and another one as a phase-shi
+ft 
+\begin_inset Formula $\phi_{0}$
+\end_inset
+
+.
+ Then we obtain the solution of position, velocity, and acceleration
+\begin_inset Formula 
+\begin{align}
+\v{\rho} & =\frac{v_{\perp}}{\omega_{c}}(\sin(\omega_{c}t+\phi_{0})\,\v e_{1}+\cos(\omega_{c}t+\phi_{0})\,\v e_{2}),\\
+\dot{\v{\rho}} & =v_{\perp}(\cos(\omega_{c}t+\phi_{0})\,\v e_{1}-\sin(\omega_{c}t+\phi_{0})\,\v e_{2}),\\
+\ddot{\v{\rho}} & =-v_{\perp}\omega_{c}(\sin(\omega_{c}t+\phi_{0})\,\v e_{1}+\cos(\omega_{c}t+\phi_{0})\,\v e_{2}).
+\end{align}
+
+\end_inset
+
+From here we define the 
+\series bold
+gyroradius
+\series default
+ 
+\begin_inset Formula $\rho_{c}=v_{\perp}/\omega_{c}$
+\end_inset
+
+ and the 
+\series bold
+gyrophase
+\series default
+ 
+\begin_inset Formula $\phi=\omega_{c}t+\phi_{0}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Additional four integration constants are a translational shift by 
+\begin_inset Formula $\v{\rho}_{0}$
+\end_inset
+
+ plus a constant parallel velocity 
+\begin_inset Formula $\dot{\v{\rho}}_{0}\cdot\v b$
+\end_inset
+
+ which we both set to zero! This means that we didn't include any motion
+ parallel to the magnetic field, or drift across the field intro 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+ and need to account for them in 
+\begin_inset Formula $\v R$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+(Have 
+\begin_inset Formula $6\times2$
+\end_inset
+
+ integration constants in 
+\begin_inset Formula $\v{\rho},\v R$
+\end_inset
+
+ but need only 
+\begin_inset Formula $6$
+\end_inset
+
+ of them for overall problem in 
+\begin_inset Formula $\v r$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Subsubsection*
+Solution for parallel and drift motion
+\end_layout
+
+\begin_layout Standard
+Now we split
+\begin_inset Formula 
+\begin{equation}
+\dot{\v R}=v_{\parallel}\v b+\v v_{D},\qquad\v v_{D}\cdot\v b=0.
+\end{equation}
+
+\end_inset
+
+We need to solve
+\begin_inset Formula 
+\begin{equation}
+m\ddot{\v R}=\dot{v}_{\parallel}\v b+\dot{\v v}_{D}=e\v E+\frac{e}{c}\dot{\v R}\times\v B.
+\end{equation}
+
+\end_inset
+
+For parallel motion, obtain immediately
+\begin_inset Formula 
+\begin{equation}
+m\dot{v}_{\parallel}=eE_{\parallel}\Rightarrow v_{\parallel}(t)=v_{\parallel0}+eE_{\parallel}t.
+\end{equation}
+
+\end_inset
+
+For perpendicular drift use
+\begin_inset Formula 
+\begin{equation}
+m\dot{\v v}_{D}=e\v E_{\perp}+\frac{e}{c}\v v_{D}\times\v B
+\end{equation}
+
+\end_inset
+
+take 
+\begin_inset Formula $\times\v B$
+\end_inset
+
+ and use bac-cab rule (NRL)
+\begin_inset Formula 
+\begin{equation}
+m\dot{\v v}_{D}\times\v B=e\v E\times\v B-\frac{e}{c}B^{2}v_{D}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consistent solution is possible if 
+\begin_inset Formula $\dot{\v v}_{D}\times\v B$
+\end_inset
+
+ remains zero.
+ This way we do not include any gyration in the perpendicular motion.
+ Solution for this drift motion (
+\series bold
+ExB drift
+\series default
+):
+\begin_inset Formula 
+\begin{equation}
+\v v_{D}=c\frac{\v E\times\v B}{B^{2}}.
+\end{equation}
+
+\end_inset
+
+
+\emph on
+...
+ independent of charge and mass! 
+\emph default
+This also means setting initial condition 
+\begin_inset Formula $v_{D0}=c\frac{\v E\times\v B}{B^{2}}$
+\end_inset
+
+ which fixes another integration constant.
+ 
+\end_layout
+
+\begin_layout Standard
+The solution for parallel and drift motion together is thus
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\v R(t)=\v R_{0}+c\frac{\v E\times\v B}{B^{2}}t+\left(v_{\parallel0}t+\frac{eE_{\parallel}}{2}t^{2}\right)\v b.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Combined solution
+\end_layout
+
+\begin_layout Standard
+The combined exact solution for particle motion in static, homogeneous 
+\begin_inset Formula $\v E$
+\end_inset
+
+ and 
+\begin_inset Formula $\v B$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{align}
+\v r(t) & =\v R(t)+\v{\rho}(t)\nonumber \\
+ & =\v R_{0}+c\frac{\v E\times\v B}{B^{2}}t+\left(v_{\parallel0}t+\frac{eE_{\parallel}}{2}t^{2}\right)\v b+\frac{v_{\perp}}{\omega_{c}}\left(\sin(\omega_{c}t+\phi_{0})\,\v e_{1}+\cos(\omega_{c}t+\phi_{0})\,\v e_{2}\right).
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let's count integration constants: 
+\end_layout
+
+\begin_layout Itemize
+1,2,3: 
+\begin_inset Formula $\v R_{0}$
+\end_inset
+
+ contains 3 constants of initial position of Larmor circle center (
+\series bold
+gyrocenter
+\series default
+).
+\end_layout
+
+\begin_layout Itemize
+4: Constant 
+\begin_inset Formula $v_{\parallel0}$
+\end_inset
+
+ sets initial gyrocenter parallel velocity.
+\end_layout
+
+\begin_layout Itemize
+5,6: Constants 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi_{0}$
+\end_inset
+
+ fix the gyromotion (
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+ can optionally be replaced by 
+\begin_inset Formula $\rho_{c}$
+\end_inset
+
+).
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus we could find a consistent solution that separates 
+\emph on
+gyromotion
+\emph default
+ from 
+\emph on
+parallel
+\emph default
+ and 
+\emph on
+drift
+\emph default
+ motion in 
+\emph on
+static
+\emph default
+ and 
+\emph on
+homogeneous
+\emph default
+ fields.
+ In more complicated fields we will rely on methods of averaging that work
+ as long as gyromotion i.e.
+ 
+\begin_inset Formula $\omega_{c}$
+\end_inset
+
+ is fast, and 
+\begin_inset Formula $\rho_{c}$
+\end_inset
+
+ is small, compared to field scales.
+\end_layout
+
+\begin_layout Subsection*
+3.4 Motion in weakly inhomogeneous fields
+\end_layout
+
+\begin_layout Standard
+Now the 
+\series bold
+goal
+\series default
+ is to solve
+\begin_inset Formula 
+\begin{align}
+m\ddot{\v r} & =\frac{e}{c}\dot{\v r}\times\v B(\v r)+e\v E(\v r).
+\end{align}
+
+\end_inset
+
+or written in terms of a 
+\emph on
+non-linear
+\emph default
+ Lorentz operator:
+\begin_inset Formula 
+\begin{equation}
+\hat{L}\v r\equiv\left(\frac{\d^{2}}{\d t^{2}}+\frac{e\v B(\v r)}{mc}\frac{\d}{\d t}\times\right)\v r=\frac{e}{m}\v E(\v r).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Strategy:
+\series default
+ Instead of an exact splitting as before, separate into 
+\emph on
+fast
+\emph default
+ gyromotion for 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+ and 
+\emph on
+gyro-averaged
+\emph default
+ motion in 
+\begin_inset Formula $\v R$
+\end_inset
+
+.
+ The latter means to take time averages over
+\emph on
+ gyroperiod
+\emph default
+ 
+\begin_inset Formula $\tau_{c}=2\pi/\omega_{c}$
+\end_inset
+
+ and spatial averages within 
+\emph on
+gyroradius 
+\begin_inset Formula $\rho_{c}=v_{\perp}/\omega_{c}$
+\end_inset
+
+.
+ 
+\emph default
+Perform a series expansion of fields around average 
+\begin_inset Formula $\v R$
+\end_inset
+
+ in direction of 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We
+\series bold
+ assume
+\emph on
+ 
+\series default
+\emph default
+that relative variations of 
+\begin_inset Formula $\v E$
+\end_inset
+
+ and 
+\begin_inset Formula $\v B$
+\end_inset
+
+ in time and space are small over 
+\begin_inset Formula $\tau_{c}$
+\end_inset
+
+ and within 
+\begin_inset Formula $\rho_{c}$
+\end_inset
+
+.
+ This means that the plasma must be 
+\emph on
+strongly magnetized 
+\emph default
+to get reasonably large 
+\begin_inset Formula $\omega_{c}=eB/(mc)$
+\end_inset
+
+.
+ Due to the expansion the solution is only 
+\series bold
+approximate
+\series default
+\emph on
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Calculation
+\end_layout
+
+\begin_layout Standard
+A detailed calculation can be found in the lecture notes, chapter 3.4.
+ For details how to do an expansion of tensor fields, see p.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand pageref
+reference "subsec:Taylor-expansion-of"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Result
+\end_layout
+
+\begin_layout Standard
+The orbital motion is split into the sum of the gyrocenter position 
+\begin_inset Formula $\v R$
+\end_inset
+
+ and the Larmor gyration vector 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+, where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\v{\rho} & =\frac{v_{\perp}}{\omega_{c}(\v R)}(\sin(\phi(\v R,t))\,\v e_{1}(\v R)+\cos(\phi(\v R,t))\,\v e_{2}(\v R)),\\
+m\ddot{\v R} & =e\left(1+\frac{\rho_{c}^{2}}{4}\nabla_{\perp}^{\,2}\right)\v E(\v R)+\frac{e}{c}\dot{\v R}\times\v B(\v R)-\mu\nabla B(\v R).\label{eq:R}
+\end{align}
+
+\end_inset
+
+Fields are evaluated in the gyrocenter position 
+\begin_inset Formula $\v R$
+\end_inset
+
+ that can be computed ignoring 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+.
+ The magnetic moment 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is a conserved quantity and related to 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+ via
+\begin_inset Formula 
+\begin{equation}
+\mu=\frac{mv_{\perp}^{\,2}}{2B(\v R)}=\frac{ev_{\perp}}{2\pi\rho_{c}}\pi\rho_{c}^{\,2}.\label{eq:magmoment}
+\end{equation}
+
+\end_inset
+
+This is the ring current over one gyration period and 
+\begin_inset Formula $\mu=I\cdot A$
+\end_inset
+
+ over the gyration circle with surface area 
+\begin_inset Formula $A=\pi\rho_{c}^{2}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $E_{\parallel}=\v b\cdot\v E$
+\end_inset
+
+ it is approximately conserved – an 
+\series bold
+adiabatic invariant
+\series default
+.
+ 
+\begin_inset Formula 
+\begin{align}
+\frac{\d\mu}{\d t} & =\frac{1}{B}\frac{\d}{\d t}\left(\frac{mv_{\perp}^{\,2}}{2}\right)-\frac{mv_{\perp}^{\,2}}{2B^{2}}\dot{\v R}\cdot\nabla B\nonumber \\
+ & \approx\frac{1}{B}\frac{\d}{\d t}\left(\frac{mv_{\perp}^{\,2}}{2}\right)-\frac{\mu}{B}v_{\parallel}\v b\cdot\nabla B.
+\end{align}
+
+\end_inset
+
+Compare this with total energy conservation
+\begin_inset Formula 
+\begin{align}
+0 & =\frac{\d}{\d t}\left(\frac{mv_{\parallel}^{\,2}}{2}+\frac{mv_{\perp}^{\,2}}{2}+e\Phi\right)\nonumber \\
+ & \approx\frac{\d}{\d t}\left(\frac{mv_{\perp}^{\,2}}{2}\right)-v_{\parallel}\mu\v b\cdot\nabla B.
+\end{align}
+
+\end_inset
+
+Here 
+\begin_inset Formula $v_{\parallel}\v b\cdot\nabla\Phi$
+\end_inset
+
+ has vanished due to 
+\begin_inset Formula $E_{\parallel}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{v}_{\parallel}$
+\end_inset
+
+ has been replaced by its expression from the equations of motion 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:R"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\dot{\v R}\approx v_{\parallel}\v b$
+\end_inset
+
+.
+ Together we see that the total time derivative of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ vanishes in this first order calculation.
+ A subtle point that should concern us is the actual nature of 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ If we assume 
+\begin_inset Formula $\mu$
+\end_inset
+
+ to be exactly conserved, Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:magmoment"
+
+\end_inset
+
+ becomes a definition for 
+\begin_inset Formula $v_{\perp}=v_{\perp}(\v R)$
+\end_inset
+
+ rather than a quantity resulting from it.
+ While the motion of the gyrocenter 
+\begin_inset Formula $\v R$
+\end_inset
+
+ can be computed from Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:R"
+
+\end_inset
+
+ without referring to the gyromotion, the definition what 
+\begin_inset Formula $\v R$
+\end_inset
+
+ actually describes is still somewhat dubious.
+ For this reason we will perform a more 
+\begin_inset Quotes eld
+\end_inset
+
+watertight
+\begin_inset Quotes erd
+\end_inset
+
+ treatment of the problem using Lagrangian mechanics.
+\end_layout
+
+\begin_layout Section
+Guiding-Center Dynamics
+\end_layout
+
+\begin_layout Standard
+A detailed derivation of the guiding-center Lagrangian can also be found
+ in Lectures 3-4 of 2017 and https://itp.tugraz.at/~ert/assets/internal/plasma/201
+7/A1_Guiding_Center_Lagrangian.pdf .
+ More information on asymptotic expansions with a small parameter 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ can be found in the lecture of Stefan Possanner at TUM.
+ Here we treat the case where fields are not time-dependent.
+\end_layout
+
+\begin_layout Standard
+We transform from the 
+\series bold
+particle
+\series default
+ coordinates 
+\begin_inset Formula $\v z_{P}=(\v r,\v v)$
+\end_inset
+
+ in phase-space to new 
+\series bold
+guiding-center
+\series default
+ coordinates 
+\begin_inset Formula $\v z=(\v R,\phi,v_{\parallel},v_{\perp})$
+\end_inset
+
+ related to particle position 
+\begin_inset Formula $\v r$
+\end_inset
+
+ and velocity 
+\begin_inset Formula $\v v$
+\end_inset
+
+ via
+\begin_inset Formula 
+\begin{align}
+\v r(\v z) & =\v R+\v{\rho}(\v R,\phi,v_{\perp}),\text{ where }\v{\rho}(\v R,\phi,v_{\perp})\equiv\frac{mcv_{\perp}}{eB(\v R)}\hat{\v{\rho}}(\v R,\phi)\equiv\rho_{c}(v_{\perp},\v R)\hat{\v{\rho}}(\v R,\phi),\label{eq:rz}\\
+\v v(\v z) & =v_{\parallel}\hat{\v b}(\v R)+v_{\perp}\hat{\v n}(\v R,\phi).\label{eq:vz}
+\end{align}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\hat{\v b}(\v R)=\v B(\v R)/B(\v R)$
+\end_inset
+
+ and forms a tripod with some pair of 
+\series bold
+fixed 
+\series default
+but possibly space-dependent unit vectors 
+\begin_inset Formula $\hat{\v e}_{1}(\v R)$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\v e}_{2}(\v R)$
+\end_inset
+
+, and definitions for 
+\series bold
+dynamic
+\series default
+ (gyrating) unit vectors 
+\begin_inset Formula $\hat{\v{\rho}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\v n}$
+\end_inset
+
+ are
+\begin_inset Formula 
+\begin{align}
+\hat{\v{\rho}}(\v R,\phi) & =\sin(\phi)\,\hat{\v e}_{1}(\v R)+\cos(\phi)\,\hat{\v e}_{2}(\v R),\\
+\hat{\v n}(\v R,\phi) & =\hat{\v{\rho}}(\v R,\phi)\times\hat{\v b}(\v R)=\cos(\phi)\,\hat{\v e}_{1}(\v R)-\sin(\phi)\,\hat{\v e}_{2}(\v R)=\frac{\partial\hat{\v{\rho}}(\v R,\phi)}{\partial\phi}.
+\end{align}
+
+\end_inset
+
+The transformation of Eqs.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rz"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vz"
+
+\end_inset
+
+) is still exact! We call 
+\begin_inset Formula $\v R$
+\end_inset
+
+ the guiding-center position.
+ Both, 
+\begin_inset Formula $(\hat{\v e}_{1},\hat{\v e}_{2},\hat{\v b})$
+\end_inset
+
+ and 
+\begin_inset Formula $(\hat{\v{\rho}},\hat{\v n},\hat{\v b})$
+\end_inset
+
+ form an orthonormal basis, where the latter depend on 
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ Variables have suspicious names 
+\begin_inset Formula $\phi$
+\end_inset
+
+, 
+\begin_inset Formula $v_{\parallel}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+.
+ Indeed, for the case of a homogeneous 
+\begin_inset Formula $\v B$
+\end_inset
+
+-field those variables are equal to gyrophase, parallel and perpendicular
+ velocity of the particle.
+ If the field becomes inhomogeneous, they approximate the particle values
+ such that their gyro-averages match closely for weak inhomogenity within
+ the space a particle transverses within one gyration.
+ Similarly, 
+\begin_inset Formula $\v R$
+\end_inset
+
+ describes the center of the Larmor circle only in the homogeneous limiting
+ case, and remains close to it in a field with sufficiently weak gradients.
+ To sum up one could say that 
+\begin_inset Formula $(\phi,v_{\parallel},v_{\perp})$
+\end_inset
+
+ are values we would get if we pretend that 
+\begin_inset Formula $\v B$
+\end_inset
+
+ is evaluated in the guiding-center position 
+\begin_inset Formula $\v R$
+\end_inset
+
+ rather than 
+\begin_inset Formula $\v R+\v{\rho}$
+\end_inset
+
+.
+ In contrast to the earlier treatment, all variables in 
+\begin_inset Formula $\v z=(\v R,\phi,v_{\parallel},v_{\perp})$
+\end_inset
+
+ have a well-defined relation to the particle position 
+\begin_inset Formula $\v r$
+\end_inset
+
+ and velocity 
+\begin_inset Formula $\v v$
+\end_inset
+
+ if Eqs.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:rz"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vz"
+
+\end_inset
+
+) are solved implicitly in 
+\begin_inset Formula $\v z$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The phase-space Lagrangian of a particle in an electromagnetic field in
+ terms of canonical 
+\begin_inset Formula $(\v r,\v p$
+\end_inset
+
+) is given by
+\begin_inset Formula 
+\begin{equation}
+L(\v r,\dot{\v r},\v p,\cancel{\dot{\v p}})=\v p\cdot\dot{\v r}-\left(\frac{(\v p-\frac{e}{c}\v A(\v r))^{2}}{2m}+e\Phi(\v r)\right).\label{eq:Lag1-1}
+\end{equation}
+
+\end_inset
+
+Using non-canonical variables 
+\begin_inset Formula $\v v=\frac{\v p}{m}-\frac{e}{mc}\v A$
+\end_inset
+
+ instead of the momenta 
+\begin_inset Formula $\v p$
+\end_inset
+
+ the particle phase-space Lagrangian is
+\begin_inset Formula 
+\begin{equation}
+L(\v r,\dot{\v r},\v v,\cancel{\dot{\v v}})=\left(m\v v+\frac{e}{c}\v A(\v r)\right)\cdot\dot{\v r}-\left(\frac{m\v v^{2}}{2}+e\Phi(\v r)\right).\label{eq:Lag1-1-1}
+\end{equation}
+
+\end_inset
+
+In terms of 
+\begin_inset Formula $\v z=(\v R,\phi,v_{\parallel},v_{\perp})$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{equation}
+L(\v R,\dot{\v R},\phi,\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\frac{e}{c}\v A(\v R+\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}})-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R+\v{\rho})\right),\label{eq:Lag1-1-1-1}
+\end{equation}
+
+\end_inset
+
+with gyration vector 
+\begin_inset Formula $\v{\rho}=\v{\rho}(\v R,\phi,v_{\perp})=\v r-\v R$
+\end_inset
+
+ from Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:rz"
+
+\end_inset
+
+.
+ This Lagrangian is still exact, as are transformations to guiding-center
+ variables.
+ We will now make approximations to the Lagrangian, affecting the 
+\emph on
+dynamics
+\emph default
+ of motion in guiding-center variables.
+ As in the previous chapter we use a Taylor expansion which we break at
+ the first order, but which can also be performed to higher order.
+ We use
+\begin_inset Formula 
+\begin{align}
+\v A(\v r) & =\v A(\v R)+\v{\rho}\cdot\nabla\v A(\v R)+\mathcal{O}(\rho_{c}^{2}),\\
+\Phi(\v r) & =\Phi(\v R)+\v{\rho}\cdot\nabla\Phi(\v R)+\mathcal{O}(\rho_{c}^{2}).
+\end{align}
+
+\end_inset
+
+Here the small parameter compared to typical length scales is the gyroradius
+\begin_inset Formula 
+\begin{equation}
+\rho_{c}=|\v{\rho}|=\frac{mcv_{\perp}}{eB(\v R)}\sim\varepsilon.
+\end{equation}
+
+\end_inset
+
+Furthermore we define the cyclotron frequency at the guiding-center position
+\begin_inset Formula 
+\begin{equation}
+\omega_{c}=\frac{eB(\v R)}{mc}\sim\varepsilon^{-1}
+\end{equation}
+
+\end_inset
+
+as a large parameter compared to typical time scales.
+ This corresponds to the physical conditions where the guiding-center approximat
+ion is applicable and leaves the perpendicular velocity 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+ being a quantity of interest with order 
+\begin_inset Formula $\varepsilon^{0}=1$
+\end_inset
+
+ and thus prevents it from being swallowed by a perturbation expansion.
+ 
+\end_layout
+
+\begin_layout Standard
+We further use the chain rule for
+\begin_inset Formula 
+\begin{align}
+\dot{\v{\rho}} & =\frac{\d}{\d t}\v{\rho}(\v R,\phi,v_{\perp})=\dot{\v R}\cdot\nabla\v{\rho}+\dot{\phi}\frac{\partial\v{\rho}}{\partial\phi}+\dot{v}_{\perp}\frac{\partial\v{\rho}}{\partial v_{\perp}}\nonumber \\
+ & =\dot{\v R}\cdot\nabla\v{\rho}+\dot{\phi}\rho_{c}\hat{\v n}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}=\dot{\phi}\rho_{c}\hat{\v n}+\varepsilon(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}).
+\end{align}
+
+\end_inset
+
+Here in the first term the fast gyration 
+\begin_inset Formula $\dot{\phi}$
+\end_inset
+
+ and the small 
+\begin_inset Formula $\rho_{c}$
+\end_inset
+
+ cancel to order 
+\begin_inset Formula $\varepsilon^{0}$
+\end_inset
+
+, and the last term should be even smaller than order 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ as long as 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+ doesn't change too fast due to strongly inhomogeneous fields.
+ Now we look at the bracket up to order 
+\begin_inset Formula $\varepsilon^{0}$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{align}
+\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\frac{e}{c}\v A(\v R+\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}}) & =m\left(v_{\parallel}\hat{\v b}+v_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +m\left(\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot(\dot{\phi}\rho_{c}\hat{\v n})+v_{\perp}\dot{\phi}\rho_{c}\nonumber \\
+ & +\frac{e}{mc}\v A\cdot(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho})+\mathcal{O}(\varepsilon).
+\end{align}
+
+\end_inset
+
+In the second line, the term with 
+\begin_inset Formula $\hat{\v b}\cdot\hat{\v n}$
+\end_inset
+
+ vanished and we took a scalar product 
+\begin_inset Formula $\hat{\v n}\cdot\hat{\v n}=1$
+\end_inset
+
+.
+ Now we use the fact that we can add/subtract an arbitrary total time derivative
+ to the Lagrangian without changing its dynamics.
+ For this we take
+\begin_inset Formula 
+\begin{align}
+\frac{\d}{\d t}(\v{\rho}\cdot\v A(\v R)) & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot\dot{\v A}\nonumber \\
+ & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A).
+\end{align}
+
+\end_inset
+
+This we can combine with the term 
+\begin_inset Formula $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}=\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)$
+\end_inset
+
+ via
+\begin_inset Formula 
+\begin{align}
+\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)-\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A) & =\dot{R}_{k}\rho_{i}\partial_{i}A_{k}-\rho_{k}\dot{R}_{i}\partial_{i}A_{k}\nonumber \\
+ & =\dot{R}_{l}\rho_{m}(\delta_{lk}\delta_{mi}-\delta_{li}\delta_{mk})\partial_{i}A_{k}\nonumber \\
+ & =\dot{R}_{l}\rho_{m}\varepsilon_{lmk}\varepsilon_{ijk}\partial_{i}A_{k}\nonumber \\
+ & =(\dot{\v R}\times\v{\rho})(\nabla\times\v A)=(\dot{\v R}\times\v{\rho})\v B.
+\end{align}
+
+\end_inset
+
+Thus we write
+\begin_inset Formula 
+\begin{equation}
+\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)=(\dot{\v R}\times\v{\rho})\v B+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A)=(\dot{\v R}\times\v{\rho})\v B+\frac{\d}{\d t}(\v{\rho}\cdot\v A)-\dot{\v{\rho}}\cdot\v A.
+\end{equation}
+
+\end_inset
+
+Inserting everything into 
+\begin_inset Formula $L$
+\end_inset
+
+ means
+\begin_inset Formula 
+\begin{align}
+L-\frac{\d}{\d t}(\v{\rho}\cdot\v A)+\mathcal{O}(\varepsilon) & =m\left(v_{\parallel}\hat{\v b}+v_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{mc}\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +m\left(\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot(\dot{\phi}\rho_{c}\hat{\v n})+v_{\perp}\dot{\phi}\rho_{c}\nonumber \\
+ & +\frac{e}{mc}\v A\cdot(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho})\nonumber \\
+ & +\frac{e}{c}(\dot{\v R}\times\v{\rho})\v B-\dot{\v{\rho}}\cdot\v A\nonumber \\
+ & -\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi\right),
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\v A,\v B,$
+\end_inset
+
+ and 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ are now evaluated in the guiding-center position 
+\begin_inset Formula $\v R$
+\end_inset
+
+ instead of the particle position 
+\begin_inset Formula $\v r$
+\end_inset
+
+.
+ When taking an gyro-average over 
+\begin_inset Formula $\phi$
+\end_inset
+
+ via
+\begin_inset Formula 
+\[
+\left\langle f\right\rangle (\v R,v_{\parallel},v_{\perp})\equiv\int_{0}^{2\pi}f(\v R,\phi,v_{\parallel},v_{\perp})\d\phi
+\]
+
+\end_inset
+
+ of this expression a lot of terms will cancel out.
+ Namely, 
+\begin_inset Formula 
+\begin{equation}
+\left\langle \hat{\v n}\right\rangle =\left\langle \hat{\v{\rho}}\right\rangle =0,\quad\left\langle \dot{\v{\rho}}\cdot\v W(\v R)\right\rangle =\mathcal{O}(\varepsilon),\quad\left\langle \frac{\dot{v}_{\perp}}{v_{\perp}}\right\rangle =\mathcal{O}(\varepsilon).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To leading order in 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ and after performing a gyro-average the 
+\series bold
+guiding-center Lagrangian
+\series default
+ follows as
+\begin_inset Formula 
+\[
+L(\v R,\dot{\v R},\cancel{\phi},\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\dot{\phi}-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R)\right).
+\]
+
+\end_inset
+
+Here all fields are evaluated in 
+\begin_inset Formula $\v R$
+\end_inset
+
+ and dependencies on 
+\begin_inset Formula $\phi$
+\end_inset
+
+ have vanished.
+ Thus we can identify a conserved generalized momentum
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial L}{\partial\dot{\phi}}=\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\equiv J_{\perp}=\frac{mc}{e}\mu,
+\end{equation}
+
+\end_inset
+
+known as the perpendicular invariant with 
+\begin_inset Formula $\dot{J}_{\perp}=0$
+\end_inset
+
+ along the trajectory.
+ The perpendicular invariant is proportional to the magnetic moment 
+\begin_inset Formula $\mu$
+\end_inset
+
+ of the guiding-center orbit, which is thus also conserved.
+ Again, 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is not the exact magnetic moment of the particle, but rather an approximation
+ up to order 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+.
+ If we replace 
+\begin_inset Formula $v_{\perp}$
+\end_inset
+
+ by the variable 
+\begin_inset Formula $\mu$
+\end_inset
+
+ we can write
+\begin_inset Formula 
+\begin{equation}
+L(\v R,\dot{\v R},\dot{\phi},v_{\parallel},\mu)=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
+\end{equation}
+
+\end_inset
+
+The Hamiltonian is the last part in brackets,
+\begin_inset Formula 
+\begin{equation}
+H=\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R),
+\end{equation}
+
+\end_inset
+
+and is equal to the total energy.
+ For equations of motion, it is of limited use, since we use non-canonical
+ variables.
+ We rather need Euler-Lagrange equations of the guiding-center Lagrangian
+ that follow as
+\begin_inset Formula 
+\begin{align}
+\dot{\v R} & =\frac{v_{\parallel}\v B^{\star}(\v R,v_{\parallel})+c\v E^{\star}(\v R,\mu)\times\hat{\v b}(\v R)}{\hat{\v b}(\v R)\cdot\v B^{\star}(\v R,v_{\parallel})},\quad\dot{v}_{\parallel}=\frac{e}{m}\frac{\v E^{\star}(\v R,\mu)\cdot\v B^{\star}(\v R,v_{\parallel})}{\hat{\v b}(\v R)\cdot\v B^{\star}(\v R,v_{\parallel})},\label{eq:rdot-1}\\
+\dot{\phi} & =-\omega_{c}(\v R)\equiv\frac{e\v B(\v R)}{mc},\quad\dot{\mu}=0.\label{eq:phidot}
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{\v b}(\v R)=\v B(\v R)/B(\v R)$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{align}
+\v E^{\star}(\v R,\mu) & =-\frac{1}{e}\nabla H(\v R,v_{\parallel},\mu)=-\frac{\mu}{e}\nabla B(\v R)-\nabla\Phi(\v R),\\
+\v B^{\star}(\v R,v_{\parallel}) & =\nabla\times\v A^{\star}(\v R,v_{\parallel}),\\
+\v A^{\star}(\v R,v_{\parallel}) & =\v A(\v R)+\frac{mc}{e}v_{\parallel}\hat{\v b}(\v R).
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Derivation of equations of motion
+\end_layout
+
+\begin_layout Standard
+Take
+\begin_inset Formula 
+\begin{equation}
+L(\v R,v_{\parallel},\mu,\dot{\v R},\dot{\phi})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Derivatives are
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\frac{\partial L}{\partial\v R} & =mv_{\parallel}(\nabla\hat{\v b})\cdot\dot{\v R}+\frac{e}{c}(\nabla\v A)\cdot\dot{\v R}-\left(\mu\nabla B+e\nabla\Phi\right)\\
+\frac{\partial L}{\partial\phi} & =0\\
+\frac{\partial L}{\partial v_{\parallel}} & =m\hat{\v b}\cdot\dot{\v R}-mv_{\parallel}\label{eq:vpar}\\
+\frac{\partial L}{\partial\mu} & =-\frac{mc}{e}\dot{\phi}-B\label{eq:mu}
+\end{align}
+
+\end_inset
+
+Generalized velocities:
+\begin_inset Formula 
+\begin{align}
+\frac{\d}{\d t}\frac{\partial L}{\partial\dot{\v R}} & =\frac{\d}{\d t}(mv_{\parallel}\hat{\v b}(\v R(t))+\frac{e}{c}\v A(\v R(t)))=m\dot{v}_{\parallel}\hat{\v b}+mv_{\parallel}\dot{\v R}\cdot\nabla\hat{\v b}+\frac{e}{c}\dot{\v R}\cdot\nabla\v A.\\
+\frac{\d}{\d t}\frac{\partial L}{\partial\dot{\phi}} & =\frac{\d}{\d t}(-\frac{mc}{e}\mu)=-\frac{mc}{e}\dot{\mu}
+\end{align}
+
+\end_inset
+
+Euler-Lagrange euqations in 
+\begin_inset Formula $\v R$
+\end_inset
+
+ are
+\begin_inset Formula 
+\begin{align}
+0=\frac{\d}{\d t}\frac{\partial L}{\partial\dot{\v R}}-\frac{\partial L}{\partial\v R} & =m\dot{v}_{\parallel}\hat{\v b}+mv_{\parallel}(\nabla\hat{\v b})\cdot\dot{\v R}+\frac{e}{c}(\nabla\v A)\cdot\dot{\v R}\nonumber \\
+ & -\mu\nabla B-e\nabla\Phi-mv_{\parallel}\dot{\v R}\cdot\nabla\hat{\v b}-\frac{e}{c}\dot{\v R}\cdot\nabla\v A\nonumber \\
+ & =m\dot{v}_{\parallel}\hat{\v b}+mv_{\parallel}\dot{\v R}\times(\nabla\times\hat{\v b})+\frac{e}{c}\dot{\v R}\times(\nabla\times\v A)\nonumber \\
+ & -\mu\nabla B+e\v E-mv_{\parallel}\dot{\v R}\cdot\nabla\hat{\v b}\nonumber \\
+ & =m\dot{v}_{\parallel}\hat{\v b}+\frac{e}{c}\dot{\v R}\times(\nabla\times\v A^{\star})-\mu\nabla B+e\v E-mv_{\parallel}\dot{\v R}\cdot\nabla\hat{\v b}\nonumber \\
+ & =m\dot{v}_{\parallel}\hat{\v b}+\frac{e}{c}\dot{\v R}\times\v B^{\star}-\mu\nabla B+e\v E-mv_{\parallel}\dot{\v R}\cdot\nabla\hat{\v b}.
+\end{align}
+
+\end_inset
+
+Here we have used 
+\begin_inset Formula $\v a\times(\nabla\times\v b)=(\nabla\v a)\cdot\v b-\v b\cdot\nabla\v a$
+\end_inset
+
+ from 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:eq3"
+
+\end_inset
+
+ and defined
+\begin_inset Formula 
+\begin{align}
+\v A^{\star}(\text{\v R},v_{\parallel}) & =\v A(\text{\v R})+\frac{mc}{e}v_{\parallel}\hat{\v b}(\text{\v R}),\\
+\v B^{\star}(\text{\v R},v_{\parallel}) & =\nabla\times\v A^{\star}(\text{\v R},v_{\parallel})
+\end{align}
+
+\end_inset
+
+as a modified vector potential and magnetic field.
+ The latter depend on the parallel velocity 
+\begin_inset Formula $v_{\parallel}$
+\end_inset
+
+ that can take both, positive or negative sign and vary during the orbit.
+ The Euler-Lagrange equation in the ignorable 
+\begin_inset Formula $\phi$
+\end_inset
+
+ yield conservation of magnetic moment 
+\begin_inset Formula $\dot{\mu}=0$
+\end_inset
+
+.
+ The remaining equations have no generalized velocity terms in 
+\begin_inset Formula $L_{\text{gc}}$
+\end_inset
+
+ being a phase-space Lagrangian.
+ Thus we can set terms (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:vpar"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:mu"
+
+\end_inset
+
+) to zero right away.
+ To sum up our equations of motion become
+\begin_inset Formula 
+\begin{align}
+m\dot{v}_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\dot{\v R}\times\v B^{\star}(\text{\v R},v_{\parallel}) & =\mu\nabla B(\v R)-e\v E(\v R),\label{eq:elg1}\\
+\hat{\v b}(\v R)\cdot\dot{\v R} & =v_{\parallel},\label{eq:elg2}\\
+\dot{\phi} & =-\frac{eB(\v R)}{mc}\equiv-\omega_{c}(\v R).\label{eq:elg3}
+\end{align}
+
+\end_inset
+
+Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:elg1"
+
+\end_inset
+
+ describes drifts due to 
+\begin_inset Formula $\v E$
+\end_inset
+
+ and gradient and curvature of 
+\begin_inset Formula $\v B$
+\end_inset
+
+.
+ Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:elg2"
+
+\end_inset
+
+ confirms the meaning of 
+\begin_inset Formula $v_{\parallel}$
+\end_inset
+
+ as the parallel velocity, and Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:elg3"
+
+\end_inset
+
+ of 
+\begin_inset Formula $\phi$
+\end_inset
+
+ as the gyrophase with regard to the guiding-center position 
+\begin_inset Formula $\v R$
+\end_inset
+
+.
+ Now we would like to decouple Eqs.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:elg1"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:elg2"
+
+\end_inset
+
+) to get explicit expressions for 
+\begin_inset Formula $\dot{\v R}$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{v}_{\parallel}$
+\end_inset
+
+.
+ Taking a cross product of 
+\begin_inset Formula $\hat{\v b}$
+\end_inset
+
+ with Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:elg1"
+
+\end_inset
+
+ removes the first term and together with the BAC-CAB rule and 
+\begin_inset Formula $\v b\cdot\dot{\v R}=v_{\parallel}$
+\end_inset
+
+ from Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:elg2"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+\frac{e}{c}((\hat{\v b}\cdot\v B^{\star})\dot{\v R}-v_{\parallel}\v B^{\star})=\hat{\v b}\times(\mu\nabla B-e\v E).
+\end{equation}
+
+\end_inset
+
+Finally we obtain
+\begin_inset Formula 
+\begin{align}
+\dot{\v R} & =\frac{v_{\parallel}\v B^{\star}+c\v E^{\star}\times\hat{\v b}}{\hat{\v b}\cdot\v B^{\star}},\label{eq:rdot}\\
+\dot{v}_{\parallel} & =\frac{e}{m}\frac{\v B^{\star}\cdot\v E^{\star}}{\hat{\v b}\cdot\v B^{\star}}.
+\end{align}
+
+\end_inset
+
+Here (convention taken from Lanthaler et al, PPCF 2017 vol: 59 (4) pp: 044014)
+ we defined
+\begin_inset Formula 
+\begin{equation}
+\v E^{\star}=-e^{-1}\nabla H=-\frac{\mu}{e}\nabla B-\nabla\Phi.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Plasma Models
+\end_layout
+
+\begin_layout Standard
+The goal of this chapter is to show a clear path from single particle motion
+ via a kinetic intermediate stage.
+ Details on the kinetic part, including an alternative derivation via Liouville'
+s theorem leading to a well-defined collision term are presented in the
+ course 
+\emph on
+Plasma Kinetic Theory
+\emph default
+ of Winfried Kernbichler.
+ More extensive descriptions of the derivations made here can be found at
+ 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+http://homepages.cae.wisc.edu/~callen/book.html
+\end_layout
+
+\end_inset
+
+ as well as 
+\begin_inset Quotes eld
+\end_inset
+
+Introduction to Plasma Theory
+\begin_inset Quotes erd
+\end_inset
+
+ by D.D.
+ Nicholson, 
+\begin_inset Quotes eld
+\end_inset
+
+Fundamentals of Plasma Physics
+\begin_inset Quotes erd
+\end_inset
+
+ by P.M.
+ Bellan and 
+\begin_inset Quotes eld
+\end_inset
+
+Ideal MHD
+\begin_inset Quotes erd
+\end_inset
+
+ by J.P.
+ Freidberg.
+ 
+\end_layout
+
+\begin_layout Subsection
+From Newton's law to the Klimontovich equation
+\end_layout
+
+\begin_layout Standard
+We consider an ensemble of 
+\begin_inset Formula $N$
+\end_inset
+
+ particles of this species and introduce a kinetic picture: The normalized
+ number density of discrete particles at position 
+\begin_inset Formula $\boldsymbol{z}_{k}(t)$
+\end_inset
+
+ in phase-space is given by placing Dirac 
+\begin_inset Formula $\delta$
+\end_inset
+
+s wherever a particle lies at time 
+\begin_inset Formula $t$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+f^{{\rm m}}(\text{\v z},t)=\frac{1}{N}\sum_{k=1}^{N}\delta(\boldsymbol{z}-\boldsymbol{z}_{k}(t)).\label{eq:fm}
+\end{equation}
+
+\end_inset
+
+The superscript 
+\begin_inset Formula ${\rm m}$
+\end_inset
+
+ stands for microscopic here as this 
+\series bold
+microscropic distribution function
+\series default
+ 
+\begin_inset Formula $f^{{\rm m}}$
+\end_inset
+
+ contains all details about single particle states (classically positions
+ and velocities/momenta).
+ Roughly speaking 
+\begin_inset Formula $f^{\mathrm{m}}=0$
+\end_inset
+
+ where there is no particle and 
+\begin_inset Formula $\infty$
+\end_inset
+
+ where there is a particle.
+ It is important to distinguish the position in phase-space 
+\begin_inset Formula $z$
+\end_inset
+
+ as an independent variable for 
+\begin_inset Formula $f^{\mathrm{m}}$
+\end_inset
+
+ from the orbit curves 
+\begin_inset Formula $\v z_{k}(t)$
+\end_inset
+
+ of the individual particles, that introduce the time-dependency in 
+\begin_inset Formula $f^{\mathrm{m}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+It is normalized, In particular the choice of the normalization by 
+\begin_inset Formula $1/N$
+\end_inset
+
+ together with the properties of the Dirac 
+\begin_inset Formula $\delta$
+\end_inset
+
+ leads to the 
+\series bold
+normalization property
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\int_{\Pi}\d^{6}z\,f^{{\rm m}}(\v z,t)=1.\label{eq:norm1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here 
+\begin_inset Formula $\Pi$
+\end_inset
+
+ is the domain in phase-space where particles exist.
+ If we perform an integral over a region 
+\begin_inset Formula $\Pi_{k}\subset\Pi$
+\end_inset
+
+ which contains only one particle 
+\begin_inset Formula $k$
+\end_inset
+
+ we obtain instead
+\begin_inset Formula 
+\begin{equation}
+\int_{\Pi_{k}}\d^{6}z\,f^{{\rm m}}(\boldsymbol{r},\boldsymbol{v},t)=\frac{1}{N}.\label{eq:norm1-1}
+\end{equation}
+
+\end_inset
+
+This can be interpreted as the probability to find a predefined particle
+ amongst our set of 
+\begin_inset Formula $N$
+\end_inset
+
+ particles near phase-space location 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To evaluate the partial time derivative of 
+\begin_inset Formula $f^{\mathrm{m}}$
+\end_inset
+
+ we use the chain rule,
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial t}f^{{\rm m}}(\text{\v z},t)=-\frac{1}{N}\sum_{k=1}^{N}\dot{\boldsymbol{z}}_{k}(t)\cdot\nabla_{\v z}\delta(\boldsymbol{z}-\boldsymbol{z}_{k}(t)).\label{eq:fm-1}
+\end{equation}
+
+\end_inset
+
+From the equations of motion we know relations between phase-space velocities
+ 
+\begin_inset Formula $\dot{\v z}_{k}$
+\end_inset
+
+ and phase-space positions 
+\begin_inset Formula $\v z_{k}$
+\end_inset
+
+ of the form 
+\begin_inset Formula $\dot{\boldsymbol{z}}_{k}(t)=\v w(\v z_{k}(t),t)$
+\end_inset
+
+.
+ In particular charged plasma particles are subject to electromagnetic forces
+ excerted by electric field 
+\size normal
+
+\begin_inset Formula $\boldsymbol{E}$
+\end_inset
+
+
+\size default
+ and magnetic field 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+.
+ Here we use real-space position 
+\begin_inset Formula $\v r$
+\end_inset
+
+ and velocity 
+\begin_inset Formula $\v v$
+\end_inset
+
+ to parameterize phase-space via 
+\begin_inset Formula $\v z=(\v r,\v v)$
+\end_inset
+
+ and apply the usual Lorentz force law.
+ For developing other variants like gyrokinetics one could start with the
+ guiding-center Lagrangian formalism.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Non-interacting particles in external fields
+\end_layout
+
+\begin_layout Standard
+We first start with an idealized set of 
+\emph on
+non-interacting
+\series bold
+\emph default
+ 
+\series default
+particles in 
+\emph on
+external
+\emph default
+ fields 
+\begin_inset Formula $\v E$
+\end_inset
+
+ and 
+\begin_inset Formula $\v B$
+\end_inset
+
+.
+ The motion of a single particle 
+\begin_inset Formula $k$
+\end_inset
+
+ of mass 
+\begin_inset Formula $m$
+\end_inset
+
+ and charge 
+\begin_inset Formula $e$
+\end_inset
+
+ using CGS units is given by 
+\begin_inset Formula 
+\begin{align}
+\dot{\boldsymbol{r}}_{k}(t) & =\boldsymbol{v}_{k}(t),\label{eq:ma}\\
+\dot{\boldsymbol{v}}_{k}(t) & =\frac{\boldsymbol{F}_{k}(\boldsymbol{r}_{k}(t),\boldsymbol{v}_{k}(t),t)}{m}=\frac{e}{m}(\boldsymbol{E}(\boldsymbol{r}_{k}(t),t)+\frac{1}{c}\boldsymbol{v}_{k}(t)\times\boldsymbol{B}(\boldsymbol{r}_{k}(t),t)).
+\end{align}
+
+\end_inset
+
+This is of the required form 
+\begin_inset Formula $\dot{\boldsymbol{z}}_{k}(t)=\v w(\v z_{k}(t),t)$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{equation}
+\dot{\boldsymbol{z}}_{k}(t)\equiv(\dot{\boldsymbol{r}}_{k}(t),\dot{\boldsymbol{v}}_{k}(t)),\qquad\v w(\v z_{k}(t),t)=(\boldsymbol{v}_{k}(t),\frac{\boldsymbol{F}_{k}(\boldsymbol{r}_{k}(t),t)}{m}).\label{eq:newton}
+\end{equation}
+
+\end_inset
+
+Now we can replace 
+\begin_inset Formula $\dot{\boldsymbol{z}}_{k}(t)$
+\end_inset
+
+ by 
+\begin_inset Formula $\v w(\v z_{k}(t),t)$
+\end_inset
+
+ and use the rule 
+\begin_inset Formula $g(\v z_{0})\delta(\v z-\v z_{0})=g(\v z)\delta(\v z-\v z_{0})$
+\end_inset
+
+ for the 
+\begin_inset Formula $\delta$
+\end_inset
+
+.
+ Then Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:fm-1"
+
+\end_inset
+
+ changes to
+\begin_inset Formula 
+\begin{align}
+\frac{\partial}{\partial t}f^{{\rm m}}(\text{\v z},t) & =-\frac{1}{N}\sum_{k=1}^{N}\v w(\v z_{k}(t),t)\cdot\nabla_{\v z}\delta(\boldsymbol{z}-\boldsymbol{z}_{k}(t))\nonumber \\
+ & =-\frac{1}{N}\sum_{k=1}^{N}\v w(\v z,t)\cdot\nabla_{\v z}\delta(\boldsymbol{z}-\boldsymbol{z}_{k}(t))\nonumber \\
+ & =-\v w(\v z,t)\cdot\nabla_{\v z}f^{{\rm m}}(\text{\v z},t).\label{eq:kineq}
+\end{align}
+
+\end_inset
+
+This is a convective derivative in phase-space where 
+\begin_inset Formula $f^{\mathrm{m}}$
+\end_inset
+
+ is transported along the flow 
+\begin_inset Formula $\v w$
+\end_inset
+
+ produced by the movement of particles via equations of motion evaluated
+ in 
+\begin_inset Formula $\v z$
+\end_inset
+
+.
+ In particular for 
+\begin_inset Formula $\v z=(\v r,\v v)$
+\end_inset
+
+ and Newton's equations of motion with force 
+\begin_inset Formula $\v F$
+\end_inset
+
+ as in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:newton"
+
+\end_inset
+
+ we obtain the 
+\series bold
+kinetic equation for non-interacting particles
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial t}f^{{\rm m}}(\text{\v r},\v v,t)+\v v\cdot\nabla_{\v r}f^{{\rm m}}(\text{\v r},\v v,t)+\frac{\v F(\v r,\v v,t)}{m}\cdot\nabla_{\v v}f^{{\rm m}}(\text{\v r},\v v,t)=0.\label{eq:kin1}
+\end{equation}
+
+\end_inset
+
+While one might say this is not a big surprise, we have achieved the complete
+ elimination of individual particle orbits with dependent variables 
+\begin_inset Formula $\v z_{k}(t)=(\v r_{k}(t),\v v_{k}(t))$
+\end_inset
+
+ given by 
+\begin_inset Formula $2N$
+\end_inset
+
+ 
+\emph on
+ordinary 
+\emph default
+differential equations of motion by a single 
+\emph on
+partial
+\emph default
+ differential equation in the microscopic distribution function 
+\begin_inset Formula $f^{\mathrm{m}}$
+\end_inset
+
+ with independent variables 
+\begin_inset Formula $\v z=(\v r,\v v)$
+\end_inset
+
+ and 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ They are connected via the fact that orbits are the 
+\emph on
+characteristics
+\emph default
+ of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kin1"
+
+\end_inset
+
+ along which 
+\begin_inset Formula $f^{\mathrm{m}}$
+\end_inset
+
+ propagates.
+ By smoothing over a regions of phase-space with many particles we can now
+ also find solutions of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kin1"
+
+\end_inset
+
+ with a distribution function that is less 
+\begin_inset Quotes eld
+\end_inset
+
+spiky
+\begin_inset Quotes erd
+\end_inset
+
+ than the original 
+\begin_inset Formula $f^{\mathrm{m}}\propto\delta$
+\end_inset
+
+.
+ This will be our goal in the following sections.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Interacting particles
+\end_layout
+
+\begin_layout Standard
+Up to now we have made our life easy by ignoring particle interactions.
+ Before proceeding we have to resolve the issue that in reality the force
+ 
+\begin_inset Formula $\v F_{k}$
+\end_inset
+
+ acting on particle 
+\begin_inset Formula $k$
+\end_inset
+
+ doesn't depend on 
+\begin_inset Formula $\v r_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\v v_{k}$
+\end_inset
+
+ alone, but also on other particles' positions and velocities (currents
+ generating 
+\begin_inset Formula $\v B$
+\end_inset
+
+ fields).
+ In a plasma the motion of particle number 
+\begin_inset Formula $k$
+\end_inset
+
+ is affected the microscopic fields 
+\size normal
+
+\begin_inset Formula $\boldsymbol{E}^{{\rm m}}(\boldsymbol{r}_{k},t;\{\boldsymbol{r}_{l}\},\{\boldsymbol{v}_{l}\})$
+\end_inset
+
+, 
+\begin_inset Formula $\boldsymbol{B}^{m}(\boldsymbol{r}_{k},t;\{\boldsymbol{r}_{l}\},\{\boldsymbol{v}_{l}\})$
+\end_inset
+
+
+\size default
+ that are generated by
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+or linked to, to be more precise
+\end_layout
+
+\end_inset
+
+ charges and currents dependent on position and velocity of all the other
+ particles 
+\begin_inset Formula $l\neq k$
+\end_inset
+
+ (denoted by curly brackets here).
+ Also (possibly explicitly time-dependent) external fields excerted on the
+ plasma are included in this full description.
+ We rewrite Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:ma"
+
+\end_inset
+
+ to 
+\begin_inset Formula 
+\begin{align}
+\dot{\boldsymbol{v}}_{k} & =\boldsymbol{F}^{{\rm m}}(\boldsymbol{r}_{k},\boldsymbol{v}_{k},t;\{\boldsymbol{r}_{l}\},\{\boldsymbol{v}_{l}\})/m\nonumber \\
+ & =\frac{e}{m}\boldsymbol{E}^{{\rm m}}(\boldsymbol{r}_{k},t;\{\boldsymbol{r}_{l}\},\{\boldsymbol{v}_{l}\})+\frac{e}{mc}\boldsymbol{v}_{k}\times\boldsymbol{B}^{{\rm m}}(\boldsymbol{r}_{k},t;\{\boldsymbol{r}_{l}\},\{\boldsymbol{v}_{l}\}).
+\end{align}
+
+\end_inset
+
+Following the same steps as in the non-interacting case we arrive at the
+ 
+\series bold
+kinetic equation for interacting particles
+\series default
+,
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial t}f^{{\rm m}}(\text{\v r},\v v,t)+\v v\cdot\nabla_{\v r}f^{{\rm m}}(\text{\v r},\v v,t)+\frac{\v F^{\mathrm{m}}(\v r,\v v,t;\{\boldsymbol{r}_{l}(t)\},\{\boldsymbol{v}_{l}(t)\})}{m}\cdot\nabla_{\v v}f^{{\rm m}}(\text{\v r},\v v,t)=0.\label{eq:kin1-1}
+\end{equation}
+
+\end_inset
+
+While formally similar to the non-interacting result 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:kin1"
+
+\end_inset
+
+, the interacting variant here contains all orbits 
+\begin_inset Formula $\{\boldsymbol{r}_{l}(t)\},\{\boldsymbol{v}_{l}(t)\}$
+\end_inset
+
+ resulting in a complicated time-dependency of microscopic forces 
+\begin_inset Formula $\v F^{\mathrm{m}}$
+\end_inset
+
+.
+ This dependency cannot even be stated without knowing the solutions of
+ orbits in the first place, thereby eliminating any practical value of the
+ kinetic reformulation.
+ For electromagnetic fields Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kin1-1"
+
+\end_inset
+
+ is known as the 
+\series bold
+Klimontovich equation
+\series default
+, 
+\begin_inset Formula 
+\begin{align}
+\frac{\partial f^{{\rm m}}}{\partial t} & +\boldsymbol{v}\cdot\nabla_{\boldsymbol{r}}f^{{\rm m}}+\frac{q}{m}(\boldsymbol{E}^{{\rm {\rm m}}}+\frac{1}{c}\boldsymbol{v}\times\boldsymbol{B}^{{\rm m}})\cdot\nabla_{\boldsymbol{v}}f^{{\rm m}}=0,\label{eq:Klimontovich}
+\end{align}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\v E^{\mathrm{m}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\v B^{\mathrm{m}}$
+\end_inset
+
+ could in principle be found from either solving Maxwell's equations self-consis
+tently together with 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Klimontovich"
+
+\end_inset
+
+, or finding the Liénard–Wiechert potentials for all particles (
+\begin_inset Formula $N\approx10^{19}$
+\end_inset
+
+ in laboratory plasmas).
+ While this is of maybe of philosophical value, we are usually not interested
+ in every single particle, but rather in their average statistical behaviour.
+\end_layout
+
+\begin_layout Subsubsection*
+Smoothing the distribution function
+\end_layout
+
+\begin_layout Standard
+In order to make equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Klimontovich"
+
+\end_inset
+
+ manageable one has to rely on some averaging procedure.
+ Since we can only observe macroscopic quantities such as temperature, density
+ and pressure, we average the 
+\begin_inset Formula $f^{{\rm m}}$
+\end_inset
+
+ on an intermediate scale by
+\begin_inset Formula 
+\begin{align}
+\left\langle f^{m}\right\rangle  & :=\frac{\int_{V_{x}}d^{3}x^{\prime}\int_{V_{v}}d^{3}v^{\prime}\,f^{{\rm m}}(\boldsymbol{r}^{\prime},\boldsymbol{v}^{\prime})}{\int_{V_{x}}d^{3}x^{\prime}\int_{V_{v}}d^{3}v^{\prime}}=\frac{\int_{V_{x}}d^{3}x^{\prime}\int_{V_{v}}d^{3}v^{\prime}\,f^{{\rm m}}(\boldsymbol{r}^{\prime},\boldsymbol{v}^{\prime})}{\Delta V_{\mathrm{p}}}.\label{eq:average}
+\end{align}
+
+\end_inset
+
+The phase space volume 
+\begin_inset Formula $\Delta V_{\mathrm{p}}$
+\end_inset
+
+ over which the average is taken is chosen much larger than the distance
+ between individual particles and much smaller than a scale such as the
+ Debye length in a plasma.
+ This means that the macroscopic distribution function 
+\begin_inset Formula $f=\left\langle f^{\mathrm{m}}\right\rangle $
+\end_inset
+
+ and other quantities can be treated as continuous functions with respect
+ to even larger scales such as the whole plasma dimensions.
+ The macroscopic distribution function retains the normalization property
+ of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:norm1"
+
+\end_inset
+
+ when integrating over phase-space.
+\end_layout
+
+\begin_layout Standard
+We split the microscopic distribution function 
+\begin_inset Formula $f^{{\rm m}}$
+\end_inset
+
+ as well as the fields into the average part and the fluctuations around
+ the average,
+\begin_inset Formula 
+\begin{equation}
+f^{{\rm m}}=f+\delta f,\,\,\,\,\,\,\boldsymbol{E}^{{\rm m}}=\boldsymbol{E}+\delta\boldsymbol{E},\,\,\,\,\,\,\boldsymbol{B}^{{\rm m}}=\boldsymbol{B}+\delta\boldsymbol{B}.
+\end{equation}
+
+\end_inset
+
+Most importantly, 
+\begin_inset Formula $\boldsymbol{E}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{B}$
+\end_inset
+
+ do not depend on the single particle positions anymore, but can still depend
+ on local densities of charges 
+\begin_inset Formula $\rho_{e}(\v r,t)$
+\end_inset
+
+ and currents 
+\begin_inset Formula $\v j(\v r,t)$
+\end_inset
+
+ on the averaging scale.
+ Applying the average 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:average"
+
+\end_inset
+
+ to Eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Klimontovich"
+
+\end_inset
+
+ we obtain the 
+\series bold
+plasma kinetic equation
+\series default
+
+\begin_inset Formula 
+\begin{align}
+\frac{\partial f}{\partial t}+\boldsymbol{v}\cdot\nabla_{\boldsymbol{r}}f+\frac{e}{m}(\boldsymbol{E}+\frac{1}{c}\boldsymbol{v}\times\boldsymbol{B})\cdot\nabla_{\boldsymbol{v}}f & =-\left\langle \frac{e}{m}(\delta\boldsymbol{E}+\frac{1}{c}\boldsymbol{v}\times\delta\boldsymbol{B})\cdot\nabla_{\boldsymbol{v}}\delta f\right\rangle \equiv\left(\frac{\partial f}{\partial t}\right)_{\mathrm{c}}.\label{eq:Klimontovich-1}
+\end{align}
+
+\end_inset
+
+Here we have used the fact that averages containing a single fluctuation
+ term such as 
+\begin_inset Formula $\left\langle \delta f\right\rangle $
+\end_inset
+
+ are zero.
+ The remaining term containing the products of two of such terms has been
+ moved to the right side.
+ All the influences from microscopic fluctuations on the time evolution
+ of the distribution function 
+\begin_inset Formula $f$
+\end_inset
+
+ are hidden there.
+ Because interactions between point-like particles apart from their collective
+ behavior can be viewed as collisions it is called the collision term and
+ labelled 
+\begin_inset Formula $(\partial f/\partial t)_{\mathrm{c}}$
+\end_inset
+
+.
+ Methods to treat this collision term by different approximations are subject
+ to plasma kinetic theory.
+ A consistent derivation is possible via the Lenard-Balescu equation, where
+ cumulative small-angle collisions allow to write the collision term as
+ a Fokker-Planck-type differential operator acting on 
+\begin_inset Formula $f$
+\end_inset
+
+ (Landau collision term).
+ For details, see book 
+\begin_inset Quotes eld
+\end_inset
+
+Introduction to Plasma Theory
+\begin_inset Quotes erd
+\end_inset
+
+ by Nicholson, or 
+\begin_inset Quotes eld
+\end_inset
+
+Classical transport theory
+\begin_inset Quotes erd
+\end_inset
+
+ by Balescu.
+\end_layout
+
+\begin_layout Subsection
+From the plasma kinetic equation to magnetohydrodynamic (fluid) equations
+\end_layout
+
+\begin_layout Standard
+With the distribution function 
+\begin_inset Formula $f$
+\end_inset
+
+ defined, it is still difficult to observe it directly in experiment.
+ Our goal is to get rid of velocity space dependencies in order to define
+ macroscopic (fluid) observables.
+ This is commonly done for three reasons.
+ Firstly, we can observe distributions of quantities over position space
+ 
+\begin_inset Formula $\v r$
+\end_inset
+
+ more easily and inuitively than over velocity space 
+\begin_inset Formula $\v v$
+\end_inset
+
+.
+ Secondly, in a thermodynamic equilibrium the velocity space distribution
+ is fixed by a Maxwellian.
+ Finally, macroscopic conservation laws in position space follow automatically
+ from conservation laws in phase-space and can be of interest on their own,
+ no matter what the distribution in 
+\begin_inset Formula $\v v$
+\end_inset
+
+ is.
+\end_layout
+
+\begin_layout Subsubsection*
+Conservation laws in phase-space
+\end_layout
+
+\begin_layout Standard
+In order to find conservation laws, we first need to transform the plasma
+ kinetic equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Klimontovich-1"
+
+\end_inset
+
+ from its convective form into a conservative form.
+ This means pulling the gradients of 
+\begin_inset Formula $f$
+\end_inset
+
+ to the front so we get the divergence of a phase-flux.
+ For the second term this is easy, since 
+\begin_inset Formula $\v v$
+\end_inset
+
+ doesn't depend on 
+\begin_inset Formula $\v r$
+\end_inset
+
+ as both are independent variables,
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{v}\cdot\nabla_{\boldsymbol{r}}f=\nabla_{\v r}\cdot(\v vf)-(\nabla_{\v r}\cdot\v v)f=\nabla_{\v r}\cdot(\v vf).
+\end{equation}
+
+\end_inset
+
+For the second term it works too, since 
+\begin_inset Formula $\v E$
+\end_inset
+
+ doesn't depend on 
+\begin_inset Formula $\v v$
+\end_inset
+
+, and
+\begin_inset Formula 
+\begin{align}
+\nabla_{\v v}\cdot(\v v\times\v B) & =\v B\cdot(\nabla_{\v v}\times\v v)-\v v\cdot(\nabla_{\v v}\times\v B).
+\end{align}
+
+\end_inset
+
+Taking a curl of 
+\begin_inset Formula $\v v=(v_{x},v_{y},v_{z})$
+\end_inset
+
+ in velocity space yields zero, and 
+\begin_inset Formula $\v B$
+\end_inset
+
+ doesn't even depend on 
+\begin_inset Formula $\v v$
+\end_inset
+
+.
+ Thus,
+\begin_inset Formula 
+\begin{equation}
+\frac{e}{m}(\boldsymbol{E}+\frac{1}{c}\boldsymbol{v}\times\boldsymbol{B})\cdot\nabla_{\boldsymbol{v}}f=\nabla_{\boldsymbol{v}}\cdot\left(\frac{e}{m}(\boldsymbol{E}+\frac{1}{c}\boldsymbol{v}\times\boldsymbol{B})f\right).
+\end{equation}
+
+\end_inset
+
+Thus we can write Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Klimontovich-1"
+
+\end_inset
+
+ in conservative form
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial f}{\partial t}+\nabla_{\boldsymbol{r}}\cdot(\boldsymbol{v}f)+\nabla_{\boldsymbol{v}}\cdot\left(\frac{e}{m}(\boldsymbol{E}+\frac{1}{c}\boldsymbol{v}\times\boldsymbol{B})f\right)=\left(\frac{\partial f}{\partial t}\right)_{\mathrm{c}}.\label{eq:falpha-2}
+\end{equation}
+
+\end_inset
+
+This result is only a special case of a more general principle.
+ Let's consider the convective (Lagrangian) form of any kinetic equation
+ in phase space with variables 
+\begin_inset Formula $\v z$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\frac{Df}{Dt}=\frac{\partial f(\v z,t)}{\partial t}+\boldsymbol{w}(\v z,t)\cdot\nabla_{\boldsymbol{z}}f(\v z,t)=\left(\frac{\partial f(\v z,t)}{\partial t}\right)_{\mathrm{c}}.\label{eq:kincon}
+\end{equation}
+
+\end_inset
+
+Again it is important to remember that 
+\begin_inset Formula $\v w$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{\v z}(t)$
+\end_inset
+
+ are related but different objects.
+ As mentioned before, 
+\begin_inset Formula $\v w(\v z,t)$
+\end_inset
+
+ are characeristics of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kincon"
+
+\end_inset
+
+, related to orbits via 
+\begin_inset Formula $\dot{\v z}_{\alpha}(t)=\v w_{\alpha}(\v z_{\alpha}(t),t)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\v w$
+\end_inset
+
+ follows from Hamiltonian equations of motion (including phase-space/guiding-cen
+ter Lagrangian), it is called a 
+\series bold
+Hamiltonian vector field
+\series default
+ and always has the property of divergence-freeness
+\begin_inset Formula 
+\begin{equation}
+\nabla_{\v z}\cdot\v w(\v z,t)=0,
+\end{equation}
+
+\end_inset
+
+known as 
+\series bold
+Liouville's theorem
+\series default
+, or the conservation of phase-space volume.
+ This immediately allows to write the conservative form of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kincon"
+
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial f(\v z,t)}{\partial t}+\nabla_{\boldsymbol{z}}\cdot(\boldsymbol{w}(\v z,t)f(\v z,t))=\left(\frac{\partial f(\v z,t)}{\partial t}\right)_{\mathrm{c}}.\label{eq:kincon-1}
+\end{equation}
+
+\end_inset
+
+Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kincon-1"
+
+\end_inset
+
+ is completely analogous to the conservative Eulerian picture in fluid mechanics.
+ The change of 
+\begin_inset Formula $f$
+\end_inset
+
+ over time at a fixed 
+\begin_inset Formula $\v z$
+\end_inset
+
+ comes from a divergence of the phase flux 
+\begin_inset Formula $\Gamma_{f}=\v wf$
+\end_inset
+
+ transporting 
+\begin_inset Formula $f$
+\end_inset
+
+ and a source terms on the right-hand side resulting from collisions.
+\end_layout
+
+\begin_layout Subsubsection*
+Moments
+\end_layout
+
+\begin_layout Standard
+In order to take influences from electrons and ions on macroscopic observables
+ into account, we define an individual distribution function 
+\begin_inset Formula $f_{\alpha}$
+\end_inset
+
+ for each plasma species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Macroscopic observables can then be calculated from the distribution functions
+ 
+\begin_inset Formula $f_{\alpha}$
+\end_inset
+
+ of either one species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ or a combination of them by removing velocity dependencies via an integral
+ over the whole velocity space.
+ The fluid observable 
+\begin_inset Formula $\t Q(\v r,t)$
+\end_inset
+
+ is defined via its kinetic counterpart 
+\begin_inset Formula $\t q(\v r,\v v,t)$
+\end_inset
+
+ by
+\begin_inset Formula 
+\begin{equation}
+\t Q(\v r,t)\equiv\int d^{3}v\,\t q(\v r,\v v,t)f_{\alpha}(\boldsymbol{r},\boldsymbol{v},t).\label{eq:intfluid}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\t q$
+\end_inset
+
+ and 
+\begin_inset Formula $\t Q$
+\end_inset
+
+ can be a scalar, vector, or tensor.
+ The usual way to proceed is to define a number density from 
+\begin_inset Formula $\t q_{0}=N_{\alpha}$
+\end_inset
+
+, momentum density 
+\begin_inset Formula $\t q_{1}=m_{\alpha}N_{\alpha}\v v$
+\end_inset
+
+ and energy density 
+\begin_inset Formula $\t q_{2}=m_{\alpha}N_{\alpha}v^{2}/2$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $N_{\alpha}$
+\end_inset
+
+ is the total number of particles of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ in the spatial domain 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ defined large enough that it will always contain all particles (or even
+ 
+\begin_inset Formula $\Omega=\mathbb{R}^{3}$
+\end_inset
+
+).
+ Integrals of the kind of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:intfluid"
+
+\end_inset
+
+ when applied to another expression 
+\begin_inset Formula $g(\v r,\v v,t)$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\t M\equiv\int d^{3}v\,\t q(\v r,\v v,t)g(\v r,\v v,t)f_{\alpha}(\boldsymbol{r},\boldsymbol{v},t).\label{eq:intfluid-1}
+\end{equation}
+
+\end_inset
+
+are called 
+\begin_inset Formula $\t q$
+\end_inset
+
+-weighted 
+\series bold
+moments 
+\series default
+of 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ We speak of a 
+\begin_inset Formula $K$
+\end_inset
+
+-th moment, if 
+\begin_inset Formula $\v v$
+\end_inset
+
+ appears 
+\begin_inset Formula $K$
+\end_inset
+
+ times in the overall expression in the integral 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:intfluid-1"
+
+\end_inset
+
+.
+ For our 
+\begin_inset Formula $\t q_{k}$
+\end_inset
+
+ defined above, moments will be of order 
+\begin_inset Formula $K=k$
+\end_inset
+
+ if no 
+\begin_inset Formula $\v v$
+\end_inset
+
+ appears inside 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In the following section we are going to take 
+\begin_inset Formula $\t q_{k}$
+\end_inset
+
+-weighted moments of the plasma kinetic equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Klimontovich-1"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\underset{(I)}{\frac{\partial f_{\alpha}}{\partial t}}+\underset{(II)}{\nabla_{\boldsymbol{r}}\cdot(\boldsymbol{v}f_{\alpha})}+\underset{(III)}{\nabla_{\boldsymbol{v}}\cdot\left(\frac{\v F_{\alpha}}{m_{\alpha}}f_{\alpha}\right)}=\underset{(C)}{\left(\frac{\partial f_{\alpha}}{\partial t}\right)_{\mathrm{c}}}.\label{eq:falpha-2-1}
+\end{equation}
+
+\end_inset
+
+where we have labeled single terms for later reference and denoted the Lorentz
+ force as 
+\begin_inset Formula $\v F_{\alpha}=\v F_{\alpha}(\v r,\v v,t)$
+\end_inset
+
+.
+ Already here we see that because of 
+\begin_inset Formula $\v v$
+\end_inset
+
+ appearing in 
+\begin_inset Formula $(II)$
+\end_inset
+
+ the order of its moments will be of order 
+\begin_inset Formula $k+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Continuity equation for number density
+\end_layout
+
+\begin_layout Standard
+We start with the definition of the 
+\series bold
+number density
+\series default
+ 
+\begin_inset Formula $n_{\alpha}$
+\end_inset
+
+ that should give the average
+\emph on
+ local
+\emph default
+ particle density at 
+\begin_inset Formula $\v r$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+ via Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:intfluid"
+
+\end_inset
+
+ with 
+\begin_inset Formula $\t q=N_{\alpha}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+n_{\alpha}(\boldsymbol{r},t) & \equiv\int d^{3}v\,N_{\alpha}f_{\alpha}(\boldsymbol{r},\boldsymbol{v},t)=N_{\alpha}\int d^{3}v\,f_{\alpha}(\boldsymbol{r},\boldsymbol{v},t).
+\end{align}
+
+\end_inset
+
+This equation is a zeroeth moment.
+ Since 
+\begin_inset Formula $f_{\alpha}$
+\end_inset
+
+ is normalized with 
+\begin_inset Formula 
+\begin{equation}
+\int_{\Omega}\d^{3}r\int\d^{3}vf_{\alpha}(\v r,\v v,t)=1,
+\end{equation}
+
+\end_inset
+
+we can easily check that 
+\begin_inset Formula 
+\begin{equation}
+\int_{\Omega}\d^{3}r\,n_{\alpha}(\v r,t)=N_{\alpha}
+\end{equation}
+
+\end_inset
+
+yields the number of particles.
+ Mass density 
+\begin_inset Formula $\rho_{m\alpha}(\v r,t)=m_{\alpha}n_{\alpha}(\v r,t)$
+\end_inset
+
+ and charge density 
+\begin_inset Formula $\rho_{e\alpha}(\v r,t)=e_{\alpha}n_{\alpha}(\v r,t)$
+\end_inset
+
+ can be computed from 
+\begin_inset Formula $n_{\alpha}$
+\end_inset
+
+.
+ Due to quasineutrality 
+\begin_inset Formula $\sum_{\alpha}e_{\alpha}n_{\alpha}(\v r,t)=0$
+\end_inset
+
+ we will often assume 
+\begin_inset Formula $n_{i}=n_{e}$
+\end_inset
+
+ in a two-species plasma of hydrogen/deuterium/tritium ions with charge
+ 
+\begin_inset Formula $+e$
+\end_inset
+
+ and electrons with charge 
+\begin_inset Formula $-e$
+\end_inset
+
+.
+ Now we start taking moments 
+\begin_inset Formula $N_{\alpha}\int\d^{3}v$
+\end_inset
+
+ of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:falpha-2-1"
+
+\end_inset
+
+.
+ Application on 
+\begin_inset Formula $(I)$
+\end_inset
+
+ yields the zeroth moment
+\begin_inset Formula 
+\begin{equation}
+N_{\alpha}\int\d^{3}v\,(I)=N_{\alpha}\int\d^{3}v\frac{\partial f_{\alpha}}{\partial t}=\frac{\partial}{\partial t}(N_{\alpha}\int\d^{3}vf_{\alpha})=\frac{\partial n_{\alpha}}{\partial t}.
+\end{equation}
+
+\end_inset
+
+Here we could pull out the time derivative because integral boundaries are
+ at 
+\begin_inset Formula $\infty$
+\end_inset
+
+ and independent of time,
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+otherwise one needs the Leibniz rule
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset Formula $N_{\alpha}$
+\end_inset
+
+ is a constant, provided that the plasma is hot enought that no recombination
+ occurs, and nuclear fusion is so inefficient that the relative change in
+ 
+\begin_inset Formula $N_{\alpha}$
+\end_inset
+
+ is negligible.
+\end_layout
+
+\begin_layout Standard
+Acting on 
+\begin_inset Formula $(II)$
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+N_{\alpha}\int\d^{3}v\,(II)=N_{\alpha}\int\d^{3}v\nabla_{\boldsymbol{r}}\cdot(\boldsymbol{v}f_{\alpha})=\nabla\cdot(N_{\alpha}\int\d^{3}v\,\boldsymbol{v}f_{\alpha})\equiv\nabla\cdot\v{\Gamma}_{n\alpha}.
+\end{equation}
+
+\end_inset
+
+Here we have defined the 
+\series bold
+particle flux
+\series default
+ 
+\begin_inset Formula 
+\begin{equation}
+\v{\Gamma}_{n\alpha}(\v r,t)\equiv N_{\alpha}\int\d^{3}v\,\boldsymbol{v}f_{\alpha}(\v r,\v v,t)
+\end{equation}
+
+\end_inset
+
+for species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ being a 
+\emph on
+first
+\emph default
+ rather than a zeroth moment.
+ Note also that from here on we denote 
+\begin_inset Formula $\nabla\equiv\nabla_{\v r}$
+\end_inset
+
+ as the usual Nabla operator in position space.
+\end_layout
+
+\begin_layout Standard
+Term 
+\begin_inset Formula $(III)$
+\end_inset
+
+ can be transformed to a surface integral in velocity space using Gauss'
+ divergence theorem,
+\begin_inset Formula 
+\begin{equation}
+N_{\alpha}\int\d^{3}v\,(III)=N_{\alpha}\int\d^{3}v\nabla_{\boldsymbol{v}}\cdot\left(\frac{\v F_{\alpha}}{m_{\alpha}}f_{\alpha}\right)=N_{\alpha}\oint\,\d\v S_{\v v}\cdot\frac{\v F_{\alpha}}{m_{\alpha}}f_{\alpha}=0.
+\end{equation}
+
+\end_inset
+
+Here the surface integral vanishes when taking the limit to infinite velocities,
+ that are never reached by any particle.
+\end_layout
+
+\begin_layout Standard
+Finally, the collisional term 
+\begin_inset Formula $(C)$
+\end_inset
+
+ becomes
+\begin_inset Formula 
+\begin{equation}
+N_{\alpha}\int\d^{3}v\,(C)=N_{\alpha}\int\d^{3}v\left(\frac{\partial f_{\alpha}}{\partial t}\right)_{\mathrm{c}}=0.\label{eq:collnum}
+\end{equation}
+
+\end_inset
+
+This term must vanish, since collisions cannot change species, or even create
+ or destroy particles, but only reshuffle them in velocity space.
+ Every collision that removes a particle of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ at a certain velocity 
+\begin_inset Formula $v$
+\end_inset
+
+, must add it at another velocity 
+\begin_inset Formula $v$
+\end_inset
+
+.
+ Since there are no further velocity-dependent weights in the integral 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:collnum"
+
+\end_inset
+
+, each of these contributions cancels each out identically.
+ 
+\end_layout
+
+\begin_layout Standard
+With the above-made definitions and simplifications, we can write the conservati
+on law for the particle number density 
+\begin_inset Formula $n_{\alpha}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial n_{\alpha}(\v r,t)}{\partial t}+\nabla\cdot\v{\Gamma}_{n\alpha}(\v r,t)=0.\label{eq:falpha-2-1-1}
+\end{equation}
+
+\end_inset
+
+Re-writing this in the commonly used form with 
+\series bold
+species fluid velocity
+\series default
+ 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial n_{\alpha}(\v r,t)}{\partial t}+\nabla\cdot(\v V_{\alpha}(\v r,t)n_{\alpha}(\v r,t))=0,\label{eq:falpha-2-1-1-1}
+\end{equation}
+
+\end_inset
+
+yields the 
+\emph on
+definition
+\emph default
+ of 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{equation}
+\v V_{\alpha}(\v r,t)\equiv\frac{\v{\Gamma}_{n\alpha}(\v r,t)}{n_{\alpha}(\v r,t)}=\frac{\cancel{N_{\alpha}}\int\d^{3}v\,\boldsymbol{v}f_{\alpha}(\v r,\v v,t)}{\cancel{N_{\alpha}}\int d^{3}v\,f_{\alpha}(\boldsymbol{r},\boldsymbol{v},t)}.
+\end{equation}
+
+\end_inset
+
+The fluid velocity is thus an average over the velocity distribution in
+ phase-space, given by a first moment, normalized by the local particle
+ density.
+ As 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+ is an intrinsic quantity it doesn't depend on how many particles are there
+ to determine how fast they move.
+ An increase in particle flux 
+\begin_inset Formula $\v{\Gamma}_{n\alpha}$
+\end_inset
+
+ can be made either by increasing the local density 
+\begin_inset Formula $n_{\alpha}$
+\end_inset
+
+ while keeping 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+ constant, or by increasing 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+ at constant 
+\begin_inset Formula $n_{\alpha}$
+\end_inset
+
+.
+ Thus, our family of related but different velocities has grown to 
+\begin_inset Formula $\dot{\v r}_{k}(t),\v v_{k}(t),\v v,\v V_{\alpha}(\v r,t)$
+\end_inset
+
+.
+ This is a good point to rest and meditate on what you have learned.
+\end_layout
+
+\begin_layout Subsubsection*
+Fluid momentum law for each single species
+\end_layout
+
+\begin_layout Standard
+From the continuity equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:falpha-2-1-1"
+
+\end_inset
+
+ resulting from a 
+\emph on
+zeroth
+\emph default
+ moment of the plasma kinetic equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:kincon-1"
+
+\end_inset
+
+ we remember that a 
+\emph on
+first
+\emph default
+ moment popped up in form of a flux that we could translate into a fluid
+ velocity 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+ of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Going back to a single species we now take a moment with the kinematic
+ momentum 
+\begin_inset Formula $m_{\alpha}N_{\alpha}\v v$
+\end_inset
+
+ as a weight, so 
+\begin_inset Formula $\int\d^{3}vm_{\alpha}N_{\alpha}\v v$
+\end_inset
+
+.
+ This is a 
+\emph on
+first
+\emph default
+ moment, as the velocity appears once.
+ Applying it on 
+\begin_inset Formula $(I)$
+\end_inset
+
+ we obtain
+\begin_inset Formula 
+\begin{equation}
+m_{\alpha}N_{\alpha}\int\d^{3}v\v v\frac{\partial f_{\alpha}}{\partial t}=\frac{\partial}{\partial t}\left(m_{\alpha}N_{\alpha}\int\d^{3}v\v vf_{\alpha}\right)=\frac{\partial(m_{\alpha}n_{\alpha}\v V_{\alpha})}{\partial t}.
+\end{equation}
+
+\end_inset
+
+This is the change in time of the 
+\series bold
+fluid
+\series default
+ 
+\series bold
+momentum density
+\series default
+ of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+,
+\series bold
+ 
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\v p_{\alpha}^{\mathrm{fl}}(\v r,t)\equiv m_{\alpha}n_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t).
+\end{equation}
+
+\end_inset
+
+(remember, there was also additional electromagnetic momentum, see concepts).
+ We notice that it is equal to the 
+\series bold
+mass flux 
+\begin_inset Formula $\v{\Gamma}_{m\alpha}(\v r,t)$
+\end_inset
+
+
+\series default
+ of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+From 
+\begin_inset Formula $(II)$
+\end_inset
+
+ we now get 
+\begin_inset Formula 
+\begin{equation}
+m_{\alpha}N_{\alpha}\int\d^{3}v\v v(II)=m_{\alpha}N_{\alpha}\int\d^{3}v\v v\nabla_{\v r}\cdot(\v vf_{\alpha})=\nabla\cdot(m_{\alpha}N_{\alpha}\int\d^{3}v\v v\v vf_{\alpha}).\label{eq:momflux1}
+\end{equation}
+
+\end_inset
+
+representing the spatial divergence of a 
+\emph on
+second 
+\emph default
+moment (you see this will never end if we don't stop it).
+ This term contains a 
+\emph on
+dyad
+\emph default
+ 
+\begin_inset Formula $\v v\text{\v v}\equiv\v v\otimes\v v$
+\end_inset
+
+ with components 
+\begin_inset Formula $v_{i}v_{j}$
+\end_inset
+
+ (see concepts), making it a second order tensor.
+ The divergence of such a second-order tensor yields a vector field, so
+ we can add this to the change of the kinematic momentum density 
+\begin_inset Formula $\partial\v p_{\alpha}^{\mathrm{kin}}/\partial t$
+\end_inset
+
+ from 
+\begin_inset Formula $(I)$
+\end_inset
+
+, being also a vector field.
+ We leave it as it is for now.
+\end_layout
+
+\begin_layout Standard
+To resolve the mass-weighted second moment of 
+\begin_inset Formula $(III)$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+m_{\alpha}N_{\alpha}\int\d^{3}v\v v(III)=m_{\alpha}N_{\alpha}\int\d^{3}v\v v\left(\nabla_{\boldsymbol{v}}\cdot\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}\right),
+\end{equation}
+
+\end_inset
+
+we use the identity 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:diaddiv"
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot(\v a\v b)=(\v a\cdot\nabla)\v b+(\nabla\cdot\v a)\v b
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\v a=\v v$
+\end_inset
+
+ and 
+\begin_inset Formula $\v b=\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}$
+\end_inset
+
+, so
+\begin_inset Formula 
+\begin{equation}
+\v v\left(\nabla_{\boldsymbol{v}}\cdot\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}\right)=\nabla_{\boldsymbol{v}}\cdot\frac{\v v\v F_{\alpha}f_{\alpha}}{m_{\alpha}}-\underbrace{(\nabla_{\v v}\cdot\v v)}_{=1}\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}.
+\end{equation}
+
+\end_inset
+
+Again the integral over the first term vanishes if we convert it to a boundary
+ integral via the divergence theorem for tensors (one can always write it
+ in components to see this, if unsure).
+ The second term just yields a velocity-space average of the force,
+\begin_inset Formula 
+\begin{align}
+m_{\alpha}N_{\alpha}\int\d^{3}v\v v(III) & =-\cancel{m_{\alpha}}N_{\alpha}\int\d^{3}v\frac{\v F_{\alpha}f_{\alpha}}{\cancel{m_{\alpha}}}\nonumber \\
+ & =-N_{\alpha}e_{\alpha}\int\d^{3}v(\v E+\frac{1}{c}\v v\times\v B)f_{\alpha}\nonumber \\
+ & =-e_{\alpha}(n_{\alpha}\v E+\frac{1}{c}\v{\Gamma}_{n\alpha}\times\v B)\nonumber \\
+ & =-e_{\alpha}n_{\alpha}(\v E+\frac{1}{c}\v V_{\alpha}\times\v B),
+\end{align}
+
+\end_inset
+
+This is the negative Lorentz force acting on the fluid of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ with charge density 
+\begin_inset Formula $\rho_{e\alpha}=e_{\alpha}n_{\alpha}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The collisional term 
+\begin_inset Formula $(C)$
+\end_inset
+
+ yields 
+\begin_inset Formula 
+\begin{equation}
+m_{\alpha}N_{\alpha}\int\d^{3}v\v v(C)=m_{\alpha}N_{\alpha}\int\d^{3}v\v v\left(\frac{\partial f_{\alpha}}{\partial t}\right)_{\mathrm{c}}\equiv\v R_{\alpha}.
+\end{equation}
+
+\end_inset
+
+This contribution doesn't vanish as before, because collisions with other
+ species can insert or extract momentum to the fluid of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ Only the contribution 
+\begin_inset Formula $\v R_{\alpha\alpha}$
+\end_inset
+
+ from self-collisions of species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ must not change its fluid momentum, so we can write
+\begin_inset Formula 
+\begin{equation}
+\v R_{\alpha}=\sum_{\beta\neq\alpha}\v R_{\alpha\beta}.
+\end{equation}
+
+\end_inset
+
+As global momentum conservation is still valid for elastic collisions, each
+ collision can only add momentum that it removed from one species to another
+ species, but not create or destroy it.
+ Thus the sum of collision terms over all species must vanish,
+\begin_inset Formula 
+\begin{equation}
+\sum_{\alpha}\v R_{\alpha}=\sum_{\alpha}\sum_{\beta\neq\alpha}\v R_{\alpha\beta}=0.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we can compare Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:momflux1"
+
+\end_inset
+
+ to the divergence of the 
+\series bold
+fluid momentum flux 
+\series default
+defined by
+\begin_inset Formula 
+\[
+\v{\Gamma}_{\v p\alpha}^{\mathrm{fl}}(\v r,t)\equiv\v V_{\alpha}(\v r,t)\v p_{\alpha}^{\mathrm{fl}}(\v r,t)=m_{\alpha}n_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t).
+\]
+
+\end_inset
+
+At first sight the order of vectors in the dyad plays a role and we have
+ to write 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+ that transports the vector field 
+\begin_inset Formula $\v p_{\alpha}^{\mathrm{fl}}$
+\end_inset
+
+ in the front.
+ In the result we see however that it doesn't matter.
+\begin_inset Formula 
+\begin{align*}
+m_{\alpha}N_{\alpha}\int\d^{3}v\v v\v vf_{\alpha} & =m_{\alpha}N_{\alpha}\int\d^{3}v\v V_{\alpha}\v vf_{\alpha}+m_{\alpha}N_{\alpha}\int\d^{3}v(\v v-\v V_{\alpha})\v vf_{\alpha}\\
+ & =\underbrace{m_{\alpha}n_{\alpha}\v V_{\alpha}\v V_{\alpha}}_{\v{\Gamma}_{\v p\alpha}^{\mathrm{fl}}}+m_{\alpha}N_{\alpha}\int\d^{3}v(\v v-\v V_{\alpha})\v vf_{\alpha}.
+\end{align*}
+
+\end_inset
+
+The remaining term apart from 
+\begin_inset Formula $\v{\Gamma}_{\v p\alpha}^{\mathrm{fl}}$
+\end_inset
+
+ is called the 
+\series bold
+species pressure tensor 
+\series default
+
+\begin_inset Formula 
+\begin{align}
+\t P_{\alpha} & \equiv m_{\alpha}N_{\alpha}\int\d^{3}v(\v v-\v V_{\alpha})(\v v-\v V_{\alpha})f_{\alpha}\nonumber \\
+ & =m_{\alpha}N_{\alpha}\int\d^{3}v\v v\v vf_{\alpha}-\v{\Gamma}_{\v p\alpha}^{\mathrm{fl}}.
+\end{align}
+
+\end_inset
+
+Here we could add 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $-\v V_{\alpha}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ in the second term since
+\begin_inset Formula 
+\begin{equation}
+N_{\alpha}\int\d^{3}v(\v v-\v V_{\alpha})\v V_{\alpha}f_{\alpha}=\left(N_{\alpha}\int\d^{3}v(\v v-\v V_{\alpha})f_{\alpha}\right)\v V_{\alpha}
+\end{equation}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{equation}
+N_{\alpha}\int\d^{3}v(\v v-\v V_{\alpha})f_{\alpha}=N_{\alpha}\int\d^{3}v\v vf_{\alpha}-N_{\alpha}\v V_{\alpha}\int\d^{3}vf_{\alpha}=n_{\alpha}\v V_{\alpha}-n_{\alpha}\v V_{\alpha}=0.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The pressure tensor quantifies the average deviation 
+\begin_inset Formula $(\v v-\v V_{\alpha})$
+\end_inset
+
+ away from the fluid velocity.
+ Finally, we write the 
+\series bold
+conservative momentum law for species 
+\series default
+
+\begin_inset Formula $\alpha$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial(m_{\alpha}n_{\alpha}\v V_{\alpha})}{\partial t}+\nabla\cdot(m_{\alpha}n_{\alpha}\v V_{\alpha}\v V_{\alpha})=-\nabla\cdot\t P_{\alpha}+e_{\alpha}n_{\alpha}(\v E+\frac{1}{c}\v V_{\alpha}\times\v B)+\v R_{\alpha}.\label{eq:moma}
+\end{equation}
+
+\end_inset
+
+Here we have moved 
+\begin_inset Formula $(III)$
+\end_inset
+
+ and 
+\begin_inset Formula $\nabla\cdot\t P_{\alpha}$
+\end_inset
+
+ already to the right-hand side, as it appears as a source term.
+ 
+\end_layout
+
+\begin_layout Subsubsection*
+Single-fluid magnetohydrodynamics including multiple species
+\end_layout
+
+\begin_layout Standard
+As collisions don't change masses or charges of particles either, we can
+ easily extend the continuity equation of number density 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:falpha-2-1-1"
+
+\end_inset
+
+ to variants for charge and mass density conservation.
+ For this purpose, it is more convenient to sum over species, as currents
+ are a result of opposite charges moving in opposite directions, and the
+ total mass density consists of all species.
+ This approach is known as the 
+\series bold
+single-fluid
+\series default
+ formulation of magnetohydrodynamics, as opposed to the more complicated
+ 
+\series bold
+two-fluid
+\series default
+ approach (see e.g.
+ book of Freidberg for more information).
+\end_layout
+
+\begin_layout Standard
+Taking a sum of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:falpha-2-1-1"
+
+\end_inset
+
+ over 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ weighted by charges 
+\begin_inset Formula $e_{\alpha}$
+\end_inset
+
+, we obtain 
+\series bold
+charge continuity
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\rho(\v r,t)}{\partial t}+\nabla\cdot\v J(\v r,t)=0,\label{eq:falpha-2-1-1-2}
+\end{equation}
+
+\end_inset
+
+where the charge density in the partial time derivative 
+\begin_inset Formula 
+\begin{equation}
+\rho(\v r,t)\equiv\sum_{\alpha}e_{\alpha}n_{\alpha}(\v r,t)
+\end{equation}
+
+\end_inset
+
+effectively vanishes due to quasineutrality, and the 
+\series bold
+single-fluid current density
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\v J(\v r,t)\equiv\sum_{\alpha}e_{\alpha}\v{\Gamma}_{n\alpha}(\v r,t)=\sum_{\alpha}e_{\alpha}n_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t)
+\end{equation}
+
+\end_inset
+
+therefore becomes divergence-free.
+ Since dynamics of electrons are usually faster than the one of ions due
+ to their mass difference, 
+\begin_inset Formula $\v j$
+\end_inset
+
+ will be mainly governed by electron motion 
+\begin_inset Formula $\v V_{e}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Weighting by 
+\begin_inset Formula $m_{\alpha}$
+\end_inset
+
+ instead we obtain 
+\series bold
+single-fluid mass continuity
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\rho_{m}(\v r,t)}{\partial t}+\nabla\cdot\v{\Gamma}_{m}(\v r,t)=0,\label{eq:falpha-2-1-1-2-1}
+\end{equation}
+
+\end_inset
+
+where the mass density is
+\begin_inset Formula 
+\begin{equation}
+\rho_{m}(\v r,t)\equiv\sum_{\alpha}m_{\alpha}n_{\alpha}(\v r,t).
+\end{equation}
+
+\end_inset
+
+Since electrons are much lighter than ions, this is mainly governed by the
+ ion mass, 
+\begin_inset Formula $\rho_{m}\approx\rho_{mi}$
+\end_inset
+
+.
+ The mass flux
+\begin_inset Formula 
+\begin{align}
+\v{\Gamma}_{m}(\v r,t) & =\sum_{\alpha}\v{\Gamma}_{m\alpha}(\v r,t)\equiv\sum_{\alpha}m_{\alpha}\v{\Gamma}_{n\alpha}(\v r,t)\nonumber \\
+ & =\sum_{\alpha}m_{\alpha}n_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t)=\rho_{m}(\v r,t)\v V(\v r,t).
+\end{align}
+
+\end_inset
+
+has the dimension of a momentum density (see concepts).
+ This allows us to define the 
+\begin_inset Quotes eld
+\end_inset
+
+effective
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\series bold
+single-fluid velocity 
+\begin_inset Formula 
+\begin{equation}
+\v V(\v r,t)\equiv\frac{\sum_{\alpha}m_{\alpha}n_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t)}{\rho_{m}(\v r,t)}.\label{eq:vel}
+\end{equation}
+
+\end_inset
+
+
+\series default
+This fluid velocity is the one responsible for mass transport and is a combinati
+on of ion and electron velocity due to 
+\begin_inset Formula $m_{i}\gg m_{e}$
+\end_inset
+
+ but 
+\begin_inset Formula $|\v V_{e}|\gg|\v V_{i}|$
+\end_inset
+
+.
+ Be careful that the 
+\series bold
+single-fluid MHD
+\series default
+ 
+\series bold
+pressure tensor
+\series default
+ 
+\begin_inset Formula $\t P$
+\end_inset
+
+ is now defined via the deviation with respect to 
+\begin_inset Formula $\v V$
+\end_inset
+
+ rather than 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+, so
+\begin_inset Formula 
+\begin{equation}
+\t P\equiv\sum_{\alpha}m_{\alpha}N_{\alpha}\int\d^{3}v(\v v-\v V)(\v v-\v V)f_{\alpha}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Performing the same derivation as for 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:moma"
+
+\end_inset
+
+ via second moments, but now using this 
+\begin_inset Formula $\t P$
+\end_inset
+
+ and taking a sum over all species 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ yields the 
+\series bold
+conservative single-fluid momentum law
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial(\rho_{m}\v V)}{\partial t}+\nabla\cdot(\rho_{m}\v V\v V)=-\nabla\cdot\t P+\rho\v E+\frac{1}{c}\v J\times\v B,\label{eq:momentum}
+\end{equation}
+
+\end_inset
+
+where the collisional term on the right-hand side has vanished and the single-fl
+uid velocity 
+\begin_inset Formula $\v V$
+\end_inset
+
+ enters via its definition in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:vel"
+
+\end_inset
+
+.
+ Note that now the total current 
+\begin_inset Formula $\v J$
+\end_inset
+
+ appears in the Lorentz force term, but it is independent from the flow
+ velocity 
+\begin_inset Formula $\v V$
+\end_inset
+
+, since 
+\begin_inset Formula $\v J$
+\end_inset
+
+ is a difference and 
+\begin_inset Formula $\v V$
+\end_inset
+
+ is a weighted sum over electron and ion velocities 
+\begin_inset Formula $\v V_{\alpha}$
+\end_inset
+
+.
+ As mentioned before the electrostatic force 
+\begin_inset Formula $\rho_{e}\v E$
+\end_inset
+
+ is usually negligible due to quasineutrality.
+\end_layout
+
+\begin_layout Standard
+Often the left-hand side of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:momentum"
+
+\end_inset
+
+ is modified with help of mass continuity 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:falpha-2-1-1-2-1"
+
+\end_inset
+
+.
+ Namely, using Leibniz' product rule and the law for the divergence of dyads
+ 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:diaddiv"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for 
+\begin_inset Formula $\nabla\cdot((\rho_{m}\v V)\v V)$
+\end_inset
+
+ we obtain
+\begin_inset Formula 
+\begin{align}
+\frac{\partial(\rho_{m}\v V)}{\partial t}+\nabla\cdot(\rho_{m}\v V\v V) & =\frac{\partial\rho_{m}}{\partial t}\v V+\rho_{m}\frac{\partial\v V}{\partial t}+(\rho_{m}\v V\cdot\nabla)\v V+(\nabla\cdot(\rho_{m}\v V))\v V\nonumber \\
+ & =\rho_{m}\frac{\partial\v V}{\partial t}+\rho_{m}\v V\cdot\nabla\v V+\left(\frac{\partial\rho_{m}}{\partial t}+\nabla\cdot(\rho_{m}\v V)\right)\v V.
+\end{align}
+
+\end_inset
+
+The term in brackets vanishes due to Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:falpha-2-1-1-2-1"
+
+\end_inset
+
+ and we are left with the 
+\series bold
+convective single-fluid momentum law
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\rho_{m}\frac{\partial\v V}{\partial t}+\rho_{m}\v V\cdot\nabla\v V=-\nabla\cdot\t P+\rho_{e}\v E+\frac{1}{c}\v J\times\v B.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.9
+\noindent
+This corresponds to 
+\series bold
+Euler's equation
+\series default
+ of inviscious fluid mechanics with a scalar perssure if 
+\begin_inset Formula $\t P$
+\end_inset
+
+ if it is a diagonal tensor field,
+\begin_inset Formula 
+\begin{equation}
+\t P=\left(\begin{array}{ccc}
+p & 0 & 0\\
+0 & p & 0\\
+0 & 0 & p
+\end{array}\right)=p\t I
+\end{equation}
+
+\end_inset
+
+then 
+\begin_inset Formula $\nabla\cdot\t P=\nabla p$
+\end_inset
+
+.
+ More generally we define the 
+\series bold
+scalar pressure
+\series default
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ as the isotropic part of 
+\begin_inset Formula $\t P$
+\end_inset
+
+ over the trace
+\begin_inset Formula 
+\begin{equation}
+p\equiv\frac{1}{3}\mathrm{Tr}\,\t P.
+\end{equation}
+
+\end_inset
+
+The rest we call the 
+\series bold
+anistropic part of the pressure tensor
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\v{\Pi}\equiv\t P-p\t I,
+\end{equation}
+
+\end_inset
+
+which is responsible for viscosity.
+ It can e.g.
+ arise from gyration (
+\series bold
+gyroviscosity
+\series default
+), but for the remaining lecture we set 
+\begin_inset Formula $\v{\Pi}=0$
+\end_inset
+
+, as it is often done in practice.
+ Instead of going on to equations for higher moments above the second moment
+ 
+\begin_inset Formula $p$
+\end_inset
+
+, we make the ad-hoc assumption that
+\begin_inset Formula 
+\begin{align}
+\frac{\d}{\d t}\left(\frac{p}{\rho_{m}^{\,\gamma}}\right) & =0,
+\end{align}
+
+\end_inset
+
+being the 
+\series bold
+adiabatic equation
+\series default
+.
+
+\series bold
+ 
+\series default
+Take 
+\begin_inset Formula $\gamma=5/3$
+\end_inset
+
+ for a monoatomic gas.
+ 
+\end_layout
+
+\begin_layout Standard
+This is justified if the process of interest happens much faster than heat
+ can flow in the system which is usually the case for waves and instabilities.
+ One can see this approximation as anaalogue to the starting point to derive
+ acoustic waves, but with more wave types, including electromagnetic interaction.
+ A more complete derivation is done via the energy flux law and its limiting
+ cases (see e.g.
+ the book 
+\begin_inset Quotes eld
+\end_inset
+
+Fundamentals of Plasma Physics
+\begin_inset Quotes erd
+\end_inset
+
+ by Paul Bellan for a good explanation).
+ The opposite to the adiabatic law is the isothermal condition that can
+ be used for processes much slower than the time-scale of heat condution
+ across the system.
+\end_layout
+
+\begin_layout Section
+Plasma Electrodynamics
+\end_layout
+
+\begin_layout Subsection*
+6.1 The Vlasov-Maxwell-system
+\end_layout
+
+\begin_layout Standard
+Before we continue entirely in the magnetohydrodynamic/fluid picture we
+ look at how one would generally derive a 
+\series bold
+plasma response
+\series default
+ to an externally imposed electromagnetic field including multi-species
+ collisionless kinetic effects.
+ This is known as the 
+\series bold
+Vlasov-Maxwell system
+\series default
+.
+ It is given by the following equations,
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.3
+\noindent
+\begin_inset Formula 
+\begin{align}
+\text{Vlasov:}\qquad\frac{\partial f_{\alpha}}{\partial t}+\boldsymbol{v}\cdot\nabla_{\boldsymbol{r}}f_{\alpha}+\frac{e_{\alpha}}{m_{\alpha}}(\v E+\frac{1}{c}\v v\times\v B)\cdot\nabla_{\boldsymbol{v}}f_{\alpha} & =0.\label{eq:falpha-2-1-2-1-1-1}
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\text{Induced charge density:}\qquad\rho^{\mathrm{ind}} & =\sum_{\alpha}e_{\alpha}n_{\alpha},\\
+\text{Induced current density:}\qquad\boldsymbol{J}^{\mathrm{ind}} & =\sum_{\alpha}e_{\alpha}n_{\alpha}\v V_{\alpha}.
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\text{Gauss \textbf{E}:}\qquad\nabla\cdot\v E & =4\pi(\rho^{\mathrm{ind}}+\rho^{\mathrm{ext}}),\\
+\text{Ampère/Maxwell:}\qquad\nabla\times\v B & =\frac{4\pi}{c}(\boldsymbol{J}^{\mathrm{ind}}+\v J^{\mathrm{ext}})+\frac{1}{c}\frac{\partial\v E}{\partial t},\\
+\text{Faraday:}\qquad\nabla\times\v E & =-\frac{1}{c}\frac{\partial\v B}{\partial t},\\
+\text{Gauss \textbf{B}:}\qquad\nabla\cdot\v B & =0.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+An interesting detail is the question of the continuity equation.
+ From taking moments of the Vlasov equation we know that continuity holds
+ for induced charges and currents with.
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\rho^{\mathrm{ind}}}{\partial t}+\nabla\cdot\boldsymbol{J}^{\mathrm{ind}}=0.
+\end{equation}
+
+\end_inset
+
+Continuity of total 
+\begin_inset Formula $\rho=\rho^{\mathrm{ind}}+\rho^{\mathrm{ext}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\v J=\boldsymbol{J}^{\mathrm{ind}}+\v J^{\mathrm{ext}}$
+\end_inset
+
+ is 
+\emph on
+required
+\emph default
+ in order to be compatible with Maxwell (combine Gauss E with 
+\begin_inset Formula $\nabla\cdot$
+\end_inset
+
+Amp/Max), so
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\rho}{\partial t}+\nabla\cdot\boldsymbol{J}=0.
+\end{equation}
+
+\end_inset
+
+As a consequence, there 
+\emph on
+must
+\emph default
+ be continuity of external charges and currents,
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial\rho^{\mathrm{ext}}}{\partial t}+\nabla\cdot\boldsymbol{J}^{\mathrm{ext}}=0,
+\end{equation}
+
+\end_inset
+
+if we want to call them as such.
+ This is clearly fulfilled if also 
+\begin_inset Formula $\rho^{\mathrm{ext}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{J}^{\mathrm{ext}}$
+\end_inset
+
+ ultimately come from particles carrying charges and currents.
+ The deeper conceptual fact is though that Maxwell's equations couldn't
+ be fulfilled by a more 
+\begin_inset Quotes eld
+\end_inset
+
+unnatural
+\begin_inset Quotes erd
+\end_inset
+
+ type of source fields.
+ One could say that the continuity equation in 
+\begin_inset Formula $\rho$
+\end_inset
+
+ and 
+\begin_inset Formula $\v J$
+\end_inset
+
+ is a compatibility condition for Maxwell's equations and can (must) always
+ be assumed together with them.
+\end_layout
+
+\begin_layout Standard
+As a side note, if one takes the 
+\series bold
+stationary
+\series default
+ limit, Maxwell's equations reduce to
+\begin_inset Formula 
+\begin{align}
+\text{Gauss \textbf{E}:}\qquad\nabla\cdot\v E & =4\pi\rho,\\
+\text{Ampère/Maxwell:}\qquad\nabla\times\v B & =\frac{4\pi}{c}\boldsymbol{J},\\
+\text{Faraday:}\qquad\nabla\times\v E & =0,\\
+\text{Gauss \textbf{B}:}\qquad\nabla\cdot\v B & =0.
+\end{align}
+
+\end_inset
+
+In that case, the continuity condition is reduced to divergence-freeness
+ of currents,
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot\boldsymbol{J}=0.
+\end{equation}
+
+\end_inset
+
+For numerical approximations one must choose an adequate discrete basis
+ (
+\begin_inset Formula $H^{\mathrm{div}}$
+\end_inset
+
+ or Raviart-Thomas Elements) to correctly represent 
+\begin_inset Formula $\v J$
+\end_inset
+
+ for this purpose – it is not enough to just discretize each vector component
+ individually.
+\end_layout
+
+\begin_layout Subsection*
+6.2 Linear plasma response
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+goal
+\series default
+ of this section is to derive the 
+\series bold
+response fields 
+\series default
+
+\begin_inset Formula $\v E$
+\end_inset
+
+ and 
+\begin_inset Formula $\v B$
+\end_inset
+
+ inside a plasma subject to externally imposed 
+\series bold
+source fields 
+\series default
+
+\begin_inset Formula $\rho^{\mathrm{ext}},\v J^{\mathrm{ext}}$
+\end_inset
+
+, taking also the reaction of induced charges and currents 
+\begin_inset Formula $\rho^{\mathrm{ind}},\boldsymbol{J}^{\mathrm{ind}}$
+\end_inset
+
+ into account.
+\end_layout
+
+\begin_layout Standard
+Our 
+\series bold
+strategy
+\series default
+ will be to relate 
+\begin_inset Formula $\rho^{\mathrm{ind}},\boldsymbol{J}^{\mathrm{ind}}$
+\end_inset
+
+ to 
+\begin_inset Formula $\v E$
+\end_inset
+
+ and 
+\begin_inset Formula $\v B$
+\end_inset
+
+ and move the resulting expressions to the left-hand side of Maxwell's equations
+, leaving only 
+\begin_inset Formula $\rho^{\mathrm{ext}},\v J^{\mathrm{ext}}$
+\end_inset
+
+ as source terms.
+ This is similar to splitting induced and free charges in the classical
+ derivation of Maxwell's equation in a material with permittivity 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ and permeability 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ To relate 
+\begin_inset Formula $\boldsymbol{J}^{\mathrm{ind}}$
+\end_inset
+
+ to 
+\begin_inset Formula $\rho^{\mathrm{ind}}$
+\end_inset
+
+ we already know that we can use 
+\series bold
+charge continuity
+\series default
+.
+ A relation between 
+\begin_inset Formula $\boldsymbol{J}^{\mathrm{ind}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\v E$
+\end_inset
+
+ can be made without specific assumptions via a 
+\series bold
+generalized Ohm's law
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+The main 
+\series bold
+assumption 
+\series default
+we make is that 
+\begin_inset Formula $\v E$
+\end_inset
+
+ and 
+\begin_inset Formula $\v B$
+\end_inset
+
+ of the plasma are linearly related to 
+\begin_inset Formula $\rho^{\mathrm{ind}},\boldsymbol{J}^{\mathrm{ind}}$
+\end_inset
+
+ such that we can assume a generalized Ohm's law at the first place.
+ This would have to be justified from analyzing the solution of the plasma
+ kinetic (Vlasov) equation in the given circumstances, which is not a trivial
+ task.
+ As a consequence, since Maxwell's equations are linear, we also obtain
+ a linear response in 
+\begin_inset Formula $\rho^{\mathrm{ext}},\v J^{\mathrm{ext}}$
+\end_inset
+
+.
+ To obtain an explicit solution, we have to make the assumption
+\series bold
+\emph on
+ 
+\series default
+\emph default
+that our plasma can be treated as an infinite and homogeneous system.
+ In that case, we can work in the frequency/wavenumber space where differential
+ operators and convolution integrals turn into simple products.
+\end_layout
+
+\begin_layout Subsubsection*
+Generalized Ohm's law and plasma response
+\end_layout
+
+\begin_layout Standard
+We would like to generalize Ohm's law with conductivity 
+\begin_inset Formula $\sigma$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{J}^{\mathrm{ind}}=\sigma\v E.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The response of a medium (here: plasma) is said to be 
+\series bold
+linear
+\series default
+ if it follows 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{J}^{\mathrm{ind}}(\v r,t)=\int_{t_{0}}^{t}\d t^{\prime}\int_{\Omega}\d^{3}r^{\prime}\,\v{\sigma}(\v r,t,\v r^{\prime},t^{\prime})\cdot\v E(\v r^{\prime},t^{\prime})\equiv\hat{\v{\sigma}}\v E.\label{eq:Jind}
+\end{equation}
+
+\end_inset
+
+with a rank-2 
+\series bold
+conductivity tensor
+\series default
+ 
+\begin_inset Formula $\v{\sigma}(t,\tau,\v r,\v{\xi})$
+\end_inset
+
+ that may introduce 
+\series bold
+anisotropy
+\series default
+.
+ In the short-hand notation the law is a 
+\series bold
+linear
+\series default
+ integral operator 
+\begin_inset Formula 
+\begin{equation}
+\hat{\v{\sigma}}\equiv\int_{t_{0}}^{t}\d t^{\prime}\int_{\Omega}\d^{3}r^{\prime}\,\v{\sigma}(\v r,t,\v r^{\prime},t^{\prime})\cdot
+\end{equation}
+
+\end_inset
+
+acting on 
+\begin_inset Formula $\v E$
+\end_inset
+
+.
+ Linearity means that
+\begin_inset Formula 
+\begin{equation}
+\hat{\v{\sigma}}(\alpha\v E_{1}+\beta\v E_{2})=\alpha\hat{\v{\sigma}}\v E_{1}+\beta\hat{\v{\sigma}}\v E_{2},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+ are constants.
+ The response is 
+\series bold
+non-local 
+\series default
+in space and time since it relates 
+\series bold
+response
+\series default
+ current 
+\begin_inset Formula $\boldsymbol{J}^{\mathrm{ind}}(\v r,t)$
+\end_inset
+
+ to 
+\series bold
+excitation 
+\series default
+field 
+\begin_inset Formula $\v E(\v r^{\prime},t^{\prime})$
+\end_inset
+
+ at any other point 
+\begin_inset Formula $(\v r^{\prime},t^{\prime})$
+\end_inset
+
+ in space/time.
+ It is 
+\series bold
+causal
+\series default
+ since integration over 
+\begin_inset Formula $t^{\prime}$
+\end_inset
+
+ goes until 
+\begin_inset Formula $t$
+\end_inset
+
+, but not in the future.
+ Formally we can relate 
+\begin_inset Formula $\boldsymbol{J}^{\mathrm{ind}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\rho^{\mathrm{ind}}$
+\end_inset
+
+ via continuity
+\begin_inset Formula 
+\begin{align}
+\rho^{\mathrm{ind}}(\v r,t) & =\rho^{\mathrm{ind}}(\v r,t_{0})-\int_{t_{0}}^{t}\nabla\cdot\boldsymbol{J}^{\mathrm{ind}}(\v r,t)\,\d t^{\prime}\nonumber \\
+ & =\rho^{\mathrm{ind}}(\v r,t_{0})-\nabla\cdot\int_{t_{0}}^{t}\boldsymbol{J}^{\mathrm{ind}}(\v r,t)\,\d t^{\prime}\nonumber \\
+ & \equiv\rho^{\mathrm{ind}}(\v r,t_{0})+\nabla\cdot(\hat{\rho}\boldsymbol{J}^{\mathrm{ind}})=\rho^{\mathrm{ind}}(\v r,t_{0})+\nabla\cdot(\hat{\rho}\hat{\v{\sigma}}\v E).
+\end{align}
+
+\end_inset
+
+We can assume 
+\begin_inset Formula $\rho^{\mathrm{ind}}(\v r,t_{0})=0$
+\end_inset
+
+ because perturbation is switched off before a certain time 
+\begin_inset Formula $t_{0}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\rho^{\mathrm{ind}}$
+\end_inset
+
+ is again given by a linear operator
+\begin_inset Formula 
+\begin{equation}
+\rho^{\mathrm{ind}}(\v r,t)=\nabla\cdot\hat{\rho}\hat{\v{\sigma}}\v E
+\end{equation}
+
+\end_inset
+
+acting on 
+\begin_inset Formula $\v E$
+\end_inset
+
+ by combining divergence 
+\begin_inset Formula $\nabla\cdot$
+\end_inset
+
+, charge accumulation 
+\begin_inset Formula $\hat{\rho}$
+\end_inset
+
+ and conductivity 
+\begin_inset Formula $\hat{\v{\sigma}}$
+\end_inset
+
+.
+ Inserting these relations into the first two Maxwell equations yields
+\begin_inset Formula 
+\begin{align}
+\text{Gauss \textbf{E}:}\qquad\nabla\cdot(\t I-4\pi\hat{\rho}\hat{\v{\sigma}})\v E & =4\pi\rho^{\mathrm{ext}},\\
+\text{Ampère/Maxwell:}\qquad\nabla\times\v B-\frac{1}{c}\left(\frac{\partial}{\partial t}+4\pi\hat{\v{\sigma}}\right)\v E & =\frac{4\pi}{c}\v J^{\mathrm{ext}}.
+\end{align}
+
+\end_inset
+
+To obtain a generalized Gauss 
+\series bold
+E
+\series default
+ law 
+\begin_inset Formula $\nabla\cdot(\hat{\v{\varepsilon}}\v E)=4\pi\rho^{\mathrm{ext}}$
+\end_inset
+
+ for plasma seen as a dielectric materials we can define a tensorial permittivit
+y operator
+\begin_inset Formula 
+\begin{equation}
+\hat{\v{\varepsilon}}\equiv\t I-4\pi\hat{\rho}\hat{\v{\sigma}}.\label{eq:permi}
+\end{equation}
+
+\end_inset
+
+Taking a time derivative of 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+Ampère/Maxwell and inserting Faraday for 
+\begin_inset Formula $\frac{\partial\v B}{\partial t}$
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+-c^{2}\nabla\times(\nabla\times\v E)-\left(\frac{\partial^{2}}{\partial t^{2}}+4\pi\frac{\partial}{\partial t}\hat{\v{\sigma}}\right)\v E=4\pi\frac{\partial}{\partial t}\v J^{\mathrm{ext}}.
+\end{equation}
+
+\end_inset
+
+Combining everything on the left-hand side to a single operator yields our
+ final system
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+
+\begin_inset Formula 
+\begin{align}
+\nabla\cdot(\t I-4\pi\hat{\rho}\hat{\v{\sigma}})\v E & =4\pi\rho^{\mathrm{ext}},\label{eq:gauss}\\
+\left(\frac{\partial^{2}}{\partial t^{2}}+c^{2}\nabla\times\nabla\times+4\pi\frac{\partial}{\partial t}\hat{\v{\sigma}}\right)\v E & =-4\pi\frac{\partial}{\partial t}\v J^{\mathrm{ext}}.\label{eq:wave}
+\end{align}
+
+\end_inset
+
+Compare this result to the derivation of electromagnetic waves in a homogeneous,
+ charge- and current-free vacuum where 
+\begin_inset Formula $\rho^{\mathrm{ext}}=0$
+\end_inset
+
+, 
+\begin_inset Formula $\v J^{\mathrm{ext}}=0$
+\end_inset
+
+,
+\begin_inset Formula $\hat{\v{\sigma}}=0$
+\end_inset
+
+.
+ There we obtain divergence-free 
+\begin_inset Formula $\v E$
+\end_inset
+
+ and the electromagnetic wave equation,
+\begin_inset Formula 
+\begin{align}
+\nabla\cdot\v E & =0,\\
+\left(\frac{\partial^{2}}{\partial t^{2}}+c^{2}\nabla\times\nabla\times\right)\v E & =0.
+\end{align}
+
+\end_inset
+
+There the curl-curl operator is usually replaced by a vector Laplacian defined
+ as 
+\begin_inset Formula $\Delta\v E\equiv\nabla(\nabla\cdot\v E)-\nabla\times(\nabla\times\v E)$
+\end_inset
+
+, since the first term vanishes in vacuum due to charge-freeness in Gauss
+ 
+\series bold
+E
+\series default
+.
+ In the plasma, even for vanishing excitations 
+\begin_inset Formula $\rho^{\mathrm{ext}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\v J^{\mathrm{ext}}$
+\end_inset
+
+ this is not necessarily the case due to the additional plasma response
+ terms
+\begin_inset Formula 
+\begin{equation}
+-4\pi\hat{\rho}\hat{\v{\sigma}},\quad\text{and}\quad4\pi\frac{\partial}{\partial t}\hat{\v{\sigma}}.
+\end{equation}
+
+\end_inset
+
+Those will modify the usual electromagnetic waves depending on the plasma
+ conductivity encoded inside 
+\begin_inset Formula $\hat{\v{\sigma}}$
+\end_inset
+
+.
+ Such linear response laws with modified electromagnetic wave equations
+ are also applicable to other materials besides plasma.
+\end_layout
+
+\begin_layout Subsubsection*
+Solution in Fourier space for a homogeneous plasma
+\end_layout
+
+\begin_layout Standard
+If our plasma is infinite and homogeneous, there can be no material parameters
+ with dependencies on 
+\emph on
+absolute
+\emph default
+ 
+\begin_inset Formula $\v r,t$
+\end_inset
+
+ but only 
+\emph on
+relative
+\emph default
+ distances 
+\begin_inset Formula $(\v r-\v r^{\prime},t-t^{\prime})$
+\end_inset
+
+ we can write Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Jind"
+
+\end_inset
+
+ as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{J}^{\mathrm{ind}}(\v r,t)=\int_{t_{0}}^{t}\d t^{\prime}\int_{\mathbb{R}^{3}}\d^{3}r^{\prime}\,\v{\sigma}(\v r-\v r^{\prime},t-t^{\prime})\cdot\v E(\v r^{\prime},t^{\prime}).\label{eq:Jconv}
+\end{equation}
+
+\end_inset
+
+This is a 
+\series bold
+convolution
+\series default
+ integral.
+ In case we have an infinite homogeneous space we can 
+\series bold
+Fourier transform 
+\series default
+where quantities are set up as 
+\begin_inset Formula $f(\v r,t)\propto f_{\omega\v k}e^{i(\v k\cdot\v r-\omega t)}$
+\end_inset
+
+ (watch the minus, if something is finite and periodic, use a Fourier series
+ instead).
+ This makes life easier with products instead of differential operators,
+ 
+\begin_inset Formula 
+\begin{align}
+\frac{\partial}{\partial t}\, & \rightarrow\,-i\omega,\qquad\nabla\,\rightarrow\,i\v k,\\
+\nabla\cdot\, & \rightarrow\,i\v k\cdot,\qquad\nabla\times\,\rightarrow\,i\v k\times.
+\end{align}
+
+\end_inset
+
+Convolution integrals transform like
+\begin_inset Formula 
+\begin{equation}
+\int_{-\infty}^{\infty}\d t^{\prime}\int_{\mathbb{R}^{3}}f(\v r-\v r^{\prime},t-t^{\prime})g(\v r^{\prime},t^{\prime})\quad\rightarrow\quad f_{\omega\v k}g_{\omega\v k}.
+\end{equation}
+
+\end_inset
+
+Looking more carefully at Ohm's law 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Jconv"
+
+\end_inset
+
+, we should treat causality correctly in time, which can start at 
+\begin_inset Formula $t_{0}=-\infty$
+\end_inset
+
+ but should end at 
+\begin_inset Formula $t$
+\end_inset
+
+ and not 
+\begin_inset Formula $+\infty$
+\end_inset
+
+.
+ Actually we need a 
+\emph on
+half-sided
+\emph default
+ Fourier transform or 
+\emph on
+complex Laplace transform
+\emph default
+.
+ This concerns mainly the back-transformation but all other rules for Fourier
+ transforms that we use remain the same.
+ This is why we ignore this peculiarity in the frequency domain for now,
+ but should keep it in mind for later (
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ Landau damping).
+ The generalized non-local 
+\series bold
+Ohm's law
+\series default
+ for a homogeneous (not necessarily isotropic) medium in 
+\begin_inset Formula $\omega\v k$
+\end_inset
+
+ space thus becomes
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{J}_{\omega\v k}^{\mathrm{ind}}=\v{\sigma}_{\omega\v k}\cdot\v E_{\omega\v k}.\label{eq:Jconv-1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Continuity
+\series default
+ becomes
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Formula 
+\begin{equation}
+i\omega\rho_{\omega\v k}^{\mathrm{ind}}=i\v k\cdot\boldsymbol{J}_{\omega\v k}^{\mathrm{ind}}.\label{eq:conti-2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Maxwell's equations 
+\series default
+become (leaving out 
+\begin_inset Formula $\omega\v k$
+\end_inset
+
+ subscripts for readiliby)
+\begin_inset Formula 
+\begin{align}
+\text{Gauss \textbf{E}:}\qquad i\v k\cdot\v E & -4\pi\rho^{\mathrm{ind}}=4\pi\rho^{\mathrm{ext}},\\
+\text{Ampère/Maxwell:}\qquad i\v k\times\v B & -\frac{4\pi}{c}\boldsymbol{J}^{\mathrm{ind}}+\frac{i\omega}{c}\v E=\frac{4\pi}{c}\v J^{\mathrm{ext}},\\
+\text{Faraday:}\qquad i\v k\times\v E & =\frac{i\omega}{c}\v B,\\
+\text{Gauss \textbf{B}:}\qquad i\v k\cdot\v B & =0.
+\end{align}
+
+\end_inset
+
+In 
+\begin_inset Formula $\omega\v k$
+\end_inset
+
+ space Eqs.
+\begin_inset space ~
+\end_inset
+
+(
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:gauss"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:wave"
+
+\end_inset
+
+) can either be derived from those results or directly transformed to become
+ the 
+\series bold
+linear plasma response in frequency space
+\series default
+
+\begin_inset Formula 
+\begin{align}
+i\v k\cdot(\t I-\frac{4\pi}{i\omega}\v{\sigma}\cdot)\v E & =4\pi\rho^{\mathrm{ext}},\\
+i\omega\left(1+\frac{c^{2}}{\omega^{2}}\v k\times\v k\times-\frac{4\pi}{i\omega}\v{\sigma}\cdot\right)\v E & =4\pi\v J^{\mathrm{ext}}.
+\end{align}
+
+\end_inset
+
+The second equation being a wave equation in 
+\begin_inset Formula $\omega\v k$
+\end_inset
+
+ space is often written in a different form where the double cross-product
+ is replaced by
+\begin_inset Formula 
+\begin{equation}
+\v k\times\v k\times\v E=\v{kk}\cdot\v E-k^{2}\v E.
+\end{equation}
+
+\end_inset
+
+Defining further the 
+\series bold
+wave vector
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\v N\equiv\frac{c\v k}{\omega}
+\end{equation}
+
+\end_inset
+
+we write the 
+\series bold
+modified EM wave equation
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+i\omega\left(\v{NN}-N^{2}\t I+\t I-\frac{4\pi}{i\omega}\v{\sigma}\right)\cdot\v E=4\pi\v J^{\mathrm{ext}}.\label{eq:wave-1}
+\end{equation}
+
+\end_inset
+
+Transforming the permittivity operator
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:permi"
+
+\end_inset
+
+ into 
+\begin_inset Formula $\omega\v k$
+\end_inset
+
+ space we obtain the 
+\series bold
+dielectric tensor
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\v{\varepsilon}\equiv\t I-\frac{4\pi}{i\omega}\v{\sigma}.
+\end{equation}
+
+\end_inset
+
+The total expression in front of 
+\begin_inset Formula $\v E$
+\end_inset
+
+ in the wave equation called the 
+\series bold
+Maxwell tensor
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+\v{\Lambda}\equiv\v{NN}-N^{2}\t I+\v{\varepsilon}
+\end{equation}
+
+\end_inset
+
+We call modes that follow purely from Gauss 
+\series bold
+E 
+\series default
+in the plasma the 
+\series bold
+longitudinal modes 
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+i\v k\cdot\v{\varepsilon}\cdot\v E=4\pi\rho^{\mathrm{ext}}.
+\end{equation}
+
+\end_inset
+
+Those from the modified EM wave equation are the 
+\series bold
+transverse modes
+\series default
+
+\begin_inset Formula 
+\begin{equation}
+i\omega\v{\Lambda}\cdot\v E=4\pi\v J^{\mathrm{ext}}.
+\end{equation}
+
+\end_inset
+
+In a region without sources the problem reduces to an eigenvalue problem
+ of the 
+\series bold
+dispersion equation
+\series default
+ 
+\begin_inset Formula 
+\begin{equation}
+\mathrm{det}\v{\Lambda}=0.
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\v{\Lambda}$
+\end_inset
+
+ depends on both, 
+\begin_inset Formula $\omega$
+\end_inset
+
+ and 
+\begin_inset Formula $\v k$
+\end_inset
+
+, this gives a dispersion relation
+\begin_inset Formula 
+\begin{equation}
+\omega=\omega^{\sigma}(\v k)
+\end{equation}
+
+\end_inset
+
+between the two for each mode 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, determining the 
+\series bold
+polarization
+\series default
+ of the mode.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "Callen1991"
+literal "false"
+
+\end_inset
+
+ D’haeseleer, W.
+ D., Hitchon, W.
+ N.
+ G., Callen, J.
+ D., & Shohet, J.
+ L.
+ (1991).
+ Flux Coordinates and Magnetic Field Structure.
+ Springer Berlin Heidelberg.
+ https://doi.org/10.1007/978-3-642-75595-8
+\end_layout
+
+\end_body
+\end_document

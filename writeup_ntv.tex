@@ -1,0 +1,154 @@
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,notitlepage]{revtex4-1}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{amsbsy}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{tikz}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+\global\long\def\tht{\vartheta}%
+\global\long\def\ph{\varphi}%
+\global\long\def\balpha{\boldsymbol{\alpha}}%
+\global\long\def\btheta{\boldsymbol{\theta}}%
+\global\long\def\bJ{\boldsymbol{J}}%
+\global\long\def\bGamma{\boldsymbol{\Gamma}}%
+\global\long\def\bOmega{\boldsymbol{\Omega}}%
+\global\long\def\d{\text{d}}%
+\global\long\def\t#1{\text{#1}}%
+\global\long\def\m{\text{m}}%
+\global\long\def\v#1{\boldsymbol{#1}}%
+\global\long\def\u#1{\underline{#1}}%
+
+\global\long\def\t#1{\mathbf{#1}}%
+\global\long\def\bA{\boldsymbol{A}}%
+\global\long\def\bB{\boldsymbol{B}}%
+\global\long\def\c{\mathrm{c}}%
+\global\long\def\difp#1#2{\frac{\partial#1}{\partial#2}}%
+\global\long\def\xset{{\bf x}}%
+\global\long\def\zset{{\bf z}}%
+\global\long\def\qset{{\bf q}}%
+\global\long\def\pset{{\bf p}}%
+
+\title{Neoclassical Toroidal Viscous Torque}
+\author{Christopher Albert}
+\date{\today}
+
+\maketitle
+Neoclassical toroidal viscous torque, often called neoclassical toroidal
+viscosity or NTV, is a result from non-axisymmetric perturbations
+in an originally axisymmetric plasma equilibrium of a tokamak. The
+underlying theory of neoclassical transport relies on distorted but
+still nested flux surfaces, i.e. \emph{non-resonant }magnetic perturbations.
+In case of \emph{resonant} magnetic perturbations (RMPs) one must
+exclude resonant surfaces from the analysis that yield a different
+mechanism of \emph{resonant torque}. At sufficient distance from the
+resonant regions NTV theory is then applicable, and the overall torque
+is the sum of non-resonant NTV torque and resonant torque, respectively
+dominant in different radial regions of the plasma. Apart from additional
+resonant torque contributions an important point affecting the expected
+accuracy of NTV results is the reliance on a on a given perturbed
+plasma equilibrium for neoclassical computations. Finally, both, resonant
+and NTV torque affect this equilibrium, so it must be found in a self-consistent
+way. Such an effort including only NTV has been undertaken in~\citep{Park2017}.
+A full treatment must however also include resonant torque, requiring
+a full Monte-Carlo kinetic computation coupled to Maxwell's equations
+necessary~\citep{Albert2016}. Analysis of NTV is still useful, as
+it allows to study and quantify the influence of the non-resonant
+part of the perturbation on its own and is much less computationally
+intensive than the full kinetic treatment of perturbed equilibria.
+
+Generally we speak of toroidal torque as the driving term affecting
+\emph{kinematic }toroidal angular momentum, as opposed to the total
+toroidal momentum including electromagnetic effects that is always
+conserved. Apart from a possible kinematic momentum source term from
+neutral beam injection, internal torque affecting toroidal plasma
+rotation is always electromagnetic, i.e. linked to the Lorentz $\v J\times\v B$
+force. Within ideal MHD equilibria, currents $\v J$ and magnetic
+field $\v B$ are parallel to flux surfaces and do not produce any
+forces, since radial Lorentz forces balanced by $\nabla p$ via
+\begin{equation}
+\nabla p=\v J\times\v B.
+\end{equation}
+The MHD force balance is also valid in non-axisymmetric fields, where
+ideal treatment is only possible away from resonant regions where
+surfaces of $p=p_{0}+\delta p=\mathrm{const.}$ coincide with perturbed
+flux surfaces $r=r_{0}+\delta r=\mathrm{const}$. When taking neoclassical
+transport into account one can show that it is radially \emph{ambipolar}
+in axisymmetric devices to leading order, i.e. there is no net radial
+charge transport by different species. This changes in a perturbed
+configuration, where the transport across the perturbed flux surfaces
+(see Fig.~\ref{fig:Perturbed-and-unperturbed}) becomes \emph{non-ambipolar}
+and generates a net radial current.
+
+\begin{figure}
+\input{pertunpert.tpx}
+
+\caption{Perturbed and unperturbed flux surfaces. The projection of perturbed
+currents $J^{r_{0}}=\protect\v J\cdot\nabla r_{0}$ to the original
+radial direction $\nabla r_{0}$ is of the order one and periodic
+in flux surface angles. For NTV we are rather interested in the small
+$\delta J^{r}=\protect\v J\cdot\nabla r$ produced by non-ambipolar
+transport across perturbed flux surfaces $r=\mathrm{const.}$\label{fig:Perturbed-and-unperturbed}}
+
+\end{figure}
+
+The resulting toroidal torque density is defined as the covariant
+component with respect to the toroidal angle $\ph$ parametrizing
+the \emph{perturbed} flux surfaces,
+\begin{equation}
+\pi_{\ph}=(\v J\times\v B)_{\ph}=\frac{1}{\sqrt{g}}\varepsilon\delta J^{r}B^{\tht}.\label{eq:lag}
+\end{equation}
+Here we have marked $\delta J^{r}=\v J\cdot\nabla r$ as a small quantity
+resulting from $\v J=\v J_{0}+\delta\v J$. This is not to be confused
+with the torque with respect to \emph{unperturbed} flux surfaces having
+different coordinates $(r_{0},\tht_{0},\ph_{0})$,
+\begin{equation}
+\pi_{\ph_{0}}=(\v J\times\v B)_{\ph_{0}}=\frac{1}{\sqrt{g}}(\delta J^{r_{0}}B^{\tht_{0}}-J^{\tht_{0}}\delta B^{r_{0}}).\label{eq:eul}
+\end{equation}
+Here also the radial component $\delta B^{r_{0}}=\v B\cdot\nabla r_{0}$
+from $\v B=\v B_{0}+\delta\v B$ enters, where $\v B_{0}\cdot\nabla r_{0}=0$
+on unperturbed flux surfaces. The contribution 
+\begin{equation}
+J^{r_{0}}=\v J\cdot\nabla r_{0}=\v J\cdot\nabla(r-\delta r)=\delta J^{r}-\v J\cdot\nabla\delta r.
+\end{equation}
+now contains not only small currents from $\delta J^{r}$ non-ambipolar
+transport , but also currents parallel to perturbed flux surfaces,
+containing angular components of the overall (order of $\v J_{0}$)
+current $\v J$ that is not parallel to surfaces $r_{0}=\mathrm{const.}$
+but rather to $r=\mathrm{const.}$ due to the distortion. Since the
+perturbation is periodic in angles, those additional periodic contribution
+cancel out when computing the flux-surface averaged radial torque
+density, and the two results become equivalant to leading order in
+the perturbation. In case of destroyed flux surfaces it is no longer
+possible to use Eq.~(\ref{eq:lag}) and one can only compute overall
+(including resonant) torque within Eq.~\ref{eq:eul} and flux-surface
+averaging. In contrast, NTV torque corresponds to the toroidal component
+of the torque generate by radial currents of non-ambipolar neoclassical
+transport with respect to perturbed flux surfaces and can be most
+compactly formulated in the Lagrangian picture working \emph{on }those
+surfaces in Eq.~(\ref{eq:lag}). Later we can make use of the assumption
+that the separation of perturbed from unperturbed flux surfaces is
+infintesimal, and use flux coordinates and orbits with regard to the
+unperturbed surfaces while evaluating toroidal torque on perturbed
+surfaces.
+\begin{thebibliography}{99}
+\bibitem{Park2017}J.-K. Park and N. C. Logan, \textquotedblleft Self-consistent
+perturbed equilibrium with neoclassical toroidal torque in tokamaks,\textquotedblright{}
+Phys. Plasmas, vol. 24, no. 3, p. 032505, Mar. 2017.
+
+\bibitem{Albert2016}C. G. Albert, M. F. Heyn, S. V Kasilov, W. Kernbichler,
+A. F. Martitsch, and A. M. Runov, \textquotedblleft Kinetic modeling
+of 3D equilibria in a tokamak,\textquotedblright{} J. Phys. Conf.
+Ser., vol. 775, no. 1, p. 012001, Nov. 2016.
+\end{thebibliography}
+
+\end{document}

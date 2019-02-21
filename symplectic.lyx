@@ -1,0 +1,629 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Symplectic integrator
+\end_layout
+
+\begin_layout Subsection
+Correspondence between symplectic and variational integrators
+\end_layout
+
+\begin_layout Standard
+See also Hairer (2002), p.208 and http://www.math.kit.edu/ianm3/lehre/geonumint2014s
+/media/script-gni.pdf.From a variational principle we find a stationary action
+\begin_inset Formula 
+\begin{equation}
+S=\int\d t\,L(\boldsymbol{q}(t),\dot{\boldsymbol{q}}(t)).
+\end{equation}
+
+\end_inset
+
+In a discrete scheme we first split
+\begin_inset Formula 
+\begin{align}
+S=\sum_{n}S_{n} & =\sum_{n}\int_{t_{n}}^{t_{n+1}}\d t\,L(\boldsymbol{q}(t),\dot{\boldsymbol{q}}(t)).
+\end{align}
+
+\end_inset
+
+While this relation is still exact, we now use an approximation
+\begin_inset Formula 
+\[
+L_{h}(\boldsymbol{q}^{(n)},\boldsymbol{q}^{(n+1)})\approx\int_{t_{n}}^{t_{n+1}}\d t\,L(\boldsymbol{q}(t),\dot{\boldsymbol{q}}(t))
+\]
+
+\end_inset
+
+Take variational discretisation
+\begin_inset Formula 
+\[
+L_{h}(\boldsymbol{q}^{(n)},\boldsymbol{q}^{(n+1)})=h\sum_{i}b_{i}L(\boldsymbol{q}^{(n,i)},\dot{\boldsymbol{q}}^{(n,i)})
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\boldsymbol{q}^{(n,i)}=\boldsymbol{q}^{(n)}+h\sum_{j}a_{ij}\dot{\boldsymbol{q}}^{(n,j)}
+\]
+
+\end_inset
+
+and extremise the action under the constraint
+\begin_inset Formula 
+\[
+\boldsymbol{q}^{(n+1)}=\boldsymbol{q}^{(n)}+h\sum_{i}b_{i}\dot{\boldsymbol{q}}^{(n,i)}.
+\]
+
+\end_inset
+
+This is equivalent to a partitioned Runge-Kutta method for the Hamiltonian
+ 
+\begin_inset Formula 
+\begin{equation}
+H(\boldsymbol{q},\boldsymbol{p})=\boldsymbol{p}\cdot\dot{\boldsymbol{q}}(\boldsymbol{q},\boldsymbol{p})-L(\boldsymbol{q},\dot{\boldsymbol{q}}(\boldsymbol{q,p}))\label{eq:HL}
+\end{equation}
+
+\end_inset
+
+solving equations of motion
+\begin_inset Formula 
+\begin{align}
+\frac{\d\boldsymbol{q}(t)}{\d t}=\dot{\boldsymbol{q}}(\boldsymbol{q}(t),\boldsymbol{p}(t)) & =\nabla_{\boldsymbol{p}}H(\boldsymbol{q}(t),\boldsymbol{p}(t)),\\
+\frac{\d\boldsymbol{p}(t)}{\d t}=\dot{\boldsymbol{p}}(\boldsymbol{q}(t),\boldsymbol{p}(t)) & =-\nabla_{\boldsymbol{q}}H(\boldsymbol{q}(t),\boldsymbol{p}(t)).
+\end{align}
+
+\end_inset
+
+Note that in contrast to the Lagrangian formalism, 
+\begin_inset Formula $\dot{\boldsymbol{q}}(\boldsymbol{q},\boldsymbol{p})$
+\end_inset
+
+ appears now as a function rather than a variable.
+ The discrete scheme is given by the quadrature rules
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n+1)}=\boldsymbol{q}^{(n)}+h\sum_{i}b_{i}\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n,i)},\boldsymbol{p}^{(n,i)}) & \quad\boldsymbol{q}^{(n,i)}=\boldsymbol{q}^{(n)}+h\sum_{j}a_{ij}\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n,j)},\boldsymbol{p}^{(n,j)})\\
+\boldsymbol{p}^{(n+1)}=\boldsymbol{p}^{(n)}+h\sum_{i}b_{i}\dot{\boldsymbol{p}}(\boldsymbol{q}^{(n,i)},\boldsymbol{p}^{(n,i)}) & \quad\boldsymbol{p}^{(n,i)}=\boldsymbol{p}^{(n)}+h\sum_{j}\hat{a}_{ij}\dot{\boldsymbol{p}}(\boldsymbol{q}^{(n,j)},\boldsymbol{p}^{(n,j)})
+\end{align*}
+
+\end_inset
+
+with 
+\begin_inset Formula $\hat{a}_{ij}=b_{j}-b_{j}a_{ji}/b_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Take explicit-implicit Euler
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n)},\boldsymbol{p}^{(n+1)})\\
+\boldsymbol{p}^{(n+1)} & =\boldsymbol{p}^{(n)}+h\dot{\boldsymbol{p}}(\boldsymbol{q}^{(n)},\boldsymbol{p}^{(n+1)})
+\end{align*}
+
+\end_inset
+
+This corresponds to taking 
+\begin_inset Formula $\boldsymbol{q}^{(n,1)}=\boldsymbol{q}^{(n)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{p}^{(n,i)}=\boldsymbol{p}^{(n+1)}$
+\end_inset
+
+, so 
+\begin_inset Formula $b_{1}=1$
+\end_inset
+
+, 
+\begin_inset Formula $a_{11}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{a}_{11}=1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n+1)}=\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n,1)},\boldsymbol{p}^{(n,1)}) & \quad\boldsymbol{q}^{(n,1)}=\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n,1)},\boldsymbol{p}^{(n,1)})=\boldsymbol{q}^{(n+1)}\\
+\boldsymbol{p}^{(n+1)}=\boldsymbol{p}^{(n)}+h\dot{\boldsymbol{p}}(\boldsymbol{q}^{(n,1)},\boldsymbol{p}^{(n,1)}) & \quad\boldsymbol{p}^{(n,1)}=\boldsymbol{p}^{(n)}
+\end{align*}
+
+\end_inset
+
+Similarly, implicit-explicit Euler is obtained by 
+\begin_inset Formula $b_{1}=1$
+\end_inset
+
+, 
+\begin_inset Formula $a_{11}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{a}_{11}=0$
+\end_inset
+
+ and Verlet by a combination of the two.
+\end_layout
+
+\begin_layout Standard
+Conversely, 
+\begin_inset Formula $\boldsymbol{p}$
+\end_inset
+
+ doesn't appear as a variable in the Lagrangian, but rather as a function
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{p}(\boldsymbol{q},\dot{\boldsymbol{q}})=\nabla_{\dot{\boldsymbol{q}}}L(\boldsymbol{q},\dot{\boldsymbol{q}}).
+\end{equation}
+
+\end_inset
+
+Inversion of Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:HL"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+L(\boldsymbol{q},\dot{\boldsymbol{q}})=\boldsymbol{p}(\boldsymbol{q},\dot{\boldsymbol{q}})\boldsymbol{q}-H(\boldsymbol{q},\boldsymbol{p}(\boldsymbol{q},\dot{\boldsymbol{q}})).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Non-canonical phase-space variables
+\end_layout
+
+\begin_layout Standard
+Suppose we have some transformation to non-canonical phase-space variables
+ 
+\begin_inset Formula $\boldsymbol{z}$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{q} & =\boldsymbol{q}(\boldsymbol{z}),\quad\boldsymbol{p}=\boldsymbol{p}(\boldsymbol{z}).
+\end{align}
+
+\end_inset
+
+We transform canonical equations to
+\begin_inset Formula 
+\begin{align}
+\dot{\boldsymbol{q}}(\boldsymbol{z}) & =\nabla_{\boldsymbol{z}}H(\boldsymbol{z})(\nabla_{\boldsymbol{p}}\boldsymbol{z}),\\
+\dot{\boldsymbol{p}}(\boldsymbol{z}) & =-\nabla_{\boldsymbol{z}}H(\boldsymbol{z})(\nabla_{\boldsymbol{q}}\boldsymbol{z}).
+\end{align}
+
+\end_inset
+
+Again 
+\begin_inset Formula $\d\boldsymbol{q}(t)/\d t=\dot{\boldsymbol{q}}(\boldsymbol{z}(t))$
+\end_inset
+
+ and 
+\begin_inset Formula $\d\boldsymbol{p}(t)/\d t=\dot{\boldsymbol{p}}(\boldsymbol{z}(t))$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+We transform explicit-implicit Euler
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n)},\boldsymbol{p}^{(n+1)}),\\
+\boldsymbol{p}^{(n+1)} & =\boldsymbol{p}^{(n)}+h\dot{\boldsymbol{p}}(\boldsymbol{q}^{(n)},\boldsymbol{p}^{(n+1)})
+\end{align}
+
+\end_inset
+
+via expansion with 
+\begin_inset Formula $\boldsymbol{z}^{(n+)}$
+\end_inset
+
+ as 
+\begin_inset Quotes eld
+\end_inset
+
+dummy
+\begin_inset Quotes erd
+\end_inset
+
+ intermediate non-canonical variables connecting the symplectic scheme to
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{q}^{(n)} & =\boldsymbol{q}(\boldsymbol{z}^{(n+)}),\\
+\boldsymbol{p}^{(n+1)} & =\boldsymbol{p}(\boldsymbol{z}^{(n+)}),\\
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n)},\boldsymbol{p}^{(n+1)}),\\
+\boldsymbol{p}^{(n+1)} & =\boldsymbol{p}^{(n)}+h\dot{\boldsymbol{p}}(\boldsymbol{q}^{(n)},\boldsymbol{p}^{(n+1)}),
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+finally to
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}(\boldsymbol{z}^{(n+)})+h\dot{\boldsymbol{q}}(\boldsymbol{q}(\boldsymbol{z}^{(n+)}),\boldsymbol{p}(\boldsymbol{z}^{(n+)})),\\
+\boldsymbol{p}(\boldsymbol{z}^{(n+)}) & =\boldsymbol{p}^{(n)}+h\dot{\boldsymbol{p}}(\boldsymbol{q}(\boldsymbol{z}^{(n+)}),\boldsymbol{p}(\boldsymbol{z}^{(n+)})).
+\end{align}
+
+\end_inset
+
+Note that if 
+\begin_inset Formula $\boldsymbol{z}=(\boldsymbol{q},\boldsymbol{w})$
+\end_inset
+
+ coincides with 
+\begin_inset Formula $\boldsymbol{q}$
+\end_inset
+
+ for half the variables, we can set 
+\begin_inset Formula $\boldsymbol{z}^{(n+)}=(\boldsymbol{q}^{(n)},\boldsymbol{w}^{(n+)})$
+\end_inset
+
+ and obtain
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}(\boldsymbol{q}^{(n)},\boldsymbol{p}(\boldsymbol{q}^{(n)},\boldsymbol{w}^{(n+)})),\label{eq:q}\\
+\boldsymbol{p}(\boldsymbol{q}^{(n)},\boldsymbol{w}^{(n+)}) & =\boldsymbol{p}^{(n)}+h\dot{\boldsymbol{p}}(\boldsymbol{q}^{(n)},\boldsymbol{p}(\boldsymbol{q}^{(n)},\boldsymbol{w}^{(n+)})).\label{eq:p}
+\end{align}
+
+\end_inset
+
+Here we can first solve Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:p"
+
+\end_inset
+
+ implicitly for 
+\begin_inset Formula $\boldsymbol{w}^{(n+)}$
+\end_inset
+
+ and then evaluate Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:q"
+
+\end_inset
+
+ explicitly.
+ The last step can be accelarated by re-using values inside 
+\begin_inset Formula $\dot{\boldsymbol{q}}=\nabla_{\boldsymbol{z}}H(\boldsymbol{z})(\nabla_{\boldsymbol{p}}\boldsymbol{z})$
+\end_inset
+
+ from the last iteration of the implicit problem.
+ 
+\end_layout
+
+\begin_layout Subsection
+Translation of non-canonical scheme to a Lagrangian framework
+\end_layout
+
+\begin_layout Standard
+By taking
+\begin_inset Formula 
+\begin{align*}
+\dot{\boldsymbol{q}}(t) & =\frac{\d\boldsymbol{q}(t)}{\d t},\quad\dot{\boldsymbol{z}}(t)=\frac{\d\boldsymbol{z}(t)}{\d t}
+\end{align*}
+
+\end_inset
+
+we can write (TODO, here the distinction between 
+\begin_inset Formula $\dot{\boldsymbol{q}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\d\boldsymbol{q}/\d t$
+\end_inset
+
+ should be made even clearer) the Lagrangian transformation equations
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{q} & =\boldsymbol{q}(\boldsymbol{z},\dot{\boldsymbol{z}})=\boldsymbol{q}(\boldsymbol{z}),\\
+\dot{\boldsymbol{q}} & =\dot{\boldsymbol{q}}(\boldsymbol{z},\dot{\boldsymbol{z}})=\dot{\boldsymbol{z}}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}).
+\end{align}
+
+\end_inset
+
+thus transforming from the Hamiltonian to the Lagrangian formalism.
+ Explicit-implicit Euler meens setting
+\begin_inset Formula 
+\begin{align*}
+L_{h}(\boldsymbol{q}^{(n)},\boldsymbol{q}^{(n+1)}) & =hL(\boldsymbol{q}^{(n,1)},\dot{\boldsymbol{q}}^{(n,1)})\\
+ & =hL(\boldsymbol{q}(\boldsymbol{z}^{(n+)}),\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)}))
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n,1)} & =\boldsymbol{q}^{(n)}\\
+ & =\boldsymbol{q}(\boldsymbol{z}^{(n+)})
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}^{(n,1)}\\
+ & =\boldsymbol{q}(\boldsymbol{z}^{(n+)})+h\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)})
+\end{align*}
+
+\end_inset
+
+What does 
+\begin_inset Formula $\boldsymbol{q}^{(n+1)}$
+\end_inset
+
+ mean here? If we choose 
+\begin_inset Formula $\boldsymbol{z}=(\boldsymbol{q},\boldsymbol{w})$
+\end_inset
+
+ we can write
+\begin_inset Formula 
+\begin{align*}
+L_{h}(\boldsymbol{q}^{(n)},\boldsymbol{q}^{(n+1)}) & =hL(\boldsymbol{q}^{(n)},\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)})),
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)}).
+\end{align*}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\nabla_{\boldsymbol{z}}\boldsymbol{q}$
+\end_inset
+
+ contains a diagonal unity matrix in the upper-left quadrant so
+\begin_inset Formula 
+\[
+\dot{\boldsymbol{q}}^{(n,1)}=\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)})=\dot{\boldsymbol{q}}^{(n)},
+\]
+
+\end_inset
+
+so we are reduced to the algorithm in 
+\begin_inset Formula $\boldsymbol{q}$
+\end_inset
+
+ alone with
+\begin_inset Formula 
+\begin{align*}
+L_{h}(\boldsymbol{q}^{(n)},\boldsymbol{q}^{(n+1)}) & =hL(\boldsymbol{q}^{(n)},\dot{\boldsymbol{q}}^{(n)}),
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}^{(n)}.
+\end{align*}
+
+\end_inset
+
+Let's instead check the implicit-explicit Euler formalism with
+\begin_inset Formula 
+\begin{align*}
+L_{h}(\boldsymbol{q}^{(n)},\boldsymbol{q}^{(n+1)}) & =hL(\boldsymbol{q}^{(n,1)},\dot{\boldsymbol{q}}^{(n,1)})\\
+ & =hL(\boldsymbol{q}(\boldsymbol{z}^{(n+)}),\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)}))
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n,1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}^{(n,1)}\\
+ & =\boldsymbol{q}(\boldsymbol{z}^{(n+)})+h\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)})
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\boldsymbol{q}^{(n+1)} & =\boldsymbol{q}^{(n)}+h\dot{\boldsymbol{q}}^{(n,1)}=\boldsymbol{q}^{(n,1)}\\
+ & =\boldsymbol{q}(\boldsymbol{z}^{(n+)})+h\dot{\boldsymbol{z}}^{(n+)}\cdot\nabla_{\boldsymbol{z}}\boldsymbol{q}(\boldsymbol{z}^{(n+)})
+\end{align*}
+
+\end_inset
+
+Again everything reduces to 
+\begin_inset Formula $\boldsymbol{q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+TODO: What with the phase-space-Lagrangian?
+\end_layout
+
+\end_body
+\end_document
