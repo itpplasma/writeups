@@ -1,0 +1,543 @@
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,notitlepage]{revtex4-1}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{amsmath}
+\usepackage{microtype}
+\usepackage{babel}
+\begin{document}
+\global\long\def\tht{\vartheta}
+\global\long\def\ph{\varphi}
+\global\long\def\balpha{\boldsymbol{\alpha}}
+\global\long\def\btheta{\boldsymbol{\theta}}
+\global\long\def\bJ{\boldsymbol{J}}
+\global\long\def\bGamma{\boldsymbol{\Gamma}}
+\global\long\def\bOmega{\boldsymbol{\Omega}}
+\global\long\def\d{\text{d}}
+\global\long\def\t#1{\text{#1}}
+\global\long\def\m{\text{m}}
+\global\long\def\v#1{\boldsymbol{#1}}
+
+\global\long\def\t#1{\mathbf{#1}}
+
+
+\title{Ideal, resistive, linear and non-linear magnetohydrodynamics}
+
+\date{\today}
+\maketitle
+
+\section*{TODO for Philipp}
+\begin{itemize}
+\item Finish the derivation of the \emph{outer solution }of tearing modes
+for the cylinder as in Heyn08 started in \emph{Solution in cylinder
+coordinates coordinates at zero frequency and/or zero flow} 
+\item Think of a way to keep the splitting of field equations and plasma
+response equations everywhere in the way described in the introduction.
+What about Ohm's law and what happens with finite velocity and resistivity?
+\item Try to find out what requires only flux coordinates, such as the pressure
+perturbation within the plasma response, or cylindrical coordinates,
+as the overall solution. In the end we want to compare the plasma
+response pressure and currents for a single iteration step of Patrick
+with given fields, and also the overall self-consistent solution after
+the numerical code has converged.
+\item Study the basics of non-linear ideal MHD equilibria codes VMEC/GVEC
+and summarize them here. Hints can be found in Hirshman papers and
+in Freidberg, especially: variational formulation of ideal MHD in
+3D.
+\item Add explanations, clarifications and references (move to BibTeX at
+some point) to everything required to fulfill those tasks.
+\end{itemize}
+
+\section{Introduction}
+
+The purpose of this document is to provide an overview of MHD treatment
+of tokamaks with non-axisymmetric perturbations by analytical and
+numerical methods. The methods can roughly be divided into linear,
+non-linear and ideal and resistive treatment with or without flow.
+We will explore features and limitations of each model and produce
+analytical formulas to test numerical codes in limiting cases. For
+the final result, this will only be possible in the cylindrical approximation
+of the torus, where poloidal modes are uncoupled. However, some intermediate
+results may be computed in straight-field line flux coordinates.
+
+Most generally fields $\v E,\v B$ and charges/current (source) densities
+$\rho,\v J$ have to fulfill \emph{field equations }
+\begin{align}
+\v E & =\hat{\v E}[\rho,\v J],\\
+\v B & =\hat{\v B}[\rho,\v J],
+\end{align}
+yielding fields from given source densities and \emph{plasma response
+equations}
+\begin{align}
+\rho & =\hat{\rho}[\v E,\v B],\\
+\v J & =\hat{\v J}[\v E,\v B],
+\end{align}
+yielding source densities from given fields. Here symbols with a ``$\hat{}$''
+denote solution operators to the governing (differential/integral)
+equations.
+
+In plasma equilibria one is usually not interested in very high-frequency
+electromagnetic waves, so one neglects displacement currents and uses
+at most a reduced form of Maxwell's equations in vacuum as field equations.
+If $\rho$ and $\v J$ are given, they uniquely yield $\v E$ and
+$\v B$. For the plasma response equations, one can employ the response
+of a kinetic or magnetohydrodynamic model, ultimately boiling down
+to single particles subject to Lorentz forces with some further assumptions/averaging.
+If both, field and plasma response equations are simultaneously fulfilled,
+i.e.
+\begin{align}
+\v E & =\hat{\v E}[\hat{\rho}[\v E,\v B],\hat{\v J}[\v E,\v B]],\\
+\v B & =\hat{\v B}[\hat{\rho}[\v E,\v B],\hat{\v J}[\v E,\v B]],
+\end{align}
+at a point in time we speak of a \emph{self-consistent }plasma state
+or of an \emph{equilibrium} if this state is stationary (vanishing
+time derivatives). If we have found some equilibrium configuration,
+we can consider perturbations around this equilibrium. If this perturbation
+is sufficiently small, we can limit ourselves to the linear order,
+analyze stability by computing eigenvalues, or find a new\emph{ perturbed
+equilibrium. }For perturbations too large to permit linear theory,
+one can still use the original equilibrium as a starting point of
+a non-linear calculation of the final result.
+
+In particular for a tokamak, the original equilibrium is axisymmetric,
+so fully determined by two-dimensional quantities in the poloidal
+plane. Up to the separatrix, such a 2D equilibrium contains of nested
+flux surfaces around the magnetic axis (see e.g. d'haeseleer) and
+can be computed by solving the Grad-Shafranov equation fitted to experimental
+diagnostics. If a non-axisymmetric perturbation is applied, this property
+is lost, but not everywhere (see KAM theory for details). The most
+unstable flux surfaces that break up first are low-order \emph{rational
+surfaces} that are called \emph{resonant surfaces} if some component
+of the perturbation is aligned to them. This will become clear later
+when we apply linear MHD in straight field-line flux coordinates (see
+d'haeseleer). Away from these surfaces ideal MHD (no plasma resistivity)
+remains valid. If resistive MHD is employed at these surfaces and
+connected to ideal MHD outside, one obtains (linear) \emph{tearing
+mode} theory, describing the formation of magnetic islands at resonant
+surfaces (see Furth/Kileen/Rosenbluth and Heyn08).
+
+One of the goals of this description is to revisit this theory with
+less emphasis on the growth of tearing modes, but rather different
+ways to ``cut out'' problematic parts and stitch them together,
+allowing certain field components to jump across the resonant regions.
+Traditionally such jumps were avoided, as it is not possible to solve
+differential equations in their usual \emph{strong form} if discontinuous
+quantities or derivatives are involved. If we however reformulate
+them in their \emph{weak form} commonly used in finite element (Galerkin)
+and finite volume methods, this problem is relaxed, and we gain results
+that are still valid in \emph{integral form} with electric and magnetic
+fluxes as well as total charges rather than charge densities. This
+will allow us to find out which kind of jumps are allowed and which
+are not within ideal MHD for the \emph{outer regions}, analogous to
+refraction at boundaries where material parameters jump. Determining
+size of the jumps will however require resistive or even kinetic treatment.
+
+Some more hints: Rosenbluth (slab), Furth (cylinder) tearing modes.
+Those are ``classical'' tearing modes as opposed to neoclassical
+ones. Generally, such modes describe formation of magnetic islands,
+where flux surfaces are ``torn apart''. Also: link to Alfven waves.
+There singularity is resolved by finite electron mass but problem
+is shifted to short-scale mode.
+
+\section{Governing equations}
+
+\paragraph{Resistive MHD equations}
+
+(see Freidberg p. 9, beginning of Chap. 8 and for linear perturbations,
+and problem 8.1 on p. 377 to change Ohm's law)
+
+\begin{align}
+\text{Mass:}\, & \frac{\partial\rho}{\partial t}+\nabla\cdot(\rho\v v)=0\\
+\text{Momentum:}\, & \rho\frac{\d\v v}{\d t}=\v J\times\v B-\nabla p\\
+\text{Energy (adiabatic):}\, & \frac{\d}{\d t}\left(\frac{p}{\rho^{\gamma}}\right)=0\\
+\text{Ohm's law:}\, & \v E+\v v\times\v B=\eta\v J\\
+\text{Faraday:}\, & \nabla\times\v E=-\frac{\partial\v B}{\partial t}\\
+\text{Ampère:}\, & \nabla\times\v B=\mu_{0}\v J\label{eq:ampere}\\
+\text{divB:}\, & \nabla\cdot\v B=0
+\end{align}
+Here $\d/\d t=\partial/\partial t+\v v\cdot\nabla$. We have 14 unknowns:
+$\rho,p,\v v,\v J,\v E,\v B$ for 17 equations (so many?). Parameters:
+$\mu_{0}$ (fixed by the universe), adiabatic index $\gamma$, which
+we usually set to $5/3$ (monoatomic ideal gas), and resistivity $\eta$
+in Ohms which can be computed from the Spitzer resistivity (bottom
+of p. 110 in Freidberg). Displacement currents neglected in Eq.~(\ref{eq:ampere}).
+Gauss' law $\varepsilon_{0}\nabla\cdot\v E=n_{i}-n_{e}\approx0$ replaced
+by quasineutrality condition $n_{i}=n_{e}$. Eq. (\ref{eq:ampere})
+
+\paragraph{Ideal MHD equilibrium}
+
+The usual starting point for further computations is the ideal MHD
+equilibrium given by 
+
+\begin{align}
+\nabla p_{0} & =\v J_{0}\times\v B_{0}\\
+\nabla\times\v B_{0} & =\mu_{0}\v J_{0}\\
+\nabla\cdot\v B_{0} & =0
+\end{align}
+7 unknowns: $p,\v J,\v B$ for 7 equations.
+
+\paragraph{Linear ideal MHD}
+
+Applying a perturbation with functions $g=g_{0}+g_{1}$ and neglecting
+flow $\boldsymbol{v}_{0}=\boldsymbol{v}_{1}=0$ yields
+
+\begin{align}
+\nabla p_{1} & =\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}\label{eq:plin}\\
+\nabla\times\v B_{1} & =\mu_{0}\v J_{1}\\
+\nabla\cdot\v B_{1} & =0
+\end{align}
+
+Here we subtracted zero-index versions of each equations to make them
+disappear, e.g. $\nabla\times B_{0}=\mu_{0}\v J_{0}$ from Ampère's
+law. Usually, we split the force balance from Maxwell's equation and
+solve the two together iteratively (see Master's thesis of Patrick
+Lainer).
+
+\paragraph{Linear resistive MHD}
+
+We apply a perturbation $\propto e^{-i\omega t}$ to our MHD equilibrium
+and drop terms of second order. In the full resistive system this
+means that
+\begin{align}
+\text{Mass:}\, & -i\omega\rho_{1}+\nabla\cdot(\rho_{0}\v v_{1}+\rho_{1}\boldsymbol{v}_{0})=0\\
+\text{Momentum:}\, & -i\omega(\rho_{0}\v v_{1}+\rho_{1}\boldsymbol{v}_{0})=\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}\\
+\text{Energy (adiabatic):}\, & p_{1}\rho_{0}-\gamma p_{0}\rho_{1}=0\\
+\text{Ohm's law:}\, & \v E_{1}+\v v_{1}\times\v B_{0}+\boldsymbol{v}_{0}\times\boldsymbol{B}_{1}=\eta\v J_{1}\\
+\text{Faraday:}\, & \nabla\times\v E_{1}=-i\omega\v B_{1}\\
+\text{Ampère:}\, & \nabla\times\v B_{1}=\mu_{0}\v J_{1}\label{eq:ampere-1}\\
+\text{divB:}\, & \nabla\cdot\v B_{1}=0
+\end{align}
+In the energy equation we have used a Taylor expansion in the perturbation
+of $\rho$, and multiplied the equation by $\rho_{0}^{\gamma+1}/(i\omega)$.
+Again we already subtracted zero-index versions of each equations. 
+
+Expressing $\rho_{1}$ via the Energy law by
+\[
+\rho_{1}=\frac{p_{1}}{\gamma p_{0}}\rho_{0}
+\]
+and insertion into the Mass law yields
+\[
+-i\omega\frac{\rho_{0}}{\gamma p_{0}}p_{1}+\nabla\cdot(\rho_{0}\v v_{1}+\frac{p_{1}}{\gamma p_{0}}\rho_{0}\boldsymbol{v}_{0})=0,
+\]
+and in the Momentum law
+\[
+-i\omega(\rho_{0}\v v_{1}+\frac{\rho_{0}}{\gamma p_{0}}p_{1}\boldsymbol{v}_{0})=\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}.
+\]
+In the static case $\omega=0$, the equations reduce to linear ideal
+MHD, as velocities don't appear in the Momentum equation anymore. 
+
+\section{Trying to extend Patrick's thesis to resistive MHD (experimental)}
+
+\paragraph{Splitting the problem without flow}
+
+Part 1: Solve
+\begin{align}
+-i\omega\rho_{0}\v v_{1} & =\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}\\
+-i\omega\rho_{0}p_{1} & =-\gamma p_{0}\nabla\cdot(\rho_{0}\v v_{1})\\
+-i\omega\v B_{1} & =\nabla\times(\eta\v J_{1}-\v v_{1}\times\v B_{0})
+\end{align}
+for given $\v B_{1}$. 7 unknowns $p_{1},\v J_{1},\v v_{1}$ for 7
+equations.
+
+Part 2: Solve
+\begin{align}
+\nabla\times\v B_{1} & =\mu_{0}\v J_{1}\label{eq:ampere-1-1-1}\\
+\nabla\cdot\v B_{1} & =0
+\end{align}
+for given $\v J_{1}$. 3 unknowns $\v B_{1}$ for 4 equations. 
+
+\paragraph{Splitting the problem further}
+\begin{enumerate}
+\item Parallel momentum (pressure):
+\begin{equation}
+-i\omega(\rho_{0}v_{1\parallel})B_{0}=-\v B_{1}\cdot\nabla p_{0}-\v B_{0}\cdot\nabla p_{1}
+\end{equation}
+\item Perpendicular momentum (current):
+\begin{equation}
+-i\omega\rho_{0}\v h_{0}\times\v v_{1\perp}=\v B_{0}\times(\v J_{0}\times\v B_{1})+B_{0}\v J_{1}-\v B_{0}\times\nabla p_{1}
+\end{equation}
+\item Ohm+Faraday:
+\begin{equation}
+-i\omega\v B_{1}=\nabla\times(\eta\v J_{1}-\v v_{1\perp}\times\v B_{0})
+\end{equation}
+\item Mass+Adiabatic:
+\begin{equation}
+-i\omega\rho_{0}p_{1}=-\gamma p_{0}\nabla\cdot(\rho_{0}\v v_{1})
+\end{equation}
+Divergence
+\begin{align}
+\nabla\cdot\v u & =\nabla\cdot\left(\frac{u_{\parallel}}{B_{0}}\v B_{0}+\v u_{\perp}\right)=\v B_{0}\cdot\nabla\left(\frac{u_{\parallel}}{B_{0}}\right)+\nabla\cdot\v u_{\perp}\\
+\nabla\cdot(\rho_{0}\v v_{1}) & =\v B_{0}\cdot\nabla\left(\frac{\rho_{0}v_{1\parallel}}{B_{0}}\right)+\nabla\cdot(\rho_{0}\v v_{1\perp})
+\end{align}
+With the possibility to pull out $\rho_{0}$ if it is constant along
+field lines $(\v B_{0}\cdot\nabla\rho_{0})$. 
+\item Magnetostatics:
+\begin{align}
+\nabla\times\v B_{1} & =\mu_{0}\v J_{1}\label{eq:ampere-1-1-1-1}\\
+\nabla\cdot\v B_{1} & =0
+\end{align}
+\end{enumerate}
+Steps of solution
+\begin{enumerate}
+\item solve parallel Momentum with given $\v B_{1},v_{1\parallel}$ $\Rightarrow p_{1}$
+\item solve perpendicular Momentum with given $\v B_{1},\v v_{\perp},p_{1}\Rightarrow\v J_{1}$
+\item solve Ohm+Faraday with Mass+Adiabatic with given $\v B_{1},p_{1},\v J_{1}\Rightarrow v_{1\parallel},\v v_{1\perp}$
+\item solve Ampère with given $\v J_{1}$$\Rightarrow\v B_{1}$
+\end{enumerate}
+
+\section{Analytical treatment in flux/cylinder coordinates}
+
+Here we derive linear equations for perturbed equilibria in a tokamak
+based on an equilibrium (subscript 0). As in the numerical treatment
+(see Patrick Lainer's thesis) it is sensible to proceed as following
+\begin{enumerate}
+\item Treat the MHD \emph{plasma response }for given fields
+\begin{enumerate}
+\item Express the pressure perturbation
+\item Express the current perturbation
+\end{enumerate}
+\item Use Maxwell's equations and/or Ohm's law as \emph{field equations}
+\item Put everything together in a single equation and possibly solve it
+\end{enumerate}
+We will use a \emph{Fourier expansion} in flux coordinates in the
+axisymmetric equilibrium field $\v B_{0}$ to emphasize features and/or
+find solutions to equations. At some point we have to simplify further
+and resort to the \emph{cylinder approximation} where the curvature
+of the torus is neglected and the axis of a periodic cylinder takes
+the role of the magnetic axis in toroidal $\ph$-direction. This will
+be needed to remove coupling of harmonics in the \emph{poloidal flux
+angle} which becomes the cylinder azimuth angle in this limit. Be
+careful not to mix this up with usual cylindrical coordinates which
+use instead the \emph{toroidal angle} as the aximuth.
+
+For practical information on flux coordinates, see d'haeseleer. The
+most important features are that contravariant radial components of
+$\v B_{0}$ and $\v J_{0}$ vanish, and that contravariant \emph{vector
+density components }$\sqrt{g}B^{k}\equiv\mathcal{B}^{k}=\mathcal{B}^{k}(r)$
+depend only on the radial variable, but not on the angles. For more
+information on vector densities, see Wikipedia, the book \emph{Geometrical
+Vectors}, or the slightly humorous rant \emph{CONTRAVARIANCE, COVARIANCE,
+DENSITIES, AND ALL THAT}\textbf{\emph{ }}by Chris Tiee. While their
+actual meaning is connected to differential forms, for us it is enough
+to know that everything becomes nicer to write since $\sqrt{g}$ disappears
+in most expressions, in particular in $\nabla\cdot\v B=0$ which becomes
+$\partial_{i}\mathcal{B}^{i}=0$.
+
+\paragraph{Solution in flux coordinates coordinates at zero frequency and/or
+zero flow}
+\begin{enumerate}
+\item Plasma response
+\begin{enumerate}
+\item Parallel momentum (pressure). Project Eq.~(\ref{eq:plin}) onto $\v B_{0}$:\\
+\begin{equation}
+\v B_{0}\cdot\nabla p_{1}=\v B_{0}\cdot(\v J_{0}\times\v B_{1})=\v B_{1}\cdot(\v B_{0}\times\v J_{0})=-\v B_{1}\cdot\nabla p_{0}
+\end{equation}
+so\\
+\begin{equation}
+\v B_{0}(\boldsymbol{x})\cdot\nabla p_{1}(\boldsymbol{x})=-\v B_{1}(\boldsymbol{x})\cdot\nabla p_{0}(r)
+\end{equation}
+becomes (in flux coordinates $B_{0}^{r}=0$, so it vanishes on the
+left-hand side) and $p_{0}=p_{0}(r)\Rightarrow\nabla p_{0}=p_{0}^{\prime}(r)\nabla r$
+and $\v B_{1}\cdot\nabla r=B_{1}^{r}$ we get
+\begin{equation}
+B_{0}^{\tht}(\boldsymbol{x})\frac{\partial p_{1}(\boldsymbol{x})}{\partial\tht}+B_{0}^{\ph}\frac{\partial p_{1}(\boldsymbol{x})}{\partial\ph}=-B_{1}^{r}(\boldsymbol{x})p_{0}^{\prime}(r).
+\end{equation}
+Using vector density components $\sqrt{g}B^{k}\equiv\mathcal{B}^{k}$
+with $\mathcal{B}_{0}^{\tht}=\mathcal{B}_{0}^{\tht}(r)$ and $\mathcal{B}_{0}^{\ph}=\mathcal{B}_{0}^{\ph}(r)=q\mathcal{B}_{0}^{\tht}(r)$
+in flux coordinates for $\v B_{0}$ we have
+\begin{equation}
+\mathcal{B}_{0}^{\tht}(r)\left(\frac{\partial p_{1}(\boldsymbol{x})}{\partial\tht}+q(r)\frac{\partial p_{1}(\boldsymbol{x})}{\partial\ph}\right)=-\mathcal{B}_{1}^{r}(\boldsymbol{x})p_{0}^{\prime}(r).
+\end{equation}
+Written in harmonic expansion in angles $\tht,\ph$ we have
+\begin{equation}
+i\mathcal{B}_{0}^{\tht}(r)\left(mp_{mn}(r)+nq(r)p_{mn}(r)\right)=-\mathcal{B}_{mn}^{r}(\boldsymbol{x})p_{0}^{\prime}(r)
+\end{equation}
+with the solution at each flux surface given by
+\begin{equation}
+p_{mn}(r)=i\frac{\mathcal{B}_{mn}^{r}(r)}{\mathcal{B}_{0}^{\tht}(r)}\,\frac{p_{0}^{\prime}(r)}{m+nq(r)}.\label{eq:pmn}
+\end{equation}
+Here we clearly see that at flux surfaces where $q(r)=-m/n$ the solution
+diverges. 
+\item For current:
+\begin{equation}
+\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}-\nabla p_{1}
+\end{equation}
+We have
+\begin{equation}
+\nabla\cdot\v J_{0}=\partial_{i}\mathcal{J}_{0}^{\,i}=0
+\end{equation}
+so 
+\begin{equation}
+\partial_{r}\mathcal{J}_{0}^{\,r}+\partial_{\tht}\mathcal{J}_{0}^{\tht}+\partial_{\ph}\mathcal{J}_{0}^{\ph}=0.
+\end{equation}
+and since we have axisymmetry, $\partial_{\ph}$ vanishes, and in
+flux coordinates $\mathcal{J}_{0}^{\,r}=0$. What remains is $\mathcal{J}_{0}^{\tht}$,
+so 
+\begin{equation}
+\partial_{\tht}\mathcal{J}_{0}^{\tht}=0\Rightarrow\mathcal{J}_{0}^{\,\tht}=\sqrt{g}J_{0}^{\,\tht}=\mathcal{J}_{0}^{\,\tht}(r).
+\end{equation}
+In addition we have
+\begin{equation}
+\mathcal{B}_{0}^{\,\tht}=\mathcal{B}_{0}^{\,\tht}(r),\quad\mathcal{B}_{0}^{\,\ph}=\mathcal{B}_{0}^{\,\ph}(r)
+\end{equation}
+due to flux coordinates. \textbf{For further derivations see section
+in cylindrical coordinates. Most likely this can be extended to special
+cases in flux coordinates with $\mathcal{J}_{0}^{\,\ph}=\mathcal{J}_{0}^{\,\ph}(r)$.
+This is the case in Hamada coordinates, but not necessarily in symmetry
+flux coordinates. One could start looking for conditions under which
+symmetry flux coordinates coincide with Hamada coordinates for testing.}
+\end{enumerate}
+\end{enumerate}
+
+\paragraph{Momentum equation with flow in flux coordinates}
+
+Adding a finite flow velocity $\v v$ results in the following equation,
+\begin{equation}
+-i\omega\rho_{0}(r)B_{0}(\boldsymbol{x})\left(v_{1\parallel}(\v x)+\frac{v_{0\parallel}(\boldsymbol{x})}{\gamma p_{0}(r)}p_{1}(\v x)\right)+\v B_{0}(\boldsymbol{x})\cdot\nabla p_{1}(\boldsymbol{x})=-\v B_{1}(\boldsymbol{x})\cdot\nabla p_{0}(r).
+\end{equation}
+Here $v_{0\parallel}=\v B_{0}\cdot\v v_{0}$ and $v_{1\parallel}=\v B_{0}\cdot\v v_{1}$.
+Written in flux coordinates we obtain
+\begin{equation}
+-i\omega\rho_{0}(r)\mathcal{B}_{0}^{\tht}(r)\left(v_{1\tht}(\v x)+q(r)v_{1\ph}(\v x)+\frac{v_{0\tht}(\v x)+q(r)v_{0\ph}(\v x)}{\gamma p_{0}(r)}p_{1}(\v x)\right)+\mathcal{B}_{0}^{\tht}(r)\left(\frac{\partial p_{1}(\boldsymbol{x})}{\partial\tht}+q(r)\frac{\partial p_{1}(\boldsymbol{x})}{\partial\ph}\right)=-\mathcal{B}_{1}^{r}(\boldsymbol{x})p_{0}^{\prime}(r).
+\end{equation}
+In the general case of non-zero equilibrium flow $v_{0\parallel}(\boldsymbol{x})$
+we cannot expand this in angles locally on a flux surface, as a non-linear
+term appears in its product with $p_{1}(\v x)$. Assuming $v_{0\tht}=v_{0\tht}(r)$
+and $v_{0\ph}=v_{0\ph}(r)$ we can still use this method and obtain
+a radially local Fourier expansion (skipping dependencies on $r$
+in notation) with
+\begin{equation}
+-i\omega\rho_{0}\left(v_{mn\,\tht}+qv_{mn\,\ph}+\frac{v_{0\tht}+qv_{0\ph}}{\gamma p_{0}}p_{mn}\right)+i\left(m+nq\right)p_{mn}=-\frac{p_{0}^{\prime}}{\mathcal{B}_{0}^{\tht}}B_{mn}^{r}.
+\end{equation}
+The solution in $p_{mn}$ is given by
+\begin{equation}
+p_{mn}=\frac{i\frac{p_{0}^{\prime}}{\mathcal{B}_{0}^{\tht}}B_{mn}^{r}+\omega\rho_{0}\left(v_{mn\,\tht}+qv_{mn\,\ph}\right)}{m+nq-\omega\frac{\rho_{0}}{\gamma p_{0}}(v_{0\tht}+qv_{0\ph})}.
+\end{equation}
+Here the introduction of $v_{0\parallel}$ just shifts the resonance
+radially and cannot resolve it. Only if the numerator tends towards
+zero faster than the numerator tends to infinity, a finite solution
+can follow in this model.
+
+\paragraph{Solution in cylinder coordinates coordinates at zero frequency and/or
+zero flow}
+
+First we are going to approximate our torus by a periodic cylinder.
+Before, we had used a different kind of cylindrical coordinates $(R,\ph,Z)$
+with the cylinder axis coinciding with Cartesian $Z$ axis in the
+center of the torus. Now we take the $z$-axis as the distance along
+the toroidal direction and define transformations
+\begin{align}
+R(r,\tht,z) & =R_{0}+r\cos\tht,\\
+\ph(r,\tht,z) & =z/R_{0},\\
+Z(r,\tht,z) & =r\sin\tht.
+\end{align}
+Non-vanishing derivatives are
+\begin{align}
+\partial_{r}R(r,\tht,z) & =\cos\tht,\\
+\partial_{\tht}R(r,\tht,z) & =-r\sin\tht,\\
+\\
+\partial_{z}\ph(r,\tht,z) & =1/R_{0},\\
+\\
+\partial_{r}Z(r,\tht,z) & =\sin\tht,\\
+\partial_{\tht}Z(r,\tht,z) & =r\cos\tht.
+\end{align}
+The metric tensor in original cylindrical coordinates was
+\begin{equation}
+g_{ij}=\left(\begin{array}{ccc}
+1\\
+ & R^{2}\\
+ &  & 1
+\end{array}\right).
+\end{equation}
+The metric tensor in the new \textquotedbl toroidal cylinder coordinates\textquotedbl{}
+are
+\begin{equation}
+\bar{g}_{ij}=\frac{\partial x^{a}}{\partial\bar{x}^{i}}\frac{\partial x^{b}}{\partial\bar{x}^{j}}g_{ab}.
+\end{equation}
+Thus with $\cos^{2}\tht+\sin^{2}\tht=1$ we obtain
+\begin{equation}
+\bar{g}_{ij}=\left(\begin{array}{ccc}
+1\\
+ & r^{2}\\
+ &  & \frac{R^{2}}{R_{0}^{\,2}}
+\end{array}\right)=\left(\begin{array}{ccc}
+1\\
+ & r^{2}\\
+ &  & (1+\frac{r}{R_{0}}\cos\tht)^{2}
+\end{array}\right).
+\end{equation}
+At large aspect ratios $r\ll R_{0}$ it follows that $\bar{g}_{zz}\approx1$
+and our new coordinates behave as usual cylinder coordinates, but
+with the topology of a torus, as $z$ closes on itself toroidally.
+Taking this approximation we now work in physical, rather than covariant
+components. Our unit basis vectors are
+\begin{equation}
+\hat{\boldsymbol{e}}_{r}=\nabla r,\quad\hat{\v e}_{\tht}=r\nabla\tht,\quad\hat{\v e}_{z}=\nabla z.
+\end{equation}
+We model our magnetic field $\boldsymbol{B}_{0}$ and currents $\boldsymbol{J}_{0}$
+winding around surfaces of $r=\text{const.}$ and physical components
+depending only on $r$,
+\begin{align}
+\v B_{0} & =B_{0\tht}(r)\hat{\v e}_{\tht}+B_{0z}(r)\hat{\v e}_{z},\\
+\v J_{0} & =J_{0\tht}(r)\hat{\v e}_{\tht}+B_{0z}(r)\hat{\v e}_{z}.
+\end{align}
+We can define the safety factor (TODO: check if this is correct) as
+\begin{equation}
+q(r)=\frac{B_{0z}(r)}{B_{0\tht}(r)}.
+\end{equation}
+Now we start with 
+\begin{align}
+\nabla p & =\frac{1}{c}\v J\times\boldsymbol{B},\\
+\nabla\cdot\boldsymbol{B} & =0,\\
+\nabla\cdot\boldsymbol{J} & =0.
+\end{align}
+The linear order equation is 
+\begin{align}
+\nabla p_{1} & =\frac{1}{c}(\v J_{0}\times\v B_{1}+\v J_{1}\times\v B_{0}),\\
+\nabla\cdot\boldsymbol{B}_{1} & =0,\\
+\nabla\cdot\boldsymbol{J}_{1} & =0.
+\end{align}
+Modeling quantities $p_{1},\boldsymbol{B}_{1}$ and $\boldsymbol{J}_{1}$
+in wavenumber space on each flux surface as
+\begin{equation}
+f(r,\tht,z)=f_{\boldsymbol{k}}(r)e^{i\boldsymbol{k}\cdot\boldsymbol{x}}=f(r)e^{i(k_{\tht}\tht+k_{z}z)}
+\end{equation}
+with $\v k=k_{\tht}\hat{\v e}_{\tht}+k_{z}\hat{\v e}_{z}$ there is
+no product of two harmonics, as unperturbed quantities depend only
+on $r$. So we can write independent equations for each $\boldsymbol{k}$
+with
+\begin{align}
+p_{\boldsymbol{k}}^{\prime}(r)\hat{\boldsymbol{e}}_{r}+i\boldsymbol{k}p_{\boldsymbol{k}}(r) & =\frac{1}{c}(\v J_{0}(r)\times\v B_{\boldsymbol{k}}(r)+\v J_{\boldsymbol{k}}(r)\times\v B_{0}(r)),\\
+B_{\boldsymbol{k}r}^{\prime}(r)+i\boldsymbol{k}\cdot\boldsymbol{B}_{\boldsymbol{k}}(r) & =0,\\
+J_{\boldsymbol{k}r}^{\prime}(r)+i\boldsymbol{k}\cdot\boldsymbol{J}_{\boldsymbol{k}}(r) & =0.
+\end{align}
+Here, vector quantities depending on $r$ mean that their components
+in $(r,\tht,z)$ depend only on $r$, and primes mean radial derivatives.
+Repeating the exercise from above we first take the parallel part
+by a scalar product with $\boldsymbol{B}_{0}$
+\begin{align}
+i\boldsymbol{k}\cdot\boldsymbol{B}_{0}p_{\boldsymbol{k}} & =\frac{1}{c}(\boldsymbol{B}_{0}\cdot(\v J_{0}\times\v B_{\boldsymbol{k}}))\nonumber \\
+ & =-\boldsymbol{B}_{\boldsymbol{k}}\cdot\nabla p_{0}=-\frac{1}{c}B_{\boldsymbol{k}r}p_{0}^{\prime}.
+\end{align}
+This means that Eq.~(\ref{eq:pmn}) is represented by
+\begin{equation}
+p_{\boldsymbol{k}}=i\frac{B_{\boldsymbol{k}r}p_{0}^{\prime}}{\boldsymbol{k}\cdot\boldsymbol{B}_{0}}.
+\end{equation}
+Resonance is obtained for $\boldsymbol{k}\parallel\boldsymbol{B}_{0}$.
+\textbf{This is already one term inside Heyn08, Eq. (6), inside $F_{p}$.}
+
+Now we look at Ampere's law for the perturbation with
+\begin{equation}
+\nabla\times\boldsymbol{B}_{1}=\frac{4\pi}{c}\boldsymbol{J}_{1}.
+\end{equation}
+Note that we don't assume it to be true for unperturbed quantities.
+Then in $\boldsymbol{k}$-space
+\begin{equation}
+i\boldsymbol{k}\times\boldsymbol{B}_{\boldsymbol{k}}-B_{\boldsymbol{k}z}^{\prime}\hat{\boldsymbol{e}}_{\tht}+B_{\boldsymbol{k}\tht}^{\prime}\hat{\boldsymbol{e}}_{r}=\frac{4\pi}{c}\boldsymbol{J}_{\boldsymbol{k}}.
+\end{equation}
+
+\textbf{TODO: put everything together to obtain Heyn08, Eq. (6).}
+\end{document}
