@@ -1,0 +1,3717 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass elsarticle
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "tgpagella" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\u}[1]{\underline{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bA}{\boldsymbol{A}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bB}{\boldsymbol{B}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\c}{\mathrm{c}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\difp}[2]{\frac{\partial#1}{\partial#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\xset}{{\bf x}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\zset}{{\bf z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\qset}{{\bf q}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pset}{{\bf p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\wset}{{\bf w}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rset}{{\bf r}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\yset}{\mathbf{y}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+A short introduction to differential geometry
+\begin_inset Newline newline
+\end_inset
+
+from the perspective of tensor calculus
+\end_layout
+
+\begin_layout Author
+Christopher Albert
+\end_layout
+
+\begin_layout Address
+Max-Planck-Institut für Plasmaphysik, Boltzmannstraße 2, 85748 Garching,
+ Germany
+\begin_inset Newline newline
+\end_inset
+
+<albert@alumni.tugraz.at>
+\end_layout
+
+\begin_layout Abstract
+In this text a short explanation on the treatment of space as a smooth manifold
+ and phase-space as a symplectic manifold for readers acquainted to terminology
+ from tensor calculus in co-/contravariant notation is given.
+ The main aim of this text is to provide a fast track to working knowledge
+ of the discussed concepts.
+ For more details, the three textbooks of Arnold, Jose/Saletan and Marsden
+ should be helpful for further clarifications and deeper understanding.
+ For a thorough introduction into smooth manifolds, the video lectures of
+ Frederic Schuller from the WE-Heraeus International Winter School on Gravity
+ and Light are highly recommended.
+ A review concerned with guiding-center dynamics and in more traditional
+ notation is given by Cary/Brizard at 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.81.693"
+
+\end_inset
+
+ .
+ A main feature distinguishing differential geometry from tensor calculus
+ is the treatment of covectors as first-class objects in addition to vectors.
+ As a concequence in many derivations no metric tensor has to be specified,
+ and the construction of structure-preserving numerical methods becomes
+ simpler and more transparent.
+ Apart from conceptual differences, the practical use of the formalisms
+ is similar, in particular the notation with upper and lower indexes for
+ contravariant and covariant components and the convention to sum over indexes
+ appearing once up and once down.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+date{
+\backslash
+today}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+makeatletter 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+ps@pprintTitle{ 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+let
+\backslash
+@oddhead
+\backslash
+@empty 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+let
+\backslash
+@evenhead
+\backslash
+@empty                         
+\backslash
+def
+\backslash
+@oddfoot{
+\backslash
+footnotesize
+\backslash
+itshape
+\backslash
+hfill
+\backslash
+today} 
+\backslash
+def
+\backslash
+@evenfoot{
+\backslash
+thepage
+\backslash
+hfill}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+makeatother
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Notation
+\end_layout
+
+\begin_layout Standard
+Here we fix some notational conventions for the following text.
+ Scalars and scalar functions are denoted in lowercase italic letters 
+\begin_inset Formula $a,f$
+\end_inset
+
+ and for points 
+\begin_inset Formula $X,Q,Z$
+\end_inset
+
+ we use uppercase italic letters.
+ We use italic bold letters to denote ensor fields, in particular vectors
+ 
+\begin_inset Formula $\dot{\v q},\dot{\v z}$
+\end_inset
+
+ and covectors 
+\begin_inset Formula $\v p,\v A$
+\end_inset
+
+.
+ Coordinate tuples are denoted by bold upright letters 
+\begin_inset Formula $\xset,\zset,\qset,\pset$
+\end_inset
+
+.
+ Spatial coordinates 
+\begin_inset Formula $\xset$
+\end_inset
+
+ have components 
+\begin_inset Formula $x^{k}$
+\end_inset
+
+, canonical coordinates 
+\begin_inset Formula $\qset,\pset$
+\end_inset
+
+ consist of tuples 
+\begin_inset Formula $q^{i},p_{j}$
+\end_inset
+
+, and generally non-canonical coordinates in phase-space 
+\begin_inset Formula $\zset$
+\end_inset
+
+ have entries 
+\begin_inset Formula $z^{\alpha}$
+\end_inset
+
+.
+ Lower index notation for canonical momenta 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ is used since in the classical construction 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ are not only coordinates in phase-space but also components of covectors
+ with respect to configuration space charted by coordinates 
+\begin_inset Formula $q^{i}$
+\end_inset
+
+.
+ Latin indices 
+\begin_inset Formula $i,j,k,l$
+\end_inset
+
+ run from 
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $3$
+\end_inset
+
+ for spatial coordinates 
+\begin_inset Formula $x^{k}$
+\end_inset
+
+, or from 
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $N$
+\end_inset
+
+ for canonical coordinates in a system with 
+\begin_inset Formula $N$
+\end_inset
+
+ degrees of freedom.
+ Greek indices like 
+\begin_inset Formula $\alpha,\beta$
+\end_inset
+
+ are used for general phase-space coordinates 
+\begin_inset Formula $z^{\alpha}$
+\end_inset
+
+ and run from 
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $2N$
+\end_inset
+
+.
+ We use the usual convention from tensor algebra to sum over indices appearing
+ once up and once down in formulas, i.e.
+ 
+\begin_inset Formula $p_{i}\dot{q}^{i}\equiv\sum_{i}p_{i}\dot{q}^{i}$
+\end_inset
+
+, where indexes in the denominator of derivatives switch their position,
+ e.g.
+ 
+\begin_inset Formula $\partial H/\partial q^{j}=p_{j}$
+\end_inset
+
+ has a lower index.
+ A common convention of physics literature is used where functional dependencies
+ such as 
+\begin_inset Formula $\zset(\qset,\pset),\zset(t)$
+\end_inset
+
+ are denoted by the same letters as 
+\begin_inset Formula $\zset$
+\end_inset
+
+ alone.
+ If arguments are not written explicitly inside functions the meaning should
+ become clear from the respective context.
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Standard
+Physics can be treated on different levels of abstraction.
+ Here we will start from the simplest picture and progress to the most advanced
+ one, expressing our dissatisfaction with the result in each step, to justify
+ an increase in the level of abstraction.
+ The names of the sub-sections are chosen from the author's experience and
+ can of course vary from school to school.
+ The last subsection on the mathematical theory of differential geometry
+ is at the highest level of abstraction and clarity and contains all other
+ section as special cases and/or more sloppy interpretations.
+ This does not necesserily mean that one should start on the top.
+ In the view of the author it is rather convenient to start from the most
+ basic levels and see where conceptual problems arise.
+ Once the highest level is reached, one can take a step back to the sometimes
+ more practical levels, with the power of understanding what objects we
+ are actually talking about, and how they are interrelated.
+\end_layout
+
+\begin_layout Subsection
+High-school physics
+\end_layout
+
+\begin_layout Standard
+The usual picture of high-school mathematics and physics is the following:
+ The world of classical physics can be described by points 
+\begin_inset Formula $X$
+\end_inset
+
+ given in Cartesian coordinates 
+\begin_inset Formula $\xset=(x,y,z)$
+\end_inset
+
+, and time 
+\begin_inset Formula $t$
+\end_inset
+
+ that is running steadily.
+ A vector is constructed as an arrow pointing from 
+\begin_inset Formula $X_{1}$
+\end_inset
+
+ to 
+\begin_inset Formula $X_{2}$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{equation}
+\v u_{12}=\left(\begin{array}{c}
+u_{12\,x}\\
+u_{12\,y}\\
+u_{12\,z}
+\end{array}\right)\equiv\left(\begin{array}{c}
+x_{2}-x_{1}\\
+y_{2}-y_{1}\\
+z_{2}-z_{1}
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+It is said to exists independently from its spreading point 
+\begin_inset Formula $P$
+\end_inset
+
+ and can be parallely translated in space.
+ The length of a vector can be computed by its norm
+\begin_inset Formula 
+\begin{equation}
+|\v u|=\sqrt{u_{x}^{\,2}+u_{y}^{\,2}+u_{z}^{\,2}}.
+\end{equation}
+
+\end_inset
+
+To each point 
+\begin_inset Formula $P$
+\end_inset
+
+ we can assign a vector from the origin point 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $0$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{equation}
+\v r(P)\equiv\v u^{0P}=\left(\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right),
+\end{equation}
+
+\end_inset
+
+whose components are the same as the coordinates of 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ The inner product between vectors 
+\begin_inset Formula $\v u$
+\end_inset
+
+ and 
+\begin_inset Formula $\v v$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\begin{equation}
+\v u\cdot\v v=u_{x}v_{x}+u_{y}v_{y}+u_{z}v_{z}.
+\end{equation}
+
+\end_inset
+
+By geometrical means we see that can be related to the angle 
+\begin_inset Formula $\theta^{\v{uv}}$
+\end_inset
+
+ between the vectors via
+\begin_inset Formula 
+\begin{equation}
+\v u\cdot\v v=|\v u||\v v|\cos\theta^{\v u\v v}.
+\end{equation}
+
+\end_inset
+
+We also notice that the norm is related to the inner product via 
+\begin_inset Formula $|\v u|=\sqrt{\v u\cdot\v u}$
+\end_inset
+
+.
+ In addition we introduce the cross product
+\begin_inset Formula 
+\begin{equation}
+\v u\times\v v\equiv\left(\begin{array}{c}
+u_{y}u_{z}-u_{z}u_{y}\\
+u_{z}u_{x}-u_{x}u_{z}\\
+u_{x}u_{y}-u_{y}u_{x}
+\end{array}\right),
+\end{equation}
+
+\end_inset
+
+yielding a vector as a result.
+\end_layout
+
+\begin_layout Subsubsection*
+Mechanics
+\end_layout
+
+\begin_layout Standard
+A particle that starts at time 
+\begin_inset Formula $t=0$
+\end_inset
+
+ at point 
+\begin_inset Formula $X$
+\end_inset
+
+ with a constant velocity vector 
+\begin_inset Formula $\v v$
+\end_inset
+
+ will have a time-dependent position vector
+\begin_inset Formula 
+\begin{equation}
+\v r(t)=\v r(0)+\v vt
+\end{equation}
+
+\end_inset
+
+that we can then translate back to a point 
+\begin_inset Formula $X(t)$
+\end_inset
+
+.
+ If a constant vectorial force 
+\begin_inset Formula $\v F$
+\end_inset
+
+ acts on a particle of mass 
+\begin_inset Formula $m$
+\end_inset
+
+ we obtain an accelaration vector 
+\begin_inset Formula 
+\begin{equation}
+\v a\equiv\frac{\d\v v(t)}{\d t}=\frac{\v F}{m}
+\end{equation}
+
+\end_inset
+
+according to Newton's law.
+ We then first compute the time-dependent velocity vector by integrating
+ once,
+\begin_inset Formula 
+\begin{equation}
+\v v(t)=\v v(0)+\frac{\v F}{m},
+\end{equation}
+
+\end_inset
+
+and integrate another time to obtain
+\begin_inset Formula 
+\begin{equation}
+\v r(t)=\v r(0)+\v v(0)t+\frac{\v F}{2m}t^{2}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Field theory
+\end_layout
+
+\begin_layout Standard
+A vector fields 
+\begin_inset Formula $\v E(X)$
+\end_inset
+
+ means to attach a vector to each point 
+\begin_inset Formula $X$
+\end_inset
+
+ in space, i.e.
+ 
+\begin_inset Formula $\v E$
+\end_inset
+
+ is like a function on components 
+\begin_inset Formula $\xset=(x,y,z)$
+\end_inset
+
+ that has vectors as an output.
+ In that sense we can view 
+\begin_inset Formula $\v r(X)$
+\end_inset
+
+ as a vector field that yields Cartesian components of 
+\begin_inset Formula $X$
+\end_inset
+
+ in each point.
+ For electromagnetism and gravity, the intuitive picture of a 
+\emph on
+flow
+\emph default
+ of a vector field through a surface is introduced.
+ There we take the normal components of a vector field to the surface, and
+ sum them up.
+ Gauss' law can be derived by looking at the vectors in the direction of
+ a point charge and how they flow through a spherical surface.
+\end_layout
+
+\begin_layout Subsubsection*
+Why we are dissatisfied
+\end_layout
+
+\begin_layout Standard
+First of all, we could only use Cartesian coordinates.
+ We practically identified points, vectors, and their Cartesian components,
+ despite noticing that the inner product would work the same, if we translated
+ or rotated our coordinate frame.
+ In mechanics and field theory we were limited to constant forces and simple
+ fields.
+ For treating cylindrical and spherical symmetry we had to rely on ad-hoc
+ solutions by drawing arrows, since using Cartesian coordinates there is
+ very cumbersome.
+ The questions what space and time actually are, and why we can describe
+ them by numbers in the given way, remains completely open.
+\end_layout
+
+\begin_layout Subsection
+Undergraduate physics
+\end_layout
+
+\begin_layout Standard
+In the undergraduate physics courses we keep the picture of vector calculus
+ and classical physics from high-school, but more advanced concepts are
+ introduced on several levels.
+ A vector is generalized from a geometric quantity to an abstract object
+ in a linear vector space that allows for addition and multiplication by
+ scalars.
+ Newton's equations of motion are generalized to Lagrange's and Hamilton's
+ equations in generalized coordinates, and solved for space- and time-dependent
+ forces.
+ In field theory we solve partial differential equations in possibly curvilinear
+ coordinates.
+ Such a coordinate change is given by a set of transformation equations
+\begin_inset Formula 
+\begin{align}
+x & =x(\xset)\equiv x(x^{1},x^{2},x^{3}),\\
+y & =y(\xset)\equiv y(x^{1},x^{2},x^{3}),\\
+z & =z(\xset)\equiv z(x^{1},x^{2},x^{3}),
+\end{align}
+
+\end_inset
+
+or more compactly 
+\begin_inset Formula $\v r=\v r(\xset)$
+\end_inset
+
+, with the position vector 
+\begin_inset Formula $\v r$
+\end_inset
+
+ still identified with its Cartesian coordinates 
+\begin_inset Formula $(x,y,z)$
+\end_inset
+
+ via
+\begin_inset Formula 
+\begin{align}
+\v r & \equiv x\hat{\v e}_{x}+y\hat{\v e}_{y}+z\hat{\v e}_{z}
+\end{align}
+
+\end_inset
+
+even though we already anticipate that the concept of a position 
+\begin_inset Quotes eld
+\end_inset
+
+vector
+\begin_inset Quotes erd
+\end_inset
+
+ becomes problematic due to the possibility of coordinate changes.
+ If we want to be more precise and distinguish 
+\begin_inset Formula $X$
+\end_inset
+
+ from 
+\begin_inset Formula $\v r$
+\end_inset
+
+, we look at the position vector field 
+\begin_inset Formula $\v r(X)$
+\end_inset
+
+ and represent 
+\begin_inset Formula $X(\xset)$
+\end_inset
+
+ via coordinates 
+\begin_inset Formula $\xset$
+\end_inset
+
+, so when we write 
+\begin_inset Formula $\v r$
+\end_inset
+
+, we actually mean the vector-valued function 
+\begin_inset Formula $\v r(\xset)\equiv\v r(X(\xset))$
+\end_inset
+
+ representing the vector field 
+\begin_inset Formula $\v r(X)$
+\end_inset
+
+ in coordinates 
+\begin_inset Formula $\xset$
+\end_inset
+
+.
+ Unit vectors in curvilinear coordinates are given as derivatives of this
+ function via
+\begin_inset Formula 
+\begin{equation}
+\hat{\v e}_{k}=\frac{1}{|\partial\v r/\partial x^{k}|}\frac{\partial\v r}{\partial x^{k}},
+\end{equation}
+
+\end_inset
+
+where we require an orthonormal set, i.e.
+ 
+\begin_inset Formula $\hat{\v e}_{k}\cdot\hat{\v e}_{l}=\delta_{kl}$
+\end_inset
+
+, so 
+\begin_inset Formula $0$
+\end_inset
+
+ if 
+\begin_inset Formula $k\neq l$
+\end_inset
+
+ and 
+\begin_inset Formula $1$
+\end_inset
+
+ if 
+\begin_inset Formula $k=l$
+\end_inset
+
+.
+ This is the case for many sets of coordinates, including cylindrical and
+ spherical coordinates, that make our life much easier in electromagnetic
+ field theory.
+ To manipulate vector fields we introduce the nabla symbol 
+\begin_inset Formula $\nabla$
+\end_inset
+
+ as a vector differential operator, producing gradient, curl, and divergence
+ via
+\begin_inset Formula 
+\begin{align}
+\nabla\Phi & \equiv\frac{\partial\Phi}{\partial x}\v e_{x}+\frac{\partial\Phi}{\partial y}\v e_{y}+\frac{\partial\Phi}{\partial z}\v e_{z},\\
+\nabla\times\v A & \equiv\left(\frac{\partial A_{z}}{\partial y}-\frac{\partial A_{y}}{\partial z}\right)\v e_{x}+\left(\frac{\partial A_{x}}{\partial z}-\frac{\partial A_{z}}{\partial x}\right)\v e_{y}+\left(\frac{\partial A_{y}}{\partial x}-\frac{\partial A_{y}}{\partial x}\right)\v e_{z},\\
+\nabla\cdot\v B & \equiv\frac{\partial B_{x}}{\partial x}+\frac{\partial B_{y}}{\partial y}+\frac{\partial B_{z}}{\partial z}.
+\end{align}
+
+\end_inset
+
+We proof differential theorems of vector calculus, namely
+\begin_inset Formula 
+\begin{equation}
+\nabla\times(\nabla\Phi)=0,\quad\nabla\cdot(\nabla\times\v A)=0,
+\end{equation}
+
+\end_inset
+
+that aid us in the construction of potential fields in electrodynamics.
+ Related integral theorems of Gauss and Stokes are
+\begin_inset Formula 
+\begin{equation}
+\int_{\Omega_{3}}\nabla\cdot\v D\,\d V=\int_{\partial\Omega_{3}}\v D\cdot\d\v S,\quad\int_{\Omega_{2}}(\nabla\times\v D)\cdot\d\v S=\int_{\partial\Omega_{2}}\v D\cdot\d\v l,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Omega_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $\Omega_{2}$
+\end_inset
+
+ are 3- and 2-dimensional domains, and 
+\begin_inset Formula $\Omega_{3},\Omega_{2}$
+\end_inset
+
+ their respective boundaries with surface normal 
+\begin_inset Formula $\d\v S$
+\end_inset
+
+ and line element 
+\begin_inset Formula $\d\v l$
+\end_inset
+
+ being infinitesimal vectors.
+\end_layout
+
+\begin_layout Subsubsection*
+Why we are dissatisfied
+\end_layout
+
+\begin_layout Standard
+Transforming differential operators to curvilinear coordinates is complicated
+ and we are limited to normalized basis vectors in orthogonal coordinate
+ systems.
+\end_layout
+
+\begin_layout Subsection
+Graduate level physics
+\end_layout
+
+\begin_layout Standard
+Still the focus of tensor calculus in curvilinear geometry is on the components
+ of a tensor in a certain basis.
+ This is reflected in the statement that a tensor is a 
+\begin_inset Quotes eld
+\end_inset
+
+matrix with transformation properties under coordinate changes
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Why we are dissatisfied
+\end_layout
+
+\begin_layout Standard
+The fundamental building block of the co-contravariant treatment in classical
+ physics is still based on a position vector field 
+\begin_inset Formula $\v r(x,y,z)$
+\end_inset
+
+ given in Cartesian coordinates.
+ In general relativity the absence of such a vector field confuses matter
+ further, since tensors are now only given in terms of their components
+ fulfilling transformation properties 
+\begin_inset Quotes eld
+\end_inset
+
+out of thin air
+\begin_inset Quotes erd
+\end_inset
+
+, without a global reference frame.
+ While we know what quantities are better represented in co- or contravariant
+ form, there is no clear distinction between the two.
+\end_layout
+
+\begin_layout Subsection
+Differential geometry
+\end_layout
+
+\begin_layout Standard
+One of the features of a mathematical description is the exact specification
+ of what objects we are dealing with, and how to trace them back to already
+ known mathematical objects, going down to fundamental axioms that are chosen
+ to make intuitive concepts work, while giving them a solid foundation.
+ Similarly the connection to the physical world relies on postulates.
+ In contrast to axioms they can be justified by the correctness of predictions
+ made by the theory constructed in terms of these objects.
+ As common in mathematical descriptions, differential geometry strives to
+ be economic with additional structure, such as metrizability or differentiabili
+ty, requiring only the bare minimum for the according task.
+ On first sight this looks like this means departing from reality and applicatio
+n, but the contrary is the case.
+ The mathematical approach is more honest in the sense that we do not claim
+ to know what our system actually is, but rather distill out of it the bare
+ minimum properties we require it to have in order to make sense.
+ This allows us to separate topological from metric features and gives a
+ clear guideline on structure-preserving discretizations such as symplectic
+ time-stepping schemes and vector finite elements.
+ Here we go back to treating vectors in their geometrical sense rather than
+ abstract vectors, and give a more precise definition to what that means.
+\end_layout
+
+\begin_layout Subsubsection*
+Space
+\end_layout
+
+\begin_layout Standard
+Here we describe the mathematical foundation to describe physical space,
+ which applies also to spacetime and phase-space with slight modifications.
+ In the philosophy of the bare minimum we start with modeling space as a
+ 
+\emph on
+set
+\emph default
+ 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+ of points 
+\begin_inset Formula $X\in\mathbb{X}$
+\end_inset
+
+.
+ Our goal is to add a sufficient amount of mathematical structure to this
+ set to be able to describe motion and fields in different sets of coordinates
+ and formulate dynamical laws as differential equations.
+\end_layout
+
+\begin_layout Enumerate
+Since we would like to know what points are adjacent to each other, we require
+ a topology 
+\begin_inset Formula $\mathcal{O}$
+\end_inset
+
+ that yields the notion of 
+\emph on
+open neighbourhoods
+\emph default
+ containing adjacent points.
+ This introduces the concept of 
+\emph on
+continuous maps
+\emph default
+ between topological spaces that keep neighbouring points adjacent to each
+ other also in their image.
+ Adding this structure to 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+ makes it a 
+\emph on
+topological space 
+\begin_inset Formula $(\mathbb{X},\mathcal{O})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+In order to be able to translate points to numbers, we require 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+ to be at least locally similar to Euclidian space 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ of dimension 
+\begin_inset Formula $d$
+\end_inset
+
+ equiped with the usual open sets as a topology based on the Euclidian distance.
+ This means that for each open set of points 
+\begin_inset Formula $\mathbb{U}\subset\mathbb{X}$
+\end_inset
+
+ we can find a continuous and invertible map to 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ which yields points as functions 
+\begin_inset Formula $X(\xset)$
+\end_inset
+
+ of 
+\begin_inset Formula $d$
+\end_inset
+
+ coordinates 
+\begin_inset Formula $\xset=(x^{1},\dots,x^{d})$
+\end_inset
+
+.
+ Such a map is called a 
+\emph on
+chart.
+
+\emph default
+ A collection of charts is called an 
+\emph on
+atlas 
+\emph default
+
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ that contains at least one chart for each 
+\begin_inset Formula $\mathbb{U}$
+\end_inset
+
+.
+ With 
+\begin_inset Formula $d$
+\end_inset
+
+ the minimum required chart dimension
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+We cannot chart the surface of the earth in 
+\begin_inset Formula $\mathbb{R}^{1}$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ would be too much, so we use 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ we call 
+\begin_inset Formula $(\mathbb{X},\mathcal{O},\mathcal{A})$
+\end_inset
+
+ a 
+\begin_inset Formula $d$
+\end_inset
+
+
+\emph on
+-dimensional topological manifold
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+To define what differentiation means on the manifold, we require the 
+\emph on
+transition maps
+\emph default
+ representing coordinate transformations between regions where charts overlap
+ to be differentiable in 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ It can be proven that already requiring 
+\begin_inset Formula $C^{1}$
+\end_inset
+
+ differentiability in an atlas induces a 
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+ atlas as a subset of the original atlas.
+ This is why we call a manifold with a differentiable atlas a 
+\emph on
+smooth manifold
+\emph default
+.
+\end_layout
+
+\begin_layout Enumerate
+If we would like to measure distances on 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+, we introduce a 
+\emph on
+metric
+\emph default
+ 
+\begin_inset Formula $g:\mathbb{X}\times\mathbb{X}\rightarrow[0,\infty)$
+\end_inset
+
+ that assigns a distance to each pair of points that remains identical when
+ the arguments are swapped, is zero if and only if they are the same point,
+ and fulfills the triangle inequality.
+ A manifold with a metric is called a 
+\emph on
+Riemannian manifold
+\emph default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+The concept can be generalized to a 
+\emph on
+pseudo-Riemannian
+\emph default
+ manifold for spacetime allowing negative 
+\begin_inset Quotes erd
+\end_inset
+
+distances
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(\mathbb{X},\mathcal{O},\mathcal{A},g)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Depending on the required features we can define mathematical objects that
+ represent physical quantities at different structural levels.
+ Most of the time we require a smooth manifold after step 3.
+ If we can avoid the use of the metric structure in step 4 to a bare minimum
+ we can gain insight into laws of physics and guidance for discretized numerical
+ modelling.
+ This will imply keeping vectors and covectors as distinct objects rather
+ than converting between the two using the metric tensor.
+\end_layout
+
+\begin_layout Subsubsection*
+Vectors and covectors
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO: mention curves
+\end_layout
+
+\begin_layout Standard
+On a 
+\begin_inset Formula $d$
+\end_inset
+
+-dimensional smooth manifold we can introduce 
+\emph on
+vectors
+\emph default
+ 
+\begin_inset Formula $\v v\in T_{X}\mathbb{X}$
+\end_inset
+
+ of the 
+\emph on
+tangent space 
+\emph default
+
+\begin_inset Formula $T_{X}\mathbb{X}$
+\end_inset
+
+.
+ Intuitively 
+\begin_inset Formula $T_{X}\mathbb{X}$
+\end_inset
+
+ can be imagined as the tangent plane to a curved surface representing the
+ manifold.
+ The subscript 
+\begin_inset Formula $X$
+\end_inset
+
+ in 
+\begin_inset Formula $T_{X}\mathbb{X}$
+\end_inset
+
+ indicates that a vector 
+\begin_inset Formula $\v v$
+\end_inset
+
+ only has a meaning with respect to a specific point 
+\begin_inset Formula $X$
+\end_inset
+
+, since 
+\begin_inset Formula $T_{P}\mathbb{X}$
+\end_inset
+
+ is generally not the same at different points.
+ A further abstraction concerns the basis of the tangent space.
+ While we are used to a geometrical definition based on Cartesian coordinates,
+ the mathematical definition is more abstract and based on a question what
+ a vector can 
+\emph on
+do
+\emph default
+.
+ This is closely related to the high-school definition of a vector 
+\begin_inset Formula $\v v$
+\end_inset
+
+, defining it as an arrow pointing from point 
+\begin_inset Formula $X_{A}$
+\end_inset
+
+ to 
+\begin_inset Formula $X_{B}$
+\end_inset
+
+.
+ In fact we are asking for the difference of a scalar field 
+\begin_inset Formula $f$
+\end_inset
+
+ if we go along 
+\begin_inset Formula $\v v$
+\end_inset
+
+ from 
+\begin_inset Formula $X_{A}$
+\end_inset
+
+ to 
+\begin_inset Formula $X_{B}$
+\end_inset
+
+.
+ Now we are in a situation that allows to do this only in an 
+\emph on
+infinitesimal neighbourhood
+\emph default
+ of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ This provides the 
+\emph on
+directional derivative along
+\emph default
+ 
+\begin_inset Formula $\v v$
+\end_inset
+
+ of a scalar field 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ in a certain chart.
+ In classical tensor calculus one would write this expression as
+\begin_inset Formula 
+\begin{equation}
+(\v v\cdot\nabla)f=\left(v^{i}\v e_{i}\cdot\v e^{k}\frac{\partial}{\partial x^{k}}\right)f=\left(v^{i}\delta_{i}^{k}\frac{\partial}{\partial x^{k}}\right)f=\left(v^{k}\frac{\partial}{\partial x^{k}}\right)f=v^{k}\frac{\partial f}{\partial x^{k}}.
+\end{equation}
+
+\end_inset
+
+Here we have put brackets to avoid interpretation as a gradient, which will
+ later be associated to covectors.
+ We realize that we do not require geometrical basis vectors 
+\begin_inset Formula 
+\begin{equation}
+\v e_{k}=\frac{\partial\v r}{\partial x^{k}},
+\end{equation}
+
+\end_inset
+
+since they cancel out.
+ We can rather introduce an abstract basis 
+\begin_inset Formula 
+\begin{equation}
+\v e_{k}\equiv\frac{\v{\partial}}{\v{\partial}x^{k}}
+\end{equation}
+
+\end_inset
+
+representing
+\begin_inset Formula 
+\begin{equation}
+\v v=v^{k}\frac{\v{\partial}}{\v{\partial}x^{k}},
+\end{equation}
+
+\end_inset
+
+where we have stripped away the reference to the 
+\begin_inset Quotes eld
+\end_inset
+
+vector
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\v r$
+\end_inset
+
+ that has bugged us in tensor calculus, and wrote the 
+\begin_inset Formula $\v{\partial}$
+\end_inset
+
+ symbols in bold face to identify 
+\begin_inset Formula $\v{\partial}/\v{\partial}x^{k}$
+\end_inset
+
+ as a vector and distinguish it from a usual partial differential operator.
+ This means that now vectors can actually 
+\emph on
+act
+\emph default
+ on scalar fields with the usual gradient in any chart,
+\begin_inset Formula 
+\begin{equation}
+\v v[f(X)]\equiv v^{k}\frac{\partial f}{\partial x^{k}}.
+\end{equation}
+
+\end_inset
+
+Basis vectors 
+\begin_inset Formula $\v{\partial}/\v{\partial}x^{k}$
+\end_inset
+
+ acting on 
+\begin_inset Formula $f$
+\end_inset
+
+ yield directional derivatives along curves in direction of 
+\begin_inset Formula $x^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The generalization of the inner product between vectors leads to the concept
+ of 
+\emph on
+covectors 
+\emph default
+or 
+\emph on
+one-forms
+\emph default
+ 
+\begin_inset Formula $\v w\in T_{P}^{\star}\mathbb{X}$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $T_{P}^{\star}\mathbb{X}$
+\end_inset
+
+ is called the 
+\emph on
+cotangent space 
+\emph default
+at 
+\begin_inset Formula $P$
+\end_inset
+
+ and a covectors form the space of 
+\emph on
+linear operators
+\emph default
+ that can be 
+\emph on
+applied
+\emph default
+ to a vector 
+\begin_inset Formula $\v v$
+\end_inset
+
+ to yield a scalar.
+ Gradients of scalar fields yield covectors, which can be seen in the classical
+ definition of a scalar differential
+\begin_inset Formula 
+\begin{equation}
+\d f=\left(\frac{\partial f}{\partial x^{i}}\v e^{i}\right)\cdot\left(\v e_{k}\d x^{k}\right)=\frac{\partial f}{\partial x^{i}}\delta_{k}^{i}\d x^{k}=\frac{\partial f}{\partial x^{k}}\d x^{k}.
+\end{equation}
+
+\end_inset
+
+containing components of the gradient 
+\begin_inset Formula $\nabla f$
+\end_inset
+
+ as coefficients.
+ Now instead of defining 
+\begin_inset Formula 
+\begin{equation}
+\v e^{i}=\nabla x^{i}
+\end{equation}
+
+\end_inset
+
+we again 
+\begin_inset Quotes eld
+\end_inset
+
+strip away
+\begin_inset Quotes erd
+\end_inset
+
+ the reference to 
+\begin_inset Formula $\v r$
+\end_inset
+
+ hidden and directly define 
+\begin_inset Formula 
+\begin{equation}
+\v e^{i}\equiv\v dx^{i}
+\end{equation}
+
+\end_inset
+
+via differentials.
+ Covectors are expanded as 
+\begin_inset Formula 
+\begin{equation}
+\v w=w_{i}\v dx^{i}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A maybe surprising consequence of the separation into vectors and covectors
+ is the fact that there exists no inner product 
+\emph on
+between
+\emph default
+ the two.
+ Instead a covector 
+\begin_inset Formula $\v w$
+\end_inset
+
+ can 
+\emph on
+act 
+\emph default
+on a vector 
+\begin_inset Formula $\v v$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+\v w[\v v]=w_{i}v^{i},
+\end{equation}
+
+\end_inset
+
+yielding the same scalar result independently from the chosen coordinate
+ chart.
+ In particular
+\begin_inset Formula 
+\begin{equation}
+\v dx^{i}\left[\frac{\v{\partial}}{\v{\partial}x^{k}}\right]=\delta_{k}^{i}
+\end{equation}
+
+\end_inset
+
+remains valid for basis vectors.
+ When skipping brackets and formally writing 
+\begin_inset Formula $\v w[\v v]=\v w\cdot\v v$
+\end_inset
+
+ as a scalar product one should write the covector 
+\begin_inset Formula $\v w$
+\end_inset
+
+ first.
+ Vectors and covectors thus exist as distinct mathematical objects, even
+ though 
+\begin_inset Formula $T_{P}\mathbb{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $T_{P}^{\star}\mathbb{X}$
+\end_inset
+
+ are isomorphic as finite-dimensional vector spaces of equal dimension 
+\begin_inset Formula $d$
+\end_inset
+
+.
+ A visual representation of basis vectors, covectors and 2-forms is available
+ in Fig.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:manifold"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fig/manifold2.pdf
+	scale 120
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Local basis 
+\begin_inset Formula $\v{\partial}/\v{\partial}\ph$
+\end_inset
+
+ for vectors, 
+\begin_inset Formula $\v d\ph$
+\end_inset
+
+ for covectors, and 
+\begin_inset Formula $\v d\theta\wedge\v d\ph$
+\end_inset
+
+ for 2-forms.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:manifold"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Tensor fields and forms
+\end_layout
+
+\begin_layout Standard
+Starting from the base manifold 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+ and "attaching" the tangent space 
+\begin_inset Formula $T_{X}\mathbb{X}$
+\end_inset
+
+ in each points 
+\begin_inset Formula $X$
+\end_inset
+
+ yields the 
+\begin_inset Formula $2N$
+\end_inset
+
+-dimensional 
+\emph on
+tangent bundle
+\series bold
+ 
+\begin_inset Formula $T\mathbb{X}$
+\end_inset
+
+
+\series default
+\emph default
+ whose elements are tuples 
+\begin_inset Formula $(X,\v v)$
+\end_inset
+
+ of possible combinations of a position 
+\begin_inset Formula $X\in\mathbb{X}$
+\end_inset
+
+ and a vector 
+\begin_inset Formula $\v v\in T_{X}\mathbb{X}$
+\end_inset
+
+ tangent to 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+ at 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\v v$
+\end_inset
+
+ has a specific functional dependency on 
+\begin_inset Formula $X$
+\end_inset
+
+ in these tuples it is called a 
+\emph on
+vector field 
+\emph default
+
+\begin_inset Formula $\v v(X):\mathbb{X}\rightarrow T\mathbb{X}$
+\end_inset
+
+ that is specified via its graph 
+\begin_inset Formula $(X,\v v(X))$
+\end_inset
+
+ called a 
+\emph on
+section
+\emph default
+ of 
+\series bold
+\emph on
+
+\begin_inset Formula $T\mathbb{X}$
+\end_inset
+
+
+\series default
+\emph default
+.
+ The difference between 
+\begin_inset Formula $(X,\v v)$
+\end_inset
+
+ and 
+\begin_inset Formula $\v v(X)$
+\end_inset
+
+ is the same as between a tuple 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ of a single 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+, and a function 
+\begin_inset Formula $y(x)$
+\end_inset
+
+ that assignes a single 
+\begin_inset Formula $y$
+\end_inset
+
+ for each 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Similarly, attaching cotangent spaces 
+\begin_inset Formula $T_{X}^{\star}\mathbb{X}$
+\end_inset
+
+ in each point on 
+\begin_inset Formula $\mathbb{X}$
+\end_inset
+
+ results in the 
+\emph on
+cotangent bundle 
+\emph default
+
+\begin_inset Formula $T^{\star}\mathbb{X}$
+\end_inset
+
+ containing pairs 
+\begin_inset Formula $(X,\v w)$
+\end_inset
+
+.
+ 
+\emph on
+Covector fields
+\emph default
+ 
+\begin_inset Formula $\v w(X):\mathbb{X}\rightarrow T^{\star}\mathbb{X}$
+\end_inset
+
+ are specified via sections 
+\begin_inset Formula $(X,\v w(X))$
+\end_inset
+
+ of the cotangent bundle 
+\begin_inset Formula $T^{\star}\mathbb{X}$
+\end_inset
+
+.
+ Similar to vectors and covectors, a covector field acts on a vector field
+ via
+\begin_inset Formula 
+\begin{equation}
+\v w(X)[\v v(X)]=w_{i}(X)v^{i}(X),
+\end{equation}
+
+\end_inset
+
+where the point 
+\begin_inset Formula $X$
+\end_inset
+
+ appears as an additional argument and can be specified in any suitable
+ set of coordinates 
+\begin_inset Formula $\xset$
+\end_inset
+
+ in a chart via the chart map 
+\begin_inset Formula $X(\xset)$
+\end_inset
+
+.
+ We are only interested in sufficiently smooth vector fields, where components
+ 
+\begin_inset Formula $v^{i}(\xset)\equiv v^{i}(X(\xset))$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{i}(\xset)\equiv w_{i}(X(\xset))$
+\end_inset
+
+ are sufficiently smooth maps from 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbb{R}^{d}$
+\end_inset
+
+.
+ Note that up to now we didn't require a metric tensor.
+ 
+\series bold
+TODO: mention tensor fields and forms
+\end_layout
+
+\begin_layout Subsubsection*
+The metric tensor
+\end_layout
+
+\begin_layout Standard
+On manifolds with a metric 
+\begin_inset Formula $g$
+\end_inset
+
+, the 
+\emph on
+metric tensor
+\emph default
+ 
+\begin_inset Formula $\mathbf{g}$
+\end_inset
+
+ provides a natural isomorphism to between vectors and covectors.
+ More precisely, 
+\begin_inset Formula $\t g$
+\end_inset
+
+ is a symmetric 
+\begin_inset Formula $(0,2)$
+\end_inset
+
+-tensor field (that can depend on position 
+\begin_inset Formula $\v q$
+\end_inset
+
+) on 
+\begin_inset Formula $Q$
+\end_inset
+
+ with components 
+\begin_inset Formula $g_{ik}=g_{ik}(\v q)$
+\end_inset
+
+ in a certain coordinate chart.
+ The action of 
+\begin_inset Formula $\mathbf{g}$
+\end_inset
+
+ on two vectors is the commonly known 
+\emph on
+inner product 
+\begin_inset Formula 
+\begin{equation}
+\v u\cdot\v v\equiv\mathbf{g}(\v u,\v v)=\mathbf{g}(\v v,\v u)=u^{i}g_{ik}v^{k}=v^{i}g_{ik}u^{k},\label{eq:guv}
+\end{equation}
+
+\end_inset
+
+
+\emph default
+which is a 
+\emph on
+symmetric
+\emph default
+ 
+\emph on
+bilinear
+\emph default
+ form, i.e.
+ linear in both arguments 
+\begin_inset Formula $\v u$
+\end_inset
+
+ and 
+\begin_inset Formula $\v v$
+\end_inset
+
+ which can be swapped.
+ Similarly the inner product in cotangent space
+\begin_inset Formula 
+\begin{equation}
+\v p\cdot\v w\equiv\bar{\mathbf{g}}(\v p,\v w)=\bar{\mathbf{g}}(\v w,\v p)=p_{j}\bar{g}^{jl}w_{l}=w_{j}\bar{g}^{jl}p_{l}
+\end{equation}
+
+\end_inset
+
+is provided via the 
+\emph on
+reciprocal metric
+\emph default
+ 
+\begin_inset Formula $\bar{\mathbf{g}}$
+\end_inset
+
+ being a symmetric 
+\begin_inset Formula $(2,0)$
+\end_inset
+
+-tensor field on 
+\begin_inset Formula $Q$
+\end_inset
+
+ defined by
+\begin_inset Formula 
+\begin{equation}
+\bar{g}^{ij}g_{jk}=\delta_{k}^{i}\equiv\begin{cases}
+0 & \text{for }i\neq k,\\
+1 & \text{for\,}i=k
+\end{cases}
+\end{equation}
+
+\end_inset
+
+This means that the component matrix 
+\begin_inset Formula $(\bar{g}^{jl})=(g_{ik})^{-1}$
+\end_inset
+
+ is the inverse matrix of the metric tensor component matrix in any set
+ of coordinates.
+ It is important to emphasize that 
+\begin_inset Formula $\mathbf{g}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{\mathbf{g}}$
+\end_inset
+
+ are not the same tensor field, even though the common notation 
+\begin_inset Formula $g^{jl}$
+\end_inset
+
+ without a bar would suggest this.
+ Since 
+\begin_inset Formula $u_{k}\equiv u^{i}g_{ik}$
+\end_inset
+
+ are components of a covector dual to 
+\begin_inset Formula $\v u$
+\end_inset
+
+ and 
+\begin_inset Formula $w^{l}\equiv w_{j}\bar{g}^{jl}$
+\end_inset
+
+ the ones of a vector dual to 
+\begin_inset Formula $\v w$
+\end_inset
+
+, one can 
+\begin_inset Quotes eld
+\end_inset
+
+convert
+\begin_inset Quotes erd
+\end_inset
+
+ between vectors (contravariant representation) and covectors (covariant
+ representation) by raising and lowering indexes via the (inverse) metric.
+ This allows the reduction to only vectors as fundamental objects, as used
+ in traditional tensor calculus.
+ If quantities are represented in their 
+\begin_inset Quotes eld
+\end_inset
+
+natural
+\begin_inset Quotes erd
+\end_inset
+
+ way in the traditional formalism, i.e.
+ contravariant components for tangent vectors, the two and covariant components
+ for gradient 
+\begin_inset Quotes eld
+\end_inset
+
+vectors
+\begin_inset Quotes erd
+\end_inset
+
+, formulas become equivalent to the differential geometrical variant, since
+ the metric tensor disappears.
+ As soon as divergence and curl operators enter, a description using either
+ differential forms or tensor densities is required to be able to work in
+ a metric-independent way.
+\end_layout
+
+\begin_layout Section
+Mechanics
+\end_layout
+
+\begin_layout Standard
+In classical mechanics the phase-space 
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+ is a 
+\begin_inset Formula $2N$
+\end_inset
+
+-dimensional symplectic manifold constructed from combination of positions
+ 
+\begin_inset Formula $Q$
+\end_inset
+
+ being elements of an 
+\begin_inset Formula $N$
+\end_inset
+
+-dimensional configuration manifold 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ with their respective momenta as covectors 
+\begin_inset Formula $\v p$
+\end_inset
+
+ in the 
+\begin_inset Formula $N$
+\end_inset
+
+-dimensional cotangent space 
+\begin_inset Formula $T_{Q}^{\star}\mathbb{Q}$
+\end_inset
+
+ at position 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ As defined above 
+\begin_inset Formula $T_{Q}^{\star}\mathbb{Q}$
+\end_inset
+
+ is the cotangent space dual to the tangent space 
+\begin_inset Formula $T_{Q}\mathbb{Q}$
+\end_inset
+
+, where the latter contains velocity vectors 
+\begin_inset Formula $\dot{\v q}$
+\end_inset
+
+.
+ Here the notation 
+\begin_inset Formula $\dot{\v q}$
+\end_inset
+
+ for velocity is conventional 
+\emph on
+a priori
+\emph default
+ and must not be identified with time derivatives 
+\begin_inset Formula $\d Q(t)/\d t$
+\end_inset
+
+ appearing only for a specific orbit curve 
+\begin_inset Formula $Q(t)$
+\end_inset
+
+.
+ The 
+\emph on
+Lagrangian
+\emph default
+ formalism in 
+\begin_inset Formula $(Q,\dot{\v q})$
+\end_inset
+
+ is constructed on the tangent bundle 
+\begin_inset Formula $T\mathbb{Q}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, while the 
+\emph on
+Hamiltonian 
+\emph default
+formalism is stated on the cotangent bundle 
+\begin_inset Formula $T^{\star}\mathbb{Q}$
+\end_inset
+
+.
+ In terms of notation the outlined construction leads to upper i.e.
+ contravariant index notation for generalized coordinates 
+\begin_inset Formula $q^{i}$
+\end_inset
+
+ representing points 
+\begin_inset Formula $Q$
+\end_inset
+
+ in a certain chart, and for velocity components 
+\begin_inset Formula $\dot{q}^{i}$
+\end_inset
+
+ in the according local chart basis of 
+\begin_inset Formula $T_{Q}\mathbb{Q}$
+\end_inset
+
+ at 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ Lower indexes are used for 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ being covariant components of 
+\begin_inset Formula $\v p$
+\end_inset
+
+ with respect to the local chart basis of 
+\begin_inset Formula $T_{Q}^{\star}\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+General phase-space
+\end_layout
+
+\begin_layout Standard
+Phase-space 
+\begin_inset Formula $\mathbb{M}=T^{\star}\mathbb{Q}$
+\end_inset
+
+ still allows for a clear distinction of 
+\begin_inset Formula $Q$
+\end_inset
+
+ and 
+\begin_inset Formula $\v p$
+\end_inset
+
+ as different mathematical objects and underlies the canonical 
+\emph on
+Hamiltonian
+\emph default
+ formalism in 
+\begin_inset Formula $(Q,\v p)$
+\end_inset
+
+.
+ For a more general non-canonical treatment it is however useful to introduce
+ points 
+\begin_inset Formula $Z\in\mathbb{M}$
+\end_inset
+
+ independently from the underlying canonical foundation.
+ This makes the Hamiltonian formalism applicable to phase-spaces 
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+ that haven't been constructed as a cotangent bundle and in this sense more
+ general than the Lagrangian formalism.
+ The Hamiltonian formalism in possibly non-canonical coordinates is a special
+ case of the even more general treatment via the 
+\emph on
+phase-space Lagrangian
+\emph default
+ on the 
+\begin_inset Formula $4N$
+\end_inset
+
+-dimensional tangent bundle 
+\begin_inset Formula $T\mathbb{M}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+, being the tangent bundle 
+\begin_inset Formula $T(T^{\star}\mathbb{Q})$
+\end_inset
+
+ of the cotangent bundle of 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ in classical mechanics.
+ Elements 
+\begin_inset Formula $(Z,\dot{\v z})$
+\end_inset
+
+ of 
+\begin_inset Formula $T\mathbb{M}$
+\end_inset
+
+ are treated analogously to 
+\begin_inset Formula $(Q,\dot{\v q})$
+\end_inset
+
+ in the usual Lagrangian formalism.
+ Thus, coordinates 
+\begin_inset Formula $z^{\alpha}$
+\end_inset
+
+ are written with upper index 
+\begin_inset Formula $\alpha=1\dots2N$
+\end_inset
+
+, ignoring the previous separation in 
+\begin_inset Formula $q^{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{j}$
+\end_inset
+
+ being 
+\emph on
+canonical
+\emph default
+ coordinates for 
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+, but also individual coordinates for 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ and 
+\begin_inset Formula $T^{\star}\mathbb{Q}$
+\end_inset
+
+, respectively.
+ Euler-Lagrange equations of the phase-space Lagrangian 
+\begin_inset Formula $L_{\mathrm{ph}}(Z,\dot{\v z},t)$
+\end_inset
+
+ correspond to Hamiltonian equations of motion for Hamiltonian 
+\begin_inset Formula $H(Z,t)$
+\end_inset
+
+ in possibly non-canonical coordinates as long as the canonical representation
+ of 
+\begin_inset Formula $L_{\mathrm{ph}}$
+\end_inset
+
+ is of the form 
+\begin_inset Formula 
+\begin{equation}
+L_{\mathrm{ph}}(Z,\dot{\v z},t)=p_{k}\dot{q}^{k}-H(Z,t).
+\end{equation}
+
+\end_inset
+
+This means that no components 
+\begin_inset Formula $\dot{p}_{k}$
+\end_inset
+
+ of momentum components of tangent vectors 
+\begin_inset Formula $\dot{\v z}$
+\end_inset
+
+ must appear in 
+\begin_inset Formula $L_{\mathrm{ph}}$
+\end_inset
+
+.
+ This feature is known as the 
+\emph on
+degeneracy
+\emph default
+ of the phase-space Lagrangian and prevents the construction of a hypothetical
+ higher-level "phase-space-Hamiltonian" formalism on 
+\begin_inset Formula $T^{\star}\mathbb{M}$
+\end_inset
+
+ via a Legendre transform.
+ A more elegant representation of the phase-space Lagrangian is achieved
+ by 
+\begin_inset Quotes eld
+\end_inset
+
+stripping away
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\d t$
+\end_inset
+
+ via multiplication and writing it as the Lagrangian one-form
+\begin_inset Formula 
+\begin{equation}
+\v{\theta}_{L}(Z,t)\equiv p_{k}\v dq^{k}-H(Z,t)\v dt.
+\end{equation}
+
+\end_inset
+
+Since this one-form is now defined on the manifold 
+\begin_inset Formula $\mathbb{R}\times\mathbb{M}$
+\end_inset
+
+ including 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+ we have added a bold differential 
+\begin_inset Formula $\v dt$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Symplectic structure
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO: check sign errors
+\end_layout
+
+\begin_layout Standard
+The 2-form 
+\begin_inset Formula $\v{\omega}$
+\end_inset
+
+ is an 
+\emph on
+antisymmetric
+\emph default
+ 
+\emph on
+
+\begin_inset Formula $(0,2)$
+\end_inset
+
+
+\emph default
+-tensor field and can be seen as an antisymmetric analogue to the metric
+ tensor 
+\begin_inset Formula $\mathbf{g}$
+\end_inset
+
+.
+ While also a bilinear form, instead of the symmetric relation in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:guv"
+
+\end_inset
+
+ it switches sign when argument vectors 
+\begin_inset Formula $\v y,\v z$
+\end_inset
+
+ are swapped, i.e.
+\begin_inset Formula 
+\begin{equation}
+\v{\omega}(\v y,\v z)=-\v{\omega}(\v z,\v y)=y^{\alpha}\omega_{\alpha\beta}z^{\beta}=-z^{\alpha}\omega_{\alpha\beta}y^{\beta}.
+\end{equation}
+
+\end_inset
+
+In the context of Hamiltonian systems components 
+\begin_inset Formula $\omega_{jk}$
+\end_inset
+
+ are represented by the inverse matrix of the Poisson matrix 
+\begin_inset Formula $\Pi^{ij}$
+\end_inset
+
+ representing the Poisson tensor 
+\begin_inset Formula $\v{\Pi}$
+\end_inset
+
+ that appears in equations of motion
+\begin_inset Formula 
+\begin{equation}
+\dot{z}^{\alpha}=\Pi^{\alpha\beta}\frac{\partial H}{\partial z^{\beta}}.\label{eq:zadot}
+\end{equation}
+
+\end_inset
+
+One could say that 
+\begin_inset Formula $\v{\Pi}$
+\end_inset
+
+ takes over the role of the inverse metric tensor 
+\begin_inset Formula $\bar{\mathbf{g}}$
+\end_inset
+
+ in the symplectic analogy.
+ Before introducing a particular set of coordinates we emphasize that it
+ is important to distinguish invariant objects such as 
+\begin_inset Formula $\v{\omega},\v{\Pi}$
+\end_inset
+
+ from their coordinate representation 
+\begin_inset Formula $\omega_{ij},\Pi^{ij}$
+\end_inset
+
+.
+ The fact that it is possible to 
+\emph on
+locally
+\emph default
+ find canonical coordinates in any manifold 
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+ with a symplectic structure 
+\begin_inset Formula $\v{\omega}$
+\end_inset
+
+ is known as 
+\emph on
+Darboux's theorem
+\emph default
+.
+ This is the analogy to the possibility to find a locally flat representation
+ of a curved manifold with a metric structure 
+\begin_inset Formula $\t g$
+\end_inset
+
+, which is important in general relativity.
+\end_layout
+
+\begin_layout Standard
+In any phase-space coordinate basis
+\begin_inset Formula 
+\begin{equation}
+\v e_{\alpha}\equiv\frac{\v{\partial}}{\v{\partial}z^{\alpha}}
+\end{equation}
+
+\end_inset
+
+we can expand the Poisson tensor 
+\begin_inset Formula $\v{\Pi}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\begin{equation}
+\v{\Pi}=\Pi^{\alpha\beta}\frac{\v{\partial}}{\v{\partial}z^{\alpha}}\otimes\frac{\v{\partial}}{\v{\partial}z^{\beta}},
+\end{equation}
+
+\end_inset
+
+using the Poisson matrix 
+\begin_inset Formula $(\Pi^{\alpha\beta})$
+\end_inset
+
+.
+ Since the second unit vector 
+\begin_inset Formula $\frac{\v{\partial}}{\v{\partial}z^{\beta}}$
+\end_inset
+
+ is meant to act on a scalar field such as 
+\begin_inset Formula $H$
+\end_inset
+
+ one can denote equations of motion 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:zadot"
+
+\end_inset
+
+ in a coordinate free way via
+\begin_inset Formula 
+\begin{equation}
+\dot{\v z}=\v{\Pi}H.\label{eq:zadot-1}
+\end{equation}
+
+\end_inset
+
+In canonical coordinates 
+\begin_inset Formula $z_{\mathrm{can}}^{\alpha}\equiv q^{i},p_{j}$
+\end_inset
+
+ the Poisson matrix becomes the totally antisymmetric matrix
+\begin_inset Formula 
+\begin{equation}
+\Pi^{\alpha\beta}=J^{\alpha\beta}=\left(\begin{array}{cc}
+0 & I\\
+-I & 0
+\end{array}\right)\quad\text{for}\,z_{\mathrm{can}}^{\alpha},
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $I$
+\end_inset
+
+ is the identity matrix of dimension 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Thus we can write the identity
+\begin_inset Formula 
+\begin{align}
+\v{\Pi} & =\delta_{k}^{i}\frac{\v{\partial}}{\v{\partial}q^{i}}\otimes\frac{\v{\partial}}{\v{\partial}p_{k}}-\delta_{k}^{i}\frac{\v{\partial}}{\v{\partial}p_{k}}\otimes\frac{\v{\partial}}{\v{\partial}q^{i}}\nonumber \\
+ & =\frac{\v{\partial}}{\v{\partial}q^{i}}\otimes\frac{\v{\partial}}{\v{\partial}p_{i}}-\frac{\v{\partial}}{\v{\partial}p_{i}}\otimes\frac{\v{\partial}}{\v{\partial}q^{i}}.
+\end{align}
+
+\end_inset
+
+in any set of canonical coordinates, where sums over 
+\begin_inset Formula $i,k$
+\end_inset
+
+ run from 
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ This finally recovers canonical equations of motion
+\begin_inset Formula 
+\begin{equation}
+\dot{q}^{i}=\frac{\partial H}{\partial p_{i}},\quad\dot{p}_{i}=\frac{\partial H}{\partial q^{i}}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Components of the symplectic form
+\begin_inset Formula 
+\[
+\v{\omega}=\omega_{\alpha\beta}\,\v dz^{\alpha}\wedge\v dz^{\beta}
+\]
+
+\end_inset
+
+with respect to the dual basis
+\begin_inset Formula 
+\begin{equation}
+\v e^{\alpha}\equiv\v dz^{\alpha}
+\end{equation}
+
+\end_inset
+
+are defined such that
+\begin_inset Formula 
+\begin{equation}
+\omega_{\alpha\gamma}\Pi^{\gamma\beta}=\delta_{\alpha}^{\beta}
+\end{equation}
+
+\end_inset
+
+in any system of coordinates in phase-space.
+ Components 
+\begin_inset Formula $\omega_{\alpha\beta}$
+\end_inset
+
+ are sometimes called the Lagrange matrix
+\emph on
+ 
+\emph default
+which is the inverse of the Poisson matrix 
+\begin_inset Formula $\Pi^{\alpha\beta}$
+\end_inset
+
+.
+ Showing the invariance of the symplectic form 
+\begin_inset Formula $\v{\omega}$
+\end_inset
+
+ under the numerical flow map generated by an integrator is thus equivalent
+ to showing the invariance of 
+\begin_inset Formula $\v{\Pi}$
+\end_inset
+
+.
+ Multiplying equations of motion
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:zadot"
+
+\end_inset
+
+ from the left via 
+\begin_inset Formula $\omega_{\alpha\beta}$
+\end_inset
+
+ and renaming indexes yields the equivalent system
+\begin_inset Formula 
+\begin{equation}
+\omega_{\alpha\beta}\dot{z}^{\beta}=\frac{\partial H}{\partial z^{\alpha}}.\label{eq:zadot-2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particular in canonical coordinates we have
+\begin_inset Formula 
+\begin{align}
+\omega_{\alpha\beta} & =(\Pi^{\alpha\beta})^{-1}\nonumber \\
+ & =(J^{\alpha\beta})^{-1}=\left(\begin{array}{cc}
+0 & -I\\
+I & 0
+\end{array}\right)\quad\text{for}\,z_{\mathrm{can}}^{i}.\label{eq:cani}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We introduce the antisymmetric wedge product as a basis for 2-forms, i.e.
+ antisymmetric rank-2 tensor fields in covariant representation.
+ The space of 
+\begin_inset Formula $2$
+\end_inset
+
+-forms can be seen as a subspace of the space of all rank-2 tensor fields
+ spanned by
+\begin_inset Formula 
+\begin{equation}
+\v dz^{i}\otimes\v dz^{j},\text{ i.e.}\,(\v dq^{i}\otimes\v dq^{j},\v dq^{i}\otimes\v dp_{j},\v dp_{i}\otimes\v dq^{j},\v dp_{i}\otimes\v dp_{j}),
+\end{equation}
+
+\end_inset
+
+where the wedge notation allows only for antisymmetric tensor fields via
+\begin_inset Formula 
+\begin{equation}
+\v dq^{i}\wedge\v dp_{j}\equiv\v dq^{i}\otimes\v dp_{j}-\v dp_{i}\otimes\v dq^{j}.
+\end{equation}
+
+\end_inset
+
+ This means that the wedge product fulfills the antisymmetry relations
+\begin_inset Formula 
+\begin{align}
+\v dq^{i}\wedge\v dp_{j}=-\v dq^{j}\wedge\v dp_{i} & .
+\end{align}
+
+\end_inset
+
+Finally, according to Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:cani"
+
+\end_inset
+
+ we can express the symplectic 2-form 
+\begin_inset Formula $\v{\omega}$
+\end_inset
+
+ via the sum over canonical wedge tuples,
+\begin_inset Formula 
+\begin{equation}
+\v{\omega}=-\delta_{i}^{j}\v dp_{i}\otimes\v dq^{j}+\delta_{j}^{i}\v dq^{i}\otimes\v dp_{j}=\delta_{j}^{i}\v dq^{i}\wedge\v dp_{j}=\v dq^{i}\wedge\v dp_{i}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+TODO:
+\end_layout
+
+\begin_layout Standard
+Variants of the special 2-form 
+\begin_inset Formula $\v J$
+\end_inset
+
+ correspond to vectors in a similar way as diagonal matrices being generalizatio
+ns of the identity matrix 
+\begin_inset Formula $\v I$
+\end_inset
+
+ correspond to vectors containing only diagonal elements.
+ Make some connection to the two representations of 
+\begin_inset Formula $\v B$
+\end_inset
+
+ as a vector density and a 2-form.
+ The idea comes from the incomplete eigendecomposition where 
+\begin_inset Formula $\v{\lambda}_{m}\hat{V}_{m}=\hat{V}_{m}\hat{\Lambda}_{mm}=\hat{V}_{m}\hat{I}_{m}\v{\lambda}_{m}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Forms and densities
+\end_layout
+
+\begin_layout Standard
+or: "why vector density fields are the same as 2-forms and what this means
+ for the magnetic field".
+ The reason for this section is the fact that physicists take divergence
+ and curl of vector fields, while mathematicians use them on differential
+ forms.
+ Tensor densities provide a link between the two, yielding identical coefficient
+s of a 2-form and a contravariant vector density representation, both used
+ to describe the magnetic field 
+\begin_inset Formula $\v B$
+\end_inset
+
+.
+ Right now this description requires already some understanding of forms,
+ wedge product, and the Hodge star operator.
+ 
+\series bold
+TODO: explain more.
+\end_layout
+
+\begin_layout Standard
+More information on this issue can be found in 
+\begin_inset Quotes eld
+\end_inset
+
+CONTRAVARIANCE, COVARIANCE, DENSITIES, AND ALL THAT: AN INFORMAL DISCUSSION
+ ON TENSOR CALCULUS
+\begin_inset Quotes erd
+\end_inset
+
+ by Chris Tiee, p.19 - densitization.
+ In this sense, also the Levi-Civita symbol appears as a tensor density.
+\end_layout
+
+\begin_layout Standard
+In classical tensor analysis (see e.g.
+ book "Flux coordinates and magnetic field structure" of Callen/d'haeseleer)
+ the divergence operator acts on covariant components of a vector field
+ and yields a scalar field 
+\begin_inset Formula $D$
+\end_inset
+
+,
+\begin_inset Formula 
+\begin{equation}
+F=\nabla\cdot\v B\equiv\frac{1}{\sqrt{g}}\frac{\partial}{\partial x^{k}}(\sqrt{g}B^{k}).
+\end{equation}
+
+\end_inset
+
+This operator becomes metric-independent if we define a representation of
+ 
+\begin_inset Formula $D$
+\end_inset
+
+ via a scalar density 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ and a representation of 
+\begin_inset Formula $\v B$
+\end_inset
+
+ via contravariant density component 
+\begin_inset Formula $\mathcal{B}^{k}$
+\end_inset
+
+, defined via
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}\equiv\sqrt{g}F,\quad\mathcal{B}^{k}\equiv\sqrt{g}B^{k}.
+\end{equation}
+
+\end_inset
+
+Then we can write the divergence as
+\begin_inset Formula 
+\begin{equation}
+\mathcal{F}=\mathrm{div}\,\v B\equiv\sqrt{g}(\nabla\cdot\v B)=\frac{\partial}{\partial x^{k}}\mathcal{B}^{k}.
+\end{equation}
+
+\end_inset
+
+In 3D space, the curl operator acts on covariant components of a vector
+ field 
+\begin_inset Formula $\v A$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+B^{i}=(\nabla\times\v A)^{i}\equiv\frac{\varepsilon^{ijk}}{\sqrt{g}}\frac{\partial}{\partial x^{j}}A_{k}.
+\end{equation}
+
+\end_inset
+
+Using contravariant density components we can write instead a metric-free
+ variant
+\begin_inset Formula 
+\begin{equation}
+\mathcal{B}^{i}=(\mathrm{curl}\,\v A)^{i}\equiv\sqrt{g}(\nabla\times\v A)^{i}=\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}.
+\end{equation}
+
+\end_inset
+
+The divergence of a curl vanishes, since
+\begin_inset Formula 
+\begin{align}
+\mathrm{div}\,\mathrm{curl}\,\v A & =\frac{\partial}{\partial x^{i}}(\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k})=\varepsilon^{ijk}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}A_{k}\nonumber \\
+ & =-\varepsilon^{jik}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}A_{k}=-\varepsilon^{ijk}\frac{\partial^{2}}{\partial x^{j}\partial x^{i}}A_{k}\nonumber \\
+ & =-\varepsilon^{ijk}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}A_{k}.\label{eq:zerodiv}
+\end{align}
+
+\end_inset
+
+where we have first used the antisymmetric property of 
+\begin_inset Formula $\varepsilon^{ijk}$
+\end_inset
+
+, then swapped names of indices 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+, and finally used the symmetry of second derivatives to swap their order.
+ The only way that relation
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:zerodiv"
+
+\end_inset
+
+ with both 
+\begin_inset Formula $+$
+\end_inset
+
+ and 
+\begin_inset Formula $-$
+\end_inset
+
+ in front of the same term can be fulfilled, is if it is identically zero.
+\end_layout
+
+\begin_layout Standard
+Now we are going to show the equivalence of contravariant density representation
+ to the representation of 
+\begin_inset Formula $\v B$
+\end_inset
+
+ as a 2-form.
+ We have
+\begin_inset Formula 
+\begin{equation}
+\v{\omega}_{B}=\frac{1}{2}B_{jk}\v dx^{j}\wedge\v dx^{k}=B_{12}\v dx^{1}\wedge\v dx^{2}+B_{23}\v dx^{2}\wedge\v dx^{3}+B_{31}\v dx^{3}\wedge\v dx^{1}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Taking a divergence of this form means to take an exterior derivative
+\begin_inset Formula 
+\begin{align}
+\v{\omega}_{D}=\v d\v{\omega}_{B} & =\frac{1}{2}\v d(B_{jk}\v dx^{j}\wedge\v dx^{k})=\frac{1}{2}\v dB_{jk}\wedge\v dx^{j}\wedge\v dx^{k}\nonumber \\
+ & =\frac{1}{2}\frac{\partial B_{jk}}{\partial x^{i}}\v dx^{i}\wedge\v dx^{j}\wedge\v dx^{k}=\frac{1}{2}\varepsilon^{ijk}\frac{\partial B_{jk}}{\partial x^{i}}\v dx^{i}\wedge\v dx^{j}\wedge\v dx^{k}\nonumber \\
+ & =\left(\frac{\partial B_{12}}{\partial x^{1}}+\frac{\partial B_{23}}{\partial x^{2}}+\frac{\partial B_{31}}{\partial x^{3}}\right)\v dx^{1}\wedge\v dx^{2}\wedge\v dx^{3}=\omega_{D}\v dx^{1}\wedge\v dx^{2}\wedge\v dx^{3}.
+\end{align}
+
+\end_inset
+
+We see that coincides with the divergence defined above via density components,
+ if we identify
+\begin_inset Formula 
+\begin{equation}
+\mathcal{D}\equiv\omega_{D},\quad\mathcal{B}^{1}\equiv B_{23},\quad\mathcal{B}^{2}\equiv B_{31},\quad\mathcal{B}^{3}\equiv B_{12}.\label{eq:div}
+\end{equation}
+
+\end_inset
+
+This is also consistent the form 
+\begin_inset Formula $\v{\omega}_{B}$
+\end_inset
+
+ follows from the curl of an 1-form 
+\begin_inset Formula $\v A$
+\end_inset
+
+ which means
+\begin_inset Formula 
+\begin{align}
+\v{\omega}_{B} & =\v d\v A=\v d(A_{k}\v dx^{k})=\v dA_{k}\wedge\v dx^{k}=\frac{\partial A_{k}}{\partial x^{i}}\v dx^{i}\wedge\v dx^{k}\nonumber \\
+ & =\left(\frac{\partial A_{2}}{\partial x^{1}}-\frac{\partial A_{1}}{\partial x^{2}}\right)\v dx^{1}\wedge\v dx^{2}+\left(\frac{\partial A_{3}}{\partial x^{2}}-\frac{\partial A_{2}}{\partial x^{3}}\right)\v dx^{2}\wedge\v dx^{3}+\left(\frac{\partial A_{1}}{\partial x^{3}}-\frac{\partial A_{3}}{\partial x^{1}}\right)\v dx^{3}\wedge\v dx^{1}\nonumber \\
+ & =\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}\,\v dx^{j}\wedge\v dx^{k}.
+\end{align}
+
+\end_inset
+
+We thus can again identify
+\begin_inset Formula 
+\begin{equation}
+B_{jk}=\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}=\mathcal{B}^{i}
+\end{equation}
+
+\end_inset
+
+with density components of the vector field 
+\begin_inset Formula $\v B$
+\end_inset
+
+ defined earlier, and consistent with
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:div"
+
+\end_inset
+
+ meaning in particular
+\begin_inset Formula 
+\begin{align}
+B_{12} & =\frac{\partial A_{2}}{\partial x^{1}}-\frac{\partial A_{1}}{\partial x^{2}}=\mathcal{B}^{3},\\
+B_{23} & =\frac{\partial A_{3}}{\partial x^{2}}-\frac{\partial A_{2}}{\partial x^{3}}=\mathcal{B}^{1},\\
+B_{31} & =\frac{\partial A_{1}}{\partial x^{3}}-\frac{\partial A_{3}}{\partial x^{1}}=\mathcal{B}^{2}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We can do the same using the Hodge-star operator, see 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://unapologetic.wordpress.com/2011/10/13/the-divergence-operator/"
+
+\end_inset
+
+, 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://en.wikipedia.org/wiki/Hodge_star_operator
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://lamington.wordpress.com/2014/05/26/div-grad-curl-and-all-this/"
+
+\end_inset
+
+, 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://www.thp.uni-koeln.de/gravitation/courses/rcii14/fwh.pdf"
+
+\end_inset
+
+.
+ Claim: the usual divergence is
+\begin_inset Formula 
+\begin{equation}
+\nabla\cdot\v B=\star(\v d(\star(\v B^{\flat})).\label{eq:hodgestar}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Take the Hodge-star operator for a 
+\begin_inset Formula $p$
+\end_inset
+
+-form, 
+\begin_inset Formula 
+\begin{equation}
+\star\v{\omega}=\frac{\sqrt{g}}{(n-p)!p!}\varepsilon_{\alpha_{1}\dots\alpha_{p}\beta_{1}\dots\beta_{n-p}}g^{\alpha_{1}\gamma_{1}}\dots g^{\alpha_{p}\gamma_{p}}\omega_{\gamma_{1}\dots\gamma_{p}}\v dx^{\beta_{1}}\wedge\dots\wedge\v dx^{\beta_{n-p}}.
+\end{equation}
+
+\end_inset
+
+Then we start with
+\begin_inset Formula 
+\begin{equation}
+\v B=B^{i}\frac{\partial}{\partial x^{i}}
+\end{equation}
+
+\end_inset
+
+and represent as a 1-form
+\begin_inset Formula 
+\begin{equation}
+\v B^{\flat}=B_{k}\v dx^{k}=B^{i}g_{ik}\v dx^{k}.
+\end{equation}
+
+\end_inset
+
+Then we apply the hodge star
+\begin_inset Formula 
+\begin{align}
+\star\v B^{\flat} & =\frac{\sqrt{g}}{2}\varepsilon_{lmn}g^{lk}B^{i}g_{ik}\v dx^{m}\wedge\v dx^{n}\nonumber \\
+ & =\frac{\sqrt{g}}{2}\varepsilon_{lmn}\delta_{i}^{l}B^{i}\v dx^{m}\wedge\v dx^{n}\nonumber \\
+ & =\frac{1}{2}\varepsilon_{lmn}\mathcal{B}^{l}\,\v dx^{m}\wedge\v dx^{n}\nonumber \\
+ & =\mathcal{B}^{1}\,\v dx^{2}\wedge\v dx^{3}+\mathcal{B}^{2}\,\v dx^{3}\wedge\v dx^{1}+\mathcal{B}^{3}\,\v dx^{1}\wedge\v dx^{2}=\v{\omega}_{B}.
+\end{align}
+
+\end_inset
+
+Here the metric and the inverse metric could be cancelled to a 
+\begin_inset Formula $\delta$
+\end_inset
+
+ via contraction.
+ Then we apply an exterior derivative, and finally taking another hodge
+ 
+\begin_inset Formula $\star$
+\end_inset
+
+ yields a scalar field instead of a density in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:hodgestar"
+
+\end_inset
+
+.
+ The same works for the curl (see 
+\begin_inset CommandInset href
+LatexCommand href
+target "https://en.wikipedia.org/wiki/Curl_(mathematics)"
+
+\end_inset
+
+ ) with
+\begin_inset Formula 
+\begin{equation}
+\nabla\times\v B=(\star(\v d(\v B^{\flat})))^{\sharp}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Draft
+\end_layout
+
+\begin_layout Section
+Kinetic theory in spacetime
+\end_layout
+
+\begin_layout Itemize
+Spatial density 
+\begin_inset Formula 
+\begin{equation}
+f(t,\zset)=\frac{1}{NV}\sum_{n}\int_{V}\d^{3}x\,\delta(\zset-\zset_{(n)}(t))
+\end{equation}
+
+\end_inset
+
+ becomes 
+\begin_inset Quotes eld
+\end_inset
+
+event density
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{equation}
+f(t,\zset)=\frac{1}{NV}\int\d^{3}x\,\d t\,\delta(\zset-\zset_{(n)}(s))\delta(t-t_{(n)}(s))
+\end{equation}
+
+\end_inset
+
+that looks formally the same, but allows for multiple 
+\begin_inset Quotes eld
+\end_inset
+
+times
+\begin_inset Quotes erd
+\end_inset
+
+ for each particle.
+\end_layout
+
+\begin_layout Itemize
+Particles interact via fields evaluated at 
+\begin_inset Formula $F(t_{(n)},\xset_{(n)})$
+\end_inset
+
+ and depending on the overall configuration.
+\end_layout
+
+\begin_layout Itemize
+Collision operators can separate short-scale and long-scale interaction
+ by averaging.
+\end_layout
+
+\begin_layout Section
+Mechanics
+\end_layout
+
+\begin_layout Standard
+To specify motion of our mechanical system we introduce a 
+\begin_inset Formula $4$
+\end_inset
+
+-dimensional spacetime manifold 
+\begin_inset Formula $Q$
+\end_inset
+
+ with coordinates 
+\begin_inset Formula $\yset=(x^{0}\equiv t,x^{1},x^{2},x^{3})$
+\end_inset
+
+.
+ Based on this we define a 
+\begin_inset Formula $4N$
+\end_inset
+
+-dimensional configuration manifold 
+\begin_inset Formula $Q$
+\end_inset
+
+ with coordinates 
+\begin_inset Formula $\qset=(x_{(n)}^{0}\equiv t_{(n)},x_{(n)}^{1},x_{(n)}^{2},x_{(n)}^{3})$
+\end_inset
+
+, meaning 
+\begin_inset Quotes eld
+\end_inset
+
+particle 
+\begin_inset Formula $k$
+\end_inset
+
+ was at position 
+\begin_inset Formula $x_{(n)}^{1},x_{(n)}^{2},x_{(n)}^{3}$
+\end_inset
+
+ at time 
+\begin_inset Formula $t_{(n)}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ The phase-spacetime manifold 
+\begin_inset Formula $M$
+\end_inset
+
+ follows as the 
+\begin_inset Formula $8N$
+\end_inset
+
+-dimensional cotangent bundle 
+\begin_inset Formula $T^{\star}Q$
+\end_inset
+
+ of 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ According 
+\begin_inset Formula $4N$
+\end_inset
+
+ canonical momentum coordinates are 
+\begin_inset Formula $\pset=(p_{0,\,(n)},p_{1,\,(n)},p_{2,\,(n)},p_{3,\,(n)})$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{equation}
+S[\gamma]=\int_{\gamma}\Theta_{L}.\label{eq:S}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Conservation laws
+\end_layout
+
+\begin_layout Itemize
+Partial differential equations
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial f}{\partial t}+\nabla_{z}f=s_{f}.
+\end{equation}
+
+\end_inset
+
+Write this as
+\begin_inset Formula 
+\begin{equation}
+\partial_{\alpha}f=s_{f}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $\alpha=0\dots N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Ordinary differential equations
+\begin_inset Formula 
+\begin{equation}
+\frac{\d z^{i}}{\d t}=\Lambda^{ik}\partial_{k}H.
+\end{equation}
+
+\end_inset
+
+Extended phase-space:
+\begin_inset Formula 
+\begin{align*}
+\frac{\d z^{0}}{\d s} & =\partial_{s}\\
+\frac{\d p_{0}}{\d s} & =-\partial_{s}\mathcal{H}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Eulerian
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial a}{\partial t}+\nabla\cdot\Gamma_{a}=s_{a}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Lagrangian
+\begin_inset Formula 
+\begin{equation}
+\frac{Da}{Dt}=s_{a}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Basics
+\end_layout
+
+\begin_layout Itemize
+What is the use of differential forms?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We can write even more stuff coordinate-independent than with usual co-contravar
+iant notation.
+\end_layout
+
+\begin_layout Itemize
+The geometric structure of equations and how conservation laws follow become
+ apparent.
+\end_layout
+
+\begin_layout Itemize
+Discrete version tells us how to do numerics the 
+\begin_inset Quotes eld
+\end_inset
+
+right
+\begin_inset Quotes erd
+\end_inset
+
+ way.
+\end_layout
+
+\begin_layout Itemize
+A prime example are Maxwell's equations.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is a vector?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It points along a curve as a tangent.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What can we do with a vector?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+We can differentiate along its direction.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is a covector (1-form)?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A map that yields a scalar to each vector.
+\end_layout
+
+\begin_layout Itemize
+A quantity associated with a surface.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What can we do with a covector?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Apply it to a vector.
+ 
+\end_layout
+
+\begin_layout Itemize
+This yields a scalar product i.e.
+ the angle between the tangent vector and the surface normal.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is the metric?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+It defines how lengths and distances work.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+How can we use the metric?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Get the covector to a vector that yields scalar product 1.
+\end_layout
+
+\begin_layout Itemize
+i.e.
+ the plane whose normal vector coincides with a given vector.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is an inner product?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Apply 
+\begin_inset Formula $p$
+\end_inset
+
+-form to vector and get a 
+\begin_inset Formula $p-1$
+\end_inset
+
+-form.
+\end_layout
+
+\begin_layout Itemize
+But wait, didn't you say that a 
+\begin_inset Formula $p$
+\end_inset
+
+-form acts on 
+\begin_inset Formula $p$
+\end_inset
+
+ vectors?
+\end_layout
+
+\begin_layout Itemize
+Yes, we define our 
+\begin_inset Formula $p-1$
+\end_inset
+
+-form such that it gives the same scalar as the 
+\begin_inset Formula $p$
+\end_inset
+
+-form when the vector is inserted at the first position.
+\end_layout
+
+\begin_layout Itemize
+Examples:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\v E\cdot\vec{v}=i_{v}\v E$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\vec{v}\times\v B=i_{v}\v B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\rho\vec{v}=i_{v}\rho$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+What is a Hodge operator?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Associates a 
+\begin_inset Formula $n-p$
+\end_inset
+
+-form to a 
+\begin_inset Formula $p$
+\end_inset
+
+-form.
+\end_layout
+
+\end_deeper
+\begin_layout Section
+How to do a Fourier expansion in curvilinear coordinates?
+\end_layout
+
+\begin_layout Subsection
+Simple cases
+\end_layout
+
+\begin_layout Standard
+In Cartesian coordinates the basis 
+\begin_inset Formula $\v e_{x},\v e_{y},\v e_{z}$
+\end_inset
+
+ doesn't depend on the coordinates and is orthonormal.
+ Thus, physical, co- and contravariant components of vector fields become
+ one, and we can write any vector field 
+\begin_inset Formula $\v B$
+\end_inset
+
+ as a Fourier series in either up to all coordinates, i.e.
+\begin_inset Formula 
+\begin{align}
+\v B & =B^{x}(x,y,z)\v e_{x}+B^{y}(x,y,z)\v e_{y}+B^{z}(x,y,z)\v e_{z}\\
+ & =\sum_{k=-\infty}^{\infty}\left(B_{k}^{x}(x,y)\v e_{x}+B_{k}^{y}(x,y)\v e_{y}+B_{k}^{z}(x,y)\v e_{z}\right)e^{ikz}\\
+ & =\sum_{\v k}(B_{\v k}^{x}\v e_{x}+B_{\v k}^{y}\v e_{y}+B_{\v k}^{z}\v e_{z})e^{i\v k\cdot\v x},
+\end{align}
+
+\end_inset
+
+where also in the latter 
+\begin_inset Formula $\v k=(k_{x},k_{y},k_{z})$
+\end_inset
+
+ all three indexes run from 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ to 
+\begin_inset Formula $\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+General co- and contravariant case
+\end_layout
+
+\begin_layout Standard
+In any curvilinear coordinates 
+\begin_inset Formula $\v x=(x^{1},x^{2},x^{3})$
+\end_inset
+
+ we can write a Fourier series for a vector in contravariant components
+ with
+\begin_inset Formula 
+\begin{align*}
+\v B & =B^{1}(\v x)\v e_{1}(\v x)+B^{2}(\v x)\v e_{2}(\v x)+B^{3}(\v x)\v e_{3}\\
+ & =\sum_{n=-\infty}^{\infty}\left(B_{n}^{1}(x^{1},x^{2})\v e_{1}(\v x)+B_{n}^{2}(x^{1},x^{2})\v e_{2}(\v x)+B_{n}^{3}(x^{1},x^{2})\v e_{3}(\v x)\right)e^{inx^{3}}
+\end{align*}
+
+\end_inset
+
+or for a vector 
+\begin_inset Formula $\v A$
+\end_inset
+
+ in covariant components with
+\begin_inset Formula 
+\begin{align*}
+\v A & =A_{1}(\v x)\nabla x^{1}(\v x)+A_{2}(\v x)\nabla x^{2}(\v x)+A_{3}(\v x)\nabla x^{3}(\v x)\\
+ & =\sum_{n=-\infty}^{\infty}\left(A_{1n}(x^{1},x^{2})\nabla x^{1}(\v x)+A_{2n}(x^{1},x^{2})\nabla x^{2}(\v x)+A_{3n}(x^{1},x^{2})\nabla x^{3}(\v x)\right)e^{inx^{3}}.
+\end{align*}
+
+\end_inset
+
+Here we intentionally keep the full dependency on all coordinates in the
+ basis vectors 
+\begin_inset Formula $\v e_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\v e^{k}=\nabla x^{k}$
+\end_inset
+
+ and apply the Fourier expansion only on vector components.
+ It makes a difference whether one expands in co- or contravariant components.
+ E.g.
+ a vector potential 
+\begin_inset Formula $\v A$
+\end_inset
+
+ is naturally given in covariant form such that its curl can be nicely separated
+ in Fourier form (try it).
+\end_layout
+
+\end_body
+\end_document

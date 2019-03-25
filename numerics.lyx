@@ -574,6 +574,10 @@ We could continue this process for an arbitrary number of hierarchy levels
 Root finding
 \end_layout
 
+\begin_layout Subsection
+Newton's method
+\end_layout
+
 \begin_layout Standard
 When sufficiently close to a local minimum we use a Taylor expansion
 \begin_inset Formula 
@@ -644,6 +648,20 @@ in
 \end_inset
 
  instead.
+\end_layout
+
+\begin_layout Standard
+Modified versions of Newton's method are
+\end_layout
+
+\begin_layout Itemize
+Inexact Newton: for inverting the Jacobian, use an interative method (e.g.
+ GMRES) and stop before convergence reached.
+\end_layout
+
+\begin_layout Itemize
+Quasi-Newton: use an approximate Jacobian instead of the exact one (Broyden,
+ Powell hybrid, etc.)
 \end_layout
 
 \begin_layout Subsection
@@ -753,6 +771,51 @@ or
 \end_inset
 
 or the number of iteration has reached its maximum.
+\end_layout
+
+\begin_layout Section
+Numerical solution of differential equations
+\end_layout
+
+\begin_layout Itemize
+Particle methods move particles along characteristics of PDE and/or update
+ weights
+\end_layout
+
+\begin_layout Itemize
+FEM 
+\begin_inset Quotes eld
+\end_inset
+
+particles
+\begin_inset Quotes erd
+\end_inset
+
+ live on local support at fixed positions
+\end_layout
+
+\begin_layout Itemize
+Kernel-based interpolation / smoothing / meshless methods are a 
+\begin_inset Quotes eld
+\end_inset
+
+hybrid
+\begin_inset Quotes erd
+\end_inset
+
+ of particle and FEM
+\end_layout
+
+\begin_layout Itemize
+FVM
+\end_layout
+
+\begin_layout Itemize
+DG
+\end_layout
+
+\begin_layout Itemize
+time-stepping for ODEs
 \end_layout
 
 \end_body

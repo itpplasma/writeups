@@ -1,0 +1,843 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "tgpagella" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{\boldsymbol{J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bGamma}{\boldsymbol{\Gamma}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\d}{\text{d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\t}[1]{\text{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\m}{\text{m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\v}[1]{\boldsymbol{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\t}[1]{\mathbf{#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\qset}{\mathbf{q}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\xset}{\mathbf{x}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\yset}{\mathbf{y}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pset}{\mathbf{p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\zset}{\mathbf{z}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+Plasma physics as a series of complexity reductions
+\end_layout
+
+\begin_layout Itemize
+What is covered?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mechanics, Kinetics, Fluid Mechanics, Thermodynamics, Electrodynamics
+\end_layout
+
+\begin_layout Itemize
+What to do about dissipation? Internal: rise in temperature.
+ External: add term in Hamiltonian
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+What is reality? what is a model? What is a reduced model? Is a model a
+ reduced model of reality?
+\end_layout
+
+\begin_layout Itemize
+Reality
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+always more than the model
+\end_layout
+
+\begin_layout Itemize
+as a first conceptual reduction we view reality from a 
+\begin_inset Quotes eld
+\end_inset
+
+classical
+\begin_inset Quotes erd
+\end_inset
+
+ point of view, allowing for relativistic physics, but avoiding the problem
+ of interpreting the transition from quantum mechanics.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Purpose of model
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Explain/understand reality
+\end_layout
+
+\begin_layout Itemize
+Do predictions, i.e.
+ extrapolate outside the known domain
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Model of classical physics
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matter: Point-like particles interact via forces according to Newton's law.
+\end_layout
+
+\begin_layout Itemize
+Field: For better computability, and for better formulation of propagation
+ independent from matter.
+\end_layout
+
+\begin_layout Itemize
+Phase-space density: Probabilistic point of view, allows to go to larger
+ scales.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Reducing complexity
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Less dimensions
+\end_layout
+
+\begin_layout Itemize
+Less 
+\begin_inset Quotes eld
+\end_inset
+
+particles
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Less time steps
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+A measurement means fitting model parameters to reality
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+e.g.
+ to measure temperature, a model must already exist to define what temperature
+ means.
+\end_layout
+
+\begin_layout Itemize
+can be seen as an update of uncertain information in the Bayesian sense.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What is plasma?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+from experiment we know that plasma behaves as a cloud of particles interacting
+ amongst themselves and with the outside world via electromagnetic forces
+\end_layout
+
+\begin_layout Itemize
+since the total number these particles is usually huge (
+\begin_inset Formula $\approx10^{20}$
+\end_inset
+
+), a reduction in complexity is required
+\end_layout
+
+\begin_layout Itemize
+can plasma couple to confinement coils?
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What models are used?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+ordinary and partial differential equations, and their stochastic generalization
+s
+\end_layout
+
+\begin_layout Itemize
+distribution function can be seen in two ways: statistics of many particles
+ averaged over meso-scale vs.
+ probability density function of a random process happening over time.
+ The connection is made via the ergodic hypothesis.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Many-particle system
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $M$
+\end_inset
+
+ is the 
+\begin_inset Formula $2D\cdot N$
+\end_inset
+
+-dimensional phase manifold of the 
+\begin_inset Formula $N$
+\end_inset
+
+-particle system moving in physical space of dimension 
+\begin_inset Formula $D$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+We introduce a phase-space Lagrangian one-form 
+\begin_inset Formula $\Theta_{L}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathbb{R}\times M$
+\end_inset
+
+ with canonical representation
+\begin_inset Formula 
+\begin{equation}
+\Theta_{L}=p_{k}\d q^{k}-H(t,z)\d t.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The Hamiltonian 
+\begin_inset Formula $H:\mathbb{R}\times M\rightarrow\mathbb{R}$
+\end_inset
+
+ provides equations of motion in canonical coordinates via
+\begin_inset Formula 
+\begin{align}
+\dot{q}^{k} & =\frac{\partial H}{\partial p_{k}},\\
+\dot{p}_{k} & =-\frac{\partial H}{\partial q^{k}}.
+\end{align}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\dot{q}^{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\dot{p}_{k}$
+\end_inset
+
+ are components of the dynamical flow vector field 
+\begin_inset Formula $\dot{z}\in TM$
+\end_inset
+
+ due to 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Alternatively, components 
+\begin_inset Formula $\dot{z}^{k}$
+\end_inset
+
+ of 
+\begin_inset Formula $\dot{z}$
+\end_inset
+
+ can be computed in any coordinates according to the Euler-Lagrange equations
+\begin_inset Formula 
+\begin{equation}
+\frac{\d}{\d t}\frac{\partial L}{\partial\dot{z}^{k}}+\frac{\partial L}{\partial z^{k}}=0,
+\end{equation}
+
+\end_inset
+
+or via
+\begin_inset Formula 
+\begin{equation}
+\omega_{ki}\dot{z}^{i}=\frac{\partial H}{\partial z_{k}},
+\end{equation}
+
+\end_inset
+
+or
+\begin_inset Formula 
+\begin{align}
+\dot{z}^{i} & =\Lambda^{ik}\frac{\partial H}{\partial z_{k}},
+\end{align}
+
+\end_inset
+
+with components of the canonical 2-form 
+\begin_inset Formula $\omega_{ki}$
+\end_inset
+
+ and Poisson tensor 
+\begin_inset Formula $\Lambda^{ik}$
+\end_inset
+
+ in the respective frame.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Liouville equation
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Originates from Poisson brackets for scalar field 
+\begin_inset Formula $a:\mathbb{R}\times M\rightarrow\mathbb{R}$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{align}
+\frac{\partial a}{\partial t}+\{a(t,z),H(t,z)\} & =\frac{\partial a}{\partial t}+\frac{\partial a}{\partial z^{i}}\Lambda^{ik}\frac{\partial H}{\partial z^{k}}=\frac{\partial a}{\partial t}+\frac{\partial a}{\partial z^{i}}\dot{z}^{i}.
+\end{align}
+
+\end_inset
+
+Here 
+\begin_inset Formula $\frac{\partial a}{\partial z^{i}}$
+\end_inset
+
+ are components of a one-form 
+\begin_inset Formula $\v da$
+\end_inset
+
+ on 
+\begin_inset Formula $M$
+\end_inset
+
+ that acts on a vector field 
+\begin_inset Formula $\dot{z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+In Hamiltonian systems we can exchange derivative, since 
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial}{\partial z^{k}}(\sqrt{g}\dot{z}^{k})=0,
+\end{equation}
+
+\end_inset
+
+so using a time-independent volume form with representation 
+\begin_inset Formula $\sqrt{g}$
+\end_inset
+
+ in coordinates 
+\begin_inset Formula $z^{i}$
+\end_inset
+
+ we obtain
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial(\sqrt{g}a)}{\partial t}+\frac{\partial}{\partial z^{i}}(\sqrt{g}a\dot{z}^{i})=0.
+\end{equation}
+
+\end_inset
+
+This possibility to take a divergence of the volume form 
+\begin_inset Formula $\sqrt{g}$
+\end_inset
+
+ times a vector field is a general feature.
+ Usually one would be able to take the divergence of a 
+\begin_inset Formula $2N-1$
+\end_inset
+
+ form.
+ The components of such a form coincide with 
+\begin_inset Formula $\sqrt{g}$
+\end_inset
+
+ times the components of a corresponding vector field.
+ In more mathematical terms, the Lie derivative of the volume form 
+\begin_inset Formula $\v d\mu$
+\end_inset
+
+ vanishes with
+\begin_inset Formula 
+\begin{equation}
+(\mathrm{div}\,\dot{z})\v d\mu=\mathcal{L}_{\dot{z}}\v d\mu=0.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Usual representation:
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial f}{\partial t}+\frac{\partial}{\partial z^{k}}\left(\dot{z}^{k}f\right)=0.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f:\mathbb{R}\times M\rightarrow\mathbb{R}$
+\end_inset
+
+ is a probability density function with 
+\begin_inset Formula $\int_{\Omega}f(t)=F(t)=1$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $f(t)$
+\end_inset
+
+ is a 
+\begin_inset Formula $2N$
+\end_inset
+
+-form on 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Its meaning is the probability the system in state 
+\begin_inset Formula $z$
+\end_inset
+
+ at time 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ It has 
+\begin_inset Quotes eld
+\end_inset
+
+swallowed
+\begin_inset Quotes erd
+\end_inset
+
+ the volume form 
+\begin_inset Formula $\sqrt{g}$
+\end_inset
+
+ by definition 
+\begin_inset Formula $f=\sqrt{g}a$
+\end_inset
+
+ with 
+\begin_inset Formula $a$
+\end_inset
+
+ the PDF in a specific coordinate chart.
+ The product 
+\begin_inset Formula $\dot{z}^{k}f$
+\end_inset
+
+ has the dimension of a vector density, so allows for taking a divergence.
+ If we define 
+\begin_inset Formula $f(t_{0})=\delta(z-z_{0})$
+\end_inset
+
+ we initialize the system in a known state with initial conditions 
+\begin_inset Formula $z_{0}$
+\end_inset
+
+.
+ Here 
+\begin_inset Formula $\delta$
+\end_inset
+
+ is a volume form with coordinate representation
+\begin_inset Formula 
+\begin{equation}
+\int_{\Omega}a\,\delta(z-z_{0})=\int_{\Omega_{\zset}}a(\zset)\,\delta(\zset-\zset_{0})\sqrt{g}\v d^{2N}\zset\,,
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\v d\mu=\sqrt{g}\v d^{2N}\zset$
+\end_inset
+
+ is the volume form induced by the metric 
+\begin_inset Formula $g$
+\end_inset
+
+ in phase-space 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+See also Balescu Classical Transport Theory, p.
+ 94-...
+ for treatment of time-dependent metric tensors, and Balescu 1975 for BBGKY
+ Hierarchy.
+\end_layout
+
+\begin_layout Itemize
+More technical: volume form is the highest exterior power of symplectic
+ form 
+\begin_inset Formula $\v{\omega}=\v dq^{i}\wedge\v dp_{i}$
+\end_inset
+
+ with
+\begin_inset Formula 
+\begin{equation}
+\v d\mu=\Lambda^{ND}(\v{\omega})=\v dq^{1}\wedge\v dp_{1}\wedge\v dq^{2}\wedge\v dp_{2}\wedge\dots\v dq^{ND}\wedge\v dp_{ND}.
+\end{equation}
+
+\end_inset
+
+This form is conserved by the Hamiltonian flow 
+\begin_inset Formula $\varphi_{\dot{z}}$
+\end_inset
+
+, since 
+\begin_inset Formula $\v{\omega}$
+\end_inset
+
+ is preserved.
+\end_layout
+
+\begin_layout Itemize
+Integral over scalar function is done via volume form.
+ Better probably to use scalar density for distribution function, but let's
+ see.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Metric in phase-space
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Let's assume we have a metric defined on configuration space 
+\begin_inset Formula $Q$
+\end_inset
+
+, i.e.
+\begin_inset Formula 
+\begin{equation}
+g_{M}(u,v)=\left\langle u,v\right\rangle =u^{i}g_{ij}v^{j}.
+\end{equation}
+
+\end_inset
+
+Then, in phase-space 
+\begin_inset Formula $M=T^{\star}Q$
+\end_inset
+
+ we can introduce the bundle metric
+\begin_inset Formula 
+\[
+g_{T^{\star}Q}(U,V)=\left\langle U,V\right\rangle =\left\langle \pi(U),\pi(V)\right\rangle =U^{i}g_{ij}V^{j}
+\]
+
+\end_inset
+
+just consists of the coordinate part without momentum components.
+ Thus
+\begin_inset Formula 
+\begin{equation}
+g_{T^{\star}Q}=\pi^{\star}g_{M}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Kinetic equation
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+For the kinetic equation it is necessary to introduce
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial f}{\partial t}+\dot{z}^{k}\frac{\partial f}{\partial z^{k}}=C[f].
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ is the 
+\begin_inset Formula $2D$
+\end_inset
+
+-dimensional phase manifold of a single particle, i.e.
+ a projection of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\dot{z}^{k}$
+\end_inset
+
+ is the dynamical flow vector field according to Lagrange's equations in
+ 
+\begin_inset Quotes eld
+\end_inset
+
+effective
+\begin_inset Quotes erd
+\end_inset
+
+ fields
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $f:\mathbb{R}\times M_{1}\rightarrow\mathbb{R}$
+\end_inset
+
+ is a distribution function with 
+\begin_inset Formula $\int_{\Omega}f(t)=F(t)=1$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $f(t)$
+\end_inset
+
+ is a volume form on 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Meaning of 
+\begin_inset Formula $\int_{\Delta\Omega}f\,\d z$
+\end_inset
+
+: the fraction of particles that is expected to be found in 
+\begin_inset Formula $\Delta\Omega$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+The reduction gives rise to a right-hand-side capturing the
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Fluid equations
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Maxwell's equations
+\end_layout
+
+\end_body
+\end_document

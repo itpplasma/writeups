@@ -1,0 +1,293 @@
+%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english,notitlepage]{revtex4-1}
+\usepackage{tgpagella}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\setcounter{secnumdepth}{3}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{babel}
+\begin{document}
+\global\long\def\tht{\vartheta}
+\global\long\def\ph{\varphi}
+\global\long\def\balpha{\boldsymbol{\alpha}}
+\global\long\def\btheta{\boldsymbol{\theta}}
+\global\long\def\bJ{\boldsymbol{J}}
+\global\long\def\bGamma{\boldsymbol{\Gamma}}
+\global\long\def\bOmega{\boldsymbol{\Omega}}
+\global\long\def\d{\text{d}}
+\global\long\def\t#1{\text{#1}}
+\global\long\def\m{\text{m}}
+\global\long\def\v#1{\boldsymbol{#1}}
+
+\global\long\def\t#1{\mathbf{#1}}
+
+
+\title{Differential geometry from the perspective of tensor calculus}
+
+\author{Christopher Albert}
+
+\affiliation{Max-Planck-Institut für Plasmaphysik, Boltzmannstraße 2, 85748 Garching,
+Germany}
+
+\maketitle
+In this text a short explanation on the treatment of space as a differentiable
+manifold and phase-space as a symplectic manifold for readers acquainted
+to terminology from tensor calculus in co-/contravariant notation
+is given. A main feature distinguishing differential geometry from
+tensor calculus is the treatment of covectors as first-class objects
+in addition to vectors. As a concequence in many derivations no metric
+tensor has to be specified, and the construction of structure-preserving
+numerical methods becomes more simple and transparent. Apart from
+conceptual differences, the practical use of the formalisms is similar,
+in particular the notation with upper and lower indexes for contravariant
+and covariant components and the convention to sum over indexes appearing
+once up and once down.
+
+In classical mechanics phase-space $M$ is a $2N$-dimensional symplectic
+manifold constructed as a combination of positions $\v q$ in an $N$-dimensional
+configuration manifold $Q$ and momenta as covectors $\v p$ in the
+according $N$-dimensional \emph{cotangent space} $T_{\v q}^{\star}Q$.
+The latter is the dual space to the \emph{tangent space }$T_{\v q}Q$
+containing velocity vectors $\dot{\v q}$. Here the notation $\dot{\v q}$
+for velocity vectors is conventional \emph{a priori} and must not
+be identified with time derivatives $\dot{\v q}(t)=\frac{\d\v q(t)}{\d t}$
+appearing only for a specific orbit curve $\v q(t)$. Below we will
+use the symbol $\v v$ for vectors in general. The subscript $\v q$
+in $T_{\v q}Q$ and $T_{\v q}^{\star}Q$ indicates that vectors $\dot{\v q}$
+and covectors $\v p$ only have a meaning with respect to a specific
+point $\v q$, i.e. vectors on a curved manifold where the tangent
+space $T_{\v q}Q$ depends on $\v q$ require an origin point.
+
+In terms of notation the outlined construction leads to upper i.e.
+contravariant index notation for generalized coordinates $q^{i}$
+representing points $\v q$ in a certain chart, and for velocity components
+$\dot{q}^{i}$ in the according local chart basis of $T_{\v q}Q$
+at $\v q$. Lower indexes are used for $p_{j}$ being covariant components
+of $\v p$ with respect to the local chart basis of $T_{\v q}^{\star}Q$.
+A maybe surprising consequence of the separation into vectors and
+covectors is the fact that there exists no inner product \emph{between}
+the two. Instead a covector $\v p$ can \emph{act }on a vector $\v v$
+as a \emph{linear form}
+\begin{equation}
+\v p(\v v)=p_{i}v^{i},
+\end{equation}
+yielding the same scalar result independently from the chosen coordinate
+chart. Vectors and covectors thus exist as distinct mathematical objects,
+even though $T_{\v q}Q$ and $T_{\v q}^{\star}Q$ are isomorphic as
+finite-dimensional vector spaces of equal dimension $N$. A \emph{metric
+tensor} $\mathbf{g}$ can fix the structure of the manifold to provide
+such an isomorphism. More precisely, $\t g$ is a symmetric $(0,2)$-tensor
+field (i.e. depending on position $\v q$) on $Q$ with components
+$g_{ik}=g_{ik}(\v q)$ in a certain coordinate chart. The action of
+$\mathbf{g}$ on two vectors is the commonly known \emph{inner product
+\begin{equation}
+\v u\cdot\v v\equiv\mathbf{g}(\v u,\v v)=\mathbf{g}(\v v,\v u)=u^{i}g_{ik}v^{k}=v^{i}g_{ik}u^{k},\label{eq:guv}
+\end{equation}
+}which is a \emph{symmetric} \emph{bilinear} form, i.e. linear in
+both arguments $\v u$ and $\v v$ which can be swapped. Similarly
+the inner product in cotangent space
+\begin{equation}
+\v p\cdot\v w\equiv\bar{\mathbf{g}}(\v p,\v w)=\bar{\mathbf{g}}(\v w,\v p)=p_{j}\bar{g}^{jl}w_{l}=w_{j}\bar{g}^{jl}p_{l}
+\end{equation}
+is provided via the \emph{reciprocal metric} $\bar{\mathbf{g}}$ being
+a symmetric $(2,0)$-tensor field on $Q$ defined by
+\begin{equation}
+\bar{g}^{ij}g_{jk}=\delta_{k}^{i}\equiv\begin{cases}
+0 & \text{for }i\neq k,\\
+1 & \text{for\,}i=k
+\end{cases}
+\end{equation}
+This means that the component matrix $\bar{g}^{jl}=(g_{ik})^{-1}$
+is the inverse matrix of the metric tensor component matrix in any
+set of coordinates. It is important to emphasize that $\mathbf{g}$
+and $\bar{\mathbf{g}}$ are not the same tensor field, even though
+the common notation $g^{jl}$ without a bar would suggest this. Since
+$u_{k}\equiv u^{i}g_{ik}$ are components of a covector dual to $\v u$
+and $p^{l}\equiv p_{j}\bar{g}^{jl}$ the ones of a vector dual to
+$\v p$, one can ``convert'' between vectors (contravariant representation)
+and covectors (covariant representation) by raising and lowering indexes
+via the (inverse) metric. This allows the reduction to only vectors
+as fundamental objects, as used in traditional tensor calculus. If
+quantities are represented in their ``natural'' way in the traditional
+formalism, i.e. contravariant components for tangent vectors, the
+two and covariant components for gradient ``vectors'', formulas
+become equivalent to the differential geometrical variant, since the
+metric tensor disappears. As soon as divergence and curl operators
+enter, a description using either differential forms or tensor densities
+is required to be able to work in a metric-independent way.
+
+\subsubsection*{Basis for vectors and covectors}
+
+\begin{figure}
+\includegraphics[scale=1.2]{fig/manifold2}
+
+\caption{TODO\label{fig:manifold}}
+\end{figure}
+
+TODO: describe $\frac{\v{\partial}}{\v{\partial}q^{i}}$ and $\v dq^{j}$
+replacing $\v e_{i}=\frac{\partial\v r}{\partial q^{i}}$ and $\v e^{j}=\nabla q^{j}=\frac{\partial q^{j}}{\partial\v r}$
+from usual co/contravariant tensor analysis.
+
+\subsubsection*{Tangent and cotangent bundle}
+
+Merging configuration space $Q$ with tangent spaces $T_{\v q}Q$
+in all points $\v q$ yields the $2N$-dimensional \emph{tangent bundle}\textbf{\emph{
+$TQ$}} whose elements are tuples $(\v q,\dot{\v q})$ of positions
+and velocities. If $\dot{\v q}$ have a specific functional dependency
+on $\v q$ in these tuples it is called a \emph{vector field, }with
+the graph $(\v q,\dot{\v q}(\v q))$ denoted as a \emph{section} of
+\textbf{\emph{$TQ$}}. The \emph{Lagrangian} formalism in $(\v q,\dot{\v q})$
+is constructed on the tangent bundle $TQ$ of $Q$. Similarly combination
+of $Q$ with cotangent spaces $T_{\v q}Q$ results in the \emph{cotangent
+bundle }$T^{\star}Q$ containing pairs $(\v q,\v p)$ and where covector
+fields can be specified. The resulting phase-space $M=T^{\star}Q$
+still allows for a clear distinction of $\v q$ and $\v p$ as different
+mathematical objects and underlies the canonical \emph{Hamiltonian}
+formalism in $(\v q,\v p)$. For a more general non-canonical treatment
+it is however useful to introduce points $\v z\in M$ independently
+from the underlying canonical foundation. This makes the Hamiltonian
+formalism available to phase-spaces $M$ that haven't been constructed
+as a cotangent bundle and in this sense more general than the Lagrangian
+formalism. The non-canonical Hamiltonian formalism is a special case
+of the even more general treatment via the \emph{phase-space Lagrangian}
+on the $4N$-dimensional tangent bundle $TM$ of $M$, being the tangent
+bundle $T(T^{\star}Q)$ of the cotangent bundle of $Q$ in classical
+mechanics. Elements $(\v z,\dot{\v z})$ of $TM$ are treated analogously
+to $(\v q,\dot{\v q})$ in the usual Lagrangian formalism. Thus, coordinates
+$z^{\alpha}$ are written with upper index $\alpha=1\dots2N$, ignoring
+the previous separation in $q^{i}$ and $p_{j}$ being \emph{canonical}
+coordinates for $M$, but also for $Q$ and $T^{\star}Q$ individually.
+Euler-Lagrange equations of the phase-space Lagrangian $L_{\mathrm{ph}}(\v z,\dot{\v z},t)$
+correspond to non-canonical Hamiltonian equations of motion for Hamiltonian
+$H(\v z,t)$ as long as the canonical representation of $L_{\mathrm{ph}}$
+is of the form 
+\begin{equation}
+L_{\mathrm{ph}}(\v z,\dot{\v z},t)=p_{k}\dot{q}^{k}-H(\v z,t).
+\end{equation}
+This means that no components $\dot{p}_{k}$ of momentum components
+of tangent vectors $\dot{\v z}$ must appear in $L_{\mathrm{ph}}$.
+This feature is known as the \emph{degeneracy} of the phase-space
+Lagrangian and prevents the construction of a higher-level Hamiltonian
+formalism on $T^{\star}M$ via a Legendre transform.
+
+\subsubsection*{Symplectic structure}
+
+The 2-form $\v{\omega}$ is an \emph{antisymmetric} \emph{$(0,2)$}-tensor
+field and can be seen as an antisymmetric analogue to the metric tensor
+$\mathbf{g}$. While also a bilinear form, instead of the symmetric
+relation in Eq.~(\ref{eq:guv}) it switches sign when argument vectors
+$\v y,\v z$ are swapped, i.e.
+\begin{equation}
+\v{\omega}(\v y,\v z)=-\v{\omega}(\v z,\v y)=y^{\alpha}\omega_{\alpha\beta}z^{\beta}=-z^{\alpha}\omega_{\alpha\beta}y^{\beta}.
+\end{equation}
+In the context of Hamiltonian systems components $\omega_{jk}$ are
+represented by the inverse matrix of the Poisson matrix $\Pi^{ij}$
+representing the Poisson tensor $\v{\Pi}$ that appears in equations
+of motion
+\begin{equation}
+\dot{z}^{\alpha}=\Pi^{\alpha\beta}\frac{\partial H}{\partial z^{\beta}}.\label{eq:zadot}
+\end{equation}
+One could say that $\v{\Pi}$ takes over the role of the inverse metric
+tensor $\bar{\mathbf{g}}$ in the symplectic analogy. Before introducing
+a particular set of coordinates we emphasize that it is important
+to distinguish invariant objects such as $\v{\omega},\v{\Pi}$ from
+their coordinate representation $\omega_{ij},\Pi^{ij}$. The fact
+that it is possible to \emph{locally} find canonical coordinates in
+any manifold $M$ with a symplectic structure $\v{\omega}$ is known
+as \emph{Darboux's theorem}. This is the analogy to the possibility
+to find a locally flat representation of a curved manifold with a
+metric structure $\t g$, which is important in general relativity.
+
+In any phase-space coordinate basis
+\begin{equation}
+\v e_{\alpha}\equiv\frac{\v{\partial}}{\v{\partial}z^{\alpha}}
+\end{equation}
+we can expand the Poisson tensor $\v{\Pi}$ as
+\begin{equation}
+\v{\Pi}=\Pi^{\alpha\beta}\frac{\v{\partial}}{\v{\partial}z^{\alpha}}\otimes\frac{\v{\partial}}{\v{\partial}z^{\beta}},
+\end{equation}
+using the Poisson matrix $\Pi^{\alpha\beta}$. Since the second unit
+vector $\frac{\v{\partial}}{\v{\partial}z^{\beta}}$ is meant to act
+on a scalar field such as $H$ one can denote equations of motion
+(\ref{eq:zadot}) in a coordinate free way via
+\begin{equation}
+\dot{\v z}=\v{\Pi}H.\label{eq:zadot-1}
+\end{equation}
+In canonical coordinates $z_{\mathrm{can}}^{\alpha}\equiv q^{i},p_{j}$
+the Poisson matrix becomes the totally antisymmetric matrix
+\begin{equation}
+\Pi^{\alpha\beta}=J^{\alpha\beta}=\left(\begin{array}{cc}
+0 & I\\
+-I & 0
+\end{array}\right)\quad\text{for}\,z_{\mathrm{can}}^{\alpha},
+\end{equation}
+where $I$ is the identity matrix of dimension $N$. Thus we can write
+the identity
+\begin{align}
+\v{\Pi} & =\delta_{k}^{i}\frac{\v{\partial}}{\v{\partial}q^{i}}\otimes\frac{\v{\partial}}{\v{\partial}p_{k}}-\delta_{k}^{i}\frac{\v{\partial}}{\v{\partial}p_{k}}\otimes\frac{\v{\partial}}{\v{\partial}q^{i}}\nonumber \\
+ & =\frac{\v{\partial}}{\v{\partial}q^{i}}\otimes\frac{\v{\partial}}{\v{\partial}p_{i}}-\frac{\v{\partial}}{\v{\partial}p_{i}}\otimes\frac{\v{\partial}}{\v{\partial}q^{i}}.
+\end{align}
+in any set of canonical coordinates, where sums over $i,k$ run from
+$1$ to $N$. This finally recovers canonical equations of motion
+\begin{equation}
+\dot{q}^{i}=\frac{\partial H}{\partial p_{i}},\quad\dot{p}_{i}=\frac{\partial H}{\partial q^{i}}.
+\end{equation}
+
+Components of the symplectic form
+\[
+\v{\omega}=\omega_{\alpha\beta}\,\v dz^{\alpha}\wedge\v dz^{\beta}
+\]
+with respect to the dual basis
+\begin{equation}
+\v e^{\alpha}\equiv\v dz^{\alpha}
+\end{equation}
+are defined such that
+\begin{equation}
+\omega_{\alpha\gamma}\Pi^{\gamma\beta}=\delta_{\alpha}^{\beta}
+\end{equation}
+in any system of coordinates in phase-space. Components $\omega_{\alpha\beta}$
+are sometimes called the Lagrange matrix\emph{ }which is the inverse
+of the Poisson matrix $\Pi^{\alpha\beta}$. Showing the invariance
+of the symplectic form $\v{\omega}$ under the numerical flow map
+generated by an integrator is thus equivalent to showing the invariance
+of $\v{\Pi}$. Multiplying equations of motion~(\ref{eq:zadot})
+from the left via $\omega_{\alpha\beta}$ and renaming indexes yields
+the equivalent system
+\begin{equation}
+\omega_{\alpha\beta}\dot{z}^{\beta}=\frac{\partial H}{\partial z^{\alpha}}.\label{eq:zadot-2}
+\end{equation}
+
+In particular in canonical coordinates we have
+\begin{align}
+\omega_{\alpha\beta} & =(\Pi^{\alpha\beta})^{-1}\nonumber \\
+ & =(J^{\alpha\beta})^{-1}=\left(\begin{array}{cc}
+0 & -I\\
+I & 0
+\end{array}\right)\quad\text{for}\,z_{\mathrm{can}}^{i}.\label{eq:cani}
+\end{align}
+
+We introduce the antisymmetric wedge product as a basis for 2-forms,
+i.e. antisymmetric rank-2 tensor fields in covariant representation.
+The space of $2$-forms can be seen as a subspace of the space of
+all rank-2 tensor fields spanned by
+\begin{equation}
+\v dz^{i}\otimes\v dz^{j},\text{ i.e.}\,(\v dq^{i}\otimes\v dq^{j},\v dq^{i}\otimes\v dp_{j},\v dp_{i}\otimes\v dq^{j},\v dp_{i}\otimes\v dp_{j}),
+\end{equation}
+where the wedge notation allows only for antisymmetric tensor fields
+via
+\begin{equation}
+\v dq^{i}\wedge\v dp_{j}\equiv\v dq^{i}\otimes\v dp_{j}-\v dp_{i}\otimes\v dq^{j}.
+\end{equation}
+ This means that the wedge product fulfills the antisymmetry relations
+\begin{align}
+\v dq^{i}\wedge\v dp_{j}=-\v dq^{j}\wedge\v dp_{i} & .
+\end{align}
+Finally, according to Eq.~(\ref{eq:cani}) we can express the symplectic
+2-form $\v{\omega}$ via the sum over canonical wedge tuples,
+\begin{equation}
+\v{\omega}=-\delta_{i}^{j}\v dp_{i}\otimes\v dq^{j}+\delta_{j}^{i}\v dq^{i}\otimes\v dp_{j}=\delta_{j}^{i}\v dq^{i}\wedge\v dp_{j}=\v dq^{i}\wedge\v dp_{i}.
+\end{equation}
+
+\end{document}
