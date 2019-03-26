@@ -1062,11 +1062,11 @@ Here we describe the mathematical foundation to describe physical space,
 set
 \emph default
  
-\begin_inset Formula $\mathbb{X}$
+\begin_inset Formula $\mathbb{M}$
 \end_inset
 
  of points 
-\begin_inset Formula $X\in\mathbb{X}$
+\begin_inset Formula $X\in\mathbb{M}$
 \end_inset
 
 .
@@ -1093,13 +1093,13 @@ continuous maps
  between topological spaces that keep neighbouring points adjacent to each
  other also in their image.
  Adding this structure to 
-\begin_inset Formula $\mathbb{X}$
+\begin_inset Formula $\mathbb{M}$
 \end_inset
 
  makes it a 
 \emph on
 topological space 
-\begin_inset Formula $(\mathbb{X},\mathcal{O})$
+\begin_inset Formula $(\mathbb{M},\mathcal{O})$
 \end_inset
 
 .
@@ -1107,7 +1107,7 @@ topological space
 
 \begin_layout Enumerate
 In order to be able to translate points to numbers, we require 
-\begin_inset Formula $\mathbb{X}$
+\begin_inset Formula $\mathbb{M}$
 \end_inset
 
  to be at least locally similar to Euclidian space 
@@ -1120,7 +1120,7 @@ In order to be able to translate points to numbers, we require
 
  equiped with the usual open sets as a topology based on the Euclidian distance.
  This means that for each open set of points 
-\begin_inset Formula $\mathbb{U}\subset\mathbb{X}$
+\begin_inset Formula $\Omega\subset\mathbb{M}$
 \end_inset
 
  we can find a continuous and invertible map to 
@@ -1154,7 +1154,7 @@ atlas
 \end_inset
 
  that contains at least one chart for each 
-\begin_inset Formula $\mathbb{U}$
+\begin_inset Formula $\Omega$
 \end_inset
 
 .
@@ -1185,7 +1185,7 @@ We cannot chart the surface of the earth in
 \end_inset
 
  we call 
-\begin_inset Formula $(\mathbb{X},\mathcal{O},\mathcal{A})$
+\begin_inset Formula $(\mathbb{M},\mathcal{O},\mathcal{A})$
 \end_inset
 
  a 
@@ -1228,7 +1228,7 @@ smooth manifold
 
 \begin_layout Enumerate
 If we would like to measure distances on 
-\begin_inset Formula $\mathbb{X}$
+\begin_inset Formula $\mathbb{M}$
 \end_inset
 
 , we introduce a 
@@ -1236,7 +1236,7 @@ If we would like to measure distances on
 metric
 \emph default
  
-\begin_inset Formula $g:\mathbb{X}\times\mathbb{X}\rightarrow[0,\infty)$
+\begin_inset Formula $g:\mathbb{M}\times\mathbb{M}\rightarrow[0,\infty)$
 \end_inset
 
  that assigns a distance to each pair of points that remains identical when
@@ -1269,7 +1269,7 @@ distances
 \end_inset
 
  
-\begin_inset Formula $(\mathbb{X},\mathcal{O},\mathcal{A},g)$
+\begin_inset Formula $(\mathbb{M},\mathcal{O},\mathcal{A},g)$
 \end_inset
 
 .
@@ -1306,7 +1306,7 @@ On a
 vectors
 \emph default
  
-\begin_inset Formula $\v v\in T_{X}\mathbb{X}$
+\begin_inset Formula $\v v\in T_{X}\mathbb{M}$
 \end_inset
 
  of the 
@@ -1314,12 +1314,12 @@ vectors
 tangent space 
 \emph default
 
-\begin_inset Formula $T_{X}\mathbb{X}$
+\begin_inset Formula $T_{X}\mathbb{M}$
 \end_inset
 
 .
  Intuitively 
-\begin_inset Formula $T_{X}\mathbb{X}$
+\begin_inset Formula $T_{X}\mathbb{M}$
 \end_inset
 
  can be imagined as the tangent plane to a curved surface representing the
@@ -1329,7 +1329,7 @@ tangent space
 \end_inset
 
  in 
-\begin_inset Formula $T_{X}\mathbb{X}$
+\begin_inset Formula $T_{X}\mathbb{M}$
 \end_inset
 
  indicates that a vector 
@@ -1341,7 +1341,7 @@ tangent space
 \end_inset
 
 , since 
-\begin_inset Formula $T_{P}\mathbb{X}$
+\begin_inset Formula $T_{X}\mathbb{M}$
 \end_inset
 
  is generally not the same at different points.
@@ -1427,15 +1427,7 @@ since they cancel out.
  We can rather introduce an abstract basis 
 \begin_inset Formula 
 \begin{equation}
-\v e_{k}\equiv\frac{\v{\partial}}{\v{\partial}x^{k}}
-\end{equation}
-
-\end_inset
-
-representing
-\begin_inset Formula 
-\begin{equation}
-\v v=v^{k}\frac{\v{\partial}}{\v{\partial}x^{k}},
+\v e_{k}\equiv\frac{\v{\partial}}{\v{\partial}x^{k}}\equiv\v{\partial}_{k}.
 \end{equation}
 
 \end_inset
@@ -1461,7 +1453,15 @@ vector
 \end_inset
 
  as a vector and distinguish it from a usual partial differential operator.
- This means that now vectors can actually 
+ Vectors are represented by
+\begin_inset Formula 
+\begin{equation}
+\v v=v^{k}\v{\partial}_{k},
+\end{equation}
+
+\end_inset
+
+This means that now vectors can actually 
 \emph on
 act
 \emph default
@@ -1474,14 +1474,22 @@ act
 \end_inset
 
 Basis vectors 
-\begin_inset Formula $\v{\partial}/\v{\partial}x^{k}$
+\begin_inset Formula $\v{\partial}_{k}$
 \end_inset
 
  acting on 
 \begin_inset Formula $f$
 \end_inset
 
- yield directional derivatives along curves in direction of 
+ yield directional derivatives
+\begin_inset Formula 
+\begin{equation}
+\v{\partial}_{k}[f]=\frac{\partial f}{\partial x^{k}}
+\end{equation}
+
+\end_inset
+
+ along curves in direction of 
 \begin_inset Formula $x^{k}$
 \end_inset
 
@@ -1499,12 +1507,12 @@ or
 one-forms
 \emph default
  
-\begin_inset Formula $\v w\in T_{P}^{\star}\mathbb{X}$
+\begin_inset Formula $\v w\in T_{X}^{\star}\mathbb{M}$
 \end_inset
 
 .
  Here 
-\begin_inset Formula $T_{P}^{\star}\mathbb{X}$
+\begin_inset Formula $T_{X}^{\star}\mathbb{M}$
 \end_inset
 
  is called the 
@@ -1512,7 +1520,7 @@ one-forms
 cotangent space 
 \emph default
 at 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
  and a covectors form the space of 
@@ -1562,7 +1570,7 @@ strip away
 \begin_inset Formula $\v r$
 \end_inset
 
- hidden and directly define 
+ hidden in the gradient and directly define 
 \begin_inset Formula 
 \begin{equation}
 \v e^{i}\equiv\v dx^{i}
@@ -1614,7 +1622,7 @@ yielding the same scalar result independently from the chosen coordinate
  In particular
 \begin_inset Formula 
 \begin{equation}
-\v dx^{i}\left[\frac{\v{\partial}}{\v{\partial}x^{k}}\right]=\delta_{k}^{i}
+\v dx^{i}\left[\v{\partial}_{k}\right]=\delta_{k}^{i}
 \end{equation}
 
 \end_inset
@@ -1631,11 +1639,11 @@ remains valid for basis vectors.
  first.
  Vectors and covectors thus exist as distinct mathematical objects, even
  though 
-\begin_inset Formula $T_{P}\mathbb{X}$
+\begin_inset Formula $T_{X}\mathbb{M}$
 \end_inset
 
  and 
-\begin_inset Formula $T_{P}^{\star}\mathbb{X}$
+\begin_inset Formula $T_{X}^{\star}\mathbb{M}$
 \end_inset
 
  are isomorphic as finite-dimensional vector spaces of equal dimension 
@@ -1692,6 +1700,33 @@ Local basis
 \end_inset
 
  for 2-forms.
+ While vectors can be interpreted as arrows 
+\emph on
+along
+\emph default
+ a curve, covectors appear as fluxes 
+\emph on
+across
+\emph default
+ a level hypersurface 
+\begin_inset Formula $\ph=\mathrm{const}$
+\end_inset
+
+ in direction of the gradient of 
+\begin_inset Formula $\ph(X)$
+\end_inset
+
+.
+ In 
+\begin_inset Formula $2D$
+\end_inset
+
+, hypersurface coincide with curves, and the 2-form provides the area as
+ a 
+\begin_inset Formula $2D$
+\end_inset
+
+ volume element.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -1718,18 +1753,30 @@ Tensor fields and forms
 
 \begin_layout Standard
 Starting from the base manifold 
-\begin_inset Formula $\mathbb{X}$
+\begin_inset Formula $\mathbb{M}$
 \end_inset
 
  and "attaching" the tangent space 
-\begin_inset Formula $T_{X}\mathbb{X}$
+\begin_inset Formula $T_{X}\mathbb{M}$
 \end_inset
 
  in each points 
 \begin_inset Formula $X$
 \end_inset
 
- yields the 
+ (actually it just means taking the disjoint union 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\bigsqcup$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+ of all tangent spaces) yields the 
 \begin_inset Formula $2N$
 \end_inset
 
@@ -1738,26 +1785,30 @@ Starting from the base manifold
 tangent bundle
 \series bold
  
-\begin_inset Formula $T\mathbb{X}$
+\begin_inset Formula 
+\begin{equation}
+T\mathbb{M}\equiv\bigsqcup_{X\in\mathbb{M}}T_{X}\mathbb{M}
+\end{equation}
+
 \end_inset
 
 
 \series default
 \emph default
- whose elements are tuples 
+whose elements are tuples 
 \begin_inset Formula $(X,\v v)$
 \end_inset
 
  of possible combinations of a position 
-\begin_inset Formula $X\in\mathbb{X}$
+\begin_inset Formula $X\in\mathbb{M}$
 \end_inset
 
  and a vector 
-\begin_inset Formula $\v v\in T_{X}\mathbb{X}$
+\begin_inset Formula $\v v\in T_{X}\mathbb{M}$
 \end_inset
 
  tangent to 
-\begin_inset Formula $\mathbb{X}$
+\begin_inset Formula $\mathbb{M}$
 \end_inset
 
  at 
@@ -1773,19 +1824,51 @@ tangent bundle
 \begin_inset Formula $X$
 \end_inset
 
- in these tuples it is called a 
+ in these tuples our first try would be to just define 
+\begin_inset Formula $\v v(X)$
+\end_inset
+
+ as a vector-valued field on 
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+.
+ Since the vector space 
+\begin_inset Formula $T_{X}\mathbb{M}$
+\end_inset
+
+ where 
+\begin_inset Formula $\v v(X)$
+\end_inset
+
+ points to depends on the argument 
+\begin_inset Formula $X$
+\end_inset
+
+, we require a more technical construction.
+ We define a 
 \emph on
 vector field 
 \emph default
 
-\begin_inset Formula $\v v(X):\mathbb{X}\rightarrow T\mathbb{X}$
+\begin_inset Formula 
+\begin{align}
+\v V: & \mathbb{M}\rightarrow T\mathbb{M},\nonumber \\
+ & X\mapsto(X,\v v(X))
+\end{align}
+
 \end_inset
 
- that is specified via its graph 
-\begin_inset Formula $(X,\v v(X))$
+that keeps the information of 
+\begin_inset Formula $X$
 \end_inset
 
- called a 
+ in the target 
+\begin_inset Formula $(X,\v v(X))\in T\mathbb{M}$
+\end_inset
+
+.
+ Such a map is called a 
 \emph on
 section
 \emph default
@@ -1793,52 +1876,39 @@ section
 \series bold
 \emph on
 
-\begin_inset Formula $T\mathbb{X}$
+\begin_inset Formula $T\mathbb{M}$
 \end_inset
 
 
 \series default
 \emph default
-.
- The difference between 
-\begin_inset Formula $(X,\v v)$
+ and is the analogue to the graph 
+\begin_inset Formula $(x,y(x))$
 \end_inset
 
- and 
-\begin_inset Formula $\v v(X)$
-\end_inset
-
- is the same as between a tuple 
-\begin_inset Formula $(x,y)$
-\end_inset
-
- of a single 
-\begin_inset Formula $x$
-\end_inset
-
- and 
-\begin_inset Formula $y$
-\end_inset
-
-, and a function 
+ of a function 
 \begin_inset Formula $y(x)$
 \end_inset
 
- that assignes a single 
-\begin_inset Formula $y$
-\end_inset
-
- for each 
-\begin_inset Formula $x$
-\end_inset
-
 .
- Similarly, attaching cotangent spaces 
-\begin_inset Formula $T_{X}^{\star}\mathbb{X}$
+ Usually we ignore the technical detail of writing 
+\begin_inset Formula $(X,\v v(X))$
+\end_inset
+
+, since 
+\begin_inset Formula $X$
+\end_inset
+
+ appears as an argument anyway.
+\end_layout
+
+\begin_layout Standard
+Similarly, attaching cotangent spaces 
+\begin_inset Formula $T_{X}^{\star}\mathbb{M}$
 \end_inset
 
  in each point on 
-\begin_inset Formula $\mathbb{X}$
+\begin_inset Formula $\mathbb{M}$
 \end_inset
 
  results in the 
@@ -1846,7 +1916,7 @@ section
 cotangent bundle 
 \emph default
 
-\begin_inset Formula $T^{\star}\mathbb{X}$
+\begin_inset Formula $T^{\star}\mathbb{M}$
 \end_inset
 
  containing pairs 
@@ -1859,7 +1929,7 @@ cotangent bundle
 Covector fields
 \emph default
  
-\begin_inset Formula $\v w(X):\mathbb{X}\rightarrow T^{\star}\mathbb{X}$
+\begin_inset Formula $\v W:\mathbb{M}\rightarrow T^{\star}\mathbb{M}$
 \end_inset
 
  are specified via sections 
@@ -1867,7 +1937,7 @@ Covector fields
 \end_inset
 
  of the cotangent bundle 
-\begin_inset Formula $T^{\star}\mathbb{X}$
+\begin_inset Formula $T^{\star}\mathbb{M}$
 \end_inset
 
 .
@@ -1916,6 +1986,407 @@ where the point
  
 \series bold
 TODO: mention tensor fields and forms
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Maps and their properties
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Map
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+from
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+to
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+space
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+remark
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Scalar field 
+\begin_inset Formula $\Phi$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vector 
+\begin_inset Formula $\v v$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $C^{\infty}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{X}\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Covector 
+\begin_inset Formula $\v w$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{X}\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T_{X}^{\star}\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+linear
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Vector field 
+\begin_inset Formula $(X,\v v(X))$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Gamma(T\mathbb{M})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\v v(X)$
+\end_inset
+
+ is a vector in 
+\begin_inset Formula $T_{X}\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Covector field 
+\begin_inset Formula $(X,\v w(X))$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $T^{\star}\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\Gamma(T^{\star}\mathbb{M})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\v w(X)$
+\end_inset
+
+ is a covector in 
+\begin_inset Formula $T_{X}^{\star}\mathbb{M}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2547,7 +3018,7 @@ Darboux's theorem
 In any phase-space coordinate basis
 \begin_inset Formula 
 \begin{equation}
-\v e_{\alpha}\equiv\frac{\v{\partial}}{\v{\partial}z^{\alpha}}
+\v e_{\alpha}\equiv\frac{\v{\partial}}{\v{\partial}z^{\alpha}}\equiv\v{\partial}_{\alpha}
 \end{equation}
 
 \end_inset
@@ -2559,7 +3030,7 @@ we can expand the Poisson tensor
  as
 \begin_inset Formula 
 \begin{equation}
-\v{\Pi}=\Pi^{\alpha\beta}\frac{\v{\partial}}{\v{\partial}z^{\alpha}}\otimes\frac{\v{\partial}}{\v{\partial}z^{\beta}},
+\v{\Pi}=\Pi^{\alpha\beta}\v{\partial}_{\alpha}\otimes\v{\partial}_{\beta},
 \end{equation}
 
 \end_inset
@@ -2570,14 +3041,14 @@ using the Poisson matrix
 
 .
  Since the second unit vector 
-\begin_inset Formula $\frac{\v{\partial}}{\v{\partial}z^{\beta}}$
+\begin_inset Formula $\v{\partial}_{\beta}$
 \end_inset
 
- is meant to act on a scalar field such as 
+ can on a scalar field, in particular on 
 \begin_inset Formula $H$
 \end_inset
 
- one can denote equations of motion 
+, one can denote equations of motion 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:zadot"
@@ -2587,7 +3058,7 @@ reference "eq:zadot"
  in a coordinate free way via
 \begin_inset Formula 
 \begin{equation}
-\dot{\v z}=\v{\Pi}H.\label{eq:zadot-1}
+\dot{\v z}[f]=\v{\Pi}[f,H].\label{eq:zadot-1}
 \end{equation}
 
 \end_inset

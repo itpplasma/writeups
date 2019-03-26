@@ -1,87 +1,593 @@
-%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[english,notitlepage]{revtex4-1}
+\documentclass[english]{elsarticle}
 \usepackage{tgpagella}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
-\setcounter{secnumdepth}{3}
-\usepackage{amsmath}
-\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
 \usepackage{babel}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[unicode=true]
+ {hyperref}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+\makeatother
+
 \begin{document}
-\global\long\def\tht{\vartheta}
-\global\long\def\ph{\varphi}
-\global\long\def\balpha{\boldsymbol{\alpha}}
-\global\long\def\btheta{\boldsymbol{\theta}}
-\global\long\def\bJ{\boldsymbol{J}}
-\global\long\def\bGamma{\boldsymbol{\Gamma}}
-\global\long\def\bOmega{\boldsymbol{\Omega}}
-\global\long\def\d{\text{d}}
-\global\long\def\t#1{\text{#1}}
-\global\long\def\m{\text{m}}
-\global\long\def\v#1{\boldsymbol{#1}}
+\global\long\def\tht{\vartheta}%
+\global\long\def\ph{\varphi}%
+\global\long\def\balpha{\boldsymbol{\alpha}}%
+\global\long\def\btheta{\boldsymbol{\theta}}%
+\global\long\def\bJ{\boldsymbol{J}}%
+\global\long\def\bGamma{\boldsymbol{\Gamma}}%
+\global\long\def\bOmega{\boldsymbol{\Omega}}%
+\global\long\def\d{\text{d}}%
+\global\long\def\t#1{\text{#1}}%
+\global\long\def\m{\text{m}}%
+\global\long\def\v#1{\boldsymbol{#1}}%
+\global\long\def\u#1{\underline{#1}}%
 
-\global\long\def\t#1{\mathbf{#1}}
+\global\long\def\t#1{\mathbf{#1}}%
+\global\long\def\bA{\boldsymbol{A}}%
+\global\long\def\bB{\boldsymbol{B}}%
+\global\long\def\c{\mathrm{c}}%
+\global\long\def\difp#1#2{\frac{\partial#1}{\partial#2}}%
+\global\long\def\xset{{\bf x}}%
+\global\long\def\zset{{\bf z}}%
+\global\long\def\qset{{\bf q}}%
+\global\long\def\pset{{\bf p}}%
+\global\long\def\wset{{\bf w}}%
+\global\long\def\rset{{\bf r}}%
+\global\long\def\yset{\mathbf{y}}%
 
 
-\title{Differential geometry from the perspective of tensor calculus}
+\title{A short introduction to differential geometry\\
+from the perspective of tensor calculus}
 
 \author{Christopher Albert}
 
-\affiliation{Max-Planck-Institut für Plasmaphysik, Boltzmannstraße 2, 85748 Garching,
-Germany}
-
-\maketitle
-In this text a short explanation on the treatment of space as a differentiable
+\address{Max-Planck-Institut für Plasmaphysik, Boltzmannstraße 2, 85748 Garching,
+Germany\\
+<albert@alumni.tugraz.at>}
+\begin{abstract}
+In this text a short explanation on the treatment of space as a smooth
 manifold and phase-space as a symplectic manifold for readers acquainted
 to terminology from tensor calculus in co-/contravariant notation
-is given. A main feature distinguishing differential geometry from
-tensor calculus is the treatment of covectors as first-class objects
-in addition to vectors. As a concequence in many derivations no metric
-tensor has to be specified, and the construction of structure-preserving
-numerical methods becomes more simple and transparent. Apart from
+is given. The main aim of this text is to provide a fast track to
+working knowledge of the discussed concepts. For more details, the
+three textbooks of Arnold, Jose/Saletan and Marsden should be helpful
+for further clarifications and deeper understanding. For a thorough
+introduction into smooth manifolds, the video lectures of Frederic
+Schuller from the WE-Heraeus International Winter School on Gravity
+and Light are highly recommended. A review concerned with guiding-center
+dynamics and in more traditional notation is given by Cary/Brizard
+at \href{https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.81.693}{https://journals.aps.org/rmp/pdf/10.1103/RevModPhys.81.693}
+. A main feature distinguishing differential geometry from tensor
+calculus is the treatment of covectors as first-class objects in addition
+to vectors. As a concequence in many derivations no metric tensor
+has to be specified, and the construction of structure-preserving
+numerical methods becomes simpler and more transparent. Apart from
 conceptual differences, the practical use of the formalisms is similar,
 in particular the notation with upper and lower indexes for contravariant
 and covariant components and the convention to sum over indexes appearing
 once up and once down.
+\end{abstract}
+\date{\today}
+\maketitle
 
-In classical mechanics phase-space $M$ is a $2N$-dimensional symplectic
-manifold constructed as a combination of positions $\v q$ in an $N$-dimensional
-configuration manifold $Q$ and momenta as covectors $\v p$ in the
-according $N$-dimensional \emph{cotangent space} $T_{\v q}^{\star}Q$.
-The latter is the dual space to the \emph{tangent space }$T_{\v q}Q$
-containing velocity vectors $\dot{\v q}$. Here the notation $\dot{\v q}$
-for velocity vectors is conventional \emph{a priori} and must not
-be identified with time derivatives $\dot{\v q}(t)=\frac{\d\v q(t)}{\d t}$
-appearing only for a specific orbit curve $\v q(t)$. Below we will
-use the symbol $\v v$ for vectors in general. The subscript $\v q$
-in $T_{\v q}Q$ and $T_{\v q}^{\star}Q$ indicates that vectors $\dot{\v q}$
-and covectors $\v p$ only have a meaning with respect to a specific
-point $\v q$, i.e. vectors on a curved manifold where the tangent
-space $T_{\v q}Q$ depends on $\v q$ require an origin point.
+\makeatletter 
+\def\ps@pprintTitle{ 
+ \let\@oddhead\@empty 
+ \let\@evenhead\@empty                         \def\@oddfoot{\footnotesize\itshape\hfill\today} \def\@evenfoot{\thepage\hfill}
+}
+\makeatother
 
-In terms of notation the outlined construction leads to upper i.e.
-contravariant index notation for generalized coordinates $q^{i}$
-representing points $\v q$ in a certain chart, and for velocity components
-$\dot{q}^{i}$ in the according local chart basis of $T_{\v q}Q$
-at $\v q$. Lower indexes are used for $p_{j}$ being covariant components
-of $\v p$ with respect to the local chart basis of $T_{\v q}^{\star}Q$.
+\section{Notation}
+
+Here we fix some notational conventions for the following text. Scalars
+and scalar functions are denoted in lowercase italic letters $a,f$
+and for points $X,Q,Z$ we use uppercase italic letters. We use italic
+bold letters to denote ensor fields, in particular vectors $\dot{\v q},\dot{\v z}$
+and covectors $\v p,\v A$. Coordinate tuples are denoted by bold
+upright letters $\xset,\zset,\qset,\pset$. Spatial coordinates $\xset$
+have components $x^{k}$, canonical coordinates $\qset,\pset$ consist
+of tuples $q^{i},p_{j}$, and generally non-canonical coordinates
+in phase-space $\zset$ have entries $z^{\alpha}$. Lower index notation
+for canonical momenta $p_{j}$ is used since in the classical construction
+$p_{j}$ are not only coordinates in phase-space but also components
+of covectors with respect to configuration space charted by coordinates
+$q^{i}$. Latin indices $i,j,k,l$ run from $1$ to $3$ for spatial
+coordinates $x^{k}$, or from $1$ to $N$ for canonical coordinates
+in a system with $N$ degrees of freedom. Greek indices like $\alpha,\beta$
+are used for general phase-space coordinates $z^{\alpha}$ and run
+from $1$ to $2N$. We use the usual convention from tensor algebra
+to sum over indices appearing once up and once down in formulas, i.e.
+$p_{i}\dot{q}^{i}\equiv\sum_{i}p_{i}\dot{q}^{i}$, where indexes in
+the denominator of derivatives switch their position, e.g. $\partial H/\partial q^{j}=p_{j}$
+has a lower index. A common convention of physics literature is used
+where functional dependencies such as $\zset(\qset,\pset),\zset(t)$
+are denoted by the same letters as $\zset$ alone. If arguments are
+not written explicitly inside functions the meaning should become
+clear from the respective context.
+
+\section{Basics}
+
+Physics can be treated on different levels of abstraction. Here we
+will start from the simplest picture and progress to the most advanced
+one, expressing our dissatisfaction with the result in each step,
+to justify an increase in the level of abstraction. The names of the
+sub-sections are chosen from the author's experience and can of course
+vary from school to school. The last subsection on the mathematical
+theory of differential geometry is at the highest level of abstraction
+and clarity and contains all other section as special cases and/or
+more sloppy interpretations. This does not necesserily mean that one
+should start on the top. In the view of the author it is rather convenient
+to start from the most basic levels and see where conceptual problems
+arise. Once the highest level is reached, one can take a step back
+to the sometimes more practical levels, with the power of understanding
+what objects we are actually talking about, and how they are interrelated.
+
+\subsection{High-school physics}
+
+The usual picture of high-school mathematics and physics is the following:
+The world of classical physics can be described by points $X$ given
+in Cartesian coordinates $\xset=(x,y,z)$, and time $t$ that is running
+steadily. A vector is constructed as an arrow pointing from $X_{1}$
+to $X_{2}$ with
+\begin{equation}
+\v u_{12}=\left(\begin{array}{c}
+u_{12\,x}\\
+u_{12\,y}\\
+u_{12\,z}
+\end{array}\right)\equiv\left(\begin{array}{c}
+x_{2}-x_{1}\\
+y_{2}-y_{1}\\
+z_{2}-z_{1}
+\end{array}\right).
+\end{equation}
+It is said to exists independently from its spreading point $P$ and
+can be parallely translated in space. The length of a vector can be
+computed by its norm
+\begin{equation}
+|\v u|=\sqrt{u_{x}^{\,2}+u_{y}^{\,2}+u_{z}^{\,2}}.
+\end{equation}
+To each point $P$ we can assign a vector from the origin point ``$0$'',
+\begin{equation}
+\v r(P)\equiv\v u^{0P}=\left(\begin{array}{c}
+x\\
+y\\
+z
+\end{array}\right),
+\end{equation}
+whose components are the same as the coordinates of $P$. The inner
+product between vectors $\v u$ and $\v v$ is given by
+\begin{equation}
+\v u\cdot\v v=u_{x}v_{x}+u_{y}v_{y}+u_{z}v_{z}.
+\end{equation}
+By geometrical means we see that can be related to the angle $\theta^{\v{uv}}$
+between the vectors via
+\begin{equation}
+\v u\cdot\v v=|\v u||\v v|\cos\theta^{\v u\v v}.
+\end{equation}
+We also notice that the norm is related to the inner product via $|\v u|=\sqrt{\v u\cdot\v u}$.
+In addition we introduce the cross product
+\begin{equation}
+\v u\times\v v\equiv\left(\begin{array}{c}
+u_{y}u_{z}-u_{z}u_{y}\\
+u_{z}u_{x}-u_{x}u_{z}\\
+u_{x}u_{y}-u_{y}u_{x}
+\end{array}\right),
+\end{equation}
+yielding a vector as a result.
+
+\subsubsection*{Mechanics}
+
+A particle that starts at time $t=0$ at point $X$ with a constant
+velocity vector $\v v$ will have a time-dependent position vector
+\begin{equation}
+\v r(t)=\v r(0)+\v vt
+\end{equation}
+that we can then translate back to a point $X(t)$. If a constant
+vectorial force $\v F$ acts on a particle of mass $m$ we obtain
+an accelaration vector 
+\begin{equation}
+\v a\equiv\frac{\d\v v(t)}{\d t}=\frac{\v F}{m}
+\end{equation}
+according to Newton's law. We then first compute the time-dependent
+velocity vector by integrating once,
+\begin{equation}
+\v v(t)=\v v(0)+\frac{\v F}{m},
+\end{equation}
+and integrate another time to obtain
+\begin{equation}
+\v r(t)=\v r(0)+\v v(0)t+\frac{\v F}{2m}t^{2}.
+\end{equation}
+
+
+\subsubsection*{Field theory}
+
+A vector fields $\v E(X)$ means to attach a vector to each point
+$X$ in space, i.e. $\v E$ is like a function on components $\xset=(x,y,z)$
+that has vectors as an output. In that sense we can view $\v r(X)$
+as a vector field that yields Cartesian components of $X$ in each
+point. For electromagnetism and gravity, the intuitive picture of
+a \emph{flow} of a vector field through a surface is introduced. There
+we take the normal components of a vector field to the surface, and
+sum them up. Gauss' law can be derived by looking at the vectors in
+the direction of a point charge and how they flow through a spherical
+surface.
+
+\subsubsection*{Why we are dissatisfied}
+
+First of all, we could only use Cartesian coordinates. We practically
+identified points, vectors, and their Cartesian components, despite
+noticing that the inner product would work the same, if we translated
+or rotated our coordinate frame. In mechanics and field theory we
+were limited to constant forces and simple fields. For treating cylindrical
+and spherical symmetry we had to rely on ad-hoc solutions by drawing
+arrows, since using Cartesian coordinates there is very cumbersome.
+The questions what space and time actually are, and why we can describe
+them by numbers in the given way, remains completely open.
+
+\subsection{Undergraduate physics}
+
+In the undergraduate physics courses we keep the picture of vector
+calculus and classical physics from high-school, but more advanced
+concepts are introduced on several levels. A vector is generalized
+from a geometric quantity to an abstract object in a linear vector
+space that allows for addition and multiplication by scalars. Newton's
+equations of motion are generalized to Lagrange's and Hamilton's equations
+in generalized coordinates, and solved for space- and time-dependent
+forces. In field theory we solve partial differential equations in
+possibly curvilinear coordinates. Such a coordinate change is given
+by a set of transformation equations
+\begin{align}
+x & =x(\xset)\equiv x(x^{1},x^{2},x^{3}),\\
+y & =y(\xset)\equiv y(x^{1},x^{2},x^{3}),\\
+z & =z(\xset)\equiv z(x^{1},x^{2},x^{3}),
+\end{align}
+or more compactly $\v r=\v r(\xset)$, with the position vector $\v r$
+still identified with its Cartesian coordinates $(x,y,z)$ via
+\begin{align}
+\v r & \equiv x\hat{\v e}_{x}+y\hat{\v e}_{y}+z\hat{\v e}_{z}
+\end{align}
+even though we already anticipate that the concept of a position ``vector''
+becomes problematic due to the possibility of coordinate changes.
+If we want to be more precise and distinguish $X$ from $\v r$, we
+look at the position vector field $\v r(X)$ and represent $X(\xset)$
+via coordinates $\xset$, so when we write $\v r$, we actually mean
+the vector-valued function $\v r(\xset)\equiv\v r(X(\xset))$ representing
+the vector field $\v r(X)$ in coordinates $\xset$. Unit vectors
+in curvilinear coordinates are given as derivatives of this function
+via
+\begin{equation}
+\hat{\v e}_{k}=\frac{1}{|\partial\v r/\partial x^{k}|}\frac{\partial\v r}{\partial x^{k}},
+\end{equation}
+where we require an orthonormal set, i.e. $\hat{\v e}_{k}\cdot\hat{\v e}_{l}=\delta_{kl}$,
+so $0$ if $k\neq l$ and $1$ if $k=l$. This is the case for many
+sets of coordinates, including cylindrical and spherical coordinates,
+that make our life much easier in electromagnetic field theory. To
+manipulate vector fields we introduce the nabla symbol $\nabla$ as
+a vector differential operator, producing gradient, curl, and divergence
+via
+\begin{align}
+\nabla\Phi & \equiv\frac{\partial\Phi}{\partial x}\v e_{x}+\frac{\partial\Phi}{\partial y}\v e_{y}+\frac{\partial\Phi}{\partial z}\v e_{z},\\
+\nabla\times\v A & \equiv\left(\frac{\partial A_{z}}{\partial y}-\frac{\partial A_{y}}{\partial z}\right)\v e_{x}+\left(\frac{\partial A_{x}}{\partial z}-\frac{\partial A_{z}}{\partial x}\right)\v e_{y}+\left(\frac{\partial A_{y}}{\partial x}-\frac{\partial A_{y}}{\partial x}\right)\v e_{z},\\
+\nabla\cdot\v B & \equiv\frac{\partial B_{x}}{\partial x}+\frac{\partial B_{y}}{\partial y}+\frac{\partial B_{z}}{\partial z}.
+\end{align}
+We proof differential theorems of vector calculus, namely
+\begin{equation}
+\nabla\times(\nabla\Phi)=0,\quad\nabla\cdot(\nabla\times\v A)=0,
+\end{equation}
+that aid us in the construction of potential fields in electrodynamics.
+Related integral theorems of Gauss and Stokes are
+\begin{equation}
+\int_{\Omega_{3}}\nabla\cdot\v D\,\d V=\int_{\partial\Omega_{3}}\v D\cdot\d\v S,\quad\int_{\Omega_{2}}(\nabla\times\v D)\cdot\d\v S=\int_{\partial\Omega_{2}}\v D\cdot\d\v l,
+\end{equation}
+where $\Omega_{3}$ and $\Omega_{2}$ are 3- and 2-dimensional domains,
+and $\Omega_{3},\Omega_{2}$ their respective boundaries with surface
+normal $\d\v S$ and line element $\d\v l$ being infinitesimal vectors.
+
+\subsubsection*{Why we are dissatisfied}
+
+Transforming differential operators to curvilinear coordinates is
+complicated and we are limited to normalized basis vectors in orthogonal
+coordinate systems.
+
+\subsection{Graduate level physics}
+
+Still the focus of tensor calculus in curvilinear geometry is on the
+components of a tensor in a certain basis. This is reflected in the
+statement that a tensor is a ``matrix with transformation properties
+under coordinate changes''.
+
+\subsubsection*{Why we are dissatisfied}
+
+The fundamental building block of the co-contravariant treatment in
+classical physics is still based on a position vector field $\v r(x,y,z)$
+given in Cartesian coordinates. In general relativity the absence
+of such a vector field confuses matter further, since tensors are
+now only given in terms of their components fulfilling transformation
+properties ``out of thin air'', without a global reference frame.
+While we know what quantities are better represented in co- or contravariant
+form, there is no clear distinction between the two.
+
+\subsection{Differential geometry}
+
+One of the features of a mathematical description is the exact specification
+of what objects we are dealing with, and how to trace them back to
+already known mathematical objects, going down to fundamental axioms
+that are chosen to make intuitive concepts work, while giving them
+a solid foundation. Similarly the connection to the physical world
+relies on postulates. In contrast to axioms they can be justified
+by the correctness of predictions made by the theory constructed in
+terms of these objects. As common in mathematical descriptions, differential
+geometry strives to be economic with additional structure, such as
+metrizability or differentiability, requiring only the bare minimum
+for the according task. On first sight this looks like this means
+departing from reality and application, but the contrary is the case.
+The mathematical approach is more honest in the sense that we do not
+claim to know what our system actually is, but rather distill out
+of it the bare minimum properties we require it to have in order to
+make sense. This allows us to separate topological from metric features
+and gives a clear guideline on structure-preserving discretizations
+such as symplectic time-stepping schemes and vector finite elements.
+Here we go back to treating vectors in their geometrical sense rather
+than abstract vectors, and give a more precise definition to what
+that means.
+
+\subsubsection*{Space}
+
+Here we describe the mathematical foundation to describe physical
+space, which applies also to spacetime and phase-space with slight
+modifications. In the philosophy of the bare minimum we start with
+modeling space as a \emph{set} $\mathbb{M}$ of points $X\in\mathbb{M}$.
+Our goal is to add a sufficient amount of mathematical structure to
+this set to be able to describe motion and fields in different sets
+of coordinates and formulate dynamical laws as differential equations.
+\begin{enumerate}
+\item Since we would like to know what points are adjacent to each other,
+we require a topology $\mathcal{O}$ that yields the notion of \emph{open
+neighbourhoods} containing adjacent points. This introduces the concept
+of \emph{continuous maps} between topological spaces that keep neighbouring
+points adjacent to each other also in their image. Adding this structure
+to $\mathbb{M}$ makes it a \emph{topological space $(\mathbb{M},\mathcal{O})$.}
+\item In order to be able to translate points to numbers, we require $\mathbb{M}$
+to be at least locally similar to Euclidian space $\mathbb{R}^{d}$
+of dimension $d$ equiped with the usual open sets as a topology based
+on the Euclidian distance. This means that for each open set of points
+$\Omega\subset\mathbb{M}$ we can find a continuous and invertible
+map to $\mathbb{R}^{d}$ which yields points as functions $X(\xset)$
+of $d$ coordinates $\xset=(x^{1},\dots,x^{d})$. Such a map is called
+a \emph{chart.} A collection of charts is called an \emph{atlas }$\mathcal{A}$
+that contains at least one chart for each $\Omega$. With $d$ the
+minimum required chart dimension\footnote{We cannot chart the surface of the earth in $\mathbb{R}^{1}$, and
+$\mathbb{R}^{3}$ would be too much, so we use $\mathbb{R}^{2}$} we call $(\mathbb{M},\mathcal{O},\mathcal{A})$ a $d$\emph{-dimensional
+topological manifold}.
+\item To define what differentiation means on the manifold, we require the
+\emph{transition maps} representing coordinate transformations between
+regions where charts overlap to be differentiable in $\mathbb{R}^{d}$.
+It can be proven that already requiring $C^{1}$ differentiability
+in an atlas induces a $C^{\infty}$ atlas as a subset of the original
+atlas. This is why we call a manifold with a differentiable atlas
+a \emph{smooth manifold}.
+\item If we would like to measure distances on $\mathbb{M}$, we introduce
+a \emph{metric} $g:\mathbb{M}\times\mathbb{M}\rightarrow[0,\infty)$
+that assigns a distance to each pair of points that remains identical
+when the arguments are swapped, is zero if and only if they are the
+same point, and fulfills the triangle inequality. A manifold with
+a metric is called a \emph{Riemannian manifold}\footnote{The concept can be generalized to a \emph{pseudo-Riemannian} manifold
+for spacetime allowing negative ''distances''} $(\mathbb{M},\mathcal{O},\mathcal{A},g)$.
+\end{enumerate}
+Depending on the required features we can define mathematical objects
+that represent physical quantities at different structural levels.
+Most of the time we require a smooth manifold after step 3. If we
+can avoid the use of the metric structure in step 4 to a bare minimum
+we can gain insight into laws of physics and guidance for discretized
+numerical modelling. This will imply keeping vectors and covectors
+as distinct objects rather than converting between the two using the
+metric tensor.
+
+\subsubsection*{Vectors and covectors}
+
+\textbf{TODO: mention curves}
+
+On a $d$-dimensional smooth manifold we can introduce \emph{vectors}
+$\v v\in T_{X}\mathbb{M}$ of the \emph{tangent space }$T_{X}\mathbb{M}$.
+Intuitively $T_{X}\mathbb{M}$ can be imagined as the tangent plane
+to a curved surface representing the manifold. The subscript $X$
+in $T_{X}\mathbb{M}$ indicates that a vector $\v v$ only has a meaning
+with respect to a specific point $X$, since $T_{X}\mathbb{M}$ is
+generally not the same at different points. A further abstraction
+concerns the basis of the tangent space. While we are used to a geometrical
+definition based on Cartesian coordinates, the mathematical definition
+is more abstract and based on a question what a vector can \emph{do}.
+This is closely related to the high-school definition of a vector
+$\v v$, defining it as an arrow pointing from point $X_{A}$ to $X_{B}$.
+In fact we are asking for the difference of a scalar field $f$ if
+we go along $\v v$ from $X_{A}$ to $X_{B}$. Now we are in a situation
+that allows to do this only in an \emph{infinitesimal neighbourhood}
+of $X$. This provides the \emph{directional derivative along} $\v v$
+of a scalar field $f(X)$ in a certain chart. In classical tensor
+calculus one would write this expression as
+\begin{equation}
+(\v v\cdot\nabla)f=\left(v^{i}\v e_{i}\cdot\v e^{k}\frac{\partial}{\partial x^{k}}\right)f=\left(v^{i}\delta_{i}^{k}\frac{\partial}{\partial x^{k}}\right)f=\left(v^{k}\frac{\partial}{\partial x^{k}}\right)f=v^{k}\frac{\partial f}{\partial x^{k}}.
+\end{equation}
+Here we have put brackets to avoid interpretation as a gradient, which
+will later be associated to covectors. We realize that we do not require
+geometrical basis vectors 
+\begin{equation}
+\v e_{k}=\frac{\partial\v r}{\partial x^{k}},
+\end{equation}
+since they cancel out. We can rather introduce an abstract basis 
+\begin{equation}
+\v e_{k}\equiv\frac{\v{\partial}}{\v{\partial}x^{k}}\equiv\v{\partial}_{k}.
+\end{equation}
+where we have stripped away the reference to the ``vector'' $\v r$
+that has bugged us in tensor calculus, and wrote the $\v{\partial}$
+symbols in bold face to identify $\v{\partial}/\v{\partial}x^{k}$
+as a vector and distinguish it from a usual partial differential operator.
+Vectors are represented by
+\begin{equation}
+\v v=v^{k}\v{\partial}_{k},
+\end{equation}
+This means that now vectors can actually \emph{act} on scalar fields
+with the usual gradient in any chart,
+\begin{equation}
+\v v[f(X)]\equiv v^{k}\frac{\partial f}{\partial x^{k}}.
+\end{equation}
+Basis vectors $\v{\partial}_{k}$ acting on $f$ yield directional
+derivatives
+\begin{equation}
+\v{\partial}_{k}[f]=\frac{\partial f}{\partial x^{k}}
+\end{equation}
+ along curves in direction of $x^{k}$.
+
+The generalization of the inner product between vectors leads to the
+concept of \emph{covectors }or \emph{one-forms} $\v w\in T_{X}^{\star}\mathbb{M}$.
+Here $T_{X}^{\star}\mathbb{M}$ is called the \emph{cotangent space
+}at $X$ and a covectors form the space of \emph{linear operators}
+that can be \emph{applied} to a vector $\v v$ to yield a scalar.
+Gradients of scalar fields yield covectors, which can be seen in the
+classical definition of a scalar differential
+\begin{equation}
+\d f=\left(\frac{\partial f}{\partial x^{i}}\v e^{i}\right)\cdot\left(\v e_{k}\d x^{k}\right)=\frac{\partial f}{\partial x^{i}}\delta_{k}^{i}\d x^{k}=\frac{\partial f}{\partial x^{k}}\d x^{k}.
+\end{equation}
+containing components of the gradient $\nabla f$ as coefficients.
+Now instead of defining 
+\begin{equation}
+\v e^{i}=\nabla x^{i}
+\end{equation}
+we again ``strip away'' the reference to $\v r$ hidden in the gradient
+and directly define 
+\begin{equation}
+\v e^{i}\equiv\v dx^{i}
+\end{equation}
+via differentials. Covectors are expanded as 
+\begin{equation}
+\v w=w_{i}\v dx^{i}.
+\end{equation}
+
 A maybe surprising consequence of the separation into vectors and
 covectors is the fact that there exists no inner product \emph{between}
-the two. Instead a covector $\v p$ can \emph{act }on a vector $\v v$
-as a \emph{linear form}
+the two. Instead a covector $\v w$ can \emph{act }on a vector $\v v$
+as 
 \begin{equation}
-\v p(\v v)=p_{i}v^{i},
+\v w[\v v]=w_{i}v^{i},
 \end{equation}
 yielding the same scalar result independently from the chosen coordinate
-chart. Vectors and covectors thus exist as distinct mathematical objects,
-even though $T_{\v q}Q$ and $T_{\v q}^{\star}Q$ are isomorphic as
-finite-dimensional vector spaces of equal dimension $N$. A \emph{metric
-tensor} $\mathbf{g}$ can fix the structure of the manifold to provide
-such an isomorphism. More precisely, $\t g$ is a symmetric $(0,2)$-tensor
-field (i.e. depending on position $\v q$) on $Q$ with components
-$g_{ik}=g_{ik}(\v q)$ in a certain coordinate chart. The action of
-$\mathbf{g}$ on two vectors is the commonly known \emph{inner product
+chart. In particular
+\begin{equation}
+\v dx^{i}\left[\v{\partial}_{k}\right]=\delta_{k}^{i}
+\end{equation}
+remains valid for basis vectors. When skipping brackets and formally
+writing $\v w[\v v]=\v w\cdot\v v$ as a scalar product one should
+write the covector $\v w$ first. Vectors and covectors thus exist
+as distinct mathematical objects, even though $T_{X}\mathbb{M}$ and
+$T_{X}^{\star}\mathbb{M}$ are isomorphic as finite-dimensional vector
+spaces of equal dimension $d$. A visual representation of basis vectors,
+covectors and 2-forms is available in Fig.~\ref{fig:manifold}.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[scale=1.2]{fig/manifold2}
+\par\end{centering}
+\caption{Local basis $\protect\v{\partial}/\protect\v{\partial}\protect\ph$
+for vectors, $\protect\v d\protect\ph$ for covectors, and $\protect\v d\theta\wedge\protect\v d\protect\ph$
+for 2-forms. While vectors can be interpreted as arrows \emph{along}
+a curve, covectors appear as fluxes \emph{across} a level hypersurface
+$\protect\ph=\mathrm{const}$ in direction of the gradient of $\protect\ph(X)$.
+In $2D$, hypersurface coincide with curves, and the 2-form provides
+the area as a $2D$ volume element. \label{fig:manifold}}
+\end{figure}
+
+
+\subsubsection*{Tensor fields and forms}
+
+Starting from the base manifold $\mathbb{M}$ and \textquotedbl attaching\textquotedbl{}
+the tangent space $T_{X}\mathbb{M}$ in each points $X$ (actually
+it just means taking the disjoint union ``$\bigsqcup$'' of all
+tangent spaces) yields the $2N$-dimensional \emph{tangent bundle}\textbf{\emph{
+\begin{equation}
+T\mathbb{M}\equiv\bigsqcup_{X\in\mathbb{M}}T_{X}\mathbb{M}
+\end{equation}
+}}whose elements are tuples $(X,\v v)$ of possible combinations of
+a position $X\in\mathbb{M}$ and a vector $\v v\in T_{X}\mathbb{M}$
+tangent to $\mathbb{M}$ at $X$. If $\v v$ has a specific functional
+dependency on $X$ in these tuples our first try would be to just
+define $\v v(X)$ as a vector-valued field on $\mathbb{M}$. Since
+the vector space $T_{X}\mathbb{M}$ where $\v v(X)$ points to depends
+on the argument $X$, we require a more technical construction. We
+define a \emph{vector field }
+\begin{align}
+\v V: & \mathbb{M}\rightarrow T\mathbb{M},\nonumber \\
+ & X\mapsto(X,\v v(X))
+\end{align}
+that keeps the information of $X$ in the target $(X,\v v(X))\in T\mathbb{M}$.
+Such a map is called a \emph{section} of \textbf{\emph{$T\mathbb{M}$}}
+and is the analogue to the graph $(x,y(x))$ of a function $y(x)$.
+Usually we ignore the technical detail of writing $(X,\v v(X))$,
+since $X$ appears as an argument anyway.
+
+Similarly, attaching cotangent spaces $T_{X}^{\star}\mathbb{M}$ in
+each point on $\mathbb{M}$ results in the \emph{cotangent bundle
+}$T^{\star}\mathbb{M}$ containing pairs $(X,\v w)$. \emph{Covector
+fields} $\v W:\mathbb{M}\rightarrow T^{\star}\mathbb{M}$ are specified
+via sections $(X,\v w(X))$ of the cotangent bundle $T^{\star}\mathbb{M}$.
+Similar to vectors and covectors, a covector field acts on a vector
+field via
+\begin{equation}
+\v w(X)[\v v(X)]=w_{i}(X)v^{i}(X),
+\end{equation}
+where the point $X$ appears as an additional argument and can be
+specified in any suitable set of coordinates $\xset$ in a chart via
+the chart map $X(\xset)$. We are only interested in sufficiently
+smooth vector fields, where components $v^{i}(\xset)\equiv v^{i}(X(\xset))$
+and $w_{i}(\xset)\equiv w_{i}(X(\xset))$ are sufficiently smooth
+maps from $\mathbb{R}^{d}$ to $\mathbb{R}^{d}$. Note that up to
+now we didn't require a metric tensor. \textbf{TODO: mention tensor
+fields and forms}
+
+\begin{table}
+\caption{Maps and their properties}
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Map & from & to & space & remark\tabularnewline
+\hline 
+\hline 
+Scalar field $\Phi$ & $\mathbb{R}$ & $\mathbb{M}$ & $C^{\infty}$ & \tabularnewline
+\hline 
+Vector $\v v$ & $C^{\infty}$ & $\mathbb{R}$ & $T_{X}\mathbb{M}$ & \tabularnewline
+\hline 
+Covector $\v w$ & $T_{X}\mathbb{M}$ & $\mathbb{R}$ & $T_{X}^{\star}\mathbb{M}$ & linear\tabularnewline
+\hline 
+Vector field $(X,\v v(X))$ & $\mathbb{M}$ & $T\mathbb{M}$ & $\Gamma(T\mathbb{M})$ & $\v v(X)$ is a vector in $T_{X}\mathbb{M}$\tabularnewline
+\hline 
+Covector field $(X,\v w(X))$ & $\mathbb{M}$ & $T^{\star}\mathbb{M}$ & $\Gamma(T^{\star}\mathbb{M})$ & $\v w(X)$ is a covector in $T_{X}^{\star}\mathbb{M}$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\subsubsection*{The metric tensor}
+
+On manifolds with a metric $g$, the \emph{metric tensor} $\mathbf{g}$
+provides a natural isomorphism to between vectors and covectors. More
+precisely, $\t g$ is a symmetric $(0,2)$-tensor field (that can
+depend on position $\v q$) on $Q$ with components $g_{ik}=g_{ik}(\v q)$
+in a certain coordinate chart. The action of $\mathbf{g}$ on two
+vectors is the commonly known \emph{inner product 
 \begin{equation}
 \v u\cdot\v v\equiv\mathbf{g}(\v u,\v v)=\mathbf{g}(\v v,\v u)=u^{i}g_{ik}v^{k}=v^{i}g_{ik}u^{k},\label{eq:guv}
 \end{equation}
@@ -99,14 +605,14 @@ a symmetric $(2,0)$-tensor field on $Q$ defined by
 1 & \text{for\,}i=k
 \end{cases}
 \end{equation}
-This means that the component matrix $\bar{g}^{jl}=(g_{ik})^{-1}$
+This means that the component matrix $(\bar{g}^{jl})=(g_{ik})^{-1}$
 is the inverse matrix of the metric tensor component matrix in any
 set of coordinates. It is important to emphasize that $\mathbf{g}$
 and $\bar{\mathbf{g}}$ are not the same tensor field, even though
 the common notation $g^{jl}$ without a bar would suggest this. Since
 $u_{k}\equiv u^{i}g_{ik}$ are components of a covector dual to $\v u$
-and $p^{l}\equiv p_{j}\bar{g}^{jl}$ the ones of a vector dual to
-$\v p$, one can ``convert'' between vectors (contravariant representation)
+and $w^{l}\equiv w_{j}\bar{g}^{jl}$ the ones of a vector dual to
+$\v w$, one can ``convert'' between vectors (contravariant representation)
 and covectors (covariant representation) by raising and lowering indexes
 via the (inverse) metric. This allows the reduction to only vectors
 as fundamental objects, as used in traditional tensor calculus. If
@@ -118,61 +624,73 @@ metric tensor disappears. As soon as divergence and curl operators
 enter, a description using either differential forms or tensor densities
 is required to be able to work in a metric-independent way.
 
-\subsubsection*{Basis for vectors and covectors}
+\section{Mechanics}
 
-\begin{figure}
-\includegraphics[scale=1.2]{fig/manifold2}
+In classical mechanics the phase-space $\mathbb{M}$ is a $2N$-dimensional
+symplectic manifold constructed from combination of positions $Q$
+being elements of an $N$-dimensional configuration manifold $\mathbb{Q}$
+with their respective momenta as covectors $\v p$ in the $N$-dimensional
+cotangent space $T_{Q}^{\star}\mathbb{Q}$ at position $Q$. As defined
+above $T_{Q}^{\star}\mathbb{Q}$ is the cotangent space dual to the
+tangent space $T_{Q}\mathbb{Q}$, where the latter contains velocity
+vectors $\dot{\v q}$. Here the notation $\dot{\v q}$ for velocity
+is conventional \emph{a priori} and must not be identified with time
+derivatives $\d Q(t)/\d t$ appearing only for a specific orbit curve
+$Q(t)$. The \emph{Lagrangian} formalism in $(Q,\dot{\v q})$ is constructed
+on the tangent bundle $T\mathbb{Q}$ of $\mathbb{Q}$, while the \emph{Hamiltonian
+}formalism is stated on the cotangent bundle $T^{\star}\mathbb{Q}$.
+In terms of notation the outlined construction leads to upper i.e.
+contravariant index notation for generalized coordinates $q^{i}$
+representing points $Q$ in a certain chart, and for velocity components
+$\dot{q}^{i}$ in the according local chart basis of $T_{Q}\mathbb{Q}$
+at $Q$. Lower indexes are used for $p_{j}$ being covariant components
+of $\v p$ with respect to the local chart basis of $T_{Q}^{\star}\mathbb{Q}$.
 
-\caption{TODO\label{fig:manifold}}
-\end{figure}
+\subsubsection*{General phase-space}
 
-TODO: describe $\frac{\v{\partial}}{\v{\partial}q^{i}}$ and $\v dq^{j}$
-replacing $\v e_{i}=\frac{\partial\v r}{\partial q^{i}}$ and $\v e^{j}=\nabla q^{j}=\frac{\partial q^{j}}{\partial\v r}$
-from usual co/contravariant tensor analysis.
-
-\subsubsection*{Tangent and cotangent bundle}
-
-Merging configuration space $Q$ with tangent spaces $T_{\v q}Q$
-in all points $\v q$ yields the $2N$-dimensional \emph{tangent bundle}\textbf{\emph{
-$TQ$}} whose elements are tuples $(\v q,\dot{\v q})$ of positions
-and velocities. If $\dot{\v q}$ have a specific functional dependency
-on $\v q$ in these tuples it is called a \emph{vector field, }with
-the graph $(\v q,\dot{\v q}(\v q))$ denoted as a \emph{section} of
-\textbf{\emph{$TQ$}}. The \emph{Lagrangian} formalism in $(\v q,\dot{\v q})$
-is constructed on the tangent bundle $TQ$ of $Q$. Similarly combination
-of $Q$ with cotangent spaces $T_{\v q}Q$ results in the \emph{cotangent
-bundle }$T^{\star}Q$ containing pairs $(\v q,\v p)$ and where covector
-fields can be specified. The resulting phase-space $M=T^{\star}Q$
-still allows for a clear distinction of $\v q$ and $\v p$ as different
-mathematical objects and underlies the canonical \emph{Hamiltonian}
-formalism in $(\v q,\v p)$. For a more general non-canonical treatment
-it is however useful to introduce points $\v z\in M$ independently
-from the underlying canonical foundation. This makes the Hamiltonian
-formalism available to phase-spaces $M$ that haven't been constructed
-as a cotangent bundle and in this sense more general than the Lagrangian
-formalism. The non-canonical Hamiltonian formalism is a special case
-of the even more general treatment via the \emph{phase-space Lagrangian}
-on the $4N$-dimensional tangent bundle $TM$ of $M$, being the tangent
-bundle $T(T^{\star}Q)$ of the cotangent bundle of $Q$ in classical
-mechanics. Elements $(\v z,\dot{\v z})$ of $TM$ are treated analogously
-to $(\v q,\dot{\v q})$ in the usual Lagrangian formalism. Thus, coordinates
-$z^{\alpha}$ are written with upper index $\alpha=1\dots2N$, ignoring
-the previous separation in $q^{i}$ and $p_{j}$ being \emph{canonical}
-coordinates for $M$, but also for $Q$ and $T^{\star}Q$ individually.
-Euler-Lagrange equations of the phase-space Lagrangian $L_{\mathrm{ph}}(\v z,\dot{\v z},t)$
-correspond to non-canonical Hamiltonian equations of motion for Hamiltonian
-$H(\v z,t)$ as long as the canonical representation of $L_{\mathrm{ph}}$
-is of the form 
+Phase-space $\mathbb{M}=T^{\star}\mathbb{Q}$ still allows for a clear
+distinction of $Q$ and $\v p$ as different mathematical objects
+and underlies the canonical \emph{Hamiltonian} formalism in $(Q,\v p)$.
+For a more general non-canonical treatment it is however useful to
+introduce points $Z\in\mathbb{M}$ independently from the underlying
+canonical foundation. This makes the Hamiltonian formalism applicable
+to phase-spaces $\mathbb{M}$ that haven't been constructed as a cotangent
+bundle and in this sense more general than the Lagrangian formalism.
+The Hamiltonian formalism in possibly non-canonical coordinates is
+a special case of the even more general treatment via the \emph{phase-space
+Lagrangian} on the $4N$-dimensional tangent bundle $T\mathbb{M}$
+of $\mathbb{M}$, being the tangent bundle $T(T^{\star}\mathbb{Q})$
+of the cotangent bundle of $\mathbb{Q}$ in classical mechanics. Elements
+$(Z,\dot{\v z})$ of $T\mathbb{M}$ are treated analogously to $(Q,\dot{\v q})$
+in the usual Lagrangian formalism. Thus, coordinates $z^{\alpha}$
+are written with upper index $\alpha=1\dots2N$, ignoring the previous
+separation in $q^{i}$ and $p_{j}$ being \emph{canonical} coordinates
+for $\mathbb{M}$, but also individual coordinates for $\mathbb{Q}$
+and $T^{\star}\mathbb{Q}$, respectively. Euler-Lagrange equations
+of the phase-space Lagrangian $L_{\mathrm{ph}}(Z,\dot{\v z},t)$ correspond
+to Hamiltonian equations of motion for Hamiltonian $H(Z,t)$ in possibly
+non-canonical coordinates as long as the canonical representation
+of $L_{\mathrm{ph}}$ is of the form 
 \begin{equation}
-L_{\mathrm{ph}}(\v z,\dot{\v z},t)=p_{k}\dot{q}^{k}-H(\v z,t).
+L_{\mathrm{ph}}(Z,\dot{\v z},t)=p_{k}\dot{q}^{k}-H(Z,t).
 \end{equation}
 This means that no components $\dot{p}_{k}$ of momentum components
 of tangent vectors $\dot{\v z}$ must appear in $L_{\mathrm{ph}}$.
 This feature is known as the \emph{degeneracy} of the phase-space
-Lagrangian and prevents the construction of a higher-level Hamiltonian
-formalism on $T^{\star}M$ via a Legendre transform.
+Lagrangian and prevents the construction of a hypothetical higher-level
+\textquotedbl phase-space-Hamiltonian\textquotedbl{} formalism on
+$T^{\star}\mathbb{M}$ via a Legendre transform. A more elegant representation
+of the phase-space Lagrangian is achieved by ``stripping away''
+$\d t$ via multiplication and writing it as the Lagrangian one-form
+\begin{equation}
+\v{\theta}_{L}(Z,t)\equiv p_{k}\v dq^{k}-H(Z,t)\v dt.
+\end{equation}
+Since this one-form is now defined on the manifold $\mathbb{R}\times\mathbb{M}$
+including $t\in\mathbb{R}$ we have added a bold differential $\v dt$.
 
 \subsubsection*{Symplectic structure}
+
+\textbf{TODO: check sign errors}
 
 The 2-form $\v{\omega}$ is an \emph{antisymmetric} \emph{$(0,2)$}-tensor
 field and can be seen as an antisymmetric analogue to the metric tensor
@@ -195,25 +713,25 @@ a particular set of coordinates we emphasize that it is important
 to distinguish invariant objects such as $\v{\omega},\v{\Pi}$ from
 their coordinate representation $\omega_{ij},\Pi^{ij}$. The fact
 that it is possible to \emph{locally} find canonical coordinates in
-any manifold $M$ with a symplectic structure $\v{\omega}$ is known
-as \emph{Darboux's theorem}. This is the analogy to the possibility
+any manifold $\mathbb{M}$ with a symplectic structure $\v{\omega}$
+is known as \emph{Darboux's theorem}. This is the analogy to the possibility
 to find a locally flat representation of a curved manifold with a
 metric structure $\t g$, which is important in general relativity.
 
 In any phase-space coordinate basis
 \begin{equation}
-\v e_{\alpha}\equiv\frac{\v{\partial}}{\v{\partial}z^{\alpha}}
+\v e_{\alpha}\equiv\frac{\v{\partial}}{\v{\partial}z^{\alpha}}\equiv\v{\partial}_{\alpha}
 \end{equation}
 we can expand the Poisson tensor $\v{\Pi}$ as
 \begin{equation}
-\v{\Pi}=\Pi^{\alpha\beta}\frac{\v{\partial}}{\v{\partial}z^{\alpha}}\otimes\frac{\v{\partial}}{\v{\partial}z^{\beta}},
+\v{\Pi}=\Pi^{\alpha\beta}\v{\partial}_{\alpha}\otimes\v{\partial}_{\beta},
 \end{equation}
-using the Poisson matrix $\Pi^{\alpha\beta}$. Since the second unit
-vector $\frac{\v{\partial}}{\v{\partial}z^{\beta}}$ is meant to act
-on a scalar field such as $H$ one can denote equations of motion
-(\ref{eq:zadot}) in a coordinate free way via
+using the Poisson matrix $(\Pi^{\alpha\beta})$. Since the second
+unit vector $\v{\partial}_{\beta}$ can on a scalar field, in particular
+on $H$, one can denote equations of motion (\ref{eq:zadot}) in a
+coordinate free way via
 \begin{equation}
-\dot{\v z}=\v{\Pi}H.\label{eq:zadot-1}
+\dot{\v z}[f]=\v{\Pi}[f,H].\label{eq:zadot-1}
 \end{equation}
 In canonical coordinates $z_{\mathrm{can}}^{\alpha}\equiv q^{i},p_{j}$
 the Poisson matrix becomes the totally antisymmetric matrix
@@ -290,4 +808,303 @@ Finally, according to Eq.~(\ref{eq:cani}) we can express the symplectic
 \v{\omega}=-\delta_{i}^{j}\v dp_{i}\otimes\v dq^{j}+\delta_{j}^{i}\v dq^{i}\otimes\v dp_{j}=\delta_{j}^{i}\v dq^{i}\wedge\v dp_{j}=\v dq^{i}\wedge\v dp_{i}.
 \end{equation}
 
+\textbf{TODO:}
+
+Variants of the special 2-form $\v J$ correspond to vectors in a
+similar way as diagonal matrices being generalizations of the identity
+matrix $\v I$ correspond to vectors containing only diagonal elements.
+Make some connection to the two representations of $\v B$ as a vector
+density and a 2-form. The idea comes from the incomplete eigendecomposition
+where $\v{\lambda}_{m}\hat{V}_{m}=\hat{V}_{m}\hat{\Lambda}_{mm}=\hat{V}_{m}\hat{I}_{m}\v{\lambda}_{m}$
+
+\section{Forms and densities}
+
+or: \textquotedbl why vector density fields are the same as 2-forms
+and what this means for the magnetic field\textquotedbl . The reason
+for this section is the fact that physicists take divergence and curl
+of vector fields, while mathematicians use them on differential forms.
+Tensor densities provide a link between the two, yielding identical
+coefficients of a 2-form and a contravariant vector density representation,
+both used to describe the magnetic field $\v B$. Right now this description
+requires already some understanding of forms, wedge product, and the
+Hodge star operator. \textbf{TODO: explain more.}
+
+More information on this issue can be found in ``CONTRAVARIANCE,
+COVARIANCE, DENSITIES, AND ALL THAT: AN INFORMAL DISCUSSION ON TENSOR
+CALCULUS'' by Chris Tiee, p.19 - densitization. In this sense, also
+the Levi-Civita symbol appears as a tensor density.
+
+In classical tensor analysis (see e.g. book \textquotedbl Flux coordinates
+and magnetic field structure\textquotedbl{} of Callen/d'haeseleer)
+the divergence operator acts on covariant components of a vector field
+and yields a scalar field $D$,
+\begin{equation}
+F=\nabla\cdot\v B\equiv\frac{1}{\sqrt{g}}\frac{\partial}{\partial x^{k}}(\sqrt{g}B^{k}).
+\end{equation}
+This operator becomes metric-independent if we define a representation
+of $D$ via a scalar density $\mathcal{D}$ and a representation of
+$\v B$ via contravariant density component $\mathcal{B}^{k}$, defined
+via
+\begin{equation}
+\mathcal{F}\equiv\sqrt{g}F,\quad\mathcal{B}^{k}\equiv\sqrt{g}B^{k}.
+\end{equation}
+Then we can write the divergence as
+\begin{equation}
+\mathcal{F}=\mathrm{div}\,\v B\equiv\sqrt{g}(\nabla\cdot\v B)=\frac{\partial}{\partial x^{k}}\mathcal{B}^{k}.
+\end{equation}
+In 3D space, the curl operator acts on covariant components of a vector
+field $\v A$
+\begin{equation}
+B^{i}=(\nabla\times\v A)^{i}\equiv\frac{\varepsilon^{ijk}}{\sqrt{g}}\frac{\partial}{\partial x^{j}}A_{k}.
+\end{equation}
+Using contravariant density components we can write instead a metric-free
+variant
+\begin{equation}
+\mathcal{B}^{i}=(\mathrm{curl}\,\v A)^{i}\equiv\sqrt{g}(\nabla\times\v A)^{i}=\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}.
+\end{equation}
+The divergence of a curl vanishes, since
+\begin{align}
+\mathrm{div}\,\mathrm{curl}\,\v A & =\frac{\partial}{\partial x^{i}}(\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k})=\varepsilon^{ijk}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}A_{k}\nonumber \\
+ & =-\varepsilon^{jik}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}A_{k}=-\varepsilon^{ijk}\frac{\partial^{2}}{\partial x^{j}\partial x^{i}}A_{k}\nonumber \\
+ & =-\varepsilon^{ijk}\frac{\partial^{2}}{\partial x^{i}\partial x^{j}}A_{k}.\label{eq:zerodiv}
+\end{align}
+where we have first used the antisymmetric property of $\varepsilon^{ijk}$,
+then swapped names of indices $i$ and $j$, and finally used the
+symmetry of second derivatives to swap their order. The only way that
+relation~(\ref{eq:zerodiv}) with both $+$ and $-$ in front of
+the same term can be fulfilled, is if it is identically zero.
+
+Now we are going to show the equivalence of contravariant density
+representation to the representation of $\v B$ as a 2-form. We have
+\begin{equation}
+\v{\omega}_{B}=\frac{1}{2}B_{jk}\v dx^{j}\wedge\v dx^{k}=B_{12}\v dx^{1}\wedge\v dx^{2}+B_{23}\v dx^{2}\wedge\v dx^{3}+B_{31}\v dx^{3}\wedge\v dx^{1}.
+\end{equation}
+
+Taking a divergence of this form means to take an exterior derivative
+\begin{align}
+\v{\omega}_{D}=\v d\v{\omega}_{B} & =\frac{1}{2}\v d(B_{jk}\v dx^{j}\wedge\v dx^{k})=\frac{1}{2}\v dB_{jk}\wedge\v dx^{j}\wedge\v dx^{k}\nonumber \\
+ & =\frac{1}{2}\frac{\partial B_{jk}}{\partial x^{i}}\v dx^{i}\wedge\v dx^{j}\wedge\v dx^{k}=\frac{1}{2}\varepsilon^{ijk}\frac{\partial B_{jk}}{\partial x^{i}}\v dx^{i}\wedge\v dx^{j}\wedge\v dx^{k}\nonumber \\
+ & =\left(\frac{\partial B_{12}}{\partial x^{1}}+\frac{\partial B_{23}}{\partial x^{2}}+\frac{\partial B_{31}}{\partial x^{3}}\right)\v dx^{1}\wedge\v dx^{2}\wedge\v dx^{3}=\omega_{D}\v dx^{1}\wedge\v dx^{2}\wedge\v dx^{3}.
+\end{align}
+We see that coincides with the divergence defined above via density
+components, if we identify
+\begin{equation}
+\mathcal{D}\equiv\omega_{D},\quad\mathcal{B}^{1}\equiv B_{23},\quad\mathcal{B}^{2}\equiv B_{31},\quad\mathcal{B}^{3}\equiv B_{12}.\label{eq:div}
+\end{equation}
+This is also consistent the form $\v{\omega}_{B}$ follows from the
+curl of an 1-form $\v A$ which means
+\begin{align}
+\v{\omega}_{B} & =\v d\v A=\v d(A_{k}\v dx^{k})=\v dA_{k}\wedge\v dx^{k}=\frac{\partial A_{k}}{\partial x^{i}}\v dx^{i}\wedge\v dx^{k}\nonumber \\
+ & =\left(\frac{\partial A_{2}}{\partial x^{1}}-\frac{\partial A_{1}}{\partial x^{2}}\right)\v dx^{1}\wedge\v dx^{2}+\left(\frac{\partial A_{3}}{\partial x^{2}}-\frac{\partial A_{2}}{\partial x^{3}}\right)\v dx^{2}\wedge\v dx^{3}+\left(\frac{\partial A_{1}}{\partial x^{3}}-\frac{\partial A_{3}}{\partial x^{1}}\right)\v dx^{3}\wedge\v dx^{1}\nonumber \\
+ & =\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}\,\v dx^{j}\wedge\v dx^{k}.
+\end{align}
+We thus can again identify
+\begin{equation}
+B_{jk}=\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}=\mathcal{B}^{i}
+\end{equation}
+with density components of the vector field $\v B$ defined earlier,
+and consistent with~(\ref{eq:div}) meaning in particular
+\begin{align}
+B_{12} & =\frac{\partial A_{2}}{\partial x^{1}}-\frac{\partial A_{1}}{\partial x^{2}}=\mathcal{B}^{3},\\
+B_{23} & =\frac{\partial A_{3}}{\partial x^{2}}-\frac{\partial A_{2}}{\partial x^{3}}=\mathcal{B}^{1},\\
+B_{31} & =\frac{\partial A_{1}}{\partial x^{3}}-\frac{\partial A_{3}}{\partial x^{1}}=\mathcal{B}^{2}.
+\end{align}
+
+We can do the same using the Hodge-star operator, see \href{https://unapologetic.wordpress.com/2011/10/13/the-divergence-operator/}{https://unapologetic.wordpress.com/2011/10/13/the-divergence-operator/},
+\url{https://en.wikipedia.org/wiki/Hodge_star_operator}, \href{https://lamington.wordpress.com/2014/05/26/div-grad-curl-and-all-this/}{https://lamington.wordpress.com/2014/05/26/div-grad-curl-and-all-this/},
+\href{http://www.thp.uni-koeln.de/gravitation/courses/rcii14/fwh.pdf}{http://www.thp.uni-koeln.de/gravitation/courses/rcii14/fwh.pdf}.
+Claim: the usual divergence is
+\begin{equation}
+\nabla\cdot\v B=\star(\v d(\star(\v B^{\flat})).\label{eq:hodgestar}
+\end{equation}
+
+Take the Hodge-star operator for a $p$-form, 
+\begin{equation}
+\star\v{\omega}=\frac{\sqrt{g}}{(n-p)!p!}\varepsilon_{\alpha_{1}\dots\alpha_{p}\beta_{1}\dots\beta_{n-p}}g^{\alpha_{1}\gamma_{1}}\dots g^{\alpha_{p}\gamma_{p}}\omega_{\gamma_{1}\dots\gamma_{p}}\v dx^{\beta_{1}}\wedge\dots\wedge\v dx^{\beta_{n-p}}.
+\end{equation}
+Then we start with
+\begin{equation}
+\v B=B^{i}\frac{\partial}{\partial x^{i}}
+\end{equation}
+and represent as a 1-form
+\begin{equation}
+\v B^{\flat}=B_{k}\v dx^{k}=B^{i}g_{ik}\v dx^{k}.
+\end{equation}
+Then we apply the hodge star
+\begin{align}
+\star\v B^{\flat} & =\frac{\sqrt{g}}{2}\varepsilon_{lmn}g^{lk}B^{i}g_{ik}\v dx^{m}\wedge\v dx^{n}\nonumber \\
+ & =\frac{\sqrt{g}}{2}\varepsilon_{lmn}\delta_{i}^{l}B^{i}\v dx^{m}\wedge\v dx^{n}\nonumber \\
+ & =\frac{1}{2}\varepsilon_{lmn}\mathcal{B}^{l}\,\v dx^{m}\wedge\v dx^{n}\nonumber \\
+ & =\mathcal{B}^{1}\,\v dx^{2}\wedge\v dx^{3}+\mathcal{B}^{2}\,\v dx^{3}\wedge\v dx^{1}+\mathcal{B}^{3}\,\v dx^{1}\wedge\v dx^{2}=\v{\omega}_{B}.
+\end{align}
+Here the metric and the inverse metric could be cancelled to a $\delta$
+via contraction. Then we apply an exterior derivative, and finally
+taking another hodge $\star$ yields a scalar field instead of a density
+in (\ref{eq:hodgestar}). The same works for the curl (see \href{https://en.wikipedia.org/wiki/Curl_\%28mathematics\%29}{https://en.wikipedia.org/wiki/Curl\_(mathematics)}
+) with
+\begin{equation}
+\nabla\times\v B=(\star(\v d(\v B^{\flat})))^{\sharp}.
+\end{equation}
+
+\pagebreak{}
+
+\part{Draft}
+
+\section{Kinetic theory in spacetime}
+\begin{itemize}
+\item Spatial density 
+\begin{equation}
+f(t,\zset)=\frac{1}{NV}\sum_{n}\int_{V}\d^{3}x\,\delta(\zset-\zset_{(n)}(t))
+\end{equation}
+ becomes ``event density'' 
+\begin{equation}
+f(t,\zset)=\frac{1}{NV}\int\d^{3}x\,\d t\,\delta(\zset-\zset_{(n)}(s))\delta(t-t_{(n)}(s))
+\end{equation}
+that looks formally the same, but allows for multiple ``times''
+for each particle.
+\item Particles interact via fields evaluated at $F(t_{(n)},\xset_{(n)})$
+and depending on the overall configuration.
+\item Collision operators can separate short-scale and long-scale interaction
+by averaging.
+\end{itemize}
+
+\section{Mechanics}
+
+To specify motion of our mechanical system we introduce a $4$-dimensional
+spacetime manifold $Q$ with coordinates $\yset=(x^{0}\equiv t,x^{1},x^{2},x^{3})$.
+Based on this we define a $4N$-dimensional configuration manifold
+$Q$ with coordinates $\qset=(x_{(n)}^{0}\equiv t_{(n)},x_{(n)}^{1},x_{(n)}^{2},x_{(n)}^{3})$,
+meaning ``particle $k$ was at position $x_{(n)}^{1},x_{(n)}^{2},x_{(n)}^{3}$
+at time $t_{(n)}$''. The phase-spacetime manifold $M$ follows as
+the $8N$-dimensional cotangent bundle $T^{\star}Q$ of $Q$. According
+$4N$ canonical momentum coordinates are $\pset=(p_{0,\,(n)},p_{1,\,(n)},p_{2,\,(n)},p_{3,\,(n)})$.
+\begin{equation}
+S[\gamma]=\int_{\gamma}\Theta_{L}.\label{eq:S}
+\end{equation}
+
+
+\section{Conservation laws}
+\begin{itemize}
+\item Partial differential equations
+\begin{equation}
+\frac{\partial f}{\partial t}+\nabla_{z}f=s_{f}.
+\end{equation}
+Write this as
+\begin{equation}
+\partial_{\alpha}f=s_{f}
+\end{equation}
+with $\alpha=0\dots N$.
+\item Ordinary differential equations
+\begin{equation}
+\frac{\d z^{i}}{\d t}=\Lambda^{ik}\partial_{k}H.
+\end{equation}
+Extended phase-space:
+\begin{align*}
+\frac{\d z^{0}}{\d s} & =\partial_{s}\\
+\frac{\d p_{0}}{\d s} & =-\partial_{s}\mathcal{H}
+\end{align*}
+\item Eulerian
+\begin{equation}
+\frac{\partial a}{\partial t}+\nabla\cdot\Gamma_{a}=s_{a}.
+\end{equation}
+\item Lagrangian
+\begin{equation}
+\frac{Da}{Dt}=s_{a}.
+\end{equation}
+\end{itemize}
+
+\section{Basics}
+\begin{itemize}
+\item What is the use of differential forms?
+\begin{itemize}
+\item We can write even more stuff coordinate-independent than with usual
+co-contravariant notation.
+\item The geometric structure of equations and how conservation laws follow
+become apparent.
+\item Discrete version tells us how to do numerics the ``right'' way.
+\item A prime example are Maxwell's equations.
+\end{itemize}
+\item What is a vector?
+\begin{itemize}
+\item It points along a curve as a tangent.
+\end{itemize}
+\item What can we do with a vector?
+\begin{itemize}
+\item We can differentiate along its direction.
+\end{itemize}
+\item What is a covector (1-form)?
+\begin{itemize}
+\item A map that yields a scalar to each vector.
+\item A quantity associated with a surface.
+\end{itemize}
+\item What can we do with a covector?
+\begin{itemize}
+\item Apply it to a vector. 
+\item This yields a scalar product i.e. the angle between the tangent vector
+and the surface normal.
+\end{itemize}
+\item What is the metric?
+\begin{itemize}
+\item It defines how lengths and distances work.
+\end{itemize}
+\item How can we use the metric?
+\begin{itemize}
+\item Get the covector to a vector that yields scalar product 1.
+\item i.e. the plane whose normal vector coincides with a given vector.
+\end{itemize}
+\item What is an inner product?
+\begin{itemize}
+\item Apply $p$-form to vector and get a $p-1$-form.
+\item But wait, didn't you say that a $p$-form acts on $p$ vectors?
+\item Yes, we define our $p-1$-form such that it gives the same scalar
+as the $p$-form when the vector is inserted at the first position.
+\item Examples:
+\begin{itemize}
+\item $\v E\cdot\vec{v}=i_{v}\v E$
+\item $\vec{v}\times\v B=i_{v}\v B$
+\item $\rho\vec{v}=i_{v}\rho$
+\end{itemize}
+\end{itemize}
+\item What is a Hodge operator?
+\begin{itemize}
+\item Associates a $n-p$-form to a $p$-form.
+\end{itemize}
+\end{itemize}
+
+\section{How to do a Fourier expansion in curvilinear coordinates?}
+
+\subsection{Simple cases}
+
+In Cartesian coordinates the basis $\v e_{x},\v e_{y},\v e_{z}$ doesn't
+depend on the coordinates and is orthonormal. Thus, physical, co-
+and contravariant components of vector fields become one, and we can
+write any vector field $\v B$ as a Fourier series in either up to
+all coordinates, i.e.
+\begin{align}
+\v B & =B^{x}(x,y,z)\v e_{x}+B^{y}(x,y,z)\v e_{y}+B^{z}(x,y,z)\v e_{z}\\
+ & =\sum_{k=-\infty}^{\infty}\left(B_{k}^{x}(x,y)\v e_{x}+B_{k}^{y}(x,y)\v e_{y}+B_{k}^{z}(x,y)\v e_{z}\right)e^{ikz}\\
+ & =\sum_{\v k}(B_{\v k}^{x}\v e_{x}+B_{\v k}^{y}\v e_{y}+B_{\v k}^{z}\v e_{z})e^{i\v k\cdot\v x},
+\end{align}
+where also in the latter $\v k=(k_{x},k_{y},k_{z})$ all three indexes
+run from $-\infty$ to $\infty$.
+
+\subsection{General co- and contravariant case}
+
+In any curvilinear coordinates $\v x=(x^{1},x^{2},x^{3})$ we can
+write a Fourier series for a vector in contravariant components with
+\begin{align*}
+\v B & =B^{1}(\v x)\v e_{1}(\v x)+B^{2}(\v x)\v e_{2}(\v x)+B^{3}(\v x)\v e_{3}\\
+ & =\sum_{n=-\infty}^{\infty}\left(B_{n}^{1}(x^{1},x^{2})\v e_{1}(\v x)+B_{n}^{2}(x^{1},x^{2})\v e_{2}(\v x)+B_{n}^{3}(x^{1},x^{2})\v e_{3}(\v x)\right)e^{inx^{3}}
+\end{align*}
+or for a vector $\v A$ in covariant components with
+\begin{align*}
+\v A & =A_{1}(\v x)\nabla x^{1}(\v x)+A_{2}(\v x)\nabla x^{2}(\v x)+A_{3}(\v x)\nabla x^{3}(\v x)\\
+ & =\sum_{n=-\infty}^{\infty}\left(A_{1n}(x^{1},x^{2})\nabla x^{1}(\v x)+A_{2n}(x^{1},x^{2})\nabla x^{2}(\v x)+A_{3n}(x^{1},x^{2})\nabla x^{3}(\v x)\right)e^{inx^{3}}.
+\end{align*}
+Here we intentionally keep the full dependency on all coordinates
+in the basis vectors $\v e_{k}$ and $\v e^{k}=\nabla x^{k}$ and
+apply the Fourier expansion only on vector components. It makes a
+difference whether one expands in co- or contravariant components.
+E.g. a vector potential $\v A$ is naturally given in covariant form
+such that its curl can be nicely separated in Fourier form (try it).
 \end{document}
