@@ -1700,33 +1700,9 @@ Local basis
 \end_inset
 
  for 2-forms.
- While vectors can be interpreted as arrows 
-\emph on
-along
-\emph default
- a curve, covectors appear as fluxes 
-\emph on
-across
-\emph default
- a level hypersurface 
-\begin_inset Formula $\ph=\mathrm{const}$
-\end_inset
-
- in direction of the gradient of 
-\begin_inset Formula $\ph(X)$
-\end_inset
-
-.
- In 
-\begin_inset Formula $2D$
-\end_inset
-
-, hypersurface coincide with curves, and the 2-form provides the area as
- a 
-\begin_inset Formula $2D$
-\end_inset
-
- volume element.
+ While a vector can be interpreted as an arrow originating at a point, covectors
+ appear as rates of change on lines connecting two points.
+ A 2-form describes a flux through a 2D cell bounded by line elements.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -3503,7 +3479,7 @@ This is also consistent the form
 \begin{align}
 \v{\omega}_{B} & =\v d\v A=\v d(A_{k}\v dx^{k})=\v dA_{k}\wedge\v dx^{k}=\frac{\partial A_{k}}{\partial x^{i}}\v dx^{i}\wedge\v dx^{k}\nonumber \\
  & =\left(\frac{\partial A_{2}}{\partial x^{1}}-\frac{\partial A_{1}}{\partial x^{2}}\right)\v dx^{1}\wedge\v dx^{2}+\left(\frac{\partial A_{3}}{\partial x^{2}}-\frac{\partial A_{2}}{\partial x^{3}}\right)\v dx^{2}\wedge\v dx^{3}+\left(\frac{\partial A_{1}}{\partial x^{3}}-\frac{\partial A_{3}}{\partial x^{1}}\right)\v dx^{3}\wedge\v dx^{1}\nonumber \\
- & =\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}\,\v dx^{j}\wedge\v dx^{k}.
+ & =\frac{\partial}{\partial x^{j}}A_{k}\,\v dx^{j}\wedge\v dx^{k}.
 \end{align}
 
 \end_inset
@@ -3511,7 +3487,7 @@ This is also consistent the form
 We thus can again identify
 \begin_inset Formula 
 \begin{equation}
-B_{jk}=\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}=\mathcal{B}^{i}
+\varepsilon^{ijk}B_{jk}=\varepsilon^{ijk}\frac{\partial}{\partial x^{j}}A_{k}=\mathcal{B}^{i}
 \end{equation}
 
 \end_inset

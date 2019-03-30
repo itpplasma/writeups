@@ -16,10 +16,9 @@
 %  <line x1="43.5" y1="76.5" x2="33.08" y2="79.29" arr1="h40" arrs="0.8" lc="black"/>
 %  <line x1="26.1475" y1="82.6353" x2="26.3526" y2="81.1047" arrs="0.8" lc="black" fill="black"/>
 %  <line x1="26.998" y1="82.0616" x2="25.502" y2="81.6784" arrs="0.8" lc="black" fill="black"/>
-%  <polygon lc="black" fill="black">49.3827,81.0437 48.777,82.9083 50.0121,82.2789</polygon>
 %  <text x="19" y="83" t="d/" tex="$\frac{\boldsymbol{\partial}}{\boldsymbol{\partial}\varphi}$" h="4" lc="black" fill="black"/>
 %  <text x="52.5" y="74" t="dp" tex="$\boldsymbol{d}\varphi$" h="3" lc="black" fill="black"/>
-%  <polygon lc="black" fill="black">50.0448,73.7088 49.975,75.7076 51.0092,74.7432</polygon>
+%  <polygon lc="black" fill="black">53.2098,77.5943 52.9,79.5501 54.0327,78.7272</polygon>
 %  <line x1="35" y1="76" x2="26.2" y2="81.8" arr1="h40" arrs="0.8" lc="black"/>
 %  <line x1="32.6719" y1="80.0141" x2="33.3882" y2="78.6459" arrs="0.8" lc="black" fill="black"/>
 %  <line x1="33.6674" y1="79.7659" x2="32.3927" y2="78.8941" arrs="0.8" lc="black" fill="black"/>
@@ -30,14 +29,14 @@
 %  <line x1="62.1" y1="66.6" x2="58.6" y2="72.3" arrs="0.8" lc="gray"/>
 %  <line x1="60.7" y1="66" x2="58" y2="70.5" arrs="0.8" lc="gray"/>
 %  <line x1="59.2" y1="65.7" x2="57.7" y2="68.2" arrs="0.8" lc="gray"/>
-%  <polygon lc="black" fill="black">59.5312,65.6206 61.4718,66.1044 60.7435,64.8924</polygon>
+%  <polygon lc="black" fill="black">60.3793,65.0481 59.8955,66.9887 61.1075,66.2604</polygon>
 %  <curve arrs="0.8" lc="black">56.8,65.2 60.3,66 63.5,67</curve>
-%  <polygon lc="black" fill="black">64.1874,69.2951 64.6713,71.2358 65.3995,70.0237</polygon>
+%  <polygon lc="black" fill="black">65.2263,69.329 63.3036,69.8803 64.5404,70.5658</polygon>
 %  <circle x="45" y="75" d="40"/>
 %  <curve arrs="0.8" lc="black">58,72.2 61.8,73.1 65,74</curve>
 %  <curve arrs="0.8" lc="black">56.9,65.2 57.7,68.5 58,72.2</curve>
-%  <polygon lc="black" fill="black">60.5312,72.6206 62.4718,73.1044 61.7435,71.8924</polygon>
-%  <polygon lc="black" fill="black">57.7905,68.2343 58.0689,70.2149 58.9198,69.0856</polygon>
+%  <polygon lc="black" fill="black">61.6917,74.0567 62.039,72.0871 60.8808,72.8982</polygon>
+%  <polygon lc="black" fill="black">56.8448,69.3492 58.8254,69.0708 57.6961,68.2199</polygon>
 %  <curve lc="black">45,93 50,72 46.5,55</curve>
 %</TpX>
 \centering
@@ -67,11 +66,10 @@
 \path[line width=0.30mm, draw=L, fill=F] (43.50,76.50) -- (41.48,77.62) -- (43.50,76.50) -- (41.19,76.54) -- (43.50,76.50) -- cycle;
 \path[line width=0.30mm, draw=L] (26.15,82.64) -- (26.35,81.10);
 \path[line width=0.30mm, draw=L] (27.00,82.06) -- (25.50,81.68);
-\path[line width=0.30mm, draw=L, fill=F] (49.38,81.04) -- (48.78,82.91) -- (50.01,82.28) -- cycle;
 \definecolor{T}{rgb}{0,0,0}
 \draw[T] (19.00,83.00) node[anchor=base west]{\fontsize{11.38}{13.66}\selectfont \textcolor[rgb]{0, 0, 0}{$\frac{\boldsymbol{\partial}}{\boldsymbol{\partial}\varphi}$}};
 \draw[T] (52.50,74.00) node[anchor=base west]{\fontsize{8.54}{10.24}\selectfont \textcolor[rgb]{0, 0, 0}{$\boldsymbol{d}\varphi$}};
-\path[line width=0.30mm, draw=L, fill=F] (50.04,73.71) -- (49.98,75.71) -- (51.01,74.74) -- cycle;
+\path[line width=0.30mm, draw=L, fill=F] (53.21,77.59) -- (52.90,79.55) -- (54.03,78.73) -- cycle;
 \path[line width=0.30mm, draw=L] (35.00,76.00) -- (26.20,81.80);
 \path[line width=0.30mm, draw=L, fill=F] (35.00,76.00) -- (33.44,77.70) -- (35.00,76.00) -- (32.82,76.77) -- (35.00,76.00) -- cycle;
 \path[line width=0.30mm, draw=L] (32.67,80.01) -- (33.39,78.65);
@@ -85,14 +83,14 @@
 \path[line width=0.30mm, draw=L] (60.70,66.00) -- (58.00,70.50);
 \path[line width=0.30mm, draw=L] (59.20,65.70) -- (57.70,68.20);
 \definecolor{L}{rgb}{0,0,0}
-\path[line width=0.30mm, draw=L, fill=F] (59.53,65.62) -- (61.47,66.10) -- (60.74,64.89) -- cycle;
+\path[line width=0.30mm, draw=L, fill=F] (60.38,65.05) -- (59.90,66.99) -- (61.11,66.26) -- cycle;
 \path[line width=0.30mm, draw=L] (56.80,65.20) .. controls (57.98,65.42) and (59.14,65.69) .. (60.30,66.00) .. controls (61.38,66.29) and (62.45,66.63) .. (63.50,67.00);
-\path[line width=0.30mm, draw=L, fill=F] (64.19,69.30) -- (64.67,71.24) -- (65.40,70.02) -- cycle;
+\path[line width=0.30mm, draw=L, fill=F] (65.23,69.33) -- (63.30,69.88) -- (64.54,70.57) -- cycle;
 \path[line width=0.30mm, draw=L] (45.00,75.00) circle (20.00mm);
 \path[line width=0.30mm, draw=L] (58.00,72.20) .. controls (59.27,72.47) and (60.54,72.77) .. (61.80,73.10) .. controls (62.87,73.38) and (63.94,73.68) .. (65.00,74.00);
 \path[line width=0.30mm, draw=L] (56.90,65.20) .. controls (57.25,66.28) and (57.52,67.38) .. (57.70,68.50) .. controls (57.90,69.72) and (58.00,70.96) .. (58.00,72.20);
-\path[line width=0.30mm, draw=L, fill=F] (60.53,72.62) -- (62.47,73.10) -- (61.74,71.89) -- cycle;
-\path[line width=0.30mm, draw=L, fill=F] (57.79,68.23) -- (58.07,70.21) -- (58.92,69.09) -- cycle;
+\path[line width=0.30mm, draw=L, fill=F] (61.69,74.06) -- (62.04,72.09) -- (60.88,72.90) -- cycle;
+\path[line width=0.30mm, draw=L, fill=F] (56.84,69.35) -- (58.83,69.07) -- (57.70,68.22) -- cycle;
 \path[line width=0.30mm, draw=L] (45.00,93.00) .. controls (48.35,86.51) and (50.06,79.30) .. (50.00,72.00) .. controls (49.95,66.16) and (48.76,60.38) .. (46.50,55.00);
 \end{tikzpicture}%
 \end{document}%
