@@ -727,7 +727,11 @@ electromagnetic
 \end_inset
 
  is the Poynting vector.
- The momentum flux consists of a fluid part
+ The momentum flux 
+\begin_inset Formula $\boldsymbol{\Gamma}_{\v p}$
+\end_inset
+
+ consists of a fluid part
 \begin_inset Foot
 status open
 
@@ -787,7 +791,7 @@ Kinematic fluid momentum law
 
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial\v p^{\mathrm{fl}}(\v r,t)}{\partial t}+\nabla\cdot(\v v(\v r,t)\v p^{\mathrm{fl}}(\v r,t))=-\nabla p(\v r,t)+q\nabla\Phi(\v r,t).
+\frac{\partial\v p^{\mathrm{fl}}(\v r,t)}{\partial t}+\nabla\cdot(\v v(\v r,t)\v p^{\mathrm{fl}}(\v r,t))=-\nabla p(\v r,t)+q\left(\v E(\v r,t)+\v v(\v r,t)\times\v B(\v r,t)\right).
 \end{equation}
 
 \end_inset
@@ -821,8 +825,7 @@ Now we can further modify this using mass continuity by using a rule from
  as
 \begin_inset Formula 
 \begin{align}
-\nabla\cdot\boldsymbol{\Gamma}_{\v p}^{\mathrm{fl}}=\nabla\cdot(\v v\v p^{\mathrm{fl}}) & =\v p^{\mathrm{fl}}(\nabla\cdot\v v)+(\v v\cdot\nabla)\v p^{\mathrm{fl}}.\\
- & =\rho_{m}\boldsymbol{v}
+\nabla\cdot\boldsymbol{\Gamma}_{\v p}^{\mathrm{fl}}=\nabla\cdot(\v v\v p^{\mathrm{fl}}) & =\v p^{\mathrm{fl}}(\nabla\cdot\v v)+(\v v\cdot\nabla)\v p^{\mathrm{fl}}.
 \end{align}
 
 \end_inset
@@ -1620,31 +1623,15 @@ goal
  is to solve
 \begin_inset Formula 
 \begin{align}
-m\ddot{\v r} & =\frac{e}{c}\dot{\v r}\times\v B+e\v E.\label{eq:Lorentz}
+m\ddot{\v r}(t) & =\frac{e}{c}\dot{\v r}(t)\times\v B+e\v E.\label{eq:Lorentz}
 \end{align}
 
 \end_inset
 
-or written in terms of a 
-\emph on
-linear
-\emph default
- 
-\begin_inset Quotes eld
-\end_inset
-
-Lorentz
-\begin_inset Quotes erd
-\end_inset
-
- operator for homogeneous 
-\begin_inset Formula $\v B$
-\end_inset
-
- field:
+or written in terms of a differential operator describing Lorentz force:
 \begin_inset Formula 
 \begin{equation}
-\hat{L}\v r\equiv\left(\frac{\d^{2}}{\d t^{2}}+\frac{e\v B}{mc}\frac{\d}{\d t}\times\right)\v r=\frac{e}{m}\v E\label{eq:LorentzOperator}
+\hat{L}\v r\equiv\left(\frac{\d^{2}}{\d t^{2}}+\left(\text{\frac{e\v B}{mc}\frac{\d}{\d t}}\right)\times\right)\v r(t)=\frac{e}{m}\v E\label{eq:LorentzOperator}
 \end{equation}
 
 \end_inset
@@ -1753,8 +1740,20 @@ reference "eq:LorentzOperator"
 
 \end_inset
 
- is linear, so the overall solution can be described as a linear superposition
- of two solutions.
+ is 
+\emph on
+linear
+\emph default
+ in 
+\series bold
+
+\begin_inset Formula $\v r(t)$
+\end_inset
+
+
+\series default
+, so the overall solution can be described as a linear superposition of
+ two solutions.
 \end_layout
 
 \begin_layout Standard
@@ -1811,7 +1810,7 @@ This way, the gyromotion in
  is only affected by the magnetic, but not the electric field.
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsubsection*
 Solution for gyration
 \end_layout
 
@@ -2173,6 +2172,13 @@ homogeneous
 
 \begin_layout Subsection*
 3.4 Motion in weakly inhomogeneous fields
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Inhomo"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -2386,7 +2392,11 @@ This is the ring current over one gyration period and
 \begin_inset Formula $E_{\parallel}=\v b\cdot\v E$
 \end_inset
 
- it is approximately conserved – an 
+ then 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is approximately conserved – an 
 \series bold
 adiabatic invariant
 \series default
@@ -2579,8 +2589,8 @@ dynamic
  are
 \begin_inset Formula 
 \begin{align}
-\hat{\v{\rho}}(\v R,\phi) & =\sin(\phi)\,\hat{\v e}_{1}(\v R)+\cos(\phi)\,\hat{\v e}_{2}(\v R),\\
-\hat{\v n}(\v R,\phi) & =\hat{\v{\rho}}(\v R,\phi)\times\hat{\v b}(\v R)=\cos(\phi)\,\hat{\v e}_{1}(\v R)-\sin(\phi)\,\hat{\v e}_{2}(\v R)=\frac{\partial\hat{\v{\rho}}(\v R,\phi)}{\partial\phi}.
+\hat{\v{\rho}}(\v R,\phi) & =\cos(\phi)\,\hat{\v e}_{1}(\v R)-\sin(\phi)\,\hat{\v e}_{2}(\v R)=-\frac{\partial\hat{\v n}(\v R,\phi)}{\partial\phi},\\
+\hat{\v n}(\v R,\phi) & =\hat{\v{\rho}}(\v R,\phi)\times\hat{\v b}(\v R)=-\sin(\phi)\,\hat{\v e}_{1}(\v R)-\cos(\phi)\,\hat{\v e}_{2}(\v R)=\frac{\partial\hat{\v{\rho}}(\v R,\phi)}{\partial\phi}.
 \end{align}
 
 \end_inset
@@ -2616,10 +2626,22 @@ reference "eq:vz"
 \end_inset
 
  and 
-\begin_inset Formula $(\hat{\v{\rho}},\hat{\v n},\hat{\v b})$
+\begin_inset Formula $(\hat{\v n},\hat{\v{\rho}},\hat{\v b})$
 \end_inset
 
- form an orthonormal basis, where the latter depend on 
+ form an orthonormal basis, where 
+\begin_inset Formula $\hat{\v e}_{1},\hat{\v e}_{2}$
+\end_inset
+
+ depend only on 
+\begin_inset Formula $\boldsymbol{R}$
+\end_inset
+
+, but 
+\begin_inset Formula $\hat{\v n},\hat{\v{\rho}}$
+\end_inset
+
+ also on 
 \begin_inset Formula $\phi$
 \end_inset
 
@@ -2643,9 +2665,8 @@ reference "eq:vz"
 
 -field those variables are equal to gyrophase, parallel and perpendicular
  velocity of the particle.
- If the field becomes inhomogeneous, they approximate the particle values
- such that their gyro-averages match closely for weak inhomogenity within
- the space a particle transverses within one gyration.
+ If the field becomes weakly inhomogeneous, they still approximate the particle
+ values averaged over one gyro-period.
  Similarly, 
 \begin_inset Formula $\v R$
 \end_inset
@@ -2664,12 +2685,23 @@ reference "eq:vz"
 \begin_inset Formula $\v R$
 \end_inset
 
- rather than 
+ rather than the particle position 
 \begin_inset Formula $\v R+\v{\rho}$
 \end_inset
 
 .
- In contrast to the earlier treatment, all variables in 
+ In contrast to the treatment in section
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Inhomo"
+
+\end_inset
+
+, all variables in 
 \begin_inset Formula $\v z=(\v R,\phi,v_{\parallel},v_{\perp})$
 \end_inset
 
@@ -2776,17 +2808,10 @@ dynamics
 \emph default
  of motion in guiding-center variables.
  As in the previous chapter we use a Taylor expansion which we break at
- the first order, but which can also be performed to higher order.
- We use
-\begin_inset Formula 
-\begin{align}
-\v A(\v r) & =\v A(\v R)+\v{\rho}\cdot\nabla\v A(\v R)+\mathcal{O}(\rho_{c}^{2}),\\
-\Phi(\v r) & =\Phi(\v R)+\v{\rho}\cdot\nabla\Phi(\v R)+\mathcal{O}(\rho_{c}^{2}).
-\end{align}
-
-\end_inset
-
-Here the small parameter compared to typical length scales is the gyroradius
+ the first order.
+ For higher order computations, Lie transform methods are better suited
+ (see Littlejohn, 1983).
+ Here the small parameter compared to typical length scales is the gyroradius
 \begin_inset Formula 
 \begin{equation}
 \rho_{c}=|\v{\rho}|=\frac{mcv_{\perp}}{eB(\v R)}\sim\varepsilon.
@@ -2797,14 +2822,14 @@ Here the small parameter compared to typical length scales is the gyroradius
 Furthermore we define the cyclotron frequency at the guiding-center position
 \begin_inset Formula 
 \begin{equation}
-\omega_{c}=\frac{eB(\v R)}{mc}\sim\varepsilon^{-1}
+\omega_{c}=\frac{eB(\v R)}{mc}\sim\varepsilon^{-1},
 \end{equation}
 
 \end_inset
 
 as a large parameter compared to typical time scales.
  This corresponds to the physical conditions where the guiding-center approximat
-ion is applicable and leaves the perpendicular velocity 
+ion is applicable, leaves the perpendicular velocity 
 \begin_inset Formula $v_{\perp}$
 \end_inset
 
@@ -2813,15 +2838,76 @@ ion is applicable and leaves the perpendicular velocity
 \end_inset
 
  and thus prevents it from being swallowed by a perturbation expansion.
- 
+ The parameter 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ is called an ordering parameter that allows us to collect terms of similar
+ magnitude.
+ Vector and scalar fields are expanded in the following way,
+\begin_inset Formula 
+\begin{align}
+\v A(\v r) & =\v A(\v R)+\varepsilon\v{\rho}\cdot\nabla\v A(\v R)+\mathcal{O}(\varepsilon^{2}),\\
+\Phi(\v r) & =\Phi(\v R)+\varepsilon\v{\rho}\cdot\nabla\Phi(\v R)+\mathcal{O}(\varepsilon^{2}),
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ acts as a marker for intermediate calculations and is set to one only in
+ the final result after neglecting all terms of order 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ or higher.
+ We mark each small quantity with an 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ in Eq.
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:Lag1-1-1-1"
+
+\end_inset
+
+ to obtain
+\begin_inset Formula 
+\begin{equation}
+L(\v R,\dot{\v R},\phi,\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\varepsilon^{-1}\frac{e}{c}\v A(\v R+\varepsilon\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}})-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R+\varepsilon\v{\rho})\right).\label{eq:Lag1-1-1-1-1}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-We further use the chain rule for
+We cannot simply write 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ in front of 
+\begin_inset Formula $\dot{\boldsymbol{\rho}}$
+\end_inset
+
+ just because the magnitude of 
+\begin_inset Formula $\v{\rho}$
+\end_inset
+
+ is small, since gyration is fast.
+ This becomes apparent by using the chain rule,
 \begin_inset Formula 
 \begin{align}
 \dot{\v{\rho}} & =\frac{\d}{\d t}\v{\rho}(\v R,\phi,v_{\perp})=\dot{\v R}\cdot\nabla\v{\rho}+\dot{\phi}\frac{\partial\v{\rho}}{\partial\phi}+\dot{v}_{\perp}\frac{\partial\v{\rho}}{\partial v_{\perp}}\nonumber \\
- & =\dot{\v R}\cdot\nabla\v{\rho}+\dot{\phi}\rho_{c}\hat{\v n}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}=\dot{\phi}\rho_{c}\hat{\v n}+\varepsilon(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}).
+ & =\varepsilon\dot{\v R}\cdot\nabla\v{\rho}+\varepsilon^{-1}\dot{\phi}\varepsilon\rho_{c}\hat{\v n}+\varepsilon\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}=\dot{\phi}\rho_{c}\hat{\v n}+\varepsilon(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}).
 \end{align}
 
 \end_inset
@@ -2847,21 +2933,34 @@ Here in the first term the fast gyration
 \end_inset
 
  doesn't change too fast due to strongly inhomogeneous fields.
- Now we look at the bracket up to order 
+ Now we look at the first term in
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Lag1-1-1-1-1"
+
+\end_inset
+
+ up to order 
 \begin_inset Formula $\varepsilon^{0}$
 \end_inset
 
 ,
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\frac{e}{c}\v A(\v R+\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}}) & =m\left(v_{\parallel}\hat{\v b}+v_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot\dot{\v R}\nonumber \\
- & +m\left(\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot(\dot{\phi}\rho_{c}\hat{\v n})+v_{\perp}\dot{\phi}\rho_{c}\nonumber \\
- & +\frac{e}{mc}\v A\cdot(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho})+\mathcal{O}(\varepsilon).
+\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\varepsilon^{-1}\frac{e}{c}\v A(\v R+\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}}) & =\left(mv_{\parallel}\hat{\v b}+mv_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{c}\v A+\frac{e}{c}\v{\rho}\cdot\nabla\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +mv_{\perp}\dot{\phi}\rho_{c}+\varepsilon^{-1}\frac{e}{c}\v A\cdot\dot{\v{\rho}}+\frac{e}{c}(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}+\mathcal{O}(\varepsilon).
 \end{align}
 
 \end_inset
 
-In the second line, the term with 
+Here the term with 
 \begin_inset Formula $\hat{\v b}\cdot\hat{\v n}$
 \end_inset
 
@@ -2869,37 +2968,67 @@ In the second line, the term with
 \begin_inset Formula $\hat{\v n}\cdot\hat{\v n}=1$
 \end_inset
 
-.
+ to obtain the first term in the second line.
  Now we use the fact that we can add/subtract an arbitrary total time derivative
  to the Lagrangian without changing its dynamics.
- For this we take
+ We will use this trick two times in a row.
+\end_layout
+
+\begin_layout Standard
+First we take
 \begin_inset Formula 
 \begin{align}
 \frac{\d}{\d t}(\v{\rho}\cdot\v A(\v R)) & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot\dot{\v A}\nonumber \\
- & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A).
+ & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A).\label{eq:dt}
 \end{align}
 
 \end_inset
 
 This we can combine with the term 
-\begin_inset Formula $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}=\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)$
+\begin_inset Formula $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}=\v{\rho}\cdot((\nabla\v A)\cdot\dot{\v R})$
 \end_inset
 
- via
+ via tensor algebra rule 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:eq3"
+
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+(\nabla\v A)\cdot\dot{\v R}-\dot{\v R}\cdot\nabla\v A=\dot{\v R}\times(\nabla\times\v A)=\dot{\v R}\times\boldsymbol{B}.\label{eq:eq3-1}
+\end{equation}
+
+\end_inset
+
+So 
 \begin_inset Formula 
 \begin{align}
-\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)-\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A) & =\dot{R}_{k}\rho_{i}\partial_{i}A_{k}-\rho_{k}\dot{R}_{i}\partial_{i}A_{k}\nonumber \\
- & =\dot{R}_{l}\rho_{m}(\delta_{lk}\delta_{mi}-\delta_{li}\delta_{mk})\partial_{i}A_{k}\nonumber \\
- & =\dot{R}_{l}\rho_{m}\varepsilon_{lmk}\varepsilon_{ijk}\partial_{i}A_{k}\nonumber \\
- & =(\dot{\v R}\times\v{\rho})(\nabla\times\v A)=(\dot{\v R}\times\v{\rho})\v B.
+(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}-\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A) & =\v{\rho}\cdot(\dot{\v R}\times\v B).
 \end{align}
 
 \end_inset
 
-Thus we write
+and together with
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:dt"
+
+\end_inset
+
+ we obtain
 \begin_inset Formula 
 \begin{equation}
-\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)=(\dot{\v R}\times\v{\rho})\v B+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A)=(\dot{\v R}\times\v{\rho})\v B+\frac{\d}{\d t}(\v{\rho}\cdot\v A)-\dot{\v{\rho}}\cdot\v A.
+(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}=\v{\rho}\cdot(\dot{\v R}\times\v B+\dot{\v R}\cdot\nabla\v A)=\v{\rho}\cdot(\dot{\v R}\times\v B)+\frac{\d}{\d t}(\v{\rho}\cdot\v A)-\dot{\v{\rho}}\cdot\v A.
 \end{equation}
 
 \end_inset
@@ -2908,13 +3037,18 @@ Inserting everything into
 \begin_inset Formula $L$
 \end_inset
 
- means
+ cancels the term 
+\begin_inset Formula $\v A\cdot\dot{\v{\rho}}$
+\end_inset
+
+ and we obtain
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align}
-L-\frac{\d}{\d t}(\v{\rho}\cdot\v A)+\mathcal{O}(\varepsilon) & =m\left(v_{\parallel}\hat{\v b}+v_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{mc}\v A\right)\cdot\dot{\v R}\nonumber \\
- & +m\left(\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot(\dot{\phi}\rho_{c}\hat{\v n})+v_{\perp}\dot{\phi}\rho_{c}\nonumber \\
- & +\frac{e}{mc}\v A\cdot(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho})\nonumber \\
- & +\frac{e}{c}(\dot{\v R}\times\v{\rho})\v B-\dot{\v{\rho}}\cdot\v A\nonumber \\
+L-\frac{e}{c}\frac{\d}{\d t}(\v{\rho}\cdot\v A)+\mathcal{O}(\varepsilon) & =\left(mv_{\parallel}\hat{\v b}+mv_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{c}\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +\frac{e}{c}\v{\rho}\cdot(\dot{\v R}\times\v B)+mv_{\perp}\dot{\phi}\rho_{c}+\frac{e}{c}(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}\nonumber \\
  & -\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi\right),
 \end{align}
 
@@ -2937,23 +3071,11 @@ where
 \end_inset
 
 .
- When taking an gyro-average over 
-\begin_inset Formula $\phi$
-\end_inset
-
- via
-\begin_inset Formula 
-\[
-\left\langle f\right\rangle (\v R,v_{\parallel},v_{\perp})\equiv\int_{0}^{2\pi}f(\v R,\phi,v_{\parallel},v_{\perp})\d\phi
-\]
-
-\end_inset
-
- of this expression a lot of terms will cancel out.
- Namely, 
+ Two terms cancel since by rotating the triple-product and extracting basis
+ vectors,
 \begin_inset Formula 
 \begin{equation}
-\left\langle \hat{\v n}\right\rangle =\left\langle \hat{\v{\rho}}\right\rangle =0,\quad\left\langle \dot{\v{\rho}}\cdot\v W(\v R)\right\rangle =\mathcal{O}(\varepsilon),\quad\left\langle \frac{\dot{v}_{\perp}}{v_{\perp}}\right\rangle =\mathcal{O}(\varepsilon).
+\frac{e}{c}\v{\rho}\cdot(\dot{\v R}\times\v B)=\frac{e}{c}\rho_{c}B\dot{\boldsymbol{R}}\cdot(\hat{\v b}\times\hat{\v{\rho}})=-mv_{\perp}\dot{\boldsymbol{R}}\cdot\hat{\v n}.
 \end{equation}
 
 \end_inset
@@ -2962,18 +3084,97 @@ where
 \end_layout
 
 \begin_layout Standard
-To leading order in 
+To eliminate the term 
+\begin_inset Formula $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}=\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}$
+\end_inset
+
+ we use another total time derivative (see also review paper of Cary and
+ Brizard, 2009),
+\begin_inset Formula 
+\begin{align}
+\frac{1}{2}\frac{\d}{\d t}\left(\varepsilon\v{\rho}\cdot\varepsilon^{-1}\frac{e}{c}\nabla\v A\cdot\varepsilon\v{\rho}\right) & =\frac{1}{2}\left(\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}+\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}\right)\nonumber \\
+ & +\frac{\varepsilon}{2}\v{\rho}\cdot\left(\frac{\d\nabla\v A}{\d t}\right)\cdot\v{\rho}.
+\end{align}
+
+\end_inset
+
+Despite being a total time derivative one could also argue that this term
+ is of order 
 \begin_inset Formula $\varepsilon$
 \end_inset
 
- and after performing a gyro-average the 
+ for the leading order approximation.
+ Since it contains terms of higher order due to the time derivative and
+ fast gyration one should be careful with this.
+ Anyway, we can use the expression for the term
+\begin_inset Formula 
+\begin{align}
+(\v{\rho}\times\dot{\v{\rho}})\cdot\v B & =(\v{\rho}\times\dot{\v{\rho}})\cdot(\nabla\times\v A)\nonumber \\
+ & =(\varepsilon_{ijk}\rho_{j}\dot{\rho}_{k})(\varepsilon_{imn}\partial_{m}A_{n})\nonumber \\
+ & =(\delta_{jm}\delta_{kn}-\delta_{jn}\delta_{km})(\rho_{j}\dot{\rho}_{k}\partial_{m}A_{n})\nonumber \\
+ & =\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}-\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}.
+\end{align}
+
+\end_inset
+
+Thus,
+\begin_inset Formula 
+\begin{align}
+\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}} & =\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}=-\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}\nonumber \\
+ & =\frac{1}{2}\underbrace{\left(\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}-\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}\right)}_{(\v{\rho}\times\dot{\v{\rho}})\cdot\v B}+\frac{1}{2}\underbrace{\left(\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}+\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}\right)}_{\mathcal{O}(\varepsilon)-\frac{1}{2}\frac{\d}{\d t}\dots}.
+\end{align}
+
+\end_inset
+
+Further,
+\begin_inset Formula 
+\begin{equation}
+(\v{\rho}\times\dot{\v{\rho}})\cdot\v B=\left(\rho_{c}\hat{\v{\rho}}\times\dot{\phi}\rho_{c}\hat{\v n}\right)\cdot\boldsymbol{B}=-\dot{\phi}\rho_{c}^{\,2}B=-\frac{mcv_{\perp}}{e}\rho_{c}\dot{\phi}.
+\end{equation}
+
+\end_inset
+
+and we can replace 
+\begin_inset Formula $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}$
+\end_inset
+
+ in the Lagrangian to obtain to order 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ (formally setting 
+\begin_inset Formula $\varepsilon=1$
+\end_inset
+
+) 
+\begin_inset Formula 
+\begin{align}
+L-\frac{e}{c}\frac{\d}{\d t}\left(\v{\rho}\cdot\v A-\frac{1}{2}\v{\rho}\cdot\nabla\v A\cdot\v{\rho}\right)+\mathcal{O}(\varepsilon) & =\left(mv_{\parallel}\hat{\v b}+\frac{e}{c}\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +mv_{\perp}\dot{\phi}\rho_{c}-\frac{mv_{\perp}}{2}\rho_{c}\dot{\phi}\nonumber \\
+ & -\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi\right).
+\end{align}
+
+\end_inset
+
+In the bracket under the total time derivative we can see that there is
+ some system to the way the gauge transform in phase-space is done.
+ More generally the technique is known as the 
+\series bold
+Lie-transform method
+\series default
+.
+ To leading order in 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ the 
 \series bold
 guiding-center Lagrangian
 \series default
  follows as
 \begin_inset Formula 
 \[
-L(\v R,\dot{\v R},\cancel{\phi},\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\dot{\phi}-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R)\right).
+L_{\mathrm{gc}}(\v R,\dot{\v R},\cancel{\phi},\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}+\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\dot{\phi}-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R)\right).
 \]
 
 \end_inset
@@ -2990,7 +3191,7 @@ Here all fields are evaluated in
  Thus we can identify a conserved generalized momentum
 \begin_inset Formula 
 \begin{equation}
-\frac{\partial L}{\partial\dot{\phi}}=\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\equiv J_{\perp}=\frac{mc}{e}\mu,
+\frac{\partial L_{\mathrm{gc}}}{\partial\dot{\phi}}=\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\equiv J_{\perp}=\frac{mc}{e}\mu,
 \end{equation}
 
 \end_inset
@@ -3026,7 +3227,7 @@ known as the perpendicular invariant with
  we can write
 \begin_inset Formula 
 \begin{equation}
-L(\v R,\dot{\v R},\dot{\phi},v_{\parallel},\mu)=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
+L_{\mathrm{gc}}(\v R,\dot{\v R},\dot{\phi},v_{\parallel},\mu)=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
 \end{equation}
 
 \end_inset
@@ -3076,7 +3277,16 @@ Derivation of equations of motion
 \end_layout
 
 \begin_layout Standard
-Take
+From now on we will call the guiding-center Lagrangian 
+\begin_inset Formula $L_{\mathrm{gc}}$
+\end_inset
+
+ just 
+\begin_inset Formula $L$
+\end_inset
+
+ to reduce notational clutter.
+ Take
 \begin_inset Formula 
 \begin{equation}
 L(\v R,v_{\parallel},\mu,\dot{\v R},\dot{\phi})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
@@ -5067,23 +5277,23 @@ reference "eq:diaddiv"
 
 \begin_inset Formula 
 \begin{equation}
-\nabla\cdot(\v a\v b)=(\v a\cdot\nabla)\v b+(\nabla\cdot\v a)\v b
+\nabla\cdot(\v a\v b)=\v a\cdot\nabla\v b+(\nabla\cdot\v a)\v b
 \end{equation}
 
 \end_inset
 
 with 
-\begin_inset Formula $\v a=\v v$
+\begin_inset Formula $\v a=\v F_{\alpha}f_{\alpha}$
 \end_inset
 
  and 
-\begin_inset Formula $\v b=\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}$
+\begin_inset Formula $\v b=\v v$
 \end_inset
 
-, so
+ , so
 \begin_inset Formula 
 \begin{equation}
-\v v\left(\nabla_{\boldsymbol{v}}\cdot\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}\right)=\nabla_{\boldsymbol{v}}\cdot\frac{\v v\v F_{\alpha}f_{\alpha}}{m_{\alpha}}-\underbrace{(\nabla_{\v v}\cdot\v v)}_{=1}\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}.
+\left(\nabla_{\boldsymbol{v}}\cdot(\v F_{\alpha}f_{\alpha})\right)\v v=\nabla_{\boldsymbol{v}}\cdot\left(f_{\alpha}\v F_{\alpha}\v v\right)-f_{\alpha}\v F_{\alpha}\cdot\underbrace{\nabla_{\v v}\v v}_{\v I}.
 \end{equation}
 
 \end_inset
@@ -5132,7 +5342,7 @@ This contribution doesn't vanish as before, because collisions with other
 \end_inset
 
 .
- Only the contribution 
+ Contribution 
 \begin_inset Formula $\v R_{\alpha\alpha}$
 \end_inset
 
@@ -5180,9 +5390,9 @@ fluid momentum flux
 \series default
 defined by
 \begin_inset Formula 
-\[
+\begin{equation}
 \v{\Gamma}_{\v p\alpha}^{\mathrm{fl}}(\v r,t)\equiv\v V_{\alpha}(\v r,t)\v p_{\alpha}^{\mathrm{fl}}(\v r,t)=m_{\alpha}n_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t).
-\]
+\end{equation}
 
 \end_inset
 

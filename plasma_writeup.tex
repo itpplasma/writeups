@@ -1,4 +1,4 @@
-%% LyX 2.3.0 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english,nofootinbib, tightenlines, notitlepage]{revtex4-1}
 \usepackage{tgpagella}
@@ -21,29 +21,26 @@
 \hypersetup{pdftitle={Plasma Physics},
  pdfauthor={Christopher Albert}}
 \begin{document}
-\global\long\def\tht{\vartheta}
-\global\long\def\ph{\varphi}
-\global\long\def\balpha{\boldsymbol{\alpha}}
-\global\long\def\btheta{\boldsymbol{\theta}}
-\global\long\def\bJ{\boldsymbol{J}}
-\global\long\def\bGamma{\boldsymbol{\Gamma}}
-\global\long\def\bOmega{\boldsymbol{\Omega}}
-\global\long\def\d{\mathrm{d}}
-\global\long\def\t#1{\text{#1}}
-\global\long\def\m{\text{m}}
-\global\long\def\v#1{\boldsymbol{#1}}
+\global\long\def\tht{\vartheta}%
+\global\long\def\ph{\varphi}%
+\global\long\def\balpha{\boldsymbol{\alpha}}%
+\global\long\def\btheta{\boldsymbol{\theta}}%
+\global\long\def\bJ{\boldsymbol{J}}%
+\global\long\def\bGamma{\boldsymbol{\Gamma}}%
+\global\long\def\bOmega{\boldsymbol{\Omega}}%
+\global\long\def\d{\mathrm{d}}%
+\global\long\def\t#1{\text{#1}}%
+\global\long\def\m{\text{m}}%
+\global\long\def\v#1{\boldsymbol{#1}}%
 
-\global\long\def\t#1{\mathbf{#1}}
-\global\long\def\tT{\boldsymbol{\mathsf{T}}}
-\global\long\def\tI{\boldsymbol{\mathsf{I}}}
-\global\long\def\tP{\boldsymbol{\mathsf{P}}}
-\global\long\def\vv{\boldsymbol{v}}
-
+\global\long\def\t#1{\mathbf{#1}}%
+\global\long\def\tT{\boldsymbol{\mathsf{T}}}%
+\global\long\def\tI{\boldsymbol{\mathsf{I}}}%
+\global\long\def\tP{\boldsymbol{\mathsf{P}}}%
+\global\long\def\vv{\boldsymbol{v}}%
 
 \title{Plasma Physics}
-
 \author{Christopher Albert}
-
 \date{\today}
 
 \maketitle
@@ -209,7 +206,7 @@ the right-hand side as force densities $\boldsymbol{f}$. The overall
 momentum density consists of \emph{kinematic fluid} $\v p^{\text{fl}}=\rho_{m}\v v$
 and \emph{electromagnetic} momentum density $\v p^{\text{EM}}=\boldsymbol{S}/c^{2}$,
 where $\boldsymbol{S}$ is the Poynting vector. The momentum flux
-consists of a fluid part\footnote{Here $\t T=\boldsymbol{v}\v w$ means the outer product $\boldsymbol{v}\otimes\boldsymbol{w}$,
+$\boldsymbol{\Gamma}_{\v p}$ consists of a fluid part\footnote{Here $\t T=\boldsymbol{v}\v w$ means the outer product $\boldsymbol{v}\otimes\boldsymbol{w}$,
 being a rank-2 tensor with Cartesian components $T_{ij}=v_{i}w_{j}$.} $\boldsymbol{\Gamma}_{\v p}^{\text{fl}}=\v v\v p_{\text{fl}}$, but
 is also influenced by \emph{thermodynamic} effects, namely the width
 of the distribution around the average velocity $\boldsymbol{v}$.
@@ -219,7 +216,7 @@ on the right-hand side, leading to the\textbf{\smallskip{}
 }\\
 \textbf{Kinematic fluid momentum law}
 \begin{equation}
-\frac{\partial\v p^{\mathrm{fl}}(\v r,t)}{\partial t}+\nabla\cdot(\v v(\v r,t)\v p^{\mathrm{fl}}(\v r,t))=-\nabla p(\v r,t)+q\nabla\Phi(\v r,t).
+\frac{\partial\v p^{\mathrm{fl}}(\v r,t)}{\partial t}+\nabla\cdot(\v v(\v r,t)\v p^{\mathrm{fl}}(\v r,t))=-\nabla p(\v r,t)+q\left(\v E(\v r,t)+\v v(\v r,t)\times\v B(\v r,t)\right).
 \end{equation}
 In Cartesian coordinates the divergence of a rank-2 tensor $\t T$
 is a column vector whose components are the divergence of tensor columns,
@@ -239,8 +236,7 @@ Now we can further modify this using mass continuity by using a rule
 from tensor calculus to write the flux vector $\nabla\cdot\boldsymbol{\Gamma}_{\v p}^{\text{fl}}$
 as
 \begin{align}
-\nabla\cdot\boldsymbol{\Gamma}_{\v p}^{\mathrm{fl}}=\nabla\cdot(\v v\v p^{\mathrm{fl}}) & =\v p^{\mathrm{fl}}(\nabla\cdot\v v)+(\v v\cdot\nabla)\v p^{\mathrm{fl}}.\\
- & =\rho_{m}\boldsymbol{v}
+\nabla\cdot\boldsymbol{\Gamma}_{\v p}^{\mathrm{fl}}=\nabla\cdot(\v v\v p^{\mathrm{fl}}) & =\v p^{\mathrm{fl}}(\nabla\cdot\v v)+(\v v\cdot\nabla)\v p^{\mathrm{fl}}.
 \end{align}
 Here, $\boldsymbol{v}\cdot\nabla$ performs a convective derivative,
 i.e. 
@@ -480,12 +476,12 @@ see lecture notes
 
 Our \textbf{goal} is to solve
 \begin{align}
-m\ddot{\v r} & =\frac{e}{c}\dot{\v r}\times\v B+e\v E.\label{eq:Lorentz}
+m\ddot{\v r}(t) & =\frac{e}{c}\dot{\v r}(t)\times\v B+e\v E.\label{eq:Lorentz}
 \end{align}
-or written in terms of a \emph{linear} ``Lorentz'' operator for
-homogeneous $\v B$ field:
+or written in terms of a differential operator describing Lorentz
+force:
 \begin{equation}
-\hat{L}\v r\equiv\left(\frac{\d^{2}}{\d t^{2}}+\frac{e\v B}{mc}\frac{\d}{\d t}\times\right)\v r=\frac{e}{m}\v E\label{eq:LorentzOperator}
+\hat{L}\v r\equiv\left(\frac{\d^{2}}{\d t^{2}}+\left(\text{\ensuremath{\frac{e\v B}{mc}\frac{\d}{\d t}}}\right)\times\right)\v r(t)=\frac{e}{m}\v E\label{eq:LorentzOperator}
 \end{equation}
 and identify\emph{ gyromotion} circling perpendicular around $\v B$
 with $v_{\perp}$,
@@ -504,8 +500,8 @@ can reproduce any initial conditions.\\
 The\textbf{ assumption}\textbf{\emph{ }}is that we considere only
 static and homogeneous fields. Under this simplification the solution
 describes particle motion exactly, as $\hat{L}$ in Eq.~(\ref{eq:LorentzOperator})
-is linear, so the overall solution can be described as a linear superposition
-of two solutions.
+is \emph{linear} in \textbf{$\v r(t)$}, so the overall solution can
+be described as a linear superposition of two solutions.
 
 Splitting Eq.~(\ref{eq:Lorentz}) into a sum of two solutions $\v R+\v{\rho}$
 with $\v r=\v R+\v{\rho}$ yields 
@@ -522,7 +518,7 @@ m\ddot{\v R} & =e\v E+\frac{e}{c}\dot{\v R}\times\v B.
 This way, the gyromotion in $\v{\rho}$ is only affected by the magnetic,
 but not the electric field.
 
-\subsection*{Solution for gyration}
+\subsubsection*{Solution for gyration}
 
 First we solve $m\ddot{\v{\rho}}=\frac{e}{c}\dot{\v{\rho}}\times\v B$.
 We choose our coordinate system such that field $\v B=B\v b=B\v e_{1}\times\v e_{2}$.
@@ -628,7 +624,7 @@ from \emph{parallel} and \emph{drift} motion in \emph{static} and
 on methods of averaging that work as long as gyromotion i.e. $\omega_{c}$
 is fast, and $\rho_{c}$ is small, compared to field scales.
 
-\subsection*{3.4 Motion in weakly inhomogeneous fields}
+\subsection*{3.4 Motion in weakly inhomogeneous fields\label{subsec:Inhomo}}
 
 Now the \textbf{goal} is to solve
 \begin{align}
@@ -675,8 +671,8 @@ quantity and related to $v_{\perp}$ via
 \end{equation}
 This is the ring current over one gyration period and $\mu=I\cdot A$
 over the gyration circle with surface area $A=\pi\rho_{c}^{2}$. If
-$E_{\parallel}=\v b\cdot\v E$ it is approximately conserved -- an
-\textbf{adiabatic invariant}. 
+$E_{\parallel}=\v b\cdot\v E$ then $\mu$ is approximately conserved
+-- an \textbf{adiabatic invariant}. 
 \begin{align}
 \frac{\d\mu}{\d t} & =\frac{1}{B}\frac{\d}{\d t}\left(\frac{mv_{\perp}^{\,2}}{2}\right)-\frac{mv_{\perp}^{\,2}}{2B^{2}}\dot{\v R}\cdot\nabla B\nonumber \\
  & \approx\frac{1}{B}\frac{\d}{\d t}\left(\frac{mv_{\perp}^{\,2}}{2}\right)-\frac{\mu}{B}v_{\parallel}\v b\cdot\nabla B.
@@ -721,27 +717,28 @@ $\hat{\v e}_{1}(\v R)$ and $\hat{\v e}_{2}(\v R)$, and definitions
 for \textbf{dynamic} (gyrating) unit vectors $\hat{\v{\rho}}$ and
 $\hat{\v n}$ are
 \begin{align}
-\hat{\v{\rho}}(\v R,\phi) & =\sin(\phi)\,\hat{\v e}_{1}(\v R)+\cos(\phi)\,\hat{\v e}_{2}(\v R),\\
-\hat{\v n}(\v R,\phi) & =\hat{\v{\rho}}(\v R,\phi)\times\hat{\v b}(\v R)=\cos(\phi)\,\hat{\v e}_{1}(\v R)-\sin(\phi)\,\hat{\v e}_{2}(\v R)=\frac{\partial\hat{\v{\rho}}(\v R,\phi)}{\partial\phi}.
+\hat{\v{\rho}}(\v R,\phi) & =\cos(\phi)\,\hat{\v e}_{1}(\v R)-\sin(\phi)\,\hat{\v e}_{2}(\v R)=-\frac{\partial\hat{\v n}(\v R,\phi)}{\partial\phi},\\
+\hat{\v n}(\v R,\phi) & =\hat{\v{\rho}}(\v R,\phi)\times\hat{\v b}(\v R)=-\sin(\phi)\,\hat{\v e}_{1}(\v R)-\cos(\phi)\,\hat{\v e}_{2}(\v R)=\frac{\partial\hat{\v{\rho}}(\v R,\phi)}{\partial\phi}.
 \end{align}
 The transformation of Eqs.~(\ref{eq:rz}-\ref{eq:vz}) is still exact!
 We call $\v R$ the guiding-center position. Both, $(\hat{\v e}_{1},\hat{\v e}_{2},\hat{\v b})$
-and $(\hat{\v{\rho}},\hat{\v n},\hat{\v b})$ form an orthonormal
-basis, where the latter depend on $\phi$. Variables have suspicious
+and $(\hat{\v n},\hat{\v{\rho}},\hat{\v b})$ form an orthonormal
+basis, where $\hat{\v e}_{1},\hat{\v e}_{2}$ depend only on $\boldsymbol{R}$,
+but $\hat{\v n},\hat{\v{\rho}}$ also on $\phi$. Variables have suspicious
 names $\phi$, $v_{\parallel}$ and $v_{\perp}$. Indeed, for the
 case of a homogeneous $\v B$-field those variables are equal to gyrophase,
 parallel and perpendicular velocity of the particle. If the field
-becomes inhomogeneous, they approximate the particle values such that
-their gyro-averages match closely for weak inhomogenity within the
-space a particle transverses within one gyration. Similarly, $\v R$
-describes the center of the Larmor circle only in the homogeneous
-limiting case, and remains close to it in a field with sufficiently
-weak gradients. To sum up one could say that $(\phi,v_{\parallel},v_{\perp})$
-are values we would get if we pretend that $\v B$ is evaluated in
-the guiding-center position $\v R$ rather than $\v R+\v{\rho}$.
-In contrast to the earlier treatment, all variables in $\v z=(\v R,\phi,v_{\parallel},v_{\perp})$
-have a well-defined relation to the particle position $\v r$ and
-velocity $\v v$ if Eqs.~(\ref{eq:rz}-\ref{eq:vz}) are solved implicitly
+becomes weakly inhomogeneous, they still approximate the particle
+values averaged over one gyro-period. Similarly, $\v R$ describes
+the center of the Larmor circle only in the homogeneous limiting case,
+and remains close to it in a field with sufficiently weak gradients.
+To sum up one could say that $(\phi,v_{\parallel},v_{\perp})$ are
+values we would get if we pretend that $\v B$ is evaluated in the
+guiding-center position $\v R$ rather than the particle position
+$\v R+\v{\rho}$. In contrast to the treatment in section~\ref{subsec:Inhomo},
+all variables in $\v z=(\v R,\phi,v_{\parallel},v_{\perp})$ have
+a well-defined relation to the particle position $\v r$ and velocity
+$\v v$ if Eqs.~(\ref{eq:rz}-\ref{eq:vz}) are solved implicitly
 in $\v z$. 
 
 The phase-space Lagrangian of a particle in an electromagnetic field
@@ -764,91 +761,142 @@ from Eq.~(\ref{eq:rz}). This Lagrangian is still exact, as are transformations
 to guiding-center variables. We will now make approximations to the
 Lagrangian, affecting the \emph{dynamics} of motion in guiding-center
 variables. As in the previous chapter we use a Taylor expansion which
-we break at the first order, but which can also be performed to higher
-order. We use
-\begin{align}
-\v A(\v r) & =\v A(\v R)+\v{\rho}\cdot\nabla\v A(\v R)+\mathcal{O}(\rho_{c}^{2}),\\
-\Phi(\v r) & =\Phi(\v R)+\v{\rho}\cdot\nabla\Phi(\v R)+\mathcal{O}(\rho_{c}^{2}).
-\end{align}
-Here the small parameter compared to typical length scales is the
-gyroradius
+we break at the first order. For higher order computations, Lie transform
+methods are better suited (see Littlejohn, 1983). Here the small parameter
+compared to typical length scales is the gyroradius
 \begin{equation}
 \rho_{c}=|\v{\rho}|=\frac{mcv_{\perp}}{eB(\v R)}\sim\varepsilon.
 \end{equation}
 Furthermore we define the cyclotron frequency at the guiding-center
 position
 \begin{equation}
-\omega_{c}=\frac{eB(\v R)}{mc}\sim\varepsilon^{-1}
+\omega_{c}=\frac{eB(\v R)}{mc}\sim\varepsilon^{-1},
 \end{equation}
 as a large parameter compared to typical time scales. This corresponds
 to the physical conditions where the guiding-center approximation
-is applicable and leaves the perpendicular velocity $v_{\perp}$ being
+is applicable, leaves the perpendicular velocity $v_{\perp}$ being
 a quantity of interest with order $\varepsilon^{0}=1$ and thus prevents
-it from being swallowed by a perturbation expansion. 
+it from being swallowed by a perturbation expansion. The parameter
+$\varepsilon$ is called an ordering parameter that allows us to collect
+terms of similar magnitude. Vector and scalar fields are expanded
+in the following way,
+\begin{align}
+\v A(\v r) & =\v A(\v R)+\varepsilon\v{\rho}\cdot\nabla\v A(\v R)+\mathcal{O}(\varepsilon^{2}),\\
+\Phi(\v r) & =\Phi(\v R)+\varepsilon\v{\rho}\cdot\nabla\Phi(\v R)+\mathcal{O}(\varepsilon^{2}),
+\end{align}
+where $\varepsilon$ acts as a marker for intermediate calculations
+and is set to one only in the final result after neglecting all terms
+of order $\varepsilon$ or higher. We mark each small quantity with
+an $\varepsilon$ in Eq.~\ref{eq:Lag1-1-1-1} to obtain
+\begin{equation}
+L(\v R,\dot{\v R},\phi,\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\varepsilon^{-1}\frac{e}{c}\v A(\v R+\varepsilon\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}})-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R+\varepsilon\v{\rho})\right).\label{eq:Lag1-1-1-1-1}
+\end{equation}
 
-We further use the chain rule for
+We cannot simply write $\varepsilon$ in front of $\dot{\boldsymbol{\rho}}$
+just because the magnitude of $\v{\rho}$ is small, since gyration
+is fast. This becomes apparent by using the chain rule,
 \begin{align}
 \dot{\v{\rho}} & =\frac{\d}{\d t}\v{\rho}(\v R,\phi,v_{\perp})=\dot{\v R}\cdot\nabla\v{\rho}+\dot{\phi}\frac{\partial\v{\rho}}{\partial\phi}+\dot{v}_{\perp}\frac{\partial\v{\rho}}{\partial v_{\perp}}\nonumber \\
- & =\dot{\v R}\cdot\nabla\v{\rho}+\dot{\phi}\rho_{c}\hat{\v n}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}=\dot{\phi}\rho_{c}\hat{\v n}+\varepsilon(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}).
+ & =\varepsilon\dot{\v R}\cdot\nabla\v{\rho}+\varepsilon^{-1}\dot{\phi}\varepsilon\rho_{c}\hat{\v n}+\varepsilon\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}=\dot{\phi}\rho_{c}\hat{\v n}+\varepsilon(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho}).
 \end{align}
 Here in the first term the fast gyration $\dot{\phi}$ and the small
 $\rho_{c}$ cancel to order $\varepsilon^{0}$, and the last term
 should be even smaller than order $\varepsilon$ as long as $v_{\perp}$
 doesn't change too fast due to strongly inhomogeneous fields. Now
-we look at the bracket up to order $\varepsilon^{0}$,
+we look at the first term in~(\ref{eq:Lag1-1-1-1-1}) up to order
+$\varepsilon^{0}$,
+
 \begin{align}
-\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\frac{e}{c}\v A(\v R+\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}}) & =m\left(v_{\parallel}\hat{\v b}+v_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot\dot{\v R}\nonumber \\
- & +m\left(\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot(\dot{\phi}\rho_{c}\hat{\v n})+v_{\perp}\dot{\phi}\rho_{c}\nonumber \\
- & +\frac{e}{mc}\v A\cdot(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho})+\mathcal{O}(\varepsilon).
+\left(mv_{\parallel}\hat{\v b}(\v R)+mv_{\perp}\hat{\v n}(\v R,\phi)+\varepsilon^{-1}\frac{e}{c}\v A(\v R+\v{\rho})\right)\cdot(\dot{\v R}+\dot{\v{\rho}}) & =\left(mv_{\parallel}\hat{\v b}+mv_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{c}\v A+\frac{e}{c}\v{\rho}\cdot\nabla\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +mv_{\perp}\dot{\phi}\rho_{c}+\varepsilon^{-1}\frac{e}{c}\v A\cdot\dot{\v{\rho}}+\frac{e}{c}(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}+\mathcal{O}(\varepsilon).
 \end{align}
-In the second line, the term with $\hat{\v b}\cdot\hat{\v n}$ vanished
-and we took a scalar product $\hat{\v n}\cdot\hat{\v n}=1$. Now we
-use the fact that we can add/subtract an arbitrary total time derivative
-to the Lagrangian without changing its dynamics. For this we take
+Here the term with $\hat{\v b}\cdot\hat{\v n}$ vanished and we took
+a scalar product $\hat{\v n}\cdot\hat{\v n}=1$ to obtain the first
+term in the second line. Now we use the fact that we can add/subtract
+an arbitrary total time derivative to the Lagrangian without changing
+its dynamics. We will use this trick two times in a row.
+
+First we take
 \begin{align}
 \frac{\d}{\d t}(\v{\rho}\cdot\v A(\v R)) & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot\dot{\v A}\nonumber \\
- & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A).
+ & =\dot{\v{\rho}}\cdot\v A+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A).\label{eq:dt}
 \end{align}
-This we can combine with the term $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}=\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)$
-via
-\begin{align}
-\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)-\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A) & =\dot{R}_{k}\rho_{i}\partial_{i}A_{k}-\rho_{k}\dot{R}_{i}\partial_{i}A_{k}\nonumber \\
- & =\dot{R}_{l}\rho_{m}(\delta_{lk}\delta_{mi}-\delta_{li}\delta_{mk})\partial_{i}A_{k}\nonumber \\
- & =\dot{R}_{l}\rho_{m}\varepsilon_{lmk}\varepsilon_{ijk}\partial_{i}A_{k}\nonumber \\
- & =(\dot{\v R}\times\v{\rho})(\nabla\times\v A)=(\dot{\v R}\times\v{\rho})\v B.
-\end{align}
-Thus we write
+This we can combine with the term $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}=\v{\rho}\cdot((\nabla\v A)\cdot\dot{\v R})$
+via tensor algebra rule (\ref{eq:eq3}),
+
 \begin{equation}
-\dot{\v R}\cdot(\v{\rho}\cdot\nabla\v A)=(\dot{\v R}\times\v{\rho})\v B+\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A)=(\dot{\v R}\times\v{\rho})\v B+\frac{\d}{\d t}(\v{\rho}\cdot\v A)-\dot{\v{\rho}}\cdot\v A.
+(\nabla\v A)\cdot\dot{\v R}-\dot{\v R}\cdot\nabla\v A=\dot{\v R}\times(\nabla\times\v A)=\dot{\v R}\times\boldsymbol{B}.\label{eq:eq3-1}
 \end{equation}
-Inserting everything into $L$ means
+So 
 \begin{align}
-L-\frac{\d}{\d t}(\v{\rho}\cdot\v A)+\mathcal{O}(\varepsilon) & =m\left(v_{\parallel}\hat{\v b}+v_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{mc}\v A\right)\cdot\dot{\v R}\nonumber \\
- & +m\left(\varepsilon^{-1}\frac{e}{mc}\v A+\frac{e}{mc}\v{\rho}\cdot\nabla\v A\right)\cdot(\dot{\phi}\rho_{c}\hat{\v n})+v_{\perp}\dot{\phi}\rho_{c}\nonumber \\
- & +\frac{e}{mc}\v A\cdot(\dot{\v R}\cdot\nabla\v{\rho}+\frac{\dot{v}_{\perp}}{v_{\perp}}\v{\rho})\nonumber \\
- & +\frac{e}{c}(\dot{\v R}\times\v{\rho})\v B-\dot{\v{\rho}}\cdot\v A\nonumber \\
+(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}-\v{\rho}\cdot(\dot{\v R}\cdot\nabla\v A) & =\v{\rho}\cdot(\dot{\v R}\times\v B).
+\end{align}
+and together with~(\ref{eq:dt}) we obtain
+\begin{equation}
+(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v R}=\v{\rho}\cdot(\dot{\v R}\times\v B+\dot{\v R}\cdot\nabla\v A)=\v{\rho}\cdot(\dot{\v R}\times\v B)+\frac{\d}{\d t}(\v{\rho}\cdot\v A)-\dot{\v{\rho}}\cdot\v A.
+\end{equation}
+Inserting everything into $L$ cancels the term $\v A\cdot\dot{\v{\rho}}$
+and we obtain
+
+\begin{align}
+L-\frac{e}{c}\frac{\d}{\d t}(\v{\rho}\cdot\v A)+\mathcal{O}(\varepsilon) & =\left(mv_{\parallel}\hat{\v b}+mv_{\perp}\hat{\v n}+\varepsilon^{-1}\frac{e}{c}\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +\frac{e}{c}\v{\rho}\cdot(\dot{\v R}\times\v B)+mv_{\perp}\dot{\phi}\rho_{c}+\frac{e}{c}(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}\nonumber \\
  & -\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi\right),
 \end{align}
 where $\v A,\v B,$ and $\Phi$ are now evaluated in the guiding-center
-position $\v R$ instead of the particle position $\v r$. When taking
-an gyro-average over $\phi$ via
-\[
-\left\langle f\right\rangle (\v R,v_{\parallel},v_{\perp})\equiv\int_{0}^{2\pi}f(\v R,\phi,v_{\parallel},v_{\perp})\d\phi
-\]
- of this expression a lot of terms will cancel out. Namely, 
+position $\v R$ instead of the particle position $\v r$. Two terms
+cancel since by rotating the triple-product and extracting basis vectors,
 \begin{equation}
-\left\langle \hat{\v n}\right\rangle =\left\langle \hat{\v{\rho}}\right\rangle =0,\quad\left\langle \dot{\v{\rho}}\cdot\v W(\v R)\right\rangle =\mathcal{O}(\varepsilon),\quad\left\langle \frac{\dot{v}_{\perp}}{v_{\perp}}\right\rangle =\mathcal{O}(\varepsilon).
+\frac{e}{c}\v{\rho}\cdot(\dot{\v R}\times\v B)=\frac{e}{c}\rho_{c}B\dot{\boldsymbol{R}}\cdot(\hat{\v b}\times\hat{\v{\rho}})=-mv_{\perp}\dot{\boldsymbol{R}}\cdot\hat{\v n}.
 \end{equation}
 
-To leading order in $\varepsilon$ and after performing a gyro-average
-the \textbf{guiding-center Lagrangian} follows as
+To eliminate the term $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}=\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}$
+we use another total time derivative (see also review paper of Cary
+and Brizard, 2009),
+\begin{align}
+\frac{1}{2}\frac{\d}{\d t}\left(\varepsilon\v{\rho}\cdot\varepsilon^{-1}\frac{e}{c}\nabla\v A\cdot\varepsilon\v{\rho}\right) & =\frac{1}{2}\left(\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}+\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}\right)\nonumber \\
+ & +\frac{\varepsilon}{2}\v{\rho}\cdot\left(\frac{\d\nabla\v A}{\d t}\right)\cdot\v{\rho}.
+\end{align}
+Despite being a total time derivative one could also argue that this
+term is of order $\varepsilon$ for the leading order approximation.
+Since it contains terms of higher order due to the time derivative
+and fast gyration one should be careful with this. Anyway, we can
+use the expression for the term
+\begin{align}
+(\v{\rho}\times\dot{\v{\rho}})\cdot\v B & =(\v{\rho}\times\dot{\v{\rho}})\cdot(\nabla\times\v A)\nonumber \\
+ & =(\varepsilon_{ijk}\rho_{j}\dot{\rho}_{k})(\varepsilon_{imn}\partial_{m}A_{n})\nonumber \\
+ & =(\delta_{jm}\delta_{kn}-\delta_{jn}\delta_{km})(\rho_{j}\dot{\rho}_{k}\partial_{m}A_{n})\nonumber \\
+ & =\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}-\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}.
+\end{align}
+Thus,
+\begin{align}
+\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}} & =\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}=-\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}\nonumber \\
+ & =\frac{1}{2}\underbrace{\left(\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}-\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}\right)}_{(\v{\rho}\times\dot{\v{\rho}})\cdot\v B}+\frac{1}{2}\underbrace{\left(\dot{\v{\rho}}\cdot\nabla\v A\cdot\v{\rho}+\v{\rho}\cdot\nabla\v A\cdot\dot{\v{\rho}}\right)}_{\mathcal{O}(\varepsilon)-\frac{1}{2}\frac{\d}{\d t}\dots}.
+\end{align}
+Further,
+\begin{equation}
+(\v{\rho}\times\dot{\v{\rho}})\cdot\v B=\left(\rho_{c}\hat{\v{\rho}}\times\dot{\phi}\rho_{c}\hat{\v n}\right)\cdot\boldsymbol{B}=-\dot{\phi}\rho_{c}^{\,2}B=-\frac{mcv_{\perp}}{e}\rho_{c}\dot{\phi}.
+\end{equation}
+and we can replace $(\v{\rho}\cdot\nabla\v A)\cdot\dot{\v{\rho}}$
+in the Lagrangian to obtain to order $\varepsilon$ (formally setting
+$\varepsilon=1$) 
+\begin{align}
+L-\frac{e}{c}\frac{\d}{\d t}\left(\v{\rho}\cdot\v A-\frac{1}{2}\v{\rho}\cdot\nabla\v A\cdot\v{\rho}\right)+\mathcal{O}(\varepsilon) & =\left(mv_{\parallel}\hat{\v b}+\frac{e}{c}\v A\right)\cdot\dot{\v R}\nonumber \\
+ & +mv_{\perp}\dot{\phi}\rho_{c}-\frac{mv_{\perp}}{2}\rho_{c}\dot{\phi}\nonumber \\
+ & -\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi\right).
+\end{align}
+In the bracket under the total time derivative we can see that there
+is some system to the way the gauge transform in phase-space is done.
+More generally the technique is known as the \textbf{Lie-transform
+method}. To leading order in $\varepsilon$ the \textbf{guiding-center
+Lagrangian} follows as
 \[
-L(\v R,\dot{\v R},\cancel{\phi},\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\dot{\phi}-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R)\right).
+L_{\mathrm{gc}}(\v R,\dot{\v R},\cancel{\phi},\dot{\phi},v_{\parallel},v_{\perp})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}+\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\dot{\phi}-\left(\frac{m(v_{\parallel}^{\,2}+v_{\perp}^{\,2})}{2}+e\Phi(\v R)\right).
 \]
 Here all fields are evaluated in $\v R$ and dependencies on $\phi$
 have vanished. Thus we can identify a conserved generalized momentum
 \begin{equation}
-\frac{\partial L}{\partial\dot{\phi}}=\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\equiv J_{\perp}=\frac{mc}{e}\mu,
+\frac{\partial L_{\mathrm{gc}}}{\partial\dot{\phi}}=\frac{m^{2}cv_{\perp}^{\,2}}{2eB(\v R)}\equiv J_{\perp}=\frac{mc}{e}\mu,
 \end{equation}
 known as the perpendicular invariant with $\dot{J}_{\perp}=0$ along
 the trajectory. The perpendicular invariant is proportional to the
@@ -857,7 +905,7 @@ also conserved. Again, $\mu$ is not the exact magnetic moment of
 the particle, but rather an approximation up to order $\varepsilon$.
 If we replace $v_{\perp}$ by the variable $\mu$ we can write
 \begin{equation}
-L(\v R,\dot{\v R},\dot{\phi},v_{\parallel},\mu)=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
+L_{\mathrm{gc}}(\v R,\dot{\v R},\dot{\phi},v_{\parallel},\mu)=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
 \end{equation}
 The Hamiltonian is the last part in brackets,
 \begin{equation}
@@ -868,7 +916,7 @@ limited use, since we use non-canonical variables. We rather need
 Euler-Lagrange equations of the guiding-center Lagrangian that follow
 as
 \begin{align}
-\dot{\v R} & =\frac{v_{\parallel}\v B^{\star}(\v R,v_{\parallel})+\v E^{\star}(\v R,\mu)\times\hat{\v b}(\v R)}{\hat{\v b}(\v R)\cdot\v B^{\star}(\v R,v_{\parallel})},\quad\dot{v}_{\parallel}=\frac{e}{m}\frac{\v E^{\star}(\v R,\mu)}{\hat{\v b}(\v R)\cdot\v B^{\star}(\v R,v_{\parallel})},\label{eq:rdot-1}\\
+\dot{\v R} & =\frac{v_{\parallel}\v B^{\star}(\v R,v_{\parallel})+c\v E^{\star}(\v R,\mu)\times\hat{\v b}(\v R)}{\hat{\v b}(\v R)\cdot\v B^{\star}(\v R,v_{\parallel})},\quad\dot{v}_{\parallel}=\frac{e}{m}\frac{\v E^{\star}(\v R,\mu)\cdot\v B^{\star}(\v R,v_{\parallel})}{\hat{\v b}(\v R)\cdot\v B^{\star}(\v R,v_{\parallel})},\label{eq:rdot-1}\\
 \dot{\phi} & =-\omega_{c}(\v R)\equiv\frac{e\v B(\v R)}{mc},\quad\dot{\mu}=0.\label{eq:phidot}
 \end{align}
 where $\hat{\v b}(\v R)=\v B(\v R)/B(\v R)$ and
@@ -880,7 +928,8 @@ where $\hat{\v b}(\v R)=\v B(\v R)/B(\v R)$ and
 
 \textbf{Derivation of equations of motion}
 
-Take
+From now on we will call the guiding-center Lagrangian $L_{\mathrm{gc}}$
+just $L$ to reduce notational clutter. Take
 \begin{equation}
 L(\v R,v_{\parallel},\mu,\dot{\v R},\dot{\phi})=\left(mv_{\parallel}\hat{\v b}(\v R)+\frac{e}{c}\v A(\v R)\right)\cdot\dot{\v R}-\frac{mc}{e}\mu\dot{\phi}-\left(\frac{mv_{\parallel}^{\,2}}{2}+\mu B(\v R)+e\Phi(\v R)\right).
 \end{equation}
@@ -1386,12 +1435,11 @@ m_{\alpha}N_{\alpha}\int\d^{3}v\v v(III)=m_{\alpha}N_{\alpha}\int\d^{3}v\v v\lef
 \end{equation}
 we use the identity (\ref{eq:diaddiv})
 \begin{equation}
-\nabla\cdot(\v a\v b)=(\v a\cdot\nabla)\v b+(\nabla\cdot\v a)\v b
+\nabla\cdot(\v a\v b)=\v a\cdot\nabla\v b+(\nabla\cdot\v a)\v b
 \end{equation}
-with $\v a=\v v$ and $\v b=\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}$,
-so
+with $\v a=\v F_{\alpha}f_{\alpha}$ and $\v b=\v v$ , so
 \begin{equation}
-\v v\left(\nabla_{\boldsymbol{v}}\cdot\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}\right)=\nabla_{\boldsymbol{v}}\cdot\frac{\v v\v F_{\alpha}f_{\alpha}}{m_{\alpha}}-\underbrace{(\nabla_{\v v}\cdot\v v)}_{=1}\frac{\v F_{\alpha}f_{\alpha}}{m_{\alpha}}.
+\left(\nabla_{\boldsymbol{v}}\cdot(\v F_{\alpha}f_{\alpha})\right)\v v=\nabla_{\boldsymbol{v}}\cdot\left(f_{\alpha}\v F_{\alpha}\v v\right)-f_{\alpha}\v F_{\alpha}\cdot\underbrace{\nabla_{\v v}\v v}_{\v I}.
 \end{equation}
 Again the integral over the first term vanishes if we convert it to
 a boundary integral via the divergence theorem for tensors (one can
@@ -1412,7 +1460,7 @@ m_{\alpha}N_{\alpha}\int\d^{3}v\v v(C)=m_{\alpha}N_{\alpha}\int\d^{3}v\v v\left(
 \end{equation}
 This contribution doesn't vanish as before, because collisions with
 other species can insert or extract momentum to the fluid of species
-$\alpha$. Only the contribution $\v R_{\alpha\alpha}$ from self-collisions
+$\alpha$. Contribution $\v R_{\alpha\alpha}$ from self-collisions
 of species $\alpha$ must not change its fluid momentum, so we can
 write
 \begin{equation}
@@ -1428,9 +1476,9 @@ collision terms over all species must vanish,
 
 Now we can compare Eq.~(\ref{eq:momflux1}) to the divergence of
 the \textbf{fluid momentum flux }defined by
-\[
+\begin{equation}
 \v{\Gamma}_{\v p\alpha}^{\mathrm{fl}}(\v r,t)\equiv\v V_{\alpha}(\v r,t)\v p_{\alpha}^{\mathrm{fl}}(\v r,t)=m_{\alpha}n_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t)\v V_{\alpha}(\v r,t).
-\]
+\end{equation}
 At first sight the order of vectors in the dyad plays a role and we
 have to write $\v V_{\alpha}$ that transports the vector field $\v p_{\alpha}^{\mathrm{fl}}$
 in the front. In the result we see however that it doesn't matter.
@@ -1664,7 +1712,7 @@ basis ($H^{\mathrm{div}}$ or Raviart-Thomas Elements) to correctly
 represent $\v J$ for this purpose -- it is not enough to just discretize
 each vector component individually.
 
-\subsection*{6.2 Linear plasms response}
+\subsection*{6.2 Linear plasma response}
 
 The \textbf{goal} of this section is to derive the \textbf{response
 fields }$\v E$ and $\v B$ inside a plasma subject to externally
@@ -1726,12 +1774,20 @@ any other point $(\v r^{\prime},t^{\prime})$ in space/time. It is
 \textbf{causal} since integration over $t^{\prime}$ goes until $t$,
 but not in the future. Formally we can relate $\boldsymbol{J}^{\mathrm{ind}}$
 and $\rho^{\mathrm{ind}}$ via continuity
+\begin{align}
+\rho^{\mathrm{ind}}(\v r,t) & =\rho^{\mathrm{ind}}(\v r,t_{0})-\int_{t_{0}}^{t}\nabla\cdot\boldsymbol{J}^{\mathrm{ind}}(\v r,t)\,\d t^{\prime}\nonumber \\
+ & =\rho^{\mathrm{ind}}(\v r,t_{0})-\nabla\cdot\int_{t_{0}}^{t}\boldsymbol{J}^{\mathrm{ind}}(\v r,t)\,\d t^{\prime}\nonumber \\
+ & \equiv\rho^{\mathrm{ind}}(\v r,t_{0})+\nabla\cdot(\hat{\rho}\boldsymbol{J}^{\mathrm{ind}})=\rho^{\mathrm{ind}}(\v r,t_{0})+\nabla\cdot(\hat{\rho}\hat{\v{\sigma}}\v E).
+\end{align}
+We can assume $\rho^{\mathrm{ind}}(\v r,t_{0})=0$ because perturbation
+is switched off before a certain time $t_{0}$. Then $\rho^{\mathrm{ind}}$
+is again given by a linear operator
 \begin{equation}
-\rho^{\mathrm{ind}}(\v r,t)=\rho^{\mathrm{ind}}(\v r,t_{0})-\int_{t_{0}}^{t}\nabla\cdot\boldsymbol{J}^{\mathrm{ind}}(\v r,t)\,\d t^{\prime}\equiv\hat{\rho}\boldsymbol{J}^{\mathrm{ind}}=\hat{\rho}\hat{\v{\sigma}}\v E.
+\rho^{\mathrm{ind}}(\v r,t)=\nabla\cdot\hat{\rho}\hat{\v{\sigma}}\v E
 \end{equation}
-This is again a linear operator acting on $\v E$ by combining $\hat{\rho}$
-and $\hat{\v{\sigma}}$. Inserting these relations into the first
-two Maxwell equations yields
+acting on $\v E$ by combining divergence $\nabla\cdot$, charge accumulation
+$\hat{\rho}$ and conductivity $\hat{\v{\sigma}}$. Inserting these
+relations into the first two Maxwell equations yields
 \begin{align}
 \text{Gauss \textbf{E}:}\qquad\nabla\cdot(\t I-4\pi\hat{\rho}\hat{\v{\sigma}})\v E & =4\pi\rho^{\mathrm{ext}},\\
 \text{Ampère/Maxwell:}\qquad\nabla\times\v B-\frac{1}{c}\left(\frac{\partial}{\partial t}+4\pi\hat{\v{\sigma}}\right)\v E & =\frac{4\pi}{c}\v J^{\mathrm{ext}}.
