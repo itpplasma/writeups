@@ -320,7 +320,7 @@ Those rules can be deduced from using index notation for the respective
 r 
 \begin_inset CommandInset citation
 LatexCommand citep
-key "Callen1991"
+key "dhaeseleer1991"
 literal "false"
 
 \end_inset
@@ -2513,7 +2513,31 @@ Guiding-Center Dynamics
 \end_layout
 
 \begin_layout Standard
-A detailed derivation of the guiding-center Lagrangian can also be found
+The modern way to treat guiding-center motion via a phase-space Lagrangian
+ has been introduced by Littlejohn
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset CommandInset citation
+LatexCommand citep
+key "littlejohn1983"
+literal "false"
+
+\end_inset
+
+ in the 1980s.
+ Besides that there exists a review article on guiding-center motion by
+ Cary and Brizard 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "cary2009"
+literal "false"
+
+\end_inset
+
+ containing background, main derivation steps and further literature references.
+ A detailed derivation of the guiding-center Lagrangian can also be found
  in Lectures 3-4 of 2017 and https://itp.tugraz.at/~ert/assets/internal/plasma/201
 7/A1_Guiding_Center_Lagrangian.pdf .
  More information on asymptotic expansions with a small parameter 
@@ -3532,8 +3556,15 @@ Finally we obtain
 
 \end_inset
 
-Here (convention taken from Lanthaler et al, PPCF 2017 vol: 59 (4) pp: 044014)
- we defined
+Here (convention taken from 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "lanthaler2017"
+literal "false"
+
+\end_inset
+
+) we defined
 \begin_inset Formula 
 \begin{equation}
 \v E^{\star}=-e^{-1}\nabla H=-\frac{\mu}{e}\nabla B-\nabla\Phi.
@@ -6950,24 +6981,16 @@ polarization
  of the mode.
 \end_layout
 
-\begin_layout Bibliography
-\begin_inset CommandInset bibitem
-LatexCommand bibitem
-key "Callen1991"
-literal "false"
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "writeups"
+options "plainnat"
 
 \end_inset
 
- D’haeseleer, W.
- D., Hitchon, W.
- N.
- G., Callen, J.
- D., & Shohet, J.
- L.
- (1991).
- Flux Coordinates and Magnetic Field Structure.
- Springer Berlin Heidelberg.
- https://doi.org/10.1007/978-3-642-75595-8
+
 \end_layout
 
 \end_body

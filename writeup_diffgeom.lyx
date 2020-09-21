@@ -4117,12 +4117,15 @@ In any curvilinear coordinates
 \begin_inset Formula $\v x=(x^{1},x^{2},x^{3})$
 \end_inset
 
- we can write a Fourier series for a vector in contravariant components
- with
+ we can write a Fourier series for a vector density field 
+\begin_inset Formula $B$
+\end_inset
+
+ in contravariant density components with
 \begin_inset Formula 
 \begin{align*}
-\v B & =B^{1}(\v x)\v e_{1}(\v x)+B^{2}(\v x)\v e_{2}(\v x)+B^{3}(\v x)\v e_{3}\\
- & =\sum_{n=-\infty}^{\infty}\left(B_{n}^{1}(x^{1},x^{2})\v e_{1}(\v x)+B_{n}^{2}(x^{1},x^{2})\v e_{2}(\v x)+B_{n}^{3}(x^{1},x^{2})\v e_{3}(\v x)\right)e^{inx^{3}}
+\v B & =\mathcal{B}^{1}(\v x)\v e_{1}(\v x)+\mathcal{B}^{2}(\v x)\v e_{2}(\v x)+\mathcal{B}^{3}(\v x)\v e_{3}\\
+ & =\sum_{n=-\infty}^{\infty}\left(\mathcal{B}_{n}^{1}(x^{1},x^{2})\v e_{1}(\v x)+\mathcal{B}_{n}^{2}(x^{1},x^{2})\v e_{2}(\v x)+\mathcal{B}_{n}^{3}(x^{1},x^{2})\v e_{3}(\v x)\right)e^{inx^{3}}
 \end{align*}
 
 \end_inset
