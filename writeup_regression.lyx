@@ -1,0 +1,1686 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+What you can read here can be found in books with more details.
+ The goal is to give an overview and a 
+\begin_inset Quotes eld
+\end_inset
+
+feeling
+\begin_inset Quotes erd
+\end_inset
+
+ for the topic, and to summarize thoughts that help to get the big picture
+ and relations between different approaches as well as pros and cons for
+ different applications.
+ 
+\end_layout
+
+\begin_layout Standard
+Our mission is simple: we want to learn about an unknown function 
+\begin_inset Formula $f(\boldsymbol{x})$
+\end_inset
+
+ depending on independent variables 
+\begin_inset Formula $\boldsymbol{x}=(x^{1},x^{2},\dots,x^{d})$
+\end_inset
+
+.
+ Here both, 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $f$
+\end_inset
+
+ can be tuples, or vector-valued quantities in general, but mostly we treat
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ as a scalar here for simplicity.
+ We are allowed to take samples of 
+\begin_inset Formula $f$
+\end_inset
+
+ at a training points 
+\begin_inset Formula $X=(\boldsymbol{x}_{1},\boldsymbol{x}_{2},\dots,\boldsymbol{x}_{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Basics on bases
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\phi_{j}(\boldsymbol{x})$
+\end_inset
+
+ be basis functions that approximate a function according to 
+\begin_inset Formula 
+\begin{equation}
+f(\boldsymbol{x})\approx\sum_{j}f_{j}\phi_{j}(\boldsymbol{x}).\label{eq:fapprox}
+\end{equation}
+
+\end_inset
+
+Inside the function space spanned by 
+\begin_inset Formula $\phi^{j}(\boldsymbol{x})$
+\end_inset
+
+ this approximation becomes an identity.
+ E.g.
+ if we choose in 1D 
+\begin_inset Formula 
+\[
+\phi_{0}(x)=1,\quad\phi_{1}(x)=x,\quad\phi_{2}(x)=x^{2},\dots\phi_{n}(x)=x^{n}
+\]
+
+\end_inset
+
+to be powers of 
+\begin_inset Formula $x$
+\end_inset
+
+, we can exactly represent any polynomial up to degree 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ We will see later that it's more convenient for fitting to use not just
+ monomials 
+\begin_inset Formula $x^{j}$
+\end_inset
+
+, but orthogonal polynomials (Legendre, Hermite, Laguerre, ...).
+ Apart from polynomials a typical example for such a global basis are sin/cos
+ functions, often written as complex exponentials
+\begin_inset Formula 
+\[
+\phi_{-2}(x)=e^{-2ix},\quad\phi_{-1}(x)=e^{-ix},\quad\phi_{0}(x)=1,\phi_{1}(x)=e^{ix},\dots
+\]
+
+\end_inset
+
+where the index 
+\begin_inset Formula $j$
+\end_inset
+
+ runs from 
+\begin_inset Formula $-(n-1)/2$
+\end_inset
+
+ to 
+\begin_inset Formula $(n-1)/2$
+\end_inset
+
+ for 
+\begin_inset Formula $n$
+\end_inset
+
+ terms.
+ Such a Fourier series allows to represent any trigonometric function that
+ is periodic in the domain 
+\begin_inset Formula $(0,2\pi)$
+\end_inset
+
+ up to a certain wavenumber, i.e.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+wigglyness
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+For the case when we are outside the span (= linear hull) of 
+\begin_inset Formula $\{\phi_{j}\}$
+\end_inset
+
+ we have to ask ourselves what we mean by a good approximation.
+ For this purpose we have to define what it means that two functions are
+ 
+\begin_inset Quotes eld
+\end_inset
+
+close
+\begin_inset Quotes erd
+\end_inset
+
+ to each other.
+\end_layout
+
+\begin_layout Section
+Collocation
+\end_layout
+
+\begin_layout Standard
+We can pretend (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fapprox"
+
+\end_inset
+
+) to be exact and solve, for a number of training points 
+\begin_inset Formula $\boldsymbol{x}_{i}$
+\end_inset
+
+ the system
+\begin_inset Formula 
+\begin{equation}
+f(\boldsymbol{x}_{i})\approx\sum_{j}f_{j}\phi_{j}(\boldsymbol{x}_{i}).\label{eq:fapprox-2}
+\end{equation}
+
+\end_inset
+
+Here we obtain a (usually non-symmetric or rectangular) collocation matrix
+\begin_inset Formula 
+\begin{equation}
+\Phi_{ij}=\phi_{j}(\boldsymbol{x}_{i})
+\end{equation}
+
+\end_inset
+
+and a right-hand-side
+\begin_inset Formula 
+\begin{equation}
+y_{i}=f(\boldsymbol{x}_{i})
+\end{equation}
+
+\end_inset
+
+to solve
+\begin_inset Formula 
+\begin{equation}
+\Phi\boldsymbol{f}=\boldsymbol{y}
+\end{equation}
+
+\end_inset
+
+in a least-squares sense, i.e.
+ minimize
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{2}\boldsymbol{f}^{T}\Phi\boldsymbol{f}-\boldsymbol{y}^{T}\boldsymbol{f}.
+\end{equation}
+
+\end_inset
+
+This is a minimization in 
+\emph on
+coefficient
+\emph default
+ space, which is a somewhat strange space to optimize in.
+\end_layout
+
+\begin_layout Standard
+In the special case of radial basis functions where
+\begin_inset Formula 
+\begin{equation}
+\phi_{j}(\boldsymbol{x})=k(\boldsymbol{x}-\boldsymbol{x}_{j})
+\end{equation}
+
+\end_inset
+
+we obtain a symmetric matrix if we use as many training points as basis
+ functions.
+\end_layout
+
+\begin_layout Section
+Projection
+\end_layout
+
+\begin_layout Standard
+Projection yields the best approximation in the sense of the 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ (or a similar) norm 
+\begin_inset Formula $||f-\tilde{f}||$
+\end_inset
+
+.
+ This is analogous to minimizing the length of the vector 
+\begin_inset Formula $f-\tilde{f}$
+\end_inset
+
+ in an (
+\begin_inset Formula $\infty$
+\end_inset
+
+-dimensional) vector space.
+ For this we introduce an inner product 
+\begin_inset Formula $\left\langle f,g\right\rangle $
+\end_inset
+
+ that generalizes the scalar product 
+\begin_inset Formula $\boldsymbol{u}\cdot\boldsymbol{v}$
+\end_inset
+
+ and boils down to integrals
+\begin_inset Formula 
+\begin{equation}
+\left\langle f,g\right\rangle =\int_{\Omega}w(\boldsymbol{x})f(\boldsymbol{x})g(\boldsymbol{x})d\boldsymbol{x}.
+\end{equation}
+
+\end_inset
+
+Here we leave a free weight function 
+\begin_inset Formula $w(\boldsymbol{x})$
+\end_inset
+
+ in addition to just the product of 
+\begin_inset Formula $f(\boldsymbol{x})$
+\end_inset
+
+ and 
+\begin_inset Formula $g(\boldsymbol{x})$
+\end_inset
+
+ to be more general, and define 
+\begin_inset Formula $||f||=\sqrt{\left\langle f,f\right\rangle }$
+\end_inset
+
+.
+ Taking an inner product of (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fapprox"
+
+\end_inset
+
+) with a basis function 
+\begin_inset Formula $\phi_{i}$
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+\left\langle \phi_{i},f\right\rangle \approx\sum_{j}\left\langle \phi_{i},\phi_{j}\right\rangle f_{j}.\label{eq:fapprox-1}
+\end{equation}
+
+\end_inset
+
+Due to linearity we could just pull the inner product inside the sum on
+ the right-hand side.
+ Again we can find 
+\begin_inset Formula $f_{j}$
+\end_inset
+
+ like in the regression case by solving a linear system
+\begin_inset Formula 
+\begin{equation}
+M\boldsymbol{f}=\boldsymbol{b}
+\end{equation}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{equation}
+M_{ij}=\left\langle \phi_{i},\phi_{j}\right\rangle ,\qquad b_{i}=\left\langle \phi_{i},f\right\rangle .
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Usually 
+\begin_inset Formula $M$
+\end_inset
+
+ is called the mass matrix here.
+ Most importantly, for cleverly chosen sets of basis functions with the
+ right function 
+\begin_inset Formula $w(\boldsymbol{x})$
+\end_inset
+
+ we can compute 
+\begin_inset Formula $f_{j}$
+\end_inset
+
+ directly by making 
+\begin_inset Formula $M$
+\end_inset
+
+ diagonal.
+ In a trigonometric (Fourier) basis we know that
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{2\pi}\int_{0}^{2\pi}\phi_{i}(x)\phi_{j}(x)dx=\delta_{ij}\equiv\begin{cases}
+1 & i=j\\
+0 & \mathrm{otherwise}
+\end{cases}.
+\end{equation}
+
+\end_inset
+
+This is why we will just use 
+\begin_inset Formula 
+\begin{equation}
+\left\langle f,g\right\rangle _{\mathrm{trig}}=\frac{1}{2\pi}\int_{0}^{2\pi}f(x)g(x)dx.
+\end{equation}
+
+\end_inset
+
+in that case.
+ We obtain a unity mass matrix with 
+\begin_inset Formula $M_{ij}=\delta_{ij}$
+\end_inset
+
+ and thus
+\begin_inset Formula 
+\begin{equation}
+f_{i}=\frac{1}{2\pi}\int_{0}^{2\pi}\phi_{i}(x)f(x)dx.
+\end{equation}
+
+\end_inset
+
+More generally, we will try to find 
+\begin_inset Formula $w(\boldsymbol{x})$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\begin{equation}
+\left\langle \phi_{i},\phi_{j}\right\rangle =\int_{\Omega}w(\boldsymbol{x})\phi_{i}(\boldsymbol{x})\phi_{j}(\boldsymbol{x})d\boldsymbol{x}=\delta_{ij}.
+\end{equation}
+
+\end_inset
+
+This is called the orthogonality condition.
+ We already saw that for
+\end_layout
+
+\begin_layout Itemize
+periodic functions in 
+\begin_inset Formula $\Omega=(0,2\pi)$
+\end_inset
+
+, use trigonometric basis with constant 
+\begin_inset Formula $w(x)=(2\pi)^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Polynomial bases that support such an orthogonality condition are called
+ orthogonal polynomials.
+ Applications are for
+\end_layout
+
+\begin_layout Itemize
+general functions in 
+\begin_inset Formula $\Omega=(-1,1)$
+\end_inset
+
+, use Legendre polynomials with constant 
+\begin_inset Formula $w(x)=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+decaying functions in 
+\begin_inset Formula $\Omega=(-\infty,\infty)$
+\end_inset
+
+, use Her
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\backslash
+boldsymbol{y}
+\backslash
+mathcal{L}^{
+\backslash
+prime}
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+mite polynomials 
+\begin_inset Formula $H_{j}(x)$
+\end_inset
+
+ with 
+\begin_inset Formula $w(x)=e^{-x^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+more cleverly, use Hermite functions 
+\begin_inset Formula $h_{j}(x)=e^{-x^{2}/2}H_{j}(x)$
+\end_inset
+
+ with 
+\begin_inset Formula $w(x)=1$
+\end_inset
+
+.
+ They don't explode.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Even if we don't get an exact orthogonality condition, we can often get
+ very local coupling such that 
+\begin_inset Formula $M$
+\end_inset
+
+ becomes a banded or sparse matrix with many zeros.
+ This is the case when using a local finite element or spline basis of low
+ order.
+ The higher the order, the more global the coupling becomes, and a orthogonal,
+ spectral basis may be a better choice.
+\end_layout
+
+\begin_layout Section
+Least squares / Linear regression
+\end_layout
+
+\begin_layout Standard
+We now want to minimize the squared distance to the training data.
+ Defining the design matrix 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ with 
+\begin_inset Formula $\Phi_{ij}=\phi_{j}(\boldsymbol{x}_{i})$
+\end_inset
+
+, we minimize
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\sum_{i}(\sum_{j}f_{j}\phi_{j}(\boldsymbol{x}_{i})-y_{i})^{2} & =(\Phi^{T}\boldsymbol{f}-\boldsymbol{y})^{T}(\Phi^{T}\boldsymbol{f}-\boldsymbol{y})\nonumber \\
+ & =\boldsymbol{f}^{T}\Phi\Phi^{T}\boldsymbol{f}-2\boldsymbol{y}^{T}\Phi^{T}\boldsymbol{f}+\boldsymbol{y}^{T}\boldsymbol{y}.
+\end{align}
+
+\end_inset
+
+with respect to coefficients 
+\begin_inset Formula $\boldsymbol{f}$
+\end_inset
+
+ at given data 
+\begin_inset Formula $\boldsymbol{y}$
+\end_inset
+
+.
+ In that case, the term 
+\begin_inset Formula $\boldsymbol{y}^{T}\boldsymbol{y}$
+\end_inset
+
+ is a constant.
+ Effectively we have to minimize
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{2}\boldsymbol{f}^{T}A\boldsymbol{f-}\boldsymbol{b}^{T}\boldsymbol{f}
+\end{equation}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{equation}
+A=\Phi\Phi^{T},\quad\boldsymbol{b}=\Phi\boldsymbol{y}.
+\end{equation}
+
+\end_inset
+
+This is equivalent to solving the linear system
+\begin_inset Formula 
+\begin{equation}
+A\boldsymbol{f}=\boldsymbol{b}.
+\end{equation}
+
+\end_inset
+
+In contrast to the collocation case, the matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ is nicely symmetric.
+ We will now generalize this result to a setting where data can have random
+ noise.
+\end_layout
+
+\begin_layout Subsection
+Basics on probability theory
+\end_layout
+
+\begin_layout Standard
+Here we treat probability in a Bayesian sense.
+ The philosophical difference to 
+\begin_inset Quotes eld
+\end_inset
+
+orthodox
+\begin_inset Quotes erd
+\end_inset
+
+ statistics is, that we probability is seen as a measure of uncertainty
+ here, rather than being linked to something that occurs by chance.
+ In particular we say how probable it is that a model, or a set of model
+ parameters are the correct ones.
+ For this purpose we make use of Bayes' rule.
+ Keep in mind that this rule exists in all variants and interpretations
+ of probability theory and statistics, as the underlying math is the same.
+ The difference is only how far we go to assign probabilities.
+\end_layout
+
+\begin_layout Subsection*
+Updating knowledge via Bayes' rule
+\end_layout
+
+\begin_layout Standard
+The probability that 
+\begin_inset Formula $a$
+\end_inset
+
+ AND 
+\begin_inset Formula $b$
+\end_inset
+
+ happened can be written in two ways.
+ Example: we compute the probability that someone is rich and beautiful
+ either by taking the probability that someone is rich times the probability
+ that a rich person is beautiful, or the other way round:
+\begin_inset Formula 
+\begin{equation}
+p(a\wedge b)=p(a|b)p(b)=p(b|a)p(a).
+\end{equation}
+
+\end_inset
+
+Here 
+\begin_inset Formula $p(a|b)$
+\end_inset
+
+ means the probability for 
+\begin_inset Formula $a$
+\end_inset
+
+ under the condition that 
+\begin_inset Formula $b$
+\end_inset
+
+ is given.
+ In case 
+\begin_inset Formula $p(b)\neq0$
+\end_inset
+
+, we deduce Bayes' rule
+\begin_inset Formula 
+\begin{equation}
+p(a|b)=\frac{p(b|a)p(a)}{p(b)}.
+\end{equation}
+
+\end_inset
+
+ In our application, 
+\begin_inset Formula $a=w$
+\end_inset
+
+ are model parameters (
+\begin_inset Quotes eld
+\end_inset
+
+weights
+\begin_inset Quotes erd
+\end_inset
+
+) and/or hyperparameters (we call them 
+\begin_inset Formula $\theta$
+\end_inset
+
+ later) whose distribution we want to know, and 
+\begin_inset Formula $b=y$
+\end_inset
+
+ are measured data.
+ It is usually easy to write 
+\begin_inset Formula $p(y|w)$
+\end_inset
+
+ for a given model, but what we want to know in the end is 
+\begin_inset Formula $p(w|y)$
+\end_inset
+
+, so how probable it is that our model is correctly parametrized.
+ Terms in the expression
+\begin_inset Formula 
+\begin{equation}
+p(w|y)=\frac{p(y|w)p(w)}{p(y)}
+\end{equation}
+
+\end_inset
+
+are called
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Posterior
+\series bold
+ 
+\begin_inset Formula $p(w|y)$
+\end_inset
+
+
+\series default
+\emph default
+: Probability of parameters that we want to know or maximize.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Likelihood
+\series bold
+ 
+\begin_inset Formula $p(y|w)$
+\end_inset
+
+
+\series default
+\emph default
+: How likely it is to measure 
+\begin_inset Formula $y$
+\end_inset
+
+ assuming a model with fixed 
+\begin_inset Formula $w$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Prior
+\series bold
+ 
+\begin_inset Formula $p(w)$
+\end_inset
+
+
+\series default
+\emph default
+: Distribution of meaningful values of 
+\begin_inset Formula $w$
+\end_inset
+
+ without knowing any data.
+\end_layout
+
+\begin_layout Itemize
+
+\emph on
+Evidence
+\emph default
+ 
+\begin_inset Formula $p(y)$
+\end_inset
+
+: Normalization factor to make 
+\begin_inset Formula $\int p(w|y)dw=1$
+\end_inset
+
+ (only needed for more advanced stuff).
+\end_layout
+
+\begin_layout Subsection
+Linear regression
+\end_layout
+
+\begin_layout Standard
+(See also R&W chapter 2) Linear regression allows for random noise in the
+ input data.
+ We assume measurements of a function 
+\begin_inset Formula $f$
+\end_inset
+
+ with some constant (homoscedastic) error term
+\begin_inset Formula 
+\begin{equation}
+y=f(\boldsymbol{x})+\varepsilon
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\begin{equation}
+\varepsilon\sim\mathcal{N}(0,\sigma_{n}^{\,2})
+\end{equation}
+
+\end_inset
+
+is Gaussian noise with (a priori unknown) variance 
+\begin_inset Formula $\sigma_{n}^{2}$
+\end_inset
+
+.
+ More generally speaking we denote quantities such as 
+\begin_inset Formula $y$
+\end_inset
+
+ as 
+\emph on
+random variables
+\emph default
+.
+ Functions of random variables give new random variables.
+ Linear functions applied to Gaussian random variables like 
+\begin_inset Formula $y$
+\end_inset
+
+ give Gaussian random variables.
+ We use a 
+\emph on
+linear model
+\emph default
+
+\begin_inset Formula 
+\begin{equation}
+f(\mathbf{x})=\sum_{k}w_{k}\phi_{k}(\mathbf{x})=\mathbf{w}^{T}\boldsymbol{\phi}(\mathbf{x}).
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We make some (noisy, if 
+\begin_inset Formula $\sigma_{n}>0$
+\end_inset
+
+) observations of a 
+\emph on
+realization
+\emph default
+ 
+\begin_inset Formula $\mathbf{y}=(y_{1},y_{2},\dots y_{n})$
+\end_inset
+
+ at training points 
+\begin_inset Formula $X=(\mathbf{x}_{1},\mathbf{x}_{2},\dots,\mathbf{x}_{n})$
+\end_inset
+
+.
+ We sloppily call the realizations also 
+\begin_inset Formula $y$
+\end_inset
+
+, but in more precise terms we should use another letter to distinguish
+ them from the random variable for which we can draw an infinite number
+ of different realizations with random outcome.
+ Say we observed
+\begin_inset Formula 
+\begin{equation}
+y_{i}=\sum_{k}w_{k}\phi_{k}(\mathbf{x}_{i})+\varepsilon.
+\end{equation}
+
+\end_inset
+
+In a vectorial way one would write
+\begin_inset Formula 
+\begin{equation}
+\mathbf{y}=\mathbf{w}^{T}\Phi(X)+\boldsymbol{\varepsilon}.
+\end{equation}
+
+\end_inset
+
+Then the distribution of the data 
+\begin_inset Formula $\mathbf{y}$
+\end_inset
+
+ with given weights is a multivariate normal distribution
+\begin_inset Formula 
+\begin{equation}
+p(\mathbf{y}|X,\mathbf{w})=\mathcal{N}(\mathbf{w}^{T}\Phi(X),\sigma_{n}^{\,2}I).
+\end{equation}
+
+\end_inset
+
+In addition, we need a prior that we choose as
+\begin_inset Formula 
+\begin{equation}
+p(\mathbf{w})=\mathcal{N}(0,\Sigma_{p}).
+\end{equation}
+
+\end_inset
+
+If 
+\begin_inset Formula $\Sigma_{p}$
+\end_inset
+
+ is a diagonal, its entries 
+\begin_inset Formula $\Sigma_{p,ii}$
+\end_inset
+
+ just mean how important we think that the contribution of the 
+\begin_inset Formula $i$
+\end_inset
+
+-th basis function is.
+ In an infinite functional basis this should decay to zero at some point.
+ Bayes' rule gives
+\begin_inset Formula 
+\begin{align}
+p(\boldsymbol{w}|X,\boldsymbol{y}) & =\frac{p(\mathbf{y}|X,\mathbf{w})p(\mathbf{w})}{p(\mathbf{y})}\\
+ & =FAC\frac{\exp\left(-\frac{(\mathbf{y}-\mathbf{w}^{T}\Phi)^{2}}{2\sigma_{n}^{\,2}}\right)\exp\left(-\frac{1}{2}\mathbf{w}^{T}\Sigma_{p}^{-1}\mathbf{w}\right)}{p(\mathbf{y})}\\
+ & =\frac{FAC}{p(\mathbf{y})}\exp\left(-\frac{1}{2\sigma_{n}^{\,2}}\left((\mathbf{y}-\mathbf{w}^{T}\Phi)^{2}+\sigma_{n}^{\,2}\mathbf{w}^{T}\Sigma_{p}^{-1}\mathbf{w}\right)\right)\\
+ & =\frac{FAC}{p(\mathbf{y})}\exp\left(-\frac{1}{2\sigma_{n}^{\,2}}\left(\mathbf{y}^{2}-2\mathbf{y}^{T}\mathbf{w}^{T}\Phi+\mathbf{w}^{T}\Phi\Phi^{T}\mathbf{w}+\sigma_{n}^{\,2}\mathbf{w}^{T}\Sigma_{p}^{-1}\mathbf{w}\right)\right)\\
+ & =\frac{FAC}{p(\mathbf{y})}\exp\left(-\frac{1}{2\sigma_{n}^{\,2}}\left(\mathbf{y}^{2}-2\mathbf{y}^{T}\mathbf{w}^{T}\Phi+\mathbf{w}^{T}(\underbrace{\Phi\Phi^{T}+\sigma_{n}^{\,2}\Sigma_{p}^{-1}}_{A})\mathbf{w}\right)\right)
+\end{align}
+
+\end_inset
+
+TODO
+\end_layout
+
+\begin_layout Standard
+Then we can find the posterior after observation of (possibly noisy) training
+ data 
+\begin_inset Formula $\boldsymbol{y}$
+\end_inset
+
+ at positions via
+\begin_inset Formula 
+\begin{equation}
+p(\boldsymbol{w}|X,\boldsymbol{y})\sim\mathcal{N}(A^{-1}\Phi\boldsymbol{y},\sigma_{n}^{\,2}A^{-1}),
+\end{equation}
+
+\end_inset
+
+with a regularized variant of
+\begin_inset Formula 
+\begin{equation}
+A=\Phi\Phi^{T}+\sigma_{n}^{\,2}\Sigma_{p}^{-1}.
+\end{equation}
+
+\end_inset
+
+(Our notation differs slightly from Rasmussen, where 
+\begin_inset Formula $A$
+\end_inset
+
+ is normalized differently.) In the limit of a vague prior 
+\begin_inset Formula $|\Sigma_{p}|\gg|\sigma_{n}^{\,2}|$
+\end_inset
+
+ we just have 
+\begin_inset Formula $A=\Phi\Phi^{T}$
+\end_inset
+
+ as in least-squares without noise.
+ In addition we get an uncertainty via the posterior covariance 
+\begin_inset Formula 
+\begin{equation}
+\mathrm{cov}(\boldsymbol{f})=\sigma_{n}^{\,2}A^{-1}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Kernel regression
+\end_layout
+
+\begin_layout Standard
+Here we look at linear regression again, which is formally equivalent.
+ However, we shift the problem from the looking at a posterior in the 
+\emph on
+coefficients
+\emph default
+ 
+\begin_inset Formula $\boldsymbol{f}$
+\end_inset
+
+ for the function space to a posterior directly on the 
+\emph on
+values
+\emph default
+ 
+\begin_inset Formula $f(\boldsymbol{x}_{\star})$
+\end_inset
+
+ of the predictive distribution at test points 
+\begin_inset Formula $\boldsymbol{x}_{\star}$
+\end_inset
+
+.
+ Using the kernel trick enables us to use an infinite number of basis functions
+ 
+\begin_inset Formula $\phi_{i}$
+\end_inset
+
+ and combine them into a Mercer kernel
+\begin_inset Formula 
+\begin{equation}
+k(\boldsymbol{x},\boldsymbol{x}^{\prime})=\sum_{i}\phi_{i}(\boldsymbol{x})\Sigma_{ij}^{p}\phi_{j}(\boldsymbol{x}_{j}).
+\end{equation}
+
+\end_inset
+
+In contrast to spectral basis functions, such kernels are relatively local
+ in space.
+ The dimension of the regression problem to solve is always equal to the
+ number of training points rather than the number of basis functions (=
+\begin_inset Formula $\infty$
+\end_inset
+
+).
+ Details on kernel or Gaussian process regression can be found in R&W.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{\mathcal{GP}}(m(\mathbf{x}),k(\mathbf{x},\mathbf{x}^{\prime}))
+\]
+
+\end_inset
+
+Linear model for mean:
+\begin_inset Formula 
+\[
+m(\mathbf{x})=\sum_{j}m_{j}\phi_{j}(\boldsymbol{x}_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\phi_{1}=1,\phi_{2}=x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(R&W chapter 2.7, Albert&Rath Entropy 2020)
+\end_layout
+
+\begin_layout Subsection
+Hyperparameter optimization
+\end_layout
+
+\begin_layout Standard
+The negative log probability for parameters 
+\begin_inset Formula $\theta$
+\end_inset
+
+ given data 
+\begin_inset Formula $y$
+\end_inset
+
+ observed at 
+\begin_inset Formula $X$
+\end_inset
+
+ is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+\pi(\theta) & =-\ln p(\theta|X,y)=-\ln\frac{p(y|X,\theta)p(\theta|X)}{p(y|X)}\nonumber \\
+ & =\frac{1}{2}y^{T}K_{y}(\theta)^{-1}y+\frac{1}{2}\log|K_{y}(\theta)|+\frac{n}{2}\log2\pi-\ln p(\theta|X)+\ln p(y|X).\label{eq:pi-1}
+\end{align}
+
+\end_inset
+
+Here, in contrast to RW (2.30), we write 
+\begin_inset Formula $p(y|X,\theta)$
+\end_inset
+
+ instead of 
+\begin_inset Formula $p(y|X)$
+\end_inset
+
+ for the marginal likelihood to emphasize that it also depends on 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ In addition we use Bayes' rule with a prior 
+\begin_inset Formula $p(\theta|X)$
+\end_inset
+
+ to get the posterior 
+\begin_inset Formula $p(\theta|X,y)$
+\end_inset
+
+ in hyperparameters rather than only the likelihood.
+ Minimization of 
+\begin_inset Formula $\pi(\theta)$
+\end_inset
+
+ will give MAP values 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+, which coincide with the ML values in case of a flat prior.
+\end_layout
+
+\begin_layout Subsubsection*
+Laplace approximation
+\end_layout
+
+\begin_layout Standard
+We can approximate 
+\begin_inset Formula $\pi(\theta)$
+\end_inset
+
+ around 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ via the Laplace approximation and the Hessian of the optimizer as follows.
+ If 
+\begin_inset Formula $p(\theta|X,y)$
+\end_inset
+
+ were Gaussian with mean 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ and covariance 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+, i.e.
+\begin_inset Formula 
+\begin{equation}
+p(\theta|X,y)=\frac{1}{\sqrt{(2\pi)^{p}|\Sigma|}}\exp\left(-\frac{(\theta-\hat{\theta})^{T}\Sigma^{-1}(\theta-\hat{\theta})}{2}\right),
+\end{equation}
+
+\end_inset
+
+ we would have
+\begin_inset Formula 
+\begin{equation}
+\pi(\theta)=\frac{1}{2}(\theta-\hat{\theta})^{T}\Sigma^{-1}(\theta-\hat{\theta})+\frac{1}{2}\log|\Sigma|+\frac{p}{2}\log2\pi.\label{eq:pi}
+\end{equation}
+
+\end_inset
+
+As 
+\begin_inset Formula $\Sigma^{-1}$
+\end_inset
+
+ is an inverse covariance matrix, it is positive definite.
+ This means that it always yields positive values when multiplied from the
+ left and from the right with a non-zero vector (in a more fancy language
+ it induces a positive definite bilinear form 
+\begin_inset Formula $\sigma(u,v)\equiv u^{T}\Sigma v$
+\end_inset
+
+).
+ So the first term in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pi"
+
+\end_inset
+
+ is at least zero, and this happens only if you put in the zero vector from
+ both sides.
+ Since nothing else depends on 
+\begin_inset Formula $\theta$
+\end_inset
+
+, the minimum of 
+\begin_inset Formula $\pi(\theta)$
+\end_inset
+
+ must lie at 
+\begin_inset Formula $\theta=\hat{\theta}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The curvature at this minimum is given by the Hessian 
+\begin_inset Formula $H$
+\end_inset
+
+ of 
+\begin_inset Formula $\pi(\theta)$
+\end_inset
+
+, being the matrix containing second derivatives w.r.t.
+ 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ By visual comparison this is clearly 
+\begin_inset Formula $H=\Sigma^{-1}$
+\end_inset
+
+.
+ In the Laplace approximation we remain using the Hessian 
+\begin_inset Formula $H$
+\end_inset
+
+ of the nonlinear optimization problem to minimize 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pi-1"
+
+\end_inset
+
+.
+ Then we pretend 
+\begin_inset Formula $p(\theta|X,y)$
+\end_inset
+
+ to be a Gaussian with 
+\begin_inset Formula $\Sigma=H^{-1}$
+\end_inset
+
+ at the optimum 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+.
+ One can view this also as a second-order Taylor expansion of 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pi-1"
+
+\end_inset
+
+ in 
+\begin_inset Formula $\theta$
+\end_inset
+
+ around 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ which yields an approximation of the form 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pi"
+
+\end_inset
+
+, with 
+\begin_inset Formula $\Sigma^{-1}$
+\end_inset
+
+ replaced by 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Comparison
+\end_layout
+
+\begin_layout Itemize
+Collocation:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Con:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+everything
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Regression
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Pro:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Need less training points
+\end_layout
+
+\begin_layout Itemize
+Linear error propagation
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Con:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Need to invert regression matrix (can still be fast with local basis)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+Projection
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Pro:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Matrix inversion avoided (orthogonal basis) or fast (local basis)
+\end_layout
+
+\begin_layout Itemize
+Stable convergence in 
+\begin_inset Formula $L_{2}$
+\end_inset
+
+ norm
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Con:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Need more training points for integral quadrature
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Error propagation?
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Derivatives
+\end_layout
+
+\begin_layout Standard
+Due to linearity, for any linear operator 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ we have
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mathcal{L}f(\boldsymbol{x})\approx\sum_{j}f_{j}\mathcal{L}\phi_{j}(\boldsymbol{x}).\label{eq:fapprox-3}
+\end{equation}
+
+\end_inset
+
+Here we define
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\psi}_{j}(\boldsymbol{x})=\mathcal{L}\phi_{j}(\boldsymbol{x}).
+\end{equation}
+
+\end_inset
+
+and 
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{z}=\mathcal{L}f(\boldsymbol{x})
+\end{equation}
+
+\end_inset
+
+are derivative observations of 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Collocation
+\end_layout
+
+\begin_layout Standard
+For collocation we solve
+\begin_inset Formula 
+\begin{equation}
+\Psi\boldsymbol{f}=\boldsymbol{z}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Least-squares / linear regression
+\end_layout
+
+\begin_layout Standard
+Observing derivatives in linear regression would mean to minimize
+\begin_inset Formula 
+\begin{align}
+\sum_{i}(f_{j}\psi_{j}(\boldsymbol{x}_{i})-\boldsymbol{z}_{i})^{2} & =(\Psi^{T}\boldsymbol{f}-\boldsymbol{z})^{T}(\Psi^{T}\boldsymbol{f}-\boldsymbol{z})\nonumber \\
+ & =\boldsymbol{f}^{T}\Psi\Psi^{T}\boldsymbol{f}-2\boldsymbol{z}^{T}\Psi^{T}\boldsymbol{f}+\boldsymbol{z}^{2}.\\
+ & =(1\times N_{z})(N_{z}\times1)
+\end{align}
+
+\end_inset
+
+We have 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ as an 
+\begin_inset Formula $(N_{f}\times N_{z})$
+\end_inset
+
+ matrix.
+ So one solves the linear system
+\begin_inset Formula 
+\begin{equation}
+B\boldsymbol{f}=\boldsymbol{c}
+\end{equation}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{equation}
+B=\Psi\Psi^{T},\quad\boldsymbol{c}=\Psi\boldsymbol{z}.
+\end{equation}
+
+\end_inset
+
+Combined observation.
+ 
+\begin_inset Formula 
+\begin{align}
+\sum_{i}(f_{j}\psi_{j}(\boldsymbol{x}_{i})-\boldsymbol{z}_{i})^{2}+\sum_{i}(f_{j}\phi_{j}(\boldsymbol{x}_{i})-\boldsymbol{y}_{i})^{2} & =\nonumber \\
+(\Psi^{T}\boldsymbol{f}-\boldsymbol{z})^{T}(\Psi^{T}\boldsymbol{f}-\boldsymbol{z})+(\Phi^{T}\boldsymbol{f}-\boldsymbol{y})^{T}(\Phi^{T}\boldsymbol{f}-\boldsymbol{y})
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\boldsymbol{\Gamma}=\left(\begin{array}{cc}
+\Phi & 0\\
+0 & \Psi
+\end{array}\right),\quad\boldsymbol{u}=\text{\left(\begin{array}{c}
+\boldsymbol{y}\\
+\boldsymbol{z}
+\end{array}\right)}
+\end{equation}
+
+\end_inset
+
+We minimize
+\begin_inset Formula 
+\begin{equation}
+(\Gamma^{T}\boldsymbol{f}-\boldsymbol{u})^{T}(\Gamma^{T}\boldsymbol{f}-\boldsymbol{u})=\boldsymbol{f}^{T}\Gamma\Gamma^{T}\boldsymbol{f}-2\boldsymbol{u}^{T}\Gamma^{T}\boldsymbol{f}\,(+\boldsymbol{u}^{2})
+\end{equation}
+
+\end_inset
+
+Here we have
+\begin_inset Formula 
+\begin{equation}
+C=\Gamma\Gamma^{T}=\left(\begin{array}{cc}
+\Phi\Phi^{T} & 0\\
+0 & \Psi\Psi^{T}
+\end{array}\right).
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+\boldsymbol{f}^{T}\Gamma\Gamma^{T}\boldsymbol{f} & =\boldsymbol{f}^{T}\left(\begin{array}{c}
+\Phi\\
+\Psi
+\end{array}\right)(\Phi^{T},\Psi^{T})\boldsymbol{f}\\
+ & =\left(\begin{array}{c}
+\boldsymbol{f}^{T}\Phi\\
+\boldsymbol{f}^{T}\Psi
+\end{array}\right)(\Phi^{T}\boldsymbol{f},\Psi^{T}\boldsymbol{f})\\
+ & =\left(\begin{array}{c}
+\boldsymbol{f}^{T}\Phi\Phi^{T}\boldsymbol{f}\,\boldsymbol{f}^{T}\Phi\Psi^{T}\boldsymbol{f}\\
+\boldsymbol{f}^{T}\Psi\Phi^{T}\boldsymbol{f}\,\boldsymbol{f}^{T}\Psi\Psi^{T}\boldsymbol{f}
+\end{array}\right)
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Testing
+\end_layout
+
+\begin_layout Standard
+Want:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(f_{k}\phi_{k}(x_{i})-f(x_{i}))^{2}\,\mathrm{min.}
+\]
+
+\end_inset
+
+Meaning:
+\begin_inset Formula 
+\[
+\Phi\Phi^{T}\boldsymbol{f}=\Phi\boldsymbol{y}.
+\]
+
+\end_inset
+
+Or
+\begin_inset Formula 
+\begin{align*}
+\mathcal{L}\Phi\Phi^{T}\mathcal{L}^{\prime}\boldsymbol{f} & =\mathcal{L}\Phi\boldsymbol{y}\mathcal{L}^{\prime},\\
+\Psi\Psi^{T}\boldsymbol{f} & =\Psi\boldsymbol{z}.
+\end{align*}
+
+\end_inset
+
+Have:
+\begin_inset Formula 
+\[
+z=\mathcal{L}f(x_{i})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{L}(f_{k}\phi_{k}(x_{i})-f(x_{i}))(f_{k}\phi_{k}(x_{i}^{\prime})-f(x_{i}^{\prime}))\mathcal{L}^{\prime}=(f_{k}\mathcal{L}\phi_{k}(x_{i})-\mathcal{L}f(x_{i}))(f_{k}\mathcal{L}\phi_{k}(x_{i})-\mathcal{L}f(x_{i}))
+\]
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{\psi}_{j}(\mathbf{x})=\nabla\phi_{j}(\mathbf{x}).
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbf{z}=\left(z_{1}^{1},z_{1}^{2},z_{2}^{1},z_{2}^{2}\right)^{T}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\boldsymbol{\Psi}=\left(\begin{array}{cccc}
+\psi_{0}^{11} & \psi_{1}^{11} & \psi_{2}^{11} & \psi_{3}^{11}\\
+\psi_{0}^{12} & \psi_{1}^{12} & \psi_{2}^{12} & \psi_{3}^{12}\\
+\psi_{0}^{21} & \psi_{1}^{21} & \psi_{2}^{21} & \psi_{3}^{21}\\
+\psi_{0}^{22} & \psi_{1}^{22} & \psi_{2}^{22} & \psi_{3}^{22}
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
