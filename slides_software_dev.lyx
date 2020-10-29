@@ -1,0 +1,700 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass foils
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "tgheros" "default"
+\font_typewriter "beramono" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 20
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation landscape
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 2cm
+\rightmargin 1.5cm
+\bottommargin 3cm
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout My Logo
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Develop and run scientific code like at ninja speed
+\end_layout
+
+\begin_layout Author
+Christopher Albert
+\end_layout
+
+\begin_layout Foilhead
+Claims
+\end_layout
+
+\begin_layout Itemize
+Scientific software should be allowed to compile at every run
+\end_layout
+
+\begin_layout Itemize
+Configuration file input can change both, compile time and run-time options
+\end_layout
+
+\begin_layout Itemize
+This solves the dilemma of using classical Fortran more dynamically
+\end_layout
+
+\begin_layout Itemize
+Using 
+\family typewriter
+libneo/python/ninjabuild.py
+\family default
+ increases happiness
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Automatically handle 90% of use cases, hand-code remaining 10% in Python.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Naturally this is related to my obsession to run new code on ancient systems)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+The dilemma of Fortran
+\end_layout
+
+\begin_layout Itemize
+Well designed, fast, and standard for HPC
+\end_layout
+
+\begin_layout Itemize
+Classical standards (90, 95) are easy to understand but lack features
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Configurable change of modules
+\end_layout
+
+\begin_layout Itemize
+Runtime polymorphism with abstract interfaces
+\end_layout
+
+\begin_layout Itemize
+e.g.
+ magnetic field Boozer vs.
+ EFIT.
+ Same interface, different implementation
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Could be solved by new standards (2003, 2008, 2018)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Clunky syntax
+\end_layout
+
+\begin_layout Itemize
+Few people/compilers know them well, especially combined with OpenMP/MPI
+\end_layout
+
+\begin_layout Itemize
+Then why not use C++ or Julia right away?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+The difference between scientific and application codes
+\end_layout
+
+\begin_layout Standard
+Application software
+\end_layout
+
+\begin_layout Itemize
+Interactive use at reasonable performance
+\end_layout
+
+\begin_layout Itemize
+Instant start-up required
+\end_layout
+
+\begin_layout Itemize
+User not interested in source code
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Scientific codes
+\end_layout
+
+\begin_layout Itemize
+Batch runs at highest performance over hours
+\end_layout
+
+\begin_layout Itemize
+Start-up time doesn't matter if it is in minute range
+\end_layout
+
+\begin_layout Itemize
+Frequent changes and interest in source code
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Classes of languages
+\end_layout
+
+\begin_layout Itemize
+Languages compiled ahead of time (AOT): C, C++, Fortran, ...
+\end_layout
+
+\begin_layout Itemize
+JITted languages: Java, C#, Julia, ...
+\end_layout
+
+\begin_layout Itemize
+Interpreted languages (sometimes with JIT): Python, Ruby, Matlab, ...
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Fast hardware and new compilers (LLVM) blur these boundaries, e.g.
+\end_layout
+
+\begin_layout Itemize
+Interactive C++ and Fortran in Jupyter console and notebooks
+\end_layout
+
+\begin_layout Itemize
+JITted Julia with Fortran-like performance
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What about the build system?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Meet ninja
+\end_layout
+
+\begin_layout Itemize
+
+\family typewriter
+ninja
+\family default
+ is a simplified and extremely fast 
+\begin_inset Quotes eld
+\end_inset
+
+modern 
+\family typewriter
+make
+\family default
+
+\begin_inset Quotes erd
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Built by Google for gigantic projects (Chrome browser)
+\end_layout
+
+\begin_layout Itemize
+Designed to be auto-generated, but still easy to read (or write)
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\size small
+$ cat build.ninja
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=make,basicstyle={\small\ttfamily},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+fflags = -Wall -g -Og
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+rule fc
+\end_layout
+
+\begin_layout Plain Layout
+
+  command = gfortran $fflags -c $in -o $out
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+build main.o: fc main.f90
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Poor Man's JIT emulation via AOT
+\end_layout
+
+\begin_layout Standard
+Using Python run script (
+\family typewriter
+neo-rt.py
+\family default
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Read configuration (
+\family typewriter
+< neo-rt.in
+\family default
+)
+\end_layout
+
+\begin_layout Enumerate
+Write build file (
+\family typewriter
+> build.ninja
+\family default
+) 
+\end_layout
+
+\begin_layout Enumerate
+Build via 
+\family typewriter
+ninja 
+\family default
+(
+\family typewriter
+> neo-rt.x
+\family default
+) 
+\end_layout
+
+\begin_layout Enumerate
+Execute code (
+\family typewriter
+./neo-rt.x
+\family default
+)
+\end_layout
+
+\begin_layout Enumerate
+Optional output processing
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No parameter changed: 
+\family typewriter
+ninja
+\family default
+ does nothing.
+ Otherwise just compiles affected part.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Convention over Configuration
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+\size footnotesize
+$ cat neo-rt.py
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=Python,basicstyle={\footnotesize\ttfamily},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+import sys
+\end_layout
+
+\begin_layout Plain Layout
+
+sys.path.append('/path/to/libneo/python')
+\end_layout
+
+\begin_layout Plain Layout
+
+from ninjarun import build_and_run
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+target = 'neo-rt'
+\end_layout
+
+\begin_layout Plain Layout
+
+sources = ['main.f90', 'orbit_{orbit_type}.f90']
+\end_layout
+
+\begin_layout Plain Layout
+
+build_and_run(target, sources)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\size small
+Default convention:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "language=make,basicstyle={\footnotesize\ttfamily},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+NEO-RT/
+\end_layout
+
+\begin_layout Plain Layout
+
+  BUILD/
+\end_layout
+
+\begin_layout Plain Layout
+
+    neo-rt.x
+\end_layout
+
+\begin_layout Plain Layout
+
+  RUN/
+\end_layout
+
+\begin_layout Plain Layout
+
+    neo-rt.py ...
+ Calls build and run from ninjarun
+\end_layout
+
+\begin_layout Plain Layout
+
+    neo-rt.in ...
+ Fortran nml with placeholders set in [config] section
+\end_layout
+
+\begin_layout Plain Layout
+
+  SRC/
+\end_layout
+
+\begin_layout Plain Layout
+
+    main.f90
+\end_layout
+
+\begin_layout Plain Layout
+
+    orbit_thin.f90
+\end_layout
+
+\begin_layout Plain Layout
+
+    orbit_full.f90
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Pros and Cons
+\end_layout
+
+\begin_layout Standard
+Pro:
+\end_layout
+
+\begin_layout Itemize
+Compiler can optimize better
+\end_layout
+
+\begin_layout Itemize
+Clean and readable code: dispatch logic in Python, numerics in Fortran
+\end_layout
+
+\begin_layout Itemize
+No C bindings needed (dlopen, ...) to handle shared libraries
+\end_layout
+
+\begin_layout Standard
+Cons:
+\end_layout
+
+\begin_layout Itemize
+Non-standard build system (still ninja standard core, CMake logic often
+ worse)
+\end_layout
+
+\begin_layout Itemize
+Cannot switch module during runtime (usually not needed)
+\end_layout
+
+\begin_layout Itemize
+Complexity risk if not well thought out (many files, duplicated code ...)
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+libneo/python/ninjabuild.py
+\family default
+ not the 
+\emph on
+Solution for all Problems (tm)
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Use the right tool suited for the job.
+ Please help developing if you like it!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,4 +1,4 @@
-%% LyX 2.3.2 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.3.4.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english,nofootinbib, tightenlines, notitlepage]{revtex4-1}
 \usepackage{tgpagella}
@@ -88,7 +88,7 @@ operations. For application in research and engineering it is important
 to note that tensor calculus can be formulated in a flexible and coordinate-independent
 way within the co-contravariant formalism. More detailed derivations
 on this very convenient way of treating curvilinear coordinates can
-be found in the first chapters of the book of Callen/d'haeseleer \citep{Callen1991}. 
+be found in the first chapters of the book of Callen/d'haeseleer \citep{dhaeseleer1991}. 
 
 \subsubsection*{Taylor expansion of vector fields\label{subsec:Taylor-expansion-of}}
 
@@ -698,8 +698,13 @@ of the problem using Lagrangian mechanics.
 
 \section{Guiding-Center Dynamics}
 
-A detailed derivation of the guiding-center Lagrangian can also be
-found in Lectures 3-4 of 2017 and https://itp.tugraz.at/\textasciitilde ert/assets/internal/plasma/2017/A1\_Guiding\_Center\_Lagrangian.pdf
+The modern way to treat guiding-center motion via a phase-space Lagrangian
+has been introduced by Littlejohn~\citep{littlejohn1983} in the
+1980s. Besides that there exists a review article on guiding-center
+motion by Cary and Brizard \citep{cary2009} containing background,
+main derivation steps and further literature references. A detailed
+derivation of the guiding-center Lagrangian can also be found in Lectures
+3-4 of 2017 and https://itp.tugraz.at/\textasciitilde ert/assets/internal/plasma/2017/A1\_Guiding\_Center\_Lagrangian.pdf
 . More information on asymptotic expansions with a small parameter
 $\varepsilon$ can be found in the lecture of Stefan Possanner at
 TUM. Here we treat the case where fields are not time-dependent.
@@ -991,8 +996,7 @@ Finally we obtain
 \dot{\v R} & =\frac{v_{\parallel}\v B^{\star}+c\v E^{\star}\times\hat{\v b}}{\hat{\v b}\cdot\v B^{\star}},\label{eq:rdot}\\
 \dot{v}_{\parallel} & =\frac{e}{m}\frac{\v B^{\star}\cdot\v E^{\star}}{\hat{\v b}\cdot\v B^{\star}}.
 \end{align}
-Here (convention taken from Lanthaler et al, PPCF 2017 vol: 59 (4)
-pp: 044014) we defined
+Here (convention taken from \citep{lanthaler2017}) we defined
 \begin{equation}
 \v E^{\star}=-e^{-1}\nabla H=-\frac{\mu}{e}\nabla B-\nabla\Phi.
 \end{equation}
@@ -1937,10 +1941,8 @@ gives a dispersion relation
 \end{equation}
 between the two for each mode $\sigma$, determining the \textbf{polarization}
 of the mode.
-\begin{thebibliography}{99}
-\bibitem{Callen1991} D\textquoteright haeseleer, W. D., Hitchon,
-W. N. G., Callen, J. D., \& Shohet, J. L. (1991). Flux Coordinates
-and Magnetic Field Structure. Springer Berlin Heidelberg. https://doi.org/10.1007/978-3-642-75595-8
-\end{thebibliography}
+
+\bibliographystyle{plainnat}
+\bibliography{writeups}
 
 \end{document}

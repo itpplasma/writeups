@@ -1682,5 +1682,54 @@ z=\mathcal{L}f(x_{i})
 
 \end_layout
 
+\begin_layout Section
+Nested linear/nonlinear models
+\end_layout
+
+\begin_layout Itemize
+Artificial neural networks
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+First layer as a linear projector for linear dimension reduction
+\end_layout
+
+\begin_layout Itemize
+Last layer as a linear regression layer
+\end_layout
+
+\begin_layout Itemize
+Possibility to use Hessian over weights (Toussaint, Gori, Dose 2004) for
+ Laplace approximation
+\end_layout
+
+\begin_layout Itemize
+Autoencoder for nonlinear dimension reduction
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+GP techniques
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Linear (unitary) transformation of inputs for linear embeddings
+\end_layout
+
+\begin_layout Itemize
+Deep, nested GPs
+\end_layout
+
+\begin_layout Itemize
+Kernel hyperparameters represented by GPs
+\end_layout
+
+\begin_layout Itemize
+Kernel PCA
+\end_layout
+
+\end_deeper
 \end_body
 \end_document
