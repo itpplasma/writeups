@@ -1,0 +1,744 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass foils
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "tgheros" "default"
+\font_typewriter "beramono" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 20
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation landscape
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 2cm
+\rightmargin 1.5cm
+\bottommargin 3cm
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout My Logo
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+More thoughts on scientific code development
+\end_layout
+
+\begin_layout Author
+Christopher Albert
+\end_layout
+
+\begin_layout Foilhead
+Lessons learned since last time
+\end_layout
+
+\begin_layout Itemize
+Three mostly equivalent realizations
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+A) External routines, modules as structs
+\end_layout
+
+\begin_layout Itemize
+B) Module routines, types as structs
+\end_layout
+
+\begin_layout Itemize
+C) Additionally put subroutines as type procedures
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Main requirements
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Easy to write, understand and document
+\end_layout
+
+\begin_layout Itemize
+Easy error identification, testing and debugging
+\end_layout
+
+\begin_layout Itemize
+High (cache) performance and parallelizability
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The question is not mainly 
+\emph on
+which
+\emph default
+, but 
+\emph on
+how
+\emph default
+ to use
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Modular: Split to managable pieces
+\end_layout
+
+\begin_layout Itemize
+Explicit: Know what data a routine manipulates
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Misunderstanding between 
+\emph on
+features for OO
+\emph default
+ and 
+\emph on
+OO design
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Claims
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+The limiting design cases are data oriented and object oriented
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+DO design: 
+\emph on
+Structures
+\emph default
+ are a set of 
+\emph on
+data
+\emph default
+ that are operated on by 
+\emph on
+implied routines
+\end_layout
+
+\begin_layout Enumerate
+OO design: 
+\emph on
+Objects
+\emph default
+ are a set of 
+\emph on
+routines
+\emph default
+ that operate on 
+\emph on
+implied data
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\emph on
+Using 
+\begin_inset Quotes eld
+\end_inset
+
+OO
+\begin_inset Quotes erd
+\end_inset
+
+ features of F03+ can also mean doing DO
+\emph default
+
+\begin_inset Newline newline
+\end_inset
+
+Usually: put routines that 
+\begin_inset Quotes eld
+\end_inset
+
+belong
+\begin_inset Quotes erd
+\end_inset
+
+ mainly to a type inside this type
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Actually it's good that 
+\begin_inset Quotes eld
+\end_inset
+
+real
+\begin_inset Quotes erd
+\end_inset
+
+ OO isn't used most of the time in physics codes
+\begin_inset Newline newline
+\end_inset
+
+
+\emph default
+...
+ for the reasons mentioned in the main requirements.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+target "http://blog.cleancoder.com/uncle-bob/2019/06/16/ObjectsAndDataStructures.html"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Anti-pattern 1: God Struct
+\end_layout
+
+\begin_layout Standard
+In style A this would look like
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+module god_module
+\end_layout
+
+\begin_layout Plain Layout
+
+  real :: thing1
+\end_layout
+
+\begin_layout Plain Layout
+
+  real :: thing2
+\end_layout
+
+\begin_layout Plain Layout
+
+  real :: thing3
+\end_layout
+
+\begin_layout Plain Layout
+
+  real :: thing4
+\end_layout
+
+\begin_layout Plain Layout
+
+  real :: thing5
+\end_layout
+
+\begin_layout Plain Layout
+
+  ...
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+subroutine do_something
+\end_layout
+
+\begin_layout Plain Layout
+
+  use god_module
+\end_layout
+
+\begin_layout Plain Layout
+
+  thing1 = thing4
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In style A the problem can immediately mitigated by 
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+use god_module, only: thing1, thing4
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This allows to use well-defined 
+\begin_inset Quotes eld
+\end_inset
+
+parts
+\begin_inset Quotes erd
+\end_inset
+
+ of a structure.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Anti-pattern 1: God Struct
+\end_layout
+
+\begin_layout Standard
+In style B/C this would look like
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+module god_module
+\end_layout
+
+\begin_layout Plain Layout
+
+  type god_type
+\end_layout
+
+\begin_layout Plain Layout
+
+    real :: thing1
+\end_layout
+
+\begin_layout Plain Layout
+
+    real :: thing2
+\end_layout
+
+\begin_layout Plain Layout
+
+    real :: thing3
+\end_layout
+
+\begin_layout Plain Layout
+
+    real :: thing4
+\end_layout
+
+\begin_layout Plain Layout
+
+    real :: thing5
+\end_layout
+
+\begin_layout Plain Layout
+
+    ...
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    contains
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\end_layout
+
+\begin_layout Plain Layout
+
+    subroutine do_something
+\end_layout
+
+\begin_layout Plain Layout
+
+      thing1 = thing2
+\end_layout
+
+\begin_layout Plain Layout
+
+    end
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In 
+\emph on
+both
+\emph default
+ styles B and C we have 
+\emph on
+no possibility
+\emph default
+ to specify 
+\emph on
+only
+\emph default
+ the parts of 
+\emph on
+god_type
+\emph default
+ relevant to our routine.
+ The only solution is to split 
+\emph on
+god_type
+\emph default
+.
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Splitting the God Type
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Row- versus column-oriented storage
+\end_layout
+
+\begin_layout Standard
+Let's say we act on 
+\begin_inset Formula $N$
+\end_inset
+
+ data at once.
+ There are two ways to do this: 
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Array of structs (AoS) 
+\emph default
+or 
+\emph on
+row-oriented
+\end_layout
+
+\begin_layout Enumerate
+
+\emph on
+Struct of arrays (SoA) 
+\emph default
+or 
+\emph on
+column-oriented 
+\end_layout
+
+\begin_layout Standard
+What is better depends on the access pattern with the goal to be serial,
+ not random! Rule of thumb:
+\end_layout
+
+\begin_layout Itemize
+Good: SoA if each array is processed separately or for array-kind of operations
+ (SIMD)
+\end_layout
+
+\begin_layout Itemize
+Bad: SoA with large 
+\begin_inset Formula $N$
+\end_inset
+
+ and access to multiple members without SIMD operations
+\end_layout
+
+\begin_layout Itemize
+Good: AoS with small structs that group together 
+\emph on
+only
+\emph default
+ the data that is actually accessed in the right order.
+\end_layout
+
+\begin_layout Itemize
+Bad: AoS with god structs and few members accessed (danger in OO design)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Row- versus column-oriented storage
+\end_layout
+
+\begin_layout Standard
+In style A, SOA would look like
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+module gods_module
+\end_layout
+
+\begin_layout Plain Layout
+
+  real :: thing1(N)
+\end_layout
+
+\begin_layout Plain Layout
+
+  real :: thing2(N)
+\end_layout
+
+\begin_layout Plain Layout
+
+  ...
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+subroutine do_something
+\end_layout
+
+\begin_layout Plain Layout
+
+  use gods_module, only: thing1, thing2
+\end_layout
+
+\begin_layout Plain Layout
+
+  thing1(:) = thing2(:)
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In more complex cases one would need a for loop inside every 
+\emph on
+do_something
+\emph default
+ kind of routine.
+ Style A can put types inside modules to get AOS:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "basicstyle={\footnotesize},frame=single"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+module gods_module
+\end_layout
+
+\begin_layout Plain Layout
+
+  type(stuff12) :: stuff12(N)
+\end_layout
+
+\begin_layout Plain Layout
+
+  type(stuff12) :: stuff12(N)
+\end_layout
+
+\begin_layout Plain Layout
+
+end
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
