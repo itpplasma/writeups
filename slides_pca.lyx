@@ -1,0 +1,625 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass foils
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "tgheros" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation landscape
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 1.5cm
+\rightmargin 2cm
+\bottommargin 3cm
+\secnumdepth 1
+\tocdepth 1
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout My Logo
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\n}[1]{\qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad}
+{{\color{green}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\renewcommand{\n}[1]{#1}
+{{\color{green}#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Regression, Eigendecomposition, PCA and SVD
+\end_layout
+
+\begin_layout Author
+Christopher Albert
+\end_layout
+
+\begin_layout Foilhead
+Linear regression 
+\begin_inset Formula $\sim$
+\end_inset
+
+ least squares 
+\begin_inset Formula $\sim$
+\end_inset
+
+ collocation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(\boldsymbol{x})\approx\sum_{j=0}^{n-1}\n{a_{j}\phi_{j}(\boldsymbol{x})}
+\end{equation}
+
+\end_inset
+
+Multiply from left with 
+\begin_inset Formula $\sum_{k=1}^{N}\phi_{i}(\boldsymbol{x}^{(k)})$
+\end_inset
+
+ over 
+\begin_inset Formula $N$
+\end_inset
+
+ trainings points to obtain
+\begin_inset Formula 
+\begin{equation}
+\sum_{k=1}^{N}\phi_{i}(\boldsymbol{x}^{(k)})f(\boldsymbol{x}^{(k)})\approx\sum_{k=1}^{N}\phi_{i}(\boldsymbol{x}^{(k)})\sum_{j=0}^{n-1}\n{a_{j}\phi_{j}(\boldsymbol{x}^{(k)})=\sum_{j=0}^{n-1}a_{j}\underbrace{\sum_{k=1}^{N}\phi_{i}(\boldsymbol{x}^{(k)})\phi_{j}(\boldsymbol{x}^{(k)})}_{M_{ij}}.}
+\end{equation}
+
+\end_inset
+
+This can be written as linear system
+\begin_inset Formula 
+\begin{equation}
+M\boldsymbol{a}=\boldsymbol{b}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solution is least-squares on 
+\emph on
+training points
+\emph default
+.
+ Collocation for PDEs.
+\end_layout
+
+\begin_layout Standard
+In 
+\emph on
+simple linear regression
+\emph default
+ we have 
+\begin_inset Formula $\phi_{0}(\boldsymbol{x})=1,\,\phi_{j}(\boldsymbol{x})=x_{j},\,n=D+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Side-note: projection 
+\begin_inset Formula $\sim$
+\end_inset
+
+ variational 
+\begin_inset Formula $\sim$
+\end_inset
+
+ Galerkin 
+\begin_inset Formula $\sim$
+\end_inset
+
+ FEM
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+f(\boldsymbol{x})\approx\sum_{j=1}^{n-1}\n{a_{j}\phi_{j}(\boldsymbol{x}).}
+\end{equation}
+
+\end_inset
+
+Multiply from left with 
+\begin_inset Formula $\int d^{D}x\,\phi_{i}(\boldsymbol{x})$
+\end_inset
+
+ to obtain
+\begin_inset Formula 
+\begin{equation}
+\int d^{D}x\,\phi_{i}(\boldsymbol{x})f(\boldsymbol{x})\approx\int d^{D}x\,\sum_{j=1}^{n-1}\n{a_{j}\phi_{j}(\boldsymbol{x})=\sum_{j=1}^{n-1}a_{j}\underbrace{\int d^{D}x\phi_{i}(\boldsymbol{x})\phi_{j}(\boldsymbol{x})}_{M_{ij}}.}
+\end{equation}
+
+\end_inset
+
+This can be written as linear system
+\begin_inset Formula 
+\begin{equation}
+M\boldsymbol{a}=\boldsymbol{b}.
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Solution is least-squares in 
+\emph on
+function space
+\emph default
+ (L2 norm).
+ Galerkin/FEM for PDEs.
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $\phi_{i}$
+\end_inset
+
+ are orthogonal (like Fourier or Legendre polynomials), then
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\int d^{D}x\phi_{i}(\boldsymbol{x})\phi_{k}(\boldsymbol{x})=\delta_{ik}$
+\end_inset
+
+ and mass matrix 
+\begin_inset Formula $M=I$
+\end_inset
+
+ is the identity!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Do I really need all of the basis? 
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ eigendecomposition or PCA
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+M=U\Lambda U^{T}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula 
+\[
+(n\times n)(n\times n)(n\times n)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+M\approx\tilde{U}\tilde{\Lambda}\tilde{U}^{T}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+(n\times p)(p\times p)(p\times n)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+M & =\left(\begin{array}{ccc}
+u_{11} & u_{12} & u_{13}\\
+u_{21} & u_{22} & u_{23}\\
+u_{31} & u_{32} & u_{33}
+\end{array}\right)\left(\begin{array}{ccc}
+\lambda_{1}\\
+ & \lambda_{2}\\
+ &  & \lambda_{3}
+\end{array}\right)U^{T}\\
+ & \approx\left(\begin{array}{ccc}
+u_{11} & u_{12} & \boldsymbol{u_{13}}\\
+u_{21} & u_{22} & \boldsymbol{u_{23}}\\
+u_{31} & u_{32} & \boldsymbol{u_{33}}
+\end{array}\right)\left(\begin{array}{ccc}
+\lambda_{1}\\
+ & \lambda_{2}\\
+ &  & \approx0
+\end{array}\right)\left(\begin{array}{ccc}
+u_{11} & u_{21} & u_{31}\\
+u_{12} & u_{22} & u_{32}\\
+u_{13} & u_{23} & u_{33}
+\end{array}\right)\\
+ & =\left(\begin{array}{ccc}
+u_{11} & u_{12} & u_{13}\\
+u_{21} & u_{22} & u_{23}\\
+u_{31} & u_{32} & u_{33}
+\end{array}\right)\left(\begin{array}{ccc}
+\lambda_{1}u_{11} & \lambda_{1}u_{21} & \lambda_{1}u_{31}\\
+\lambda_{2}u_{12} & \lambda_{2}u_{22} & \lambda_{2}u_{32}\\
+0 & 0 & 0
+\end{array}\right)\\
+ & =\left(\begin{array}{ccc}
+u_{11}\lambda_{1}u_{11}+u_{12}\lambda_{2}u_{12}+0\cdot u_{13}\\
+\\
+\lambda_{1}u_{11}u_{31}+\lambda_{2}u_{12}u_{32}
+\end{array}\right)
+\end{align}
+
+\end_inset
+
+Lanzcos, Arnoldi, power method: find largest eigenvalues and their eigenvectors
+ iteratively.
+ (Krylov-subspace, CG)
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Relation of mass matrix and covariance matrix
+\end_layout
+
+\begin_layout Standard
+Data space: 
+\begin_inset Formula $\boldsymbol{x}^{(k)}\in\mathbb{R}^{D},\,X\in\mathbb{R}^{D\times N}$
+\end_inset
+
+ (design matrix)
+\end_layout
+
+\begin_layout Standard
+Feature space: 
+\begin_inset Formula $\boldsymbol{\phi}(\boldsymbol{x})=(\phi_{0}(\boldsymbol{x}),\phi_{1}(\boldsymbol{x}),\dots,\phi_{n-1}(\boldsymbol{x}))\in\mathbb{R}^{n},\,\Phi=\boldsymbol{\phi}(X)\in\mathbb{R}^{n\times N}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Confusion due to 
+\begin_inset Formula $n\approx D$
+\end_inset
+
+ in simple lin.
+ reg.
+ Leaving out 
+\begin_inset Formula $\phi_{0}=1$
+\end_inset
+
+ leads to 
+\begin_inset Formula $n=D$
+\end_inset
+
+ and 
+\begin_inset Formula $\Phi=X$
+\end_inset
+
+, i.e.
+ in simple linear regression, 
+\emph on
+vector components 
+\emph default
+of 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ are 
+\emph on
+features
+\emph default
+!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+M & =\overbrace{\Phi\Phi^{T}}^{n\times n},\\
+C & =\underbrace{\Phi^{T}\Phi}_{N\times N}
+\end{align}
+
+\end_inset
+
+Claim: Rank of 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+ is the same and at most 
+\begin_inset Formula $\min(n,N)$
+\end_inset
+
+.
+ Eigenvalues of 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+ are the same!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Foilhead
+Singular value decomposition
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+M=\Phi\Phi^{T}=U\Lambda U^{T}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C=\Phi^{T}\Phi=V\Lambda V^{T}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\Phi=\underbrace{U}_{n\times n}\underbrace{S}_{n\times N}\underbrace{V^{T}}_{N\times N}
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+S=\left(\begin{array}{ccc}
+\sqrt{\lambda_{1}}\\
+ & \sqrt{\lambda_{2}}
+\end{array}\right)
+\end{equation}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+\Phi\approx\underbrace{\tilde{U}}_{n\times p}\underbrace{\tilde{S}}_{p\times p}\underbrace{\tilde{V}^{T}}_{p\times N}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $U\dots$
+\end_inset
+
+left singular vectors
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $V\dots$
+\end_inset
+
+right singular vectors
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $S\dots$
+\end_inset
+
+singular values = square-root of eigenvalues in 
+\begin_inset Formula $\Lambda$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Can use 
+\emph on
+SVD of design matrix
+\series bold
+ 
+\series default
+\emph default
+
+\begin_inset Formula $\Phi$
+\end_inset
+
+ to find 
+\emph on
+PCA of both, mass and covariance matrix
+\end_layout
+
+\end_body
+\end_document
