@@ -1,0 +1,31 @@
+{
+  "scope": "Eleven exact single-sector/composition/field/axis identities; known wrong coefficient rejected. Combined high-dimensional probe is UNKNOWN, not a proved identity.",
+  "runner": "/home/ert/code/fortsym/build/bin/fortsym_wl_run",
+  "runner_sha256": "4f7564d6a367a56dacb623c3306c3562ca9787dfb46389a0c272d629e35f7ac7",
+  "producer_sha256": "e9277fc52443e7a68073908f1515c95c2a7d8c53b65b97c96884846751a210cf",
+  "source_sha256": "a8c7a0b832720f89157d422619f0e8e76b05b9427c0062216eaf1e3feac4644d",
+  "identities": {
+    "r001": "0",
+    "r002": "0",
+    "r003": "0",
+    "r004": "0",
+    "r005": "0",
+    "r006": "0",
+    "r007": "0",
+    "r008": "0",
+    "r009": "-5/8",
+    "r010": "0",
+    "r011": "0",
+    "r012": "0"
+  },
+  "capacity_source_sha256": "03bac25456116c2be6c9efa512e40b5f92acd23df9c84982b46a49286f700fad",
+  "capacity_verdict": "UNKNOWN: polynomial engine maximum12 indeterminates",
+  "capacity_diagnostics": [
+    "UNSUPPORTED: r001: Together: the expression has more indeterminates than the polynomial engine handles",
+    "UNSUPPORTED: r002: Together: the expression has more indeterminates than the polynomial engine handles",
+    "UNSUPPORTED: r003: Together: the expression has more indeterminates than the polynomial engine handles",
+    "UNSUPPORTED: r004: Together: the expression has more indeterminates than the polynomial engine handles",
+    "UNSUPPORTED: r005: Together: the expression has more indeterminates than the polynomial engine handles",
+    "UNSUPPORTED: r008: Together: the expression has more indeterminates than the polynomial engine handles"
+  ]
+}

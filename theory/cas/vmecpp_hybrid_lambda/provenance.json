@@ -1,0 +1,267 @@
+{
+  "scope": "Source-pinned local axisymmetric hybrid-lambda kernel, smooth-interior jets and separate first-interior axis closure; no PDE execution, global force proof or TC24 fix",
+  "vmecpp_source_commit": "a4150a4e2101bd47868d040f3adee5d0304ce89b",
+  "source_files": {
+    "src/vmecpp/cpp/vmecpp/vmec/vmec/vmec.h": "834e4741304a74c0a507d4579fe1bb718bc8dab8afe961d13b9638d2a4ebb3b8",
+    "src/vmecpp/cpp/vmecpp/vmec/vmec/vmec.cc": "18984774eb808a2032c4ad82194149cca85142d6b40cc6de945a79b4c43d8b2b",
+    "src/vmecpp/cpp/vmecpp/vmec/radial_profiles/radial_profiles.h": "dd384930bb130931b2c1d2b7154ff44f6b319813d2bcd1f2f3bef2e9d85ef6d3",
+    "src/vmecpp/cpp/vmecpp/vmec/radial_profiles/radial_profiles.cc": "4fd39db486c692e19f1b1c3bd622b301871582bd08fd3fc0a4c474870e11a97a",
+    "src/vmecpp/cpp/vmecpp/vmec/ideal_mhd_model/lambda_force_kernel.h": "9489ffa8083b382a1f13cf679dbc619bc0ff5b4e70c4125b2c0e4bcc428816d8",
+    "src/vmecpp/cpp/vmecpp/vmec/ideal_mhd_model/ideal_mhd_model.cc": "8779d14af710a5fdf4b0fafdde7ec4c9f0d5c3e2303891f53165b3546eb11991",
+    "src/vmecpp/cpp/vmecpp/vmec/fourier_geometry/fourier_geometry.cc": "675fd5dde89e7c5312ecb31b4f6515db239a98da04a9378a110c3d35b1458109"
+  },
+  "source_url": "https://github.com/proximafusion/vmecpp/tree/a4150a4e2101bd47868d040f3adee5d0304ce89b",
+  "source_root": "/tmp/tc24-vmecpp-source-20261007",
+  "writeups_base_commit": "e595bd70a9b709d6ccf2f7d97011605ee8e40ac6",
+  "fortsym_checkout_commit": "7868cdee3aacb72f1bc111981ce4cb0135b38449",
+  "fortsym_library_sha256": "0c93c159866734a929e8f2daa8ba68986cfaac380b97c252cf00c27ef6545637",
+  "fortsym_runner_sha256": "4f7564d6a367a56dacb623c3306c3562ca9787dfb46389a0c272d629e35f7ac7",
+  "fortsym_build_source_equivalence": "Binary/library pinned separately; no new FortSym build performed",
+  "cmake_configure": [
+    "cmake",
+    "-S",
+    "/home/ert/proj/writeups/theory/cas/vmecpp_hybrid_lambda",
+    "-B",
+    "/tmp/tc24-vmecpp-hybrid-kernel-20261007",
+    "-G",
+    "Ninja",
+    "-DVMECPP_SOURCE_ROOT=/tmp/tc24-vmecpp-source-20261007"
+  ],
+  "native_build": [
+    "cmake",
+    "--build",
+    "/tmp/tc24-vmecpp-hybrid-kernel-20261007",
+    "-j",
+    "2"
+  ],
+  "registered_test": [
+    "ctest",
+    "--test-dir",
+    "/tmp/tc24-vmecpp-hybrid-kernel-20261007",
+    "--verbose"
+  ],
+  "ctest_log": "/tmp/tc24-vmecpp-hybrid-kernel-ctest-final-20261007.log",
+  "ctest_log_sha256": "7e6acafce408654b0c3f6afd926909472f25bab0ed3a97a99713ce9a8b8b62a2",
+  "test_binary_sha256": "68321bbe6ce16a88c283bfe862b98d5cf7dd82ff002fe20bfebce38a6ec755d6",
+  "compiler_version": "c++ (GCC) 16.2.1 20260810",
+  "symbolic_command": [
+    "python",
+    "/home/ert/proj/writeups/theory/cas/vmecpp_hybrid_lambda/run_symbolic.py",
+    "--runner",
+    "/home/ert/code/fortsym/build/bin/fortsym_wl_run",
+    "--output",
+    "NEW_ABSENT_RECEIPT.json"
+  ],
+  "owned_source_sha256": {
+    "CMakeLists.txt": "48c810e6bc677d57c6ab2a60c2c2444d3aa5cfb79b900ef6b3c4782b0047dcb1",
+    "hybrid_jets.wl": "a8c7a0b832720f89157d422619f0e8e76b05b9427c0062216eaf1e3feac4644d",
+    "hybrid_jets_full_capacity_probe.wl": "03bac25456116c2be6c9efa512e40b5f92acd23df9c84982b46a49286f700fad",
+    "run_symbolic.py": "e9277fc52443e7a68073908f1515c95c2a7d8c53b65b97c96884846751a210cf",
+    "symbolic_results.json": "d582b5c76b18d006cb1b3a20d92089a6c05ab0e66e3aeafe5f84881ff08fe4d1",
+    "test_hybrid.cc": "31c7a8819836ce474a2f2dc3abef522663a730362fb627d19d320f31b201f03f"
+  },
+  "numerical_columns": {
+    "core": [
+      "s",
+      "inverse_h",
+      "angular_derivative_RMS_Tm_per_rad",
+      "alternative_minus_average_RMS_Tm",
+      "successive_derivative_ratio"
+    ],
+    "first_full": [
+      "inverse_h",
+      "analytical_axis_derivative_RMS_Tm_per_rad",
+      "native_axis_derivative_RMS_Tm_per_rad",
+      "successive_native_ratio",
+      "native_over_predicted_leading_RMS"
+    ],
+    "negative": [
+      "inverse_h32_derivative",
+      "inverse_h512_derivative"
+    ],
+    "angular": [
+      "ntheta2048_derivative",
+      "ntheta4096_derivative"
+    ]
+  },
+  "numerical_rows": [
+    [
+      "core",
+      "0.25",
+      "32",
+      "5.8975610042505643e-07",
+      "4.2139891709109118e-07",
+      "0"
+    ],
+    [
+      "core",
+      "0.25",
+      "64",
+      "1.4743901174211022e-07",
+      "1.0534972273472769e-07",
+      "4.000000362567647"
+    ],
+    [
+      "core",
+      "0.25",
+      "128",
+      "3.6859751403591894e-08",
+      "2.6337430128746187e-08",
+      "4.0000001662448179"
+    ],
+    [
+      "core",
+      "0.25",
+      "256",
+      "9.2149359499169283e-09",
+      "6.5843575012829764e-09",
+      "4.0000008251738501"
+    ],
+    [
+      "core",
+      "0.25",
+      "512",
+      "2.3037356528573267e-09",
+      "1.6460894261473842e-09",
+      "3.9999971083868195"
+    ],
+    [
+      "core",
+      "0.5",
+      "32",
+      "6.0889635274356417e-07",
+      "4.2330653694455103e-07",
+      "0"
+    ],
+    [
+      "core",
+      "0.5",
+      "64",
+      "1.5222407693043158e-07",
+      "1.0582662762159711e-07",
+      "4.0000002957602945"
+    ],
+    [
+      "core",
+      "0.5",
+      "128",
+      "3.8056017401427359e-08",
+      "2.6456656413754534e-08",
+      "4.0000001924721147"
+    ],
+    [
+      "core",
+      "0.5",
+      "256",
+      "9.5140033588753289e-09",
+      "6.6141639906271419e-09",
+      "4.0000004168514449"
+    ],
+    [
+      "core",
+      "0.5",
+      "512",
+      "2.3785014435522905e-09",
+      "1.6535408198382227e-09",
+      "3.9999989845144555"
+    ],
+    [
+      "core",
+      "0.75",
+      "32",
+      "6.282311799562678e-07",
+      "4.252275432880869e-07",
+      "0"
+    ],
+    [
+      "core",
+      "0.75",
+      "64",
+      "1.5705778405541098e-07",
+      "1.0630687919226705e-07",
+      "4.0000002784619948"
+    ],
+    [
+      "core",
+      "0.75",
+      "128",
+      "3.9264443697440476e-08",
+      "2.6576719520348867e-08",
+      "4.0000002359806537"
+    ],
+    [
+      "core",
+      "0.75",
+      "256",
+      "9.8161141072410828e-09",
+      "6.6441800079277032e-09",
+      "3.9999987029975697"
+    ],
+    [
+      "core",
+      "0.75",
+      "512",
+      "2.4540283023596096e-09",
+      "1.6610446155249688e-09",
+      "4.0000003658485292"
+    ],
+    [
+      "first_full",
+      "32",
+      "5.7316621277667999e-07",
+      "5.1499745185934575e-06",
+      "0",
+      "1.0052280587599161"
+    ],
+    [
+      "first_full",
+      "64",
+      "1.4299669142151667e-07",
+      "1.812916985288638e-06",
+      "2.8407117150891055",
+      "1.0026156029655875"
+    ],
+    [
+      "first_full",
+      "128",
+      "3.5712333063555363e-08",
+      "6.3957243242835201e-07",
+      "2.8345764973097549",
+      "1.0013081984583383"
+    ],
+    [
+      "first_full",
+      "256",
+      "8.923479800701865e-09",
+      "2.258773160219037e-07",
+      "2.8315035953691412",
+      "1.0006541972978744"
+    ],
+    [
+      "first_full",
+      "512",
+      "2.2302945870655447e-09",
+      "7.9816270266132767e-08",
+      "2.8299658110903589",
+      "1.0003271203110178"
+    ],
+    [
+      "negative",
+      "0.22887900992380295",
+      "0.22845674422630916"
+    ],
+    [
+      "angular",
+      "2.3785014435522905e-09",
+      "2.3785047844675258e-09"
+    ]
+  ],
+  "formal_scope": "Eleven native exact identities plus nonzero wrong-coefficient rejection; one generic-sector lemma composed linearly. Full21-symbol probe is explicitly UNKNOWN at MAX_VARS12",
+  "remaining_gaps": [
+    "Finite Fourier projection and residual/preconditioning norm bridge",
+    "Live TC24 radial jets and auxiliary-constraint amplitude",
+    "Axis/LCFS complete solver endpoints",
+    "Independent native physical force bounds"
+  ],
+  "fo_scope": "No Fortran source developed or rebuilt; reuse pinned native FortSym runner. C++ behavioral build/test via CMake/CTest; no Fo gate claimed"
+}

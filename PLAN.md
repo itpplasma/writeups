@@ -32,6 +32,7 @@
 - Original VMEC TC24 storage repair now converges with unchanged input; physical force/gradp remains about 1.63. Odd-mode reconstruction and CHEASE thin-flux current defects have owner reviews.
 - Original TC24 has a true X-point; executed regularized boundaries avoid it. Source correspondence distinguishes this coordinate/model limit from other failures.
 - Ordinary benchmark: [benchmark_vmec](https://github.com/itpplasma/benchmark_vmec), physical-input/provenance issues #2/#3. mhd-differentiable owns complementary derivative/optimization checks.
+- [VMEC++ hybrid lambda local bridge](theory/vmecpp_hybrid_lambda_correspondence.md): eleven exact native identities, wrong-coefficient rejection and actual-header CMake/CTest pass. Interior error is O(h²); native first-interior axis closure has O(h^(3/2)) in the manufactured control. Live TC24 finite-Fourier/stopping bridge remains open.
 - Physics admission/next experiments belong to TC24 PLAN/ERRATA; literature candidates remain provisional.
 - Existing repository: 43 tracked files at revival base 22b60a4b89a7d2822fcd6315abdd67d954c36206; numerical Hamiltonian examples, no existing CAS replay suite found.
 - Targeted intake: 19 source families across the geometry and NTV inventories. Same-stem/co-located partners do not establish equation correspondence.
