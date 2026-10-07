@@ -1,0 +1,23 @@
+R	lap	prr + pzz - pr/R
+R	br	-pz/R
+R	bphi	f/R
+R	bz	pr/R
+R	brz	-pzz/R
+R	bzr	-pr/R^2 + prr/R
+R	bpz	fp*pz/R
+R	bpr	-f/R^2 + fp*pr/R
+R	jr	-fp*pz/R/mu
+R	jphi	(-pzz/R - (-pr/R^2 + prr/R))/mu
+R	jz	fp*pr/R/mu
+R	res	prr + pzz + f*fp + mu*pp*R^2 - pr/R
+R	r001	0
+R	r002	0
+R	r003	0
+R	r004	0
+R	r005	0
+R	r006	0
+R	r007	0
+R	r008	0
+R	r009	0
+R	r010	0
+T	.001848

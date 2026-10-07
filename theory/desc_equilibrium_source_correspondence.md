@@ -106,6 +106,17 @@ F_\rho=\mathcal J(J^\theta B^\zeta-J^\zeta B^\theta)-p',
 
 This is a local mathematical correspondence with Grad–Shafranov force balance. It does not imply that a solver prescribing \(p(\psi_{pol})\) and \(F_B(\psi_{pol})\) solves the same boundary-value problem as DESC prescribing \(p(\rho)\) and \(\iota(\rho)\). If an external GS chart uses \(\mathbf B_{pol}=\nabla\psi_{pol}\times\nabla\phi\), its poloidal flux is \(\psi_{pol}=-\chi\), up to an additive constant.
 
+**Checked signed GS bridge.** [Native FortSym source](cas/desc_gs_strong_correspondence.wl), [raw output](cas/desc_gs_strong_correspondence.native.txt), and [replay gate](cas/run_desc_gs_strong_native.sh) check ten exact identities. For smooth derivative jets, \(R>0\), \(\mu_0>0\), \(p=p(\psi)\), \(F_B=F_B(\psi)\), and canonical \(\psi=-\chi\):
+
+\[
+G=\Delta^*\psi+F_BF_B'+\mu_0R^2p',\qquad
+\mathbf J\times\mathbf B-\nabla p=-\frac{G}{\mu_0R^2}(\psi_R,0,\psi_Z).
+\]
+
+- Also checks \(J_\phi=-\Delta^*\psi/(\mu_0R)\), the signed flux integral and a nonzero least-squares residual with zero objective gradient.
+- Scope: conditional continuum algebra. No claim about executed source selection, numerical convergence, the axis or a folded chart.
+- Shared GS/ideal-variation theory belongs to [kin6d](https://github.com/itpplasma/kin6d/tree/main/theory); this companion records the third-party correspondence without an upstream CAS dependency.
+
 ## Discrete force objective and constraints
 
 **Source correspondence — default solve.** `Equilibrium.solve` defaults to `objective="force"`, `optimizer="lsq-exact"`; `objectives/getters.py::get_equilibrium_objective` selects `ForceBalance`. The unknowns include the spectral coefficients of \(R,Z,\lambda\). The scalar objective below assumes target zero, user weight one, no custom loss, normalization enabled and the standard constraints.
@@ -184,6 +195,8 @@ The paper describes force collocation and Fourier–Zernike geometry in arXiv eq
 | ArXiv 28–30; journal 3.25–3.27 | Candidate inconsistent residual convention: both reconstruct \(\nabla p-\mathbf J\times\mathbf B\), opposite arXiv 2, journal 1.2 and native `_F_rho`. Appendix A8a explicitly adopts that reversed residual. Zero-target squared residuals are unaffected. | Probe: typeset equations; source correspondence: signed curl/force identities with SI \(\mu_0\); no implementation defect established |
 | ArXiv 31; journal 3.28 | Jacobian/basis norms enter `ForceBalance.compute`; coordinate weights and \(\sqrt n\) enter `_Objective.build`. Raw entries miss final weighting. | Source correspondence: exact current cost above; historical-code identity unresolved |
 | Journal A18 | Candidate missing metric cross term under the printed A10–A11 definition of \(\boldsymbol\beta\). The two-term expression applies when that term vanishes. | Probe: journal pages 25–26 and counterexample below; derived source correspondence: metric identity; historical evaluator/extra assumptions unresolved |
+| Native helical labels | `e^helical` and its Jacobian-weighted label print the opposite signed vector to their functions. Actual \(\boldsymbol\beta=B^\zeta\nabla\theta-B^\theta\nabla\zeta\). | Confirmed metadata defect at benchmark `fcc29be` and official tip `6296faa`; independent Cartesian \(\mathbf B\times\mathbf e_\rho\) oracle; numerical formulas unchanged |
+| Native weighted-basis units | `e^helical*sqrt(g)` and its norm advertise `T*m²`; actual units are `T*m`. Uniform physical-length scaling gives one power, not two. | Confirmed metadata defect at both pins; direct-function scaling oracle; [sign errata](https://gitlab.tugraz.at/plasma/proj/plasma-sign-conventions/-/blob/main/docs/DESC_HELICAL_METADATA_ERRATA.md); focused fork patch pending controller review |
 
 ## Physical force reconstructed from VMEC geometry
 
@@ -283,3 +296,5 @@ The original printed definition obeys \(\boldsymbol\beta=\mathbf B\times\mathbf 
 | Run provenance | Source/deck/command/output hashes and PID/time receipts retained under TC24 `equilibrium/data/desc_20261007` | Probe: E0 registry 771 and TC24 registry 773; failed E0 r01 retained with honest registry sequencing correction |
 
 Independent continuous validation must evaluate the physical vector residual on points outside the solve grid and report the pressure-gradient and Lorentz-force scales used for normalization. Agreement of two unconverged outputs is not an error bound. The controller owns numerical admission and cross-code discrepancy dispositions.
+
+- Controller10/10 native signed-GS replay passed2026-10-07; [metadata fork PR2](https://github.com/itpplasma/DESC/pull/2) corrects labels/units without changing numerical bodies. [Callback fork PR1](https://github.com/itpplasma/DESC/pull/1) and the separately pinned0.17.3 backport retain accepted diagnostics; they do not certify convergence.
