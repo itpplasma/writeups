@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(gvec_source_correspondence LANGUAGES Fortran)
+enable_testing()
+set(FORTSYM_BUILD "/home/ert/code/fortsym/build" CACHE PATH "Verified FortSym build")
+add_executable(gvec_local_identities gvec_local_identities.f90)
+target_include_directories(gvec_local_identities PRIVATE "${FORTSYM_BUILD}/include")
+target_link_libraries(gvec_local_identities PRIVATE "${FORTSYM_BUILD}/lib/libfortsym.so")
+add_test(NAME gvec_local_exact_identities COMMAND gvec_local_identities)

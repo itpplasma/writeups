@@ -1,0 +1,44 @@
+{
+  "scope": "Sixteen exact local RZ algebra identities; not full PDE convergence or automatic source-expression extraction",
+  "gvec_source_commit": "c0dc66fe2b9faa147c76a728e5cd053ce693d472",
+  "source_sha256": {
+    "src/functionals/mhd3d/mhd3d_evalfunc.F90": "b52d2cdc579f0232e11d4e05b95b071d0ad475f810137eac87d7c6cab11ae37a",
+    "src/functionals/mhd3d/mhd3d_minimize.F90": "1cacd97dd3ae042571cdf3962a954d3b789dd6ef946d4112997d1600cc15d7bf",
+    "src/functionals/mhd3d/sol_var_mhd3d.F90": "8a696ee40fefb710630cf33255679e43341db0a744933144d377ea995c89fbf9",
+    "python/gvec/quantities.py": "d633d8f35b8384ff5f5631fc7d4c5830eb20016b9d022f3d6a1759476ca4fa17",
+    "docs/user/theory.md": "6e00eb34df698f57bba23ff0a31159221ee8d12a7c503a2c5a76a84a720ebe85"
+  },
+  "native_cas_library": "/home/ert/code/fortsym/build/lib/libfortsym.so",
+  "native_cas_library_sha256": "0f60878a63fd7ff07c95fbe16ec485ae98af59c94e67fbe17514cdf7d9ce620f",
+  "fortsym_checkout_inspected_commit": "a3703ec4267071356bef97ca72e808229fce7112",
+  "fortsym_build_source_equivalence": "not asserted; binary pinned separately",
+  "cmake_configure_command": [
+    "cmake",
+    "-S",
+    "/home/ert/proj/writeups/theory/cas/gvec_native",
+    "-B",
+    "/tmp/gvec_native_cas_20261007",
+    "-G",
+    "Ninja"
+  ],
+  "build_command": [
+    "cmake",
+    "--build",
+    "/tmp/gvec_native_cas_20261007",
+    "-j",
+    "2"
+  ],
+  "registered_test_command": [
+    "ctest",
+    "--test-dir",
+    "/tmp/gvec_native_cas_20261007",
+    "--verbose"
+  ],
+  "registered_test_stdout": "/tmp/gvec-native-cas-20261007.stdout",
+  "registered_test_stdout_sha256": "dcc417fc9dfd6cab904238f75e450c10276ebf3ba9abecc9b4f7204bc194e7e1",
+  "test_binary_sha256": "3b04a21dd9e446a3cb76ee98667a62b2ee77ece36595238579d35c9513605d70",
+  "test_source_sha256": "5000c28f25060773c336756a9f1c3515885b243e7ef6895694f6370e8c54fc54",
+  "cmake_source_sha256": "704080286e85bb23ed52783e33e242fbf67c4a06dbf3e0b75e5ceb6b778293d7",
+  "fo_driver_sha256": "5d6ba22ff566db1a4a24c643aafcd5045f7153a9d951d9ab50707469643a53d7",
+  "fo_result": "Known CMake capture gap: cannot parse fpm.toml for generation inputs; no verified Fo gate. Owned temporary lane3421396 stopped and process absent."
+}

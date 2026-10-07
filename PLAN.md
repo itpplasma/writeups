@@ -26,6 +26,7 @@
 ## Status
 
 - GS companion and KIN/FreeGS/CHEASE source correspondence published; C0 RH-to-canonical embedding corrected with independent Cartesian checks.
+- [GVEC discrete force/sign bridge](theory/gvec_discrete_force_audit.md): 16 exact local identities; weak projection, quadrature, constraints and stopping norms explicitly separated. Full discrete convergence proof remains open.
 - GVEC, DESC and original VMEC source ledgers published. DESC retains ten exact native FortSym identities; broader discrete-solver equivalence remains unproved.
 - Smooth circular A10 constant-q matches DESC/GVEC/original VMEC/VMEC++ at 216 physical points (max Bpol RMS difference 0.0254%). Native convergence, reconstruction and full refinement admission are separate.
 - Original VMEC TC24 storage repair now converges with unchanged input; physical force/gradp remains about 1.63. Odd-mode reconstruction and CHEASE thin-flux current defects have owner reviews.
