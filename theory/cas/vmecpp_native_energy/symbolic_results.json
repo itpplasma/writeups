@@ -1,0 +1,16 @@
+{
+  "schema": "vmecpp-native-half-energy-sector-v1",
+  "runner_sha256": "4f7564d6a367a56dacb623c3306c3562ca9787dfb46389a0c272d629e35f7ac7",
+  "source_sha256": "69c807aae6c749ee5086448ac4530918e31a152499c77d478d29cda939d1a680",
+  "producer_sha256": "11e4269db84bf55843111552b6fa3a8677a54bf4530d3160827e7a7c8da2ffee",
+  "identities": {
+    "r001": "0",
+    "r002": "0",
+    "r003": "0",
+    "r004": "0",
+    "r005": "0",
+    "r006": "0",
+    "r007": "-6"
+  },
+  "scope": "Signed axisymmetric half-cell algebra, gamma0, fixedp/fixedflux numerator constraints; chain/basis/quadrature assumptions separate. No full native projection/continuum proof."
+}

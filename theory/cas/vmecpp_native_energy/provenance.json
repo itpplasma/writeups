@@ -1,0 +1,23 @@
+{
+  "schema": "vmecpp-native-energy-source-provenance-v1",
+  "source_pin": "a4150a4e2101bd47868d040f3adee5d0304ce89b",
+  "source_files": {
+    "vmec/pybind11/pybind_vmec.cc": "f5aa82f998606c065399003d5d5e22a20fba02d05fe5062e1c7a0bfd6ee899b3",
+    "vmec/ideal_mhd_model/ideal_mhd_model.cc": "8779d14af710a5fdf4b0fafdde7ec4c9f0d5c3e2303891f53165b3546eb11991",
+    "vmec/ideal_mhd_model/mhdforce_kernel.h": "8fd5cabdc368b2410975683f1c260726fdcae321164268c435d49650e8841b04",
+    "vmec/ideal_mhd_model/lambda_force_kernel.h": "9489ffa8083b382a1f13cf679dbc619bc0ff5b4e70c4125b2c0e4bcc428816d8",
+    "vmec/fourier_forces/fourier_forces.cc": "30916befc59524190b3f4331f6813d52467dec4eac2921c8d5c9844601c6069b",
+    "vmec/fourier_coefficients/fourier_coefficients.cc": "2a17dd5eae04ab1548d156ac06037c04114b43d65f0d6b1c71ef1633b08ec956",
+    "vmec/radial_profiles/radial_profiles.cc": "4fd39db486c692e19f1b1c3bd622b301871582bd08fd3fc0a4c474870e11a97a",
+    "vmec/vmec/vmec.cc": "18984774eb808a2032c4ad82194149cca85142d6b40cc6de945a79b4c43d8b2b",
+    "vmec/geometry/vmec_geometry.cc": "fda65c4477c51c30b673496bd1bd77ae161cd8433a5111fc68107c8e353339c8",
+    "common/fourier_basis/fourier_basis.cc": "e54b5b79625f76a1f211e07baef7ccd4b897ff8d9ed7277a7d46391159444d0e",
+    "common/sizes/sizes.cc": "327ec21623dffa569698cd416b1c94e3def9f60eeba0f9d03d5ea58b908ca1fa"
+  },
+  "native_binary_sha256": "05edd726b4ec4116f0b8d365f47efc3b4c6d5dba4658224a27ad3cc5587134bf",
+  "input_sha256": "78cf1c1489e471700c0b88d5daf663702745ee4af54dbb58713f8b6c254dadd5",
+  "state_sha256": "8f8e8041cd41c75f93679a809c12908039bc0a375a82bf6403b76536d148b72d",
+  "consumer_evidence": "equilibrium/data/vmecpp_native_force_checkpoint_20261007/energy_correspondence.json",
+  "consumer_evidence_sha256": "8604fa2d6d7b87f6dcd4ced72066a31fb544359175c7604707ca646a2c9a6108",
+  "scope": "Private held-state model.evaluate only; one evaluation per freshmodel, state unchanged; no PDE/solve/time-step. Fixedboundary ncurr0 gamma0 tcon0 axisymmetric LASYM, interior even-m directions with axis/LCFS fixed and m1 gauge avoided. Source half-grid quadrature/norm and scalar-energy FD separately checked. Hybrid beta term explains tested lambda dual discrepancy; no full gradient/continuum proof, fit, codebug or admission claim."
+}
