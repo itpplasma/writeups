@@ -1,6 +1,6 @@
 # VMEC++ held-state discrete force and energy
 
-- Source: official VMEC++ `a4150a4e2101bd47868d040f3adee5d0304ce89b`, published0.8.1 binary. Scope: axisymmetric, asymmetric geometry, fixed boundary, prescribed iota (`ncurr=0`), `gamma=0`, `tcon0=0`.
+- Source: official VMEC++ `a4150a4e2101bd47868d040f3adee5d0304ce89b`, published 0.8.1 binary. Scope: axisymmetric, asymmetric geometry, fixed boundary, prescribed iota (`ncurr=0`), `gamma=0`, `tcon0=0`.
 - Actual native first-evaluation checkpoint: TC24 M40/ns129; unchanged native state, one evaluation per fresh model. No equilibrium solve, time step, radial refinement or axis update is called.
 - Source/directional evidence: `iter_tc24/equilibrium/data/vmecpp_native_force_checkpoint_20261007/energy_correspondence.json`; [bounded FortSym half-cell identities](cas/vmecpp_native_energy/symbolic_results.json).
 - These checks concern the discrete implemented equations. Continuous physical-force admission remains open.
@@ -32,32 +32,32 @@
 
 - `lambda_force_kernel.h:77–104` uses G=(1−beta)C+beta A, beta=.1(1−s), C the adjacent-half covariant average and A its local alternative. The existing [hybrid correspondence](vmecpp_hybrid_lambda_correspondence.md) defines the exact stencil and smooth-interior expansion.
 - Source lambda projection is `−lamscale*G` paired with the differentiated normalized angular basis. The native scalar `mhd_energy` supplies the C dual; the measured beta(A−C) term must be retained when comparing the implemented raw force to this scalar energy.
-- Tested Lsc m2: raw dual0.955196133; energy dual0.955334770; source hybrid correction−0.000138626079; corrected difference1.07e−8.
-- Tested Lsc m22: raw dual117.277079458; energy dual117.275011087; source hybrid correction+0.00206831660; corrected difference−5.46e−8.
-- Both corrected differences are inside independent FD budgets. Geometry readback agrees with the parent full coefficients to2.22e−16. No fitted gain/sign/offset is used.
+- Tested Lsc m2: raw dual 0.955196133; energy dual 0.955334770; source hybrid correction−0.000138626079; corrected difference 1.07e−8.
+- Tested Lsc m22: raw dual 117.277079458; energy dual 117.275011087; source hybrid correction+0.00206831660; corrected difference−5.46e−8.
+- Both corrected differences are inside independent FD budgets. Geometry readback agrees with the parent full coefficients to 2.22e−16. No fitted gain/sign/offset is used.
 - The API comment calling raw force an augmented-Lagrangian gradient is broader than comparison to `mhd_energy` alone supports. This is a possible documentation/functional-definition qualification, **not an established solver defect**. A separate augmented functional may be intended; no general existence/nonexistence claim is made.
 
 ## Reconstructed stopping norms
 
-- Source angular weights are1/ntheta for asymmetric axisymmetry. Whole-half-grid replay gives native magnetic energy327.682082054, thermal energy8.139388388, volume20.708078835; energy319.542693667 agrees within1.7e−13.
+- Source angular weights are1/ntheta for asymmetric axisymmetry. Whole-half-grid replay gives native magnetic energy 327.682082054, thermal energy 8.139388388, volume 20.708078835; energy 319.542693667 agrees within 1.7e−13.
 - `computeForceNorms`: energy density=max(magnetic,thermal)/volume;
   `fNormRZ=1/[energy_density² sum(guu Rhalf² weights)]`;
   `fNormL=1/[lamscale² sum((B_u²+B_v²) weights)]`.
 - `lamscale²=h sum(phip_half²)`. Using full points instead is wrong by129/128 for constant phip; the half-grid authority is explicitly tested.
 - `FourierForces::residuals` sums squared coefficient forces; fixed-boundary R/Z exclude the LCFS, lambda includes it. Invariant R/Z residuals have an additional1/4; lambda does not.
-- Source preconditioned norms use the R/Z state norm with offset modes excluded; lambda uses h. Independent vector/quadrature reconstruction matches raw residuals to1.18e−14 relative and preconditioned residuals to3.78e−15.
+- Source preconditioned norms use the R/Z state norm with offset modes excluded; lambda uses h. Independent vector/quadrature reconstruction matches raw residuals to 1.18e−14 relative and preconditioned residuals to 3.78e−15.
 - Raw-checkpoint fsqr1/fsqz1/fsql1 are stale initialized values; they become meaningful after preconditioning. The actual freshly evaluated invariant residuals reproduce the archived stopping values to about1e−5 relative; exact equality to a previous solver phase is not assumed.
 
 ## Discrete versus continuous virtual work
 
 - Same strict-converged M40/ns129 state; compact even-m test directions supported only on .15<s<.85, with zero value/first jets at endpoints. Continuous weak work uses −mu0 integral mean[R|J|(curl(B)/mu0 cross B−gradp)·deltaX]ds, in native energy units.
-- Source-native raw-force energy dual Rcc m2 is6.63e−8. The continuous stored-BSUP dual is−3.47e−4 using native-presf readback, or−3.66e−4 with the exact executed pressure spline. This is a real discrete/readback difference, not a proof of solver error.
-- Naive81-point radial trapezoid substantially aliases these cancelling weak moments. Piecewise Gauss4/8/16 splits all270 full/half/profile breakpoints; angular512/1024 and integration order changes agree to about1.5e−15 absolute for five tested directions. Exact-pressure substitution does not close the gap.
+- Source-native raw-force energy dual Rcc m2 is 6.63e−8. The continuous stored-BSUP dual is−3.47e−4 using native-presf readback, or−3.66e−4 with the exact executed pressure spline. This is a real discrete/readback difference, not a proof of solver error.
+- Naive81-point radial trapezoid substantially aliases these cancelling weak moments. Piecewise Gauss4/8/16 splits all270 full/half/profile breakpoints; angular512/1024 and integration order changes agree to about 1.5e−15 absolute for five tested directions. Exact-pressure substitution does not close the gap.
 - Stored fields are not exactly divergence free; the stress/work identity therefore needs its divB qualification. Other continuum field routes, native metric staggering and radial interpolation are separate model budgets. No continuous moment is relabeled as a native stopping residual.
 
 ## Remaining gates
 
 - Native weak stationarity is verified for the discrete coefficient model and tested energy directions. It does not make the interpolated Cartesian curl-force residual vanish.
 - Full odd/m1/axis/LCFS virtual-work correspondence; nonlinear live-preconditioner/gauge effects; all directions; actual-state radial-jet bounds; continuum refinement remain open.
-- The M40/ns129 parent meets strict native stopping but outer physical force/gradp remains0.04482. M40/ns257 retains a strict stopping failure; it is a diagnostic, not a third admitted resolution.
+- The M40/ns129 parent meets strict native stopping but outer physical force/gradp remains 0.04482. M40/ns257 retains a strict stopping failure; it is a diagnostic, not a third admitted resolution.
 - Constraint0 continuum closure must keep source/profile/domain and source-axis readback fixed; agreement among shared-genealogy solvers is not an independent proof.

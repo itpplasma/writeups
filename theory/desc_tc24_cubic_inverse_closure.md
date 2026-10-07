@@ -1,7 +1,7 @@
 # DESC TC24 cubic-inverse closure checks
 
 - Scope: axisymmetric isotropic `ForceBalance`, fixed smooth Fourier boundary, prescribed p/iota/signed full toroidal flux; F and current are outputs.
-- Execution pin: DESC0.17.3 `fcc29be36f0b36b1b667df4b1f8891a9b633f5d1`, with the separately sealed accepted-step callback backport. The callback observes copies; no optimizer is reimplemented in TC24.
+- Execution pin: DESC 0.17.3 `fcc29be36f0b36b1b667df4b1f8891a9b633f5d1`, with the separately sealed accepted-step callback backport. The callback observes copies; no optimizer is reimplemented in TC24.
 - Checked theory: [source correspondence and native algebra](desc_equilibrium_source_correspondence.md). Basic GS theory/independent fixtures belong to kin6d.
 - Status: both first checkpoint repeats reached cap160; no native-convergence claim. Same-resolution warm repeats again reached cap160; radial repeats reached the wall cap with complete accepted states. None meets native convergence.
 
@@ -65,10 +65,10 @@
 | Pigatto | 4.87792% | 4.80625% | 1.73975% |
 
 - Observable: unweighted vector force RMS / gradp RMS on the identical outer1024 physical points; every inverse-map point passes. Input profiles, signed flux and boundary remain fixed.
-- CHEASE warm optimality falls from3.272e−6 to1.825e−8 while this force changes only0.37%. A small objective gradient is not a physical-force certificate.
+- CHEASE warm optimality falls from 3.272e−6 to 1.825e−8 while this force changes only 0.37%. A small objective gradient is not a physical-force certificate.
 - Radial states are accepted93/136 before timeout. Their lower errors support a resolution-dependent contribution; optimizer history, basis and collocation effects remain distinct open questions.
-- Full-query physical derivatives pass all429/426 inner and1024 outer-inclusive points at three step sizes. Finest observed force discrepancy/gradp spans1.44e−8…7.88e−7; discrepancy is below6e−6 of the measured residual. This is an observed derivative budget, not a rigorous error bound.
-- Twelve native directional-JVP probes pass the preset1e−6 threshold after resolving FD truncation with smaller steps; largest best error4.13e−8. Full Gram/vector and native cost reconstruction pass roundoff. These probes do not prove the whole Jacobian, optimizer convergence or global accuracy.
+- Full-query physical derivatives pass all429/426 inner and1024 outer-inclusive points at three step sizes. Finest observed force discrepancy/gradp spans 1.44e−8…7.88e−7; discrepancy is below6e−6 of the measured residual. This is an observed derivative budget, not a rigorous error bound.
+- Twelve native directional-JVP probes pass the preset1e−6 threshold after resolving FD truncation with smaller steps; largest best error 4.13e−8. Full Gram/vector and native cost reconstruction pass roundoff. These probes do not prove the whole Jacobian, optimizer convergence or global accuracy.
 
 ## Required evidence and open questions
 
