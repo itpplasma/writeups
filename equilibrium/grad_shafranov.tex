@@ -50,13 +50,13 @@ For fixed Dirichlet trace on a bounded poloidal domain $D\subset\{R>0\}$, use $v
 \end{itemize}
 
 \section*{Exact references: cylinder versus torus}
-\textbf{C0: straight, force-free Gold--Hoyle cylinder.} Let $k=1/(qR_0)$ and declare axial period $2\pi R_0$:
+\textbf{C0: straight, force-free Gold--Hoyle cylinder.} Use a right-handed $(r,\theta_{\rm RH},z)$ cylinder, $k=1/(q_{\rm RH}R_0)$ and axial period $2\pi R_0$:
 \[
  B_z=\frac{B_0}{1+k^2r^2},\quad B_\theta=krB_z,\quad
  \nabla\times\mathbf B=\frac{2k}{1+k^2r^2}\mathbf B,\quad p=0,
- \quad q=\frac{rB_z}{R_0B_\theta}=\frac1{kR_0}.
+ \quad q_{\rm RH}=\frac{rB_z}{R_0B_\theta}=\frac1{kR_0}.
 \]
-Its flux analogue is $\psi=R_0B_0\log(1+k^2r^2)/(2k)$, with $\psi_r=R_0B_\theta$. This is not an exact finite-$R$ toroidal GS equilibrium. Uniform $B_z$ plus $B_\theta\propto r$ is not its zero-pressure substitute.
+Its native flux analogue is $\psi_{\rm RH}=R_0B_0\log(1+k^2r^2)/(2k)$, with $\psi_{{\rm RH},r}=R_0B_\theta$. Aligning $z$ with physical $+\phi$ gives $\theta_c=-\theta_{\rm RH}$, $B_{\theta_c}=-B_\theta$, $\psi_c=-\psi_{\rm RH}$ (up to gauge), $F=R_0B_z$ and $q_c=-q_{\rm RH}$. Native C0 $q_{\rm RH}=+1.5$ therefore maps to canonical $q_c=-1.5$. The helicity coefficient in $\nabla\times B=\alpha B$ is coordinate invariant; apply the correct handedness in component curl formulas. This is not an exact finite-$R$ toroidal GS equilibrium. Uniform $B_z$ plus $B_\theta\propto r$ is not its zero-pressure substitute.
 
 \textbf{E0: exact finite-$R$ GS oracles.} Supply their exact boundary trace:
 \begin{align*}
@@ -83,7 +83,7 @@ For the logarithmic family, reconstruct $F^2$ from its declared anchor and check
 \item Derivative-controlled and raw-column-controlled inputs can define different equilibria. A global COCOS change cannot repair an internally inconsistent derivative tuple.
 \end{itemize}
 
-\section*{What has actually been checked}
+\section*{Checked scope}
 \begin{itemize}
 \item Eight registered native FortSym identities: polynomial/logarithmic $\ds$, divergence, toroidal curl, Gold--Hoyle two curl components, force balance and constant $q$. They use exact native zero decisions, not randomized probes; they are not Lean proofs, compiler proofs or boundary-value existence theorems.
 \item Retained generator/gate uses FortSym \texttt{a614271}; full SHA and dependency pins are in the reproduction manifest. Weak-form/energy and surface/flux-map arguments remain hand derivations; the map also has a retained numerical smoke check, not a proof.
@@ -94,16 +94,15 @@ For the logarithmic family, reconstruct $F^2$ from its declared anchor and check
 \end{itemize}
 
 \section*{Examined source correspondence and genealogy}
-This list describes examined routines, not verification of every mode in each code.
+Examined paths only; full pins, equations, interpolation and open paper--code bridges: \path{theory/gs_solver_source_correspondence.md}.
 \begin{itemize}
-\item KIN6D promoted \texttt{f26b8df7}: \path{src/grad_shafranov.f90} assembles/solves the weak equation; \path{gen/gen_grad_shafranov.f90} generates local physics/AD leaves; \path{test/test_gs_symbolic.f90} owns the eight-identity gate.
-\item FreeGS base \texttt{5b41fe55}: \texttt{equilibrium.py}, \texttt{Equilibrium.solve} sets $-\mu_0RJ_\phi$ and copies boundary RHS; \texttt{jtor.py}, \texttt{ProfilesPprimeFfprime.Jtor} forms $R\pp+FF'/(\mu_0R)$ with its normalized-flux/mask rules; \texttt{gradshafranov.py::GSsparse} implements the second-order $\ds$ stencil. The external curved-LCFS staircase adapter is a distinct numerical boundary problem.
-\item Public CHEASE \texttt{fb463663}, examined \texttt{src-f90/psibox.f90}: export extrapolation selector 1 is linear, selector 4 is derivative-based cubic. Its controlled partner changes reconstructed edge diagnostics without changing native equilibrium/$q$.
-\item MARS-associated CHEASE \texttt{8824bb18}, \texttt{CheaseMerge}: source/build and executed selector evidence is linked in the \href{\tc review/EQUILIBRIUM_CHEASE.md}{CHEASE report}; no claim of a new independent solver derivation here. Public and MARS variants share CHEASE ancestry: two runs are not two independent algorithm families.
-\item VMEC++ release \texttt{a4150a4e}, examined \texttt{radial\_profiles.cc}, function \texttt{computeMagneticFluxes}: signed flux normalization uses \texttt{signOfJacobian*phiedge/(2*pi)}. This checks that normalization path; it does not prove the full 3D variational solver. Matched input requires explicit $p(s_{\rm tor})$, iota/current selector, full flux and boundary representation.
+\item KIN6D \texttt{f26b8df7}: weak assembly/solve in \path{src/grad_shafranov.f90}; generated physics/AD leaves and eight native CAS identities have separate retained sources.
+\item FreeGS \texttt{5b41fe55}: \texttt{Equilibrium.solve} sets $-\mu_0RJ_\phi$; \texttt{ProfilesPprimeFfprime.Jtor} supplies $R\pp+FF'/(\mu_0R)$; \texttt{GSsparse} is second-order. Curved-LCFS staircase treatment is our external adapter.
+\item Public CHEASE \texttt{fb463663}: Hermite weak assembly/source and \texttt{PSIBOX} interpolation/export are distinct paths. MARS CHEASE \texttt{8824bb18} shares ancestry; see the \href{\tc review/EQUILIBRIUM_CHEASE.md}{source/run report}. They are one algorithm family.
+\item VMEC++ \texttt{a4150a4e}: \texttt{computeMagneticFluxes} uses \texttt{signOfJacobian*phiedge/(2*pi)}. That normalization check does not prove its full solver; matched profiles, flux and boundary remain separate gates.
 \end{itemize}
 
-\section*{How to review disagreements}
+\section*{Disagreement review}
 \begin{itemize}
 \item Test both hypotheses: the outlier has a defect, and agreeing codes share an error. Shared genealogy, fixture, parser, COCOS converter or surface mapper reduces independence; do not decide by vote.
 \item Classify model/constraint, input/profile, convention and numerical differences before calling a code wrong. Retain native outputs and failed runs; an untested interpretation remains open.

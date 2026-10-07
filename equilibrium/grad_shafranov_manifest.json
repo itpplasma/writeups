@@ -1,22 +1,22 @@
 {
   "scope": "Readable companion; axisymmetric equilibrium only; no solver dependency changes",
-  "writeups_base": "44885605b96fefa269368d843d94242bb43b75f9",
-  "generated_utc": "2026-10-07T09:18:47.445408+00:00",
+  "writeups_base": "fff012776a0ffe0f94925e9658269e861a1a513f",
+  "generated_utc": "2026-10-07T10:27:12.567173+00:00",
   "sources": {
-    "equilibrium/grad_shafranov.tex": "378dad2796488cd2642c823c5e75336875e1ca6876756930a760820b324ba0ea",
-    "equilibrium/render_grad_shafranov.sh": "17338368fb7900b901d713d95b25631d5215a56253f2cc6864ed80e41b89c304"
+    "equilibrium/grad_shafranov.tex": "236a196ac94cb999604d940e72c754b216985810e714e68af65c698581e70658",
+    "equilibrium/render_grad_shafranov.sh": "17338368fb7900b901d713d95b25631d5215a56253f2cc6864ed80e41b89c304",
+    "theory/gs_solver_source_correspondence.md": "78577f7a3fea3934ee0937de74fb2c1c09eda7e9ad39c2741ffe83f487445311"
   },
   "pdf": {
-    "path": "/tmp/writeups-gs-20261007/grad_shafranov.pdf",
-    "sha256": "b11478a36c42e83b15ab948c74bac3a71a401defd35d716f57293a35350fc51e",
-    "url": "https://box.sloppy.at/26488.pdf",
+    "path": "/tmp/gs-source-correspondence-20261007/grad_shafranov.pdf",
+    "sha256": "da890c18162c6f9d533ed0f135a0ab6848c64f20f26d26722b930f9c96e2405b",
+    "url": "https://box.sloppy.at/db1b3.pdf",
     "expiry": "Slopbox expires approximately three days after upload",
     "pages": 3,
-    "inspection": "All three pages rasterized and visually inspected; final page reinspected after wrapping repair; no overfull/underfull/warning lines in final LaTeX log; PDF URI annotations checked"
+    "inspection": "All three pages rasterized/visually inspected; final page reinspected after heading changes; no overfull/underfull/warning log lines"
   },
   "reproduce": [
-    "equilibrium/render_grad_shafranov.sh /tmp/writeups-gs-20261007",
-    "pdftoppm -scale-to 1150 -png /tmp/writeups-gs-20261007/grad_shafranov.pdf /tmp/writeups-gs-20261007/page"
+    "equilibrium/render_grad_shafranov.sh /tmp/gs-source-correspondence-20261007"
   ],
   "examined_sources": [
     {
@@ -26,7 +26,7 @@
         "src/grad_shafranov.f90": "ae395c9945f37539436eac2ae95f6e330aeeb5c2d3244860ed3d1be351165da2",
         "gen/gen_grad_shafranov.f90": "3a31a82620160977a89dc248655456a4ae0ae4494ff9be1a7fa37c205542a5ce",
         "test/test_gs_symbolic.f90": "98f4ad66640e9aff9aa2454f28521e4db6ad62232ec1da39f91e4fc9ced9d545",
-        "theory/derivations/grad-shafranov.md": "38d326290becaf0160cc165e588d84f24a6d95b7132e7b09957f799d3d082caa"
+        "theory/derivations/grad-shafranov.md": "2e841a111f8151d5eb9942b42c29d7fb0c672dfe941e00577ad34685b21eebce"
       }
     },
     {
@@ -80,5 +80,27 @@
     "TC24_contract_sha256": "7953eba00c157050ea5f60ef6cbcf7a513032110b809a7914456c464ddbdb371",
     "TC24_errata_sha256": "bf242915d68325cb71796f44b1de7f7b7b08bb36943317c290f6819b63ab7e18"
   },
-  "rights": "Original explanatory source; third-party routines are referenced/hashed, not imported; historical/private material untouched"
+  "rights": "Original explanatory source; third-party routines are referenced/hashed, not imported; historical/private material untouched",
+  "superseded_pdf": {
+    "path": "/tmp/writeups-gs-20261007/grad_shafranov.pdf",
+    "sha256": "b11478a36c42e83b15ab948c74bac3a71a401defd35d716f57293a35350fc51e",
+    "url": "https://box.sloppy.at/26488.pdf",
+    "expiry": "Slopbox expires approximately three days after upload",
+    "pages": 3,
+    "inspection": "All three pages rasterized and visually inspected; final page reinspected after wrapping repair; no overfull/underfull/warning lines in final LaTeX log; PDF URI annotations checked"
+  },
+  "orientation_correction": {
+    "native_scope": "RH straight cylinder, q_RH=+1.5",
+    "canonical_limit": "With axis aligned +phi, theta_c=-theta_RH, psi_c=-psi_RH up to gauge, q_c=-1.5; native outputs unchanged",
+    "check": {
+      "scope": "Cartesian numerical orientation/curl check, not proof",
+      "errors": {
+        "basis": 1.1107649934270853e-16,
+        "field_pullback": 2.7755575615628914e-17,
+        "q": 2.220446049250313e-16,
+        "curl_relative": 4.989074194399601e-13
+      }
+    }
+  },
+  "source_correspondence_manifest": "theory/gs_source_correspondence_manifest.json"
 }

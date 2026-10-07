@@ -1,0 +1,88 @@
+{
+  "scope": "Examined axisymmetric GS source correspondence and C0 orientation correction; no new physics jobs or solver edits",
+  "generated_utc": "2026-10-07T10:27:12.567173+00:00",
+  "writeups_base": "fff012776a0ffe0f94925e9658269e861a1a513f",
+  "kin6d_base": "f26b8df7969484152e54ad495d0231cc26b8c2ad",
+  "sources": {
+    "theory/gs_solver_source_correspondence.md": "78577f7a3fea3934ee0937de74fb2c1c09eda7e9ad39c2741ffe83f487445311",
+    "KIN6D/theory/derivations/grad-shafranov.md": "2e841a111f8151d5eb9942b42c29d7fb0c672dfe941e00577ad34685b21eebce",
+    "KIN6D/test/check_cylinder_orientation.py": "4036ca3c09c470697892f19415a4380c32fa2478379b65c3f7f62f38c7e0061d"
+  },
+  "examined_sources": [
+    {
+      "path": "/home/ert/code/kin6d",
+      "commit": "f26b8df7969484152e54ad495d0231cc26b8c2ad",
+      "files_sha256": {
+        "src/grad_shafranov.f90": "ae395c9945f37539436eac2ae95f6e330aeeb5c2d3244860ed3d1be351165da2",
+        "app/grad_shafranov_demo.f90": "315e9a000cf441c904d0db2eed894ccc5ccb3a99dc03fb526a815e9f058315f3",
+        "gen/gen_grad_shafranov.f90": "3a31a82620160977a89dc248655456a4ae0ae4494ff9be1a7fa37c205542a5ce",
+        "test/test_gs_symbolic.f90": "98f4ad66640e9aff9aa2454f28521e4db6ad62232ec1da39f91e4fc9ced9d545"
+      }
+    },
+    {
+      "path": "/tmp/tc24-freegs-source-20261007",
+      "commit": "5b41fe5565ff8077bf8139051c80c69416fc9b86",
+      "files_sha256": {
+        "freegs/gradshafranov.py": "4e2c4c66265cc66974cc2aaf660987307ddb7c70a868799862ade0a6c9592f59",
+        "freegs/equilibrium.py": "2857b52eaea0e7fed45127d346bf7036e1808d5fb9715cf04dca89c8b736a490",
+        "freegs/jtor.py": "c425d1b3316743b7a3ca5e409ddad79a2f2ec6e243bfbf94feffdbd6a3e6ee62"
+      }
+    },
+    {
+      "path": "/tmp/tc24-freegs-q-fix-20261007",
+      "commit": "378763074204ceee2ef5bfd6b62309e07bc1de55",
+      "files_sha256": {
+        "freegs/critical.py": "012f7879f1b466771b705d26c60bda13e4096e32cc23a1d99ecb7c0180cd64de"
+      }
+    },
+    {
+      "path": "/tmp/tc24_chease_public_20261007",
+      "commit": "fb4636631ac6be62eefc73b1a420508a40e7ea13",
+      "files_sha256": {
+        "src-f90/setupa.f90": "ce150da200419fc92412f003ac82562d5a7f8a48c870960405e465616a2366e5",
+        "src-f90/setupb.f90": "308dc5bd00908661b1c064d966d4f0dbe648b7f5df56056e927129f52b2c3f2c",
+        "src-f90/curent.f90": "93d1169302d20cbf63284d81dc428f8154b743cdedb4e7fe23c4762d4d3c7754",
+        "src-f90/matrix.f90": "c866ec826296971669a1bbb7b6a669a298f84e5954dceaadc123e5a48827a677",
+        "src-f90/pprime.f90": "53a10c62b3d43b5f78c3a8fec39e81634afc813ae61095a2d11dd059984200f8",
+        "src-f90/ppspln.f90": "727db7a5a03fc9ca76656f52cc5c02dc870e6a424682cfe9aa7f6e3232271b4d",
+        "src-f90/prfunc.f90": "39bac4af8ceb8dd793139738ed320394561009fd0b81234dbe496a7f0c90f341",
+        "src-f90/surface.f90": "d1f4d2054b9e4687e0d75dd4fe6386e87c5048259eee9efe485aeaaa733dbd4e",
+        "src-f90/psibox.f90": "6c492843ec21fcd2aa8520b62cce8c0df87fb76e49f00c4e2197853f7b7dc687",
+        "src-f90/cocos_module.f90": "68a20448daa213404c6ff19c2734ba78bdc711e0a4d6d69ae930cf474b9c0a90"
+      }
+    },
+    {
+      "path": "/home/ert/code/MARS-Q",
+      "commit": "8824bb18e1514b4a27f6357d5fe859d4fe690542",
+      "files_sha256": {
+        "CheaseMerge/chease.f": "63d4a1b875cda596e4dc159e10490d47530ac6ffdde3fb2fa6218530c9ab27fc"
+      }
+    }
+  ],
+  "literature": {
+    "LutjensBondesonSauter1996.pdf": "bca24b3013d4fedb15e844314877363f18b0d35d9fb8e33f888662ce14106f33",
+    "SauterMedvedev2013.pdf": "82efd141c13654e71fed8ec0a1daf578eaa7930d3fe2b47b793621e1e4030caa"
+  },
+  "fresh_numerical_check": {
+    "scope": "Cartesian numerical orientation/curl check, not proof",
+    "errors": {
+      "basis": 1.1107649934270853e-16,
+      "field_pullback": 2.7755575615628914e-17,
+      "q": 2.220446049250313e-16,
+      "curl_relative": 4.989074194399601e-13
+    }
+  },
+  "fresh_command": "/tmp/tc24-vmecpp-venv/bin/python /home/ert/code/kin6d/test/check_cylinder_orientation.py",
+  "registered_native_CAS_identities": {
+    "count": 8,
+    "status": "Existing passing evidence reused; unchanged code, no new identity or rerun claimed"
+  },
+  "unproved": [
+    "weak-form integration/boundary arguments",
+    "all CHEASE normalization/current/export modes",
+    "nonlinear existence/uniqueness",
+    "compiler-level source equivalence",
+    "cylinder-to-finite-R force balance"
+  ],
+  "rights": "Original sidecar; external source referenced/hashed only; no FortSym upstream dependency"
+}

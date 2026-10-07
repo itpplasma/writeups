@@ -5,3 +5,6 @@
 - Render: `equilibrium/render_grad_shafranov.sh /tmp/writeups-gs-20261007`.
 - [Reproduction and artifact manifest](grad_shafranov_manifest.json): exact source pins/hashes, numerical receipts, PDF URL and expiry.
 - PDF and raster images remain outside Git; no private or third-party source material was imported.
+
+- [Source correspondence](../theory/gs_solver_source_correspondence.md): examined KIN/FreeGS/CHEASE routine paths, conventions, profile laws, diagnostics and unresolved paper–code bridges.
+- C0 uses a right-handed straight-cylinder angle: native `q_RH=+1.5` maps to canonical toroidal-limit `q_c=-1.5` when its axis aligns physical +phi. Retained native plots show `q_RH`; outputs are unchanged.
