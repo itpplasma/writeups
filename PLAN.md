@@ -2,7 +2,7 @@
 
 - Updated: 2026-10-07. Global programme order and completion gates belong to [TC24 PLAN](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/plan/circular-tokamak-benchmark-20261007/PLAN.md).
 - Active slice: axisymmetric equilibrium from a force-free cylinder and exact GS oracles to circular, finite-aspect-ratio, shaped and actual ITER TC24 cases.
-- Solvers: kin6d, FreeGS, public CHEASE, MARS-associated CHEASE and VMEC++. Stop before perturbations/transport.
+- Solvers: kin6d, FreeGS, public CHEASE, MARS-associated CHEASE, VMEC++ and targeted original VMEC/DESC/GVEC lanes. Stop before perturbations/transport.
 
 ## Task order
 
@@ -10,7 +10,7 @@
 2. Collect eligible source packages; keep unknown-rights/private material indexed in local receipts. Preserve archives and file notices.
 3. Produce the readable GS derivation: signed field/flux, current and force balance, weak form/energy, profiles/constraints and cylinder/torus limits.
 4. Link checked canonical theory/analytical fixtures in kin6d; retain each claim's assumptions and evidence status.
-5. Add source correspondence for CHEASE variants, FreeGS and VMEC++, including discrete equations, normalizations and code/literature errata.
+5. Add source correspondence for CHEASE variants, FreeGS, VMEC++, original VMEC, DESC and GVEC, including discrete equations, normalizations and code/literature errata.
 6. Incorporate actual independent residuals/convergence and comparison interpretations; publish writeup PDFs/plots on slopbox with reproducible source/data.
 7. Extend the same evidence structure in later perturbation and transport slices; NTV remains a catalogue and roadmap now.
 
@@ -25,6 +25,9 @@
 
 ## Status
 
+- GS companion and KIN/FreeGS/CHEASE source correspondence published; C0 RH-to-canonical embedding corrected with independent Cartesian checks.
+- GVEC, DESC and original VMEC source ledgers published. DESC retains ten exact native FortSym identities; broader discrete-solver equivalence remains unproved.
+- Analytical field gates pass within their stated scope; new TC24 attempts remain unconverged. Physics admission and next experiments belong to TC24 PLAN/ERRATA; literature candidates remain provisional.
 - Existing repository: 43 tracked files at revival base 22b60a4b89a7d2822fcd6315abdd67d954c36206; numerical Hamiltonian examples, no existing CAS replay suite found.
 - Targeted intake: 19 source families across the geometry and NTV inventories. Same-stem/co-located partners do not establish equation correspondence.
 - Collected: libneo's licensed EFIT/Boozer/Hamada writeup and near-axis symbolic source; Chris's Boozer/Hamada draft. Fresh replay/accuracy qualification remains open.
