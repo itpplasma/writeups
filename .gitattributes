@@ -1,0 +1,2 @@
+# Preserve original historical LyX source bytes and their recorded digest.
+collections/boozer-hamada-chris/*.lyx -text
