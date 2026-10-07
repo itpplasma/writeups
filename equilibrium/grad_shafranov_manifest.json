@@ -1,0 +1,84 @@
+{
+  "scope": "Readable companion; axisymmetric equilibrium only; no solver dependency changes",
+  "writeups_base": "44885605b96fefa269368d843d94242bb43b75f9",
+  "generated_utc": "2026-10-07T09:18:47.445408+00:00",
+  "sources": {
+    "equilibrium/grad_shafranov.tex": "378dad2796488cd2642c823c5e75336875e1ca6876756930a760820b324ba0ea",
+    "equilibrium/render_grad_shafranov.sh": "17338368fb7900b901d713d95b25631d5215a56253f2cc6864ed80e41b89c304"
+  },
+  "pdf": {
+    "path": "/tmp/writeups-gs-20261007/grad_shafranov.pdf",
+    "sha256": "b11478a36c42e83b15ab948c74bac3a71a401defd35d716f57293a35350fc51e",
+    "url": "https://box.sloppy.at/26488.pdf",
+    "expiry": "Slopbox expires approximately three days after upload",
+    "pages": 3,
+    "inspection": "All three pages rasterized and visually inspected; final page reinspected after wrapping repair; no overfull/underfull/warning lines in final LaTeX log; PDF URI annotations checked"
+  },
+  "reproduce": [
+    "equilibrium/render_grad_shafranov.sh /tmp/writeups-gs-20261007",
+    "pdftoppm -scale-to 1150 -png /tmp/writeups-gs-20261007/grad_shafranov.pdf /tmp/writeups-gs-20261007/page"
+  ],
+  "examined_sources": [
+    {
+      "path": "/home/ert/code/kin6d",
+      "commit": "f26b8df7969484152e54ad495d0231cc26b8c2ad",
+      "file_sha256": {
+        "src/grad_shafranov.f90": "ae395c9945f37539436eac2ae95f6e330aeeb5c2d3244860ed3d1be351165da2",
+        "gen/gen_grad_shafranov.f90": "3a31a82620160977a89dc248655456a4ae0ae4494ff9be1a7fa37c205542a5ce",
+        "test/test_gs_symbolic.f90": "98f4ad66640e9aff9aa2454f28521e4db6ad62232ec1da39f91e4fc9ced9d545",
+        "theory/derivations/grad-shafranov.md": "38d326290becaf0160cc165e588d84f24a6d95b7132e7b09957f799d3d082caa"
+      }
+    },
+    {
+      "path": "/tmp/tc24-freegs-source-20261007",
+      "commit": "5b41fe5565ff8077bf8139051c80c69416fc9b86",
+      "file_sha256": {
+        "freegs/equilibrium.py": "2857b52eaea0e7fed45127d346bf7036e1808d5fb9715cf04dca89c8b736a490",
+        "freegs/jtor.py": "c425d1b3316743b7a3ca5e409ddad79a2f2ec6e243bfbf94feffdbd6a3e6ee62",
+        "freegs/gradshafranov.py": "4e2c4c66265cc66974cc2aaf660987307ddb7c70a868799862ade0a6c9592f59"
+      }
+    },
+    {
+      "path": "/tmp/tc24_chease_public_20261007",
+      "commit": "fb4636631ac6be62eefc73b1a420508a40e7ea13",
+      "file_sha256": {
+        "src-f90/psibox.f90": "6c492843ec21fcd2aa8520b62cce8c0df87fb76e49f00c4e2197853f7b7dc687"
+      }
+    },
+    {
+      "path": "/tmp/tc24-vmecpp-source-20261007",
+      "commit": "a4150a4e2101bd47868d040f3adee5d0304ce89b",
+      "file_sha256": {
+        "src/vmecpp/cpp/vmecpp/vmec/radial_profiles/radial_profiles.cc": "4fd39db486c692e19f1b1c3bd622b301871582bd08fd3fc0a4c474870e11a97a"
+      }
+    }
+  ],
+  "reported_only": {
+    "MARS_CHEASE_commit": "8824bb18e1514b4a27f6357d5fe859d4fe690542",
+    "source_path": "CheaseMerge",
+    "evidence": "TC24 review/EQUILIBRIUM_CHEASE.md; not a complete routine audit here"
+  },
+  "symbolics": {
+    "fortsym_commit": "a6142712af998b727c245fb6cfbb3745b296ec24",
+    "registered_identities": 8,
+    "scope": "Exact native zero decisions under domain assumptions; not Lean/compiler/BVP proofs",
+    "hand_derivations": [
+      "integration by parts and GS weak form",
+      "GS variational functional",
+      "surface/flux map and regular axis limits"
+    ]
+  },
+  "evidence": {
+    "KIN_full_ctest": "45/45 passed; 277 s",
+    "KIN_final_focused_ctest": "2/2 passed after last generated source",
+    "candidate_runs": "12/12 final runs; continuous physical admission remains open",
+    "logs_sha256": {
+      "/tmp/kin6d-gs-full-tests.log": "ba85434e7a5d5f61bef157ba3fe128679e71225fcc1729438331ef60fef6a064",
+      "/tmp/kin6d-gs-tests.log": "131ee34c60850c963c7071397d1b6d69ffdb281af1021b25939185c12cc378d7",
+      "/tmp/kin6d-gs-final-20261007/manifest.json": "8fd400f2f0f7b7bda56968f557608936b5f1d2b2b811f31ba9c9d73d813be3c7"
+    },
+    "TC24_contract_sha256": "7953eba00c157050ea5f60ef6cbcf7a513032110b809a7914456c464ddbdb371",
+    "TC24_errata_sha256": "bf242915d68325cb71796f44b1de7f7b7b08bb36943317c290f6819b63ab7e18"
+  },
+  "rights": "Original explanatory source; third-party routines are referenced/hashed, not imported; historical/private material untouched"
+}

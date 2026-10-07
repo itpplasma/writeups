@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage{amsmath,amssymb,enumitem,hyperref}
+\hypersetup{colorlinks=true,urlcolor=blue,linkcolor=blue}
+\setlist[itemize]{leftmargin=*,itemsep=2pt,topsep=3pt}
+\setlength{\parindent}{0pt}
+\newcommand{\ds}{\Delta^*}
+\newcommand{\pp}{p'}
+\newcommand{\tc}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/plan/circular-tokamak-benchmark-20261007/}
+\title{Axisymmetric equilibrium: equations, cases and review gates}
+\author{Chris\&AI}
+\date{7 October 2026 --- equilibrium slice only}
+\begin{document}
+\maketitle
+\vspace{-10mm}
+\begin{itemize}
+\item Goal: understand the cylinder and exact GS cases before circular, finite-aspect-ratio, shaped and actual ITER TC24 equilibria. Stop before perturbations and transport.
+\item Authoritative inputs: \href{\tc equilibrium/CASE_CONTRACT.md}{TC24 case contract}; disagreements: \href{\tc equilibrium/ERRATA.md}{TC24 errata}. Shared basic theory and native analytical checks belong in KIN6D; this is their readable companion.
+\item No fitted sign, current, flux, radius, boundary or smoothing to obtain agreement. A solver's small native residual is one measurement, not physical admission.
+\end{itemize}
+
+\section*{Signed field, current and force balance}
+\begin{itemize}
+\item SI; $(R,\phi,Z)$ is right-handed; $\phi$ increases counter-clockwise viewed from $+Z$. $\psi$ is signed poloidal flux per radian; $F=RB_\phi$. Assume axisymmetry, $R>0$, isotropic pressure, static ideal force balance and sufficiently smooth nested surfaces where $p(\psi),F(\psi)$ are used.
+\item Native arrays stay native. Canonical mappings and polarity tests belong to the \href{https://gitlab.tugraz.at/plasma/proj/plasma-sign-conventions/-/blob/main/docs/AXISYMMETRIC_COCOS_CONTRACT.md}{sign/COCOS contract}. Canonical CCW poloidal angle makes $(r,\theta,\phi)$ left-handed (COCOS 3).
+\end{itemize}
+\begin{align*}
+\mathbf B&=\nabla\psi\times\nabla\phi+F\nabla\phi,
+& (B_R,B_Z,B_\phi)&=\frac1R(-\psi_Z,\psi_R,F),\\
+\ds\psi&=\psi_{RR}-R^{-1}\psi_R+\psi_{ZZ},
+&\mu_0j_\phi&=-\ds\psi/R,\quad \mu_0\mathbf j_p=F'\mathbf B_p,\\
+\mathbf j\times\mathbf B&=-\frac{\ds\psi+FF'}{\mu_0R^2}\nabla\psi
+=\nabla p,
+&\boxed{\ds\psi=-\mu_0R^2\pp-FF'.}
+\end{align*}
+The reduction to surface functions requires its assumptions; a general imported field need not satisfy them. The axis limit is evaluated by regular limiting formulas, not division by a vanishing poloidal field.
+
+\section*{Weak form and its variational functional}
+For fixed Dirichlet trace on a bounded poloidal domain $D\subset\{R>0\}$, use $v=0$ on the boundary. Since $\ds\psi/R=\nabla_{RZ}\cdot(\nabla_{RZ}\psi/R)$,
+\begin{align*}
+\int_D\frac{\nabla\psi\cdot\nabla v}{R}\,dR\,dZ
+&=\int_D\left(\mu_0R\pp+\frac{FF'}R\right)v\,dR\,dZ,\\
+\mathcal I[\psi]&=\int_D\left[\frac{|\nabla\psi|^2}{2R}-\mu_0Rp(\psi)-\frac{F(\psi)^2}{2R}\right]dR\,dZ,
+\qquad\delta\mathcal I=0.
+\end{align*}
+\begin{itemize}
+\item This is the GS variational functional, not a claim about the full dynamical MHD energy principle. Integration by parts and the boundary/domain assumptions are hand derivations here.
+\item Constant $\pp,FF'$ give an affine source and coercive linear elliptic problem with fixed trace. Nonlinear profiles do not automatically give a convex functional, a unique branch or a global minimum.
+\item KIN6D uses P1 triangles, the $1/R$ weak weight, three-point quadrature, FortFEM meshing/basis and FortNum preconditioned CG. Its numerical geometry is the supplied polygon; continuous-boundary error remains separate.
+\end{itemize}
+
+\section*{Exact references: cylinder versus torus}
+\textbf{C0: straight, force-free Gold--Hoyle cylinder.} Let $k=1/(qR_0)$ and declare axial period $2\pi R_0$:
+\[
+ B_z=\frac{B_0}{1+k^2r^2},\quad B_\theta=krB_z,\quad
+ \nabla\times\mathbf B=\frac{2k}{1+k^2r^2}\mathbf B,\quad p=0,
+ \quad q=\frac{rB_z}{R_0B_\theta}=\frac1{kR_0}.
+\]
+Its flux analogue is $\psi=R_0B_0\log(1+k^2r^2)/(2k)$, with $\psi_r=R_0B_\theta$. This is not an exact finite-$R$ toroidal GS equilibrium. Uniform $B_z$ plus $B_\theta\propto r$ is not its zero-pressure substitute.
+
+\textbf{E0: exact finite-$R$ GS oracles.} Supply their exact boundary trace:
+\begin{align*}
+\Psi_C&=C[(R^2-R_0^2)^2+4R^2Z^2],
+&\ds\Psi_C&=16CR^2,&\pp&=-16C/\mu_0,&FF'&=0,\\
+\Psi_D&=D[R^2\log(R/R_0)-(R^2-R_0^2)/2+Z^2],
+&\ds\Psi_D&=4D,&\pp&=0,&FF'&=-4D.
+\end{align*}
+For the logarithmic family, reconstruct $F^2$ from its declared anchor and check positivity. A polynomial level-set boundary is close to a circle at large aspect ratio; it is not an exact circle. The analytical surface/flux map used for VMEC++ is derived separately in KIN6D theory.
+
+\section*{Forward selectors, inverse selectors and profile meaning}
+\begin{itemize}
+\item Forward problem: fix LCFS, $\pp(\psi),FF'(\psi),F_{\rm edge},p_{\rm edge}$. Axis flux, total current and $q$ are outputs. E1 has $\pp=0$, $FF'=-2B_0/q_{\rm source}$; E2 has $FF'=0$, $\pp=-2B_0/(q_{\rm source}\mu_0R_0^2)$. Source scale $q_{\rm source}=1.5$ does not prescribe constant $q$.
+\item Inverse prescribed-$q$ problem: specify boundary, pressure and an explicit flux/current scale, then release the $F$/current profile. Do not overconstrain the forward problem or silently replace an unsupported inverse mode.
+\item Circular cases use $R_0=6.2$ m, $B_0=5.3$ T and $A=10,20,40$; then $A=3.1$, shaping and actual TC24. Finite-$R$ surfaces need not remain concentric circles.
+\item Derivative-controlled reconstruction is a named interpretation of tabulated input, not silent source repair:
+\end{itemize}
+\[
+ p(\psi)=p_e+\int_{\psi_e}^{\psi}\pp(u)\,du,\qquad
+ F(\psi)=\operatorname{sign}(F_e)\sqrt{F_e^2+2\int_{\psi_e}^{\psi}FF'(u)\,du}.
+\]
+\begin{itemize}
+\item Integrate piecewise-linear derivative segments exactly; extend endpoint derivatives constantly when needed. Reject $F^2\leq0$ or an undefined zero-edge branch. Keep received $p,F$ columns unchanged and report their discrepancy from this reconstruction.
+\item Derivative-controlled and raw-column-controlled inputs can define different equilibria. A global COCOS change cannot repair an internally inconsistent derivative tuple.
+\end{itemize}
+
+\section*{What has actually been checked}
+\begin{itemize}
+\item Eight registered native FortSym identities: polynomial/logarithmic $\ds$, divergence, toroidal curl, Gold--Hoyle two curl components, force balance and constant $q$. They use exact native zero decisions, not randomized probes; they are not Lean proofs, compiler proofs or boundary-value existence theorems.
+\item Retained generator/gate uses FortSym \texttt{a614271}; full SHA and dependency pins are in the reproduction manifest. Weak-form/energy and surface/flux-map arguments remain hand derivations; the map also has a retained numerical smoke check, not a proof.
+\item Independent native oracles: Solovev mesh refinement, nonlinear $\psi=R^2$ source cancellation, linear implicit tangent/adjoint pairing, generated field AD pairing, profile primitive and cylindrical physical force balance.
+\item KIN6D native build and 45/45 CTest gates passed; final GS gates were rerun after the last generated source. Twelve final circular/shaped/TC24 candidates solved. These do not establish cross-code physical admission.
+\item A discrete weak residual near $10^{-8}$ measures the executed algebraic equation. Continuous physical residuals differentiate reconstructed fields and include geometry, interpolation and profile errors. Their scales and units must be explicit; residuals from different definitions are not interchangeable.
+\item Admission needs independent off-grid checks of $\mathbf B,p,\mathbf j$ and $\mathbf j\times\mathbf B-\nabla p$; also axis, flux, current and signed-$q$ checks; refine PDE grid, LCFS/Fourier representation, surface map and output interpolation separately.
+\end{itemize}
+
+\section*{Examined source correspondence and genealogy}
+This list describes examined routines, not verification of every mode in each code.
+\begin{itemize}
+\item KIN6D promoted \texttt{f26b8df7}: \path{src/grad_shafranov.f90} assembles/solves the weak equation; \path{gen/gen_grad_shafranov.f90} generates local physics/AD leaves; \path{test/test_gs_symbolic.f90} owns the eight-identity gate.
+\item FreeGS base \texttt{5b41fe55}: \texttt{equilibrium.py}, \texttt{Equilibrium.solve} sets $-\mu_0RJ_\phi$ and copies boundary RHS; \texttt{jtor.py}, \texttt{ProfilesPprimeFfprime.Jtor} forms $R\pp+FF'/(\mu_0R)$ with its normalized-flux/mask rules; \texttt{gradshafranov.py::GSsparse} implements the second-order $\ds$ stencil. The external curved-LCFS staircase adapter is a distinct numerical boundary problem.
+\item Public CHEASE \texttt{fb463663}, examined \texttt{src-f90/psibox.f90}: export extrapolation selector 1 is linear, selector 4 is derivative-based cubic. Its controlled partner changes reconstructed edge diagnostics without changing native equilibrium/$q$.
+\item MARS-associated CHEASE \texttt{8824bb18}, \texttt{CheaseMerge}: source/build and executed selector evidence is linked in the \href{\tc review/EQUILIBRIUM_CHEASE.md}{CHEASE report}; no claim of a new independent solver derivation here. Public and MARS variants share CHEASE ancestry: two runs are not two independent algorithm families.
+\item VMEC++ release \texttt{a4150a4e}, examined \texttt{radial\_profiles.cc}, function \texttt{computeMagneticFluxes}: signed flux normalization uses \texttt{signOfJacobian*phiedge/(2*pi)}. This checks that normalization path; it does not prove the full 3D variational solver. Matched input requires explicit $p(s_{\rm tor})$, iota/current selector, full flux and boundary representation.
+\end{itemize}
+
+\section*{How to review disagreements}
+\begin{itemize}
+\item Test both hypotheses: the outlier has a defect, and agreeing codes share an error. Shared genealogy, fixture, parser, COCOS converter or surface mapper reduces independence; do not decide by vote.
+\item Classify model/constraint, input/profile, convention and numerical differences before calling a code wrong. Retain native outputs and failed runs; an untested interpretation remains open.
+\item Concrete examples: unsigned-$B_p$ winding estimators can share a sign error; CHEASE exterior interpolation can alter reconstructed $q$ without altering native $q$; staircase/Fourier boundary errors can dominate a field comparison.
+\item Leonardo GS's initial Picard failure was resolved at unchanged inputs by stronger relaxation. Continuous accuracy and branch uniqueness remain open. VMEC++ refined-boundary failures likewise remain failures, not admitted refined results.
+\item Next checks and closure evidence belong in the linked TC24 errata. This writeup closes no unexplained cross-code discrepancy and makes no perturbation/transport claim.
+\end{itemize}
+\end{document}
