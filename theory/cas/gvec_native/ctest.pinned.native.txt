@@ -1,0 +1,35 @@
+UpdateCTestConfiguration  from :/tmp/gvec_native_cas_pinned_20261007/DartConfiguration.tcl
+Test project /tmp/gvec_native_cas_pinned_20261007
+Constructing a list of tests
+Done constructing a list of tests
+Updating test list for fixtures
+Added 0 tests to meet fixture requirements
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+    Start 1: gvec_local_exact_identities
+
+1: Test command: /tmp/gvec_native_cas_pinned_20261007/gvec_local_identities
+1: Working Directory: /tmp/gvec_native_cas_pinned_20261007
+1: Test timeout computed to be: 10000000
+1: PASS native exact identity 1
+1: PASS native exact identity 2
+1: PASS native exact identity 3
+1: PASS native exact identity 4
+1: PASS native exact identity 5
+1: PASS native exact identity 6
+1: PASS native exact identity 7
+1: PASS native exact identity 8
+1: PASS native exact identity 9
+1: PASS native exact identity 10
+1: PASS native exact identity 11
+1: PASS native exact identity 12
+1: PASS native exact identity 13
+1: PASS native exact identity 14
+1: PASS native exact identity 15
+1: PASS native exact identity 16
+1/1 Test #1: gvec_local_exact_identities ......   Passed    0.03 sec
+
+100% tests passed out of 1
+
+Total Test time (real) =   0.03 sec

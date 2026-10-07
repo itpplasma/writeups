@@ -1,0 +1,13 @@
+{
+  "fortsym_source_commit": "a6142712af998b727c245fb6cfbb3745b296ec24",
+  "fortsym_source": "/home/ert/proj/.codex-tmp/fortsym-gs-a614271",
+  "fortsym_build": "/tmp/kin6d-gs-fortsym-pin-build",
+  "native_library_sha256": "70c99a46f67998540f6eedb5897f26897ce612b6a26299de292d5a369a79d8fd",
+  "test_source_sha256": "5000c28f25060773c336756a9f1c3515885b243e7ef6895694f6370e8c54fc54",
+  "test_binary_sha256": "57c54a1637383fd84df002daa5875b69226135a58997bd18b6ad80a2c0a81ee9",
+  "stdout_sha256": "b877cdf6eb02c09bb8b2e40872efca94e4cca072e5952252040dcfd584506308",
+  "registered_test": "CTest gvec_local_exact_identities,1/1 passed,16 VERDICT_TRUE native exact algebra identities",
+  "configure_command": "cmake -S theory/cas/gvec_native -B /tmp/gvec_native_cas_pinned_20261007 -G Ninja -DFORTSYM_BUILD=/tmp/kin6d-gs-fortsym-pin-build",
+  "build_command": "cmake --build /tmp/gvec_native_cas_pinned_20261007 -j2",
+  "test_command": "ctest --test-dir /tmp/gvec_native_cas_pinned_20261007 --verbose"
+}
