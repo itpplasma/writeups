@@ -10,6 +10,7 @@
 - `vmec.cc:752–753`: passes that constant to every new `RadialProfiles`; `radial_profiles.h:202` stores a `const double`.
 - `vmec.cc:824`: profile evaluation follows radial initialization. `radial_profiles.cc:1232–1239` assigns `beta(s)=2*pDamp*(1-s)=0.1*(1-s)`.
 - The time step `delt` and its restart reductions are separate. They do not update this constant. A pDamp-only solver experiment needs a separately pinned source/binary change; none was run here.
+- `IdealMhdModel::update`: raw instantaneous metric lowering (`computeBCo`, line545) precedes the hybrid kernel (line592); effective constraint/de-aliasing follows at912–914. The kernel does not consume force/current-corrected exported BCOV.
 - The same initialization path handles fixed/free boundaries; the checked oracle uses interior points only. The 3D mixed-metric/toroidal-force terms are not covered.
 
 ## Exact native stencil
