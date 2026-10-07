@@ -1,0 +1,17 @@
+{
+  "schema": "vmecpp-native-constraint-sector-identity-v1",
+  "runner_sha256": "4f7564d6a367a56dacb623c3306c3562ca9787dfb46389a0c272d629e35f7ac7",
+  "source_sha256": "e34fc699fc580e11312ec44a6f87f3702e70b10dd29fc7c8d2641d4277c9f8ce",
+  "producer_sha256": "7543ecbe2342c93779df51ef175ce18369a16df074dfceace94ca744470f1348",
+  "identities": {
+    "r001": "0",
+    "r002": "0",
+    "r003": "0",
+    "r004": "0",
+    "r005": "0",
+    "r006": "-4",
+    "r007": "0",
+    "r008": "0"
+  },
+  "scope": "Exact bounded amplitude/chain/fixed-filter identities; trigonometric orthogonality explicit; no live multiplier derivative claim"
+}

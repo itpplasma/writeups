@@ -1,0 +1,27 @@
+{
+  "schema": "vmecpp-native-constraint-projection-correspondence-v1",
+  "source_pin": "a4150a4e2101bd47868d040f3adee5d0304ce89b",
+  "sources": {
+    "src/vmecpp/cpp/vmecpp/vmec/ideal_mhd_model/constraint_force_kernel.h": "86274d87f26160bf1213cbfe0b5212659494c04765d8b009c70ec1a6ae592709",
+    "src/vmecpp/cpp/vmecpp/vmec/ideal_mhd_model/ideal_mhd_model.cc": "8779d14af710a5fdf4b0fafdde7ec4c9f0d5c3e2303891f53165b3546eb11991",
+    "src/vmecpp/cpp/vmecpp/common/fourier_basis/fourier_basis.cc": "e54b5b79625f76a1f211e07baef7ccd4b897ff8d9ed7277a7d46391159444d0e",
+    "src/vmecpp/cpp/vmecpp/common/sizes/sizes.cc": "327ec21623dffa569698cd416b1c94e3def9f60eeba0f9d03d5ea58b908ca1fa"
+  },
+  "executable_sha256": "e2f823699f7945484cbabb3ca1b2456317210305134666e697f74f2a26aa2c52",
+  "native_output": "PASS 27 exact harmonic/manufactured cases, max_abs=2.87088e-16; excluded scalar m0,23,24,46; tcon0 zero; no live TC24 residual claim",
+  "ctest_log_sha256": "599d6ece6bec3419348693aca40e3e3bc08b7a788d7f329bffe52f5728f2b610",
+  "local_files": {
+    "CMakeLists.txt": "30192bb940ee6679587df87ac212ae2dcc5b63957ae8a13c40e0f6a9ca3cc34b",
+    "test_projection.cc": "cf819a61338b2d9a44c1198416f05e4a5c808da14cf9981a723967654d8e6f00",
+    "constraint_sector.wl": "e34fc699fc580e11312ec44a6f87f3702e70b10dd29fc7c8d2641d4277c9f8ce",
+    "run_symbolic.py": "7543ecbe2342c93779df51ef175ce18369a16df074dfceace94ca744470f1348",
+    "symbolic_results.json": "0964f06c6b7babcd46e2acad7491fbd60de4c1ffd97823d7db72d4eb41931971"
+  },
+  "commands": [
+    "cmake -S theory/cas/vmecpp_constraint_projection -B BUILD -G Ninja -DVMECPP_SOURCE_ROOT=PINNED_SOURCE",
+    "cmake --build BUILD -j2",
+    "ctest --test-dir BUILD --output-on-failure",
+    "python theory/cas/vmecpp_constraint_projection/run_symbolic.py"
+  ],
+  "scope": "Actual pinned local constraint kernels and public basis formula exercised versus independent closed harmonics/energy derivatives. Live geometry-dependent multiplier, solver-wide full projection and continuous MHD correspondence remain open."
+}

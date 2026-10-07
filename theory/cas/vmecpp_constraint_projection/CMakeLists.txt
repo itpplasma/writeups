@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(vmecpp_constraint_projection_oracle LANGUAGES CXX)
+enable_testing()
+add_executable(test_projection test_projection.cc)
+target_compile_features(test_projection PRIVATE cxx_std_17)
+target_compile_options(test_projection PRIVATE -Wall -Wextra -Werror)
+target_include_directories(test_projection PRIVATE "${VMECPP_SOURCE_ROOT}/src/vmecpp/cpp")
+add_test(NAME native_constraint_projection_modes COMMAND test_projection)
