@@ -8,3 +8,7 @@
 mhd/*.pdf
 \#*
 .ipynb_checkpoints/
+
+# Local source receipts and rendered artifacts are not repository payloads.
+.local/
+artifacts/

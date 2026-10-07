@@ -1,0 +1,1343 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{comment}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 3cm
+\topmargin 2cm
+\rightmargin 3cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+
+\lang british
+\begin_inset FormulaMacro
+\newcommand{\non}{}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\difp}[2][]{\frac{\partial#1}{\partial#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\br}{{\bf r}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bR}{{\bf R}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bA}{{\bf A}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bB}{{\bf B}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bE}{{\bf E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bm}{{\bf m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bn}{{\bf n}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bN}{{\bf N}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bp}{{\bf p}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bF}{{\bf F}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bz}{{\bf z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bZ}{{\bf Z}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bV}{{\bf V}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang british
+\begin_inset FormulaMacro
+\newcommand{\bv}{{\bf v}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bu}{{\bf u}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bx}{{\bf x}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bX}{{\bf X}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bJ}{{\bf J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bj}{{\bf j}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bk}{{\bf k}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bTheta}{{\bf \Theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\btheta}{\boldsymbol{\theta}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bOmega}{\boldsymbol{\Omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bomega}{\boldsymbol{\omega}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\brho}{\boldsymbol{\rho}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rd}{{\rm d}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\rJ}{{\rm J}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ph}{\varphi}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\te}{\theta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tht}{\vartheta}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vparkb}{v_{\parallel k b}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vparkm}{v_{\parallel k m}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Jpar}{J_{\parallel}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ppar}{p_{\parallel}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\Bpstar}{B_{\parallel}^{*}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\intpi}{\int\limits _{0}^{2\pi}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\summ}{\sum\limits _{m=-\infty}^{\infty}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\tb}{\tau_{b}(\uv)}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\bh}{{\bf h}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\cE}{{\cal E}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\odtwo}[2]{\frac{\rd#1}{\rd#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pdone}[1]{\frac{\partial}{\partial#1}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\pdtwo}[2]{\frac{\partial#1}{\partial#2}}
+{\frac{\partial#1}{\partial#2}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\ds}{{\displaystyle }}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\iotabar}{\mbox{\ensuremath{\iota\!\!}-}}
+{\tilde{\iota}}
+\end_inset
+
+
+\begin_inset FormulaMacro
+\newcommand{\vpar}{v_{\parallel}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Introduction
+\end_layout
+
+\begin_layout Standard
+In general curvilinear coordinates, positions in space are defined by three
+ parameters - let's call them 
+\begin_inset Formula $(r,\vartheta,\ph)$
+\end_inset
+
+ - by
+\begin_inset Formula 
+\begin{align}
+\mathbf{R} & =\mathbf{R}(r,\tht,\ph)
+\end{align}
+
+\end_inset
+
+or if we start from cartesian coordinates 
+\begin_inset Formula 
+\begin{equation}
+\mathbf{R}=\left(x(r,\tht,\ph),y(r,\tht,\ph),z(r,\tht,\ph)\right)^{T}.
+\end{equation}
+
+\end_inset
+
+For a magnetic field 
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+, one chooses one parameter 
+\begin_inset Formula $r$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{align}
+\mathbf{B}\cdot\nabla r & =\mathbf{B}\cdot\mathbf{e}^{r}=B^{r}=0.
+\end{align}
+
+\end_inset
+
+This means, that surfaces of 
+\begin_inset Formula $r={\rm const}.$
+\end_inset
+
+ are not penetrated by magentic field lines.
+ We also make the assumption of idealised nested flux surfaces.
+\end_layout
+
+\begin_layout Standard
+Taking additional measures as described in the book of d'Haeseleer (1991),
+ we obtain flux coordinates with 
+\begin_inset Formula 
+\begin{align*}
+B^{\tht}(r,\tht,\ph) & =\frac{\psi_{{\rm pol}}(r)}{\sqrt{g(r,\tht,\ph)}},\,\,\,\,\,\,B^{\ph}=\frac{\psi_{{\rm tor}}(r)}{\sqrt{g(r,\tht,\ph)}}=q(r)B^{\tht}(r,\tht,\ph),
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $q(r)$
+\end_inset
+
+ is the safety factor.
+ We call all quantities that depend only on 
+\begin_inset Formula $r$
+\end_inset
+
+ 
+\emph on
+flux surface quantities
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+The following derivations are attempts find a transformation from Boozer
+ coordinates 
+\begin_inset Formula $(s,\tht_{B},\ph_{B})$
+\end_inset
+
+ to Hamada coordinates 
+\begin_inset Formula $(\hat{V},\tht_{H},\ph_{H})$
+\end_inset
+
+ in two ways:
+\end_layout
+
+\begin_layout Enumerate
+The method described in d'Haeseleer (1991), Soloviev (RPP 5) and the writeup
+ 
+\emph on
+Boozer_Hamada_Conversion
+\emph default
+ of Andreas.
+ 
+\end_layout
+
+\begin_layout Enumerate
+A modified method described by Hirschman to convert VMEC to Boozer coordinates
+ (see 
+\begin_inset CommandInset href
+LatexCommand href
+target "http://tinyurl.com/or3orb5"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+For the second method, we need the covariant components of the field in
+ Hamada coordinates too.
+ We can get them by performing a scalar product of 
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+ with the new 
+\end_layout
+
+\begin_layout Section*
+Hamada coordinates
+\end_layout
+
+\begin_layout Standard
+
+\size normal
+Choosing the radial variable 
+\begin_inset Formula $\hat{V}=V/4\pi^{2}$
+\end_inset
+
+ leads to a metric determinant 
+\begin_inset Formula $\sqrt{g_{H}}=1$
+\end_inset
+
+.
+ 
+\size default
+As described in d'Haeseleer (1991) referring to Solov'ev (1968, 1970, 1975)
+ we construct Hamada coordinates by writing contravariant components of
+ both
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+ and 
+\series bold
+\size normal
+
+\begin_inset Formula $\mathbf{J}$
+\end_inset
+
+ 
+\series default
+as flux functions
+\begin_inset Formula 
+\begin{align}
+\mathbf{B} & =B^{\tht_{H}}\mathbf{e}_{\tht_{H}}+B^{\ph_{H}}\mathbf{e}_{\ph_{H}}=\dot{\psi}_{{\rm pol}}\mathbf{e}_{\tht_{H}}+\dot{\psi}_{{\rm tor}}\mathbf{e}_{\ph_{H}},\\
+\mathbf{J} & =J^{\tht_{H}}\mathbf{e}_{\tht_{H}}+J^{\ph_{H}}\mathbf{e}_{\ph_{H}}=\dot{\chi}_{{\rm pol}}\mathbf{e}_{\tht_{H}}+\dot{\chi}_{{\rm tor}}\mathbf{e}_{\ph_{H}},
+\end{align}
+
+\end_inset
+
+where 
+\begin_inset Formula $\psi=\Psi/2\pi,\,\chi=I/2\pi$
+\end_inset
+
+ differ from physical magnetic flux 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ and physical currents 
+\begin_inset Formula $I$
+\end_inset
+
+ by a factor of 
+\begin_inset Formula $2\pi$
+\end_inset
+
+.
+ Dots indicate derivatives with respect to 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+ and primes with respect to 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ 
+\size default
+We calculate the current stream functions 
+\begin_inset Formula $\chi$
+\end_inset
+
+ from the magnetic field components in Boozer coordinates with
+\begin_inset Formula 
+\begin{align}
+B_{\tht_{B}} & =\frac{4\pi}{c}\chi_{{\rm tor}}(s),\\
+B_{\ph_{B}} & =\frac{4\pi}{c}\left(\chi_{{\rm pol}}^{{\rm tot}}-\chi_{{\rm pol}}(s)\right)
+\end{align}
+
+\end_inset
+
+
+\size normal
+From Ampere's Law, 
+\begin_inset Formula ${\rm curl}\mathbf{B}=\left(4\pi/c\right)\mathbf{J}$
+\end_inset
+
+, we write the current density in the original Boozer coordinates (covariant
+ angular 
+\series bold
+\size default
+
+\begin_inset Formula $\mathbf{B}$
+\end_inset
+
+
+\size normal
+ 
+\series default
+components are flux functions there) as 
+\begin_inset Formula 
+\begin{align}
+J^{\tht_{B}} & =\frac{c}{4\pi}\frac{1}{\sqrt{g_{B}}}\left(\frac{\partial B_{s}}{\partial\ph_{B}}-\frac{dB_{\ph_{B}}}{ds}\right),\\
+J^{\ph_{B}} & =\frac{c}{4\pi}\frac{1}{\sqrt{g_{B}}}\left(\frac{dB_{\tht_{B}}}{ds}-\frac{\partial B_{s}}{\partial\tht_{B}}\right).
+\end{align}
+
+\end_inset
+
+The equilibrium condition 
+\begin_inset Formula $\nabla p=(1/c)\mathbf{J}\times\mathbf{B}$
+\end_inset
+
+ reads
+\begin_inset Formula 
+\begin{align}
+\dot{p} & =\mathbf{e}_{\hat{V}}\cdot\left(\mathbf{J}\times\mathbf{B}\right)=\frac{1}{c}\left(\mathbf{J}\times\mathbf{B}\right)_{\hat{V}}\nonumber \\
+ & =\sqrt{g_{H}}\varepsilon_{\hat{V}lm}J^{l}B^{m}\nonumber \\
+ & =\frac{1}{c}(\dot{\chi}_{{\rm pol}}\dot{\psi}_{{\rm tor}}-\dot{\chi}_{{\rm tor}}\dot{\psi}_{{\rm pol}})\nonumber \\
+ & =\frac{1}{c}\left(\dot{\chi}_{{\rm pol}}\frac{d\psi_{{\rm tor}}}{ds}-\dot{\chi}_{{\rm tor}}\iotabar\frac{d\psi_{{\rm tor}}}{ds}\right)\frac{ds}{d\hat{V}}\nonumber \\
+ & =\frac{\psi_{{\rm tor}}^{a}}{c}(\dot{\chi}_{{\rm pol}}-\iotabar\dot{\chi}_{{\rm tor}})\frac{ds}{d\hat{V}}\nonumber \\
+ & =-\frac{\psi_{{\rm tor}}^{a}}{4\pi}(\dot{B}_{\ph_{B}}+\iotabar\dot{B}_{\tht_{B}})\frac{ds}{d\hat{V}}.
+\end{align}
+
+\end_inset
+
+where we have used the fact that 
+\begin_inset Formula $p$
+\end_inset
+
+ is a flux surface quantity, so
+\begin_inset Formula $\nabla p=\dot{p}\nabla\hat{V}$
+\end_inset
+
+.
+ From the first two equations we obtain
+\begin_inset Formula 
+\begin{align}
+\mathbf{e}_{\tht_{H}} & =\frac{1}{c\dot{p}}\left(\dot{\psi}_{{\rm tor}}\mathbf{J}-\dot{\chi}_{{\rm tor}}\mathbf{B}\right),\\
+\mathbf{e}_{\ph_{H}} & =\frac{1}{c\dot{p}}\left(\dot{\chi}_{{\rm pol}}\mathbf{B}-\dot{\psi}_{{\rm pol}}\mathbf{J}\right).
+\end{align}
+
+\end_inset
+
+Taking a scalar product of 
+\begin_inset Formula $\mathbf{B}\cdot\mathbf{e}_{\tht_{H}}$
+\end_inset
+
+ we write the covariant poloidal magnetic field component in Hamada coordinates
+ as
+\begin_inset Formula 
+\begin{align}
+B_{\tht_{H}} & =\frac{1}{c\dot{p}}\left(\dot{\psi}_{{\rm tor}}\mathbf{B}\cdot\mathbf{J}-\dot{\chi}_{{\rm tor}}B^{2}\right)\nonumber \\
+ & =\frac{1}{c\,dp/ds}\left(\psi_{{\rm tor}}^{a}\mathbf{B}\cdot\mathbf{J}-\frac{c}{4\pi}\frac{dB_{\tht_{B}}}{ds}B^{2}\right)\label{eq:BthH}\\
+\nonumber \\
+B_{\ph_{H}} & =\frac{1}{c\dot{p}}\left(\dot{\chi}_{{\rm pol}}B^{2}-\dot{\psi}_{{\rm pol}}\mathbf{B}\cdot\mathbf{J}\right)\nonumber \\
+ & =\frac{1}{c\,dp/ds}\left(-\frac{c}{4\pi}\frac{dB_{\ph_{B}}}{ds}B^{2}-\iotabar\psi_{{\rm tor}}^{a}\mathbf{B}\cdot\mathbf{J}\right).\label{eq:BphH}
+\end{align}
+
+\end_inset
+
+We take
+\begin_inset Formula 
+\begin{align}
+\mathbf{B}\cdot\mathbf{J} & =J^{\tht_{B}}B_{\tht_{B}}+J^{\ph_{B}}B_{\ph_{B}}\nonumber \\
+ & =\frac{c}{4\pi}\frac{1}{\sqrt{g_{B}}}\left(\frac{\partial B_{s}}{\partial\ph_{B}}-\frac{dB_{\ph_{B}}}{ds}\right)B_{\tht_{B}}+\frac{c}{4\pi}\frac{1}{\sqrt{g_{B}}}\left(\frac{dB_{\tht_{B}}}{ds}-\frac{\partial B_{s}}{\partial\tht_{B}}\right)B_{\ph_{B}}.
+\end{align}
+
+\end_inset
+
+We obtain
+\begin_inset Formula 
+\begin{align}
+B_{\tht_{H}} & =\frac{1}{c\,dp/ds}\left(\frac{c}{4\pi}\frac{\psi_{{\rm tor}}^{a}}{\sqrt{g_{B}}}\left(\frac{\partial B_{s}}{\partial\ph_{B}}-\frac{dB_{\ph_{B}}}{ds}\right)B_{\tht_{B}}+\frac{c}{4\pi}\frac{\psi_{{\rm tor}}^{a}}{\sqrt{g_{B}}}\left(\frac{dB_{\tht_{B}}}{ds}-\frac{\partial B_{s}}{\partial\tht_{B}}\right)B_{\ph_{B}}-\frac{c}{4\pi}\frac{dB_{\tht_{B}}}{ds}B^{2}\right)\nonumber \\
+ & =\frac{1}{4\pi\,dp/ds}\left(\left(\frac{\partial B_{s}}{\partial\ph_{B}}-\frac{dB_{\ph_{B}}}{ds}\right)B^{\ph_{B}}B_{\tht_{B}}+\left(\frac{dB_{\tht_{B}}}{ds}-\frac{\partial B_{s}}{\partial\tht_{B}}\right)B^{\ph_{B}}B_{\ph_{B}}-\frac{dB_{\tht_{B}}}{ds}B^{2}\right)\nonumber \\
+ & =\frac{1}{4\pi\,dp/ds}\left(q\left(\frac{\partial B_{s}}{\partial\ph_{B}}-\frac{dB_{\ph_{B}}}{ds}\right)B^{\tht_{B}}B_{\tht_{B}}+\frac{dB_{\tht_{B}}}{ds}\left(B^{2}-B^{\tht_{B}}B_{\tht_{B}}\right)-\frac{\partial B_{s}}{\partial\tht_{B}}B^{\varphi_{B}}B_{\ph_{B}}-\frac{dB_{\tht_{B}}}{ds}B^{2}\right)\nonumber \\
+ & =\frac{1}{4\pi\,dp/ds}\left(q\left(\frac{\partial B_{s}}{\partial\ph_{B}}-\frac{dB_{\ph_{B}}}{ds}-\iotabar\frac{dB_{\tht_{B}}}{ds}\right)B^{\tht_{B}}B_{\tht_{B}}-\frac{\partial B_{s}}{\partial\tht_{B}}B^{\varphi_{B}}B_{\ph_{B}}\right)
+\end{align}
+
+\end_inset
+
+The contravariant components are the derivatives of the fluxes w.r.t.
+ 
+\begin_inset Formula $\hat{V}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\begin{align}
+B^{\tht_{H}} & =\dot{\psi}_{{\rm tor}}=\psi_{a}\frac{ds}{d\hat{V}},\\
+B^{\ph_{H}} & =\dot{\psi}_{{\rm pol}}=\iotabar\psi_{a}\frac{ds}{d\hat{V}}.
+\end{align}
+
+\end_inset
+
+
+\size default
+and the metric
+\begin_inset Formula 
+\begin{align}
+\sqrt{g_{B}} & =\frac{\text{\iota}B_{\vartheta_{B}}+B_{\varphi_{B}}}{B^{2}}.
+\end{align}
+
+\end_inset
+
+We also note that
+\begin_inset Formula 
+\begin{align}
+B^{2} & =B^{\tht_{B}}B_{\tht_{B}}+B^{\ph_{B}}B_{\ph_{B}}=B^{\ph_{B}}\left(\iotabar B_{\tht_{B}}(s)+B_{\ph_{B}}(s)\right)\nonumber \\
+ & =B^{\tht_{H}}B_{\tht_{H}}+B^{\ph_{H}}B_{\ph_{H}}=B^{\ph_{H}}(s)\left(\iotabar B_{\tht_{H}}+B_{\ph_{H}}\right),
+\end{align}
+
+\end_inset
+
+so we can write the flux surface quantity
+\begin_inset Formula 
+\begin{align}
+\frac{\iotabar B_{\tht_{B}}(s)+B_{\ph_{B}}(s)}{B^{\ph_{H}}(s)} & =\frac{\iotabar B_{\tht_{H}}+B_{\ph_{H}}}{B^{\ph_{B}}}
+\end{align}
+
+\end_inset
+
+which allows to check our results.
+\end_layout
+
+\begin_layout Subsection*
+Variant 2
+\end_layout
+
+\begin_layout Standard
+Instead of evaluating 
+\begin_inset Formula $\mathbf{J}\cdot\mathbf{B}$
+\end_inset
+
+ in Boozer coordinates, we can also choose Hamada coordinates.
+ Since
+\size normal
+
+\begin_inset Formula 
+\begin{align}
+J^{\tht_{H}} & =\dot{\chi}_{{\rm pol}}=-\frac{c}{4\pi}\dot{B}_{\ph_{B}},\\
+J^{\ph_{H}} & =\dot{\chi}_{{\rm tor}}=\frac{c}{4\pi}\dot{B}_{\tht_{B}}
+\end{align}
+
+\end_inset
+
+we can write
+\begin_inset Formula 
+\begin{align}
+\mathbf{J}\cdot\mathbf{B} & =J^{\tht_{H}}B_{\tht_{H}}+J^{\ph_{H}}B_{\ph_{H}}\nonumber \\
+ & \frac{c}{4\pi}\left(\dot{B}_{\tht_{B}}B_{\ph_{H}}-\dot{B}_{\ph_{B}}B_{\tht_{H}}\right).
+\end{align}
+
+\end_inset
+
+
+\size default
+
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:BthH"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:BphH"
+
+\end_inset
+
+ become
+\size normal
+
+\begin_inset Formula 
+\begin{align*}
+B_{\tht_{H}} & =\frac{1}{4\pi p^{\prime}}\left(\psi_{{\rm tor}}^{a}\left(B_{\tht_{B}}^{\prime}B_{\ph_{H}}-B_{\ph_{B}}^{\prime}B_{\tht_{H}}\right)\frac{ds}{d\hat{V}}-B_{\tht_{B}}^{\prime}B^{2}\right)\\
+4\pi p^{\prime}B_{\tht_{H}} & =\psi_{{\rm tor}}^{a}B_{\tht_{B}}^{\prime}B_{\ph_{H}}\frac{ds}{d\hat{V}}-\psi_{{\rm tor}}^{a}B_{\ph_{B}}^{\prime}B_{\tht_{H}}\frac{ds}{d\hat{V}}-B_{\tht_{B}}^{\prime}B^{2}\\
+\left(4\pi p^{\prime}\hat{V}^{\prime}+\psi_{{\rm tor}}^{a}B_{\ph_{B}}^{\prime}\right)B_{\tht_{H}}-\psi_{{\rm tor}}^{a}B_{\tht_{B}}^{\prime}B_{\ph_{H}} & =-\hat{V}^{\prime}B_{\tht_{B}}^{\prime}B^{2}\\
+B_{\ph_{H}} & =\frac{1}{4\pi p^{\prime}}\left(-B_{\ph_{B}}^{\prime}B^{2}-\iotabar\psi_{{\rm tor}}^{a}\left(B_{\tht_{B}}^{\prime}B_{\ph_{H}}-B_{\ph_{B}}^{\prime}B_{\tht_{H}}\right)\frac{ds}{d\hat{V}}\right)\\
+4\pi p^{\prime}\hat{V}^{\prime}B_{\ph_{H}} & =-\hat{V}^{\prime}B_{\ph_{B}}^{\prime}B^{2}-\iotabar\psi_{{\rm tor}}^{a}\left(B_{\tht_{B}}^{\prime}B_{\ph_{H}}-B_{\ph_{B}}^{\prime}B_{\tht_{H}}\right)\\
+-\iotabar\psi_{{\rm tor}}^{a}B_{\ph_{B}}^{\prime}B_{\tht_{H}}+\left(4\pi p^{\prime}\hat{V}^{\prime}+\iotabar\psi_{{\rm tor}}^{a}B_{\tht_{B}}^{\prime}\right)B_{\ph_{H}} & =-\hat{V}^{\prime}B_{\ph_{B}}^{\prime}B^{2}\\
+\Leftrightarrow\left(4\pi\,p^{\prime}\hat{V}^{\prime}+\psi_{{\rm tor}}^{a}B_{\ph_{B}}^{\prime}\right)B_{\tht_{H}}-\psi_{{\rm tor}}^{a}B_{\tht_{B}}^{\prime}B_{\ph_{H}} & =-B_{\tht_{B}}^{\prime}B^{2}\hat{V}^{\prime}\\
+-\iotabar\psi_{{\rm tor}}^{a}B_{\ph_{B}}^{\prime}B_{\tht_{H}}+\left(4\pi p^{\prime}\hat{V}^{\prime}+\iotabar\psi_{{\rm tor}}^{a}B_{\tht_{B}}^{\prime}\right)B_{\ph_{H}} & =-B_{\ph_{B}}^{\prime}B^{2}\hat{V}^{\prime}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Unfortunately, this does not work because the matrix becomes singular.
+\end_layout
+
+\begin_layout Subsection*
+Conversion to Hamada coordinates
+\end_layout
+
+\begin_layout Standard
+We use the method of Hirshman (1995) for VMEC-Boozer conversion with
+\begin_inset Formula 
+\begin{align*}
+\tht_{H} & =\tht_{B}+H,\\
+\ph_{H} & =\ph_{B}+qH
+\end{align*}
+
+\end_inset
+
+ and write the field as
+\size normal
+proportional to 
+\size default
+
+\begin_inset Formula 
+\begin{align*}
+\mathbf{B} & =B_{\tht_{H}}\mathbf{e}^{\tht_{H}}+B_{\ph_{H}}\mathbf{e}^{\ph_{H}}+B_{\hat{V}}\mathbf{e}^{\hat{V}}\\
+ & =B_{\tht_{H}}\nabla\tht_{H}+B_{\ph_{H}}\nabla\ph_{H}+B_{\hat{V}}\nabla\hat{V}\\
+ & =B_{\tht_{H}}\left(\nabla\tht_{B}+\nabla H\right)+B_{\ph_{H}}\left(\nabla\ph_{B}+q\nabla H+H\nabla q\right)+B_{\hat{V}}\nabla\hat{V}\\
+ & =B_{\tht_{H}}\left(\nabla\tht_{B}+\nabla H\right)+B_{\ph_{H}}\left(\nabla\ph_{B}+q\nabla H\right)+\left(B_{\hat{V}}+H\frac{dq}{d\hat{V}}\right)\nabla\hat{V}\\
+ & =B_{\tht_{H}}\left(\nabla\tht_{B}+\nabla H\right)+B_{\ph_{H}}\left(\nabla\ph_{B}+q\nabla H\right)+\left(B_{\hat{V}}+H\frac{dq}{d\hat{V}}\right)\nabla\hat{V}\\
+ & =B_{\tht_{H}}\mathbf{e}^{\tht_{B}}+B_{\ph_{H}}\mathbf{e}^{\ph_{B}}+\left(B_{\tht_{H}}+qB_{\ph_{H}}\right)\nabla H+\left(B_{\hat{V}}+H\frac{dq}{d\hat{V}}\right)\mathbf{e}^{\hat{V}}.
+\end{align*}
+
+\end_inset
+
+The Boozer components are
+\begin_inset Formula 
+\begin{align*}
+B_{\tht_{B}} & =\mathbf{B}\cdot\mathbf{e}_{\tht_{B}}=B_{\tht_{H}}+(B_{\tht_{H}}+qB_{\ph_{H}})\partial_{\tht_{B}}H,\\
+B_{\ph_{B}} & =\mathbf{B}\cdot\mathbf{e}_{\ph_{B}}=B_{\ph_{H}}+(B_{\tht_{H}}+qB_{\ph_{H}})\partial_{\ph_{B}}H.
+\end{align*}
+
+\end_inset
+
+We further note that
+\begin_inset Formula 
+\begin{align*}
+B_{\tht_{H}}+qB_{\ph_{H}}= & \frac{B^{2}}{B^{\tht_{H}}}=\frac{qB^{2}}{B^{\ph_{H}}}.
+\end{align*}
+
+\end_inset
+
+In terms of Boozer harmonics we obtain
+\begin_inset Formula 
+\begin{align*}
+H_{mn}^{(B)} & =\frac{B^{\tht_{H}}}{im}\left(\frac{B_{\tht_{B}}-B_{\tht_{H}}}{B^{2}}\right)_{mn}\\
+ & =\frac{B^{\ph_{H}}}{iqn}\left(\frac{B_{\ph_{B}}-B_{\ph_{H}}}{B^{2}}\right)_{mn}.
+\end{align*}
+
+\end_inset
+
+The definition of d'Haeseleer
+\begin_inset Formula 
+\begin{align*}
+\tht_{H} & =\tht_{B}+\frac{d\Psi_{{\rm pol}}}{ds}G\\
+\ph_{H} & =\ph_{B}+\frac{d\Psi_{{\rm tor}}}{ds}G
+\end{align*}
+
+\end_inset
+
+differs by a factor of poloidal flux radial derivative, 
+\begin_inset Formula 
+\begin{align*}
+H & =\frac{d\Psi_{{\rm pol}}}{ds}G=2\pi\frac{d\psi_{{\rm pol}}}{ds}G
+\end{align*}
+
+\end_inset
+
+so the result for this function is
+\begin_inset Formula 
+\begin{align*}
+G_{H,mn}^{(B)} & =\frac{a_{mn}^{(B)}}{im}=\frac{b_{mn}^{(B)}}{in}
+\end{align*}
+
+\end_inset
+
+with
+\begin_inset Formula 
+\begin{align*}
+a(s,\tht_{B}) & =\frac{B^{\tht_{H}}}{2\pi}\frac{ds}{d\psi_{{\rm pol}}}\left(\frac{B_{\tht_{B}}-B_{\tht_{H}}}{B^{2}}\right)\\
+ & =\frac{1}{2\pi}\frac{ds}{d\hat{V}}\left(\frac{B_{\tht_{B}}-B_{\tht_{H}}}{B^{2}}\right),\\
+\\
+b(s,\tht_{B}) & =\frac{B^{\ph_{H}}}{2\pi q}\frac{ds}{d\psi_{{\rm pol}}}\left(\frac{B_{\ph_{B}}-B_{\ph_{H}}}{B^{2}}\right)\\
+ & =\frac{1}{2\pi}\frac{ds}{d\hat{V}}\left(\frac{B_{\ph_{B}}-B_{\ph_{H}}}{B^{2}}\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Try once more
+\end_layout
+
+\begin_layout Standard
+The definition of d'Haeseleer
+\begin_inset Formula 
+\begin{align*}
+\tht_{H} & =\tht_{B}+\frac{d\Psi_{{\rm pol}}}{ds}G=\tht_{B}+2\pi\iotabar\psi_{{\rm tor}}^{a}G\\
+\ph_{H} & =\ph_{B}+\frac{d\Psi_{{\rm tor}}}{ds}G=\ph_{B}+2\pi\psi_{{\rm tor}}^{a}G
+\end{align*}
+
+\end_inset
+
+
+\size normal
+Take 
+\size default
+
+\begin_inset Formula 
+\begin{align*}
+\mathbf{B} & =B_{\tht_{H}}\mathbf{e}^{\tht_{H}}+B_{\ph_{H}}\mathbf{e}^{\ph_{H}}+B_{\hat{V}}\mathbf{e}^{\hat{V}}\\
+ & =B_{\tht_{H}}\nabla\tht_{H}+B_{\ph_{H}}\nabla\ph_{H}+B_{\hat{V}}\nabla\hat{V}\\
+ & =B_{\tht_{H}}\left(\nabla\tht_{B}+2\pi\iotabar\psi_{{\rm tor}}^{a}\nabla G+2\pi\psi_{{\rm tor}}^{a}G\nabla\iotabar\right)+B_{\ph_{H}}\left(\nabla\ph_{B}+2\pi\psi_{{\rm tor}}^{a}\nabla G\right)+B_{\hat{V}}\nabla\hat{V}\\
+ & =B_{\tht_{H}}\left(\nabla\tht_{B}+2\pi\iotabar\psi_{{\rm tor}}^{a}\nabla G\right)+B_{\ph_{H}}\left(\nabla\ph_{B}+2\pi\psi_{{\rm tor}}^{a}\nabla G\right)+\left(B_{\hat{V}}+2\pi\psi_{{\rm tor}}^{a}G\frac{d\iotabar}{d\hat{V}}\right)\nabla\hat{V}\\
+ & =B_{\tht_{H}}\mathbf{e}^{\tht_{B}}+B_{\ph_{H}}\mathbf{e}^{\ph_{B}}+2\pi\psi_{{\rm tor}}^{a}\left(\iotabar B_{\tht_{H}}+B_{\ph_{H}}\right)\nabla G+\left(B_{\hat{V}}+2\pi\psi_{{\rm tor}}^{a}G\frac{d\iotabar}{d\hat{V}}\right)\mathbf{e}^{\hat{V}}.
+\end{align*}
+
+\end_inset
+
+Take
+\begin_inset Formula 
+\begin{align*}
+B_{\tht_{B}} & =\mathbf{B}\cdot\mathbf{e}_{\tht_{B}}=B_{\tht_{H}}+2\pi\psi_{{\rm tor}}^{a}\left(\iotabar B_{\tht_{H}}+B_{\ph_{H}}\right)\partial_{\tht_{B}}G,\\
+B_{\ph_{B}} & =\mathbf{B}\cdot\mathbf{e}_{\ph_{B}}=B_{\ph_{H}}+2\pi\psi_{{\rm tor}}^{a}\left(\iotabar B_{\tht_{H}}+B_{\ph_{H}}\right)\partial_{\ph_{B}}G.
+\end{align*}
+
+\end_inset
+
+Or
+\begin_inset Formula 
+\begin{align*}
+\partial_{\tht_{B}}G & =\frac{B_{\tht_{B}}-B_{\tht_{H}}}{2\pi\psi_{{\rm tor}}^{a}\left(\iotabar B_{\tht_{H}}+B_{\ph_{H}}\right)}.
+\end{align*}
+
+\end_inset
+
+Because of
+\begin_inset Formula 
+\begin{align*}
+\frac{B^{2}}{B^{\ph_{H}}} & =\iotabar B_{\tht_{H}}+B_{\ph_{H}}
+\end{align*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{align*}
+B^{\ph_{H}} & =\frac{d\psi_{{\rm tor}}}{d\hat{V}}=\psi_{{\rm tor}}^{a}\frac{ds}{d\hat{V}}
+\end{align*}
+
+\end_inset
+
+we can further write
+\begin_inset Formula 
+\begin{align*}
+\partial_{\tht_{B}}G & =\frac{B_{\tht_{B}}-B_{\tht_{H}}}{2\pi B^{2}}\frac{ds}{d\hat{V}}=a(s,\tht_{B},\ph_{B})\\
+\partial_{\ph_{B}}G & =\frac{B_{\ph_{B}}-B_{\ph_{H}}}{2\pi B^{2}}\frac{ds}{d\hat{V}}=b(s,\tht_{B},\ph_{B}).
+\end{align*}
+
+\end_inset
+
+Variant 2:
+\begin_inset Formula 
+\begin{align*}
+\sqrt{g_{H}} & =1,\,\sqrt{g_{B}}=\psi_{{\rm tor}}^{a}\frac{\iotabar B_{\tht_{B}}+B_{\ph_{B}}}{B^{2}}
+\end{align*}
+
+\end_inset
+
+and (with 
+\begin_inset Formula $\nabla\iotabar\parallel\nabla\hat{V}$
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{align*}
+1 & =\nabla\hat{V}\cdot(\nabla\tht_{H}\times\nabla\ph_{H})\\
+ & =\nabla\hat{V}\cdot((\nabla\tht_{B}+2\pi\psi_{{\rm tor}}^{a}\left(\iotabar\nabla G+G\nabla\iotabar\right))\times(\nabla\ph_{B}+2\pi\psi_{{\rm tor}}^{a}\nabla G))\\
+ & =\sqrt{g_{B}}^{-1}\frac{d\hat{V}}{ds}+2\pi\psi_{{\rm tor}}^{a}\nabla\hat{V}\cdot(\iotabar\nabla G\times\nabla\ph_{B}+\nabla\tht_{B}\times\nabla G))\\
+\frac{ds}{d\hat{V}}-\sqrt{g_{B}}^{-1} & =2\pi\psi_{{\rm tor}}^{a}\nabla s\cdot((\nabla\tht_{B}-\iotabar\nabla\ph_{B})\times\nabla G)\\
+ & =2\pi\psi_{{\rm tor}}^{a}\cdot(\nabla G\cdot(\nabla s\times\nabla\tht_{B})+\iotabar\nabla G\cdot(\nabla\ph_{B}\times\nabla s))\\
+ & =2\pi\psi_{{\rm tor}}^{a}\sqrt{g_{B}}^{-1}\left(\iotabar\frac{\partial G}{\partial\tht_{B}}+\frac{\partial G}{\partial\ph_{B}}\right).
+\end{align*}
+
+\end_inset
+
+The solution in terms of Fourier modes here is
+\begin_inset Formula 
+\begin{align*}
+G_{mn} & =\frac{b_{mn}}{i\left(\iotabar m+n\right)}
+\end{align*}
+
+\end_inset
+
+with 
+\begin_inset Formula $a_{mn}$
+\end_inset
+
+ Fourier modes of
+\begin_inset Formula 
+\begin{align*}
+b & =\frac{1}{2\pi\psi_{{\rm tor}}^{a}}\left(\frac{ds}{d\hat{V}}\sqrt{g_{B}}-1\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Coordinates
+\end_layout
+
+\begin_layout Standard
+Values are given in Boozer coordinates as series
+\begin_inset Formula 
+\begin{align*}
+a(s,\ph,\tht)= & \sum_{m=0}^{m_{{\rm max}}}\sum_{n=-n_{{\rm max}}}^{n_{{\rm max}}}a_{mn}^{c}{\rm \cos(m\tht+n\ph)}+a_{mn}^{s}\sin(m\tht+n\ph).
+\end{align*}
+
+\end_inset
+
+To obain a complex series
+\begin_inset Formula 
+\begin{align*}
+a(s,\ph,\tht) & =\sum_{m=-m_{{\rm max}}}^{m_{{\rm max}}}\sum_{n=-n_{{\rm max}}}^{n_{{\rm max}}}a_{mn}e^{i(m\tht+n\ph)}
+\end{align*}
+
+\end_inset
+
+we use
+\begin_inset Formula 
+\begin{align*}
+a_{mn} & =\begin{cases}
+\frac{1}{2}a_{-mn}^{c}+\frac{1}{2}ia_{-mn}^{s} & m<0\\
+a_{00}^{c} & m=0\\
+\frac{1}{2}a_{mn}^{c}-\frac{1}{2}ia_{mn}^{s} & m>0
+\end{cases}
+\end{align*}
+
+\end_inset
+
+In complex notation, we have
+\begin_inset Formula 
+\begin{align*}
+g_{RR}^{c} & =1,\,g_{zz}^{c}=1,\,g_{\varphi\varphi}^{c}=R^{2}\\
+\\
+R & =R_{mn}e^{i(m\tht+n\ph)}\\
+z & =z_{mn}e^{i(m\tht+n\ph)}\\
+\varphi^{c} & =\ph+\varphi_{mn}e^{i(m\tht+n\ph)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Transformation
+\begin_inset Formula 
+\begin{align*}
+g_{ij} & =\frac{\partial x_{k}^{c}}{\partial x_{i}}\frac{\partial x_{l}^{c}}{\partial x_{j}}g_{kl}^{c}\\
+\\
+J_{ki} & =\frac{\partial x_{k}^{c}}{\partial x_{i}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+J & =\left(\begin{array}{ccc}
+R_{mn}^{\prime} & imR_{mn} & inR_{mn}\\
+z_{mn}^{\prime} & imz_{mn} & inz_{mn}\\
+\varphi_{m}^{\prime} & im\ph_{mn} & 1+in\ph_{mn}
+\end{array}\right)e^{i(m\tht+n\ph)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Radial covariant component of 
+\begin_inset Formula $B$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{align*}
+B_{s} & =g_{s\varphi}B^{\varphi}+g_{s\vartheta}B^{\vartheta}=\\
+ & (\iotabar g_{s\vartheta}+g_{s\varphi})B^{\ph}\\
+\\
+B^{2} & =B^{\ph}B_{\ph}+B^{\tht}B_{\tht}=B^{\ph}(B_{\ph}+\iotabar B_{\tht})\\
+B^{\ph} & =\frac{B^{2}}{B_{\ph}+\iotabar B_{\tht}}\\
+\\
+\psi_{{\rm tor}}^{\prime} & =\psi_{{\rm tor}}^{a}=\sqrt{g}B^{\ph}\\
+\sqrt{g} & =\psi_{{\rm tor}}^{a}\frac{\iotabar B_{\vartheta}+B_{\varphi}}{B^{2}}\\
+\\
+ & (\iotabar g_{s\vartheta}+g_{s\varphi})\frac{B^{2}}{\iotabar B_{\vartheta}+B_{\varphi}}\\
+ & =(\iotabar g_{s\vartheta}+g_{s\varphi})\frac{\psi_{{\rm tor}}^{a}}{\sqrt{g}}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In Boozer type 8 files we have
+\begin_inset Formula 
+\begin{align*}
+R & =R_{m}^{c}\cos(m\vartheta)\\
+z & =z_{m}^{s}\sin(m\vartheta)\\
+\ph_{c} & =\ph+\ph_{m}^{s}\sin(m\tht).
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+l_{m} & =\frac{n_{{\rm per}}}{2\pi}\left(\ph-\ph_{c}\right)_{m}\\
+\ph-\ph_{c} & =\frac{2\pi}{n_{{\rm per}}}\sum_{m}l_{m}{\rm sin}(m\tht)\\
+\ph_{c} & =\ph-\frac{2\pi}{n_{{\rm per}}}\sum_{m}l_{m}{\rm sin}(m\tht)\\
+\Rightarrow\ph_{m}^{s} & =-\frac{2\pi}{n_{{\rm per}}}l_{m}
+\end{align*}
+
+\end_inset
+
+We obtain (omitting sine and cosine superscripts s and c)
+\begin_inset Formula 
+\begin{align*}
+J_{m} & =\frac{\partial(R,z,\ph_{c})}{\partial(s,\tht,\ph)}=\left(\begin{array}{ccc}
+R_{m}^{\prime}\cos(m\tht) & -mR_{m}\sin(m\tht) & 0\\
+z_{m}^{\prime}\sin(m\tht) & mz_{m}\cos(m\tht) & 0\\
+\varphi_{m}^{\prime}\sin(m\tht) & m\ph_{m}\cos(m\tht) & 1
+\end{array}\right).
+\end{align*}
+
+\end_inset
+
+Components of the metric tensor are
+\begin_inset Formula 
+\begin{align*}
+g_{ss} & =\frac{\partial x_{k}^{c}}{\partial s}\frac{\partial x_{l}^{c}}{\partial s}g_{kl}^{c}=\left(\frac{\partial R}{\partial s}\right)^{2}+\left(\frac{\partial z}{\partial s}\right)^{2}+R^{2}\left(\frac{\partial\ph^{c}}{\partial s}\right)^{2}\\
+\\
+g_{\tht\tht} & =\frac{\partial x_{k}^{c}}{\partial\tht}\frac{\partial x_{l}^{c}}{\partial\tht}g_{kl}^{c}=\left(\frac{\partial R}{\partial\tht}\right)^{2}+\left(\frac{\partial z}{\partial\tht}\right)^{2}+R^{2}\left(\frac{\partial\ph^{c}}{\partial\tht}\right)^{2}\\
+\\
+g_{\ph\varphi} & =\frac{\partial x_{k}^{c}}{\partial\ph}\frac{\partial x_{l}^{c}}{\partial\ph}g_{kl}^{c}=R^{2}\\
+\\
+g_{\ph\tht} & =\frac{\partial x_{k}^{c}}{\partial\ph}\frac{\partial x_{l}^{c}}{\partial\tht}g_{kl}^{c}=R^{2}\frac{\partial\ph^{c}}{\partial\tht}\\
+\\
+g_{s\varphi} & =\frac{\partial x_{k}^{c}}{\partial s}\frac{\partial x_{l}^{c}}{\partial\ph}g_{kl}^{c}=R^{2}\frac{\partial\ph^{c}}{\partial s}\\
+\\
+g_{s\tht} & =\frac{\partial x_{k}^{c}}{\partial s}\frac{\partial x_{l}^{c}}{\partial\tht}g_{kl}^{c}=\frac{\partial R}{\partial s}\frac{\partial R}{\partial\tht}+\frac{\partial z}{\partial s}\frac{\partial z}{\partial\tht}+R^{2}\frac{\partial\ph^{c}}{\partial s}\frac{\partial\ph^{c}}{\partial\tht}
+\end{align*}
+
+\end_inset
+
+Derivatives
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial g_{s\varphi}}{\partial\tht} & =2R\frac{\partial R}{\partial\tht}\frac{\partial\ph^{c}}{\partial s}+R^{2}\frac{\partial^{2}\ph^{c}}{\partial\tht\partial s}\\
+\frac{\partial g_{s\tht}}{\partial\tht} & =\frac{\partial^{2}R}{\partial\tht\partial s}\frac{\partial R}{\partial\tht}+\frac{\partial R}{\partial s}\frac{\partial^{2}R}{\partial\tht^{2}}+\frac{\partial^{2}z}{\partial\tht\partial s}\frac{\partial z}{\partial\tht}+\frac{\partial z}{\partial s}\frac{\partial^{2}z}{\partial\tht^{2}}\\
+ & +2R\frac{\partial R}{\partial\tht}\frac{\partial\ph^{c}}{\partial s}\frac{\partial\ph^{c}}{\partial\tht}+R^{2}\left(\frac{\partial^{2}\ph^{c}}{\partial\tht\partial s}\frac{\partial\ph^{c}}{\partial\tht}+\frac{\partial\ph^{c}}{\partial s}\frac{\partial^{2}\ph^{c}}{\partial\tht^{2}}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Derivative of 
+\begin_inset Formula $B_{s}$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial B_{s}}{\partial\tht}= & (\iotabar\frac{\partial g_{s\vartheta}}{\partial\tht}+\frac{\partial g_{s\ph}}{\partial\tht})\frac{B^{2}}{\iotabar B_{\tht}+B_{\ph}}\\
+ & +(\iotabar g_{s\vartheta}+g_{s\ph})\frac{2B}{\iotabar B_{\tht}+B_{\ph}}\frac{\partial B}{\partial\tht}\\
+=\frac{\psi_{a}}{\sqrt{g}} & \left(\iotabar\frac{\partial g_{s\vartheta}}{\partial\tht}+\frac{\partial g_{s\ph}}{\partial\tht}\right)+2B_{s}b_{{\rm der},\,3}.
+\end{align*}
+
+\end_inset
+
+We take
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial g_{s\vartheta}}{\partial\tht} & =m^{2}\left(\cos^{2}(m\tht)-\sin^{2}(m\tht)\right)\left(-R_{m}^{\prime}R_{m}+z_{m}^{\prime}z_{m}+R^{2}\ph_{m}^{\prime}\ph_{m}\right)\\
+\frac{\partial g_{s\ph}}{\partial\tht} & =R\frac{\partial R}{\partial\tht}\varphi_{m}^{\prime}\sin(m\tht)+mR^{2}\varphi_{m}^{\prime}\cos(m\tht)
+\end{align*}
+
+\end_inset
+
+Let's also compute
+\begin_inset Formula 
+\begin{align*}
+B_{\ph} & =g_{\ph\varphi}B^{\varphi}+g_{\ph\vartheta}B^{\vartheta}=(\iotabar g_{\ph\vartheta}+g_{\ph\varphi})B^{\ph}.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+B_{\tht} & =g_{\tht\varphi}B^{\varphi}+g_{\tht\tht}B^{\vartheta}=(\iotabar g_{\tht\vartheta}+g_{\tht\varphi})B^{\ph}.
+\end{align*}
+
+\end_inset
+
+We need...
+\end_layout
+
+\begin_layout Section*
+Hamada coordinates as in dHaeseleer try again
+\size normal
+
+\begin_inset Formula 
+\begin{align}
+\mathbf{B} & =B^{\tht_{H}}\mathbf{e}_{\tht_{H}}+B^{\ph_{H}}\mathbf{e}_{\ph_{H}}=2\pi\dot{\Psi}_{{\rm pol}}^{r}\mathbf{e}_{\tht_{H}}+2\pi\dot{\Psi}_{{\rm tor}}\mathbf{e}_{\ph_{H}},\\
+\mathbf{J} & =J^{\tht_{H}}\mathbf{e}_{\tht_{H}}+J^{\ph_{H}}\mathbf{e}_{\ph_{H}}=2\pi\dot{I}_{{\rm pol}}^{r}\mathbf{e}_{\tht_{H}}+2\pi\dot{I}_{{\rm tor}}\mathbf{e}_{\ph_{H}}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align}
+B_{\tht_{B}} & =\frac{2}{c}I_{{\rm tor}}(s),\\
+B_{\ph_{B}} & =\frac{2}{c}\left(I_{{\rm pol}}^{{\rm tot}}-I_{{\rm pol}}^{r}(s)\right).
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+I_{{\rm tor}}^{\prime} & =\frac{c}{2}B_{\tht_{B}}^{\prime},\\
+I_{{\rm pol}}^{r\prime} & =-\frac{c}{2}B_{\ph_{B}}^{\prime}.
+\end{align}
+
+\end_inset
+
+
+\size normal
+
+\begin_inset Formula 
+\begin{align*}
+\dot{p} & =\mathbf{e}_{\hat{V}}\cdot\left(\mathbf{J}\times\mathbf{B}\right)=\frac{1}{c}\left(\mathbf{J}\times\mathbf{B}\right)_{\hat{V}}\\
+ & =-\frac{\psi_{{\rm tor}}^{a}}{4\pi}(\dot{B}_{\ph_{B}}+\iotabar\dot{B}_{\tht_{B}})\frac{ds}{dV}.
+\end{align*}
+
+\end_inset
+
+
+\size default
+
+\begin_inset Formula 
+\begin{align}
+\mathbf{e}_{\tht_{H}} & =\frac{1}{2\pi\dot{p}}\left(\dot{\Psi}_{{\rm tor}}\mathbf{J}-\dot{I}_{{\rm tor}}\mathbf{B}\right),\\
+\mathbf{e}_{\ph_{H}} & =\frac{1}{2\pi\dot{p}}\left(\dot{I}_{{\rm pol}}^{r}\mathbf{B}-\dot{\Psi}_{{\rm pol}}^{r}\mathbf{J}\right).
+\end{align}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align}
+B_{\tht_{H}} & =\frac{1}{2\pi\dot{p}}\left(\dot{\Psi}_{{\rm tor}}\mathbf{J}\cdot\mathbf{B}-\dot{I}_{{\rm tor}}B^{2}\right)\\
+ & =\frac{1}{2\pi p^{\prime}}\left(2\pi\psi_{{\rm tor}}^{a}\mathbf{J}\cdot\mathbf{B}-\frac{c}{2}B_{\tht_{B}}^{\prime}B^{2}\right),\\
+B_{\ph_{H}} & =\frac{1}{2\pi\dot{p}}\left(\dot{I}_{{\rm pol}}^{r}B^{2}-\dot{\Psi}_{{\rm pol}}^{r}\mathbf{J}\cdot\mathbf{B}\right)\\
+ & =\frac{1}{2\pi p^{\prime}}\left(-\frac{c}{2}B_{\ph_{B}}^{\prime}B^{2}-2\pi\iotabar\psi_{{\rm tor}}^{a}\mathbf{J}\cdot\mathbf{B}\right).
+\end{align}
+
+\end_inset
+
+
+\size normal
+
+\begin_inset Formula 
+\begin{align}
+\mathbf{J}\cdot\mathbf{B} & =J^{\tht_{B}}B_{\tht_{B}}+J^{\ph_{B}}B_{\ph_{B}}\nonumber \\
+ & =\frac{c}{4\pi}\frac{1}{\sqrt{g_{B}}}\left(\frac{\partial B_{s}}{\partial\ph_{B}}-\frac{dB_{\ph_{B}}}{ds}\right)B_{\tht_{B}}+\frac{c}{4\pi}\frac{1}{\sqrt{g_{B}}}\left(\frac{dB_{\tht_{B}}}{ds}-\frac{\partial B_{s}}{\partial\tht_{B}}\right)B_{\ph_{B}}.
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+03.11.2015 Troubleshooting
+\end_layout
+
+\begin_layout Itemize
+Test case: Axisymmetric equilibrium tok_synch.bc
+\end_layout
+
+\begin_layout Itemize
+magfie_neo and magfie_standalone 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+yield 1% different modes of B0 on 1st flux surface (splines, direct in th,ph,s)
+\end_layout
+
+\begin_layout Itemize
+B0 of standalone is the correct one here 
+\end_layout
+
+\begin_layout Itemize
+On second flux surface, both codes match the Boozer file modes after Fourier
+ transform back
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $G_{H,mn}^{(B)}$
+\end_inset
+
+ is the same when ignoring covariant 
+\begin_inset Formula $B_{s}$
+\end_inset
+
+ on the second flux surface
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $B_{s}$
+\end_inset
+
+ and its derivatives are consistent in neo
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $B_{s}$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial B_{s}/\partial\tht$
+\end_inset
+
+ are similar up to some % in neo and standalone
+\end_layout
+
+\begin_layout Itemize
+This introduces a lot of difference in the modes of 
+\begin_inset Formula $G_{H,mn}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section*
+Discrete Fourier Transform
+\end_layout
+
+\begin_layout Standard
+We are using FFTW with FFTW_FORWARD giving coefficients
+\begin_inset Formula 
+\begin{align*}
+f_{m} & =\sum_{k=0}^{n-1}f(\phi_{k})e^{-i\,m\,\phi_{k}}
+\end{align*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align*}
+\phi_{k} & =2\pi k/n.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

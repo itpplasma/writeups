@@ -1,0 +1,619 @@
+{
+  "schema": 1,
+  "date": "2026-10-07",
+  "scope": "Targeted NTV archive and brain intake; source inventory, not replay or complete archive coverage",
+  "entries": [
+    {
+      "id": "chris-boozer-hamada-draft",
+      "title": "Boozer/Hamada construction draft",
+      "pairing": "author-owned import candidate; preserve draft status",
+      "license_status": "No license statement found; user-author material",
+      "files": [
+        {
+          "name": "boozer_hamada_draft_chris.lyx",
+          "sha256": "bf7e9207181d5f69aff850afd0e313b0e75197d4ed3b4cce8769ffc20b6ddfdf",
+          "kind": "LyX source"
+        },
+        {
+          "name": "boozer_hamada_draft_chris.pdf",
+          "sha256": "5d7a604a24d067a6124c198bab01e8c1e67feca5e82e048d6910d9016aecdd7a",
+          "kind": "rendered source, not extracted"
+        },
+        {
+          "name": "vmec2hamada.py",
+          "sha256": "93d88e48f3be8ef84c7a6b317e2c126e6bff1a883e622add517b862d78b79f87",
+          "kind": "numerical Python, both Hirshman routes"
+        },
+        {
+          "name": "boozer.py",
+          "sha256": "6e4307445c2dd3f9a2237ce4ea61f1f9890ec0511e314a5cede97e5ce3465e44",
+          "kind": "numerical Python; author Christopher Albert; historical git head b0a8f9e460d3113a60605fffe4c571b593d4ba69"
+        },
+        {
+          "name": "hirshman.m",
+          "sha256": "ef82d19bbc7172206a36a3d521fe99d28458a158a701cc8033275b99b59c2005",
+          "kind": "numerical MATLAB, not CAS"
+        }
+      ]
+    },
+    {
+      "id": "andreas-boozer-hamada",
+      "title": "Transformation of a magnetic field spectrum given in Boozer coordinates to Hamada coordinates",
+      "pairing": "index-only until author redistribution terms established",
+      "license_status": "No explicit license found",
+      "files": [
+        {
+          "name": "Boozer_Hamada_Conversion_Andreas.tex",
+          "sha256": "caa13336c266b8c4c0926c3ec596256cc1d785076a4eb30e1349189d7cf9dd84",
+          "kind": "TeX source"
+        },
+        {
+          "name": "Boozer_Hamada_Conversion.tex",
+          "sha256": "caa13336c266b8c4c0926c3ec596256cc1d785076a4eb30e1349189d7cf9dd84",
+          "kind": "alternate TeX source"
+        },
+        {
+          "name": "boozer_hamada_conv_mod.f90",
+          "sha256": "12047ec0ca7f9f0ab899d731583c9dd7a277e29b702deea086fb1775fa592603",
+          "kind": "numerical Fortran with complex eps_reg regularizer"
+        },
+        {
+          "name": "Model_B_field.nb",
+          "sha256": "661a07820a2786aedcdd1e97acbd31b27d32f856b0e8c86e2061dc5853636cdc",
+          "kind": "Mathematica CAS model Fourier/integration notebook"
+        },
+        {
+          "name": "transformation_model_field.m",
+          "sha256": "f7aac3ba58886b4737be79836dda3a262d78020f07e38a63e3dc8b2bce048a41",
+          "kind": "numerical MATLAB HDF5 model evaluation"
+        },
+        {
+          "name": "calc_G.m",
+          "sha256": "15828727a6a1f4e73872720246c83ff9062c42f57a5caca6c29b641283ddab8e",
+          "kind": "numerical MATLAB transformation calculation"
+        }
+      ]
+    },
+    {
+      "id": "rath-thesis",
+      "title": "Transformation to Hamada Coordinates in a tokamak equilibrium",
+      "pairing": "index-only until author redistribution terms established",
+      "license_status": "No explicit license found",
+      "files": [
+        {
+          "name": "bakk_fin.tex",
+          "sha256": "bc996086fb2466aac199570a56b9ec265c7d6135919950dc5de4c0d60081b69c",
+          "kind": "TeX thesis source"
+        },
+        {
+          "name": "literatur.bib",
+          "sha256": "f104f0a0111cf140694ec88d0c626f196fb36384c400745695f6d9a5bf3365c6",
+          "kind": "bibliographic source"
+        },
+        {
+          "name": "bakk_fin.pdf",
+          "sha256": "b1981e4d4aaace2f71be7f2ed774a02be5d5684bea5ce41bfebad5bfe9eb101e",
+          "kind": "rendered source, not extracted"
+        },
+        {
+          "name": "vmec2hamada.py",
+          "sha256": "93d88e48f3be8ef84c7a6b317e2c126e6bff1a883e622add517b862d78b79f87",
+          "kind": "historical numerical Python"
+        },
+        {
+          "name": "hirshman.m",
+          "sha256": "ef82d19bbc7172206a36a3d521fe99d28458a158a701cc8033275b99b59c2005",
+          "kind": "historical numerical MATLAB"
+        },
+        {
+          "name": "bendingtogether.png",
+          "sha256": "caeaeaec85bb71ef0b227a7c4146bbcc91c1fb8db62e2d7468165e0449a3ad66",
+          "kind": "historical plot"
+        },
+        {
+          "name": "bstraight.png",
+          "sha256": "1f7688d380426abcfc58f9ef61fc06221efb171852bf1d99fc317ad84b82ded3",
+          "kind": "historical plot"
+        },
+        {
+          "name": "jstraight.png",
+          "sha256": "53ea74e1cccbbe1bffa6f9cb370d23c87142a5a1ec8e99439595765da2427cd8",
+          "kind": "historical plot"
+        }
+      ]
+    },
+    {
+      "id": "model-field-cas",
+      "title": "Analytical Boozer model field and Fourier coefficients",
+      "pairing": "index-only until author redistribution terms established",
+      "license_status": "No explicit license found",
+      "files": [
+        {
+          "name": "Model_B_field.nb",
+          "sha256": "661a07820a2786aedcdd1e97acbd31b27d32f856b0e8c86e2061dc5853636cdc",
+          "kind": "Mathematica CAS notebook"
+        },
+        {
+          "name": "Model_B_field.nb",
+          "sha256": "661a07820a2786aedcdd1e97acbd31b27d32f856b0e8c86e2061dc5853636cdc",
+          "kind": "alternate Mathematica CAS notebook"
+        },
+        {
+          "name": "BmnH_kernel.m",
+          "sha256": "525cdd81db03539b8e273b8407887ecabb801691288d18603b6b6ff1470f8eb1",
+          "kind": "numerical MATLAB kernel"
+        },
+        {
+          "name": "amnB_kernel.m",
+          "sha256": "db27645fe49cbfddef4d8d40cb84ccdf627979323319951273e10c94ab5a8599",
+          "kind": "numerical MATLAB kernel"
+        },
+        {
+          "name": "integral_kernel1.m",
+          "sha256": "63a81f626ae8abfd52b52bca1162c5e8541a8bfb2f87ba12f31a68a8d3858e83",
+          "kind": "numerical MATLAB kernel"
+        }
+      ]
+    },
+    {
+      "id": "chris-flux-coordinate-notes",
+      "title": "Flux coordinates and ideal-MHD equilibrium notes",
+      "pairing": "author-owned candidate after attribution check",
+      "license_status": "No explicit license found",
+      "files": [
+        {
+          "name": "161107_flux_coordinates.lyx",
+          "sha256": "915480fc0a1e646dfa1d7367029b7244f73f27013ac0bddb87caaff764bee3f4",
+          "kind": "LyX source"
+        },
+        {
+          "name": "161107_flux_coordinates.pdf",
+          "sha256": "afe936e3dcf7fb667936e802ef34ff084da6f49a441cef63deee5d3e5810860b",
+          "kind": "rendered source, not extracted"
+        },
+        {
+          "name": "grad_shafranov.edp",
+          "sha256": "51387ebf2b1d244b321aa80b2a6b3e31e0ca5d9b62432f735b8b4e8340c4a87c",
+          "kind": "FreeFEM numerical teaching example, not CAS"
+        }
+      ]
+    },
+    {
+      "id": "libneo-efit-derivation",
+      "title": "EFIT to Boozer and Hamada converter derivation",
+      "pairing": "licensed import candidate with MIT notice and pinned owner links",
+      "license_status": "libneo MIT License; include copyright notice",
+      "files": [
+        {
+          "name": "EFIT_to_Boozer_and_Hamada_converter.tex",
+          "sha256": "bafe0e0753f2681b3d270d5b74c390bfe3333eac5dd294f7c8f9e9e9aa2879fc",
+          "kind": "TeX source"
+        },
+        {
+          "name": "efit_to_boozer.f90",
+          "sha256": "5ca2ee50e53f37a28e79328fd5730c9321a86831fd95d0e2f7696d5e09f65120",
+          "kind": "numerical Fortran app"
+        },
+        {
+          "name": "hamada_to_boozer.f90",
+          "sha256": "a4fa02d2e8812e137b1f6b17236b2311c1b6916955510a50e07fa45529be6378",
+          "kind": "numerical Fortran app"
+        },
+        {
+          "name": "rhs_converter.f90",
+          "sha256": "d57ae549ec4682089cc00df74254df6392f35e5b737304ce7a707736476822f1",
+          "kind": "tracing ODE implementation"
+        },
+        {
+          "name": "field_line_integration_for_converter.f90",
+          "sha256": "70920a8e0e4c3306c777006149427a706c2c4462a733d6ec02ee717eb2f923dd",
+          "kind": "numerical map"
+        },
+        {
+          "name": "LICENSE",
+          "sha256": "6f2e7e3a5da689d4f7a96162989ca853b6acfc3536471af46e0dbd73406252f8",
+          "kind": "redistribution terms"
+        }
+      ]
+    },
+    {
+      "id": "libneo-near-axis-cas",
+      "title": "Near-axis Boozer chartmap limit",
+      "pairing": "licensed import candidate with MIT notice and pinned owner links",
+      "license_status": "libneo MIT License",
+      "files": [
+        {
+          "name": "near_axis_chartmap_limit.wl",
+          "sha256": "fb907390037102f0e098307a46893f5c435c78a8db656f1aceea87c20dc109f7",
+          "kind": "Wolfram symbolic derivation"
+        },
+        {
+          "name": "near_axis_chartmap_limit.out",
+          "sha256": "cb8557e2ec6ec6013e411cc08c0bd894d9fccbd5be9c368a12070f2ce93a48fa",
+          "kind": "stored symbolic output"
+        },
+        {
+          "name": "test_chartmap_gate_jacobian.f90",
+          "sha256": "b8cc19163f34e29a5bba9f6c4cf3771839bce115608145973aa208f4bdb8b48c",
+          "kind": "numerical behavioral gate"
+        },
+        {
+          "name": "test_boozer_chartmap_roundtrip.f90",
+          "sha256": "86b5fde3f9c664f6d54491d2238e888a5a770524a910f53093d0854c2e8ad005",
+          "kind": "numerical behavioral gate"
+        },
+        {
+          "name": "LICENSE",
+          "sha256": "6f2e7e3a5da689d4f7a96162989ca853b6acfc3536471af46e0dbd73406252f8",
+          "kind": "redistribution terms"
+        }
+      ]
+    },
+    {
+      "id": "sign-corpus",
+      "title": "Signed flux coordinates and manufactured Cartesian equivalence",
+      "pairing": "index-first; verify repository redistribution terms",
+      "license_status": "No tracked LICENSE found",
+      "files": [
+        {
+          "name": "FLUX_COORDINATE_HANDEDNESS.md",
+          "sha256": "37c390d7b26d2b77a8b20e8ccc5d9e880d7a674e6c14a22cf4b7b2f6d43cdc9b",
+          "kind": "mathematical writeup"
+        },
+        {
+          "name": "flux_coordinate_handedness.wl",
+          "sha256": "93372657d02b147a9d018a226c5311d79aee6a6ed6b111d16d3163ba1627ea7b",
+          "kind": "Wolfram exact identity tests"
+        },
+        {
+          "name": "coordinate_contract.wl",
+          "sha256": "3c0346bbf55ab7e40c9135ed4485954e8981c2a106c63f46986f0de84e729907",
+          "kind": "Wolfram exact identity tests"
+        },
+        {
+          "name": "tc24_mars_vector_mode.wl",
+          "sha256": "b446b4aab56ed3535125384af8182474aba112fadb06d114811b044397fae184",
+          "kind": "source-pinned native FortSym WL residual ledger"
+        }
+      ]
+    },
+    {
+      "id": "gliss-solovev-reference",
+      "title": "Public analytical GPEC Solovev equilibrium and independent quadrature checks",
+      "pairing": "licensed reference import candidate with MIT notice; not circular benchmark",
+      "license_status": "GLISS MIT License",
+      "files": [
+        {
+          "name": "README.md",
+          "sha256": "e010bf5a276614a5bb6b7f4cd2d2fd3cecb19ffb3a6e3be337b77cc62500b32a",
+          "kind": "source/provenance writeup"
+        },
+        {
+          "name": "solovev.py",
+          "sha256": "2e8fa43f0f1dfdf543c28be70e5546c91242d378158636f8a526244c6ec936b3",
+          "kind": "numerical analytical formula and quadrature"
+        },
+        {
+          "name": "test_solovev.py",
+          "sha256": "48cc69493c1075474febb6fc578bf2d26e7ab35a324f4d1d5fb5196ded991a16",
+          "kind": "behavioral analytical checks"
+        },
+        {
+          "name": "LICENSE",
+          "sha256": "0f49f169aeeca35ca64ec78fb3d4c2796d01730d0aa5cfa419d714aed51fc5d2",
+          "kind": "redistribution terms"
+        }
+      ]
+    },
+    {
+      "id": "neo2-collisions",
+      "title": "NEO-2 Fokker-Planck/Burnett/Laguerre matrix elements",
+      "pairing": "No executable CAS partner found in inspected folder",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "FPEqME-Lag.tex",
+          "sha256": "892e4b428f87e1fce83cf055eb3d9343c301606975953023e0d24d14ffdb884d",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "FokkerPlanck-ME.tex",
+          "sha256": "b3b0c7c716f61d573424d0f3dbce4af3d3942447fa5997a0c81b8dd50f9d8bbe",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "FPMatEl.tex",
+          "sha256": "5557ad52b5fa90c7fe65a6c61ab00893ab65f514acc2487949394094bc76ca6d",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "NewBasis_GF.tex",
+          "sha256": "80b38bcdb3b062a7286d079aeaa77d7002eb5bc5f2fd95373c439997e29c1dad",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "NewBasis_LP.tex",
+          "sha256": "5c8c7d35aa515bd0e296e0463ce7e6fecabc860bb9bb7f292e90256f9fae1308",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "neo2-benchmark",
+      "title": "NEO-2 benchmark force/matrix/normalization",
+      "pairing": "Explicit colocated historical Fortran partner; not symbolic CAS",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "benchNeo2.tex",
+          "sha256": "ddfa6d0b1a48226479a45df6eaed967f8a80671c7655fdcc88fec4b4726c3672",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "benchNeo2_m.tex",
+          "sha256": "12adff48ddb8d337a9bce47f2f640da251ade7b46bdc061648c2517adc35bee2",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "neo2_short.tex",
+          "sha256": "ab4b3accbffe4a8f8eec90a23d4ebb4818a0686944dacf48ee8eb3f069c00780",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "benchNeo2_m.tex",
+          "sha256": "fe5f5c4419a17bc162ae89f123f0a8f203698fe644f457fcba8457de58ff56c2",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "collision_operator.f90",
+          "sha256": "d06490935b5fd72ad3272b2ba69a7cef18ccf9701799a53a95bec270573d6926",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "propagator.f90",
+          "sha256": "a52b2817841a47052d0866440197b1cb75a9467b6d09e0e0781c4c0002b192a8",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "helical-shaing",
+      "title": "2015 simple helical benchmark",
+      "pairing": "Numeric experiment package; no same-directory CAS found",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "helical_perturbation.tex",
+          "sha256": "936c3cd7c2b32cac915e59dea34057f4c261b6256fd6b51d98c5d442521f53d7",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "bench_helical_perturbation.tex",
+          "sha256": "618c425efa476a3125e1a9a68e022b820edb7f22a4765b10bfd6c455096e74a8",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "shaing-numeric",
+      "title": "Shaing connected formula MATLAB numerical partners",
+      "pairing": "Numeric MATLAB, not symbolic CAS (quadgk/elliptic routines)",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "test_shaing.m",
+          "sha256": "7bb13527c0c3ea54730b9548645e248bd73a6fd93747abe19eb4bec88bff8abb",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "calcFluxNA.m",
+          "sha256": "1513584c29d27b3fbda6438c949ae2aac88c76565cc55872b14fd06fcee89880",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "alphaNSqrtNu_1.m",
+          "sha256": "f43af07fde8f52fd7b9483faf52fdf0d1c6332886efabf65b7e4882b163a6596",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "betaNSqrtNu_1.m",
+          "sha256": "04e3e8b89bbd645f4440ba910078576416edec76a44e2df0f354539446344861",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "integralKernelI1OverNU_BounceAv.m",
+          "sha256": "3eaa43d2094e58ea633355300acd8526ddef2646a4c8d1c4cb7bf998f3e52569",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "hamilton-log",
+      "title": "Historical Hamiltonian NTV log",
+      "pairing": "Same-stem prose+Mathematica notebook: structural pairing, formula correspondence not yet validated",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "ntv_hamilton.tex",
+          "sha256": "abbdf345fca36d5db15441e5c793332361cdcc29c6644dec3f3301880d715ab1",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "ntv_hamilton.lyx",
+          "sha256": "4078a2210e9f5417d49b68156c4b860218e2f8de4b04eaa5a99ceabb1c1d568a",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "ntv_hamilton.nb",
+          "sha256": "a9f1b32b2541b628f0aebb730a958af5b544db4ea67e6a4f4c52f9917df4837a",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "hamilton.nb",
+          "sha256": "cc4adf6cc27648bbb2121618e27d2f7375ead106e4955571bcbbd500eab16050",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "nonlinear",
+      "title": "Finite-amplitude/nonlinear model",
+      "pairing": "Colocated prose+notebook+numericPython; nonlin.py is NumPy solver not SymPy",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "nonlin.lyx",
+          "sha256": "46aea208ecfb2a4204e3c1eb2ae2a357f93d11f8887eea873032e5acdd535d06",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "nonlin.nb",
+          "sha256": "53de395c4fae1572fe7b95d66db2d4ff508570acb1713016b51fb7e1a05ea781",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "nonlin.py",
+          "sha256": "b12b24a17dee9ddc975471cc061948b13d84f5c896cbae05ebbbe4d5b03a05ce",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "nonlin2_new.py",
+          "sha256": "3bfe140336f4384226ea20f1238c7ba4ab02d43d6ccc9491774961c969d68c82",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "pendulum",
+      "title": "Pendulum QL/nonlinear limit",
+      "pairing": "Notebook partners to dissertation pendulum discussion; exact equation map pending",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "pendulum.nb",
+          "sha256": "588acd19f2312ceb2239322a3595e22c728725e200e918d56f3cb969a7c586c5",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "pendulum_kin.nb",
+          "sha256": "5ca768b2b93ffaa09654021a7dc227665f40d63f529ca15d0a60b60138d390ac",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "pendulum_new.nb",
+          "sha256": "bc85e54205da963c6fc979c7a566f6de64098950df27730034e1fa03d595e898",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "nonlinear_limit.nb",
+          "sha256": "eabf361b2761711d6d2b5b7d5f4f83381964c2d234fcd2b1bc1f64d7116d9fc7",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "dissertation",
+      "title": "Albert dissertation and later book",
+      "pairing": "Whole dissertation has multiple thematic notebooks, no one-to-one global pairing",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "Diss_Albert.tex",
+          "sha256": "12674240b00c4324de82a210ba6b3b64af28665c317264eba440fd722c199adc",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "Diss_Albert.tex",
+          "sha256": "c75cc0f19254fdec619ebbb6bb6571e78588ceed087e3d78a1f39dce7bbac563",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "Diss_Albert.tex",
+          "sha256": "12674240b00c4324de82a210ba6b3b64af28665c317264eba440fd722c199adc",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "neort-proofs",
+      "title": "Existing current Hamiltonian/NTV proofs",
+      "pairing": "Explicit suites/document crossrefs; 30currentWL,31retainedJSON490checks not fresh and one orphanresult",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "README.md",
+          "sha256": "942e4a95698cb1a1777855e8ef405e2c95e36b06c184487db1d63ba26536e107",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "verify_all.sh",
+          "sha256": "eefed7a8c15c36c3534a0ba79d76b204c039af0e88668f03d642b743443fc2f7",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "Verify.wl",
+          "sha256": "9359197fe7d77cc7329471933b7e767cae28da69c013a6115f6817ae18c89443",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "flux_coordinate_limits.tex",
+          "sha256": "3f0830b409d896fe62da72a3734574f9feb1f4bd67c6ca0567df434e800b7da4",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "flux_coordinate_limits.wl",
+          "sha256": "52dba21f57b1739ef289fac2b9c6f421476e90d50bb08b3bf76cab19e9ff66a2",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "collisional_sqrt_nu.tex",
+          "sha256": "d4b4cb93e568248018a803349f5eb9513f89d22e4fa77949eb41be30af3d68ec",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "collisional_sqrt_nu.wl",
+          "sha256": "b4336f15d36bf4c3592544f6154274424e5c8d06418534c4e06a9acb70a4c474",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "island_finite_width.md",
+          "sha256": "5cc439a71bfd5a1820c15ebcd71e740d5996c362462df79e1fbd7bd009815a2c",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "island_finite_width.wl",
+          "sha256": "a463f87ecd0806a1e3b6542fca4194892dc79b04e1152df21c69293c2b320011",
+          "kind": "not individually classified"
+        }
+      ]
+    },
+    {
+      "id": "neo2-recent-proof",
+      "title": "Recent NEO-2 drive/mode/Lorentz closure",
+      "pairing": "Executable symbolic scripts with comments identifying NEO2 equations/issue118; prose partner requires equation-map audit",
+      "license_status": "Unknown for historical archive; do not infer public redistribution rights. Existing Git repos retain their own licenses.",
+      "files": [
+        {
+          "name": "11_neo2_drive_discretization.wl",
+          "sha256": "f3b2140064489dafc61da31c8e00efba91ff41eeeecf805d124b3a1d13f4fbd9",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "16_helcore_neo2_mode_map.wl",
+          "sha256": "10f022a0f31bade676f1a811c23dc581ac4bb7a2bc8a998ae859fa3e7734e456",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "30_neo2_lorentz_closure.wl",
+          "sha256": "f93f1b07591f5f13a81f294041f6acf4ba8371b41bd5246d175e0872ea2194fd",
+          "kind": "not individually classified"
+        },
+        {
+          "name": "checklib.wl",
+          "sha256": "d3189a8f23103c26d53db2b9879300c57dbfc4143b18a1fea96a39b38c096b7f",
+          "kind": "not individually classified"
+        }
+      ]
+    }
+  ]
+}
