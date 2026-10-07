@@ -1,0 +1,18 @@
+{
+  "writeups_base": "d32fb5a6440947adbc3f9368841a4f089766d583",
+  "files": {
+    "CMakeLists.txt": "0387db9614cf8a8679e3ad503240999354d72f5c3dd2f6a0695ef653a318a0a9",
+    "vmec2000_flux_identities.f90": "834eb815e163c884f51d1e7f4527e623f3da8e8a9f63735608e93439fc265e51",
+    "README.md": "70f86317f7d72ad7d44a1079f05bb7d47cb89e57f7dedd44c9bb8e41f64477ad"
+  },
+  "fortsym_commit": "a6142712af998b727c245fb6cfbb3745b296ec24",
+  "library_sha256": "70c99a46f67998540f6eedb5897f26897ce612b6a26299de292d5a369a79d8fd",
+  "engine": "native only",
+  "native_ctest": "1/1 passed",
+  "fo_status": "CMake capture193; nativeCMake/CTest authority only",
+  "command": [
+    "cmake -S theory/cas/vmec2000_native -B /tmp/vmec2000-flux-cas-build-20261007 -DFORTSYM_BUILD=/tmp/kin6d-gs-fortsym-pin-build",
+    "cmake --build /tmp/vmec2000-flux-cas-build-20261007 -j1",
+    "ctest --test-dir /tmp/vmec2000-flux-cas-build-20261007 --output-on-failure"
+  ]
+}

@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.20)
+project(vmec2000_native_flux_identities LANGUAGES Fortran)
+enable_testing()
+set(FORTSYM_BUILD "/tmp/kin6d-gs-fortsym-pin-build" CACHE PATH "Verified FortSym a614 build")
+add_executable(vmec2000_flux_identities vmec2000_flux_identities.f90)
+target_include_directories(vmec2000_flux_identities PRIVATE "${FORTSYM_BUILD}/include")
+target_link_libraries(vmec2000_flux_identities PRIVATE "${FORTSYM_BUILD}/lib/libfortsym.so")
+add_test(NAME vmec2000_native_signed_flux_identities COMMAND vmec2000_flux_identities)
