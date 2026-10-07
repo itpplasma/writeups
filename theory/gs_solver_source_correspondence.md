@@ -1,7 +1,7 @@
 # Grad–Shafranov: examined source correspondence
 
 - Scope: static axisymmetric scalar-pressure equilibria; fixed boundary. No flow, anisotropic pressure, free-boundary qualification, perturbation or transport claim.
-- Shared theory and independent analytical checks: [KIN6D derivation](https://github.com/itpplasma/kin6d/blob/f26b8df7969484152e54ad495d0231cc26b8c2ad/theory/derivations/grad-shafranov.md). The C0 orientation correction accompanies this document; the cited base predates that correction.
+- Shared theory and independent analytical checks: [KIN6D derivation](https://github.com/itpplasma/kin6d/blob/5d75dfc/theory/derivations/grad-shafranov.md). The cited derivation includes the C0 orientation correction.
 - Physics/constraints: [TC24 case contract](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/plan/circular-tokamak-benchmark-20261007/equilibrium/CASE_CONTRACT.md). Numerical disagreements and closure gates: [equilibrium errata](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/plan/circular-tokamak-benchmark-20261007/equilibrium/ERRATA.md).
 - Conventions: [axisymmetric sign contract](https://gitlab.tugraz.at/plasma/proj/plasma-sign-conventions/-/blob/main/docs/AXISYMMETRIC_COCOS_CONTRACT.md). Native arrays remain native; comparisons apply the declared map, never a fitted sign.
 - These are examined routine paths, not proofs of every code/mode. Exact file hashes and this document's base/patch digest are in `gs_source_correspondence_manifest.json`.
