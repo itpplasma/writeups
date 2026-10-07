@@ -1,0 +1,17 @@
+{
+  "engine": "NativeFortSym",
+  "runner_sha256": "4f7564d6a367a56dacb623c3306c3562ca9787dfb46389a0c272d629e35f7ac7",
+  "input_sha256": "f771dc5c1add7890925143a1864e287a5453df81086f8b852cc41103e6f1c275",
+  "exact_identities": {
+    "r001": "0",
+    "r002": "0",
+    "r003": "0",
+    "r004": "0",
+    "b001": "1/24",
+    "b002": "1/8"
+  },
+  "source_base": "MARS-Q8824bb18",
+  "code_fix_PR": "https://github.com/krystophny/MARS-Q/pull/30",
+  "native_code_gate": "ControllerCMake/CTest12/12, exactextractedprimitives/nativeSPLINE",
+  "scope": "Selectedcubicprimitive only, no physicalequilibrium certificate"
+}
