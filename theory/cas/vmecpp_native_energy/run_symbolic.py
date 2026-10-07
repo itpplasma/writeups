@@ -1,8 +1,8 @@
 """Bounded exact native energy/dual sectors; no solver dependency."""
 from pathlib import Path
-import hashlib,json,subprocess
+import hashlib,json,os,subprocess
 folder=Path(__file__).resolve().parent
-runner=Path('/home/ert/code/fortsym/build/bin/fortsym_wl_run')
+runner=Path(os.environ.get('FORTSYM_WL_RUN','/home/ert/code/fortsym/build/bin/fortsym_wl_run'))
 source=folder/'half_energy_sector.wl'
 result=subprocess.run([str(runner),str(source)],capture_output=True,text=True,check=True)
 assert not result.stderr,result.stderr
