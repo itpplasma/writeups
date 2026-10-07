@@ -27,7 +27,11 @@
 
 - GS companion and KIN/FreeGS/CHEASE source correspondence published; C0 RH-to-canonical embedding corrected with independent Cartesian checks.
 - GVEC, DESC and original VMEC source ledgers published. DESC retains ten exact native FortSym identities; broader discrete-solver equivalence remains unproved.
-- Analytical field gates pass within their stated scope; new TC24 attempts remain unconverged. Physics admission and next experiments belong to TC24 PLAN/ERRATA; literature candidates remain provisional.
+- Smooth circular A10 constant-q matches DESC/GVEC/original VMEC/VMEC++ at 216 physical points (max Bpol RMS difference 0.0254%). Native convergence, reconstruction and full refinement admission are separate.
+- Original VMEC TC24 storage repair now converges with unchanged input; physical force/gradp remains about 1.63. Odd-mode reconstruction and CHEASE thin-flux current defects have owner reviews.
+- Original TC24 has a true X-point; executed regularized boundaries avoid it. Source correspondence distinguishes this coordinate/model limit from other failures.
+- Ordinary benchmark: [benchmark_vmec](https://github.com/itpplasma/benchmark_vmec), physical-input/provenance issues #2/#3. mhd-differentiable owns complementary derivative/optimization checks.
+- Physics admission/next experiments belong to TC24 PLAN/ERRATA; literature candidates remain provisional.
 - Existing repository: 43 tracked files at revival base 22b60a4b89a7d2822fcd6315abdd67d954c36206; numerical Hamiltonian examples, no existing CAS replay suite found.
 - Targeted intake: 19 source families across the geometry and NTV inventories. Same-stem/co-located partners do not establish equation correspondence.
 - Collected: libneo's licensed EFIT/Boozer/Hamada writeup and near-axis symbolic source; Chris's Boozer/Hamada draft. Fresh replay/accuracy qualification remains open.
