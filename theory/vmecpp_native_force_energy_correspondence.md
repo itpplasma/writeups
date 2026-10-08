@@ -46,7 +46,7 @@
 - `lamscale²=h sum(phip_half²)`. Using full points instead is wrong by129/128 for constant phip; the half-grid authority is explicitly tested.
 - `FourierForces::residuals` sums squared coefficient forces; fixed-boundary R/Z exclude the LCFS, lambda includes it. Invariant R/Z residuals have an additional1/4; lambda does not.
 - Source preconditioned norms use the R/Z state norm with offset modes excluded; lambda uses h. Independent vector/quadrature reconstruction matches raw residuals to 1.18e−14 relative and preconditioned residuals to 3.78e−15.
-- Raw-checkpoint fsqr1/fsqz1/fsql1 are stale initialized values; they become meaningful after preconditioning. The actual freshly evaluated invariant residuals reproduce the archived stopping values to about1e−5 relative; exact equality to a previous solver phase is not assumed.
+- Raw-checkpoint fsqr1/fsqz1/fsql1 are unwritten at INVARIANT_RESIDUALS and must be omitted. The full precondition=true path reaches evalFResPrecd and writes them; its valid norm correspondence is retained. The2026-10-08 immutable49-evaluation replay preserves every held/directional array hash and records runtime/CPU/BLAS metadata. The actual freshly evaluated invariant residuals reproduce the archived stopping values to about1e−5 relative; exact equality to a previous solver phase is not assumed.
 
 ## Discrete versus continuous virtual work
 
