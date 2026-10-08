@@ -73,6 +73,8 @@
 - Physical `curl(B)=alpha B`, `alpha=2k/(1+k^2 r^2)`, is invariant under the chart change. RH curl formulas applied to LH components give a spurious sign. Finite-R curvature is a different physical model.
 - Corrected KIN theory and readable companion accompany this file. Native arrays/generator/CAS identities stay unchanged. Cartesian orientation/field/curl numerical check is retained in KIN `test/check_cylinder_orientation.py`; it is not a ninth CAS proof.
 
+The independent-period formulation, radial force derivation, exact sheared companion and fixed-pitch large-aspect-ratio continuation are recorded in [the periodic-cylinder companion](periodic_cylinder_correspondence.md). Holding toroidal q fixed is not the same cylinder continuation.
+
 ## Literature correspondence and evidence status
 
 | Primary source | Examined bridge | Status / next review |

@@ -25,6 +25,8 @@
 
 ## Status
 
+- [Periodic-cylinder companion](theory/periodic_cylinder_correspondence.md): Freidberg radial balance and winding, exact Gold–Hoyle/sheared Lundquist references, independent axial period and signed toroidal limit. Exact analytic evidence is distinct from native finite-A and later perturbation admission.
+
 - GS companion and KIN/FreeGS/CHEASE source correspondence published; C0 RH-to-canonical embedding corrected with independent Cartesian checks.
 - [GVEC discrete force/sign bridge](theory/gvec_discrete_force_audit.md): 16 exact local identities; weak projection, quadrature, constraints and stopping norms explicitly separated. Full discrete convergence proof remains open.
 - GVEC, DESC and original VMEC source ledgers published. DESC retains ten exact native FortSym identities; broader discrete-solver equivalence remains unproved.
