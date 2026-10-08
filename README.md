@@ -9,3 +9,5 @@
 - Equilibrium slice: [GS companion](equilibrium/README.md), [KIN/FreeGS/CHEASE correspondence](theory/gs_solver_source_correspondence.md), [original VMEC](theory/vmec2000_equilibrium_source_correspondence.md), [DESC](theory/desc_equilibrium_source_correspondence.md), [GVEC](theory/gvec_equilibrium_source_correspondence.md). Checked scopes and unresolved derivations are explicit.
 
 - [VMEC++ hybrid lambda correspondence](theory/vmecpp_hybrid_lambda_correspondence.md).
+
+- Proposed [RMP whole-model correspondence](theory/rmp_model_correspondence_plan.md): coverage, evidence and ownership for later comparisons.
