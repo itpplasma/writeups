@@ -2,7 +2,7 @@
 
 - Updated: 2026-10-07. Global programme order and completion gates belong to [TC24 PLAN](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/plan/circular-tokamak-benchmark-20261007/PLAN.md).
 - Active slice: axisymmetric equilibrium from a force-free cylinder and exact GS oracles to circular, finite-aspect-ratio, shaped and actual ITER TC24 cases.
-- Solvers: kin6d, FreeGS, public CHEASE, MARS-associated CHEASE, VMEC++ and targeted original VMEC/DESC/GVEC lanes. Stop before perturbations/transport.
+- Retained solvers: KIN6D, public CHEASE, MARS-associated CHEASE, VMEC++ and DESC. FreeGS, original VMEC and GVEC are withdrawn after actual-upstream correctness handoff; historical source ledgers remain available. Stop before perturbations/transport.
 
 ## Task order
 
@@ -33,7 +33,7 @@
 - Original TC24 has a true X-point; executed regularized boundaries avoid it. Source correspondence distinguishes this coordinate/model limit from other failures.
 - Ordinary benchmark: [benchmark_vmec](https://github.com/itpplasma/benchmark_vmec), physical-input/provenance issues #2/#3. mhd-differentiable owns complementary derivative/optimization checks.
 - [VMEC++ hybrid lambda local bridge](theory/vmecpp_hybrid_lambda_correspondence.md): eleven exact native identities, wrong-coefficient rejection and actual-header CMake/CTest pass. Interior error is O(h²); native first-interior axis closure has O(h^(3/2)) in the manufactured control. Live TC24 finite-Fourier/stopping bridge remains open.
-- Physics admission/next experiments belong to TC24 PLAN/ERRATA; literature candidates remain provisional.
+- Physics admission/next experiments belong to TC24 PLAN/ERRATA. DESC’s normalized-flux factor and A18 cross-term omissions are confirmed against exact local oracles and reported native releases; the reversed residual is a convention. Historical paper-linked evaluator impact remains unidentified.
 - Existing repository: 43 tracked files at revival base 22b60a4b89a7d2822fcd6315abdd67d954c36206; numerical Hamiltonian examples, no existing CAS replay suite found.
 - Targeted intake: 19 source families across the geometry and NTV inventories. Same-stem/co-located partners do not establish equation correspondence.
 - Collected: libneo's licensed EFIT/Boozer/Hamada writeup and near-axis symbolic source; Chris's Boozer/Hamada draft. Fresh replay/accuracy qualification remains open.
