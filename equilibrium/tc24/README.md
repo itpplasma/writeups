@@ -3,7 +3,7 @@
 Consolidated Phase 6 report for Chris and the TC24 collaborators: exact,
 circular, shaped, prescribed-q, received TC24 and cylinder studies, with
 native and actual-consumer accuracy and the current defect dispositions.
-The report is 21 pages. It delivers the report phase while leaving scientific
+The [21-page PDF](https://box.sloppy.at/907dc.pdf) was published on 9 October 2026. It delivers the report phase while leaving scientific
 slice closure open.
 
 [artifacts.json](artifacts.json) owns the published PDF and ten figure URLs,
