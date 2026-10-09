@@ -1,0 +1,704 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,graphicx,booktabs,longtable,array,caption,microtype}
+\usepackage[margin=20mm,headheight=14pt]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black,linkcolor=blue!55!black,citecolor=blue!55!black]{hyperref}
+\usepackage{url}
+\hypersetup{pdftitle={TC24 axisymmetric equilibrium benchmark: first draft},pdfauthor={Chris\&AI},pdfsubject={Phase 6 equilibrium report; committed numerical snapshot}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt}
+\setlength{\emergencystretch}{2em}
+\captionsetup{font=small,labelfont=bf,skip=4pt}
+\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e/}
+\newcommand{\tcfile}[2]{\href{\tcroot#1}{#2}}
+\newcommand{\kincommit}[2]{\href{https://github.com/itpplasma/kin6d/commit/#1}{#2}}
+\newcommand{\dataref}[1]{{\footnotesize CSV source: \texttt{#1}}}
+\newcommand{\pageheading}[1]{\clearpage\section{#1}}
+\newcommand{\Bpol}{B_{\mathrm{pol}}}
+\newcommand{\Btor}{B_{\mathrm{tor}}}
+\input{build/numbers.tex}
+\begin{document}
+\begin{center}
+{\LARGE TC24 axisymmetric equilibrium benchmark\par}
+\vspace{5pt}
+{\large First complete report draft\par}
+\vspace{4pt}
+Chris\&AI \quad 9 October 2026
+\end{center}
+
+\begin{abstract}
+The TC24 program needs equilibria whose signed fields, safety factor and flux
+coordinates retain known accuracy when exported to the later perturbation and
+transport codes. The equilibrium solvers KIN6D, public CHEASE, MARS-associated
+CHEASE, VMEC++ and DESC have been compared on exact, circular and shaped
+axisymmetric problems. KIN6D's curved cubic finite elements reach the sampled
+exact-case targets with a short solve, and its recovered-flux estimator supports
+the circular and shaped references. Export studies now exercise actual readers
+in the magnetic-coordinate library libneo, the stability codes GPEC and MARS,
+and the drift-kinetic codes NEO-RT and NEO-2. The measured paths support the
+working accuracy targets inside the sampled plasma. The slice remains open:
+inverse cases and actual TC24 still need their comparisons; several solver
+settings miss accuracy or native-stopping targets; and defect integration is
+incomplete. This draft records that state without advancing to perturbations
+or transport.
+\end{abstract}
+
+\section{Results and scope}
+The central result is practical: KIN6D can resolve the exact Grad--Shafranov
+test fields efficiently with curved P3 elements. Its sampled passing solve
+times are \PthreeAthreeTime{} seconds on the A3 exact boundary and
+\PthreeCerfonTime{} seconds on the shaped Cerfon boundary. These times cover
+mesh, assembly and solve. They exclude contour readback and therefore cannot
+be used as an end-to-end speed ratio against the other codes.
+
+The circular and E4 studies include KIN6D's estimator and readback cost.
+Their committed circular timing table favors public CHEASE at the sampled
+targets; the E4 table favors KIN6D over both CHEASE variants. A later FortNum
+root-finder repair reduces KIN6D readback cost, but refreshed matched-cost CSVs
+are absent from this data pin. The draft retains the measured table and records
+the repair separately.
+
+\begin{center}\small
+\begin{tabular}{p{25mm}p{91mm}p{37mm}}
+\toprule
+Phase & Delivered evidence & Remaining qualification \\
+\midrule
+1: exact & Field/flux convergence, cost, P2/P3 comparison and actual consumers & VMEC++ targets; DESC shaped boundary cost \\
+2: circular & Both source laws across the aspect-ratio ladder; numerical references and large-aspect-ratio check & Three VMEC++ target gaps; selected consumer paths absent \\
+3: inverse & Explicit place reserved in this report & Common prescribed-$q$ study \\
+4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ targets; DESC stopping \\
+4b: TC24 & Source profiles, conventions and smooth boundary pinned & Nonlinear curved-P3 capability and the forward/export study \\
+5: cylinder & Toroidal limit, signed controls and actual KIM equilibrium ingress & KIN6D P3 source laws; DESC strong-twist stopping \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The reader is Chris and, after revision, the TC24 collaborators. All empirical
+figures and numerical tables are generated from committed CSVs. The primary
+data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 916dc6d9d}}. The retained
+README files explain how the runs were made; where they lag the numerical
+tables, this report follows the CSV rows and their settings. KIN6D's earlier
+owner study is labeled separately. No new solver run was made for this report.
+
+\pageheading{Case ladder and conventions}
+The ladder separates numerical error from changes in physics and geometry.
+The exact polynomial Solov'ev case has a physical closed flux boundary at
+$A=3$. The shaped exact case uses the Cerfon--Freidberg construction
+\cite{cerfon}, with $\epsilon=0.32$, elongation $\kappa=1.7$ and triangularity
+$\delta=0.33$. Its boundary is the exact zero contour; a Miller curve supplies
+the shaping constraints, not the entire boundary. Both cases set the on-axis
+safety factor through the analytic amplitude. They are distinct from the
+exactly circular and explicit Miller cases below.
+
+The forward toroidal cases use $R_0=6.2$ m, $B_0=5.3$ T,
+$F_{\rm edge}=R_0B_0$, zero edge pressure and zero edge poloidal flux.
+With source scale $q_s=1.5$, their constant laws are
+\[
+\begin{array}{lll}
+\mathrm{E1}: & p'=0,& FF'=-2B_0/q_s,\\
+\mathrm{E2}: & FF'=0,&p'=-2B_0/(q_s\mu_0R_0^2).
+\end{array}
+\]
+Here $q_s$ sets the source amplitude; the safety-factor profile is an output.
+E1/E2 use exact circles at $A=40,20,10$. Their $A=3.1$ extensions are the two
+E3 variants, stored as \texttt{E1\_A3p1} and \texttt{E2\_A3p1}.
+E4 uses each law on the explicit boundary
+\[
+R=R_0+a\cos[\theta+\arcsin(\delta)\sin\theta],\qquad
+Z=\kappa a\sin\theta,
+\]
+with $a=2$ m and the same shaping parameters as above. E4 is an ITER-scale
+shape test. Actual TC24 is a separate source problem.
+
+\subsection*{Signed quantities}
+All comparisons use SI units and COCOS 3 \cite{cocos}. Physical toroidal angle
+$\phi$ increases counterclockwise viewed from $+Z$, with the right-handed
+basis $(\mathbf e_R,\mathbf e_\phi,\mathbf e_Z)$. Poloidal flux $\psi$ is
+flux per radian. The field and equilibrium equation are
+\[
+\mathbf B=\nabla\psi\mathbin{\times}\nabla\phi+F\nabla\phi,
+\quad B_R=-\psi_Z/R,\quad B_Z=\psi_R/R,\quad B_\phi=F/R,
+\]
+\[
+\Delta^*\psi+\mu_0R^2p'(\psi)+FF'(\psi)=0,\qquad
+\Delta^*=\partial_R^2-R^{-1}\partial_R+\partial_Z^2.
+\]
+The signed full toroidal flux is $\Phi=\int B_\phi\,dR\,dZ$ and
+$q=(2\pi)^{-1}d\Phi/d\psi$. The published labels are
+$s_{\rm pol}=(\psi-\psi_{\rm axis})/(\psi_{\rm edge}-\psi_{\rm axis})$,
+$s_{\rm tor}=\Phi/\Phi_{\rm edge}$ and $\rho_{\rm tor}=\sqrt{s_{\rm tor}}$.
+E0--E4 use an axis-minimum flux. TC24 retains its declared axis-maximum
+polarity. No sign, gauge offset beyond the declared edge gauge, field scale or
+coordinate alignment is fitted to reduce a comparison error.
+
+CHEASE's native convention is mapped explicitly to the common convention.
+The MARS-associated EQDSK path also uses its recorded physical $F/q$ partner
+reversal. That reversal must not be copied to the native MARS
+\texttt{OUTRMAR} path, whose delivered $F/q$ already have the required signs.
+
+\subsection*{Cylinder and inverse variants}
+The periodic cylinder has independent radius $a$ and axial period $L$.
+Gold--Hoyle has constant signed right-handed winding; Lundquist supplies a
+sheared force-free companion. Finite-aspect-ratio continuation increases the
+torus radius while holding the physical period and pitch fixed. Inverse
+prescribed-$q$ cases release the forward $FF'$ law and require their own
+matching study. They cannot be inferred from a forward solve.
+
+\dataref{parameters.csv}; definitions and source choices:
+\tcfile{equilibrium/CASE_CONTRACT.md}{case contract},
+\tcfile{equilibrium/phase1/README.md}{exact cases},
+\tcfile{equilibrium/phase5/results/README.md}{cylinder cases}.
+
+\pageheading{Methods and accuracy measures}
+KIN6D solves the weak Grad--Shafranov equation on triangles with generic curved
+P2 or P3 geometry and field interpolation. The tests predict $L^2$ orders
+$p+1$ for flux and $p$ for its field derivatives on smooth, adequately resolved
+domains. The recovered field used by the estimator is continuous and belongs
+to $H(\mathrm{div})$. Public and MARS-associated CHEASE use bicubic Hermite
+finite elements \cite{chease}; their source selectors, normalizations and
+export implementations are kept distinct. VMEC++ minimizes constrained MHD
+energy on nested Fourier surfaces with radial finite differences. DESC solves
+force balance in a Fourier--Zernike representation. The benchmark predictions
+are first-order bulk radial convergence for VMEC++ and spectral convergence
+for DESC, conditional on boundary representation and native stopping
+\cite{panici}.
+
+\begin{center}\small
+\begin{tabular}{p{31mm}p{45mm}p{77mm}}
+\toprule
+Code / measured version & Discretization and executed path & Pin and scope \\
+\midrule
+KIN6D & Curved P2/P3; \texttt{gs\_phase1}; native FE readback & Phase 1 \texttt{fa5c388}; circular P3 estimator extension; E4 lane \texttt{1ada383}, integrated as \texttt{99fa2c8} \\
+CHEASE public & Hermite; forward constant sources; EQDSK readback & \texttt{b942066c}; dense boundary, folded ordering, \texttt{RELAX=0}, explicit export selector \\
+CHEASE MARS & Hermite; same forward law; separate native MARS export & \texttt{104053d5}; no interchange of prescribed-$q$ selectors with public CHEASE \\
+VMEC++ & Native \texttt{wout}; parity-aware physical-point reader & \texttt{a4150a4e}; radial and Fourier settings recorded per row \\
+DESC & Native equilibrium/HDF5; constrained Fourier--Zernike solve & \texttt{2888389d}; retained backported environment and continuation settings \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The exact cases supply analytic flux and fields, with independent contour
+quadrature and field-line integration for $q$. Circular and E4 references are
+the finest KIN6D P3 solutions. Richardson estimates and the native recovered-flux
+majorant assess their error. VMEC++ and DESC receive the reference boundary,
+pressure, rotational transform and toroidal flux. Their $q/\Phi$ errors therefore
+measure input transfer; their physical field and axis errors remain independent
+outputs. The exact-source comparison has the same distinction.
+
+For fixed sources, the energy error and functional estimate have the form
+\[
+\|e\|_a^2=\int_\Omega R^{-1}|\nabla e|^2\,dR\,dZ
+          =\int_\Omega R|\delta\Bpol|^2\,dR\,dZ,
+\]
+\[
+\|e\|_a\ \leq\ \|\sqrt R(\mathbf y-R^{-1}\nabla\psi_h)\|_{L^2}
+       +C_A\|f+\nabla\cdot\mathbf y\|_{L^2},
+\quad f=\mu_0Rp'+FF'/R.
+\]
+$C_A$ satisfies $\|v\|_{L^2}\leq C_A\|v\|_a$ on the represented domain.
+The continuous identity assumes a conforming field, matching boundary trace
+and the stated source. KIN6D evaluates the estimate with ordinary quadrature.
+It does not cover boundary displacement, nonlinear source errors or consumer
+interpolation automatically. Recovery stopped at an iteration cap can still
+produce an admissible finite field; its estimate may be less sharp.
+
+Native comparison norms use 4000 fixed interior points through $s_{\rm pol}=0.98$
+weighted by $R$, sampling physical volume. Safety factor uses 40 labels over
+$0.05\leq s_{\rm tor}\leq0.98$. Field maxima divide by the reference maximum; $q$ uses the
+maximum pointwise relative error. The working targets are $10^{-6}$ for flux
+$L^2$, axis, volume and edge toroidal flux; $10^{-5}$ for field $L^2$ and $q$;
+and $10^{-4}$ for field maxima. Native stopping is also required. The sample
+excludes the outer flux shell; the reconstructed force-balance RMS is reported
+without a target. These targets are provisional until downstream sensitivity
+to equilibrium error is measured.
+
+The studies ran locally with one numerical thread and bounded native solves
+on a shared Ryzen workstation. Producer DOF counts have different meanings;
+time is a single observation under ambient load. Phase 1's KIN6D solve time
+excludes readback. Phases 2/4 include its estimator, export and readback; all
+exclude common comparison-oracle evaluation and the spectral codes' shared
+reference construction. Those distinctions govern every cost statement here.
+
+\pageheading{Exact-solution convergence and cost}
+The refreshed Phase 1 CSVs contain both KIN6D degrees. Their field rates agree
+with the finite-element predictions, and P3 reaches all sampled targets at a
+coarser mesh than P2. The unusually high fitted Cerfon P3 field rate is a local
+fit over this ladder, not a revised theoretical order. The previous irregular
+axis recovery is repaired by a local quartic fit; the older README still
+describes the earlier candidate and must not override the refreshed rows.
+
+\begin{center}\small
+\input{build/exact_rates.tex}
+\captionof{table}{Exact cases: fitted flux/field rates and a selected measured
+state. ``Pass'' selects the least recorded time among rows meeting every sampled
+target and native stopping. ``Gap'' shows the finest native-converged state;
+it is not a passing result. $p$ is algebraic order; DESC uses exponential
+decay coefficient $\alpha$.}
+\end{center}
+\dataref{phase1/results/solovev\_lcfs\_A3.csv, solovev\_cerfon\_iter.csv}.
+
+Rates fit the three finest finite, native-converged states separately for
+each element degree. The refinement coordinates are $\mathrm{DOF}^{1/2}$
+for KIN6D, $N_S$ for CHEASE and $n_s-1$ for VMEC++; DESC fits
+$\log e=-\alpha M+c$. Public CHEASE's flagged A3 state is excluded.
+VMEC++ shows the expected bulk radial rate, while its near-axis maximum
+converges more slowly. DESC's exact shaped boundary is truncated in the same
+poloidal basis as its solution. Refinement improves the boundary and the field
+together; its capped next attempt supplies no extra accuracy row.
+
+For the selected P3 states, poloidal-field errors are
+\PthreeAthreeError{} and \PthreeCerfonError{} on A3 and Cerfon. Both CHEASE
+variants also reach the sampled targets. VMEC++ does not within the recorded
+exact-case ladders. DESC passes on A3; its shaped ladder remains above target.
+These are interior sampled statements, with the field/readback paths labeled
+in the figure captions.
+
+\begin{center}\small
+\input{build/p3_cost.tex}
+\captionof{table}{Earlier owning-code P2/P3 study at KIN6D \texttt{7951c6a}:
+least solve time passing all targets in that study. It extends P2 to finer
+meshes than the common CSV. Its older contour sampling and timings are kept
+separate from the refreshed comparison above.}
+\end{center}
+\dataref{kin6d/p2-p3.csv}, committed with its README at \texttt{3c851d7}.
+
+The P3 improvement concerns approximation efficiency as well as solve time.
+It does not establish a universal speed ratio. A full consumer cost must
+include contour tracing, file writing, coordinate conversion and reader
+evaluation at the requested accuracy. The later studies include more of that
+producer work; they still do not time a perturbation or transport calculation.
+
+\pageheading{Exact-case figures}
+\begin{center}
+\includegraphics[width=.92\textwidth]{build/exact_a3.pdf}
+\captionof{figure}{A3 exact LCFS: flux and poloidal-field error versus producer
+DOF and recorded wall time. KIN6D P2/P3 are separated by the executed degree.
+CHEASE curves include EQDSK reconstruction; KIN6D, VMEC++ and DESC use native
+field readback. Dotted horizontal lines are the sampled working targets.}
+\vspace{4pt}
+\includegraphics[width=.92\textwidth]{build/exact_cerfon.pdf}
+\captionof{figure}{Cerfon exact LCFS, with the same norms and paths. DESC's
+boundary representation changes with $M$; its residual difference is not a
+demonstrated spectral floor. Time definitions are those of Phase 1, including
+cold compilation/continuation for DESC and excluding KIN6D contour readback.}
+\end{center}
+
+\pageheading{Circular ladder: zero pressure}
+\begin{center}
+\includegraphics[width=.98\textwidth]{build/circular_e1.pdf}
+\captionof{figure}{E1 constant-$FF'$ circular cases. Differences are against
+the finest KIN6D P3 reference, whose plotted endpoint uses its Richardson
+estimate. Crosses mark finite states that failed native stopping. Time includes
+KIN6D's estimator and readback. The $A=3.1$ case is the zero-pressure E3
+variant. A field value below the dotted line alone does not pass the other
+quantity or stopping gates. Sources: each \texttt{phase2/results/E1\_A*.csv}
+and \texttt{reference\_errors.csv}.}
+\end{center}
+
+\pageheading{Circular ladder: finite pressure}
+\begin{center}
+\includegraphics[width=.98\textwidth]{build/circular_e2.pdf}
+\captionof{figure}{E2 constant-$p'$ circular cases, with the reference and
+cost definitions of the preceding figure. VMEC++ uses the mapped reference
+pressure, rotational transform and edge toroidal flux. Its field comparison
+is independent of the prescribed $q/\Phi$ transfer. The largest circular case
+and E2 at $A=10$ retain above-target quantities despite field improvement.
+Sources: each \texttt{phase2/results/E2\_A*.csv} and
+\texttt{reference\_errors.csv}.}
+\end{center}
+
+\pageheading{Circular references, cost and large-aspect-ratio check}
+The numerical reference is substantially more accurate than the working field
+target. Its recovered-flux estimate and Richardson estimate have the same
+scale, although they integrate different domains: the majorant covers the
+represented mesh, while Richardson uses the common interior samples. Their
+ratio is a consistency check, not an exact-error effectivity index.
+
+\begin{center}\small
+\input{build/phase2_reference.tex}
+\captionof{table}{Circular reference errors and estimator comparison.
+The last column divides the relative majorant by the Richardson field estimate.}
+\end{center}
+\dataref{phase2/results/reference\_errors.csv}.
+
+\begin{center}\small
+\input{build/phase2_cost.tex}
+\captionof{table}{Least producer time in seconds meeting all sampled targets
+and native stopping. A dash means no passing state in the recorded ladder.
+These committed timings predate the later Brent readback repair.}
+\end{center}
+\dataref{phase2/results/best\_cost.csv}.
+
+With $\epsilon=1/A$, the checked disk expansion predicts
+\[
+\begin{array}{ll}
+\mathrm{E1}:&\Delta/a=\epsilon/8+11\epsilon^3/512+O(\epsilon^5),\quad
+q(0)/q_s=1+(q_s^{-2}-1/8)\epsilon^2+O(\epsilon^4),\\
+\mathrm{E2}:&\Delta/a=5\epsilon/8-209\epsilon^3/512+O(\epsilon^5),\quad
+q(0)/q_s=1-15\epsilon^2/8+O(\epsilon^4).
+\end{array}
+\]
+The measured leading-shift remainder orders are \EoneShiftOrder{} and
+\EtwoShiftOrder{}; the quadratic-$q$ remainder orders are \EoneQOrder{}
+and \EtwoQOrder{}. These fits use only the large-aspect-ratio cases. The
+finite-aspect-ratio E3 case is excluded from the asymptotic claim.
+
+\begin{center}
+\includegraphics[width=.83\textwidth]{build/large_aspect.pdf}
+\captionof{figure}{Absolute remainders from the leading shift and quadratic
+axis-$q$ expansions. The slopes agree with the predicted cubic and quartic
+remainders. Bars show the absolute last-mesh change in axis $q$, with no
+assumed safety factor. Source: \texttt{phase2/results/physics.csv}; the symbolic
+coefficients and behavioral checks are owned by \texttt{phase2/expansion.py}.}
+\end{center}
+
+\pageheading{Shaped E4 forward cases}
+Both E4 laws use the same explicit Miller boundary. KIN6D P3 and both CHEASE
+variants reach the sampled targets. VMEC++ differences decrease with radial
+refinement but remain too large in the delivered ladder. DESC's zero-pressure
+case has a passing state; finer states in both laws hit the stopping cap.
+The finest finite-pressure field differences are small, but the stopping
+failure prevents qualification. E4's Fourier boundary is already resolved
+well below its field error, so the exact Cerfon boundary limitation does not
+explain this case.
+
+\begin{center}
+\includegraphics[width=.94\textwidth]{build/shaped.pdf}
+\captionof{figure}{E4 zero- and finite-pressure laws versus DOF and producer
+time. Reference endpoints use Richardson estimates; crosses retain native
+stopping failures. The lowest-error DESC points therefore do not imply a
+passing equilibrium. Sources: \texttt{phase4/results/E4\_E1.csv},
+\texttt{E4\_E2.csv}, \texttt{reference\_errors.csv}.}
+\end{center}
+
+\begin{center}\small
+\input{build/phase4_cost.tex}
+\captionof{table}{E4 least producer seconds passing all sampled targets and
+native stopping. Source: \texttt{phase4/results/best\_cost.csv}.}
+\vspace{3pt}
+\input{build/phase4_matched.tex}
+\captionof{table}{E4 least seconds at $\Bpol$ $L^2\leq10^{-4}$ with native
+stopping. Other quantities do not gate this table. All five codes have a
+measured entry at this looser field criterion.
+Source: \texttt{phase4/results/cost\_by\_bpol.csv}.}
+\end{center}
+
+KIN6D is faster than either CHEASE variant in these measured E4 tables even
+with its estimator and readback included. The reference estimator reaches its
+recovery cap for both laws; the repaired implementation reports the finite
+functional estimate and recovery status instead of discarding a converged
+equilibrium. Source and reconstruction uncertainties remain separate from
+that mesh-domain estimate.
+The reference field estimates are \EfourZeroReference{} and
+\EfourFiniteReference{}, with majorant/Richardson ratios
+\EfourZeroEffectivity{} and \EfourFiniteEffectivity{} for zero and finite
+pressure, respectively (\texttt{phase4/results/reference\_errors.csv}).
+
+\pageheading{Accuracy delivered by exports and actual readers}
+Downstream accuracy is measured after the file and reader transformations.
+The exact-case study follows native FE or CHEASE NOUT fields through G-EQDSK,
+the actual libneo Fortran field reader, Boozer conversion and actual consumer
+code. The stability code GPEC is exercised through its DCON equilibrium
+reconstruction and final Hamada splines. The drift-kinetic code NEO-2 is
+exercised through its full vector and Jacobian path; NEO-RT and NEO-2 also
+have independent spectrum-reader measurements. No kinetic or perturbation
+solve is included.
+
+\begin{center}
+\includegraphics[width=.94\textwidth]{build/consumer_exact.pdf}
+\captionof{figure}{Poloidal-field accuracy at successive readback paths on
+each exact case, for two producer resolutions. Lines connect different
+representations, not additive error terms. Native/EQDSK and Boozer/consumer
+samples differ, so a smaller converted norm need not imply a more accurate
+underlying solution. Only final conversion settings are used; superseded
+scan and harmonic controls remain in the input CSV.}
+\end{center}
+
+\begin{center}\small
+\input{build/consumer_fine.tex}
+\captionof{table}{Fine exact-case consumer results: relative poloidal-field
+$L^2$ error, and maximum relative safety-factor and Jacobian errors returned
+by full NEO-2. These are sampled plasma norms. The separate geometry-derived
+Jacobian consistency diagnostic is not substituted for exact Jacobian error.}
+\end{center}
+\dataref{phase1/results\_export/summary.csv}.
+
+The library's Python/Fortran kind-map defect required a repair before the
+EQDSK wrapper could be used. Boozer conversion then needed refinement of the
+requested regular flux boundary and a higher-precision flux header. Radial
+sampling and harmonic refinement reduced the remaining errors below target.
+Full NEO-2 readback exposed a separate allocation defect on the second flux
+surface. Its scoped fix is used by the measured path and remains linked in
+the ledger. None of these corrections changes the producer equilibrium.
+
+Signed complex $B_{mn}$ coefficients and flux labels use an independent
+contour-integrated reference angle, with no fitted phase or amplitude.
+
+\pageheading{Consumer coverage across the ladder}
+Native MARS accuracy requires its own files and coordinate machinery.
+The MARS-associated CHEASE exporter supplies \texttt{OUTRMAR/OUTVMAR}; the
+actual MARS readers and Fourier transform reconstruct the equilibrium, and
+its equilibrium Hamada routines evaluate the transformed metric. The
+finite-difference Hamada Jacobian converges at the expected second order.
+That explained metric limit does not reopen a field defect below target.
+
+\begin{center}\small
+\input{build/mars.tex}
+\captionof{table}{Actual MARS equilibrium readback on the exact cases.
+The spectrum and Jacobian use independent exact Hamada-angle references.
+Source: final \texttt{mars\_native/mars\_hamada} rows in
+\texttt{phase1/results\_export/summary.csv}.}
+\end{center}
+
+The circular and E4 studies measure the retained FE/CHEASE, EQDSK, libneo,
+Boozer and NEO-reader chains across producer refinement. Their finest pooled
+Boozer errors are below the corresponding working targets. The pooled norm
+uses flux-surface volume Jacobians and radial weights; it is distinct from
+the native random-point norm. Above-target outer-shell or vacuum accuracy
+cannot be inferred from either sample.
+
+\begin{center}\small
+\input{build/pooled.tex}
+\captionof{table}{Largest pooled error across the finest KIN6D and both
+CHEASE export paths, also maximized over cases for the circular row.
+Sources: \texttt{phase2/results/boozer\_volume.csv} and
+\texttt{phase4/results/boozer\_volume.csv}.}
+\end{center}
+
+\begin{center}\small
+\begin{tabular}{p{61mm}p{30mm}p{30mm}p{30mm}}
+\toprule
+Equilibrium or consumer path & Exact cases & Circular / E4 & Cylinder \\
+\midrule
+KIN6D native FE & measured & measured & analytic GH evaluator only \\
+CHEASE EQDSK / libneo field & measured & measured & EQDSK fields measured \\
+VMEC++ wout / DESC native state & measured & measured & measured finite-$A$ \\
+libneo Boozer geometry and spectrum & measured & measured & absent \\
+NEO-RT / NEO-2 spectrum readers & measured & measured & absent \\
+Full NEO-2 vector and Jacobian & measured & absent & absent \\
+GPEC/DCON final Hamada reconstruction & measured & absent & absent \\
+Native MARS Fourier/Hamada & measured & absent & absent \\
+VMEC++ / DESC downstream converters & unused & unused & unused \\
+KIM native cylindrical equilibrium reader & not this route & not this route & measured \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Coverage is path-specific. ``Absent'' means no measurement
+in this pinned package; ``unused'' means no deployed converter in the retained
+lanes. Neither is a passing accuracy result.}
+\end{center}
+
+The executed consumer pins include GPEC \texttt{e68d7ac}, MARS-Q
+\texttt{8824bb18}, NEO-RT \texttt{8411537}, and NEO-2 \texttt{cefb20b}
+with the magnetic-reader repair \texttt{a0b7039}. The libneo conversion uses
+\texttt{d5bbe6c}, with the separately built kind-map fix. Routine paths,
+build flags, input hashes and actual binary hashes remain in the
+\tcfile{equilibrium/phase1/results_export/README.md}{export study} and its
+registered raw manifests. In particular, MARS requires its recorded real-kind
+flags, and the NEO-2 signed Jacobian differs from the positive metric magnitude
+used by MARS. That difference is a coordinate convention.
+
+\pageheading{Periodic-cylinder limit}
+The cylinder uses $a=0.62$ m, $L=2\pi\times6.2$ m and
+$|B_{\rm axis}|=5.3$ T. Its right-handed fields are
+\[
+\begin{array}{lll}
+\text{Gold--Hoyle}:&B_z=b/(1+\tau^2r^2),&B_\theta=\tau rB_z,\\
+\text{Lundquist}:&B_z=bJ_0(\alpha r),&B_\theta=bJ_1(\alpha r).
+\end{array}
+\]
+The primary controls use $q_{\rm RH}=-1.5$ and $\alpha a=-1.5$.
+Embedding the cylinder by $x=R-R_{\rm major}$, $y=-Z$ and $z$ along
+$+\phi$ gives $q_c=-Lq_{\rm RH}/(2\pi R_{\rm major})$.
+The forward toroidal laws fix $F=R_{\rm major}f(\psi/R_{\rm major})$.
+The finite-$A$ field approaches the cylinder at first order in $1/A$;
+the unfitted first-order correction leaves a second-order remainder.
+Integrated flux and scaled winding start at second order.
+
+\begin{center}
+\includegraphics[width=.94\textwidth]{build/cylinder.pdf}
+\captionof{figure}{Cylinder continuation and resolution differences.
+Left: difference from the exact cylinder, including physical toroidicity;
+the dashed public-CHEASE curve subtracts the derived first-order correction.
+Right: adjacent-resolution differences at fixed aspect ratio. CHEASE fields
+are exported-and-read-back fields; VMEC++/DESC use native states. KIN6D P3
+has no finite-$A$ result for these source laws. Sources:
+\texttt{phase5/results/finest.csv} and \texttt{resolution.csv}.}
+\end{center}
+
+\begin{center}\small
+\input{build/cylinder_values.tex}
+\captionof{table}{Finest public-CHEASE comparison at the largest aspect
+ratio. The first column of errors is physical toroidicity plus numerical
+error; it is not a numerical discretization error of that size.
+Source: \texttt{phase5/results/finest.csv}.}
+\end{center}
+
+CHEASE refinement resolves the toroidal continuation. Strong-twist Lundquist
+requires additional DESC spectral refinement; its finest capped states remain
+unqualified despite improved fields. KIN6D's exact Gold--Hoyle evaluator
+and the KIM code's actual native profile reader/ODE pass the signed analytic
+controls. Those checks supply equilibrium ingress for later KIM work, not a
+PDE convergence curve or a kinetic-response calculation. The committed
+\tcfile{equilibrium/phase5/results/README.md}{cylinder study} retains the
+unsupported KIN6D profile requests and the capped DESC states.
+
+\pageheading{Inverse and actual TC24 placeholders}
+\subsection*{Phase 3: prescribed safety factor}
+\textbf{Pending the inverse lane.} The required comparison fixes boundary,
+pressure and a declared global flux/current scale, and prescribes $q$ instead
+of $FF'$. It must compare the returned $F$, current, physical fields and flux
+maps under refinement. The exact Solov'ev $q(\psi)$ supplies one independent
+oracle; circular prescribed-$q$ cases supply the continuation to finite beta.
+
+KIN6D's reviewed inverse repair \kincommit{3a73515}{\texttt{3a73515}}
+has derivative regressions but is not an admitted physical comparison in this
+snapshot. Public and MARS-associated CHEASE use different native prescribed-$q$
+selectors. MARS still has an unresolved source-map/negative-$F^2$ failure
+after scoped repairs. A limitation classification requires a demonstrated
+correct limit and expected refinement behavior; failed iterations alone do
+not supply that classification.
+
+This section will receive the common-input table, returned-profile errors,
+rates and matched-cost curves, together with the relevant export/readback
+results. It contains no estimated inverse result.
+
+\subsection*{Phase 4b: actual TC24}
+\textbf{Inputs pinned; forward and consumer accuracy pending.} The new
+forward problem takes the stored JINTRAC pressure and $F^2/2$ profiles as
+cubic functions of absolute flux, with their exact derivatives. The received
+derivative arrays have an inconsistent sign and amplitude. Their integral
+ratios demonstrate why simply relabeling the convention cannot repair the
+input law.
+
+\begin{center}\small
+\input{build/source_consistency.tex}
+\captionof{table}{Received-profile consistency: derivative integral divided
+by stored profile change. These source checks define the new input choice;
+they are not solver errors. Source:
+\texttt{phase4/tc24/source\_consistency.csv}.}
+\end{center}
+
+Source COCOS 7 is adopted from the retained conversion precedent; the
+original producer declaration is unavailable. Its map to COCOS 3 retains the
+axis-maximum polarity. The common boundary is a smooth asymmetric Fourier
+curve near the source's $s_{\rm pol}=0.995$ contour. The X-point is outside
+the nested-surface comparison domain. Selecting that interior curve is a
+model-domain choice, not a repair of the original equilibrium.
+
+The pinned KIN6D capability check accepts the affine P2 profile control and
+rejects P3 profile loading. Generic nonlinear curved-P3 integration, estimator
+and signed profile readback are prerequisites for the intended reference.
+Once available, this section needs its reference-error ladder, equivalent
+source-law sampling in both CHEASE variants, the asymmetric spectral maps,
+and actual consumer errors. No TC24 export in this snapshot is promoted as
+an accuracy-qualified perturbation input.
+
+Authoritative pending-case inputs and measured capability rows:
+\tcfile{equilibrium/phase4/tc24/README.md}{TC24 source definition},
+\tcfile{equilibrium/phase4/tc24/case.json}{case pin},
+\tcfile{equilibrium/phase4/tc24/capability.csv}{capability CSV}.
+
+\pageheading{Defect ledger}
+The table preserves every row of the pinned live ERRATA ledger and adds the
+later KIN6D axis, solve and readback repairs named by the program. ``Fixed''
+means the recorded own-code integration, ``PR open'' a published scoped fix,
+and ``held PR'' a repair whose stated qualification is incomplete. These
+statuses do not certify an equilibrium or assert a live remote PR audit.
+Each reported repair retains its failing-before/passing-after behavioral
+evidence at the owner. This report did not rerun those tests.
+
+The dated PR index supersedes some older links: CHEASE input validation was
+consolidated into PR10, MARS validation into PR37, and the scoped MARS cubic
+integral, smoothing and DESC coordinate-inversion fixes have recorded upstream
+successors. CHEASE's fork is private and its upstream submission uses the
+recorded CLA/email route. Historical performance PRs are separate from numerical
+repairs. The KIN6D recovery-cap fix is linked to its main integration
+\kincommit{99fa2c8}{\texttt{99fa2c8}}, while preserving the lane revision used
+by E4. Older ledger statements remain identifiable in the source CSV.
+
+Sources: \tcfile{equilibrium/ERRATA.md}{live ERRATA},
+\tcfile{review/UPSTREAM_PRS.md}{dated PR index}, and the pinned KIN6D history.
+The \tcfile{equilibrium/ERRATA_ARCHIVE.md}{verbatim archive} retains withdrawn
+codes, historical diagnostics and superseded entries. All table rows and
+status adjustments are retained in \texttt{data/defects.csv}.
+
+\input{build/defects.tex}
+
+\pageheading{Classified limitations and remaining gaps}
+An error is numerical only when refinement approaches the correct result at
+the expected rate, or when the measured discrepancy is already below the
+working target. Unsupported capability and model-domain limits are separate
+classes. Unexplained accuracy is retained as a candidate and does not become
+a limitation merely because a solve is expensive.
+
+\input{build/limitations.tex}
+
+\pageheading{Reproduction and closure work}
+The report source, data snapshots and scripts live in
+\texttt{writeups/equilibrium/tc24}. The input manifest records each source
+commit, Git blob, SHA256 and row count. \texttt{figure\_points.csv} indexes
+each plotted point; \texttt{table\_cells.csv} indexes numerical table cells,
+including fitted slopes and maxima. Row numbers count data records from one,
+excluding the CSV header. Case constants are in \texttt{parameters.csv};
+metric and target definitions are in \texttt{metrics.csv}. No value is inferred
+from an image.
+
+\begin{quote}\small\ttfamily
+cd equilibrium/tc24\\
+python figures.py\\
+python tables.py\\
+python ledger.py\\
+latexmk -pdf -interaction=nonstopmode -halt-on-error\\
+\hspace*{1em}-outdir=build report.tex
+\end{quote}
+
+Use a disk-backed \texttt{TMPDIR}. These commands read the retained CSVs and
+create figures and the PDF under the ignored build directory. They do not
+launch native solvers. The optional snapshot command in the README refreshes
+the same fixed source revisions from local clones; updating to a later study
+requires changing the pins and revising affected claims deliberately.
+\texttt{artifacts.json} records uploaded PDF/figure URLs, hashes, generation
+commands and expiry. Slopbox URLs expire after three days; the source package
+is the durable reproduction path.
+
+Phase 6 is a report deliverable, not closure of the equilibrium slice. The
+controller still needs the Phase 3 and actual TC24 results, the missing
+KIN6D cylinder source-law capability, the stated solver/stopping qualifications,
+and dispositions for open defects and candidates. Consumer coverage must be
+extended where those paths will be used. Refreshed circular timing CSVs should
+replace the pre-Brent table before making the later claimed speed comparison.
+The provisional targets will remain conditional until the downstream
+sensitivity study connects equilibrium error to the final NTV quantities.
+
+\begin{thebibliography}{9}\small
+\bibitem{cerfon}
+A. J. Cerfon and J. P. Freidberg, ``One size fits all'' analytic solutions to
+the Grad--Shafranov equation, \emph{Physics of Plasmas} 17, 032502 (2010).
+\href{https://doi.org/10.1063/1.3328818}{doi:10.1063/1.3328818}.
+\bibitem{chease}
+H. L\"utjens, A. Bondeson and O. Sauter, The CHEASE code for toroidal MHD
+equilibria, \emph{Computer Physics Communications} 97, 219--260 (1996).
+\href{https://crppwww.epfl.ch/~sauter/chease/Lutjens_CHEASE_CPC96_OS.pdf}{Author-hosted paper}.
+\bibitem{panici}
+D. Panici, R. Conlin, D. W. Dudt, K. Unalmis and E. Kolemen,
+The DESC stellarator code suite. Part 1. Quick and accurate equilibria computations,
+\emph{Journal of Plasma Physics} 89, 955890303 (2023).
+\href{https://doi.org/10.1017/S0022377823000272}{doi:10.1017/S0022377823000272}.
+\bibitem{cocos}
+O. Sauter and S. Yu. Medvedev, Tokamak coordinate conventions: COCOS,
+\emph{Computer Physics Communications} 184, 293--302 (2013).
+\href{https://doi.org/10.1016/j.cpc.2012.09.010}{doi:10.1016/j.cpc.2012.09.010}.
+\bibitem{native}
+KIN6D, \href{https://github.com/itpplasma/kin6d/blob/99fa2c8/src/gs_majorant.f90}{native recovered-flux majorant}
+and \href{https://github.com/itpplasma/kin6d/blob/99fa2c8/theory/derivations/grad-shafranov-forward-majorant.md}{weighted forward derivation}.
+Executed source pins are retained per numerical row.
+\bibitem{companion}
+Plasma writeups, \href{https://github.com/itpplasma/writeups/blob/fabe925/theory/gs_solver_source_correspondence.md}{Grad--Shafranov source correspondence},
+\href{https://github.com/itpplasma/writeups/blob/fabe925/theory/desc_equilibrium_source_correspondence.md}{DESC correspondence}, and
+\href{https://github.com/itpplasma/writeups/blob/fabe925/theory/periodic_cylinder_correspondence.md}{periodic-cylinder companion}.
+Symbolic identities, native numerical probes and unresolved equivalence are
+distinguished at their owners.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,515 @@
+{
+  "description": "Committed inputs for the first Phase 6 draft; source metadata is historical.",
+  "tc24_commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+  "kin6d_data_commit": "3c851d71a4d5636dd9e92c4dd5b2b77a011e3ad2",
+  "kin6d_support_history": [
+    {
+      "commit": "99fa2c8da556f11c9facdd7687651883bc6fa5e2",
+      "subject": "Keep valid functional majorants when flux recovery reaches its iteration cap"
+    },
+    {
+      "commit": "82d4d1f6c6de8bc53add70d69fc7b21fcbd13cc4",
+      "subject": "Use corrected Brent interpolation for GS contour readback"
+    },
+    {
+      "commit": "fa5c388c79dda31345db62c378b65746492782dd",
+      "subject": "Make GS flux readback converge with the FE field and reuse contour work"
+    },
+    {
+      "commit": "451fa5b1058023c46efb48c798cec73a30ac8c2d",
+      "subject": "Recover magnetic axis with a local quartic flux fit"
+    },
+    {
+      "commit": "a50f8b6e6a6ca2be5109fdcae4da6e1a11ab8933",
+      "subject": "Fix shaped GS residual stagnation and bound CG work"
+    }
+  ],
+  "sources": [
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "PLAN.md",
+      "sha256": "16983ba21be1f5b0d23710b260dcff0c846f7318bdaffde090e4e3128e159c1d",
+      "git_blob": "a33c279c47d28bddc005af3a61af59b26fc89901",
+      "snapshot": "context/PLAN.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/CASE_CONTRACT.md",
+      "sha256": "cf6eee9b9899ce81888c7a1f7d5e4cd2da4073559a27eaa55739025ce9578d00",
+      "git_blob": "ce114b7a730b4d0eee858bc9c6cbf65b7bb32948",
+      "snapshot": "context/equilibrium__CASE_CONTRACT.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/ERRATA.md",
+      "sha256": "6d1f9eaeddf9c44af8854ab0ed9f245e6e58b6aa2b6308afe79ad7307e2baec7",
+      "git_blob": "3ba04e1a9cc37925d6a46ce3bb73952e4b2342bc",
+      "snapshot": "context/equilibrium__ERRATA.md",
+      "snapshot_sha256": "dfa9f1cbb4a4fb5e2bf21b2477c164447c354bab8a8c894b71119d260bac649d",
+      "snapshot_transform": "remove trailing blank lines from context text only"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "review/UPSTREAM_PRS.md",
+      "sha256": "2bda696acd8fb8faa39450e801a720e67644f0d37991aab64e579a07d97eefce",
+      "git_blob": "4f1879528b419fbde73f2edf08218d176a94add4",
+      "snapshot": "context/review__UPSTREAM_PRS.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase1/README.md",
+      "sha256": "b01d7d3052feedee822fdd13b0ed03a925a75d847f1d8df37edb3b4b2a4abd06",
+      "git_blob": "2cd61ae99686e227dabf755ac007b6150333d2bb",
+      "snapshot": "context/equilibrium__phase1__README.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase1/results/README.md",
+      "sha256": "9ba9ee79dfa7ca02236cc5df97c01113a2818660a501eb7cba24c42ac3decc15",
+      "git_blob": "adecba2ac4c5a70b0b98ba9b1eaeaefa26b2400a",
+      "snapshot": "context/equilibrium__phase1__results__README.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase1/results_export/README.md",
+      "sha256": "6e822a042a365244881ede55bbf66ffaedcca0c9c7c75398b189118d80a59be3",
+      "git_blob": "3cae67f76bca1a9e57e2f2ea121be307f60b4b1f",
+      "snapshot": "context/equilibrium__phase1__results_export__README.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/README.md",
+      "sha256": "9b64a4fcee3191a1533229dcdb2959e51ef82e0f4acf49ea05f4a35860916a95",
+      "git_blob": "6efc2ba79c05e2e9addba6cf6bfcdbdea4286544",
+      "snapshot": "context/equilibrium__phase2__results__README.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/README.md",
+      "sha256": "38e685c2772b7e1a94e5e9733ef49a738bc3dc551eacae9b1d39e14323db57e8",
+      "git_blob": "3f67eb8ae9a61e5dfd28ea2c73c9a584d3feb255",
+      "snapshot": "context/equilibrium__phase4__results__README.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/tc24/README.md",
+      "sha256": "254b76a0b1baaa49da34712f4f59be282dabfed5e877cad502617cf32bcaac5c",
+      "git_blob": "852f9c21056591d26d779ebeaffc99762072cb76",
+      "snapshot": "context/equilibrium__phase4__tc24__README.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/results/README.md",
+      "sha256": "93b715a883d66cc3216b996b020f7e5d27bc369aea864536b905f41e86725301",
+      "git_blob": "5c23a73adacb6f28adb836cc985fd201395b8a53",
+      "snapshot": "context/equilibrium__phase5__results__README.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase1/results/solovev_lcfs_A3.csv",
+      "sha256": "5d4754aeb48099891beed6964346dce701066ae3892fc63916d5072127a1e655",
+      "git_blob": "ed58fc58e338ef7876aaea20d7f37157565537aa",
+      "snapshot": "phase1/results/solovev_lcfs_A3.csv",
+      "rows": 25
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase1/results/solovev_cerfon_iter.csv",
+      "sha256": "ac0114b9f0f83df1d9a44ce17edaee3bab12b3cfe79ce2328505f8260caa8be2",
+      "git_blob": "3f66380510812e4b3eba55c1c748bbc25eeb1e58",
+      "snapshot": "phase1/results/solovev_cerfon_iter.csv",
+      "rows": 25
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase1/results_export/summary.csv",
+      "sha256": "acf836451e28a8e7bc44f3eb321fff9fd380c99bfd8394458e60e1a9e9cf1bc5",
+      "git_blob": "622643517ab5e1af9651456e97e6ebf8e24685f8",
+      "snapshot": "phase1/results_export/summary.csv",
+      "rows": 196
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E1_A40.csv",
+      "sha256": "5fcc0c909dcbe9cd0daf884c90b055a22c9143fd9c086a65e4f582437155f8ca",
+      "git_blob": "feb2012e61e46351844eb54aab2c5cbb57852099",
+      "snapshot": "phase2/results/E1_A40.csv",
+      "rows": 20
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E1_A20.csv",
+      "sha256": "baa4a2e2921ac93b617b016d0d95ecd5abfce150589ccdce2f835d2e4b87a28f",
+      "git_blob": "d4e88bde4372813ab862b71376f323d03deaa8e5",
+      "snapshot": "phase2/results/E1_A20.csv",
+      "rows": 20
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E1_A10.csv",
+      "sha256": "edc03a9685dc7d519859da9fcc324065bf0ad702d93c84b48342d12db4aba80d",
+      "git_blob": "262a6a052e18f51eb5ea1b729bb50136bb202d68",
+      "snapshot": "phase2/results/E1_A10.csv",
+      "rows": 20
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E1_A3p1.csv",
+      "sha256": "76eceee1e74456778ae36ca9ebef4b9a03594b354cd83370c30c34ce9c2bce31",
+      "git_blob": "ed15167a091a8e38f82a7e173ddbe69b744e3b45",
+      "snapshot": "phase2/results/E1_A3p1.csv",
+      "rows": 21
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E2_A40.csv",
+      "sha256": "c04cd179ec19ea21922ce7bdb7aa5d94984b97db9b4ee3c68efaa2f3093d8d65",
+      "git_blob": "5be0c05756968f96635351df3087bd545bc1f6aa",
+      "snapshot": "phase2/results/E2_A40.csv",
+      "rows": 20
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E2_A20.csv",
+      "sha256": "056073178a19aad61c10755b55eeca359f6cbe0515632bf1d27d3714f702871d",
+      "git_blob": "520e91baf81142ca37a91fcc2a3b224bb36ecc6d",
+      "snapshot": "phase2/results/E2_A20.csv",
+      "rows": 21
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E2_A10.csv",
+      "sha256": "41f43795a48a2270ffa0d88e7e88f58e2069d8eeb50adb5904e18180699e29f3",
+      "git_blob": "f5e62b201c8e80fa75e120350182e0bbdc4c3d48",
+      "snapshot": "phase2/results/E2_A10.csv",
+      "rows": 21
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/E2_A3p1.csv",
+      "sha256": "f793e9a63c92480a1abd85c4e1239471fa93561c5c3d9db438a3c6ef9cbe83f3",
+      "git_blob": "d7b53cb9941baa390d13e2b4dfaee482e0668906",
+      "snapshot": "phase2/results/E2_A3p1.csv",
+      "rows": 21
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/best_cost.csv",
+      "sha256": "4e1cc58f292d132966bbe251513bfaa23f3f08a9b1846cb7cf0bb8b411660818",
+      "git_blob": "aca902183b1ed82c5c2d99998e6bb7c28966ac4d",
+      "snapshot": "phase2/results/best_cost.csv",
+      "rows": 37
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/finest.csv",
+      "sha256": "e87dfe8154a11349a8a4e1ced4f435d7adbf8c8f0bc5d4dcf8fecee18ac0c300",
+      "git_blob": "b105835f14086c2f5f76bd5d62543f13a2aaed87",
+      "snapshot": "phase2/results/finest.csv",
+      "rows": 40
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/qualified.csv",
+      "sha256": "fdb2283e040d94af1538e5e451c233b5033ee874cae6adab38de96eb95b1968e",
+      "git_blob": "9c55263253fb8d8d82cc7f638f8691032749e881",
+      "snapshot": "phase2/results/qualified.csv",
+      "rows": 37
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/rates.csv",
+      "sha256": "106c7327cc1332e68fc7cd8b912d26d1f65db98cd458f2980f49558fe09a2ca0",
+      "git_blob": "292570d0a53064622b702ee27d3402b3f384ac23",
+      "snapshot": "phase2/results/rates.csv",
+      "rows": 40
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/reference_errors.csv",
+      "sha256": "80e32a522ec0a10a2eb52c1a3b97a48f4846e2c2db0940ee4c2e68246a58cf3f",
+      "git_blob": "50409c214950b188edd12aa38703d9020c827965",
+      "snapshot": "phase2/results/reference_errors.csv",
+      "rows": 8
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/exports.csv",
+      "sha256": "9332d5ba6bebd9cc87ab7c220495174b57dca69b001a267eb2b0ed933d882dbc",
+      "git_blob": "50560e72dfea31811b8a112365925ea2ad2dd29a",
+      "snapshot": "phase2/results/exports.csv",
+      "rows": 288
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/boozer.csv",
+      "sha256": "32187f807b67c00449a608e66a93b116624a77d5064834c54839f4665f1e7b24",
+      "git_blob": "be5a4b64bb6ebfce9b869c834cb905026a0663ce",
+      "snapshot": "phase2/results/boozer.csv",
+      "rows": 3456
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/boozer_volume.csv",
+      "sha256": "3ba5c4608e9dc2c5068e2c4349c3b3785472bf2b8c11db6abddbb9b5ba4e0f7f",
+      "git_blob": "a5cf1b36cc063d7fa125f7da50bc9904542546bb",
+      "snapshot": "phase2/results/boozer_volume.csv",
+      "rows": 96
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/E4_E1.csv",
+      "sha256": "ced600c9bac39eb1bf83aaa359d59de8966d29b2edcae35f45033505c87fd6ec",
+      "git_blob": "d63121e3e212344966e9c0a51a6ed3a55e5cfa31",
+      "snapshot": "phase4/results/E4_E1.csv",
+      "rows": 20
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/E4_E2.csv",
+      "sha256": "95ae060dd8209665d301644ea665ce2ef1179d21ffaccdbb1c0d98a789dab841",
+      "git_blob": "ff83327f4d45afb922d6d2f3e9ea8e07970aba50",
+      "snapshot": "phase4/results/E4_E2.csv",
+      "rows": 20
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/best_cost.csv",
+      "sha256": "3ae242241eb4182da7d3a5c460a173f05aa699f5a8e93c2b2b1144f2264bc0d1",
+      "git_blob": "a00e4d0b4e2da855c8944273ea2425a57a08debc",
+      "snapshot": "phase4/results/best_cost.csv",
+      "rows": 7
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/finest.csv",
+      "sha256": "cbc39466cae615f5d80c8d03f583b194bb70d52e6c1aa1e52e90762ce0774bae",
+      "git_blob": "6a036c599bd2d63cfe52a85a0010a1310b3474d1",
+      "snapshot": "phase4/results/finest.csv",
+      "rows": 10
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/qualified.csv",
+      "sha256": "5ae99aaa52f9bd77935d049939217027dd9a3b624122187686f73e7cb8ac754a",
+      "git_blob": "4adec81693614b64c6033dbb5216b6c2f5a805c8",
+      "snapshot": "phase4/results/qualified.csv",
+      "rows": 7
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/rates.csv",
+      "sha256": "e49b25a29b148fb8efa14ca3fd0b50ad93564b30091b882376086066977f23e6",
+      "git_blob": "11019cb3c4887b9babfe873b2230d367c0d8c08f",
+      "snapshot": "phase4/results/rates.csv",
+      "rows": 10
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/reference_errors.csv",
+      "sha256": "b52af947e27130407b63d8b527b560ed4fd0774342d4dfff99f74dd8d7a6cf82",
+      "git_blob": "090e6e3e4a141db91a67b960d99718153174573f",
+      "snapshot": "phase4/results/reference_errors.csv",
+      "rows": 2
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/exports.csv",
+      "sha256": "8f85fcd44d01941e7ac4aa7761175a459f1f69dd1df201293fb9f75ab2934adf",
+      "git_blob": "ffdab3eb923e20ed68a9ffce9b7ed290e48ab7fb",
+      "snapshot": "phase4/results/exports.csv",
+      "rows": 72
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/boozer.csv",
+      "sha256": "8b0d7f273a28812a3b54b753385a708f866544c88d906402d61625769e5f0eb9",
+      "git_blob": "1e11fe7c5a541c90ed2b8b110e2337cb957ebcb1",
+      "snapshot": "phase4/results/boozer.csv",
+      "rows": 864
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/boozer_volume.csv",
+      "sha256": "dfff3bb1e07db30c0f1c7e740b8092ccd87f7d5cf8edaeefaf5152c317810e44",
+      "git_blob": "7ebc3a1381d9e29ffcada0d98b3e57ba5ca848ef",
+      "snapshot": "phase4/results/boozer_volume.csv",
+      "rows": 24
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/results/physics.csv",
+      "sha256": "26bd0cd17829be6307fe0580c6c85f0258abe61cc015f9ac86f558ad9692e96a",
+      "git_blob": "4b11bd94ab927d4333af85f118de8cce12b4ce91",
+      "snapshot": "phase2/results/physics.csv",
+      "rows": 8
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/results/cost_by_bpol.csv",
+      "sha256": "7f83408f2ec82cbf3fd415a87f371dd99daf6d7bed33709f99af85dfc5379a1d",
+      "git_blob": "5933c31810e232501d1360310e807cb8670ce5ab",
+      "snapshot": "phase4/results/cost_by_bpol.csv",
+      "rows": 31
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/tc24/source_consistency.csv",
+      "sha256": "6568afd384ccabc29117c4d29490d4c916626d384992d044718c866a721d73ac",
+      "git_blob": "1961393d4a15eee2d26a9813ce10879d62b2965d",
+      "snapshot": "phase4/tc24/source_consistency.csv",
+      "rows": 6
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/tc24/capability.csv",
+      "sha256": "d6b06de80521c659ff808c37448e3cd74959a45b27204ab9e458cd38f1b2ab27",
+      "git_blob": "1ab3a7e1493165e9ccefa17fe43bd31dae5b8534",
+      "snapshot": "phase4/tc24/capability.csv",
+      "rows": 2
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/results/runs.csv",
+      "sha256": "878648982237fd1e20658f6b90212120e34376d218def439948f6f572d1e8e5f",
+      "git_blob": "9ed08dc29954738df1871dfd095fcbf35f4b0294",
+      "snapshot": "phase5/results/runs.csv",
+      "rows": 106
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/results/finest.csv",
+      "sha256": "db84c61c84936031a4afc9af4852c3cd51cc5d4f94c98c9698e96a652d24c0aa",
+      "git_blob": "52864f55b2a6d9bdeb24f47851bce03123948f1c",
+      "snapshot": "phase5/results/finest.csv",
+      "rows": 36
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/results/aspect_rates.csv",
+      "sha256": "f191ca054c13dd14f0a0258470a8bc2da168cb87fd460787131a1bb64de4c6fb",
+      "git_blob": "3c13551444e4012ea8226dc772fdc44c9f5fd1bb",
+      "snapshot": "phase5/results/aspect_rates.csv",
+      "rows": 24
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/results/resolution.csv",
+      "sha256": "7b74fb38a3bebf01eb3fc607913ecad3c2609d16c5981c76bd879d8e64e5f906",
+      "git_blob": "26c49cf0677ebe8ffab0b1efd64c460b88e6f671",
+      "snapshot": "phase5/results/resolution.csv",
+      "rows": 68
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/results/signs.csv",
+      "sha256": "6368993a27f1f292c414c3d1ba79b837f67fea758a2894631dd5555b2ce1f0a5",
+      "git_blob": "f4d54b86095d45cc95efa78a45135299277091d3",
+      "snapshot": "phase5/results/signs.csv",
+      "rows": 4
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/results/failures.csv",
+      "sha256": "ff6d0895c003ff4b694a6f49ceff50f62bc104d794f9201fa5e4e88046a654fe",
+      "git_blob": "f5cad44f96f794979f6d1a978e862bfdd4f2bdfe",
+      "snapshot": "phase5/results/failures.csv",
+      "rows": 5
+    },
+    {
+      "repository": "kin6d",
+      "commit": "3c851d71a4d5636dd9e92c4dd5b2b77a011e3ad2",
+      "path": "benchmarks/gs-phase1/p2-p3.csv",
+      "sha256": "6ad4d8965c50a5b5886884691e11e1942c3707c943304f58555702b255f1c3ba",
+      "git_blob": "c0072ff6c09c321eb18f9b66b9818510c0d2bf0a",
+      "snapshot": "kin6d/p2-p3.csv",
+      "rows": 16
+    },
+    {
+      "repository": "kin6d",
+      "commit": "3c851d71a4d5636dd9e92c4dd5b2b77a011e3ad2",
+      "path": "benchmarks/gs-phase1/README.md",
+      "sha256": "4ecbd30240bdfb07713ab63836b009f00a8168552de677d2ecde101905d4829b",
+      "git_blob": "43e2060deb8e93eb1cc5db71402c70abef6a0302",
+      "snapshot": "context/kin6d-p2-p3.md"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase1/cases.json",
+      "sha256": "771c875afcb697bb27b9b59ef929633b47718359eb7e0bee044d0569c0922729",
+      "git_blob": "9881d9f3b594a0dca2cc3a2f9b172716ca91f782"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase2/cases.json",
+      "sha256": "1a5debd10c4b1a987de88076c7c5353178bdd48cd146c6a5ead1eeba7ae7df71",
+      "git_blob": "2ba5823948102ec96ce3bd91cca44e910be6d6be"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase4/cases.json",
+      "sha256": "93d5fd5a18e6d7af9fa6b295de2355d8ebe820cc3e48866cbc5b8b7962cbdc54",
+      "git_blob": "6fc0fe2443f5a57db9bbeb31acf2f2751e2c6a49"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e",
+      "path": "equilibrium/phase5/cases.json",
+      "sha256": "ac167fc07ff55403c4c89664c4cc747971ed33144c08bc50ca27a3b47653f241",
+      "git_blob": "36cef5f7b1d825550926586d6b0d58d477b551be"
+    }
+  ]
+}

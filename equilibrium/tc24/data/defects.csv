@@ -1,0 +1,69 @@
+code,ids,issue,source_status,report_status,links,note,source
+iter_tc24 / DESC producer,EQ-CYL-1,Continuation rejects a valid symmetric deck with omitted zero Fourier families,fixed on main,fixed on main,[25d20db2d](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/25d20db2d),,equilibrium/ERRATA.md
+libneo,EQ-EXPORT-1,EFIT Python wrapper passes float arguments to double Fortran routines,PR open,PR open,"[libneo #422](https://github.com/itpplasma/libneo/pull/422), `1b867ec`",,equilibrium/ERRATA.md
+NEO-2,EQ-EXPORT-3,Full magnetic reader aborts on the second surface,PR open,PR open,"[PR193](https://github.com/itpplasma/NEO-2/pull/193), `a0b7039`",,equilibrium/ERRATA.md
+KIN6D,EQ-P4A-1,Valid P3 functional estimate discarded at recovery iteration cap,fixed on main,fixed on main,[99fa2c8](https://github.com/itpplasma/kin6d/commit/99fa2c8); lane 1ada383,Main integration confirmed in the separately pinned KIN6D history.,equilibrium/ERRATA.md
+FortNum,EQ-OH-1,Brent root finder rejected interpolation steps and fell back to bisection,fixed on main,fixed on main,[fortnum 5f166bc](https://github.com/lazy-fortran/fortnum/commit/5f166bc); kin6d `82d4d1f` pins it,,equilibrium/ERRATA.md
+KIN6D,EQ-D76,Invalid mu0 accepted,fixed on main,fixed on main,[c8cbbe8](https://github.com/itpplasma/kin6d/commit/c8cbbe8),,equilibrium/ERRATA.md
+KIN6D,EQ-D78,P2 connectivity interpreted as P1,fixed on main,fixed on main,[f073eba](https://github.com/itpplasma/kin6d/commit/f073eba),,equilibrium/ERRATA.md
+KIN6D,EQ-D83,Gauge-dependent field/current derivatives,fixed on main,fixed on main,[PR1](https://github.com/itpplasma/kin6d/pull/1),,equilibrium/ERRATA.md
+KIN6D,EQ-D94,Valid face endpoint falsely rejected by JVP,fixed on main,fixed on main,[PR3](https://github.com/itpplasma/kin6d/pull/3),,equilibrium/ERRATA.md
+KIN6D,EQ-D99,Profile cuts aliased by polynomial source quadrature,fixed on main,fixed on main,[PR4](https://github.com/itpplasma/kin6d/pull/4); inverse branch still pending,,equilibrium/ERRATA.md
+KIN6D,EQ-D110,Directional load error/gauge omitted,open,open,"[3a73515](https://github.com/itpplasma/kin6d/commit/3a73515); verified branch, not main",,equilibrium/ERRATA.md
+KIN6D,EQ-D116,Outside reference point accepted,fixed on main,fixed on main,[a262675](https://github.com/itpplasma/kin6d/commit/a262675); PR6 closed after integration,,equilibrium/ERRATA.md
+KIN6D,EQ-D15,Curved P2 magnetic-axis error has irregular refinement,open candidate,open candidate,Pinned `cc89c37`; Phase 1 common comparison,,equilibrium/ERRATA.md
+FortFEM,EQ-D70,P2 Hessians omit product terms,fixed on main,fixed on main,[25975b3](https://github.com/lazy-fortran/fortfem/commit/25975b3),,equilibrium/ERRATA.md
+FortFEM,EQ-D75,Piola derivative invalid-map success status,fixed on main,fixed on main,[aa05f2c](https://github.com/lazy-fortran/fortfem/commit/aa05f2c),,equilibrium/ERRATA.md
+FortFEM,EQ-D90,Large-origin P2 geometry cancellation,fixed on main,fixed on main,[9d0994b](https://github.com/lazy-fortran/fortfem/commit/9d0994b),,equilibrium/ERRATA.md
+FortFEM,EQ-D93,Invalid NURBS geometry accepted,fixed on main,fixed on main,[054822d](https://github.com/lazy-fortran/fortfem/commit/054822d),,equilibrium/ERRATA.md
+Public CHEASE,EQ-D14,Vertical box mixes SI/normalized units,PR open,PR open,[PR1](https://github.com/itpplasma/chease/pull/1),Fork private; upstream email/CLA route recorded. Not merged.,equilibrium/ERRATA.md
+Public CHEASE,EQ-D23,Thin-flux smoothing has too few knots; failed spline status overwritten,PR open,PR open,"[PR16](https://github.com/itpplasma/chease/pull/16) (cutoff), [PR17](https://github.com/itpplasma/chease/pull/17) (status); PR2 superseded",Fork private; upstream email/CLA route recorded. Not merged.,equilibrium/ERRATA.md
+Public CHEASE,EQ-D30,Band counts and addresses overflow int32,PR open,PR open,[PR3](https://github.com/itpplasma/chease/pull/3),,equilibrium/ERRATA.md
+Public CHEASE,EQ-D46,Fourth smoothed-jet slot duplicated,PR open,PR open,[PR4](https://github.com/itpplasma/chease/pull/4),Fork private; upstream email/CLA route recorded. Not merged.,equilibrium/ERRATA.md
+Public CHEASE,EQ-D59,Singleton/zero-pivot factorization errors,PR open,PR open,"[PR18](https://github.com/itpplasma/chease/pull/18), split from performance PR5",,equilibrium/ERRATA.md
+Public CHEASE,EQ-D72,Effective quadrature count/capacity mismatch,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
+Public CHEASE,EQ-D72,Radial endpoint uses singular axis operator,PR open,PR open,[consolidated PR](https://github.com/itpplasma/chease/pull/10),Consolidated in the dated DC-8 index.,equilibrium/ERRATA.md
+Public CHEASE,EQ-D85,Unmatched boundary angle uses unset index,PR open,PR open,[consolidated PR](https://github.com/itpplasma/chease/pull/10),Consolidated in the dated DC-8 index.,equilibrium/ERRATA.md
+Public CHEASE,EQ-D84,Zero-tension q interpolation ignores failure,PR open,PR on hold,[PR13](https://github.com/itpplasma/chease/pull/13),,equilibrium/ERRATA.md
+Public CHEASE,EQ-D85,Unsupported Gaussian order uses unset weights,PR open,PR open,[consolidated PR](https://github.com/itpplasma/chease/pull/10),Consolidated in the dated DC-8 index.,equilibrium/ERRATA.md
+Public CHEASE,EQ-D88,Axis normalization predates smoothing,PR open,PR on hold,[PR15](https://github.com/itpplasma/chease/pull/15),,equilibrium/ERRATA.md
+Public CHEASE,EQ-D08/EQ-D31,Unexplained export/force accuracy; candidate only,open,open,No numerical-code PR established,,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D39,Cubic profile primitive factor/sign wrong,PR open,PR open,[upstream PR6](https://github.com/gafusion/MARS-Q/pull/6); fork PR30 closed,,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D46,Fourth smoothed-jet slot duplicated,PR open,PR open,[upstream PR7](https://github.com/gafusion/MARS-Q/pull/7); fork PR31 closed,,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D59,Factorization edge errors/unset success status,PR open,PR open,"[PR45](https://github.com/krystophny/MARS-Q/pull/45), split from performance PR32",,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D63,Axis F uses TMF as interpolation coordinate,PR open,PR on hold,[PR35](https://github.com/krystophny/MARS-Q/pull/35),,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D72,Quadrature count/capacity mismatch,PR open,PR open,[PR37](https://github.com/krystophny/MARS-Q/pull/37),,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D72,Radial endpoint uses singular axis operator,PR open,PR open,[consolidated PR](https://github.com/krystophny/MARS-Q/pull/37),Consolidated in the dated DC-8 index.,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D84,Prescribed-q source-current sign wrong,PR open,PR on hold,[PR39](https://github.com/krystophny/MARS-Q/pull/39),,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D87,Undefined/incorrect inner coarea,PR open,PR on hold,[PR40](https://github.com/krystophny/MARS-Q/pull/40); q4 continuation superseded by [PR42](https://github.com/krystophny/MARS-Q/pull/42),,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D88,Axis normalization predates smoothing,PR open,PR on hold,[PR41](https://github.com/krystophny/MARS-Q/pull/41),,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D88,Singular F² source/current primitive,PR open,PR on hold,[PR43](https://github.com/krystophny/MARS-Q/pull/43); direct API/knots scope,,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D88,Remaining inverse failure is unexplained,open,open,[issue44](https://github.com/krystophny/MARS-Q/issues/44),,equilibrium/ERRATA.md
+VMEC++,EQ-D12,Unexplained boundary/force convergence; candidate only,open,open,No native solver repair established,,equilibrium/ERRATA.md
+VMEC++ / readers,EQ-D22/EQ-D29,Incorrect odd-mode/axis reconstruction,fixed on main,fixed on main,[Retained reader revisions](data/vmecpp_axis_readback_20261007/manifest.json); [35583217c](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/35583217c),,equilibrium/ERRATA.md
+DESC / readers,EQ-D19,External profile converts a JAX tracer with NumPy,fixed on main,fixed on main,[8a2830829](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/8a2830829),,equilibrium/ERRATA.md
+DESC,EQ-D33,Incorrect signed basis labels/units (metadata only),PR open,PR open,"[PR4](https://github.com/itpplasma/DESC/pull/4), [PR5](https://github.com/itpplasma/DESC/pull/5); PR2 superseded",,equilibrium/ERRATA.md
+DESC,DESC-D01,Failed coordinate inversion returns boundary fields instead of NaN,PR open,PR open,[upstream PR2347](https://github.com/PlasmaControl/DESC/pull/2347); fork PR3 closed,,equilibrium/ERRATA.md
+DESC,EQ-D20,Shaped Cerfon case above target (3.5e-3 Bpol at L=M=14),"explained: boundary truncation at M, not a defect",explained,see EQ-D20,,equilibrium/ERRATA.md
+DESC,EQ-D20,Unexplained unconverged TC24 accuracy,open,open,No native solver defect established,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D23,Spline failure overwritten by later success,PR open,PR open,[MR1](https://gitlab.tugraz.at/plasma/libs/interpos/-/merge_requests/1),,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D03,Valid omitted-E exponent rejected,fixed on main,fixed on main,[06a0c32ca](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/06a0c32ca),,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D54,Incomplete producer-aware COCOS conversion,fixed on main,fixed on main,[3837efd2f](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/3837efd2f),,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D57,VMEC chart fixture/flux map wrong,open,open,Repair checked; publication revision unrecorded,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D24,Mixed P1/smooth inverse-profile construction,fixed on main,fixed on main,[d393327fa](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/d393327fa); unsafe ingress blocked,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D38,Nonfinite/incomplete radial maps accepted,fixed on main,fixed on main,[5e9204e34](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/5e9204e34),,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D78,Mesh version/connectivity ignored,fixed on main,fixed on main,[d393327fa](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/d393327fa),,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D35,Inner sample reported as domain-wide force,fixed on main,fixed on main,[3115ca5e9](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/3115ca5e9); coverage correction,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D60,Indexwise grids/dimensional tolerance mixed,fixed on main,fixed on main,[81ab49ff5](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/81ab49ff5),,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D69,Vertex-only boundary maximum mislabeled,open,open,Historical field unchanged; whole-edge correction retained,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D102,Standalone/forward EXPEQ headers invalid,PR open,PR on hold,[PR43](https://github.com/krystophny/MARS-Q/pull/43); separate local forward fix retained,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D103,Pre/post-normalization fields combined,open,open,Historical correction retained; producer integration pending,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D105,Nonfinite cylinder references accepted,fixed on main,fixed on main,[eaaf2f7f9](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/eaaf2f7f9); native NaN rejection,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D107,Sample RMS mislabeled as volume RMS,fixed on main,fixed on main,[ef464e4ca](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/ef464e4ca),,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D109,Pressure oracle mixed reference interpolations,fixed on main,fixed on main,[ece8d6bf4](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/ece8d6bf4),,equilibrium/ERRATA.md
+External evaluator,EQ-D89,Physical force norm omits metric cross term,PR open,PR open,[PR1](https://github.com/dpanici/VMECerror/pull/1),,equilibrium/ERRATA.md
+FortSym,EQ-D111,Generated real64 alias shadows legal arguments,fixed on main,fixed on main,[f749e65](https://github.com/lazy-fortran/fortsym/commit/f749e65),,equilibrium/ERRATA.md
+KIN6D,EQ-D15 (axis),Irregular magnetic-axis recovery; local quartic fit restores refinement.,owning-code history,fixed on main,[451fa5b](https://github.com/itpplasma/kin6d/commit/451fa5b),Supplement to the older TC24 ledger; no replacement of historical rows.,KIN6D history / TC24 PLAN
+KIN6D,KIN6D CG,Shaped-mesh residual stagnation; repaired solve and bounded iteration work.,owning-code history,fixed on main,[a50f8b6](https://github.com/itpplasma/kin6d/commit/a50f8b6),Supplement to the older TC24 ledger; no replacement of historical rows.,KIN6D history / TC24 PLAN
+KIN6D,KIN6D readback,Fixed contour/profile sampling floor; field-consistent flux readback.,owning-code history,fixed on main,[fa5c388](https://github.com/itpplasma/kin6d/commit/fa5c388),Supplement to the older TC24 ledger; no replacement of historical rows.,KIN6D history / TC24 PLAN
+libneo,EQ-EXPORT-2,Finite-flux boundary scan and header precision; export limits removed.,numerical export limits,PR open,[PR423](https://github.com/itpplasma/libneo/pull/423); [fork PR2](https://github.com/krystophny/libneo/pull/2),"Expected-rate / serialization limitations, not an unexplained solver result.",equilibrium/ERRATA.md

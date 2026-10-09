@@ -10,4 +10,6 @@
 
 - [VMEC++ hybrid lambda correspondence](theory/vmecpp_hybrid_lambda_correspondence.md).
 
+- [TC24 equilibrium report](equilibrium/tc24/README.md): first Phase 6 draft with committed-data figures, consumer accuracy and the defect ledger.
+
 - Proposed [RMP whole-model correspondence](theory/rmp_model_correspondence_plan.md): coverage, evidence and ownership for later comparisons.

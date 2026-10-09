@@ -1,0 +1,236 @@
+object,field,value,operation,sources
+exact:solovev_lcfs_A3:kin6d:2,psi_l2_rate,3.025469043088279,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:19;phase1/results/solovev_lcfs_A3.csv:20;phase1/results/solovev_lcfs_A3.csv:21
+exact:solovev_lcfs_A3:kin6d:2,bpol_l2_rate,2.0230489191834815,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:19;phase1/results/solovev_lcfs_A3.csv:20;phase1/results/solovev_lcfs_A3.csv:21
+exact:solovev_lcfs_A3:kin6d:2,bpol_l2,1.572634877270787e-05,identity,phase1/results/solovev_lcfs_A3.csv:21
+exact:solovev_lcfs_A3:kin6d:2,wall_s,2.692485847,identity,phase1/results/solovev_lcfs_A3.csv:21
+exact:solovev_lcfs_A3:kin6d:3,psi_l2_rate,4.074152616090786,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:23;phase1/results/solovev_lcfs_A3.csv:24;phase1/results/solovev_lcfs_A3.csv:25
+exact:solovev_lcfs_A3:kin6d:3,bpol_l2_rate,3.2837652677545255,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:23;phase1/results/solovev_lcfs_A3.csv:24;phase1/results/solovev_lcfs_A3.csv:25
+exact:solovev_lcfs_A3:kin6d:3,bpol_l2,7.829841281159869e-06,identity,phase1/results/solovev_lcfs_A3.csv:23
+exact:solovev_lcfs_A3:kin6d:3,wall_s,0.031632205,identity,phase1/results/solovev_lcfs_A3.csv:23
+PthreeAthreeTime,wall_s,0.031632205,identity,phase1/results/solovev_lcfs_A3.csv:23
+PthreeAthreeError,bpol_l2,7.829841281159869e-06,identity,phase1/results/solovev_lcfs_A3.csv:23
+exact:solovev_lcfs_A3:chease_public:None,psi_l2_rate,4.952220247081451,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:1;phase1/results/solovev_lcfs_A3.csv:3;phase1/results/solovev_lcfs_A3.csv:4
+exact:solovev_lcfs_A3:chease_public:None,bpol_l2_rate,3.681522989475455,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:1;phase1/results/solovev_lcfs_A3.csv:3;phase1/results/solovev_lcfs_A3.csv:4
+exact:solovev_lcfs_A3:chease_public:None,bpol_l2,6.624412395480158e-06,identity,phase1/results/solovev_lcfs_A3.csv:3
+exact:solovev_lcfs_A3:chease_public:None,wall_s,5.984381449175999,identity,phase1/results/solovev_lcfs_A3.csv:3
+exact:solovev_lcfs_A3:chease_mars:None,psi_l2_rate,4.499373728818231,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:6;phase1/results/solovev_lcfs_A3.csv:7;phase1/results/solovev_lcfs_A3.csv:8
+exact:solovev_lcfs_A3:chease_mars:None,bpol_l2_rate,3.245157609630293,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:6;phase1/results/solovev_lcfs_A3.csv:7;phase1/results/solovev_lcfs_A3.csv:8
+exact:solovev_lcfs_A3:chease_mars:None,bpol_l2,6.953885585784356e-06,identity,phase1/results/solovev_lcfs_A3.csv:7
+exact:solovev_lcfs_A3:chease_mars:None,wall_s,2.926479616202414,identity,phase1/results/solovev_lcfs_A3.csv:7
+exact:solovev_lcfs_A3:vmecpp:None,psi_l2_rate,1.7179940883485145,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:10;phase1/results/solovev_lcfs_A3.csv:11;phase1/results/solovev_lcfs_A3.csv:12
+exact:solovev_lcfs_A3:vmecpp:None,bpol_l2_rate,1.1502920088641648,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:10;phase1/results/solovev_lcfs_A3.csv:11;phase1/results/solovev_lcfs_A3.csv:12
+exact:solovev_lcfs_A3:vmecpp:None,bpol_l2,0.00012593450481125927,identity,phase1/results/solovev_lcfs_A3.csv:12
+exact:solovev_lcfs_A3:vmecpp:None,wall_s,24.21413642214611,identity,phase1/results/solovev_lcfs_A3.csv:12
+exact:solovev_lcfs_A3:desc:None,psi_l2_rate,1.1276125256192064,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:15;phase1/results/solovev_lcfs_A3.csv:16;phase1/results/solovev_lcfs_A3.csv:17
+exact:solovev_lcfs_A3:desc:None,bpol_l2_rate,1.0137053277468056,least-squares log(error) fit; see report rate definition,phase1/results/solovev_lcfs_A3.csv:15;phase1/results/solovev_lcfs_A3.csv:16;phase1/results/solovev_lcfs_A3.csv:17
+exact:solovev_lcfs_A3:desc:None,bpol_l2,1.7413358451622164e-06,identity,phase1/results/solovev_lcfs_A3.csv:17
+exact:solovev_lcfs_A3:desc:None,wall_s,200.39605920598842,identity,phase1/results/solovev_lcfs_A3.csv:17
+owner:solovev_lcfs_A3:P2,n,576,identity,kin6d/p2-p3.csv:4
+owner:solovev_lcfs_A3:P2,dof,187193,identity,kin6d/p2-p3.csv:4
+owner:solovev_lcfs_A3:P2,psi_l2,2.4311875297970322e-08,identity,kin6d/p2-p3.csv:4
+owner:solovev_lcfs_A3:P2,bpol_l2,6.972822288495107e-06,identity,kin6d/p2-p3.csv:4
+owner:solovev_lcfs_A3:P2,wall_s,9.785507455,identity,kin6d/p2-p3.csv:4
+owner:solovev_lcfs_A3:P3,n,48,identity,kin6d/p2-p3.csv:5
+owner:solovev_lcfs_A3:P3,dof,2854,identity,kin6d/p2-p3.csv:5
+owner:solovev_lcfs_A3:P3,psi_l2,3.175276718765773e-07,identity,kin6d/p2-p3.csv:5
+owner:solovev_lcfs_A3:P3,bpol_l2,7.829841281159869e-06,identity,kin6d/p2-p3.csv:5
+owner:solovev_lcfs_A3:P3,wall_s,0.031519325,identity,kin6d/p2-p3.csv:5
+exact:solovev_cerfon_iter:kin6d:2,psi_l2_rate,3.2025164813316813,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:19;phase1/results/solovev_cerfon_iter.csv:20;phase1/results/solovev_cerfon_iter.csv:21
+exact:solovev_cerfon_iter:kin6d:2,bpol_l2_rate,2.1605137740006644,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:19;phase1/results/solovev_cerfon_iter.csv:20;phase1/results/solovev_cerfon_iter.csv:21
+exact:solovev_cerfon_iter:kin6d:2,bpol_l2,5.8378652436314666e-05,identity,phase1/results/solovev_cerfon_iter.csv:21
+exact:solovev_cerfon_iter:kin6d:2,wall_s,0.603068001,identity,phase1/results/solovev_cerfon_iter.csv:21
+exact:solovev_cerfon_iter:kin6d:3,psi_l2_rate,4.0519493902591295,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:23;phase1/results/solovev_cerfon_iter.csv:24;phase1/results/solovev_cerfon_iter.csv:25
+exact:solovev_cerfon_iter:kin6d:3,bpol_l2_rate,4.096386352213888,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:23;phase1/results/solovev_cerfon_iter.csv:24;phase1/results/solovev_cerfon_iter.csv:25
+exact:solovev_cerfon_iter:kin6d:3,bpol_l2,2.12400511634292e-06,identity,phase1/results/solovev_cerfon_iter.csv:24
+exact:solovev_cerfon_iter:kin6d:3,wall_s,0.329666442,identity,phase1/results/solovev_cerfon_iter.csv:24
+PthreeCerfonTime,wall_s,0.329666442,identity,phase1/results/solovev_cerfon_iter.csv:24
+PthreeCerfonError,bpol_l2,2.12400511634292e-06,identity,phase1/results/solovev_cerfon_iter.csv:24
+exact:solovev_cerfon_iter:chease_public:None,psi_l2_rate,4.385688593218163,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:2;phase1/results/solovev_cerfon_iter.csv:3;phase1/results/solovev_cerfon_iter.csv:4
+exact:solovev_cerfon_iter:chease_public:None,bpol_l2_rate,3.4163376689633127,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:2;phase1/results/solovev_cerfon_iter.csv:3;phase1/results/solovev_cerfon_iter.csv:4
+exact:solovev_cerfon_iter:chease_public:None,bpol_l2,1.7074637684904145e-06,identity,phase1/results/solovev_cerfon_iter.csv:4
+exact:solovev_cerfon_iter:chease_public:None,wall_s,19.9552445251029,identity,phase1/results/solovev_cerfon_iter.csv:4
+exact:solovev_cerfon_iter:chease_mars:None,psi_l2_rate,4.291496069000158,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:6;phase1/results/solovev_cerfon_iter.csv:7;phase1/results/solovev_cerfon_iter.csv:8
+exact:solovev_cerfon_iter:chease_mars:None,bpol_l2_rate,3.2223198315186874,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:6;phase1/results/solovev_cerfon_iter.csv:7;phase1/results/solovev_cerfon_iter.csv:8
+exact:solovev_cerfon_iter:chease_mars:None,bpol_l2,2.246274659133823e-06,identity,phase1/results/solovev_cerfon_iter.csv:8
+exact:solovev_cerfon_iter:chease_mars:None,wall_s,12.440464859129861,identity,phase1/results/solovev_cerfon_iter.csv:8
+exact:solovev_cerfon_iter:vmecpp:None,psi_l2_rate,1.353290447540712,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:10;phase1/results/solovev_cerfon_iter.csv:11;phase1/results/solovev_cerfon_iter.csv:12
+exact:solovev_cerfon_iter:vmecpp:None,bpol_l2_rate,0.9658166576994293,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:10;phase1/results/solovev_cerfon_iter.csv:11;phase1/results/solovev_cerfon_iter.csv:12
+exact:solovev_cerfon_iter:vmecpp:None,bpol_l2,0.00031963754214593335,identity,phase1/results/solovev_cerfon_iter.csv:12
+exact:solovev_cerfon_iter:vmecpp:None,wall_s,53.44765658513643,identity,phase1/results/solovev_cerfon_iter.csv:12
+exact:solovev_cerfon_iter:desc:None,psi_l2_rate,0.8768390885952446,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:15;phase1/results/solovev_cerfon_iter.csv:16;phase1/results/solovev_cerfon_iter.csv:17
+exact:solovev_cerfon_iter:desc:None,bpol_l2_rate,0.6771381833031764,least-squares log(error) fit; see report rate definition,phase1/results/solovev_cerfon_iter.csv:15;phase1/results/solovev_cerfon_iter.csv:16;phase1/results/solovev_cerfon_iter.csv:17
+exact:solovev_cerfon_iter:desc:None,bpol_l2,0.0006596586206271687,identity,phase1/results/solovev_cerfon_iter.csv:17
+exact:solovev_cerfon_iter:desc:None,wall_s,280.09678402519785,identity,phase1/results/solovev_cerfon_iter.csv:17
+owner:solovev_cerfon_iter:P2,n,576,identity,kin6d/p2-p3.csv:12
+owner:solovev_cerfon_iter:P2,dof,273725,identity,kin6d/p2-p3.csv:12
+owner:solovev_cerfon_iter:P2,psi_l2,1.985767595919513e-08,identity,kin6d/p2-p3.csv:12
+owner:solovev_cerfon_iter:P2,bpol_l2,6.578069766907325e-06,identity,kin6d/p2-p3.csv:12
+owner:solovev_cerfon_iter:P2,wall_s,22.379480236,identity,kin6d/p2-p3.csv:12
+owner:solovev_cerfon_iter:P3,n,96,identity,kin6d/p2-p3.csv:14
+owner:solovev_cerfon_iter:P3,dof,16948,identity,kin6d/p2-p3.csv:14
+owner:solovev_cerfon_iter:P3,psi_l2,1.120187705652453e-07,identity,kin6d/p2-p3.csv:14
+owner:solovev_cerfon_iter:P3,bpol_l2,2.12400511634292e-06,identity,kin6d/p2-p3.csv:14
+owner:solovev_cerfon_iter:P3,wall_s,0.330434706,identity,kin6d/p2-p3.csv:14
+phase2_cost:E1_A40,wall_s,1.9424343849532306,identity,phase2/results/best_cost.csv:19
+phase2_cost:E1_A40,wall_s,1.2760825660079718,identity,phase2/results/best_cost.csv:18
+phase2_cost:E1_A40,wall_s,1.2692157260607928,identity,phase2/results/best_cost.csv:17
+phase2_cost:E1_A40,wall_s,5.6356149518396705,identity,phase2/results/best_cost.csv:15
+phase2_cost:E1_A40,wall_s,30.530298815108836,identity,phase2/results/best_cost.csv:16
+phase2_reference:E1_A40,psi_richardson,6.008404620733627e-10,identity,phase2/results/reference_errors.csv:4
+phase2_reference:E1_A40,bpol_richardson,7.149582426654372e-09,identity,phase2/results/reference_errors.csv:4
+phase2_reference:E1_A40,majorant_relative,1.6516186759193583e-08,identity,phase2/results/reference_errors.csv:4
+phase2_reference:E1_A40,majorant_to_richardson,2.3100911037292966,identity,phase2/results/reference_errors.csv:4
+phase2_cost:E1_A20,wall_s,1.9984359028749168,identity,phase2/results/best_cost.csv:10
+phase2_cost:E1_A20,wall_s,1.171469597145915,identity,phase2/results/best_cost.csv:9
+phase2_cost:E1_A20,wall_s,1.3202894490677863,identity,phase2/results/best_cost.csv:8
+phase2_cost:E1_A20,wall_s,8.651856779120862,identity,phase2/results/best_cost.csv:6
+phase2_cost:E1_A20,wall_s,32.735265291063115,identity,phase2/results/best_cost.csv:7
+phase2_reference:E1_A20,psi_richardson,6.003624486049423e-10,identity,phase2/results/reference_errors.csv:2
+phase2_reference:E1_A20,bpol_richardson,8.056063981517938e-09,identity,phase2/results/reference_errors.csv:2
+phase2_reference:E1_A20,majorant_relative,1.6890349095952683e-08,identity,phase2/results/reference_errors.csv:2
+phase2_reference:E1_A20,majorant_to_richardson,2.0966006643817856,identity,phase2/results/reference_errors.csv:2
+phase2_cost:E1_A10,wall_s,1.9926920409779996,identity,phase2/results/best_cost.csv:5
+phase2_cost:E1_A10,wall_s,1.278149131918326,identity,phase2/results/best_cost.csv:3
+phase2_cost:E1_A10,wall_s,1.5226337118074298,identity,phase2/results/best_cost.csv:4
+phase2_cost:E1_A10,wall_s,7.313897741958499,identity,phase2/results/best_cost.csv:1
+phase2_cost:E1_A10,wall_s,35.958745404845104,identity,phase2/results/best_cost.csv:2
+phase2_reference:E1_A10,psi_richardson,6.007228723158879e-10,identity,phase2/results/reference_errors.csv:1
+phase2_reference:E1_A10,bpol_richardson,7.590700383593258e-09,identity,phase2/results/reference_errors.csv:1
+phase2_reference:E1_A10,majorant_relative,1.817989523281797e-08,identity,phase2/results/reference_errors.csv:1
+phase2_reference:E1_A10,majorant_to_richardson,2.3950221078561444,identity,phase2/results/reference_errors.csv:1
+phase2_cost:E1_A3p1,wall_s,5.162639998132363,identity,phase2/results/best_cost.csv:14
+phase2_cost:E1_A3p1,wall_s,2.4747209341730922,identity,phase2/results/best_cost.csv:13
+phase2_cost:E1_A3p1,wall_s,3.8262792530003935,identity,phase2/results/best_cost.csv:12
+phase2_cost:E1_A3p1,wall_s,60.48764340300113,identity,phase2/results/best_cost.csv:11
+phase2_reference:E1_A3p1,psi_richardson,6.040452053085255e-10,identity,phase2/results/reference_errors.csv:3
+phase2_reference:E1_A3p1,bpol_richardson,1.8320996136507646e-08,identity,phase2/results/reference_errors.csv:3
+phase2_reference:E1_A3p1,majorant_relative,5.4854156988123384e-08,identity,phase2/results/reference_errors.csv:3
+phase2_reference:E1_A3p1,majorant_to_richardson,2.994059743226369,identity,phase2/results/reference_errors.csv:3
+phase2_cost:E2_A40,wall_s,1.9784737939480692,identity,phase2/results/best_cost.csv:37
+phase2_cost:E2_A40,wall_s,1.1739380578510463,identity,phase2/results/best_cost.csv:36
+phase2_cost:E2_A40,wall_s,1.3206236988771707,identity,phase2/results/best_cost.csv:35
+phase2_cost:E2_A40,wall_s,60.4948701991234,identity,phase2/results/best_cost.csv:33
+phase2_cost:E2_A40,wall_s,33.44289681594819,identity,phase2/results/best_cost.csv:34
+phase2_reference:E2_A40,psi_richardson,6.005523122213496e-10,identity,phase2/results/reference_errors.csv:8
+phase2_reference:E2_A40,bpol_richardson,7.753177821141549e-09,identity,phase2/results/reference_errors.csv:8
+phase2_reference:E2_A40,majorant_relative,1.6977741844820304e-08,identity,phase2/results/reference_errors.csv:8
+phase2_reference:E2_A40,majorant_to_richardson,2.1897784671628444,identity,phase2/results/reference_errors.csv:8
+phase2_cost:E2_A20,wall_s,1.9476152248680592,identity,phase2/results/best_cost.csv:28
+phase2_cost:E2_A20,wall_s,1.220849690027535,identity,phase2/results/best_cost.csv:26
+phase2_cost:E2_A20,wall_s,1.372765479143709,identity,phase2/results/best_cost.csv:27
+phase2_cost:E2_A20,wall_s,76.92339510517195,identity,phase2/results/best_cost.csv:24
+phase2_cost:E2_A20,wall_s,40.787648959085345,identity,phase2/results/best_cost.csv:25
+phase2_reference:E2_A20,psi_richardson,6.029552062414812e-10,identity,phase2/results/reference_errors.csv:6
+phase2_reference:E2_A20,bpol_richardson,1.1716322397533743e-08,identity,phase2/results/reference_errors.csv:6
+phase2_reference:E2_A20,majorant_relative,1.8396344314575713e-08,identity,phase2/results/reference_errors.csv:6
+phase2_reference:E2_A20,majorant_to_richardson,1.5701466458833617,identity,phase2/results/reference_errors.csv:6
+phase2_cost:E2_A10,wall_s,2.1022233800031245,identity,phase2/results/best_cost.csv:23
+phase2_cost:E2_A10,wall_s,1.2212217829655856,identity,phase2/results/best_cost.csv:21
+phase2_cost:E2_A10,wall_s,1.2675663160625845,identity,phase2/results/best_cost.csv:22
+phase2_cost:E2_A10,wall_s,30.342329482082278,identity,phase2/results/best_cost.csv:20
+phase2_reference:E2_A10,psi_richardson,6.111615925733706e-10,identity,phase2/results/reference_errors.csv:5
+phase2_reference:E2_A10,bpol_richardson,1.7649179225146554e-08,identity,phase2/results/reference_errors.csv:5
+phase2_reference:E2_A10,majorant_relative,2.3727354014112457e-08,identity,phase2/results/reference_errors.csv:5
+phase2_reference:E2_A10,majorant_to_richardson,1.3443885243289795,identity,phase2/results/reference_errors.csv:5
+phase2_cost:E2_A3p1,wall_s,1.9204393168911338,identity,phase2/results/best_cost.csv:32
+phase2_cost:E2_A3p1,wall_s,2.4729784498922527,identity,phase2/results/best_cost.csv:30
+phase2_cost:E2_A3p1,wall_s,5.783767777029425,identity,phase2/results/best_cost.csv:31
+phase2_cost:E2_A3p1,wall_s,58.18888595094904,identity,phase2/results/best_cost.csv:29
+phase2_reference:E2_A3p1,psi_richardson,7.587619397298394e-10,identity,phase2/results/reference_errors.csv:7
+phase2_reference:E2_A3p1,bpol_richardson,6.496658175438065e-08,identity,phase2/results/reference_errors.csv:7
+phase2_reference:E2_A3p1,majorant_relative,8.172049516052556e-08,identity,phase2/results/reference_errors.csv:7
+phase2_reference:E2_A3p1,majorant_to_richardson,1.2578850995960735,identity,phase2/results/reference_errors.csv:7
+phase4_cost:E4_E1,wall_s,4.850773198995739,identity,phase4/results/best_cost.csv:1
+phase4_cost:E4_E1,wall_s,21.212267010007054,identity,phase4/results/best_cost.csv:2
+phase4_cost:E4_E1,wall_s,21.223168759141117,identity,phase4/results/best_cost.csv:4
+phase4_cost:E4_E1,wall_s,61.11989927198738,identity,phase4/results/best_cost.csv:3
+phase4_reference:E4_E1,psi_richardson,9.462016185637306e-10,identity,phase4/results/reference_errors.csv:1
+phase4_reference:E4_E1,bpol_richardson,3.5294793614654424e-08,identity,phase4/results/reference_errors.csv:1
+phase4_reference:E4_E1,majorant_relative,7.984873420805579e-08,identity,phase4/results/reference_errors.csv:1
+phase4_reference:E4_E1,majorant_to_richardson,2.2623374733349495,identity,phase4/results/reference_errors.csv:1
+phase4_cost:E4_E2,wall_s,1.5930387780535966,identity,phase4/results/best_cost.csv:5
+phase4_cost:E4_E2,wall_s,21.978888811077923,identity,phase4/results/best_cost.csv:6
+phase4_cost:E4_E2,wall_s,21.13422296778299,identity,phase4/results/best_cost.csv:7
+phase4_reference:E4_E2,psi_richardson,1.0752974610897816e-09,identity,phase4/results/reference_errors.csv:2
+phase4_reference:E4_E2,bpol_richardson,5.395726524953089e-08,identity,phase4/results/reference_errors.csv:2
+phase4_reference:E4_E2,majorant_relative,8.891585372268366e-08,identity,phase4/results/reference_errors.csv:2
+phase4_reference:E4_E2,majorant_to_richardson,1.6478940011411476,identity,phase4/results/reference_errors.csv:2
+EfourZeroReference,bpol_richardson,3.5294793614654424e-08,identity,phase4/results/reference_errors.csv:1
+EfourZeroEffectivity,majorant_to_richardson,2.2623374733349495,identity,phase4/results/reference_errors.csv:1
+EfourFiniteReference,bpol_richardson,5.395726524953089e-08,identity,phase4/results/reference_errors.csv:2
+EfourFiniteEffectivity,majorant_to_richardson,1.6478940011411476,identity,phase4/results/reference_errors.csv:2
+phase4_matched:E4_E1,wall_s,0.5219492111355066,identity,phase4/results/cost_by_bpol.csv:4
+phase4_matched:E4_E1,wall_s,6.583265644032508,identity,phase4/results/cost_by_bpol.csv:8
+phase4_matched:E4_E1,wall_s,6.039305740967393,identity,phase4/results/cost_by_bpol.csv:15
+phase4_matched:E4_E1,wall_s,3.353826457168907,identity,phase4/results/cost_by_bpol.csv:2
+phase4_matched:E4_E1,wall_s,29.71822023205459,identity,phase4/results/cost_by_bpol.csv:11
+phase4_matched:E4_E2,wall_s,1.5930387780535966,identity,phase4/results/cost_by_bpol.csv:23
+phase4_matched:E4_E2,wall_s,6.943237415980548,identity,phase4/results/cost_by_bpol.csv:27
+phase4_matched:E4_E2,wall_s,5.449711294146255,identity,phase4/results/cost_by_bpol.csv:30
+phase4_matched:E4_E2,wall_s,10.519112864974886,identity,phase4/results/cost_by_bpol.csv:18
+phase4_matched:E4_E2,wall_s,67.72745549096726,identity,phase4/results/cost_by_bpol.csv:20
+EoneShiftOrder,shift_leading_difference,3.001985935629289,"log-log fit over A=40,20,10",phase2/results/physics.csv:1;phase2/results/physics.csv:2;phase2/results/physics.csv:4
+EoneQOrder,q_difference,4.004767633903195,"log-log fit over A=40,20,10",phase2/results/physics.csv:1;phase2/results/physics.csv:2;phase2/results/physics.csv:4
+EtwoShiftOrder,shift_leading_difference,2.99114884606016,"log-log fit over A=40,20,10",phase2/results/physics.csv:5;phase2/results/physics.csv:6;phase2/results/physics.csv:8
+EtwoQOrder,q_difference,3.990049175153744,"log-log fit over A=40,20,10",phase2/results/physics.csv:5;phase2/results/physics.csv:6;phase2/results/physics.csv:8
+consumer:solovev_lcfs_A3:public:fortran,bpol_l2,4.842931400659383e-07,identity,phase1/results_export/summary.csv:107
+consumer:solovev_lcfs_A3:public:gpec_direct,bpol_l2,1.2202235418129163e-06,identity,phase1/results_export/summary.csv:173
+consumer:solovev_lcfs_A3:public:neo2_full,bpol_l2,1.8568402303558967e-07,identity,phase1/results_export/summary.csv:185
+consumer:solovev_lcfs_A3:public:neo2_full,q_max_rel,1.188796939777248e-07,identity,phase1/results_export/summary.csv:185
+consumer:solovev_lcfs_A3:public:neo2_full,jacobian_max_rel,1.4566829453777075e-07,identity,phase1/results_export/summary.csv:185
+consumer:solovev_lcfs_A3:mars:fortran,bpol_l2,6.195457073032172e-07,identity,phase1/results_export/summary.csv:83
+consumer:solovev_lcfs_A3:mars:gpec_direct,bpol_l2,1.404163131633078e-06,identity,phase1/results_export/summary.csv:169
+consumer:solovev_lcfs_A3:mars:neo2_full,bpol_l2,1.8128560023062886e-07,identity,phase1/results_export/summary.csv:181
+consumer:solovev_lcfs_A3:mars:neo2_full,q_max_rel,1.1115339226819287e-07,identity,phase1/results_export/summary.csv:181
+consumer:solovev_lcfs_A3:mars:neo2_full,jacobian_max_rel,1.3551383237775383e-07,identity,phase1/results_export/summary.csv:181
+consumer:solovev_lcfs_A3:kin6d:fortran,bpol_l2,9.103587543928991e-07,identity,phase1/results_export/summary.csv:137
+consumer:solovev_lcfs_A3:kin6d:gpec_direct,bpol_l2,4.922003022243825e-06,identity,phase1/results_export/summary.csv:166
+consumer:solovev_lcfs_A3:kin6d:neo2_full,bpol_l2,8.072216007806492e-07,identity,phase1/results_export/summary.csv:178
+consumer:solovev_lcfs_A3:kin6d:neo2_full,q_max_rel,8.796869999105894e-07,identity,phase1/results_export/summary.csv:178
+consumer:solovev_lcfs_A3:kin6d:neo2_full,jacobian_max_rel,3.393954010055822e-07,identity,phase1/results_export/summary.csv:178
+consumer:solovev_cerfon_iter:public:fortran,bpol_l2,1.8913849561454703e-07,identity,phase1/results_export/summary.csv:125
+consumer:solovev_cerfon_iter:public:gpec_direct,bpol_l2,4.250184703936861e-06,identity,phase1/results_export/summary.csv:176
+consumer:solovev_cerfon_iter:public:neo2_full,bpol_l2,3.435767564046975e-07,identity,phase1/results_export/summary.csv:188
+consumer:solovev_cerfon_iter:public:neo2_full,q_max_rel,7.893334846853506e-07,identity,phase1/results_export/summary.csv:188
+consumer:solovev_cerfon_iter:public:neo2_full,jacobian_max_rel,2.699046252052639e-07,identity,phase1/results_export/summary.csv:188
+consumer:solovev_cerfon_iter:mars:fortran,bpol_l2,2.3282950783770112e-07,identity,phase1/results_export/summary.csv:101
+consumer:solovev_cerfon_iter:mars:gpec_direct,bpol_l2,2.238291461551485e-06,identity,phase1/results_export/summary.csv:172
+consumer:solovev_cerfon_iter:mars:neo2_full,bpol_l2,3.3609978290524603e-07,identity,phase1/results_export/summary.csv:184
+consumer:solovev_cerfon_iter:mars:neo2_full,q_max_rel,7.219893403132005e-07,identity,phase1/results_export/summary.csv:184
+consumer:solovev_cerfon_iter:mars:neo2_full,jacobian_max_rel,2.501093034901203e-07,identity,phase1/results_export/summary.csv:184
+consumer:solovev_cerfon_iter:kin6d:fortran,bpol_l2,2.2754166298534623e-06,identity,phase1/results_export/summary.csv:149
+consumer:solovev_cerfon_iter:kin6d:gpec_direct,bpol_l2,4.917148969499334e-06,identity,phase1/results_export/summary.csv:168
+consumer:solovev_cerfon_iter:kin6d:neo2_full,bpol_l2,3.6800743786776473e-06,identity,phase1/results_export/summary.csv:180
+consumer:solovev_cerfon_iter:kin6d:neo2_full,q_max_rel,3.2757378427561434e-06,identity,phase1/results_export/summary.csv:180
+consumer:solovev_cerfon_iter:kin6d:neo2_full,jacobian_max_rel,3.3186039459787153e-06,identity,phase1/results_export/summary.csv:180
+mars,n,128,identity,phase1/results_export/summary.csv:190
+mars,bpol_l2,1.5085790458104805e-06,identity,phase1/results_export/summary.csv:189
+mars,bmn_rel,1.5085924318291983e-06,identity,phase1/results_export/summary.csv:190
+mars,jacobian_max_rel,2.414594893596078e-05,identity,phase1/results_export/summary.csv:190
+mars,n,64,identity,phase1/results_export/summary.csv:192
+mars,bpol_l2,1.2531409740542276e-05,identity,phase1/results_export/summary.csv:191
+mars,bmn_rel,5.086606443271281e-06,identity,phase1/results_export/summary.csv:192
+mars,jacobian_max_rel,9.661656935766594e-05,identity,phase1/results_export/summary.csv:192
+mars,n,128,identity,phase1/results_export/summary.csv:194
+mars,bpol_l2,4.36561436508429e-06,identity,phase1/results_export/summary.csv:193
+mars,bmn_rel,5.665079246897428e-06,identity,phase1/results_export/summary.csv:194
+mars,jacobian_max_rel,2.5985217434909558e-05,identity,phase1/results_export/summary.csv:194
+mars,n,256,identity,phase1/results_export/summary.csv:196
+mars,bpol_l2,5.793105531467943e-07,identity,phase1/results_export/summary.csv:195
+mars,bmn_rel,1.421977546702199e-06,identity,phase1/results_export/summary.csv:196
+mars,jacobian_max_rel,6.499764175549316e-06,identity,phase1/results_export/summary.csv:196
+pooled:phase2:all,psi_l2,3.8196689715165203e-07,identity,phase2/results/boozer_volume.csv:29
+pooled:phase2:all,bpol_l2,2.6466871220967945e-07,identity,phase2/results/boozer_volume.csv:11
+pooled:phase4:E4_E1,psi_l2,5.238635649040707e-08,identity,phase4/results/boozer_volume.csv:8
+pooled:phase4:E4_E1,bpol_l2,1.5896348138941317e-07,identity,phase4/results/boozer_volume.csv:12
+pooled:phase4:E4_E2,psi_l2,5.191712665294933e-07,identity,phase4/results/boozer_volume.csv:24
+pooled:phase4:E4_E2,bpol_l2,2.8759136851021342e-06,identity,phase4/results/boozer_volume.csv:24
+cylinder_values,B_rel_L2,0.001290329714060218,identity,phase5/results/finest.csv:24
+cylinder_values,B_first_order_remainder,2.1204681602794874e-06,identity,phase5/results/finest.csv:24
+cylinder_values,q_rel_max,9.500067761791797e-06,identity,phase5/results/finest.csv:24
+source_consistency,integral_over_change,-1.0130071672197418,identity,phase4/tc24/source_consistency.csv:1
+source_consistency,integral_over_change,-1.0130071673000116,identity,phase4/tc24/source_consistency.csv:2
+source_consistency,integral_over_change,1.0002755930692824,identity,phase4/tc24/source_consistency.csv:3
+source_consistency,integral_over_change,1.0001065673150724,identity,phase4/tc24/source_consistency.csv:4
+source_consistency,integral_over_change,1.0017208801618724,identity,phase4/tc24/source_consistency.csv:5
+source_consistency,integral_over_change,0.9978278479009746,identity,phase4/tc24/source_consistency.csv:6

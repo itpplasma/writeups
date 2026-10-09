@@ -1,0 +1,731 @@
+figure,panel,series,x,y,source,data_row,x_column,y_column,transform
+exact_a3,"0,0",KIN6D P2,1253.0,4.652419741054638e-05,phase1/results/solovev_lcfs_A3.csv,18,dof,psi_l2,identity
+exact_a3,"0,0",KIN6D P2,5113.0,5.668566174081835e-06,phase1/results/solovev_lcfs_A3.csv,19,dof,psi_l2,identity
+exact_a3,"0,0",KIN6D P2,20629.0,6.841624376383717e-07,phase1/results/solovev_lcfs_A3.csv,20,dof,psi_l2,identity
+exact_a3,"0,0",KIN6D P2,82977.0,8.368340385048655e-08,phase1/results/solovev_lcfs_A3.csv,21,dof,psi_l2,identity
+exact_a3,"0,0",KIN6D P3,658.0,5.492115939679464e-06,phase1/results/solovev_lcfs_A3.csv,22,dof,psi_l2,identity
+exact_a3,"0,0",KIN6D P3,2854.0,3.175276718765773e-07,phase1/results/solovev_lcfs_A3.csv,23,dof,psi_l2,identity
+exact_a3,"0,0",KIN6D P3,11575.0,1.854642337702762e-08,phase1/results/solovev_lcfs_A3.csv,24,dof,psi_l2,identity
+exact_a3,"0,0",KIN6D P3,46558.0,1.0758065017700966e-09,phase1/results/solovev_lcfs_A3.csv,25,dof,psi_l2,identity
+exact_a3,"0,0",CHEASE public,1088.0,0.00023312833070690076,phase1/results/solovev_lcfs_A3.csv,1,dof,psi_l2,identity
+exact_a3,"0,0",CHEASE public,16640.0,1.80979368911289e-07,phase1/results/solovev_lcfs_A3.csv,3,dof,psi_l2,identity
+exact_a3,"0,0",CHEASE public,66048.0,8.460628225421468e-09,phase1/results/solovev_lcfs_A3.csv,4,dof,psi_l2,identity
+exact_a3,"0,0",CHEASE MARS,1088.0,0.0002331302200216873,phase1/results/solovev_lcfs_A3.csv,5,dof,psi_l2,identity
+exact_a3,"0,0",CHEASE MARS,4224.0,5.056831499442779e-06,phase1/results/solovev_lcfs_A3.csv,6,dof,psi_l2,identity
+exact_a3,"0,0",CHEASE MARS,16640.0,1.8376198183478574e-07,phase1/results/solovev_lcfs_A3.csv,7,dof,psi_l2,identity
+exact_a3,"0,0",CHEASE MARS,66048.0,9.88520259327396e-09,phase1/results/solovev_lcfs_A3.csv,8,dof,psi_l2,identity
+exact_a3,"0,0",VMEC++,2310.0,0.0006924604947181811,phase1/results/solovev_lcfs_A3.csv,9,dof,psi_l2,identity
+exact_a3,"0,0",VMEC++,4550.0,0.0002085844277490802,phase1/results/solovev_lcfs_A3.csv,10,dof,psi_l2,identity
+exact_a3,"0,0",VMEC++,9030.0,6.298590258278737e-05,phase1/results/solovev_lcfs_A3.csv,11,dof,psi_l2,identity
+exact_a3,"0,0",VMEC++,17990.0,1.9272869304400946e-05,phase1/results/solovev_lcfs_A3.csv,12,dof,psi_l2,identity
+exact_a3,"0,0",DESC,27.0,0.0031888374885429517,phase1/results/solovev_lcfs_A3.csv,13,dof,psi_l2,identity
+exact_a3,"0,0",DESC,48.0,0.00026828113137186693,phase1/results/solovev_lcfs_A3.csv,14,dof,psi_l2,identity
+exact_a3,"0,0",DESC,75.0,2.171982681840584e-05,phase1/results/solovev_lcfs_A3.csv,15,dof,psi_l2,identity
+exact_a3,"0,0",DESC,108.0,2.078434736435223e-06,phase1/results/solovev_lcfs_A3.csv,16,dof,psi_l2,identity
+exact_a3,"0,0",DESC,147.0,2.387771519093465e-07,phase1/results/solovev_lcfs_A3.csv,17,dof,psi_l2,identity
+exact_a3,"0,1",KIN6D P2,0.009639631,4.652419741054638e-05,phase1/results/solovev_lcfs_A3.csv,18,wall_s,psi_l2,identity
+exact_a3,"0,1",KIN6D P2,0.050669832,5.668566174081835e-06,phase1/results/solovev_lcfs_A3.csv,19,wall_s,psi_l2,identity
+exact_a3,"0,1",KIN6D P2,0.348859832,6.841624376383717e-07,phase1/results/solovev_lcfs_A3.csv,20,wall_s,psi_l2,identity
+exact_a3,"0,1",KIN6D P2,2.692485847,8.368340385048655e-08,phase1/results/solovev_lcfs_A3.csv,21,wall_s,psi_l2,identity
+exact_a3,"0,1",KIN6D P3,0.006887556,5.492115939679464e-06,phase1/results/solovev_lcfs_A3.csv,22,wall_s,psi_l2,identity
+exact_a3,"0,1",KIN6D P3,0.031632205,3.175276718765773e-07,phase1/results/solovev_lcfs_A3.csv,23,wall_s,psi_l2,identity
+exact_a3,"0,1",KIN6D P3,0.198876263,1.854642337702762e-08,phase1/results/solovev_lcfs_A3.csv,24,wall_s,psi_l2,identity
+exact_a3,"0,1",KIN6D P3,1.426313326,1.0758065017700966e-09,phase1/results/solovev_lcfs_A3.csv,25,wall_s,psi_l2,identity
+exact_a3,"0,1",CHEASE public,1.0768937540706247,0.00023312833070690076,phase1/results/solovev_lcfs_A3.csv,1,wall_s,psi_l2,identity
+exact_a3,"0,1",CHEASE public,5.984381449175999,1.80979368911289e-07,phase1/results/solovev_lcfs_A3.csv,3,wall_s,psi_l2,identity
+exact_a3,"0,1",CHEASE public,19.806573843117803,8.460628225421468e-09,phase1/results/solovev_lcfs_A3.csv,4,wall_s,psi_l2,identity
+exact_a3,"0,1",CHEASE MARS,0.7727823080495,0.0002331302200216873,phase1/results/solovev_lcfs_A3.csv,5,wall_s,psi_l2,identity
+exact_a3,"0,1",CHEASE MARS,1.1732947679702193,5.056831499442779e-06,phase1/results/solovev_lcfs_A3.csv,6,wall_s,psi_l2,identity
+exact_a3,"0,1",CHEASE MARS,2.926479616202414,1.8376198183478574e-07,phase1/results/solovev_lcfs_A3.csv,7,wall_s,psi_l2,identity
+exact_a3,"0,1",CHEASE MARS,12.441527654184029,9.88520259327396e-09,phase1/results/solovev_lcfs_A3.csv,8,wall_s,psi_l2,identity
+exact_a3,"0,1",VMEC++,1.329798333114013,0.0006924604947181811,phase1/results/solovev_lcfs_A3.csv,9,wall_s,psi_l2,identity
+exact_a3,"0,1",VMEC++,2.0814621089957654,0.0002085844277490802,phase1/results/solovev_lcfs_A3.csv,10,wall_s,psi_l2,identity
+exact_a3,"0,1",VMEC++,4.98308694595471,6.298590258278737e-05,phase1/results/solovev_lcfs_A3.csv,11,wall_s,psi_l2,identity
+exact_a3,"0,1",VMEC++,24.21413642214611,1.9272869304400946e-05,phase1/results/solovev_lcfs_A3.csv,12,wall_s,psi_l2,identity
+exact_a3,"0,1",DESC,26.790491485968232,0.0031888374885429517,phase1/results/solovev_lcfs_A3.csv,13,wall_s,psi_l2,identity
+exact_a3,"0,1",DESC,58.94480562210083,0.00026828113137186693,phase1/results/solovev_lcfs_A3.csv,14,wall_s,psi_l2,identity
+exact_a3,"0,1",DESC,55.862824375974014,2.171982681840584e-05,phase1/results/solovev_lcfs_A3.csv,15,wall_s,psi_l2,identity
+exact_a3,"0,1",DESC,140.90418553492054,2.078434736435223e-06,phase1/results/solovev_lcfs_A3.csv,16,wall_s,psi_l2,identity
+exact_a3,"0,1",DESC,200.39605920598842,2.387771519093465e-07,phase1/results/solovev_lcfs_A3.csv,17,wall_s,psi_l2,identity
+exact_a3,"1,0",KIN6D P2,1253.0,0.001089572605896379,phase1/results/solovev_lcfs_A3.csv,18,dof,bpol_l2,identity
+exact_a3,"1,0",KIN6D P2,5113.0,0.0002635468670563956,phase1/results/solovev_lcfs_A3.csv,19,dof,bpol_l2,identity
+exact_a3,"1,0",KIN6D P2,20629.0,6.431489744897406e-05,phase1/results/solovev_lcfs_A3.csv,20,dof,bpol_l2,identity
+exact_a3,"1,0",KIN6D P2,82977.0,1.572634877270787e-05,phase1/results/solovev_lcfs_A3.csv,21,dof,bpol_l2,identity
+exact_a3,"1,0",KIN6D P3,658.0,7.796848883682553e-05,phase1/results/solovev_lcfs_A3.csv,22,dof,bpol_l2,identity
+exact_a3,"1,0",KIN6D P3,2854.0,7.829841281159869e-06,phase1/results/solovev_lcfs_A3.csv,23,dof,bpol_l2,identity
+exact_a3,"1,0",KIN6D P3,11575.0,7.595016546554659e-07,phase1/results/solovev_lcfs_A3.csv,24,dof,bpol_l2,identity
+exact_a3,"1,0",KIN6D P3,46558.0,7.997115882589885e-08,phase1/results/solovev_lcfs_A3.csv,25,dof,bpol_l2,identity
+exact_a3,"1,0",CHEASE public,1088.0,0.0011973272329246231,phase1/results/solovev_lcfs_A3.csv,1,dof,bpol_l2,identity
+exact_a3,"1,0",CHEASE public,16640.0,6.624412395480158e-06,phase1/results/solovev_lcfs_A3.csv,3,dof,bpol_l2,identity
+exact_a3,"1,0",CHEASE public,66048.0,5.802407982677548e-07,phase1/results/solovev_lcfs_A3.csv,4,dof,bpol_l2,identity
+exact_a3,"1,0",CHEASE MARS,1088.0,0.0011974568488164212,phase1/results/solovev_lcfs_A3.csv,5,dof,bpol_l2,identity
+exact_a3,"1,0",CHEASE MARS,4224.0,6.847692265884729e-05,phase1/results/solovev_lcfs_A3.csv,6,dof,bpol_l2,identity
+exact_a3,"1,0",CHEASE MARS,16640.0,6.953885585784356e-06,phase1/results/solovev_lcfs_A3.csv,7,dof,bpol_l2,identity
+exact_a3,"1,0",CHEASE MARS,66048.0,7.616661808461364e-07,phase1/results/solovev_lcfs_A3.csv,8,dof,bpol_l2,identity
+exact_a3,"1,0",VMEC++,2310.0,0.0017099543146572227,phase1/results/solovev_lcfs_A3.csv,9,dof,bpol_l2,identity
+exact_a3,"1,0",VMEC++,4550.0,0.0006204253518915676,phase1/results/solovev_lcfs_A3.csv,10,dof,bpol_l2,identity
+exact_a3,"1,0",VMEC++,9030.0,0.0002666832635876301,phase1/results/solovev_lcfs_A3.csv,11,dof,bpol_l2,identity
+exact_a3,"1,0",VMEC++,17990.0,0.00012593450481125927,phase1/results/solovev_lcfs_A3.csv,12,dof,bpol_l2,identity
+exact_a3,"1,0",DESC,27.0,0.00801901305730685,phase1/results/solovev_lcfs_A3.csv,13,dof,bpol_l2,identity
+exact_a3,"1,0",DESC,48.0,0.0008508394896905822,phase1/results/solovev_lcfs_A3.csv,14,dof,bpol_l2,identity
+exact_a3,"1,0",DESC,75.0,0.00010043129448691069,phase1/results/solovev_lcfs_A3.csv,15,dof,bpol_l2,identity
+exact_a3,"1,0",DESC,108.0,1.2909300708450366e-05,phase1/results/solovev_lcfs_A3.csv,16,dof,bpol_l2,identity
+exact_a3,"1,0",DESC,147.0,1.7413358451622164e-06,phase1/results/solovev_lcfs_A3.csv,17,dof,bpol_l2,identity
+exact_a3,"1,1",KIN6D P2,0.009639631,0.001089572605896379,phase1/results/solovev_lcfs_A3.csv,18,wall_s,bpol_l2,identity
+exact_a3,"1,1",KIN6D P2,0.050669832,0.0002635468670563956,phase1/results/solovev_lcfs_A3.csv,19,wall_s,bpol_l2,identity
+exact_a3,"1,1",KIN6D P2,0.348859832,6.431489744897406e-05,phase1/results/solovev_lcfs_A3.csv,20,wall_s,bpol_l2,identity
+exact_a3,"1,1",KIN6D P2,2.692485847,1.572634877270787e-05,phase1/results/solovev_lcfs_A3.csv,21,wall_s,bpol_l2,identity
+exact_a3,"1,1",KIN6D P3,0.006887556,7.796848883682553e-05,phase1/results/solovev_lcfs_A3.csv,22,wall_s,bpol_l2,identity
+exact_a3,"1,1",KIN6D P3,0.031632205,7.829841281159869e-06,phase1/results/solovev_lcfs_A3.csv,23,wall_s,bpol_l2,identity
+exact_a3,"1,1",KIN6D P3,0.198876263,7.595016546554659e-07,phase1/results/solovev_lcfs_A3.csv,24,wall_s,bpol_l2,identity
+exact_a3,"1,1",KIN6D P3,1.426313326,7.997115882589885e-08,phase1/results/solovev_lcfs_A3.csv,25,wall_s,bpol_l2,identity
+exact_a3,"1,1",CHEASE public,1.0768937540706247,0.0011973272329246231,phase1/results/solovev_lcfs_A3.csv,1,wall_s,bpol_l2,identity
+exact_a3,"1,1",CHEASE public,5.984381449175999,6.624412395480158e-06,phase1/results/solovev_lcfs_A3.csv,3,wall_s,bpol_l2,identity
+exact_a3,"1,1",CHEASE public,19.806573843117803,5.802407982677548e-07,phase1/results/solovev_lcfs_A3.csv,4,wall_s,bpol_l2,identity
+exact_a3,"1,1",CHEASE MARS,0.7727823080495,0.0011974568488164212,phase1/results/solovev_lcfs_A3.csv,5,wall_s,bpol_l2,identity
+exact_a3,"1,1",CHEASE MARS,1.1732947679702193,6.847692265884729e-05,phase1/results/solovev_lcfs_A3.csv,6,wall_s,bpol_l2,identity
+exact_a3,"1,1",CHEASE MARS,2.926479616202414,6.953885585784356e-06,phase1/results/solovev_lcfs_A3.csv,7,wall_s,bpol_l2,identity
+exact_a3,"1,1",CHEASE MARS,12.441527654184029,7.616661808461364e-07,phase1/results/solovev_lcfs_A3.csv,8,wall_s,bpol_l2,identity
+exact_a3,"1,1",VMEC++,1.329798333114013,0.0017099543146572227,phase1/results/solovev_lcfs_A3.csv,9,wall_s,bpol_l2,identity
+exact_a3,"1,1",VMEC++,2.0814621089957654,0.0006204253518915676,phase1/results/solovev_lcfs_A3.csv,10,wall_s,bpol_l2,identity
+exact_a3,"1,1",VMEC++,4.98308694595471,0.0002666832635876301,phase1/results/solovev_lcfs_A3.csv,11,wall_s,bpol_l2,identity
+exact_a3,"1,1",VMEC++,24.21413642214611,0.00012593450481125927,phase1/results/solovev_lcfs_A3.csv,12,wall_s,bpol_l2,identity
+exact_a3,"1,1",DESC,26.790491485968232,0.00801901305730685,phase1/results/solovev_lcfs_A3.csv,13,wall_s,bpol_l2,identity
+exact_a3,"1,1",DESC,58.94480562210083,0.0008508394896905822,phase1/results/solovev_lcfs_A3.csv,14,wall_s,bpol_l2,identity
+exact_a3,"1,1",DESC,55.862824375974014,0.00010043129448691069,phase1/results/solovev_lcfs_A3.csv,15,wall_s,bpol_l2,identity
+exact_a3,"1,1",DESC,140.90418553492054,1.2909300708450366e-05,phase1/results/solovev_lcfs_A3.csv,16,wall_s,bpol_l2,identity
+exact_a3,"1,1",DESC,200.39605920598842,1.7413358451622164e-06,phase1/results/solovev_lcfs_A3.csv,17,wall_s,bpol_l2,identity
+exact_cerfon,"0,0",KIN6D P2,409.0,0.000555571623881127,phase1/results/solovev_cerfon_iter.csv,18,dof,psi_l2,identity
+exact_cerfon,"0,0",KIN6D P2,1797.0,5.066286516615551e-05,phase1/results/solovev_cerfon_iter.csv,19,dof,psi_l2,identity
+exact_cerfon,"0,0",KIN6D P2,7501.0,5.114444356596971e-06,phase1/results/solovev_cerfon_iter.csv,20,dof,psi_l2,identity
+exact_cerfon,"0,0",KIN6D P2,30241.0,5.514273130410837e-07,phase1/results/solovev_cerfon_iter.csv,21,dof,psi_l2,identity
+exact_cerfon,"0,0",KIN6D P3,937.0,3.785343509678649e-05,phase1/results/solovev_cerfon_iter.csv,22,dof,psi_l2,identity
+exact_cerfon,"0,0",KIN6D P3,4078.0,2.1587477953151823e-06,phase1/results/solovev_cerfon_iter.csv,23,dof,psi_l2,identity
+exact_cerfon,"0,0",KIN6D P3,16948.0,1.120187705652453e-07,phase1/results/solovev_cerfon_iter.csv,24,dof,psi_l2,identity
+exact_cerfon,"0,0",KIN6D P3,68185.0,7.181056323644909e-09,phase1/results/solovev_cerfon_iter.csv,25,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE public,1088.0,0.00041049443304493695,phase1/results/solovev_cerfon_iter.csv,1,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE public,4224.0,1.121904084251839e-05,phase1/results/solovev_cerfon_iter.csv,2,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE public,16640.0,5.045499470331409e-07,phase1/results/solovev_cerfon_iter.csv,3,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE public,66048.0,2.5674860502844833e-08,phase1/results/solovev_cerfon_iter.csv,4,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE MARS,1088.0,0.0004104305535495804,phase1/results/solovev_cerfon_iter.csv,5,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE MARS,4224.0,1.1228056385647865e-05,phase1/results/solovev_cerfon_iter.csv,6,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE MARS,16640.0,5.120208272312822e-07,phase1/results/solovev_cerfon_iter.csv,7,dof,psi_l2,identity
+exact_cerfon,"0,0",CHEASE MARS,66048.0,2.927969165485423e-08,phase1/results/solovev_cerfon_iter.csv,8,dof,psi_l2,identity
+exact_cerfon,"0,0",VMEC++,3102.0,0.0006655926870310923,phase1/results/solovev_cerfon_iter.csv,9,dof,psi_l2,identity
+exact_cerfon,"0,0",VMEC++,6110.0,0.00018640456790060787,phase1/results/solovev_cerfon_iter.csv,10,dof,psi_l2,identity
+exact_cerfon,"0,0",VMEC++,12126.0,6.958193708235775e-05,phase1/results/solovev_cerfon_iter.csv,11,dof,psi_l2,identity
+exact_cerfon,"0,0",VMEC++,24158.0,2.8555812097353892e-05,phase1/results/solovev_cerfon_iter.csv,12,dof,psi_l2,identity
+exact_cerfon,"0,0",DESC,48.0,0.011348520443437458,phase1/results/solovev_cerfon_iter.csv,13,dof,psi_l2,identity
+exact_cerfon,"0,0",DESC,75.0,0.004059919657772653,phase1/results/solovev_cerfon_iter.csv,14,dof,psi_l2,identity
+exact_cerfon,"0,0",DESC,108.0,0.0025927274625315916,phase1/results/solovev_cerfon_iter.csv,15,dof,psi_l2,identity
+exact_cerfon,"0,0",DESC,147.0,0.0007379103616915114,phase1/results/solovev_cerfon_iter.csv,16,dof,psi_l2,identity
+exact_cerfon,"0,0",DESC,192.0,7.771974321712537e-05,phase1/results/solovev_cerfon_iter.csv,17,dof,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P2,0.004020595,0.000555571623881127,phase1/results/solovev_cerfon_iter.csv,18,wall_s,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P2,0.01730921,5.066286516615551e-05,phase1/results/solovev_cerfon_iter.csv,19,wall_s,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P2,0.084039009,5.114444356596971e-06,phase1/results/solovev_cerfon_iter.csv,20,wall_s,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P2,0.603068001,5.514273130410837e-07,phase1/results/solovev_cerfon_iter.csv,21,wall_s,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P3,0.009477165,3.785343509678649e-05,phase1/results/solovev_cerfon_iter.csv,22,wall_s,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P3,0.049189473,2.1587477953151823e-06,phase1/results/solovev_cerfon_iter.csv,23,wall_s,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P3,0.329666442,1.120187705652453e-07,phase1/results/solovev_cerfon_iter.csv,24,wall_s,psi_l2,identity
+exact_cerfon,"0,1",KIN6D P3,2.428456726,7.181056323644909e-09,phase1/results/solovev_cerfon_iter.csv,25,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE public,1.0268188510090113,0.00041049443304493695,phase1/results/solovev_cerfon_iter.csv,1,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE public,2.2283115319442004,1.121904084251839e-05,phase1/results/solovev_cerfon_iter.csv,2,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE public,5.985626654000953,5.045499470331409e-07,phase1/results/solovev_cerfon_iter.csv,3,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE public,19.9552445251029,2.5674860502844833e-08,phase1/results/solovev_cerfon_iter.csv,4,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE MARS,0.7722548400051892,0.0004104305535495804,phase1/results/solovev_cerfon_iter.csv,5,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE MARS,1.2243038138840348,1.1228056385647865e-05,phase1/results/solovev_cerfon_iter.csv,6,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE MARS,3.027476896997541,5.120208272312822e-07,phase1/results/solovev_cerfon_iter.csv,7,wall_s,psi_l2,identity
+exact_cerfon,"0,1",CHEASE MARS,12.440464859129861,2.927969165485423e-08,phase1/results/solovev_cerfon_iter.csv,8,wall_s,psi_l2,identity
+exact_cerfon,"0,1",VMEC++,15.832545785000548,0.0006655926870310923,phase1/results/solovev_cerfon_iter.csv,9,wall_s,psi_l2,identity
+exact_cerfon,"0,1",VMEC++,20.043145583942533,0.00018640456790060787,phase1/results/solovev_cerfon_iter.csv,10,wall_s,psi_l2,identity
+exact_cerfon,"0,1",VMEC++,30.21647401386872,6.958193708235775e-05,phase1/results/solovev_cerfon_iter.csv,11,wall_s,psi_l2,identity
+exact_cerfon,"0,1",VMEC++,53.44765658513643,2.8555812097353892e-05,phase1/results/solovev_cerfon_iter.csv,12,wall_s,psi_l2,identity
+exact_cerfon,"0,1",DESC,73.82132995617576,0.011348520443437458,phase1/results/solovev_cerfon_iter.csv,13,wall_s,psi_l2,identity
+exact_cerfon,"0,1",DESC,76.64768914692104,0.004059919657772653,phase1/results/solovev_cerfon_iter.csv,14,wall_s,psi_l2,identity
+exact_cerfon,"0,1",DESC,158.65547338710167,0.0025927274625315916,phase1/results/solovev_cerfon_iter.csv,15,wall_s,psi_l2,identity
+exact_cerfon,"0,1",DESC,200.4894186798483,0.0007379103616915114,phase1/results/solovev_cerfon_iter.csv,16,wall_s,psi_l2,identity
+exact_cerfon,"0,1",DESC,280.09678402519785,7.771974321712537e-05,phase1/results/solovev_cerfon_iter.csv,17,wall_s,psi_l2,identity
+exact_cerfon,"1,0",KIN6D P2,409.0,0.006162464591160395,phase1/results/solovev_cerfon_iter.csv,18,dof,bpol_l2,identity
+exact_cerfon,"1,0",KIN6D P2,1797.0,0.00123168192869186,phase1/results/solovev_cerfon_iter.csv,19,dof,bpol_l2,identity
+exact_cerfon,"1,0",KIN6D P2,7501.0,0.0002486376212591176,phase1/results/solovev_cerfon_iter.csv,20,dof,bpol_l2,identity
+exact_cerfon,"1,0",KIN6D P2,30241.0,5.8378652436314666e-05,phase1/results/solovev_cerfon_iter.csv,21,dof,bpol_l2,identity
+exact_cerfon,"1,0",KIN6D P3,937.0,0.0004733990160290742,phase1/results/solovev_cerfon_iter.csv,22,dof,bpol_l2,identity
+exact_cerfon,"1,0",KIN6D P3,4078.0,2.8455978846195336e-05,phase1/results/solovev_cerfon_iter.csv,23,dof,bpol_l2,identity
+exact_cerfon,"1,0",KIN6D P3,16948.0,2.12400511634292e-06,phase1/results/solovev_cerfon_iter.csv,24,dof,bpol_l2,identity
+exact_cerfon,"1,0",KIN6D P3,68185.0,8.864561498463386e-08,phase1/results/solovev_cerfon_iter.csv,25,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE public,1088.0,0.0026389998458233063,phase1/results/solovev_cerfon_iter.csv,1,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE public,4224.0,0.00019462190727948087,phase1/results/solovev_cerfon_iter.csv,2,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE public,16640.0,1.8892398077862043e-05,phase1/results/solovev_cerfon_iter.csv,3,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE public,66048.0,1.7074637684904145e-06,phase1/results/solovev_cerfon_iter.csv,4,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE MARS,1088.0,0.0026395890860601407,phase1/results/solovev_cerfon_iter.csv,5,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE MARS,4224.0,0.00019565579141760242,phase1/results/solovev_cerfon_iter.csv,6,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE MARS,16640.0,1.993698052173111e-05,phase1/results/solovev_cerfon_iter.csv,7,dof,bpol_l2,identity
+exact_cerfon,"1,0",CHEASE MARS,66048.0,2.246274659133823e-06,phase1/results/solovev_cerfon_iter.csv,8,dof,bpol_l2,identity
+exact_cerfon,"1,0",VMEC++,3102.0,0.002848896512075858,phase1/results/solovev_cerfon_iter.csv,9,dof,bpol_l2,identity
+exact_cerfon,"1,0",VMEC++,6110.0,0.0012193751805883728,phase1/results/solovev_cerfon_iter.csv,10,dof,bpol_l2,identity
+exact_cerfon,"1,0",VMEC++,12126.0,0.0006064440753719777,phase1/results/solovev_cerfon_iter.csv,11,dof,bpol_l2,identity
+exact_cerfon,"1,0",VMEC++,24158.0,0.00031963754214593335,phase1/results/solovev_cerfon_iter.csv,12,dof,bpol_l2,identity
+exact_cerfon,"1,0",DESC,48.0,0.03411709149236315,phase1/results/solovev_cerfon_iter.csv,13,dof,bpol_l2,identity
+exact_cerfon,"1,0",DESC,75.0,0.014765519928639854,phase1/results/solovev_cerfon_iter.csv,14,dof,bpol_l2,identity
+exact_cerfon,"1,0",DESC,108.0,0.009899853053618402,phase1/results/solovev_cerfon_iter.csv,15,dof,bpol_l2,identity
+exact_cerfon,"1,0",DESC,147.0,0.0035461714635893807,phase1/results/solovev_cerfon_iter.csv,16,dof,bpol_l2,identity
+exact_cerfon,"1,0",DESC,192.0,0.0006596586206271687,phase1/results/solovev_cerfon_iter.csv,17,dof,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P2,0.004020595,0.006162464591160395,phase1/results/solovev_cerfon_iter.csv,18,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P2,0.01730921,0.00123168192869186,phase1/results/solovev_cerfon_iter.csv,19,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P2,0.084039009,0.0002486376212591176,phase1/results/solovev_cerfon_iter.csv,20,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P2,0.603068001,5.8378652436314666e-05,phase1/results/solovev_cerfon_iter.csv,21,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P3,0.009477165,0.0004733990160290742,phase1/results/solovev_cerfon_iter.csv,22,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P3,0.049189473,2.8455978846195336e-05,phase1/results/solovev_cerfon_iter.csv,23,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P3,0.329666442,2.12400511634292e-06,phase1/results/solovev_cerfon_iter.csv,24,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",KIN6D P3,2.428456726,8.864561498463386e-08,phase1/results/solovev_cerfon_iter.csv,25,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE public,1.0268188510090113,0.0026389998458233063,phase1/results/solovev_cerfon_iter.csv,1,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE public,2.2283115319442004,0.00019462190727948087,phase1/results/solovev_cerfon_iter.csv,2,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE public,5.985626654000953,1.8892398077862043e-05,phase1/results/solovev_cerfon_iter.csv,3,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE public,19.9552445251029,1.7074637684904145e-06,phase1/results/solovev_cerfon_iter.csv,4,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE MARS,0.7722548400051892,0.0026395890860601407,phase1/results/solovev_cerfon_iter.csv,5,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE MARS,1.2243038138840348,0.00019565579141760242,phase1/results/solovev_cerfon_iter.csv,6,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE MARS,3.027476896997541,1.993698052173111e-05,phase1/results/solovev_cerfon_iter.csv,7,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",CHEASE MARS,12.440464859129861,2.246274659133823e-06,phase1/results/solovev_cerfon_iter.csv,8,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",VMEC++,15.832545785000548,0.002848896512075858,phase1/results/solovev_cerfon_iter.csv,9,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",VMEC++,20.043145583942533,0.0012193751805883728,phase1/results/solovev_cerfon_iter.csv,10,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",VMEC++,30.21647401386872,0.0006064440753719777,phase1/results/solovev_cerfon_iter.csv,11,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",VMEC++,53.44765658513643,0.00031963754214593335,phase1/results/solovev_cerfon_iter.csv,12,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",DESC,73.82132995617576,0.03411709149236315,phase1/results/solovev_cerfon_iter.csv,13,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",DESC,76.64768914692104,0.014765519928639854,phase1/results/solovev_cerfon_iter.csv,14,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",DESC,158.65547338710167,0.009899853053618402,phase1/results/solovev_cerfon_iter.csv,15,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",DESC,200.4894186798483,0.0035461714635893807,phase1/results/solovev_cerfon_iter.csv,16,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",DESC,280.09678402519785,0.0006596586206271687,phase1/results/solovev_cerfon_iter.csv,17,wall_s,bpol_l2,identity
+circular_e1,E1_A40:dof,KIN6D,595.0,2.07509027269452e-05,phase2/results/E1_A40.csv,17,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,KIN6D,2422.0,1.7217840120904502e-06,phase2/results/E1_A40.csv,18,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,KIN6D,9946.0,1.079148807082049e-07,phase2/results/E1_A40.csv,19,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,KIN6D,40636.0,7.149582426654372e-09,phase2/results/E1_A40.csv,20,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 4
+circular_e1,E1_A40:dof,CHEASE public,1088.0,2.1779094122079956e-07,phase2/results/E1_A40.csv,13,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,CHEASE public,4224.0,2.9192872227009155e-08,phase2/results/E1_A40.csv,14,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,CHEASE public,16640.0,1.3271436853949693e-08,phase2/results/E1_A40.csv,15,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,CHEASE public,66048.0,1.2554970995605884e-08,phase2/results/E1_A40.csv,16,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,CHEASE MARS,1088.0,2.181683746757545e-07,phase2/results/E1_A40.csv,9,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,CHEASE MARS,4224.0,2.93510570889505e-08,phase2/results/E1_A40.csv,10,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,CHEASE MARS,16640.0,1.3014503043119671e-08,phase2/results/E1_A40.csv,11,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,CHEASE MARS,66048.0,1.2575322311359251e-08,phase2/results/E1_A40.csv,12,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,VMEC++,1518.0,5.761875898937411e-06,phase2/results/E1_A40.csv,1,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,VMEC++,2990.0,2.0665339917803717e-06,phase2/results/E1_A40.csv,2,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,VMEC++,5934.0,1.8096198099194536e-06,phase2/results/E1_A40.csv,3,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,VMEC++,11822.0,2.466274330771414e-07,phase2/results/E1_A40.csv,4,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,DESC,12.0,1.7374964483422016e-06,phase2/results/E1_A40.csv,5,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,DESC,27.0,4.9289297578538926e-08,phase2/results/E1_A40.csv,6,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,DESC,48.0,8.278708692641907e-09,phase2/results/E1_A40.csv,7,dof,bpol_l2,identity
+circular_e1,E1_A40:dof,DESC,75.0,1.064139349786681e-08,phase2/results/E1_A40.csv,8,dof,bpol_l2,identity
+circular_e1,E1_A40:wall_s,KIN6D,0.8692689980380237,2.07509027269452e-05,phase2/results/E1_A40.csv,17,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,KIN6D,1.9424343849532306,1.7217840120904502e-06,phase2/results/E1_A40.csv,18,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,KIN6D,4.7600118450354785,1.079148807082049e-07,phase2/results/E1_A40.csv,19,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,KIN6D,17.592025147983804,7.149582426654372e-09,phase2/results/E1_A40.csv,20,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 4
+circular_e1,E1_A40:wall_s,CHEASE public,1.2760825660079718,2.1779094122079956e-07,phase2/results/E1_A40.csv,13,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,CHEASE public,2.6264577300753444,2.9192872227009155e-08,phase2/results/E1_A40.csv,14,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,CHEASE public,6.799270640127361,1.3271436853949693e-08,phase2/results/E1_A40.csv,15,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,CHEASE public,21.928956232964993,1.2554970995605884e-08,phase2/results/E1_A40.csv,16,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,CHEASE MARS,1.2692157260607928,2.181683746757545e-07,phase2/results/E1_A40.csv,9,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,CHEASE MARS,1.9691979999188334,2.93510570889505e-08,phase2/results/E1_A40.csv,10,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,CHEASE MARS,4.974522655829787,1.3014503043119671e-08,phase2/results/E1_A40.csv,11,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,CHEASE MARS,19.91436789301224,1.2575322311359251e-08,phase2/results/E1_A40.csv,12,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,VMEC++,2.4425959850195795,5.761875898937411e-06,phase2/results/E1_A40.csv,1,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,VMEC++,4.389426609966904,2.0665339917803717e-06,phase2/results/E1_A40.csv,2,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,VMEC++,5.6356149518396705,1.8096198099194536e-06,phase2/results/E1_A40.csv,3,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,VMEC++,58.590846123872325,2.466274330771414e-07,phase2/results/E1_A40.csv,4,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,DESC,30.530298815108836,1.7374964483422016e-06,phase2/results/E1_A40.csv,5,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,DESC,32.31864850688726,4.9289297578538926e-08,phase2/results/E1_A40.csv,6,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,DESC,60.60765860392712,8.278708692641907e-09,phase2/results/E1_A40.csv,7,wall_s,bpol_l2,identity
+circular_e1,E1_A40:wall_s,DESC,63.49287933809683,1.064139349786681e-08,phase2/results/E1_A40.csv,8,wall_s,bpol_l2,identity
+circular_e1,E1_A20:dof,KIN6D,595.0,2.075625009600886e-05,phase2/results/E1_A20.csv,17,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,KIN6D,2422.0,1.7267171900667672e-06,phase2/results/E1_A20.csv,18,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,KIN6D,9766.0,1.14428888728646e-07,phase2/results/E1_A20.csv,19,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,KIN6D,40483.0,8.056063981517938e-09,phase2/results/E1_A20.csv,20,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 2
+circular_e1,E1_A20:dof,CHEASE public,1088.0,4.7476460282783427e-07,phase2/results/E1_A20.csv,13,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,CHEASE public,4224.0,5.982521292642648e-08,phase2/results/E1_A20.csv,14,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,CHEASE public,16640.0,2.1241256633600097e-08,phase2/results/E1_A20.csv,15,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,CHEASE public,66048.0,2.0309935023229723e-08,phase2/results/E1_A20.csv,16,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,CHEASE MARS,1088.0,4.749006873202124e-07,phase2/results/E1_A20.csv,9,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,CHEASE MARS,4224.0,6.110181014025428e-08,phase2/results/E1_A20.csv,10,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,CHEASE MARS,16640.0,2.2201254740227717e-08,phase2/results/E1_A20.csv,11,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,CHEASE MARS,66048.0,2.101177511076993e-08,phase2/results/E1_A20.csv,12,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,VMEC++,1518.0,1.6350787560043918e-05,phase2/results/E1_A20.csv,1,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,VMEC++,2990.0,5.425102964898885e-06,phase2/results/E1_A20.csv,2,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,VMEC++,5934.0,1.76854946685665e-06,phase2/results/E1_A20.csv,3,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,VMEC++,11822.0,5.820637586409984e-07,phase2/results/E1_A20.csv,4,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,DESC,12.0,1.3903052884066274e-05,phase2/results/E1_A20.csv,5,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,DESC,27.0,1.9489832551976753e-08,phase2/results/E1_A20.csv,6,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,DESC,48.0,7.638968602421945e-09,phase2/results/E1_A20.csv,7,dof,bpol_l2,identity
+circular_e1,E1_A20:dof,DESC,75.0,7.61595902120897e-09,phase2/results/E1_A20.csv,8,dof,bpol_l2,identity
+circular_e1,E1_A20:wall_s,KIN6D,0.9295068259816617,2.075625009600886e-05,phase2/results/E1_A20.csv,17,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,KIN6D,1.9984359028749168,1.7267171900667672e-06,phase2/results/E1_A20.csv,18,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,KIN6D,4.939948178129271,1.14428888728646e-07,phase2/results/E1_A20.csv,19,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,KIN6D,20.710165282944217,8.056063981517938e-09,phase2/results/E1_A20.csv,20,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 2
+circular_e1,E1_A20:wall_s,CHEASE public,1.171469597145915,4.7476460282783427e-07,phase2/results/E1_A20.csv,13,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,CHEASE public,2.7867517068516463,5.982521292642648e-08,phase2/results/E1_A20.csv,14,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,CHEASE public,6.884030875051394,2.1241256633600097e-08,phase2/results/E1_A20.csv,15,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,CHEASE public,21.214357434073463,2.0309935023229723e-08,phase2/results/E1_A20.csv,16,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,CHEASE MARS,1.3202894490677863,4.749006873202124e-07,phase2/results/E1_A20.csv,9,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,CHEASE MARS,2.112353093922138,6.110181014025428e-08,phase2/results/E1_A20.csv,10,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,CHEASE MARS,5.835016747005284,2.2201254740227717e-08,phase2/results/E1_A20.csv,11,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,CHEASE MARS,22.113626099890098,2.101177511076993e-08,phase2/results/E1_A20.csv,12,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,VMEC++,2.064557614037767,1.6350787560043918e-05,phase2/results/E1_A20.csv,1,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,VMEC++,3.145047976868227,5.425102964898885e-06,phase2/results/E1_A20.csv,2,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,VMEC++,8.651856779120862,1.76854946685665e-06,phase2/results/E1_A20.csv,3,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,VMEC++,21.773758884053677,5.820637586409984e-07,phase2/results/E1_A20.csv,4,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,DESC,32.59265891299583,1.3903052884066274e-05,phase2/results/E1_A20.csv,5,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,DESC,32.735265291063115,1.9489832551976753e-08,phase2/results/E1_A20.csv,6,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,DESC,59.29152604192495,7.638968602421945e-09,phase2/results/E1_A20.csv,7,wall_s,bpol_l2,identity
+circular_e1,E1_A20:wall_s,DESC,63.32918086601421,7.61595902120897e-09,phase2/results/E1_A20.csv,8,wall_s,bpol_l2,identity
+circular_e1,E1_A10:dof,KIN6D,595.0,2.092227277090236e-05,phase2/results/E1_A10.csv,17,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,KIN6D,2440.0,1.8163287758103318e-06,phase2/results/E1_A10.csv,18,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,KIN6D,9640.0,1.1432751380650566e-07,phase2/results/E1_A10.csv,19,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,KIN6D,40177.0,7.590700383593258e-09,phase2/results/E1_A10.csv,20,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 1
+circular_e1,E1_A10:dof,CHEASE public,1088.0,1.2136529926382561e-06,phase2/results/E1_A10.csv,9,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,CHEASE public,4224.0,1.4175737817314482e-07,phase2/results/E1_A10.csv,10,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,CHEASE public,16640.0,1.8611121438214642e-08,phase2/results/E1_A10.csv,11,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,CHEASE public,66048.0,9.51586634221722e-09,phase2/results/E1_A10.csv,12,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,CHEASE MARS,1088.0,1.2144064519136031e-06,phase2/results/E1_A10.csv,13,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,CHEASE MARS,4224.0,1.4256067583771806e-07,phase2/results/E1_A10.csv,14,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,CHEASE MARS,16640.0,1.9365485400382433e-08,phase2/results/E1_A10.csv,15,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,CHEASE MARS,66048.0,9.383853127021776e-09,phase2/results/E1_A10.csv,16,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,VMEC++,1518.0,4.588995941671154e-05,phase2/results/E1_A10.csv,1,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,VMEC++,2990.0,1.6750050104550517e-05,phase2/results/E1_A10.csv,2,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,VMEC++,5934.0,6.110729374716179e-06,phase2/results/E1_A10.csv,3,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,VMEC++,11822.0,2.3755274053160705e-06,phase2/results/E1_A10.csv,4,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,DESC,12.0,0.0001121649611945633,phase2/results/E1_A10.csv,5,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,DESC,27.0,2.5744409924360673e-07,phase2/results/E1_A10.csv,6,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,DESC,48.0,4.843910778664995e-08,phase2/results/E1_A10.csv,7,dof,bpol_l2,identity
+circular_e1,E1_A10:dof,DESC,75.0,7.1066692794031134e-09,phase2/results/E1_A10.csv,8,dof,bpol_l2,identity
+circular_e1,E1_A10:wall_s,KIN6D,0.9971558309625834,2.092227277090236e-05,phase2/results/E1_A10.csv,17,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,KIN6D,1.9926920409779996,1.8163287758103318e-06,phase2/results/E1_A10.csv,18,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,KIN6D,4.824580747867003,1.1432751380650566e-07,phase2/results/E1_A10.csv,19,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,KIN6D,21.273076795972884,7.590700383593258e-09,phase2/results/E1_A10.csv,20,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 1
+circular_e1,E1_A10:wall_s,CHEASE public,1.278149131918326,1.2136529926382561e-06,phase2/results/E1_A10.csv,9,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,CHEASE public,2.52565062395297,1.4175737817314482e-07,phase2/results/E1_A10.csv,10,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,CHEASE public,7.039649527985603,1.8611121438214642e-08,phase2/results/E1_A10.csv,11,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,CHEASE public,22.168138155015185,9.51586634221722e-09,phase2/results/E1_A10.csv,12,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,CHEASE MARS,1.5226337118074298,1.2144064519136031e-06,phase2/results/E1_A10.csv,13,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,CHEASE MARS,2.137870968086645,1.4256067583771806e-07,phase2/results/E1_A10.csv,14,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,CHEASE MARS,5.083722641924396,1.9365485400382433e-08,phase2/results/E1_A10.csv,15,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,CHEASE MARS,19.553883061977103,9.383853127021776e-09,phase2/results/E1_A10.csv,16,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,VMEC++,1.3899708949029446,4.588995941671154e-05,phase2/results/E1_A10.csv,1,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,VMEC++,1.5827018099371344,1.6750050104550517e-05,phase2/results/E1_A10.csv,2,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,VMEC++,2.7815285199321806,6.110729374716179e-06,phase2/results/E1_A10.csv,3,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,VMEC++,7.313897741958499,2.3755274053160705e-06,phase2/results/E1_A10.csv,4,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,DESC,33.118006482953206,0.0001121649611945633,phase2/results/E1_A10.csv,5,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,DESC,35.958745404845104,2.5744409924360673e-07,phase2/results/E1_A10.csv,6,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,DESC,61.98268774501048,4.843910778664995e-08,phase2/results/E1_A10.csv,7,wall_s,bpol_l2,identity
+circular_e1,E1_A10:wall_s,DESC,60.80129306996241,7.1066692794031134e-09,phase2/results/E1_A10.csv,8,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:dof,KIN6D,613.0,2.517010151103529e-05,phase2/results/E1_A3p1.csv,18,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,KIN6D,2395.0,2.405523808403031e-06,phase2/results/E1_A3p1.csv,19,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,KIN6D,9937.0,2.020414073373699e-07,phase2/results/E1_A3p1.csv,20,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,KIN6D,40753.0,1.8320996136507646e-08,phase2/results/E1_A3p1.csv,21,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 3
+circular_e1,E1_A3p1:dof,CHEASE public,1088.0,1.0457495974549816e-05,phase2/results/E1_A3p1.csv,14,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,CHEASE public,4224.0,1.1574759569601086e-06,phase2/results/E1_A3p1.csv,15,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,CHEASE public,16640.0,1.32404922738101e-07,phase2/results/E1_A3p1.csv,16,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,_nolegend_,66048.0,2.3331736348148625e-08,phase2/results/E1_A3p1.csv,17,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,CHEASE MARS,1088.0,1.0462539585921121e-05,phase2/results/E1_A3p1.csv,10,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,CHEASE MARS,4224.0,1.1629532557505843e-06,phase2/results/E1_A3p1.csv,11,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,CHEASE MARS,16640.0,1.380707688802492e-07,phase2/results/E1_A3p1.csv,12,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,CHEASE MARS,66048.0,2.53214354983318e-08,phase2/results/E1_A3p1.csv,13,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,VMEC++,1518.0,0.00028673339195544353,phase2/results/E1_A3p1.csv,1,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,VMEC++,2990.0,8.74432770985955e-05,phase2/results/E1_A3p1.csv,2,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,VMEC++,5934.0,2.646171573000444e-05,phase2/results/E1_A3p1.csv,3,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,VMEC++,11822.0,8.053487738279381e-06,phase2/results/E1_A3p1.csv,4,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,VMEC++,23598.0,2.445197732457552e-06,phase2/results/E1_A3p1.csv,5,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,DESC,12.0,0.0043579848802952365,phase2/results/E1_A3p1.csv,6,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,DESC,27.0,0.00010840309404644351,phase2/results/E1_A3p1.csv,7,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,DESC,48.0,2.371842616441577e-06,phase2/results/E1_A3p1.csv,8,dof,bpol_l2,identity
+circular_e1,E1_A3p1:dof,DESC,75.0,6.376681677932571e-08,phase2/results/E1_A3p1.csv,9,dof,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,KIN6D,0.9052542338613421,2.517010151103529e-05,phase2/results/E1_A3p1.csv,18,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,KIN6D,2.0125578788574785,2.405523808403031e-06,phase2/results/E1_A3p1.csv,19,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,KIN6D,5.162639998132363,2.020414073373699e-07,phase2/results/E1_A3p1.csv,20,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,KIN6D,22.69811812788248,1.8320996136507646e-08,phase2/results/E1_A3p1.csv,21,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 3
+circular_e1,E1_A3p1:wall_s,CHEASE public,1.2205101000145078,1.0457495974549816e-05,phase2/results/E1_A3p1.csv,14,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,CHEASE public,2.4747209341730922,1.1574759569601086e-06,phase2/results/E1_A3p1.csv,15,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,CHEASE public,6.736167970113456,1.32404922738101e-07,phase2/results/E1_A3p1.csv,16,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,_nolegend_,20.659807330928743,2.3331736348148625e-08,phase2/results/E1_A3p1.csv,17,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,CHEASE MARS,2.425812109839171,1.0462539585921121e-05,phase2/results/E1_A3p1.csv,10,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,CHEASE MARS,3.8262792530003935,1.1629532557505843e-06,phase2/results/E1_A3p1.csv,11,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,CHEASE MARS,6.6380541659891605,1.380707688802492e-07,phase2/results/E1_A3p1.csv,12,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,CHEASE MARS,21.15982996392995,2.53214354983318e-08,phase2/results/E1_A3p1.csv,13,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,VMEC++,1.7607568858657032,0.00028673339195544353,phase2/results/E1_A3p1.csv,1,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,VMEC++,2.2197857059072703,8.74432770985955e-05,phase2/results/E1_A3p1.csv,2,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,VMEC++,2.807137167081237,2.646171573000444e-05,phase2/results/E1_A3p1.csv,3,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,VMEC++,7.505348536884412,8.053487738279381e-06,phase2/results/E1_A3p1.csv,4,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,VMEC++,20.37085252185352,2.445197732457552e-06,phase2/results/E1_A3p1.csv,5,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,DESC,32.23751670611091,0.0043579848802952365,phase2/results/E1_A3p1.csv,6,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,DESC,32.2803749369923,0.00010840309404644351,phase2/results/E1_A3p1.csv,7,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,DESC,60.48764340300113,2.371842616441577e-06,phase2/results/E1_A3p1.csv,8,wall_s,bpol_l2,identity
+circular_e1,E1_A3p1:wall_s,DESC,63.4740519230254,6.376681677932571e-08,phase2/results/E1_A3p1.csv,9,wall_s,bpol_l2,identity
+circular_e2,E2_A40:dof,KIN6D,595.0,2.1146754203129237e-05,phase2/results/E2_A40.csv,17,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,KIN6D,2422.0,1.8014406098494627e-06,phase2/results/E2_A40.csv,18,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,KIN6D,9946.0,1.1486307019132188e-07,phase2/results/E2_A40.csv,19,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,KIN6D,40636.0,7.753177821141549e-09,phase2/results/E2_A40.csv,20,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 8
+circular_e2,E2_A40:dof,CHEASE public,1088.0,1.0885043123627957e-06,phase2/results/E2_A40.csv,13,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,CHEASE public,4224.0,1.3196029168491732e-07,phase2/results/E2_A40.csv,14,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,CHEASE public,16640.0,2.0145566539701102e-08,phase2/results/E2_A40.csv,15,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,CHEASE public,66048.0,1.2640364432270436e-08,phase2/results/E2_A40.csv,16,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,CHEASE MARS,1088.0,1.0889821610163184e-06,phase2/results/E2_A40.csv,9,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,CHEASE MARS,4224.0,1.3254954363247928e-07,phase2/results/E2_A40.csv,10,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,CHEASE MARS,16640.0,2.0424963275623307e-08,phase2/results/E2_A40.csv,11,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,CHEASE MARS,66048.0,1.2822171733017514e-08,phase2/results/E2_A40.csv,12,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,VMEC++,1518.0,3.668745651225462e-05,phase2/results/E2_A40.csv,1,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,VMEC++,2990.0,1.2655386823274546e-05,phase2/results/E2_A40.csv,2,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,VMEC++,5934.0,4.973721004986412e-06,phase2/results/E2_A40.csv,3,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,VMEC++,11822.0,1.419874285743878e-06,phase2/results/E2_A40.csv,4,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,DESC,12.0,3.3565990316301503e-06,phase2/results/E2_A40.csv,5,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,DESC,27.0,2.585150611091582e-08,phase2/results/E2_A40.csv,6,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,DESC,48.0,1.1847759450436715e-08,phase2/results/E2_A40.csv,7,dof,bpol_l2,identity
+circular_e2,E2_A40:dof,DESC,75.0,1.0180118331216257e-08,phase2/results/E2_A40.csv,8,dof,bpol_l2,identity
+circular_e2,E2_A40:wall_s,KIN6D,0.9085031950380653,2.1146754203129237e-05,phase2/results/E2_A40.csv,17,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,KIN6D,1.9784737939480692,1.8014406098494627e-06,phase2/results/E2_A40.csv,18,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,KIN6D,4.913569261087105,1.1486307019132188e-07,phase2/results/E2_A40.csv,19,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,KIN6D,19.22584557114169,7.753177821141549e-09,phase2/results/E2_A40.csv,20,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 8
+circular_e2,E2_A40:wall_s,CHEASE public,1.1739380578510463,1.0885043123627957e-06,phase2/results/E2_A40.csv,13,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,CHEASE public,2.682559660868719,1.3196029168491732e-07,phase2/results/E2_A40.csv,14,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,CHEASE public,6.937461111927405,2.0145566539701102e-08,phase2/results/E2_A40.csv,15,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,CHEASE public,21.927491792012006,1.2640364432270436e-08,phase2/results/E2_A40.csv,16,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,CHEASE MARS,1.3206236988771707,1.0889821610163184e-06,phase2/results/E2_A40.csv,9,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,CHEASE MARS,2.5247318940237164,1.3254954363247928e-07,phase2/results/E2_A40.csv,10,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,CHEASE MARS,5.638860067818314,2.0424963275623307e-08,phase2/results/E2_A40.csv,11,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,CHEASE MARS,20.116126698907465,1.2822171733017514e-08,phase2/results/E2_A40.csv,12,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,VMEC++,2.7179020359180868,3.668745651225462e-05,phase2/results/E2_A40.csv,1,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,VMEC++,4.494524641893804,1.2655386823274546e-05,phase2/results/E2_A40.csv,2,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,VMEC++,6.406188052147627,4.973721004986412e-06,phase2/results/E2_A40.csv,3,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,VMEC++,60.4948701991234,1.419874285743878e-06,phase2/results/E2_A40.csv,4,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,DESC,32.382529279915616,3.3565990316301503e-06,phase2/results/E2_A40.csv,5,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,DESC,33.44289681594819,2.585150611091582e-08,phase2/results/E2_A40.csv,6,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,DESC,59.96587264793925,1.1847759450436715e-08,phase2/results/E2_A40.csv,7,wall_s,bpol_l2,identity
+circular_e2,E2_A40:wall_s,DESC,63.20219287695363,1.0180118331216257e-08,phase2/results/E2_A40.csv,8,wall_s,bpol_l2,identity
+circular_e2,E2_A20:dof,KIN6D,595.0,2.295556638061398e-05,phase2/results/E2_A20.csv,18,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,KIN6D,2422.0,2.030337688474875e-06,phase2/results/E2_A20.csv,19,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,KIN6D,9766.0,1.4899701690523774e-07,phase2/results/E2_A20.csv,20,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,KIN6D,40483.0,1.1716322397533743e-08,phase2/results/E2_A20.csv,21,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 6
+circular_e2,E2_A20:dof,CHEASE public,1088.0,2.358520030582241e-06,phase2/results/E2_A20.csv,10,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,CHEASE public,4224.0,2.8088970478841293e-07,phase2/results/E2_A20.csv,11,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,CHEASE public,16640.0,3.865297644786064e-08,phase2/results/E2_A20.csv,12,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,CHEASE public,66048.0,2.1334091485253115e-08,phase2/results/E2_A20.csv,13,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,CHEASE MARS,1088.0,2.360221762982775e-06,phase2/results/E2_A20.csv,14,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,CHEASE MARS,4224.0,2.839436112280372e-07,phase2/results/E2_A20.csv,15,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,CHEASE MARS,16640.0,3.9959475087717657e-08,phase2/results/E2_A20.csv,16,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,CHEASE MARS,66048.0,2.2572750041319557e-08,phase2/results/E2_A20.csv,17,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,VMEC++,1518.0,9.798208076549729e-05,phase2/results/E2_A20.csv,1,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,VMEC++,2990.0,3.368482787879536e-05,phase2/results/E2_A20.csv,2,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,VMEC++,5934.0,1.1622985099159161e-05,phase2/results/E2_A20.csv,3,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,VMEC++,11822.0,3.543384122661164e-06,phase2/results/E2_A20.csv,4,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,VMEC++,23598.0,1.1447915751038397e-06,phase2/results/E2_A20.csv,5,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,DESC,12.0,2.7527451893563347e-05,phase2/results/E2_A20.csv,6,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,DESC,27.0,3.420396819351712e-08,phase2/results/E2_A20.csv,7,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,DESC,48.0,1.4247793537505363e-08,phase2/results/E2_A20.csv,8,dof,bpol_l2,identity
+circular_e2,E2_A20:dof,DESC,75.0,1.6309507109070745e-08,phase2/results/E2_A20.csv,9,dof,bpol_l2,identity
+circular_e2,E2_A20:wall_s,KIN6D,0.9235497070476413,2.295556638061398e-05,phase2/results/E2_A20.csv,18,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,KIN6D,1.9476152248680592,2.030337688474875e-06,phase2/results/E2_A20.csv,19,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,KIN6D,4.783822348807007,1.4899701690523774e-07,phase2/results/E2_A20.csv,20,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,KIN6D,19.09818227402866,1.1716322397533743e-08,phase2/results/E2_A20.csv,21,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 6
+circular_e2,E2_A20:wall_s,CHEASE public,1.220849690027535,2.358520030582241e-06,phase2/results/E2_A20.csv,10,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,CHEASE public,2.4724456758704036,2.8088970478841293e-07,phase2/results/E2_A20.csv,11,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,CHEASE public,6.532772300066426,3.865297644786064e-08,phase2/results/E2_A20.csv,12,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,CHEASE public,22.281932642916217,2.1334091485253115e-08,phase2/results/E2_A20.csv,13,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,CHEASE MARS,1.372765479143709,2.360221762982775e-06,phase2/results/E2_A20.csv,14,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,CHEASE MARS,2.127749419072643,2.839436112280372e-07,phase2/results/E2_A20.csv,15,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,CHEASE MARS,5.182640423066914,3.9959475087717657e-08,phase2/results/E2_A20.csv,16,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,CHEASE MARS,19.9069379249122,2.2572750041319557e-08,phase2/results/E2_A20.csv,17,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,VMEC++,1.6500722179189324,9.798208076549729e-05,phase2/results/E2_A20.csv,1,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,VMEC++,2.33640846516937,3.368482787879536e-05,phase2/results/E2_A20.csv,2,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,VMEC++,4.416450415970758,1.1622985099159161e-05,phase2/results/E2_A20.csv,3,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,VMEC++,17.440883127972484,3.543384122661164e-06,phase2/results/E2_A20.csv,4,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,VMEC++,76.92339510517195,1.1447915751038397e-06,phase2/results/E2_A20.csv,5,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,DESC,29.80674568610266,2.7527451893563347e-05,phase2/results/E2_A20.csv,6,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,DESC,40.787648959085345,3.420396819351712e-08,phase2/results/E2_A20.csv,7,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,DESC,54.5036803081166,1.4247793537505363e-08,phase2/results/E2_A20.csv,8,wall_s,bpol_l2,identity
+circular_e2,E2_A20:wall_s,DESC,56.13781201397069,1.6309507109070745e-08,phase2/results/E2_A20.csv,9,wall_s,bpol_l2,identity
+circular_e2,E2_A10:dof,KIN6D,595.0,2.914447345055489e-05,phase2/results/E2_A10.csv,18,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,KIN6D,2440.0,2.742708722834243e-06,phase2/results/E2_A10.csv,19,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,KIN6D,9640.0,2.1249544579974892e-07,phase2/results/E2_A10.csv,20,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,KIN6D,40177.0,1.7649179225146554e-08,phase2/results/E2_A10.csv,21,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 5
+circular_e2,E2_A10:dof,CHEASE public,1088.0,5.936286206458087e-06,phase2/results/E2_A10.csv,10,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,CHEASE public,4224.0,6.854541216870055e-07,phase2/results/E2_A10.csv,11,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,CHEASE public,16640.0,8.024723643533732e-08,phase2/results/E2_A10.csv,12,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,CHEASE public,66048.0,1.62473260554614e-08,phase2/results/E2_A10.csv,13,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,CHEASE MARS,1088.0,5.941022748146964e-06,phase2/results/E2_A10.csv,14,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,CHEASE MARS,4224.0,6.9127727227823e-07,phase2/results/E2_A10.csv,15,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,CHEASE MARS,16640.0,8.47431728589974e-08,phase2/results/E2_A10.csv,16,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,CHEASE MARS,66048.0,1.7289588875328866e-08,phase2/results/E2_A10.csv,17,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,VMEC++,1518.0,0.00025025659496989624,phase2/results/E2_A10.csv,1,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,VMEC++,2990.0,8.565540307569625e-05,phase2/results/E2_A10.csv,2,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,VMEC++,5934.0,3.002596665216169e-05,phase2/results/E2_A10.csv,3,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,VMEC++,11822.0,1.0967152347928649e-05,phase2/results/E2_A10.csv,4,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,VMEC++,23598.0,2.737385741374528e-06,phase2/results/E2_A10.csv,5,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,DESC,12.0,0.0002409742349208377,phase2/results/E2_A10.csv,6,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,DESC,27.0,7.323527080314928e-07,phase2/results/E2_A10.csv,7,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,DESC,48.0,2.51614544607189e-08,phase2/results/E2_A10.csv,8,dof,bpol_l2,identity
+circular_e2,E2_A10:dof,DESC,75.0,2.1891909445705527e-08,phase2/results/E2_A10.csv,9,dof,bpol_l2,identity
+circular_e2,E2_A10:wall_s,KIN6D,0.9351947978138924,2.914447345055489e-05,phase2/results/E2_A10.csv,18,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,KIN6D,2.1022233800031245,2.742708722834243e-06,phase2/results/E2_A10.csv,19,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,KIN6D,4.807143602054566,2.1249544579974892e-07,phase2/results/E2_A10.csv,20,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,KIN6D,22.06966786389239,1.7649179225146554e-08,phase2/results/E2_A10.csv,21,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 5
+circular_e2,E2_A10:wall_s,CHEASE public,1.2212217829655856,5.936286206458087e-06,phase2/results/E2_A10.csv,10,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,CHEASE public,2.4190668638329953,6.854541216870055e-07,phase2/results/E2_A10.csv,11,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,CHEASE public,6.329388224054128,8.024723643533732e-08,phase2/results/E2_A10.csv,12,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,CHEASE public,20.456530994037166,1.62473260554614e-08,phase2/results/E2_A10.csv,13,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,CHEASE MARS,1.2675663160625845,5.941022748146964e-06,phase2/results/E2_A10.csv,14,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,CHEASE MARS,2.075287382816896,6.9127727227823e-07,phase2/results/E2_A10.csv,15,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,CHEASE MARS,4.8232843519654125,8.47431728589974e-08,phase2/results/E2_A10.csv,16,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,CHEASE MARS,18.597521489020437,1.7289588875328866e-08,phase2/results/E2_A10.csv,17,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,VMEC++,1.3926279530860484,0.00025025659496989624,phase2/results/E2_A10.csv,1,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,VMEC++,1.6345328211318702,8.565540307569625e-05,phase2/results/E2_A10.csv,2,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,VMEC++,2.6435896661132574,3.002596665216169e-05,phase2/results/E2_A10.csv,3,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,VMEC++,5.9584028569515795,1.0967152347928649e-05,phase2/results/E2_A10.csv,4,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,VMEC++,75.32573614316061,2.737385741374528e-06,phase2/results/E2_A10.csv,5,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,DESC,30.115849811816588,0.0002409742349208377,phase2/results/E2_A10.csv,6,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,DESC,30.342329482082278,7.323527080314928e-07,phase2/results/E2_A10.csv,7,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,DESC,54.832380508072674,2.51614544607189e-08,phase2/results/E2_A10.csv,8,wall_s,bpol_l2,identity
+circular_e2,E2_A10:wall_s,DESC,71.76585925696418,2.1891909445705527e-08,phase2/results/E2_A10.csv,9,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:dof,KIN6D,613.0,6.954684947206039e-05,phase2/results/E2_A3p1.csv,18,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,KIN6D,2395.0,7.610013613957416e-06,phase2/results/E2_A3p1.csv,19,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,KIN6D,9937.0,6.74841485512448e-07,phase2/results/E2_A3p1.csv,20,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,KIN6D,40753.0,6.496658175438065e-08,phase2/results/E2_A3p1.csv,21,dof,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 7
+circular_e2,E2_A3p1:dof,CHEASE public,1088.0,4.957678873352329e-05,phase2/results/E2_A3p1.csv,10,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,CHEASE public,4224.0,5.389368999369981e-06,phase2/results/E2_A3p1.csv,11,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,CHEASE public,16640.0,6.137606722433898e-07,phase2/results/E2_A3p1.csv,12,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,CHEASE public,66048.0,8.689892017813061e-08,phase2/results/E2_A3p1.csv,13,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,CHEASE MARS,1088.0,4.961121318961699e-05,phase2/results/E2_A3p1.csv,14,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,CHEASE MARS,4224.0,5.425304962928463e-06,phase2/results/E2_A3p1.csv,15,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,CHEASE MARS,16640.0,6.479875003757753e-07,phase2/results/E2_A3p1.csv,16,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,CHEASE MARS,66048.0,9.963573880060598e-08,phase2/results/E2_A3p1.csv,17,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,VMEC++,1518.0,0.0009975014213526908,phase2/results/E2_A3p1.csv,1,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,VMEC++,2990.0,0.00031482625622063844,phase2/results/E2_A3p1.csv,2,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,VMEC++,5934.0,9.969497076447901e-05,phase2/results/E2_A3p1.csv,3,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,VMEC++,11822.0,3.17738318219072e-05,phase2/results/E2_A3p1.csv,4,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,VMEC++,23598.0,1.0124151378420334e-05,phase2/results/E2_A3p1.csv,5,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,DESC,12.0,0.01401878205712888,phase2/results/E2_A3p1.csv,6,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,DESC,27.0,0.0002993742859149701,phase2/results/E2_A3p1.csv,7,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,DESC,48.0,8.357061012131451e-06,phase2/results/E2_A3p1.csv,8,dof,bpol_l2,identity
+circular_e2,E2_A3p1:dof,DESC,75.0,2.990381175169327e-07,phase2/results/E2_A3p1.csv,9,dof,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,KIN6D,0.9026788661722094,6.954684947206039e-05,phase2/results/E2_A3p1.csv,18,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,KIN6D,1.9204393168911338,7.610013613957416e-06,phase2/results/E2_A3p1.csv,19,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,KIN6D,4.932719991076738,6.74841485512448e-07,phase2/results/E2_A3p1.csv,20,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,KIN6D,22.764018319081515,6.496658175438065e-08,phase2/results/E2_A3p1.csv,21,wall_s,bpol_l2,reference Richardson: phase2/results/reference_errors.csv row 7
+circular_e2,E2_A3p1:wall_s,CHEASE public,1.2209781319834292,4.957678873352329e-05,phase2/results/E2_A3p1.csv,10,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,CHEASE public,2.4729784498922527,5.389368999369981e-06,phase2/results/E2_A3p1.csv,11,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,CHEASE public,6.843534035841003,6.137606722433898e-07,phase2/results/E2_A3p1.csv,12,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,CHEASE public,21.71916769607924,8.689892017813061e-08,phase2/results/E2_A3p1.csv,13,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,CHEASE MARS,1.327291427180171,4.961121318961699e-05,phase2/results/E2_A3p1.csv,14,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,CHEASE MARS,2.130208171904087,5.425304962928463e-06,phase2/results/E2_A3p1.csv,15,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,CHEASE MARS,5.783767777029425,6.479875003757753e-07,phase2/results/E2_A3p1.csv,16,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,CHEASE MARS,19.553126737009734,9.963573880060598e-08,phase2/results/E2_A3p1.csv,17,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,VMEC++,1.3024918150622398,0.0009975014213526908,phase2/results/E2_A3p1.csv,1,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,VMEC++,1.4963219701312482,0.00031482625622063844,phase2/results/E2_A3p1.csv,2,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,VMEC++,2.1079733518417925,9.969497076447901e-05,phase2/results/E2_A3p1.csv,3,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,VMEC++,3.974744478939101,3.17738318219072e-05,phase2/results/E2_A3p1.csv,4,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,VMEC++,18.382884634891525,1.0124151378420334e-05,phase2/results/E2_A3p1.csv,5,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,DESC,33.30206343601458,0.01401878205712888,phase2/results/E2_A3p1.csv,6,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,DESC,35.060942945070565,0.0002993742859149701,phase2/results/E2_A3p1.csv,7,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,DESC,58.68738459190354,8.357061012131451e-06,phase2/results/E2_A3p1.csv,8,wall_s,bpol_l2,identity
+circular_e2,E2_A3p1:wall_s,DESC,58.18888595094904,2.990381175169327e-07,phase2/results/E2_A3p1.csv,9,wall_s,bpol_l2,identity
+shaped,E4_E1:dof,KIN6D,973.0,5.313619179362215e-05,phase4/results/E4_E1.csv,5,dof,bpol_l2,identity
+shaped,E4_E1:dof,KIN6D,4231.0,4.139204031431039e-06,phase4/results/E4_E1.csv,6,dof,bpol_l2,identity
+shaped,E4_E1:dof,KIN6D,16885.0,3.6727481777196564e-07,phase4/results/E4_E1.csv,7,dof,bpol_l2,identity
+shaped,E4_E1:dof,KIN6D,68275.0,3.5294793614654424e-08,phase4/results/E4_E1.csv,8,dof,bpol_l2,reference Richardson: phase4/results/reference_errors.csv row 1
+shaped,E4_E1:dof,CHEASE public,1088.0,0.005153992169866909,phase4/results/E4_E1.csv,9,dof,bpol_l2,identity
+shaped,E4_E1:dof,CHEASE public,4224.0,0.00019942410386445905,phase4/results/E4_E1.csv,10,dof,bpol_l2,identity
+shaped,E4_E1:dof,CHEASE public,16640.0,1.777406781266604e-05,phase4/results/E4_E1.csv,11,dof,bpol_l2,identity
+shaped,E4_E1:dof,CHEASE public,66048.0,1.5392726740003149e-06,phase4/results/E4_E1.csv,12,dof,bpol_l2,identity
+shaped,E4_E1:dof,CHEASE MARS,1088.0,0.005154355803791197,phase4/results/E4_E1.csv,17,dof,bpol_l2,identity
+shaped,E4_E1:dof,CHEASE MARS,4224.0,0.00020029281856342448,phase4/results/E4_E1.csv,18,dof,bpol_l2,identity
+shaped,E4_E1:dof,CHEASE MARS,16640.0,1.8625496141382557e-05,phase4/results/E4_E1.csv,19,dof,bpol_l2,identity
+shaped,E4_E1:dof,CHEASE MARS,66048.0,2.0210633580352707e-06,phase4/results/E4_E1.csv,20,dof,bpol_l2,identity
+shaped,E4_E1:dof,VMEC++,2310.0,0.00041105615482808674,phase4/results/E4_E1.csv,1,dof,bpol_l2,identity
+shaped,E4_E1:dof,VMEC++,4550.0,0.00014349765435107544,phase4/results/E4_E1.csv,2,dof,bpol_l2,identity
+shaped,E4_E1:dof,VMEC++,9030.0,5.161765493481401e-05,phase4/results/E4_E1.csv,3,dof,bpol_l2,identity
+shaped,E4_E1:dof,VMEC++,17990.0,2.024301075364501e-05,phase4/results/E4_E1.csv,4,dof,bpol_l2,identity
+shaped,E4_E1:dof,DESC,27.0,2.282251595613254e-05,phase4/results/E4_E1.csv,13,dof,bpol_l2,identity
+shaped,E4_E1:dof,DESC,48.0,9.858308590768398e-07,phase4/results/E4_E1.csv,14,dof,bpol_l2,identity
+shaped,E4_E1:dof,_nolegend_,75.0,4.1609873147121526e-08,phase4/results/E4_E1.csv,15,dof,bpol_l2,identity
+shaped,E4_E1:dof,_nolegend_,108.0,5.758957759245152e-08,phase4/results/E4_E1.csv,16,dof,bpol_l2,identity
+shaped,E4_E1:wall_s,KIN6D,0.5219492111355066,5.313619179362215e-05,phase4/results/E4_E1.csv,5,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,KIN6D,1.3128095138818026,4.139204031431039e-06,phase4/results/E4_E1.csv,6,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,KIN6D,4.850773198995739,3.6727481777196564e-07,phase4/results/E4_E1.csv,7,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,KIN6D,30.35205559292808,3.5294793614654424e-08,phase4/results/E4_E1.csv,8,wall_s,bpol_l2,reference Richardson: phase4/results/reference_errors.csv row 1
+shaped,E4_E1:wall_s,CHEASE public,1.223107737954706,0.005153992169866909,phase4/results/E4_E1.csv,9,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,CHEASE public,2.4755688100121915,0.00019942410386445905,phase4/results/E4_E1.csv,10,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,CHEASE public,6.583265644032508,1.777406781266604e-05,phase4/results/E4_E1.csv,11,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,CHEASE public,21.212267010007054,1.5392726740003149e-06,phase4/results/E4_E1.csv,12,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,CHEASE MARS,2.7946236848365515,0.005154355803791197,phase4/results/E4_E1.csv,17,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,CHEASE MARS,2.7812684108503163,0.00020029281856342448,phase4/results/E4_E1.csv,18,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,CHEASE MARS,6.039305740967393,1.8625496141382557e-05,phase4/results/E4_E1.csv,19,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,CHEASE MARS,21.223168759141117,2.0210633580352707e-06,phase4/results/E4_E1.csv,20,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,VMEC++,1.4575033478904516,0.00041105615482808674,phase4/results/E4_E1.csv,1,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,VMEC++,1.9057338910643011,0.00014349765435107544,phase4/results/E4_E1.csv,2,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,VMEC++,3.353826457168907,5.161765493481401e-05,phase4/results/E4_E1.csv,3,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,VMEC++,8.653132211882621,2.024301075364501e-05,phase4/results/E4_E1.csv,4,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,DESC,29.71822023205459,2.282251595613254e-05,phase4/results/E4_E1.csv,13,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,DESC,61.11989927198738,9.858308590768398e-07,phase4/results/E4_E1.csv,14,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,_nolegend_,78.316396121867,4.1609873147121526e-08,phase4/results/E4_E1.csv,15,wall_s,bpol_l2,identity
+shaped,E4_E1:wall_s,_nolegend_,80.55559635488316,5.758957759245152e-08,phase4/results/E4_E1.csv,16,wall_s,bpol_l2,identity
+shaped,E4_E2:dof,KIN6D,973.0,0.00010498654553614276,phase4/results/E4_E2.csv,9,dof,bpol_l2,identity
+shaped,E4_E2:dof,KIN6D,4231.0,8.529065343633219e-06,phase4/results/E4_E2.csv,10,dof,bpol_l2,identity
+shaped,E4_E2:dof,KIN6D,16885.0,6.524749927377081e-07,phase4/results/E4_E2.csv,11,dof,bpol_l2,identity
+shaped,E4_E2:dof,KIN6D,68275.0,5.395726524953089e-08,phase4/results/E4_E2.csv,12,dof,bpol_l2,reference Richardson: phase4/results/reference_errors.csv row 2
+shaped,E4_E2:dof,CHEASE public,1088.0,0.0025793334358041532,phase4/results/E4_E2.csv,13,dof,bpol_l2,identity
+shaped,E4_E2:dof,CHEASE public,4224.0,0.00019178999756159327,phase4/results/E4_E2.csv,14,dof,bpol_l2,identity
+shaped,E4_E2:dof,CHEASE public,16640.0,1.818978855191948e-05,phase4/results/E4_E2.csv,15,dof,bpol_l2,identity
+shaped,E4_E2:dof,CHEASE public,66048.0,1.6222587466467045e-06,phase4/results/E4_E2.csv,16,dof,bpol_l2,identity
+shaped,E4_E2:dof,CHEASE MARS,1088.0,0.002579994370298892,phase4/results/E4_E2.csv,17,dof,bpol_l2,identity
+shaped,E4_E2:dof,CHEASE MARS,4224.0,0.00019284855428496577,phase4/results/E4_E2.csv,18,dof,bpol_l2,identity
+shaped,E4_E2:dof,CHEASE MARS,16640.0,1.9170220447893614e-05,phase4/results/E4_E2.csv,19,dof,bpol_l2,identity
+shaped,E4_E2:dof,CHEASE MARS,66048.0,2.1510663819607543e-06,phase4/results/E4_E2.csv,20,dof,bpol_l2,identity
+shaped,E4_E2:dof,VMEC++,2310.0,0.0010605106398576133,phase4/results/E4_E2.csv,1,dof,bpol_l2,identity
+shaped,E4_E2:dof,VMEC++,4550.0,0.000349751781990595,phase4/results/E4_E2.csv,2,dof,bpol_l2,identity
+shaped,E4_E2:dof,VMEC++,9030.0,0.00011571263933458413,phase4/results/E4_E2.csv,3,dof,bpol_l2,identity
+shaped,E4_E2:dof,VMEC++,17990.0,3.952993566159944e-05,phase4/results/E4_E2.csv,4,dof,bpol_l2,identity
+shaped,E4_E2:dof,DESC,27.0,0.0002738735074640907,phase4/results/E4_E2.csv,5,dof,bpol_l2,identity
+shaped,E4_E2:dof,DESC,48.0,8.955217671009042e-06,phase4/results/E4_E2.csv,6,dof,bpol_l2,identity
+shaped,E4_E2:dof,_nolegend_,75.0,6.206451377096677e-07,phase4/results/E4_E2.csv,7,dof,bpol_l2,identity
+shaped,E4_E2:dof,_nolegend_,108.0,8.801765361121803e-08,phase4/results/E4_E2.csv,8,dof,bpol_l2,identity
+shaped,E4_E2:wall_s,KIN6D,0.5774092229548842,0.00010498654553614276,phase4/results/E4_E2.csv,9,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,KIN6D,1.5930387780535966,8.529065343633219e-06,phase4/results/E4_E2.csv,10,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,KIN6D,5.965594073059037,6.524749927377081e-07,phase4/results/E4_E2.csv,11,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,KIN6D,29.432208491954952,5.395726524953089e-08,phase4/results/E4_E2.csv,12,wall_s,bpol_l2,reference Richardson: phase4/results/reference_errors.csv row 2
+shaped,E4_E2:wall_s,CHEASE public,1.2287709808442742,0.0025793334358041532,phase4/results/E4_E2.csv,13,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,CHEASE public,2.688944861991331,0.00019178999756159327,phase4/results/E4_E2.csv,14,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,CHEASE public,6.943237415980548,1.818978855191948e-05,phase4/results/E4_E2.csv,15,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,CHEASE public,21.978888811077923,1.6222587466467045e-06,phase4/results/E4_E2.csv,16,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,CHEASE MARS,1.3784661670215428,0.002579994370298892,phase4/results/E4_E2.csv,17,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,CHEASE MARS,2.131249484140426,0.00019284855428496577,phase4/results/E4_E2.csv,18,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,CHEASE MARS,5.449711294146255,1.9170220447893614e-05,phase4/results/E4_E2.csv,19,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,CHEASE MARS,21.13422296778299,2.1510663819607543e-06,phase4/results/E4_E2.csv,20,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,VMEC++,2.1096666438970715,0.0010605106398576133,phase4/results/E4_E2.csv,1,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,VMEC++,2.024781631072983,0.000349751781990595,phase4/results/E4_E2.csv,2,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,VMEC++,3.4811863580252975,0.00011571263933458413,phase4/results/E4_E2.csv,3,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,VMEC++,10.519112864974886,3.952993566159944e-05,phase4/results/E4_E2.csv,4,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,DESC,32.921036002924666,0.0002738735074640907,phase4/results/E4_E2.csv,5,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,DESC,67.72745549096726,8.955217671009042e-06,phase4/results/E4_E2.csv,6,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,_nolegend_,71.35411118506454,6.206451377096677e-07,phase4/results/E4_E2.csv,7,wall_s,bpol_l2,identity
+shaped,E4_E2:wall_s,_nolegend_,92.71887313295156,8.801765361121803e-08,phase4/results/E4_E2.csv,8,wall_s,bpol_l2,identity
+large_aspect,shift_leading_difference,E1,0.1,2.154825548627594e-05,phase2/results/physics.csv,1,epsilon,shift_leading_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,shift_leading_difference,E1,0.05,2.6875783130627176e-06,phase2/results/physics.csv,2,epsilon,shift_leading_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,shift_leading_difference,E1,0.025,3.357658243424884e-07,phase2/results/physics.csv,4,epsilon,shift_leading_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E1,0.1,2.8444658866977335e-05,phase2/results/physics.csv,1,epsilon,q_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E1,0.05,1.7850752562775796e-06,phase2/results/physics.csv,2,epsilon,q_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E1,0.025,1.103799931456706e-07,phase2/results/physics.csv,4,epsilon,q_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E1 last-mesh change,0.1,1.2447500321588478e-06,phase2/results/physics.csv,1,aspect_ratio,q_last_refinement,x=1/A; y=absolute error-bar half-length
+large_aspect,q_difference,E1 last-mesh change,0.05,1.407403089626058e-07,phase2/results/physics.csv,2,aspect_ratio,q_last_refinement,x=1/A; y=absolute error-bar half-length
+large_aspect,q_difference,E1 last-mesh change,0.025,3.8442913963265823e-08,phase2/results/physics.csv,4,aspect_ratio,q_last_refinement,x=1/A; y=absolute error-bar half-length
+large_aspect,shift_leading_difference,E2,0.1,0.0004028918565659803,phase2/results/physics.csv,5,epsilon,shift_leading_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,shift_leading_difference,E2,0.05,5.0857395261196675e-05,phase2/results/physics.csv,6,epsilon,shift_leading_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,shift_leading_difference,E2,0.025,6.372904947730615e-06,phase2/results/physics.csv,8,epsilon,shift_leading_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E2,0.1,0.0005509398039480473,phase2/results/physics.csv,5,epsilon,q_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E2,0.05,3.4808234817607087e-05,phase2/results/physics.csv,6,epsilon,q_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E2,0.025,2.182002170947328e-06,phase2/results/physics.csv,8,epsilon,q_difference,x=1/aspect_ratio; y=absolute difference
+large_aspect,q_difference,E2 last-mesh change,0.1,5.770049460451787e-07,phase2/results/physics.csv,5,aspect_ratio,q_last_refinement,x=1/A; y=absolute error-bar half-length
+large_aspect,q_difference,E2 last-mesh change,0.05,2.3731523428605072e-06,phase2/results/physics.csv,6,aspect_ratio,q_last_refinement,x=1/A; y=absolute error-bar half-length
+large_aspect,q_difference,E2 last-mesh change,0.025,6.465589295068241e-07,phase2/results/physics.csv,8,aspect_ratio,q_last_refinement,x=1/A; y=absolute error-bar half-length
+consumer_exact,"0,0",KIN6D,0,1.0476540012375802e-05,phase1/results_export/summary.csv,129,path,bpol_l2,categorical path
+consumer_exact,"0,0",KIN6D,1,1.0092666890349944e-05,phase1/results_export/summary.csv,131,path,bpol_l2,categorical path
+consumer_exact,"0,0",KIN6D,2,9.872038646709603e-06,phase1/results_export/summary.csv,132,path,combined_bpol_l2,categorical path
+consumer_exact,"0,0",KIN6D,3,9.497653058289011e-06,phase1/results_export/summary.csv,165,path,bpol_l2,categorical path
+consumer_exact,"0,0",KIN6D,4,1.002863128108677e-05,phase1/results_export/summary.csv,177,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE public,0,5.4785155138137225e-06,phase1/results_export/summary.csv,111,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE public,1,5.22575885494583e-06,phase1/results_export/summary.csv,113,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE public,2,2.792609089627406e-07,phase1/results_export/summary.csv,114,path,combined_bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE public,3,6.812946718517827e-06,phase1/results_export/summary.csv,174,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE public,4,2.7986443750016594e-07,phase1/results_export/summary.csv,186,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE MARS,0,5.478514543182048e-06,phase1/results_export/summary.csv,87,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE MARS,1,5.464199468707289e-06,phase1/results_export/summary.csv,89,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE MARS,2,2.9320614761077266e-07,phase1/results_export/summary.csv,90,path,combined_bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE MARS,3,7.214171079460569e-06,phase1/results_export/summary.csv,170,path,bpol_l2,categorical path
+consumer_exact,"0,0",CHEASE MARS,4,2.925425787673673e-07,phase1/results_export/summary.csv,182,path,bpol_l2,categorical path
+consumer_exact,"0,1",KIN6D,0,9.424685168691646e-07,phase1/results_export/summary.csv,135,path,bpol_l2,categorical path
+consumer_exact,"0,1",KIN6D,1,9.103587543928991e-07,phase1/results_export/summary.csv,137,path,bpol_l2,categorical path
+consumer_exact,"0,1",KIN6D,2,7.984906481169255e-07,phase1/results_export/summary.csv,138,path,combined_bpol_l2,categorical path
+consumer_exact,"0,1",KIN6D,3,4.922003022243825e-06,phase1/results_export/summary.csv,166,path,bpol_l2,categorical path
+consumer_exact,"0,1",KIN6D,4,8.072216007806492e-07,phase1/results_export/summary.csv,178,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE public,0,6.409451498544359e-07,phase1/results_export/summary.csv,105,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE public,1,4.842931400659383e-07,phase1/results_export/summary.csv,107,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE public,2,1.850293396247871e-07,phase1/results_export/summary.csv,108,path,combined_bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE public,3,1.2202235418129163e-06,phase1/results_export/summary.csv,173,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE public,4,1.8568402303558967e-07,phase1/results_export/summary.csv,185,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE MARS,0,6.409449998525465e-07,phase1/results_export/summary.csv,81,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE MARS,1,6.195457073032172e-07,phase1/results_export/summary.csv,83,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE MARS,2,1.8198009873213365e-07,phase1/results_export/summary.csv,84,path,combined_bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE MARS,3,1.404163131633078e-06,phase1/results_export/summary.csv,169,path,bpol_l2,categorical path
+consumer_exact,"0,1",CHEASE MARS,4,1.8128560023062886e-07,phase1/results_export/summary.csv,181,path,bpol_l2,categorical path
+consumer_exact,"1,0",KIN6D,0,3.666991956405438e-05,phase1/results_export/summary.csv,141,path,bpol_l2,categorical path
+consumer_exact,"1,0",KIN6D,1,3.1220921445636795e-05,phase1/results_export/summary.csv,143,path,bpol_l2,categorical path
+consumer_exact,"1,0",KIN6D,2,6.720443771737107e-05,phase1/results_export/summary.csv,144,path,combined_bpol_l2,categorical path
+consumer_exact,"1,0",KIN6D,3,4.043230832605528e-05,phase1/results_export/summary.csv,167,path,bpol_l2,categorical path
+consumer_exact,"1,0",KIN6D,4,6.865952309476864e-05,phase1/results_export/summary.csv,179,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE public,0,1.876604960236773e-06,phase1/results_export/summary.csv,117,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE public,1,1.4134505398546795e-06,phase1/results_export/summary.csv,119,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE public,2,6.217352700186948e-07,phase1/results_export/summary.csv,120,path,combined_bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE public,3,2.243276489798969e-06,phase1/results_export/summary.csv,175,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE public,4,6.107671718469676e-07,phase1/results_export/summary.csv,187,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE MARS,0,1.876593769687011e-06,phase1/results_export/summary.csv,93,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE MARS,1,1.8251294383484054e-06,phase1/results_export/summary.csv,95,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE MARS,2,4.930250052253465e-07,phase1/results_export/summary.csv,96,path,combined_bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE MARS,3,2.7523143692405326e-06,phase1/results_export/summary.csv,171,path,bpol_l2,categorical path
+consumer_exact,"1,0",CHEASE MARS,4,4.905104415083428e-07,phase1/results_export/summary.csv,183,path,bpol_l2,categorical path
+consumer_exact,"1,1",KIN6D,0,2.290252393294098e-06,phase1/results_export/summary.csv,147,path,bpol_l2,categorical path
+consumer_exact,"1,1",KIN6D,1,2.2754166298534623e-06,phase1/results_export/summary.csv,149,path,bpol_l2,categorical path
+consumer_exact,"1,1",KIN6D,2,3.5006591852645295e-06,phase1/results_export/summary.csv,150,path,combined_bpol_l2,categorical path
+consumer_exact,"1,1",KIN6D,3,4.917148969499334e-06,phase1/results_export/summary.csv,168,path,bpol_l2,categorical path
+consumer_exact,"1,1",KIN6D,4,3.6800743786776473e-06,phase1/results_export/summary.csv,180,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE public,0,2.4121369997912673e-07,phase1/results_export/summary.csv,123,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE public,1,1.8913849561454703e-07,phase1/results_export/summary.csv,125,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE public,2,3.3723548620336626e-07,phase1/results_export/summary.csv,126,path,combined_bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE public,3,4.250184703936861e-06,phase1/results_export/summary.csv,176,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE public,4,3.435767564046975e-07,phase1/results_export/summary.csv,188,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE MARS,0,2.4121244034506157e-07,phase1/results_export/summary.csv,99,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE MARS,1,2.3282950783770112e-07,phase1/results_export/summary.csv,101,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE MARS,2,3.295068954484182e-07,phase1/results_export/summary.csv,102,path,combined_bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE MARS,3,2.238291461551485e-06,phase1/results_export/summary.csv,172,path,bpol_l2,categorical path
+consumer_exact,"1,1",CHEASE MARS,4,3.3609978290524603e-07,phase1/results_export/summary.csv,184,path,bpol_l2,categorical path
+cylinder,gold_hoyle:aspect,CHEASE public,10.0,0.045295534671200934,phase5/results/finest.csv,1,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,CHEASE public,30.0,0.015017159855758161,phase5/results/finest.csv,3,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,CHEASE public,100.0,0.004502386686380942,phase5/results/finest.csv,5,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,CHEASE public,300.0,0.0015007145741862567,phase5/results/finest.csv,7,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:resolution,CHEASE public,1088.0,5.420378639873931e-08,phase5/results/resolution.csv,1,dof,B_discretization_difference,identity
+cylinder,gold_hoyle:resolution,CHEASE public,4224.0,6.928797961887288e-09,phase5/results/resolution.csv,2,dof,B_discretization_difference,identity
+cylinder,gold_hoyle:aspect,CHEASE MARS,10.0,0.045295534672746926,phase5/results/finest.csv,2,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,CHEASE MARS,30.0,0.015017159866945243,phase5/results/finest.csv,4,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,CHEASE MARS,100.0,0.004502386688118907,phase5/results/finest.csv,6,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,CHEASE MARS,300.0,0.0015007146906320927,phase5/results/finest.csv,8,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:resolution,CHEASE MARS,1088.0,5.4248623303835774e-08,phase5/results/resolution.csv,3,dof,B_discretization_difference,identity
+cylinder,gold_hoyle:resolution,CHEASE MARS,4224.0,6.871403113326157e-09,phase5/results/resolution.csv,4,dof,B_discretization_difference,identity
+cylinder,gold_hoyle:aspect,VMEC++,10.0,0.04529553864068023,phase5/results/finest.csv,9,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,VMEC++,30.0,0.015017158822836628,phase5/results/finest.csv,10,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,VMEC++,100.0,0.004502386310515593,phase5/results/finest.csv,12,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,VMEC++,300.0,0.0015007145595623515,phase5/results/finest.csv,21,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,DESC,10.0,0.04529553459257808,phase5/results/finest.csv,13,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,DESC,30.0,0.015017159829509356,phase5/results/finest.csv,23,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,DESC,300.0,0.0015007146913916499,phase5/results/finest.csv,25,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,DESC,100.0,0.004502386677701224,phase5/results/finest.csv,27,aspect,B_rel_L2,identity
+cylinder,gold_hoyle:aspect,Public: first-order remainder,10.0,0.00288340376050884,phase5/results/finest.csv,1,aspect,B_first_order_remainder,identity
+cylinder,gold_hoyle:aspect,Public: first-order remainder,30.0,0.00031822001221474226,phase5/results/finest.csv,3,aspect,B_first_order_remainder,identity
+cylinder,gold_hoyle:aspect,Public: first-order remainder,100.0,2.8617821380838773e-05,phase5/results/finest.csv,5,aspect,B_first_order_remainder,identity
+cylinder,gold_hoyle:aspect,Public: first-order remainder,300.0,3.1795482663000815e-06,phase5/results/finest.csv,7,aspect,B_first_order_remainder,identity
+cylinder,lundquist:aspect,CHEASE public,10.0,0.03885860437567362,phase5/results/finest.csv,11,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,CHEASE public,30.0,0.012908825770635726,phase5/results/finest.csv,15,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,CHEASE public,100.0,0.0038711544044752358,phase5/results/finest.csv,19,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,CHEASE public,300.0,0.001290329714060218,phase5/results/finest.csv,24,aspect,B_rel_L2,identity
+cylinder,lundquist:resolution,CHEASE public,1088.0,1.5300811236745883e-06,phase5/results/resolution.csv,21,dof,B_discretization_difference,identity
+cylinder,lundquist:resolution,CHEASE public,4224.0,1.6156112283437446e-07,phase5/results/resolution.csv,22,dof,B_discretization_difference,identity
+cylinder,lundquist:aspect,CHEASE MARS,10.0,0.038858607211780666,phase5/results/finest.csv,14,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,CHEASE MARS,30.0,0.012908827389486639,phase5/results/finest.csv,18,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,CHEASE MARS,100.0,0.00387115345636357,phase5/results/finest.csv,20,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,CHEASE MARS,300.0,0.0012903405663882087,phase5/results/finest.csv,26,aspect,B_rel_L2,identity
+cylinder,lundquist:resolution,CHEASE MARS,1088.0,1.5417393214065549e-06,phase5/results/resolution.csv,27,dof,B_discretization_difference,identity
+cylinder,lundquist:resolution,CHEASE MARS,4224.0,1.8263734329249077e-07,phase5/results/resolution.csv,28,dof,B_discretization_difference,identity
+cylinder,lundquist:aspect,VMEC++,10.0,0.03885795040660991,phase5/results/finest.csv,22,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,VMEC++,30.0,0.012908604679832892,phase5/results/finest.csv,28,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,VMEC++,100.0,0.003871087515350666,phase5/results/finest.csv,29,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,VMEC++,300.0,0.0012903219793597666,phase5/results/finest.csv,31,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,DESC,10.0,0.03886542695797398,phase5/results/finest.csv,30,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,DESC,30.0,0.012903911931918614,phase5/results/finest.csv,32,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,DESC,100.0,0.0038698158776089885,phase5/results/finest.csv,35,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,DESC,300.0,0.0013111529031654835,phase5/results/finest.csv,36,aspect,B_rel_L2,identity
+cylinder,lundquist:aspect,Public: first-order remainder,10.0,0.0019198897448162295,phase5/results/finest.csv,11,aspect,B_first_order_remainder,identity
+cylinder,lundquist:aspect,Public: first-order remainder,30.0,0.00021204200561091062,phase5/results/finest.csv,15,aspect,B_first_order_remainder,identity
+cylinder,lundquist:aspect,Public: first-order remainder,100.0,1.9070916712037086e-05,phase5/results/finest.csv,19,aspect,B_first_order_remainder,identity
+cylinder,lundquist:aspect,Public: first-order remainder,300.0,2.1204681602794874e-06,phase5/results/finest.csv,24,aspect,B_first_order_remainder,identity

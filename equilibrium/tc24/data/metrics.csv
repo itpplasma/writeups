@@ -1,0 +1,14 @@
+quantity,value,meaning,source
+psi_l2_target,1e-6,provisional relative L2 target,PLAN.md accuracy targets
+field_l2_target,1e-5,provisional relative L2 target,PLAN.md accuracy targets
+field_max_target,1e-4,provisional relative maximum target,PLAN.md accuracy targets
+q_target,1e-5,maximum pointwise relative error,PLAN.md accuracy targets
+axis_volume_phi_target,1e-6,relative target for each quantity,PLAN.md accuracy targets
+native_points,4000,seeded interior physical points,equilibrium/phase1/README.md
+outer_s_pol,0.98,largest sampled native poloidal label,equilibrium/phase1/README.md
+q_points,40,uniform toroidal label queries,equilibrium/phase1/README.md
+q_s_tor_min,0.05,minimum q query,equilibrium/phase1/README.md
+q_s_tor_max,0.98,maximum q query,equilibrium/phase1/README.md
+tc24_cutoff,0.995,source poloidal label of the new smooth boundary,equilibrium/phase4/tc24/README.md
+native_solve_cap_s,300,per native worker cap,equilibrium/phase1/results/README.md
+numerical_threads,1,threads per solve,equilibrium/phase1/results/README.md

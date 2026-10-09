@@ -1,5 +1,6 @@
 # Axisymmetric equilibrium companion
 
+- [TC24 Phase 6 report](tc24/README.md): first complete LaTeX draft, regenerated numerical figures, defect ledger and consumer coverage; inverse and actual TC24 results remain pending.
 - [Readable source](grad_shafranov.tex): signed GS reduction, weak form, exact references, selectors and review gates.
 - Canonical derivations/checks belong in KIN6D; case inputs and disagreements belong in TC24. Links are in the PDF.
 - Render: `equilibrium/render_grad_shafranov.sh /tmp/writeups-gs-20261007`.
