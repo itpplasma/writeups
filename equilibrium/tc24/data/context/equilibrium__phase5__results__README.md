@@ -1,15 +1,15 @@
 # Phase 5: periodic-cylinder limit
 
 This is the C0 Gold–Hoyle/Lundquist field and signed-q comparison at
-A=10,30,100,300, plus exact-cylinder KIM equilibrium ingress. The KIN6D P3
-finite-A cell is **blocked by unsupported profile laws**. Its exact Gold–Hoyle
-evaluator is reported separately and is not a PDE convergence result.
+A=10,30,100,300, plus exact-cylinder KIM equilibrium ingress. All five codes now
+have finite-A results, including native KIN6D P3 nonlinear solves. Its exact
+Gold–Hoyle evaluator remains separate from the PDE convergence study.
 
-Figure: [PNG](https://box.sloppy.at/79392.png), [PDF](https://box.sloppy.at/b5059.pdf).
-The registry contains 122 lane executions: 117 completed and five retained
-failures. The comparison CSV has 106 result rows, including two native
-iteration-cap outputs; 104 report native convergence. The 27 selected Python
-tests pass, including the failing-before/passing-after producer regression.
+Figure: [PNG](https://box.sloppy.at/272c9.png), [PDF](https://box.sloppy.at/baeda.pdf).
+The registry contains 150 cylinder executions: 143 completed and seven retained
+failures. The comparison CSV has 132 result rows; 130 report native convergence
+and two are DESC iteration-cap outputs. This KIN6D increment adds 26 successful
+runs and two coarse readback failures. Its 34 selected Python tests pass.
 
 ## Physical cases and source laws
 
@@ -62,7 +62,7 @@ This is consistent with the zeroth/first-order screw-pinch expansion in
 | Code | Checked route | Resolution / disposition |
 |---|---|---|
 | KIN6D | `gold_hoyle_demo`, native exact evaluator | Both q signs and field reversal; no discretization claim |
-| KIN6D P3 | Requested `build/gs_phase1` and Phase 1 producer | Producer rejects nonconstant sources; `gs_profile_load` also explicitly rejects P3/mapped geometry. Both families have retained failed requests. No Lundquist/cylinder PDE route demonstrated |
+| KIN6D P3 | `gs_phase1` at `2d8142a`, absolute cubic p'/FF' profiles | Curved boundary nodes 16,32,64; Lundquist also 128. Two 16-node readback failures retained; native fields and measured q |
 | Public CHEASE | Finite-R GS, forward EXPEQ profiles | NS=NT=16,32,64; no exact-cylinder switch demonstrated |
 | MARS CHEASE | Same forward laws and boundary | NS=NT=16,32,64; no exact-cylinder switch demonstrated |
 | VMEC++ | Native fixed-boundary toroidal equilibrium | ns=33,65,129; mpol=12; ntheta=48; no translational-cylinder route in the inspected producer/API |
@@ -76,9 +76,16 @@ source is modified. The common adapter now accepts validated tabulated p'/FF'
 profiles in addition to constant sources; its SI normalization has a behavioral
 unit test.
 
+KIN6D uses the same absolute-psi laws: exact affine FF' for Lundquist and 128
+cubic Hermite intervals for Gold–Hoyle, with exact endpoint values/slopes and
+Fedge. The interval extends to 1.5 times the cylinder axis flux; the law is never
+rescaled to a computed axis. Native source/primitive readback differs from the
+analytic law by at most 8.8e-16 (FF') and 5.2e-16 (F). The regression also checks
+both twist signs and field reversal against the exact cylinder fields.
+
 There are 512 fixed off-grid points on 0.05≤r/a≤0.90, with radial area weights.
 q uses 101 points on 0.05≤s_tor≤0.98 and includes the canonical sign. Native
-VMEC++/DESC fields and CHEASE **exported-and-read-back** EQDSK fields are named
+KIN6D/VMEC++/DESC fields and CHEASE **exported-and-read-back** EQDSK fields are named
 separately. CHEASE export grids are 257²; no native CHEASE field-error claim
 is inferred from those exports. Resolution differences include export error.
 q for VMEC++/DESC is prescribed; its agreement is an input-transfer check,
@@ -115,6 +122,45 @@ investigation is justified. VMEC++ Lundquist differences fall approximately
 quadratically over the measured ladder, faster than the conservative first-order
 radial expectation. Its remaining q readback error at high A contains radial
 interpolation error as well as the prescribed finite-A q correction.
+
+## KIN6D P3 convergence
+
+KIN6D boundary-node counts 16/32/64 match the nominal CHEASE NS/NT levels.
+The mesh uses `max_area=(2*pi*a/n)^2/2`, curved P3 and nonlinear/quadrature
+tolerances 1e-11.
+Expected field order is three. Lundquist adds n=128 at all four A values to
+separate its discretization contribution from the A300 first-order remainder.
+The finest values are n=64 for Gold–Hoyle and n=128 for Lundquist:
+
+| Family / relative error | A=10 | A=30 | A=100 | A=300 |
+|---|---:|---:|---:|---:|
+| GH field L2 | 4.52955e-02 | 1.50172e-02 | 4.50239e-03 | 1.50071e-03 |
+| GH first-order remainder | 2.88340e-03 | 3.18220e-04 | 2.86179e-05 | 3.17964e-06 |
+| GH signed q max | 7.71578e-03 | 8.50711e-04 | 7.72465e-05 | 9.14839e-06 |
+| Lundquist field L2 | 3.88586e-02 | 1.29088e-02 | 3.87115e-03 | 1.29035e-03 |
+| Lundquist first-order remainder | 1.91989e-03 | 2.12035e-04 | 1.90771e-05 | 2.15532e-06 |
+| Lundquist signed q max | 8.63884e-03 | 9.51437e-04 | 8.53196e-05 | 9.35121e-06 |
+
+Field differences from the exact cylinder scale as A^-1 (orders 1.000–1.005).
+After subtracting the unfitted first-order correction, orders are 2.000–2.006
+(GH) and 1.985–2.006 (Lundquist). Mesh differences decrease separately:
+GH orders are 4.59–4.91 on this weak-twist ladder, already below the field target;
+Lundquist's 32/64/128 orders are 2.76–3.17, consistent with the expected P3 rate.
+The finest-to-public-CHEASE field differences are 4.9e-9–6.5e-9 L2 for GH and
+4.0e-7–4.2e-7 for Lundquist, including the CHEASE export uncertainty.
+Thus the much larger raw cylinder differences are finite-toroidicity effects.
+Signed-q aspect orders are 1.94–2.01, with a sub-target mesh/readback contribution.
+
+Finest producer wall times are 27.6–39.6 s (GH) and 5.18–8.36 s (Lundquist),
+including native estimator and contour readback. The solves used separate fixed
+cores (GH: 20; Lundquist: 21), one thread each; all native solves stayed below
+300 s. Every executable embeds clean KIN6D commit `2d8142a`; copies, tables,
+input hashes and outputs are retained beside the registered manifests.
+For nonlinear laws the estimator returns status 4: a frozen-source error indicator,
+not a qualified nonlinear error bound. No estimator effectivity claim is made.
+The two n=16 Lundquist failures at A=100,300 remain an open readback candidate
+[EQ-CYL-2](../../ERRATA.md#eq-cyl-2-kin6d-coarse-p3-readback-failures); refinement
+supplies valid results but does not establish the cause of the failed requests.
 
 DESC's optimizer success flag does not imply field accuracy: Lundquist at
 L=M=4 or 6 still has significant discretization error. The additional spectral
@@ -163,25 +209,28 @@ Run from the repository root; set TMPDIR to a disk directory. Existing solver
 environments and binary pins are resolved by the Phase 1 environment helper.
 
 ```
-python -m pytest -q tests/test_phase5.py --basetemp="$TMPDIR/pytest"
+python -m pytest -q tests/test_phase5.py tests/test_phase1_kin6d_export.py tests/test_phase1_compare.py --basetemp="$TMPDIR/pytest"
 python -m equilibrium.phase5.driver --tag UNIQUE --codes chease_public chease_mars
 python -m equilibrium.phase5.analyze --tags UNIQUE
 python -m equilibrium.phase5.driver --tag UNIQUE --codes vmecpp desc --references equilibrium/phase5/results/references.json
+python -m equilibrium.phase5.driver --tag UNIQUE_KIN --codes kin6d --lane "$TMPDIR"
+python -m equilibrium.phase5.driver --tag UNIQUE_KIN_FINE --codes kin6d --families lundquist --lane "$TMPDIR" --index 3 --res '{"boundary_nodes":128,"max_area":0.0004631196205784606,"curved":true,"degree":3,"nonlinear_tolerance":1e-11,"quadrature_tolerance":1e-11}'
 python -m equilibrium.phase5.kim equilibrium/phase5/results/kim
 python -m equilibrium.phase5.native_checks --tag UNIQUE
 python -m equilibrium.phase5.analyze --tags cyl20261009_forward cyl20261009_forward2 cyl20261009_vmec cyl20261009_desc cyl20261009_descseed cyl20261009_descseed2 cyl20261009_twist cyl20261009_reversal cyl20261009_kinp3
-python -m equilibrium.phase5.plot --output "$TMPDIR/cylinder.png"
+python -m equilibrium.phase5.plot --output "$TMPDIR/cylinder_kin6d.png"
 uv run python ops/run_registry.py
 ```
 
 The forward-reference index points to the exact retained requests for this
 study; a fresh campaign must regenerate it from its own finest forward runs.
 Generated plots/PDFs stay outside Git; `artifacts.json` owns their hashes/URLs.
-KIN6D P3 still needs generic curved-P3 nonlinear profile loading and matching
-F/q readback before the requested five-code Phase 5 comparison is complete.
-That is the controller's remaining implementation decision; analytic evaluator
-success does not close it. DESC's two capped L=M=16 outputs also remain
-unqualified as converged native solves. No solver-result defect is claimed from unsupported
-geometry/profile combinations.
+The collection tag `cyl20261009_kinp3` includes the retained historical failures
+and the new `_profiles`/`_refine` runs. Fresh tags must be added to `--tags`.
+The finite-A KIN6D profile/F/q route is qualified on the successful ladders.
+The controller still owns the two coarse readback failures; this lane made no
+KIN6D changes. DESC's two capped L=M=16 outputs remain unqualified as converged
+native solves. These limitations and the consumer-path exclusions above prevent
+claiming closure of the entire equilibrium slice.
 
 Chris&AI

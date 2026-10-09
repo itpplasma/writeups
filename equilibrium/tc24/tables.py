@@ -36,10 +36,10 @@ def number(value, digits=3):
     return f'{v:.{digits}g}'
 
 
-def evidence(obj, field, value, rows, operation='identity'):
+def evidence(obj, field, value, rows, operation='identity', digits=3):
     TRACE.append({'object': obj, 'field': field, 'value': value, 'operation': operation,
                   'sources': ';'.join(f"{r['_file']}:{r['_row']}" for r in rows)})
-    return number(value)
+    return number(value, digits)
 
 
 def cell(obj, r, field, digits=3):
@@ -47,8 +47,9 @@ def cell(obj, r, field, digits=3):
     return number(r[field], digits)
 
 
-def macro(name, value, refs, field, operation='identity'):
-    formatted = evidence(name, field, value, refs, operation)
+def macro(name, value, refs, field, operation='identity', digits=3):
+    evidence(name, field, value, refs, operation)
+    formatted = number(value, digits)
     MACROS.append('\\newcommand{\\' + name + '}{' + formatted + '}')
 
 
@@ -187,9 +188,87 @@ def other_tables():
                            for q in ['pressure', 'F_squared_over_2']] for source in dict.fromkeys(r['source'] for r in rows)])
 
 
+def inverse_tables():
+    rows = read('phase3/results/comparison.csv') + read('phase3/results/kin6d_comparison.csv')
+    cases = [('E1_constant_q_A10', 'E1'), ('E2_constant_q_A10', 'E2'), ('Solovev_inverse_A3', 'Solovev')]
+    values = []
+    for case, label in cases:
+        for code in ['kin6d', 'chease_public', 'vmecpp', 'desc']:
+            selected = [r for r in rows if r['case'] == case and r['code'] == code]
+            if code == 'kin6d':
+                level = '2' if label == 'E2' else '1'
+                r = next(r for r in selected if r['level'] == level)
+            else:
+                r = max(selected, key=lambda r: float(r['dof']))
+            obj = f'inverse:{case}:{code}'
+            current = evidence(obj, 'I_phi_MA', float(r['I_phi_A']) / 1e6, [r], 'I_phi_A / 1e6')
+            fields = [('ref.' if float(r[f]) == 0 and code == 'chease_public' and label != 'Solovev'
+                       else cell(obj, r, f)) for f in ['bpol_l2', 'F_l2', 'q_max']]
+            values.append([label, tex(LABELS[code])] + fields + [current, cell(obj, r, 'wall_s')])
+    table('inverse_values', ['Case', 'Code', r'$B_p$ $L^2$', '$F$ $L^2$', '$q$ max', '$I$ (MA)', 'Time (s)'], values, 'llrrrrr')
+    exact = [r for r in rows if r['case'] == 'Solovev_inverse_A3' and r['code'] == 'kin6d']
+    coarse, fine = sorted(exact, key=lambda r: int(r['level']))[-2:]
+    for field, name in [('psi_l2', 'InversePsiRate'), ('bpol_l2', 'InverseBRate'), ('F_l2', 'InverseFRate')]:
+        macro(name, math.log2(float(coarse[field])/float(fine[field])), [coarse, fine], field,
+              'log2(error_n96/error_n192), exact Solovev; boundary resolution doubled')
+    macro('InverseFineB', fine['bpol_l2'], [fine], 'bpol_l2')
+    ex = read('phase3/results/kin6d_exports.csv')
+    vals = []
+    for case, label in cases:
+        r = next(r for r in ex if r['case'] == case and r['level'] == '3' and r['path'] == 'EQDSK_libneo')
+        vals.append([label, cell('inverse_export:'+case, r, 'psi_l2'), cell('inverse_export:'+case, r, 'bpol_l2')])
+    table('inverse_exports', ['Case', r'libneo $\psi$ $L^2$', r'libneo $B_p$ $L^2$'], vals)
+
+
+def tc24_tables():
+    base = 'phase4/tc24/reference/'
+    variants = read(base+'variants.csv')
+    names = {'reference': 'modx03 (reference)', 'gfile_chease': r'gfile\_chease',
+             'jintrac': 'JINTRAC', 'leonardo': 'Leonardo CHEASE'}
+    table('tc24_sources', ['Received equilibrium', '$R_0$ (m)', '$I_p$ (MA)', '$F_e$ (T m)', '$q_0$'],
+          [[names[r['name']]]+[cell('tc24_source:'+r['name'],r,k,6) for k in ['R0','native_Ip_MA','native_F_edge','native_q0']] for r in variants])
+    replay = read(base+'replay.csv')
+    table('tc24_replay', ['Exact-deck replay', 'Time (s)', '$I_p$ (MA)', r'Source $B_p$ difference'],
+          [[tex(LABELS[r['code']]),cell('replay',r,'wall_s'),
+            evidence('replay','current_MA',float(r['current_A'])/1e6,[r],'current_A / 1e6',digits=9),
+            cell('replay',r,'source_bpol_l2')] for r in replay])
+    ref = next(r for r in variants if r['name']=='reference')
+    macro('SourceHeaderCurrent', ref['native_Ip_MA'], [ref], 'native_Ip_MA', digits=9)
+    macro('ReplayLogCurrent', float(replay[0]['received_log_current_A'])/1e6, [replay[0]], 'received_log_current_A', 'divide by 1e6', digits=9)
+    rows = read(base+'comparison.csv'); vals=[]
+    for code in CODES:
+        r = max([r for r in rows if r['name']=='reference' and r['code']==code
+                 and yes(r['native_converged']) and yes(r['readback_complete'])],key=lambda r: float(r['dof']))
+        vals.append([tex(LABELS[code]),cell('tc24:'+code,r,'dof',6)] +
+                    [('ref.' if code=='chease_public' else cell('tc24:'+code,r,f)) for f in ['psi_l2','bpol_l2','q_max']] +
+                    [cell('tc24:'+code,r,'wall_s')])
+    table('tc24_values', ['Code','DOF',r'$\psi$ $L^2$',r'$B_p$ $L^2$','$q$ max','Time (s)'], vals)
+    convergence = read(base+'convergence.csv')
+    for code,name in [('kin6d','Kin'),('chease_public','Public')]:
+        r=max([r for r in convergence if r['code']==code],key=lambda r:float(r['fine_dof']))
+        macro('Tc'+name+'BRate',r['apparent_bpol_l2_order'],[r],'apparent_bpol_l2_order')
+        macro('Tc'+name+'PsiRate',r['apparent_psi_l2_order'],[r],'apparent_psi_l2_order')
+    exports = read(base+'exports.csv'); consumers=read(base+'consumers.csv'); vals=[]
+    for code in CODES[:3]:
+        # The committed package selects the highest-resolution export of the finest producer.
+        selected=[r for r in exports if r['name']=='reference' and r['code']==code]
+        if code=='kin6d': selected=[r for r in selected if 'n96_' in r['producer'] and r['mpol']=='256']
+        else: selected=[r for r in selected if 'n128_' in r['producer']]
+        eq=next(r for r in selected if r['path']=='EQDSK_libneo'); boo=next(r for r in selected if r['path']=='Boozer')
+        neo=next(r for r in consumers if r['kind']=='neo2' and r['export']==eq['export_root'])
+        gpec=[r for r in consumers if r['kind']=='gpec' and r['producer']==eq['producer'] and r['bpol_l2']]
+        vals.append([tex(LABELS[code]),cell('tc_export',eq,'bpol_l2'),cell('tc_export',boo,'bpol_l2'),
+                     cell('tc_export',neo,'bpol_l2'),cell('tc_export',neo,'jacobian_geometry_max_rel'),
+                     cell('tc_export',gpec[-1],'bpol_l2') if gpec else 'failed'])
+    table('tc24_exports',['Producer','EQDSK $B_p$','Boozer $B_p$','NEO-2 $B_p$','NEO-2 $J$ max','GPEC $B_p$'], vals)
+    timings=read('phase4/tc24/kin6d_performance/timings.csv')
+    table('tc24_performance', ['$n$','DOF','Prior solve (s)','New solve (s)','Estimator (s)','Full run (s)'],
+          [[cell('tc_perf',r,k,6 if k=='dof' else 3) for k in ['n','dof','baseline_s','solve_s','estimator_s','total_s']] for r in timings])
+
+
 def main():
     OUT.mkdir(exist_ok=True)
-    exact_tables(); toroidal_tables(); consumer_tables(); other_tables()
+    exact_tables(); toroidal_tables(); consumer_tables(); other_tables(); inverse_tables(); tc24_tables()
     (OUT / 'numbers.tex').write_text('\n'.join(MACROS) + '\n')
     with (DATA / 'table_cells.csv').open('w') as f:
         writer = csv.DictWriter(f, fieldnames=list(TRACE[0]), lineterminator='\n')

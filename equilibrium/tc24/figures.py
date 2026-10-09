@@ -166,7 +166,7 @@ def cylinder():
     fine = read('phase5/results/finest.csv'); resolution = read('phase5/results/resolution.csv')
     fig, axes = plt.subplots(2, 2, figsize=(7, 4.9))
     for i, family in enumerate(['gold_hoyle', 'lundquist']):
-        for code in CODES[1:]:
+        for code in CODES:
             sel = [r for r in fine if r['code'] == code and r['family'] == family and yes(r['native_converged']) and r['twist'] == '1' and r['reversal'] == '1']
             draw(axes[i, 0], sel, 'aspect', 'B_rel_L2', 'cylinder', family + ':aspect', LABELS[code], COLORS[code])
             sel = [r for r in resolution if r['code'] == code and r['family'] == family and r['aspect'] == '10' and r['twist'] == '1' and r['reversal'] == '1']
@@ -180,6 +180,37 @@ def cylinder():
     finish(fig, 'cylinder')
 
 
+def inverse():
+    rows = read('phase3/results/comparison.csv') + read('phase3/results/kin6d_comparison.csv')
+    pairs = read('phase3/results/self_convergence.csv') + read('phase3/results/kin6d_self_convergence.csv')
+    cases = ['E1_constant_q_A10','E2_constant_q_A10','Solovev_inverse_A3']
+    fig, axes = plt.subplots(3,2,figsize=(7,7.1))
+    for i,case in enumerate(cases):
+        for j,(x,label) in enumerate([('dof','Finer producer DOF'),('wall_s','Finer producer time [s]')]):
+            for code in ['kin6d','chease_public','vmecpp','desc']:
+                series=[]
+                for r in pairs:
+                    if (r['case'],r['code'])!=(case,code): continue
+                    run=next(v for v in rows if (v['case'],v['code'],v['level'])==(case,code,r['level']))
+                    series.append(dict(r,**{x:run[x]},_transform=f"adjacent-state difference; {x} from {run['_file']}:{run['_row']}"))
+                draw(axes[i,j],series,x,'bpol_l2','inverse',case+':'+x,LABELS[code],COLORS[code])
+            axes[i,j].set_title(case.replace('_',' / '),fontsize=9)
+            style(axes[i,j],label,r'Adjacent $B_{pol}$ relative $L^2$ difference')
+    finish(fig,'inverse')
+
+
+def tc24():
+    rows=read('phase4/tc24/reference/comparison.csv')
+    rows=[r for r in rows if r['name']=='reference' and yes(r['native_converged']) and yes(r['readback_complete'])]
+    fig,axes=plt.subplots(2,2,figsize=(7,4.8))
+    for i,(metric,ylabel,target) in enumerate([('psi_l2',r'Relative $\psi$ difference',1e-6),('bpol_l2',r'Relative $B_{pol}$ difference',1e-5)]):
+        for j,(x,label) in enumerate([('dof','Producer DOF'),('wall_s','Producer time [s]')]):
+            for code in CODES:
+                draw(axes[i,j],[r for r in rows if r['code']==code],x,metric,'tc24',f'{i},{j}',LABELS[code],COLORS[code])
+            style(axes[i,j],label,ylabel,target)
+    finish(fig,'tc24')
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     plt.rcParams.update({'font.size': 8, 'axes.spines.top': False, 'axes.spines.right': False,
@@ -188,11 +219,11 @@ def main():
     for law in ['E1', 'E2']:
         toroidal('phase2', [f'{law}_A{a}' for a in ['40', '20', '10', '3p1']], 'circular_' + law.lower())
     toroidal('phase4', ['E4_E1', 'E4_E2'], 'shaped')
-    physics(); exports(); cylinder()
+    physics(); exports(); cylinder(); inverse(); tc24()
     with (DATA / 'figure_points.csv').open('w') as f:
         writer = csv.DictWriter(f, fieldnames=list(POINTS[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(POINTS)
-    print(f"Eight figures; {len(POINTS)} plotted points indexed by source CSV and data row.")
+    print(f"Ten figures; {len(POINTS)} plotted points indexed by source CSV and data row.")
 
 
 if __name__ == '__main__':

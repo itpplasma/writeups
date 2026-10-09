@@ -13,10 +13,10 @@
 - psi is signed poloidal flux per radian, Wb/rad; full poloidal flux is 2*pi*psi.
 - Canonical theta increases counter-clockwise in (R-R0,Z); (r,theta,phi) is left-handed. This convention is COCOS 3; the sign owner documents all native mappings.
 - GS: Delta_star psi + mu0*R^2*p_prime + F*F_prime=0; Delta_star=partial_RR-partial_R/R+partial_ZZ.
-- Fixed physical LCFS: psi_edge=0; the signed psi_axis is solved, not fitted. E0–E4 use the axis-minimum branch; E5 retains the source's declared axis-maximum polarity. s_pol=(psi-psi_axis)/(psi_edge-psi_axis).
+- Fixed physical LCFS: psi_edge=0; the signed psi_axis is solved, not fitted. E0–E4 and the E5 modx03 reference use an axis minimum; the JINTRAC variant retains its separately declared axis-maximum polarity. s_pol=(psi-psi_axis)/(psi_edge-psi_axis).
 - Signed toroidal flux Phi is the full integral of B_phi dR dZ. s_tor=Phi/Phi_edge; published radius rho_tor=sqrt(s_tor).
 - q=dPhi/dpsi/(2*pi), equivalently the signed toroidal winding per complete poloidal turn: q=(1/(2*pi))*integral(dphi). Local dphi/dtheta equals q only for a straight-field-line poloidal angle; geometric CCW theta need not have that property. Keep flux, current, q and pressure derivative signs consistent.
-- A forward case fixes boundary, p_prime(psi), FF_prime(psi), F_edge and pressure_edge. Current, axis flux and q are outputs.
+- E0–E4 forward cases fix boundary, p_prime(psi), FF_prime(psi), F_edge and pressure_edge. Current, axis flux and q are outputs. E5 instead fixes normalized derivative shapes and signed enclosed current; its common amplitude and axis flux are solved. These are not fixed dimensional primitive profiles. modx03 maps from COCOS 2 to 3 with F<0, q<0, Phi<0 and current<0.
 - An inverse prescribed-q case fixes boundary, pressure and a declared flux/current scale, and releases the F/current profile. It is a separate variant.
 - q_source_scale=1.5 fixes source amplitude in E1/E2. It does not prescribe q=1.5 on every surface.
 - Reject negative pressure in physical plasma cases, F^2<=0, nonnested surfaces or noninvertible radial maps. Manufactured box pressure offsets are not device constraints.
@@ -32,7 +32,7 @@
 | E2_circular_finite_beta | Separate pressure-supported case | FF_prime=0, p_prime=-2*B_reference/(q_source_scale*mu0*R0^2), p_edge=0 | Same circular LCFS; q is solved |
 | E3_finite_aspect_ratio | Controlled toroidicity | E1/E2 source laws, A=3.1 | Circular LCFS; not a perturbation of the cylinder assumed exact |
 | E4_shaped_iter_scale | Controlled shaping | E1/E2 laws, A=3.1, kappa=1.7, delta=0.33 | Explicit smooth Miller boundary; not the actual TC24 boundary |
-| E5_iter_tc24 | Actual TC24 source replay | [Stored-profile cubic law and common interior Fourier boundary](phase4/tc24/README.md), with explicit adopted source COCOS | Inputs pinned; blocked on nonlinear curved-P3 reference capability; forward/export accuracy unqualified |
+| E5_iter_tc24 | Collaborator modx03 CHEASE reference | [Provenance and exact source/deck](phase4/tc24/EQUILIBRIUM_PROVENANCE.md); COCOS 2→3, reference s_pol=0.995 boundary; normalized pprime/FFprime shapes and enclosed-current constraint for the common forward study | Exact supplied NSTTP=2/NCSCAL=4 replay is separate; source, transfer, native and consumer errors are reported. JINTRAC, gfile_chease and Leonardo are explicit variants |
 
 - C0 in right-handed (r,theta_RH,z): k=1/(q_RH*R0); B_z=B_axis/(1+k^2*r^2), B_theta_RH=k*r*B_z. curl(B)=2*k*B/(1+k^2*r^2), hence j cross B=0.
 - Aligning cylinder z with physical +phi gives theta_c=-theta_RH, Btheta_c=-Btheta_RH, psi_c=-psi_RH up to gauge and q_c=-q_RH. Native +1.5 therefore maps to canonical -1.5 in this strict straight limit; retain native outputs.
@@ -57,10 +57,11 @@
 
 - Circular physical boundary: R0=6.2 m, a=0.62 m; p=0; canonical signed q=+1.5 on every surface; full toroidal flux Phi=6.400429545011558 Wb (=pi*a²*5.3 T).
 - Authority: the existing [constant-q input](data/ordinary_controls_20261007/constant_q_A10_input.json). Phi is an input scale declared before comparison; Fedge, FFprime and total current are outputs. Circular boundary does not prescribe concentric flux surfaces.
+- [Phase 3 definitions](phase3/cases.json) retain this E1 contract, add E2 at the same boundary/q/Phi with p_prime=-146292.26472199883 Pa/(Wb/rad), and prescribe the analytic Phase 1 Solovev q profile at A3. The [results contract](phase3/results/README.md) records pressure amplitudes, signed psi/Phi integration, native selectors and released F/current quantities.
 - VMEC-family inputs prescribe iota and Phi with their recorded angle map. Public CHEASE uses NSTTP=5; MARS-associated CHEASE uses NSTTP=4. Those selector numbers have different source meanings and cannot be copied between codes.
 - A zero-pressure solve normalized to Fedge can be converted to the declared Phi by the explicit positive homogeneity factor alpha=Phi_target/Phi_native. Scale psi, F, B and j by alpha; q and geometry remain unchanged. Retain raw outputs and the normalization receipt. No comparison error determines alpha.
 - Toroidal-field reversal is a physical symmetry of this axisymmetric equilibrium: F and poloidal current reverse, while psi, toroidal current and FFprime remain fixed. It reverses Phi/q and preserves force balance. Declare this input construction separately from COCOS relabeling; global B reversal does not reverse q.
-- KIN6D has a native zero-beta constant-q/Phi candidate with reviewed derivative repairs and 45/45 CPU/Debug gates on `3a73515`. Physical inverse admission still lacks the coupled stability, contour/current and geometry error bounds; native correctness does not permit substituting prescribed FFprime. FreeGS remains withdrawn after its upstream handoff.
+- KIN6D has a native zero-beta constant-q/Phi candidate with reviewed derivative repairs and 45/45 CPU/Debug gates on `3a73515`. Its port to current curved P2/P3 main and Phase 3 refinement/estimator qualification belong to the separate KIN6D lane; forward prescribed-FFprime results do not qualify inverse mode. FreeGS remains withdrawn after its upstream handoff.
 - Acceptance requires native stopping, signed q/flux checks, independent force balance and boundary/profile/mesh refinement in every supported lane. TC24-q uses a separate pinned target and pressure/flux contract; it is not yet admitted by CQA10.
 
 ## Exact E0 oracles and VMEC++ map
@@ -124,7 +125,7 @@
   connection term and geometry-interface traces. Certified entry errors bound
   the discrete test norm; point quadrature itself is unbounded in the continuum
   energy dual. Actual positive-Jacobian/root and mapped-integral bounds remain
-  prerequisites for a new solve. The [reviewed mathematical contract](data/solovev_certified_budgets_20261009/geometry_native_prerequisite/README.md)
+  prerequisites for a new solve. The [reviewed mathematical contract](../archive/equilibrium/dechurn/INDEX.md#certificates)
   admits no PDE execution or unsupported affine inverse/coarea fallback.
 - Inverse-q/Phi qualification needs the full augmented state/source/constraint stability and branch/gauge argument; a fixed-source forward bound does not supply it. If a practical bound is unavailable, record the exact missing premise, reconstruction, constant or regularity estimate and the next check. Do not replace it with an arbitrary percentage cap. Native stopping and global invariants remain valid scoped observations while other metrics are uncertified.
 - New PDE execution remains on the [PLAN admission hold](../PLAN.md#current-status-and-next-work) until the relevant formulation, metric and case gates are qualified and the controller separately registers/adopts the experiment. Completed records retain their seals and original scopes; native correctness and analysis gates continue. This contract update admits no run.

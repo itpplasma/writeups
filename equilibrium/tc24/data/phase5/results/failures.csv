@@ -2,5 +2,7 @@ run_tag,code,state,raw_root
 cyl20261009_kinp3_kin6d_gold_hoyle_A10_00,kin6d-GS,aborted,/home/ert/data/iter_tc24/phase1/kin6d/runs/cyl20261009_kinp3_kin6d_gold_hoyle_A10_00
 cyl20261009_kinp3_kin6d_lundquist_A10_00,kin6d-GS,aborted,/home/ert/data/iter_tc24/phase1/kin6d/runs/cyl20261009_kinp3_kin6d_lundquist_A10_00
 cyl20261009_descseed_desc_lundquist_A300_04,DESC,aborted,/home/ert/data/iter_tc24/phase1/desc/runs/cyl20261009_descseed_desc_lundquist_A300_04
+cyl20261009_kinp3_profiles_kin6d_lundquist_A100_00,kin6d-GS,aborted,/home/ert/data/iter_tc24/phase1/kin6d/runs/cyl20261009_kinp3_profiles_kin6d_lundquist_A100_00
+cyl20261009_kinp3_profiles_kin6d_lundquist_A300_00,kin6d-GS,aborted,/home/ert/data/iter_tc24/phase1/kin6d/runs/cyl20261009_kinp3_profiles_kin6d_lundquist_A300_00
 cyl20261009_desc_desc_lundquist_A300_04,desc,native_unconverged,/home/ert/data/iter_tc24/phase1/desc/runs/cyl20261009_desc_desc_lundquist_A300_04
 cyl20261009_descseed2_desc_lundquist_A300_04,desc,native_unconverged,/home/ert/data/iter_tc24/phase1/desc/runs/cyl20261009_descseed2_desc_lundquist_A300_04

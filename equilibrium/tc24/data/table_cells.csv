@@ -234,3 +234,169 @@ source_consistency,integral_over_change,1.0002755930692824,identity,phase4/tc24/
 source_consistency,integral_over_change,1.0001065673150724,identity,phase4/tc24/source_consistency.csv:4
 source_consistency,integral_over_change,1.0017208801618724,identity,phase4/tc24/source_consistency.csv:5
 source_consistency,integral_over_change,0.9978278479009746,identity,phase4/tc24/source_consistency.csv:6
+inverse:E1_constant_q_A10:kin6d,I_phi_MA,-1.1014930290694778,I_phi_A / 1e6,phase3/results/kin6d_comparison.csv:2
+inverse:E1_constant_q_A10:kin6d,bpol_l2,3.0914599512561623e-06,identity,phase3/results/kin6d_comparison.csv:2
+inverse:E1_constant_q_A10:kin6d,F_l2,2.4533608103575424e-07,identity,phase3/results/kin6d_comparison.csv:2
+inverse:E1_constant_q_A10:kin6d,q_max,3.155097549778496e-06,identity,phase3/results/kin6d_comparison.csv:2
+inverse:E1_constant_q_A10:kin6d,wall_s,6.038145076017827,identity,phase3/results/kin6d_comparison.csv:2
+inverse:E1_constant_q_A10:chease_public,I_phi_MA,-1.1014940007571297,I_phi_A / 1e6,phase3/results/comparison.csv:4
+inverse:E1_constant_q_A10:chease_public,q_max,5.587077485103009e-07,identity,phase3/results/comparison.csv:4
+inverse:E1_constant_q_A10:chease_public,wall_s,176.6672354529146,identity,phase3/results/comparison.csv:4
+inverse:E1_constant_q_A10:vmecpp,I_phi_MA,-1.1014939986538057,I_phi_A / 1e6,phase3/results/comparison.csv:8
+inverse:E1_constant_q_A10:vmecpp,bpol_l2,1.8212046906706818e-06,identity,phase3/results/comparison.csv:8
+inverse:E1_constant_q_A10:vmecpp,F_l2,2.799502752665424e-09,identity,phase3/results/comparison.csv:8
+inverse:E1_constant_q_A10:vmecpp,q_max,0.0,identity,phase3/results/comparison.csv:8
+inverse:E1_constant_q_A10:vmecpp,wall_s,16.78720069397241,identity,phase3/results/comparison.csv:8
+inverse:E1_constant_q_A10:desc,I_phi_MA,-1.101494002492501,I_phi_A / 1e6,phase3/results/comparison.csv:12
+inverse:E1_constant_q_A10:desc,bpol_l2,3.0999358240442324e-09,identity,phase3/results/comparison.csv:12
+inverse:E1_constant_q_A10:desc,F_l2,1.3684956725003556e-09,identity,phase3/results/comparison.csv:12
+inverse:E1_constant_q_A10:desc,q_max,0.0,identity,phase3/results/comparison.csv:12
+inverse:E1_constant_q_A10:desc,wall_s,58.27462767995894,identity,phase3/results/comparison.csv:12
+inverse:E2_constant_q_A10:kin6d,I_phi_MA,-1.111790222093611,I_phi_A / 1e6,phase3/results/kin6d_comparison.csv:7
+inverse:E2_constant_q_A10:kin6d,bpol_l2,1.7668061044624123e-06,identity,phase3/results/kin6d_comparison.csv:7
+inverse:E2_constant_q_A10:kin6d,F_l2,4.1524961875891294e-08,identity,phase3/results/kin6d_comparison.csv:7
+inverse:E2_constant_q_A10:kin6d,q_max,1.8248555376798592e-06,identity,phase3/results/kin6d_comparison.csv:7
+inverse:E2_constant_q_A10:kin6d,wall_s,33.555840339977294,identity,phase3/results/kin6d_comparison.csv:7
+inverse:E2_constant_q_A10:chease_public,I_phi_MA,-1.1117904002713286,I_phi_A / 1e6,phase3/results/comparison.csv:16
+inverse:E2_constant_q_A10:chease_public,q_max,2.6759949852683818e-06,identity,phase3/results/comparison.csv:16
+inverse:E2_constant_q_A10:chease_public,wall_s,277.5147193418816,identity,phase3/results/comparison.csv:16
+inverse:E2_constant_q_A10:vmecpp,I_phi_MA,-1.1117903675074163,I_phi_A / 1e6,phase3/results/comparison.csv:21
+inverse:E2_constant_q_A10:vmecpp,bpol_l2,4.625124905874517e-06,identity,phase3/results/comparison.csv:21
+inverse:E2_constant_q_A10:vmecpp,F_l2,4.8295239217930895e-09,identity,phase3/results/comparison.csv:21
+inverse:E2_constant_q_A10:vmecpp,q_max,0.0,identity,phase3/results/comparison.csv:21
+inverse:E2_constant_q_A10:vmecpp,wall_s,164.91190831712447,identity,phase3/results/comparison.csv:21
+inverse:E2_constant_q_A10:desc,I_phi_MA,-1.1117904034944628,I_phi_A / 1e6,phase3/results/comparison.csv:25
+inverse:E2_constant_q_A10:desc,bpol_l2,1.0895309373832408e-08,identity,phase3/results/comparison.csv:25
+inverse:E2_constant_q_A10:desc,F_l2,3.492989535331989e-09,identity,phase3/results/comparison.csv:25
+inverse:E2_constant_q_A10:desc,q_max,0.0,identity,phase3/results/comparison.csv:25
+inverse:E2_constant_q_A10:desc,wall_s,66.076466439059,identity,phase3/results/comparison.csv:25
+inverse:Solovev_inverse_A3:kin6d,I_phi_MA,-12.785830601307998,I_phi_A / 1e6,phase3/results/kin6d_comparison.csv:10
+inverse:Solovev_inverse_A3:kin6d,bpol_l2,8.295393367087575e-06,identity,phase3/results/kin6d_comparison.csv:10
+inverse:Solovev_inverse_A3:kin6d,F_l2,2.4700758278703877e-07,identity,phase3/results/kin6d_comparison.csv:10
+inverse:Solovev_inverse_A3:kin6d,q_max,2.942285173945791e-06,identity,phase3/results/kin6d_comparison.csv:10
+inverse:Solovev_inverse_A3:kin6d,wall_s,2.4229468151461333,identity,phase3/results/kin6d_comparison.csv:10
+inverse:Solovev_inverse_A3:chease_public,I_phi_MA,-12.785832250350467,I_phi_A / 1e6,phase3/results/comparison.csv:29
+inverse:Solovev_inverse_A3:chease_public,bpol_l2,8.235850224432771e-07,identity,phase3/results/comparison.csv:29
+inverse:Solovev_inverse_A3:chease_public,F_l2,2.4229360669614566e-09,identity,phase3/results/comparison.csv:29
+inverse:Solovev_inverse_A3:chease_public,q_max,2.4810425780508183e-06,identity,phase3/results/comparison.csv:29
+inverse:Solovev_inverse_A3:chease_public,wall_s,221.85183623898774,identity,phase3/results/comparison.csv:29
+inverse:Solovev_inverse_A3:vmecpp,I_phi_MA,-12.785809553997487,I_phi_A / 1e6,phase3/results/comparison.csv:33
+inverse:Solovev_inverse_A3:vmecpp,bpol_l2,8.403647111028222e-05,identity,phase3/results/comparison.csv:33
+inverse:Solovev_inverse_A3:vmecpp,F_l2,1.8893389542637353e-06,identity,phase3/results/comparison.csv:33
+inverse:Solovev_inverse_A3:vmecpp,q_max,5.696264171461962e-07,identity,phase3/results/comparison.csv:33
+inverse:Solovev_inverse_A3:vmecpp,wall_s,26.830310492077842,identity,phase3/results/comparison.csv:33
+inverse:Solovev_inverse_A3:desc,I_phi_MA,-12.78584930144559,I_phi_A / 1e6,phase3/results/comparison.csv:38
+inverse:Solovev_inverse_A3:desc,bpol_l2,1.4795940771858602e-05,identity,phase3/results/comparison.csv:38
+inverse:Solovev_inverse_A3:desc,F_l2,2.948544431276363e-07,identity,phase3/results/comparison.csv:38
+inverse:Solovev_inverse_A3:desc,q_max,3.005373727660299e-13,identity,phase3/results/comparison.csv:38
+inverse:Solovev_inverse_A3:desc,wall_s,78.75426510698162,identity,phase3/results/comparison.csv:38
+InversePsiRate,psi_l2,3.938776319498652,"log2(error_n96/error_n192), exact Solovev; boundary resolution doubled",phase3/results/kin6d_comparison.csv:11;phase3/results/kin6d_comparison.csv:12
+InverseBRate,bpol_l2,3.3168071595527238,"log2(error_n96/error_n192), exact Solovev; boundary resolution doubled",phase3/results/kin6d_comparison.csv:11;phase3/results/kin6d_comparison.csv:12
+InverseFRate,F_l2,3.9999132975916973,"log2(error_n96/error_n192), exact Solovev; boundary resolution doubled",phase3/results/kin6d_comparison.csv:11;phase3/results/kin6d_comparison.csv:12
+InverseFineB,bpol_l2,7.818473861685275e-08,identity,phase3/results/kin6d_comparison.csv:12
+inverse_export:E1_constant_q_A10,psi_l2,1.6523424368664126e-10,identity,phase3/results/kin6d_exports.csv:3
+inverse_export:E1_constant_q_A10,bpol_l2,4.878676938368474e-08,identity,phase3/results/kin6d_exports.csv:3
+inverse_export:E2_constant_q_A10,psi_l2,1.0082304403583878e-09,identity,phase3/results/kin6d_exports.csv:9
+inverse_export:E2_constant_q_A10,bpol_l2,2.7316013846023415e-07,identity,phase3/results/kin6d_exports.csv:9
+inverse_export:Solovev_inverse_A3,psi_l2,9.41186679009022e-10,identity,phase3/results/kin6d_exports.csv:15
+inverse_export:Solovev_inverse_A3,bpol_l2,5.331501029647469e-08,identity,phase3/results/kin6d_exports.csv:15
+tc24_source:reference,R0,6.2,identity,phase4/tc24/reference/variants.csv:1
+tc24_source:reference,native_Ip_MA,15.56391265,identity,phase4/tc24/reference/variants.csv:1
+tc24_source:reference,native_F_edge,32.86,identity,phase4/tc24/reference/variants.csv:1
+tc24_source:reference,native_q0,1.001056231,identity,phase4/tc24/reference/variants.csv:1
+tc24_source:gfile_chease,R0,6.2,identity,phase4/tc24/reference/variants.csv:2
+tc24_source:gfile_chease,native_Ip_MA,15.56446676,identity,phase4/tc24/reference/variants.csv:2
+tc24_source:gfile_chease,native_F_edge,32.86,identity,phase4/tc24/reference/variants.csv:2
+tc24_source:gfile_chease,native_q0,1.000865792,identity,phase4/tc24/reference/variants.csv:2
+tc24_source:jintrac,R0,6.2,identity,phase4/tc24/reference/variants.csv:3
+tc24_source:jintrac,native_Ip_MA,15.0,identity,phase4/tc24/reference/variants.csv:3
+tc24_source:jintrac,native_F_edge,32.86000061,identity,phase4/tc24/reference/variants.csv:3
+tc24_source:jintrac,native_q0,1.311663508,identity,phase4/tc24/reference/variants.csv:3
+tc24_source:leonardo,R0,6.0,identity,phase4/tc24/reference/variants.csv:4
+tc24_source:leonardo,native_Ip_MA,15.2998871,identity,phase4/tc24/reference/variants.csv:4
+tc24_source:leonardo,native_F_edge,31.8,identity,phase4/tc24/reference/variants.csv:4
+tc24_source:leonardo,native_q0,1.40358559,identity,phase4/tc24/reference/variants.csv:4
+replay,wall_s,16.434656155994162,identity,phase4/tc24/reference/replay.csv:1
+replay,current_MA,15.561497699999999,current_A / 1e6,phase4/tc24/reference/replay.csv:1
+replay,source_bpol_l2,0.008421082885952724,identity,phase4/tc24/reference/replay.csv:1
+replay,wall_s,26.19751923182048,identity,phase4/tc24/reference/replay.csv:2
+replay,current_MA,15.5438362,current_A / 1e6,phase4/tc24/reference/replay.csv:2
+replay,source_bpol_l2,0.009235065350078566,identity,phase4/tc24/reference/replay.csv:2
+SourceHeaderCurrent,native_Ip_MA,15.56391265,identity,phase4/tc24/reference/variants.csv:1
+ReplayLogCurrent,received_log_current_A,15.5614975,divide by 1e6,phase4/tc24/reference/replay.csv:1
+tc24:kin6d,dof,8479,identity,phase4/tc24/reference/comparison.csv:22
+tc24:kin6d,psi_l2,2.8669124861041993e-05,identity,phase4/tc24/reference/comparison.csv:22
+tc24:kin6d,bpol_l2,0.0013677187428278001,identity,phase4/tc24/reference/comparison.csv:22
+tc24:kin6d,q_max,0.0037651702200194315,identity,phase4/tc24/reference/comparison.csv:22
+tc24:kin6d,wall_s,230.49101070896722,identity,phase4/tc24/reference/comparison.csv:22
+tc24:chease_public,dof,131072,identity,phase4/tc24/reference/comparison.csv:4
+tc24:chease_public,wall_s,190.93653823784553,identity,phase4/tc24/reference/comparison.csv:4
+tc24:chease_mars,dof,131072,identity,phase4/tc24/reference/comparison.csv:11
+tc24:chease_mars,psi_l2,3.4368343447706164e-07,identity,phase4/tc24/reference/comparison.csv:11
+tc24:chease_mars,bpol_l2,3.0516837682741746e-05,identity,phase4/tc24/reference/comparison.csv:11
+tc24:chease_mars,q_max,1.2150485759754304e-06,identity,phase4/tc24/reference/comparison.csv:11
+tc24:chease_mars,wall_s,78.84009281988256,identity,phase4/tc24/reference/comparison.csv:11
+tc24:vmecpp,dof,12513,identity,phase4/tc24/reference/comparison.csv:26
+tc24:vmecpp,psi_l2,0.00014221844983596625,identity,phase4/tc24/reference/comparison.csv:26
+tc24:vmecpp,bpol_l2,0.0019613626836988457,identity,phase4/tc24/reference/comparison.csv:26
+tc24:vmecpp,q_max,0.0005199651321243781,identity,phase4/tc24/reference/comparison.csv:26
+tc24:vmecpp,wall_s,72.49572130315937,identity,phase4/tc24/reference/comparison.csv:26
+tc24:desc,dof,460,identity,phase4/tc24/reference/comparison.csv:38
+tc24:desc,psi_l2,0.013132590652639317,identity,phase4/tc24/reference/comparison.csv:38
+tc24:desc,bpol_l2,0.03334347428819727,identity,phase4/tc24/reference/comparison.csv:38
+tc24:desc,q_max,6.7145469184737294e-09,identity,phase4/tc24/reference/comparison.csv:38
+tc24:desc,wall_s,143.68891942501068,identity,phase4/tc24/reference/comparison.csv:38
+TcKinBRate,apparent_bpol_l2_order,2.0749521286755925,identity,phase4/tc24/reference/convergence.csv:11
+TcKinPsiRate,apparent_psi_l2_order,3.5316526119797795,identity,phase4/tc24/reference/convergence.csv:11
+TcPublicBRate,apparent_bpol_l2_order,1.8684392619484202,identity,phase4/tc24/reference/convergence.csv:3
+TcPublicPsiRate,apparent_psi_l2_order,2.663639179985501,identity,phase4/tc24/reference/convergence.csv:3
+tc_export,bpol_l2,0.0001445090347556813,identity,phase4/tc24/reference/exports.csv:53
+tc_export,bpol_l2,0.0005067253637031825,identity,phase4/tc24/reference/exports.csv:54
+tc_export,bpol_l2,0.0005554618948636549,identity,phase4/tc24/reference/consumers.csv:36
+tc_export,jacobian_geometry_max_rel,0.3126938851194141,identity,phase4/tc24/reference/consumers.csv:36
+tc_export,bpol_l2,9.110485864675069e-05,identity,phase4/tc24/reference/exports.csv:2
+tc_export,bpol_l2,0.0003198903344639324,identity,phase4/tc24/reference/exports.csv:3
+tc_export,bpol_l2,0.0005102539031085924,identity,phase4/tc24/reference/consumers.csv:21
+tc_export,jacobian_geometry_max_rel,0.2631971556626649,identity,phase4/tc24/reference/consumers.csv:21
+tc_export,bpol_l2,8.747461619458765e-05,identity,phase4/tc24/reference/consumers.csv:2
+tc_export,bpol_l2,5.224168333160664e-05,identity,phase4/tc24/reference/exports.csv:20
+tc_export,bpol_l2,0.0003200896536037123,identity,phase4/tc24/reference/exports.csv:21
+tc_export,bpol_l2,0.0005095333974890584,identity,phase4/tc24/reference/consumers.csv:23
+tc_export,jacobian_geometry_max_rel,0.26063459837965897,identity,phase4/tc24/reference/consumers.csv:23
+tc_export,bpol_l2,8.072032045429218e-05,identity,phase4/tc24/reference/consumers.csv:4
+tc_perf,n,48,identity,phase4/tc24/kin6d_performance/timings.csv:1
+tc_perf,dof,2107,identity,phase4/tc24/kin6d_performance/timings.csv:1
+tc_perf,baseline_s,88.374038866,identity,phase4/tc24/kin6d_performance/timings.csv:1
+tc_perf,solve_s,8.82087888,identity,phase4/tc24/kin6d_performance/timings.csv:1
+tc_perf,estimator_s,0.203206045,identity,phase4/tc24/kin6d_performance/timings.csv:1
+tc_perf,total_s,9.128441864158958,identity,phase4/tc24/kin6d_performance/timings.csv:1
+tc_perf,n,96,identity,phase4/tc24/kin6d_performance/timings.csv:2
+tc_perf,dof,8389,identity,phase4/tc24/kin6d_performance/timings.csv:2
+tc_perf,baseline_s,149.920326429,identity,phase4/tc24/kin6d_performance/timings.csv:2
+tc_perf,solve_s,8.149328392,identity,phase4/tc24/kin6d_performance/timings.csv:2
+tc_perf,estimator_s,2.276396095,identity,phase4/tc24/kin6d_performance/timings.csv:2
+tc_perf,total_s,10.680463131982833,identity,phase4/tc24/kin6d_performance/timings.csv:2
+tc_perf,n,128,identity,phase4/tc24/kin6d_performance/timings.csv:3
+tc_perf,dof,15100,identity,phase4/tc24/kin6d_performance/timings.csv:3
+tc_perf,baseline_s,291.891848654,identity,phase4/tc24/kin6d_performance/timings.csv:3
+tc_perf,solve_s,10.141163151,identity,phase4/tc24/kin6d_performance/timings.csv:3
+tc_perf,estimator_s,3.885970606,identity,phase4/tc24/kin6d_performance/timings.csv:3
+tc_perf,total_s,14.336007812991738,identity,phase4/tc24/kin6d_performance/timings.csv:3
+tc_perf,n,192,identity,phase4/tc24/kin6d_performance/timings.csv:4
+tc_perf,dof,33724,identity,phase4/tc24/kin6d_performance/timings.csv:4
+tc_perf,baseline_s,nan,identity,phase4/tc24/kin6d_performance/timings.csv:4
+tc_perf,solve_s,21.373638142,identity,phase4/tc24/kin6d_performance/timings.csv:4
+tc_perf,estimator_s,17.341313815,identity,phase4/tc24/kin6d_performance/timings.csv:4
+tc_perf,total_s,39.477346234954894,identity,phase4/tc24/kin6d_performance/timings.csv:4
+tc_perf,n,256,identity,phase4/tc24/kin6d_performance/timings.csv:5
+tc_perf,dof,60349,identity,phase4/tc24/kin6d_performance/timings.csv:5
+tc_perf,baseline_s,nan,identity,phase4/tc24/kin6d_performance/timings.csv:5
+tc_perf,solve_s,44.007251598,identity,phase4/tc24/kin6d_performance/timings.csv:5
+tc_perf,estimator_s,48.560393999,identity,phase4/tc24/kin6d_performance/timings.csv:5
+tc_perf,total_s,93.84217990096658,identity,phase4/tc24/kin6d_performance/timings.csv:5
+tc_perf,n,384,identity,phase4/tc24/kin6d_performance/timings.csv:6
+tc_perf,dof,136792,identity,phase4/tc24/kin6d_performance/timings.csv:6
+tc_perf,baseline_s,nan,identity,phase4/tc24/kin6d_performance/timings.csv:6
+tc_perf,solve_s,222.224341205,identity,phase4/tc24/kin6d_performance/timings.csv:6
+tc_perf,estimator_s,93.007943917,identity,phase4/tc24/kin6d_performance/timings.csv:6
+tc_perf,total_s,nan,identity,phase4/tc24/kin6d_performance/timings.csv:6

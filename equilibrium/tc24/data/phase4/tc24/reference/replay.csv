@@ -1,0 +1,3 @@
+code,raw_root,wall_s,current_A,received_log_current_A,source_file_current_A,psi_axis,source_psi_l2,source_bpol_l2,source_bpol_max
+chease_mars,/home/ert/data/iter_tc24/phase1/chease_mars/runs/tc24repin_exact_mars_20261009_01,16.434656155994162,15561497.7,15561497.5,15563912.65,-11.882824726589526,0.0002302334034705309,0.008421082885952724,0.05520109227077695
+chease_public,/home/ert/data/iter_tc24/phase1/chease_public/runs/tc24repin_exact_public_20261009_03,26.19751923182048,15543836.2,15561497.5,15563912.65,-11.881792828861123,0.00030901260121313294,0.009235065350078566,0.05585908755957718

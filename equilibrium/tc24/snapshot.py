@@ -9,7 +9,7 @@ from pathlib import Path
 import subprocess
 
 HERE = Path(__file__).resolve().parent
-TC24 = "916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e"
+TC24 = "d37ae2cc4"
 KIN6D = "3c851d7"
 
 
@@ -55,6 +55,11 @@ def main():
                  "equilibrium/phase2/results/README.md",
                  "equilibrium/phase4/results/README.md",
                  "equilibrium/phase4/tc24/README.md",
+                 "equilibrium/phase4/tc24/EQUILIBRIUM_PROVENANCE.md",
+                 "equilibrium/phase4/tc24/EXPORTS.md",
+                 "equilibrium/phase4/tc24/kin6d_performance/README.md",
+                 "equilibrium/phase3/results/README.md",
+                 "equilibrium/phase3/results/kin6d.md",
                  "equilibrium/phase5/results/README.md"]:
         read(args.tc24, TC24, name, "context/" + name.replace("/", "__"))
 
@@ -71,6 +76,15 @@ def main():
               "phase4/tc24/source_consistency.csv", "phase4/tc24/capability.csv"]
     files += [f"phase5/results/{f}.csv" for f in
               ["runs", "finest", "aspect_rates", "resolution", "signs", "failures"]]
+    files += [f"phase3/results/{f}.csv" for f in
+              ["comparison", "finest", "self_convergence", "exports", "consumers",
+               "boozer", "boozer_m48", "failures", "kin6d_comparison",
+               "kin6d_finest", "kin6d_self_convergence", "kin6d_exports"]]
+    files += [f"phase4/tc24/reference/{f}.csv" for f in
+              ["comparison", "convergence", "runs", "replay", "variants", "exports", "consumers", "execution"]]
+    files += ["phase4/tc24/reference/reference_case.json",
+              "phase4/tc24/kin6d_performance/timings.csv",
+              "phase4/tc24/kin6d_performance/convergence-fine.csv"]
     for path in files:
         read(args.tc24, TC24, "equilibrium/" + path, path)
     read(args.kin6d, KIN6D, "benchmarks/gs-phase1/p2-p3.csv", "kin6d/p2-p3.csv")
@@ -85,7 +99,7 @@ def main():
                     flatten(value, f"{prefix}.{key}".strip("."), path, case)
         elif not isinstance(obj, list):
             parameters.append({"source": path, "case": case, "key": prefix, "value": obj})
-    for phase in ["phase1", "phase2", "phase4", "phase5"]:
+    for phase in ["phase1", "phase2", "phase3", "phase4", "phase5"]:
         path = f"equilibrium/{phase}/cases.json"
         obj = json.loads(read(args.tc24, TC24, path))
         if phase == "phase5":
@@ -95,16 +109,19 @@ def main():
         else:
             for case, values in obj.items():
                 flatten(values, "", path, case)
+    path = "equilibrium/phase4/tc24/reference/reference_case.json"
+    flatten(json.loads(git(args.tc24, "show", f"{TC24}:{path}")), "", path, "E5_modx03")
     with (out / "parameters.csv").open("w") as handle:
         writer = csv.DictWriter(handle, fieldnames=["source", "case", "key", "value"], lineterminator="\n")
         writer.writeheader()
         writer.writerows(parameters)
     support = []
-    for revision in ["99fa2c8", "82d4d1f", "fa5c388", "451fa5b", "a50f8b6"]:
+    for revision in ["99fa2c8", "82d4d1f", "fa5c388", "451fa5b", "a50f8b6", "2d8142a", "5dfb9df", "313cde5", "60bef4c", "fde93a9", "f1d1791"]:
         support.append({"commit": git(args.kin6d, "rev-parse", revision).decode().strip(),
                         "subject": git(args.kin6d, "show", "-s", "--format=%s", revision).decode().strip()})
-    manifest = {"description": "Committed inputs for the first Phase 6 draft; source metadata is historical.",
-                "tc24_commit": TC24, "kin6d_data_commit": git(args.kin6d, "rev-parse", KIN6D).decode().strip(),
+    manifest = {"description": "Committed inputs for the consolidated Phase 6 report; executed pins remain historical.",
+                "tc24_commit": git(args.tc24, "rev-parse", TC24).decode().strip(),
+                "kin6d_current_main": git(args.kin6d, "rev-parse", "f1d1791").decode().strip(), "kin6d_data_commit": git(args.kin6d, "rev-parse", KIN6D).decode().strip(),
                 "kin6d_support_history": support, "sources": sources}
     (HERE / "sources.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"Copied {len(sources)} committed sources; {len(parameters)} scalar input rows.")

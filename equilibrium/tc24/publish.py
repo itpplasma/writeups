@@ -14,7 +14,7 @@ import numpy
 
 HERE = Path(__file__).resolve().parent
 ARTIFACTS = [
-    ('report', 'report.pdf', 'TC24 axisymmetric equilibrium benchmark, first draft'),
+    ('report', 'report.pdf', 'TC24 axisymmetric equilibrium benchmark, consolidated report'),
     ('exact_a3', 'exact_a3.pdf', 'Exact A3 convergence and cost'),
     ('exact_cerfon', 'exact_cerfon.pdf', 'Exact Cerfon convergence and cost'),
     ('circular_e1', 'circular_e1.pdf', 'Zero-pressure circular ladder'),
@@ -23,6 +23,8 @@ ARTIFACTS = [
     ('shaped', 'shaped.pdf', 'E4 shaped convergence and cost'),
     ('consumer_exact', 'consumer_exact.pdf', 'Exact native-to-consumer accuracy'),
     ('cylinder', 'cylinder.pdf', 'Periodic-cylinder aspect and resolution study'),
+    ('inverse', 'inverse.pdf', 'Prescribed-q adjacent-resolution convergence and cost'),
+    ('tc24', 'tc24.pdf', 'modx03 five-code convergence and cost'),
 ]
 
 
@@ -44,7 +46,7 @@ def main():
             raise SystemExit(f'Missing rendered artifact: {filename}')
     tracked = subprocess.check_output(['git', '-C', str(repo), 'ls-files', '--', str(HERE)], text=True).splitlines()
     manifest = {
-        'title': 'TC24 Phase 6 first report draft', 'source_commit': revision,
+        'title': 'TC24 Phase 6 consolidated report', 'source_commit': revision,
         'source_base': 'fabe9256db7d1fa965ad7055faaa22d7f35c9e56',
         'source_branch': 'equilibrium/slice-report-20261009',
         'input_manifest_sha256': sha(HERE / 'sources.json'),

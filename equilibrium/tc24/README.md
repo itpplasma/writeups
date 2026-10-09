@@ -1,44 +1,41 @@
 # TC24 equilibrium report
 
-First complete Phase 6 draft for Chris and later the TC24 collaborators. The
-[LaTeX source](report.tex) covers the exact, circular, E4 and cylinder studies,
-actual export/consumer accuracy, the live defect ledger and classified limits.
-Phase 3 inverse and Phase 4b actual TC24 have explicit placeholders. This draft
-does not close the equilibrium slice.
+Consolidated Phase 6 report for Chris and the TC24 collaborators: exact,
+circular, shaped, prescribed-q, received TC24 and cylinder studies, with
+native and actual-consumer accuracy and the current defect dispositions.
+The report is 21 pages. It delivers the report phase while leaving scientific
+slice closure open.
 
-Published [17-page PDF](https://box.sloppy.at/85d49.pdf), uploaded 9 October
-2026 and expiring 12 October 2026. The retained source can regenerate it.
-
-The [artifact manifest](artifacts.json) owns the uploaded report and eight
-figure URLs, hashes, expiry and build commands. PDFs and plots are generated
-under ignored `build/` and are never committed. Slopbox links expire after
-three days; regenerate from this source and the retained numerical data.
+[artifacts.json](artifacts.json) owns the published PDF and ten figure URLs,
+hashes, source revision and reproduction commands. Slopbox links expire after
+three days. Generated files stay under ignored `build/`; the committed inputs
+and scripts are the durable reproduction path.
 
 ## Data and interpretation
 
-- Primary snapshot: iter_tc24 `916dc6d9da0ca843d6b4a6d67b46e62ff37ef94e`.
-  [sources.json](sources.json) pins every imported source with its Git blob,
-  SHA256 and CSV row count. These are project-authored data and context; no
-  third-party solver source or literature PDF is imported or relicensed.
-- The refreshed Phase 1 CSVs contain KIN6D P2 **and P3**, at `fa5c388`.
-  Their older README describes an earlier P2-only comparison. Figure series
-  and rate fits use the executed degree, never a mixture of the two ladders.
-- The older KIN6D owner study, committed at `3c851d7`, extends P2 to finer
-  meshes. Its table is explicitly separate from the refreshed common study.
-- Circular cost CSVs predate the later FortNum Brent repair. The report records
-  the repair and retains those historical timings; it does not promote the
-  later speed claim without a refreshed committed comparison CSV.
-- [figure_points.csv](data/figure_points.csv) indexes every plotted point and
-  error bar; [table_cells.csv](data/table_cells.csv) indexes numerical table
-  cells and derived rates. `data_row` counts CSV records from one, excluding
-  the header. Tables distinguish passing selections from finest failing states.
-- [defects.csv](data/defects.csv) preserves every live ledger row, its recorded
-  status and the report disposition. Dated PR-index supersessions are applied;
-  this is not a live remote-state audit. The KIN6D integration history is pinned
-  separately. [limitations.csv](data/limitations.csv) retains the cause classes.
-- Native stopping, sampled physical accuracy, prescribed-profile transfer and
-  actual consumer coverage are separate. Raw runs and their input/binary hashes
-  remain at the registered TC24 owners; no solver was rerun for this report.
+- Snapshot: iter_tc24 `d37ae2cc4` (numerical results unchanged from `e76ae302e`).
+  [sources.json](sources.json) pins every imported source, Git blob, SHA256 and
+  CSV row count. No solver was rerun for this report.
+- KIN6D current main is `f1d1791`, including curved P2/P3, cubic profiles,
+  normalized current, prescribed q, the TC24 speed-up and FortNum `901aae0`.
+  Every executed study retains its own source/binary pin and timing scope.
+- The modx03 normalized-current study is separate from exact supplied-deck
+  replay and the historical absolute-psi JINTRAC performance control. Neither
+  historical use nor agreement with the finite public comparator proves accuracy.
+- Inverse circular KIN6D rows use its own finest reference; historical other-code
+  rows use public CHEASE. The figure uses adjacent differences to avoid mixing
+  those references. Comparator zeros are not error measurements.
+- [figure_points.csv](data/figure_points.csv) records each plotted point and its
+  source row; [table_cells.csv](data/table_cells.csv) records numerical table
+  cells and derived rates. Row numbers count CSV data records, excluding headers.
+  Input constants are in [parameters.csv](data/parameters.csv).
+- The [defect table](data/defects.csv) follows the reconciled ERRATA owner;
+  [limitations.csv](data/limitations.csv) separates correct-limit numerical
+  effects, model restrictions and unresolved candidates. Remote PR state was
+  checked during consolidation; publication does not qualify a solver state.
+- Circular cost CSVs predate the Brent repair. No refreshed all-case speed
+  ranking is inferred. Inverse/nonlinear estimator stability, TC24 rates and
+  consumer failures, MARS inverse iteration and other stated target gaps stay open.
 
 ## Build and publish
 
@@ -47,7 +44,7 @@ with the usual AMS, Latin Modern, geometry, caption, booktabs, longtable and
 hyperref packages. Use disk scratch:
 
 ```sh
-export TMPDIR=/home/ert/code/worktrees/_lanes/report/tmp
+export TMPDIR=/home/ert/code/worktrees/_lanes/consolidate/tmp
 bash equilibrium/tc24/build.sh
 ```
 
@@ -59,7 +56,7 @@ To re-create the fixed input snapshot from the owning local clones:
 
 ```sh
 python equilibrium/tc24/snapshot.py \
-  --tc24 /home/ert/code/worktrees/tc24-report --kin6d /home/ert/code/kin6d
+  --tc24 /home/ert/code/worktrees/tc24-consolidate --kin6d /home/ert/code/kin6d
 ```
 
 Changing the data revision is a report revision: update the pin, regenerate,

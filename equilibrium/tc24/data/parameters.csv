@@ -181,6 +181,13 @@ equilibrium/phase2/cases.json,E2_A3p1,boundary.kind,exact_circle
 equilibrium/phase2/cases.json,E2_A3p1,boundary.parameters.a,2.0
 equilibrium/phase2/cases.json,E2_A3p1,boundary.parameters.aspect_ratio,3.1
 equilibrium/phase2/cases.json,E2_A3p1,reference_kind,numerical; no exact interior solution
+equilibrium/phase3/cases.json,E1_constant_q_A10,family,E1
+equilibrium/phase3/cases.json,E1_constant_q_A10,aspect_ratio,10
+equilibrium/phase3/cases.json,E1_constant_q_A10,q,1.5
+equilibrium/phase3/cases.json,E2_constant_q_A10,family,E2
+equilibrium/phase3/cases.json,E2_constant_q_A10,aspect_ratio,10
+equilibrium/phase3/cases.json,E2_constant_q_A10,q,1.5
+equilibrium/phase3/cases.json,Solovev_inverse_A3,exact_case,solovev_lcfs_A3
 equilibrium/phase4/cases.json,E4_E1,id,E4_E1
 equilibrium/phase4/cases.json,E4_E1,contract_case,E4_shaped_iter_scale
 equilibrium/phase4/cases.json,E4_E1,source_law,E1_circular_zero_beta
@@ -232,3 +239,22 @@ equilibrium/phase5/cases.json,C0,aspect,10
 equilibrium/phase5/cases.json,C0,aspect,30
 equilibrium/phase5/cases.json,C0,aspect,100
 equilibrium/phase5/cases.json,C0,aspect,300
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,id,E5_tc24_reference
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source_path,received/xingting/20260527/gfiles/ngfile_p1_run_eq_modx03_20260527
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source_sha256,fbf1b1c06253647263869efe7842e4c60214f2a1844197d2306e5b80d95833f2
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source_cocos,2
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,cocos,3
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,R0,6.2
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,F_edge,-32.852174128250105
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,pressure_edge,10534.893931500577
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,psi_edge,0.0
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source_axis_psi,-11.8233814567503
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,current_A,-15481528.84405147
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source_cutoff,0.995
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source_cutoff_psi,-0.0594139771499993
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source.kind,cubic_profiles
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source.coordinate,normalized s_pol
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,source.constraints,derivative shapes plus signed total current
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,boundary.modes,128
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,boundary.extraction_samples,4096
+equilibrium/phase4/tc24/reference/reference_case.json,E5_modx03,reference_role,collaborator reference
