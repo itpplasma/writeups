@@ -6,6 +6,9 @@ actual export/consumer accuracy, the live defect ledger and classified limits.
 Phase 3 inverse and Phase 4b actual TC24 have explicit placeholders. This draft
 does not close the equilibrium slice.
 
+Published [17-page PDF](https://box.sloppy.at/85d49.pdf), uploaded 9 October
+2026 and expiring 12 October 2026. The retained source can regenerate it.
+
 The [artifact manifest](artifacts.json) owns the uploaded report and eight
 figure URLs, hashes, expiry and build commands. PDFs and plots are generated
 under ignored `build/` and are never committed. Slopbox links expire after
