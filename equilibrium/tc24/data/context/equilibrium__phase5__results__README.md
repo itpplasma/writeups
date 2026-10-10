@@ -158,9 +158,11 @@ cores (GH: 20; Lundquist: 21), one thread each; all native solves stayed below
 input hashes and outputs are retained beside the registered manifests.
 For nonlinear laws the estimator returns status 4: a frozen-source error indicator,
 not a qualified nonlinear error bound. No estimator effectivity claim is made.
-The two n=16 Lundquist failures at A=100,300 remain an open readback candidate
-[EQ-CYL-2](../../ERRATA.md#eq-cyl-2-kin6d-coarse-p3-readback-failures); refinement
-supplies valid results but does not establish the cause of the failed requests.
+The historical n=16 Lundquist failures at A=100,300 are fixed on current KIN6D
+main. Both exact retained requests now solve and read back successfully; see
+[EQ-CYL-2](../../ERRATA.md#eq-cyl-2-kin6d-coarse-p3-readback-failures) and
+[coarse replay metrics](kin6d_coarse_readback.csv). Fine-ladder accuracy and
+historical timings above keep their original executable pins.
 
 DESC's optimizer success flag does not imply field accuracy: Lundquist at
 L=M=4 or 6 still has significant discretization error. The additional spectral
@@ -228,8 +230,7 @@ Generated plots/PDFs stay outside Git; `artifacts.json` owns their hashes/URLs.
 The collection tag `cyl20261009_kinp3` includes the retained historical failures
 and the new `_profiles`/`_refine` runs. Fresh tags must be added to `--tags`.
 The finite-A KIN6D profile/F/q route is qualified on the successful ladders.
-The controller still owns the two coarse readback failures; this lane made no
-KIN6D changes. DESC's two capped L=M=16 outputs remain unqualified as converged
+The coarse readback failures are closed by the retained-input replays. DESC's two capped L=M=16 outputs remain unqualified as converged
 native solves. These limitations and the consumer-path exclusions above prevent
 claiming closure of the entire equilibrium slice.
 

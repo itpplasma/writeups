@@ -67,10 +67,10 @@ Phase & Delivered evidence & Remaining qualification \\
 \midrule
 1: exact & Field/flux convergence, cost, P2/P3 comparison and actual consumers & VMEC++ targets; DESC shaped boundary cost \\
 2: circular & Both source laws across the aspect-ratio ladder; numerical references and large-aspect-ratio check & Three VMEC++ target gaps; selected consumer paths absent \\
-3: inverse & Three contracts, KIN6D and reference-code fields/current/cost & MARS failure; inverse estimator and selected consumers \\
+3: inverse & Three contracts, KIN6D and reference-code fields/current/cost & MARS failure; nonlinear reliability and geometric consistency \\
 4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ targets; DESC stopping \\
 4b: TC24 & modx03 provenance, exact replay, five-code study and exports & Rates, target accuracy and reader failures \\
-5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & Coarse KIN6D readback; DESC stopping \\
+5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & DESC stopping \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -475,7 +475,7 @@ Sources: \texttt{phase2/results/boozer\_volume.csv} and
 \toprule
 Equilibrium or consumer path & Exact cases & Circular / E4 & Cylinder \\
 \midrule
-KIN6D native FE & measured & measured & analytic GH evaluator only \\
+KIN6D native FE & measured & measured & measured finite-$A$ P3 \\
 CHEASE EQDSK / libneo field & measured & measured & EQDSK fields measured \\
 VMEC++ wout / DESC native state & measured & measured & measured finite-$A$ \\
 libneo Boozer geometry and spectrum & measured & measured & absent \\
@@ -545,7 +545,8 @@ and the KIM code's actual native profile reader/ODE pass the signed analytic
 controls. Those checks supply equilibrium ingress for later KIM work, not a
 PDE convergence curve or a kinetic-response calculation. The committed
 \tcfile{equilibrium/phase5/results/README.md}{cylinder study} retains the
-coarse KIN6D axis/readback failures and the capped DESC states.
+successful retained-input replays of the repaired coarse KIN6D readback
+and the capped DESC states.
 
 \pageheading{Prescribed safety factor}
 The inverse cases test whether prescribing the safety factor recovers the
@@ -596,11 +597,40 @@ KIN6D state; Solov'ev uses exact fields. Source:
 \texttt{EQDSK\_libneo} rows.}
 \end{center}
 
-The public-CHEASE study also exercises actual GPEC/DCON and full NEO-2 readers.
-The retained Fourier refinement control reduces the Solov'ev Boozer transfer
-error, distinguishing export truncation from producer error. KIN6D's inverse
-GPEC/NEO-2 chain is still unqualified. Its nonlinear estimator has status 4:
-it measures the frozen-source problem, without an inverse stability bound.
+The stability code GPEC and drift-kinetic code NEO-2 now read all six retained
+KIN6D inverse exports at two producer resolutions. The finest results are:
+\begin{center}\small
+\input{build/inverse_consumers.tex}
+\captionof{table}{Actual inverse consumer readback. Fields, safety factor,
+edge toroidal flux and physical Jacobian use exact Solov'ev references or
+same-level native KIN6D references for E1/E2. Circular rows measure transfer
+accuracy; their absolute equilibrium accuracy rests on self-convergence and
+independent public-CHEASE comparisons. GPEC's Hamada Jacobian uses independent
+native contour quadrature. NEO-2's geometry determinant is a separate diagnostic.}
+\end{center}
+\dataref{phase3/results/kin6d\_consumers\_gpec.csv,
+kin6d\_consumers\_hamada.csv, kin6d\_consumers\_neo2.csv}.
+
+Whole-domain mapped-cell integration measures the status-4 frozen-source
+estimator on all three inverse ladders. Majorant/error ratios are
+1.161--1.178 against exact Solov'ev fields, 1.108--1.125 for E1 and
+1.129--1.138 for E2 against native public CHEASE. Field-energy error decreases
+approximately at the predicted cubic rate. Raising quadrature order from
+8 to 12 changes the Solov'ev norm by at most $1.6\times10^{-11}$ relative,
+and the circular norms by at most $6.92\times10^{-6}$.
+These are measured diagnostic stability ratios. The finite circular reference
+has unbounded reference uncertainty, and nonlinear inverse reliability remains
+unproved. Sources: \texttt{kin6d\_effectivity\_native\_solovev.csv} and
+\texttt{kin6d\_effectivity\_native\_circular.csv}.
+
+The separate NEO-2 geometric determinant exposed insufficient precision in
+libneo's Boozer geometry writer. The scoped
+\href{https://github.com/krystophny/libneo/pull/5}{precision repair}
+reduces the frozen E1 diagnostic from $5.58\times10^{-4}$ to
+$1.14\times10^{-5}$, while its physical Jacobian error is $1.81\times10^{-8}$.
+Further EQDSK-grid and radial-map controls do not establish convergence of the
+remaining determinant discrepancy; that qualification gap stays open.
+Source: \texttt{kin6d\_consumers\_neo2\_controls.csv}.
 
 MARS fails in source/mapping iteration on every attempted inverse contract.
 Scoped sign, coarea and normalization fixes have passing regressions, but the

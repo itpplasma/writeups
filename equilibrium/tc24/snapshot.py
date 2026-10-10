@@ -11,6 +11,18 @@ import subprocess
 HERE = Path(__file__).resolve().parent
 TC24 = "d37ae2cc4"
 KIN6D = "3c851d7"
+REFRESH = "014ff0caee2bea5a130400c4111aab4104ac7e73"
+REFRESH_PATHS = {
+    'equilibrium/phase3/results/kin6d_consumers_gpec.csv',
+    'equilibrium/phase3/results/kin6d_consumers_hamada.csv',
+    'equilibrium/phase3/results/kin6d_consumers_neo2.csv',
+    'equilibrium/phase3/results/kin6d_consumers_neo2_controls.csv',
+    'equilibrium/phase3/results/kin6d_effectivity_native_circular.csv',
+    'equilibrium/phase3/results/kin6d_effectivity_native_solovev.csv',
+    'equilibrium/phase3/results/README.md',
+    'equilibrium/phase3/results/kin6d.md',
+    'equilibrium/phase5/results/README.md',
+}
 
 
 def git(repo, *args):
@@ -27,6 +39,8 @@ def main():
     sources = []
 
     def read(repo, rev, path, destination=None):
+        if repo == args.tc24 and path in REFRESH_PATHS:
+            rev = REFRESH
         full = git(repo, "rev-parse", rev).decode().strip()
         raw = git(repo, "show", f"{full}:{path}")
         if raw.startswith(b"version https://git-lfs.github.com/spec/"):
@@ -79,7 +93,10 @@ def main():
     files += [f"phase3/results/{f}.csv" for f in
               ["comparison", "finest", "self_convergence", "exports", "consumers",
                "boozer", "boozer_m48", "failures", "kin6d_comparison",
-               "kin6d_finest", "kin6d_self_convergence", "kin6d_exports"]]
+               "kin6d_finest", "kin6d_self_convergence", "kin6d_exports",
+               "kin6d_consumers_gpec", "kin6d_consumers_hamada", "kin6d_consumers_neo2",
+               "kin6d_consumers_neo2_controls", "kin6d_effectivity_native_circular",
+               "kin6d_effectivity_native_solovev"]]
     files += [f"phase4/tc24/reference/{f}.csv" for f in
               ["comparison", "convergence", "runs", "replay", "variants", "exports", "consumers", "execution"]]
     files += ["phase4/tc24/reference/reference_case.json",

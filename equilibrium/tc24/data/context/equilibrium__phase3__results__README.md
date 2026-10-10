@@ -28,7 +28,8 @@ axis formula is `q=q_axis*R0^3*mean(R^-3)`, with
 There are 1025 radial profile knots and 2048 boundary/angular samples.
 
 Public CHEASE executes NSTTP=5/NCSCAL=1; MARS executes NSTTP=4/NCSCAL=4.
-QSPEC fixes the prescribed axis q. The adapter preserves q when changing
+Public QSPEC normalizes axis q; MARS reads q from EXPEQ and NCSCAL=4
+does not apply QSPEC normalization. The adapter preserves q when changing
 the native field normalization. A scalar root in F_edge enforces the declared
 Phi while holding physical p_prime fixed; all native trials are retained and
 included in cost. VMEC++ uses ncurr=0, prescribed iota=+1/q on its negative-signgs
@@ -88,6 +89,44 @@ is a geometric-tail estimate for degree increments, not an algebraic h-order.
 These estimates are not rigorous bounds or a replacement for the pending
 KIN6D a posteriori estimator.
 
+[KIN6D effectivity measurements](kin6d_effectivity.csv), reproduced with
+`python -m equilibrium.phase3.kin6d_effectivity`, compare the whole-domain
+majorant with componentwise field errors on the existing interior point sets.
+The ratios are 1.33–1.44 against exact inverse Solovev, 1.42–4.21 for E1/E2,
+and 16–60 for the two TC24 ladders. The excluded edge shell means these ratios
+are upper estimates of whole-domain effectivity; they cannot establish that
+the estimator never underestimates the full error. Finite-reference Richardson
+corrections assume
+aligned errors and an asymptotic order; they are estimates, not bounds.
+The CSV reports Monte Carlo standard errors for the sampled norms, excluding
+reference and domain-truncation uncertainty. TC24 ladders use different point
+sets and are compared separately.
+
+[Full-domain inverse Solovev measurements](kin6d_effectivity_native_solovev.csv)
+integrate the field energy error over every mapped P3 cell of the retained
+native mesh. At 658, 2,854, 11,575 and 46,558 free DOF, majorant/error is 1.178,
+1.165, 1.166 and 1.161, with field-energy error decreasing approximately as h³.
+Raising quadrature order from 8 to 12 changes the error norm by at most 1.6e-11
+relative; the reader reproduces all retained field samples exactly. The status-4
+majorant remains a frozen-source diagnostic, not a nonlinear error bound.
+[Full-domain circular measurements](kin6d_effectivity_native_circular.csv) use the
+same mapped-cell quadrature against the independently solved public CHEASE NS128
+native field, including every cell. Across levels 0/1/2, majorant/error is
+1.108–1.125 (E1) and 1.129–1.138 (E2); measured field-energy orders are
+3.31–3.62 / 3.29–3.26. Raising quadrature from 8 to 12 changes the norm by at
+most 6.92e-6 relative. The independent P3 differentiation and native reader
+agree within 5.82e-12; no retained sample is rejected. The finite CHEASE reference
+contributes unbounded reference uncertainty, so these are measured diagnostic
+stability ratios, not a proof of reliability. This establishes empirical stability
+for all three inverse ladders. TC24 whole-domain stability and nonlinear bounds
+remain open. Reader and solve identities are distinct
+in the CSV. Reproduce with a verified absolute `FO_DRIVER` and optional
+`FO_DRIVER_SHA256`, `KIN6D_ROOT` and `FO_CMAKE_BUILD_DIR`, then run
+`python -m equilibrium.phase3.mesh_quadrature`; circular cases additionally use
+`--case E1_constant_q_A10 --reference equilibrium/phase3/results/E1_constant_q_A10_chease_public_3.json --out E1-effectivity.csv`
+(and the corresponding E2 paths and output filename). Native readback uses
+`fo exec --no-build`, without changing or rerunning the stored solves.
+
 Exact signed Solovev current is -12.785832252 MA. Public/VMEC++/DESC relative
 current errors are 1.55e-10/1.78e-6/1.33e-6. Public E1/E2 currents are
 -1.101494001/-1.111790400 MA. Solovev recovered FFprime RMS is
@@ -137,7 +176,11 @@ to native NS128; imposed-q error remains in comparison.csv.
 The NOUT prescribed-q layout defect is repaired with an exact-field regression
 ([EQ-P3X-1](../../ERRATA.md#eq-p3x-1-prescribed-q-nout-record-layout)). NEO-2 uses
 the retained multi-surface reader repair #193. MARS supplies no valid native
-state to export. VMEC++/DESC downstream conversion is not qualified here.
+state to export. VMEC++/DESC downstream conversion has no executed perturbation consumer here;
+the [Phase 1 path disposition](../../phase1/results_export/README.md#consumer-inventory-and-bounded-gaps)
+applies to the same native wout/HDF5 states. These exclusions do not qualify an
+unused converter. KIN6D inverse NEO-2 and native-contour Hamada checks are in
+[the KIN6D supplement](kin6d.md).
 
 ## MARS disposition and reproducibility
 

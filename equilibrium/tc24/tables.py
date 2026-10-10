@@ -220,6 +220,21 @@ def inverse_tables():
     table('inverse_exports', ['Case', r'libneo $\psi$ $L^2$', r'libneo $B_p$ $L^2$'], vals)
 
 
+    gpec = read('phase3/results/kin6d_consumers_gpec.csv')
+    hamada = read('phase3/results/kin6d_consumers_hamada.csv')
+    neo = read('phase3/results/kin6d_consumers_neo2.csv')
+    vals = []
+    for case, label in cases:
+        for path, source in [('GPEC', gpec), ('NEO-2', neo)]:
+            r = next(r for r in source if r['case'] == case and r['level'] == '3')
+            jr = next((h for h in hamada if h['case'] == case and h['level'] == '3'), r) if path == 'GPEC' else r
+            vals.append([label, path, cell('inverse_consumer:'+case+path, r, 'bpol_l2'),
+                         cell('inverse_consumer:'+case+path, r, 'q_max_rel'),
+                         cell('inverse_consumer:'+case+path, r, 'phi_edge_rel'),
+                         cell('inverse_consumer:'+case+path, jr, 'jacobian_max_rel')])
+    table('inverse_consumers', ['Case', 'Reader', r'$B_p$ $L^2$', '$q$ max', r'$\Phi_e$', '$J$ max'], vals, 'llrrrr')
+
+
 def tc24_tables():
     base = 'phase4/tc24/reference/'
     variants = read(base+'variants.csv')

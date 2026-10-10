@@ -67,26 +67,99 @@ recover the reversed toroidal field, reload the native law, and round-trip
 signed EQDSK q, Phi and fields. The nominal-F header defect is fixed with a
 failing-before/passing-after regression; see EQ-KINV-1 in ERRATA.
 
+[kin6d_consumers_gpec.csv](kin6d_consumers_gpec.csv) is the end-to-end consumer
+cell: the retained GPEC/DCON reader (`read_eq_mod`, `grid_type='ldp'`,
+`jac_type='hamada'`, SHA-256 `05278e4d…`) reads the same 129/257 canonical exports.
+Six preregistered one-thread executions on CPU 12 took 0.27-0.38 s each and returned
+5120 `(s_pol, theta)` samples in
+`/home/ert/data/iter_tc24/phase3/runs/gpec-kin6d-readback-20261010-01`; GPEC's own
+flux label, straight angle and signs are used as stored, with no rescaling or fit.
+
+| Case / level | psi L2 | B_pol L2 / max | B_tor L2 | q rel. max | Phi_edge rel. | Hamada \|B\| / Jacobian |
+|---|---:|---:|---:|---:|---:|---:|
+| E1 1 | 2.80e-08 | 3.21e-06 / 2.47e-05 | 1.13e-10 | 2.25e-06 | 1.78e-07 | 8.71e-08 / 2.33e-06 |
+| E1 3 | 7.98e-09 | 1.68e-06 / 8.21e-06 | 7.11e-11 | 1.39e-07 | 6.71e-09 | 6.20e-09 / 1.36e-07 |
+| E2 1 | 4.16e-08 | 4.60e-06 / 2.82e-05 | 8.40e-11 | 1.95e-06 | 1.81e-07 | 1.79e-07 / 2.06e-06 |
+| E2 3 | 9.04e-09 | 2.14e-06 / 1.19e-05 | 7.75e-11 | 1.55e-07 | 6.62e-09 | 1.01e-08 / 1.66e-07 |
+| Solovev 1 | 2.81e-07 | 7.20e-06 / 4.87e-05 | 2.47e-07 | 4.22e-06 | 2.26e-07 | 8.33e-07 / 3.18e-06 |
+| Solovev 3 | 9.12e-09 | 2.36e-06 / 1.17e-05 | 9.13e-10 | 2.91e-08 | 5.21e-09 | 1.20e-08 / 3.54e-08 |
+
+The sampled field, q and total-flux errors meet the PLAN targets (psi L2 1e-6,
+B_pol and B_tor L2 1e-5 with max 1e-4, q 1e-5, Phi_edge 1e-6). For Solovev the
+oracle is the exact analytic state; the table also measures flux labels, the
+Hamada |B| spectrum and its Jacobian against that independent oracle. For E1 and E2 the
+oracle is the same-level KIN6D native field readback (a staged copy of `mesh.dat` and
+the executed `profile-law.dat`, read through `gs_phase1 --evaluate-stream`), which is
+independent of the exported EQDSK interpolation but not of KIN6D; those rows qualify
+the export and GPEC readback of psi, BR, BZ, Bphi, q, s_pol, s_tor and Phi_edge, while
+[Hamada contour measurements](kin6d_consumers_hamada.csv) trace the retained native
+FE flux contours and integrate the volume angle independently of EQDSK/GPEC.
+Their finest spectrum/Jacobian errors are below 1.7e-7; these are transfer errors
+relative to each native state, not independent absolute equilibrium errors. Absolute E1/E2 field accuracy rests on the
+self-convergence and public-CHEASE cross-checks above. The pinned ccabcc5 executable is
+no longer on disk; the native readback used the `kin6d` build at af84393 (`gs_phase1`
+SHA-256 `b3042f67…`), whose `read_gs_mesh`, `sample_gs`, `sample_gs_many`,
+`gs_profile_f` and `read_gs_profile_law` are byte-identical to ccabcc5 and which
+reproduces the retained native samples bit-identically at every query point (the
+`oracle_vs_retained_*` CSV columns are 0 for E1/E2). For the Solovev rows these columns
+carry the exact-versus-native difference, that is the solver error (BR max 4.49e-05 at
+level 1 and 1.79e-07 at level 3).
+
 The supported branch has an isolated interior minimum of psi and constant
 nonpositive pprime. The inverse-input/curved contour sensitivity product is
 unavailable; retained affine-P2 derivative oracles remain supported. The
 nonlinear majorant has status 4 (frozen-source diagnostic), not an error bound
-for the complete inverse problem. Its inverse stability/effectivity cell is
-still open. No certificate, complete Phase 3 qualification, or downstream
-GPEC/NEO-2 KIN6D inverse qualification is claimed here.
+for the complete inverse problem. The whole-domain ladder in
+[kin6d_effectivity_native_solovev.csv](kin6d_effectivity_native_solovev.csv)
+covers four retained native curved-P3 resolutions of Solovev_inverse_A3
+(658 to 46,558 DOFs). Reader-computed energy error against the exact oracle
+decreases at approximately h³ (DOF slopes −1.55 to −1.65), with order-8 to
+order-12 quadrature drift below 1.6e-11. Diagnostic effectivity stays between
+1.161 and 1.178. This establishes measured stability for Solovev; E1/E2
+full-domain diagnostic stability against native public CHEASE is now measured for
+E1/E2 as well ([results](README.md)); a nonlinear reliability bound remains unavailable. The GPEC/DCON EQDSK
+consumer readback of a KIN6D inverse export is measured and on target (above);
+[NEO-2 vector readback](kin6d_consumers_neo2.csv) now uses the existing libneo
+EQDSK-to-Boozer converter on the same six canonical exports. [Scalar and spectral
+checks](kin6d_boozer.csv) include actual NEO-RT/NEO-2 readers. The finest Solovev
+chart uses m48; other charts use m24. Finest Bpol L2 is 3.99e-7, 6.80e-7 and
+1.90e-7 for E1/E2/Solovev, with q errors <=4.03e-7 and signed edge-flux errors
+<=1.96e-8. Physical Jacobian errors against native contour currents and fields
+(or the exact Solovev oracle) are <=1.90e-7. [Converter precision and grid controls](kin6d_consumers_neo2_controls.csv) expose
+a separate radial-geometry serialization defect: eight-digit Fourier coefficients
+produce an internal geometric-determinant residual of 5.58e-4 on frozen E1; the
+full-precision writer (libneo `08ace36`, independent analytic-circle regression)
+reduces it to 1.14e-5 without changing physics, mapping resolution or consumer.
+This diagnostic is distinct from the physical Jacobian error, which falls from
+5.48e-8 to 1.81e-8. Increasing only EQDSK grid257→513 gives 1.65e-5; increasing
+only precise radial map512→1024 gives 4.36e-5. Thus the residual geometry metric
+is not yet qualified by expected-rate convergence. Source inspection identifies
+fixed adaptive tracing tolerance `relerr=1e-9` (the input `nstep` is ignored) as
+a remaining floor candidate; these measurements do not establish that cause.
+The actual physical field/q/flux/Jacobian reader columns above pass independently
+of this internal derivative diagnostic. No additional E1 refinements are claimed.
+
+Raw charts, reader outputs and native contour measurements are under
+`/mnt/storage/codex-equilibrium-20261010/remaining_exports/scratch/runs/kin6d-consumers-20261010`.
+Registered final-source remeasurement checks all six vector and four Hamada
+rows without changing any retained producer state.
 
 ## Reproduction
 
-From the controller checkout after applying the patch, with a built KIN6D
-`gs_phase1`, use a unique new tag:
+From the controller checkout with a built KIN6D `gs_phase1`, use a unique new tag.
+Before launching consumer readback, register and commit each case/level work root
+with the exact reader, native-state and export hashes in the run registry:
 
 ```sh
 export TMPDIR=/home/ert/code/worktrees/_lanes/kin6d-inverse/tmp
-export KIN6D_BINARY=/home/ert/code/worktrees/kin6d-inverse/build/gs_phase1
+export KIN6D_BINARY=/home/ert/code/kin6d/build/gs_phase1
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
 mkdir -p "$TMPDIR"
 python -m equilibrium.phase3.compare --tag NEW_UNIQUE_TAG --codes kin6d --cpu 12 --kin6d-binary "$KIN6D_BINARY" --lane /home/ert/code/worktrees/_lanes/kin6d-inverse
 python -m equilibrium.phase3.exports --codes kin6d --levels 1 3 --cpu 13 --result-file kin6d_exports.csv
+taskset -c 12 python -m equilibrium.phase3.consumers --codes kin6d --levels 1 3 --cpu 12 \
+  --work-root /home/ert/data/iter_tc24/phase3/runs/NEW_UNIQUE_ROOT \
+  --result-file kin6d_consumers_gpec.csv
 python -m equilibrium.phase3.analyze
 uv run python ops/run_registry.py
 ```
