@@ -11,7 +11,7 @@
 \setlength{\parskip}{5pt plus 1pt}
 \setlength{\emergencystretch}{2em}
 \captionsetup{font=small,labelfont=bf,skip=4pt}
-\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/d37ae2cc4/}
+\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/6019d8e4/}
 \newcommand{\tcfile}[2]{\href{\tcroot#1}{#2}}
 \newcommand{\kincommit}[2]{\href{https://github.com/itpplasma/kin6d/commit/#1}{#2}}
 \newcommand{\dataref}[1]{{\footnotesize CSV source: \texttt{#1}}}
@@ -25,7 +25,7 @@
 \vspace{5pt}
 {\large Consolidated equilibrium-slice report\par}
 \vspace{4pt}
-Chris\&AI \quad 9 October 2026
+Chris\&AI \quad 10 October 2026
 \end{center}
 
 \begin{abstract}
@@ -54,11 +54,16 @@ mesh, assembly and solve. They exclude contour readback and therefore cannot
 be used as an end-to-end speed ratio against the other codes.
 
 The circular and E4 studies include KIN6D's estimator and readback cost.
-Their committed circular timing table favors public CHEASE at the sampled
-targets; the E4 table favors KIN6D over both CHEASE variants. A later FortNum
-root-finder repair reduces KIN6D readback cost, but refreshed matched-cost CSVs
-remain unavailable. The measured table is retained; the separate TC24
-performance control below records the later assembly and solve improvements.
+The historical circular table favors public CHEASE; current KIN6D replays
+of the same eight selected states pass every sampled target with unchanged
+DOF and references. Seven producer times are 0.412--0.428 seconds and
+E1 at $A=3.1$ takes 1.695 seconds, including estimator, export and readback.
+Other codes retain earlier execution windows, so these single observations
+do not establish a contemporaneous speed ranking. The E4 historical table
+favors KIN6D over both CHEASE variants. Original curves and source pins remain
+unchanged. Current KIN6D main \texttt{f6a33c9} passes all 106 CPU and
+106 Debug tests; these gates validate the implementation, not every scientific
+qualification. Source: \texttt{phase2/results/kin6d\_current\_cost.csv}.
 
 \begin{center}\small
 \begin{tabular}{p{25mm}p{91mm}p{37mm}}
@@ -70,14 +75,14 @@ Phase & Delivered evidence & Remaining qualification \\
 3: inverse & Three contracts, KIN6D and reference-code fields/current/cost & MARS failure; nonlinear reliability and geometric consistency \\
 4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ targets; matched cold DESC cost \\
 4b: TC24 & modx03 provenance, exact replay, five-code study and exports & Rates, target accuracy and reader failures \\
-5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & Remaining DESC A10/A30 controls \\
+5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & Matched cold DESC cost \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 The reader is Chris and, after revision, the TC24 collaborators. All empirical
 figures and numerical tables are generated from committed CSVs. The primary
-data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 d37ae2cc4}}. The retained
+data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 6019d8e4}}. The retained
 README files explain how the runs were made; where they lag the numerical
 tables, this report follows the CSV rows and their settings. KIN6D's earlier
 owner study is labeled separately. No new solver run was made for this report.
@@ -172,7 +177,7 @@ for DESC, conditional on boundary representation and native stopping
 \toprule
 Code / measured version & Discretization and executed path & Pin and scope \\
 \midrule
-KIN6D & Curved P2/P3; \texttt{gs\_phase1}; native FE readback & Current main \texttt{f1d1791}; executed Phase 1 \texttt{fa5c388}, TC24 \texttt{5dfb9df}, inverse \texttt{ccabcc5}; cubic profiles and current constraints included \\
+KIN6D & Curved P2/P3; \texttt{gs\_phase1}; native FE readback & Current main \texttt{f6a33c9}; executed Phase 1 \texttt{fa5c388}, TC24 \texttt{5dfb9df}, inverse \texttt{ccabcc5}; cubic profiles and current constraints included \\
 CHEASE public & Hermite; forward constant sources; EQDSK readback & \texttt{b942066c}; dense boundary, folded ordering, \texttt{RELAX=0}, explicit export selector \\
 CHEASE MARS & Hermite; same forward law; separate native MARS export & \texttt{104053d5}; no interchange of prescribed-$q$ selectors with public CHEASE \\
 VMEC++ & Native \texttt{wout}; parity-aware physical-point reader & \texttt{a4150a4e}; radial and Fourier settings recorded per row \\
@@ -333,7 +338,10 @@ The last column divides the relative majorant by the Richardson field estimate.}
 \input{build/phase2_cost.tex}
 \captionof{table}{Least producer time in seconds meeting all sampled targets
 and native stopping. A dash means no passing state in the recorded ladder.
-These committed timings predate the later Brent readback repair.}
+KIN old and all reference-code columns retain the historical observations;
+KIN current replays the same selected inputs, DOFs and references after
+the Brent and performance repairs. The execution windows are not
+contemporaneous, and the historical curves are unchanged.}
 \end{center}
 \dataref{phase2/results/best\_cost.csv}.
 
@@ -545,8 +553,10 @@ Source: \texttt{phase5/results/finest.csv}.}
 CHEASE refinement resolves the toroidal continuation. Strong-twist Lundquist
 requires additional DESC spectral refinement. Native $M=18$ continuation
 passes all sampled targets at $A=100$ and $300$ after calibrated stopping.
-The historical capped states remain excluded; final $A=10/30$ controls are
-not yet included here. KIN6D's exact Gold--Hoyle evaluator
+The historical capped states remain excluded. The additional $A=30$ M18
+state passes after calibrated stopping; $A=10$ requires $M=20$, where axis
+error is $3.91\times10^{-7}$ and native stopping succeeds. All four
+Lundquist aspect-ratio controls now pass their sampled targets. KIN6D's exact Gold--Hoyle evaluator
 and the KIM code's actual native profile reader/ODE pass the signed analytic
 controls. Those checks supply equilibrium ingress for later KIM work, not a
 PDE convergence curve or a kinetic-response calculation. The committed
@@ -593,6 +603,19 @@ are not error bounds. MARS has no accepted inverse state. Sources:
 and the corresponding comparison rows.}
 \end{center}
 
+\begin{center}\small
+\input{build/inverse_passing.tex}
+\captionof{table}{Selected inverse states passing every sampled target and
+native stopping against common references: finest inverse KIN6D for E1/E2,
+exact Solov'ev for the analytic case. Poloidal-field errors are relative $L^2$.
+Times retain the original producer pins and include preparation, solve,
+estimator where present, native export and native state/profile readback.
+Public CHEASE includes its flux-root trials. Different execution windows,
+uncontrolled host load and absent repeats prevent a statistical speed ranking;
+consumer conversions and common oracle evaluation are excluded. Source:
+\texttt{phase3/results/passing\_states\_common\_reference.csv}.}
+\end{center}
+
 \subsection*{Inverse readback and remaining limits}
 \begin{center}\small
 \input{build/inverse_exports.tex}
@@ -637,10 +660,19 @@ Further EQDSK-grid and radial-map controls do not establish convergence of the
 remaining determinant discrepancy; that qualification gap stays open.
 Source: \texttt{kin6d\_consumers\_neo2\_controls.csv}.
 
-MARS fails in source/mapping iteration on every attempted inverse contract.
-Scoped sign, coarea and normalization fixes have passing regressions, but the
-full solve remains an open defect candidate in
+MARS has no accepted prescribed-$q$ state. The fully corrected retained
+Solov'ev controls include the qualified sign, normalization and source-parent
+repairs; both long and immediate coarea refresh fail the coupled iteration.
+An independent check gives relative residual $1.054\times10^{-12}$ for the
+first constrained linear solve. Exact-source load replay instead locates most
+of the first departure in near-axis prescribed-$q$/coarea differentiation.
+Ideal coarea data converge, while compatible forward-field physical mesh
+controls reduce source error at an irregular, still unqualified rate.
+The remaining inverse failure stays open in
 \href{https://github.com/krystophny/MARS-Q/issues/44}{MARS issue 44}.
+Fork PR43 is closed with its branch and reproducers retained; it supplies no
+admitted repair or equilibrium. The public-CHEASE source repairs in PR13/15
+are scoped prerequisites, not closure of MARS's coupled inverse problem.
 Public CHEASE and KIN6D have sampled passing states; VMEC++ and DESC retain
 some geometry/field target gaps and capped attempts. DESC inverse Solov'ev
 now meets all sampled exact targets and native stopping at $M=14$,
@@ -732,15 +764,15 @@ the curves; the comparator's zero is omitted. KIN6D uses the executed
 normalized-current binary at \texttt{5dfb9df}, preceding the later speed-up.
 Invalid DESC states and capped finer attempts remain in the execution inventory.
 Timings are single observations under load.
-Source: \texttt{phase4/tc24/reference/comparison.csv}.}
+Source: \texttt{phase4/tc24/reference/comparison\_historical.csv}.}
 \end{center}
 
-The latest three-grid KIN6D orders are \TcKinPsiRate{} for flux and
+The finest retained three-grid KIN6D orders are \TcKinPsiRate{} for flux and
 \TcKinBRate{} for the poloidal field; public CHEASE's latest field order is
 \TcPublicBRate{}. They do not yet establish the expected asymptotic regime.
 The normalized-source KIN6D estimate remains status 4, a frozen-source
 diagnostic. Neither agreement with a finite comparator nor a small native
-residual closes the accuracy gate.
+residual closes the accuracy gate. Coupled nonlinear reliability remains open.
 
 \clearpage
 \subsection*{Exported candidates}
@@ -767,18 +799,53 @@ participates in libneo's global quintic splines. The chart residual remains
 unqualified; no production perturbation admission follows. Native MARS/Hamada
 and VMEC++/DESC downstream conversion remain unused in this package.
 
+
+Holding native1025 input and chart settings fixed, tightening the actual
+adaptive tracing tolerance from $10^{-9}$ to $10^{-11}$ reduces the internal
+Jacobian mismatch from $3.04\times10^{-2}$ to $1.09\times10^{-3}$.
+A further $10^{-12}$ control reaches essentially the same floor.
+The physical Jacobian error is $1.09\times10^{-5}$, and full-vector field
+$L^2$/maximum errors meet their working targets. Separate poloidal-field
+errors and safety factor remain above target, so geometric consistency and
+complete consumer qualification stay open. These scratch changes alter the
+hardcoded tracer tolerance; they are diagnostic controls, not a promoted
+accuracy configuration or solver repair. The existing integration-step input
+is ignored by the adaptive implementation and supplies no tolerance control.
+
+A held-$10^{-12}$ radial-map control doubles only the map labels from
+2048 to 4096. Internal geometric mismatch improves from $8.26\times10^{-5}$
+to $4.84\times10^{-5}$ on the interior surfaces, but worsens from
+$1.09\times10^{-3}$ to $1.65\times10^{-3}$ at the outer surface.
+Neither quotient establishes the expected cubic-interpolation derivative rate.
+The outer chart and safety-factor floor remains unclassified. The converter
+and vector readback take 143.20 and 50.77 seconds; scalar readback and the
+native oracle are excluded. These controls retain the same exterior
+continuation and are separate from producer-cost curves.
+
 At n96, changing only KIN6D source quadrature tolerance from $10^{-7}$ to
 $10^{-5}$ reduces process time from 33.13 to 13.93 seconds; the field change
 is $1.46\times10^{-6}$ in poloidal-field $L^2$. Both unchanged-main n320
-attempts hit the 300-second cap. The isolated candidate \texttt{1996a4e}
-completes n320 at $10^{-5}$ quadrature in 197.05 seconds, with full CPU/Debug
-gates pending. These concurrent single-core observations provide a bounded
+attempts hit the 300-second cap. The executed candidate \texttt{1996a4e}
+completes n320 at $10^{-5}$ quadrature in 197.05 seconds. Its implementation
+is now integrated on main after full CPU/Debug gates; this timing retains the
+executed candidate pin. These concurrent single-core observations provide a bounded
 speed ratio greater than 1.52 for that input, without a fastest-code claim.
 Against public CHEASE n256, its poloidal-field difference is
 $1.11\times10^{-4}$; public n128/n256 differ by $6.22\times10^{-4}$.
 The finite comparator and changed quadrature prevent a clean spatial-rate
 or target-accuracy conclusion. Sources: \texttt{kin6d\_controls.csv} and
 \texttt{reference\_uncertainty.csv}.
+
+Saved-state KIN6D readback, with no new equilibrium solve, reduces the
+safety-factor gap against public CHEASE n256 from $2.912\times10^{-3}$ to
+$7.115\times10^{-4}$ and then $2.288\times10^{-4}$ as the readback budgets
+increase from 129/160 to 257/320 and 2049/320. The native safety factor at
+common poloidal flux changes by only $1.04\times10^{-14}$.
+The source-checked NCHI change from 1000 to 600 affects the angular
+export mesh, not the native PDE or safety-factor contour integrals.
+Readback configuration therefore explains much of this flux-label comparison;
+the remaining discrepancy still exceeds the $10^{-5}$ target and does not
+establish a wrong solver limit or inverse reliability bound.
 
 \subsection*{KIN6D performance on the historical control}
 The performance change now on main caches profile quadrature work, reuses
@@ -799,7 +866,7 @@ The optimized source was integrated on main as \texttt{313cde5}.}
 The opt-in absolute-flux estimator adds a numerical linearized-stability
 factor and returns status 5. It is conditional on that estimate; nonlinear
 remainder, existence, geometry and input uncertainty are not bounded. The
-normalized-current and inverse studies retain status 4. Main \texttt{f1d1791}
+normalized-current and inverse studies retain status 4. Main \texttt{f6a33c9}
 also contains the prescribed-$q$ port and the FortNum \texttt{901aae0} update-limit
 repair. Integration does not change the executed revisions or replace the
 recorded cost/error curves with an unmeasured performance claim.
@@ -892,8 +959,8 @@ estimator reliability, and the remaining VMEC++/DESC target or stopping gaps.
 \item Qualify TC24 consumer field accuracy and NEO-2 vector/Jacobian consistency,
 plus consumer paths needed for later use. The coarse KIN6D cylinder readback
 repair and retained-input replays are delivered.
-\item Refresh matched-cost measurements before extending historical timing
-claims to current main. Independent scientific review and downstream NTV
+\item Obtain contemporaneous matched-cost measurements before extending single
+observations to a speed ranking. Independent scientific review and downstream NTV
 sensitivity are separate from this report build.
 \end{itemize}
 

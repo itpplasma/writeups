@@ -118,6 +118,12 @@ def toroidal_tables():
                            [cell(f'{phase}_reference:{case}', r, f) for f in
                             ['psi_richardson', 'bpol_richardson', 'majorant_relative', 'majorant_to_richardson']])
         headers = ['Case', 'KIN6D P3', 'Public', 'MARS', 'VMEC++', 'DESC']
+        if phase == 'phase2':
+            current = read('phase2/results/kin6d_current_cost.csv')
+            for row, case in zip(rows, cases):
+                r = next(r for r in current if r['case'] == case)
+                row.insert(2, cell('phase2_current_cost:'+case, r, 'current_wall_s'))
+            headers = ['Case', 'KIN old', 'KIN current', 'Public', 'MARS', 'VMEC++', 'DESC']
         table(phase + '_cost', headers, rows)
         table(phase + '_reference', ['Case', r'$\psi$ Rich.', r'$B_{pol}$ Rich.', 'Rel. majorant', 'Ratio'], refrows)
         if phase == 'phase4':
@@ -218,6 +224,16 @@ def inverse_tables():
         r = next(r for r in ex if r['case'] == case and r['level'] == '3' and r['path'] == 'EQDSK_libneo')
         vals.append([label, cell('inverse_export:'+case, r, 'psi_l2'), cell('inverse_export:'+case, r, 'bpol_l2')])
     table('inverse_exports', ['Case', r'libneo $\psi$ $L^2$', r'libneo $B_p$ $L^2$'], vals)
+
+    passing = read('phase3/results/passing_states_common_reference.csv')
+    vals = []
+    for case, label in cases:
+        selected = [next(r for r in passing if r['case'] == case and r['code'] == code)
+                    for code in ['kin6d', 'chease_public']]
+        vals.append([label] + [cell('inverse_passing:'+case+r['code'], r, 'bpol_l2') for r in selected]
+                    + [cell('inverse_passing:'+case+r['code'], r, 'wall_s') for r in selected])
+    table('inverse_passing', ['Case', 'KIN6D $B_p$', 'Public $B_p$', 'KIN6D (s)', 'Public (s)'], vals, 'lrrrr')
+
 
 
     gpec = read('phase3/results/kin6d_consumers_gpec.csv')

@@ -76,6 +76,45 @@ Lowest measured producer wall time in seconds passing all sampled targets:
 | E2_A3p1 | 1.92 | 2.47 | 5.78 | — | 58.19 |
 | E2_A40 | 1.98 | 1.17 | 1.32 | 60.49 | 33.44 |
 
+Current-main KIN6D producer costs at the same eight previously passing states
+are retained separately in [kin6d_current_cost.csv](kin6d_current_cost.csv).
+The historical table and `best_cost.csv` above remain unchanged. Each new run
+uses identical native input and boundary bytes, mesh settings, fixed reference
+and sample points; all eight retain the same DOF and pass native stopping and
+all sampled physical targets. Only these selected states were repeated.
+
+| Case | Historical producer s | Current producer s |
+|---|---:|---:|
+| E1_A10 | 1.993 | 0.423 |
+| E1_A20 | 1.998 | 0.419 |
+| E1_A3p1 | 5.163 | 1.695 |
+| E1_A40 | 1.942 | 0.417 |
+| E2_A10 | 2.102 | 0.428 |
+| E2_A20 | 1.948 | 0.413 |
+| E2_A3p1 | 1.920 | 0.418 |
+| E2_A40 | 1.978 | 0.412 |
+
+The current source is `f6a33c91610e49e7eba63c0b4f8dcc099e8a77e1`;
+archived CPU binary SHA256 is
+`66037bab430bd3696ca902b411f37a2ad9f9e75b5dedef5d92638e71ee43448c`.
+Both costs measure the existing worker's producer call, including mesh,
+assembly/solve, estimator, native outputs and contour/profile readback;
+subsequent accuracy comparison and Python worker startup are excluded.
+Historical source is `b2e8c97fc19f3bf62f0d3d6925713b5a494b4604`;
+its binary SHA256 is
+`3469d21d2fce232478440c1e2213676ed5b2483d13211f3dfd4dbb595911c88d`.
+Both historical and new pins and raw roots are retained in the cost CSV.
+
+The new calls ran sequentially on CPU3 with one numerical thread after the
+other campaign native computations paused. Ambient host load averages were
+5.98/6.36/7.30; desktop, synchronization and other
+background processes remained active, so this is not a globally idle-host
+measurement. Other-code costs above retain their historical execution
+conditions. These single repeats demonstrate current cost at matched sampled
+accuracy; they do not establish a controlled cross-code speed ranking.
+Raw requests, manifests, outputs and ambient process snapshot are in
+`/mnt/storage/codex-equilibrium-20261010/kin6d_tc24/scratch/phase2_currentcost_20261010`.
+
 KIN6D producer time includes mesh/assembly/solve, its majorant, native export
 and contour/profile readback. The original solve-only time is retained as
 `producer_reported_s`; comparison-point and error-oracle evaluation is excluded
@@ -86,6 +125,10 @@ indicative. KIN6D does not yet beat public CHEASE across this ladder when its
 estimator/readback cost is included.
 
 Remaining numerical limitations are owned by [ERRATA EQ-P2-1](../../ERRATA.md#eq-p2-1).
+A targeted E2/A10 NS=1025, mpol=16, ftol=1e-18 repeat also exceeds
+300 s (`vmecpp_phase2_E2_A10_ns1025_20261010_01`); its input, native log and
+reference-evaluator pin are retained in the registry. It supplies no passing
+accuracy row; the NS513 axis gap remains unqualified.
 Public CHEASE E1/A3.1 NS=128 also reports a magnetic-axis minimizer warning;
 its field differences are below target, but it is excluded from qualification.
 NS=64 passes. Crosses in the cost figures mark native stopping failures.
@@ -122,7 +165,7 @@ pending exporter from `ade9cb8ac`, saved and hashed beside each readback, withou
 merging its lane. The reader binaries reuse the export lane's archived libneo
 fork fixes; their executed hashes are in each readback manifest. VMEC++/DESC
 are measured through their native wout/HDF5 states; their downstream converters
-are unused. Native MARS Fourier/Hamada and standalone GPEC reconstruction
+are unused under the explicit [consumer inventory](../../phase1/results_export/README.md#consumer-inventory-and-bounded-gaps). Native MARS Fourier/Hamada and standalone GPEC reconstruction
 remain outside this measured package, as recorded by the export lane.
 
 Reproduction: generate cases with `python -m equilibrium.phase2.cases`; run

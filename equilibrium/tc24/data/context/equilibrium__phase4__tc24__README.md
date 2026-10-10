@@ -152,7 +152,7 @@ Do not use cross-code agreement as a replacement for these missing error bounds.
 KIN6D's recovered-flux estimates fall from 1.97 to 0.678 Wb m⁻¹ᐟ²; status 4
 identifies a frozen-source estimate, not a proved nonlinear stability bound.
 
-[Unchanged-main controls](reference/kin6d_controls.csv) use KIN6D `af84393`,
+[Quadrature controls](reference/kin6d_controls.csv) use KIN6D `af84393`,
 the same modx03 inputs and nonlinear tolerance 1e-9. At n96, changing only
 the source quadrature tolerance from 1e-7 to 1e-5 reduces process wall time
 from 33.13 to 13.93 seconds (native solve 31.86 to 12.46 seconds). On the
@@ -165,8 +165,9 @@ other lanes and remain exploratory; they establish no fastest-code claim.
 The isolated rank-one Newton-response candidate `1996a4e` completes the same
 n320, 1e-5-quadrature input in 197.05 seconds, versus unchanged main's
 300-second cap: an observed bounded speed ratio greater than 1.52 under
-these conditions. Its residual is 1.381e-10; full CPU/Debug qualification
-is pending. The estimator takes 35.95 seconds and its recovery reaches
+these conditions. Its residual is 1.381e-10. The final safeguarded implementation
+is on KIN6D main at `f6a33c9`, with CPU and Debug each passing 106/106 tests.
+The estimator takes 35.95 seconds and its recovery reaches
 the 6000-iteration cap, so its frozen-source estimate is not minimized.
 The n256→n320 Bpol difference is 2.412e-4, psi 1.398e-6 and q 3.670e-5.
 That comparison changes quadrature tolerance as well as mesh resolution;
@@ -177,10 +178,29 @@ the retained public CHEASE NS128/NT256 and NS256/NT512 states on the same
 original samples, with norms normalized by NS256. Their differences are
 psi L2 7.624e-6, Bpol L2 6.218e-4 and q max 9.914e-5. KIN6D n256 versus
 that NS256 state gives psi L2 1.653e-6, Bpol L2 2.578e-4 and q max 2.912e-3.
+Both execute NSTTP=1/NFUNRHO=0, bypassing mapped-profile feedback into the
+PDE. Their NCHI change from 1000 to 600 affects the angular export mesh,
+not the native field solve or q contour integrals. It does not confound the
+native Bpol difference. The delivered q difference still includes changes
+in NT quadrature and NPSI/NISO profile sampling, so it supplies no separate rate.
 Thus the older NS128 comparison contains appreciable reference uncertainty;
 the newer comparison still does not qualify KIN6D at the targets.
 The candidate n320 state versus NS256 gives psi L2 7.853e-7, Bpol L2
-1.112e-4 and q max 2.934e-3; the q and field qualification gaps remain.
+1.112e-4 and q max 2.934e-3 using the original readback configuration.
+
+Saved-state readback controls hold the n256 mesh, field and profile law fixed.
+The original 129-radial/160-angular readback is reproduced byte for byte;
+257/320 and 2049/320 reduce the q gap against public NS256 at held s_tor
+from 2.912e-3 to 7.115e-4 and 2.288e-4. At the same physical sample points,
+the final gap is 2.364e-4. Native q at common psi agrees within 1.04e-14 and
+edge toroidal flux is unchanged: coarse radial-label interpolation explains
+most of the original q gap. The final readback takes 9.30 seconds, without a
+PDE solve. Differences imply apparent orders 3.79 for cumulative flux labels
+and 2.90 for q interpolation across unequal refinements; these do not establish
+an asymptotic rate. The remaining producer/reference gap exceeds the 1e-5 target
+and remains unqualified. Executed settings and raw roots are in
+[the control table](reference/kin6d_controls.csv); original producer costs and
+finite-reference comparisons remain unchanged.
 
 ## Received variants
 

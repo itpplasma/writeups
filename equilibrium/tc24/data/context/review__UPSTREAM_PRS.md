@@ -1,9 +1,10 @@
 # TC24 fixes and PRs
 
-- **KIN6D current main:** [`f1d1791`](https://github.com/itpplasma/kin6d/commit/f1d1791) includes cubic profiles `2d8142a`, TC24 performance `313cde5`, inverse `60bef4c` and FortNum main [`901aae0`](https://github.com/lazy-fortran/fortnum/commit/901aae0) via `fde93a9`. The inverse export-header repair is in iter_tc24 [MR !20](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20), with a manufactured-profile regression.
+- **KIN6D current main:** [`d8b94ff`](https://github.com/itpplasma/kin6d/commit/d8b94ff) includes cubic profiles `2d8142a`, TC24 performance `313cde5`, inverse `60bef4c` and FortNum main [`901aae0`](https://github.com/lazy-fortran/fortnum/commit/901aae0) via `fde93a9`. The inverse export-header repair is in iter_tc24 [MR !20](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20), with a manufactured-profile regression.
 - **TC24 normalized-current capability:** KIN6D own main [`5dfb9df`](https://github.com/itpplasma/kin6d/commit/5dfb9df), on curved cubic profiles `2d8142a`; exact current/field scaling oracles and full CPU/Debug 81/81 each. The [reference study](../equilibrium/phase4/tc24/README.md) owns numerical qualification.
-- **GPEC failure diagnostic:** draft personal-fork [PR1](https://github.com/krystophny/GPEC/pull/1), `bb3f02a4`, branch `equilibrium/fieldline-error-message` against fork main (baseline `e68d7ac2`). Executes the actual Fortran formatter; fixes its buffer overflow and five-digit step counts. The underlying TC24 field-line failure remains unresolved; this change affects diagnostics only.
+- **GPEC failure diagnostic:** draft personal-fork [PR1](https://github.com/krystophny/GPEC/pull/1), `bb3f02a4`, branch `equilibrium/fieldline-error-message` against fork main (baseline `e68d7ac2`). Executes the actual Fortran formatter; fixes its buffer overflow and five-digit step counts. The integration tolerance control and remaining accuracy gaps are in [EQ-TC24-7](../equilibrium/ERRATA.md#eq-tc24-7-gpec-field-line-failure-diagnostic); this PR changes diagnostics only.
 - **libneo four-digit EQDSK reader:** draft personal-fork [PR4](https://github.com/krystophny/libneo/pull/4), `f27ee06`, branch `equilibrium/eqdsk-four-digit-grid` against fork main. Both 1025-point dimension round trips fail before; 11 reader/writer tests pass after, including legacy whitespace headers. The copied fixed reader is used for the 1025² TC24 preparation; no global installation changed.
+- **libneo Boozer geometry precision:** draft personal-fork [PR5](https://github.com/krystophny/libneo/pull/5), `08ace36`, branch `equilibrium/boozer-geometry-precision` against fork main, with PR3 prerequisites stated. Six format changes retain double precision in surface data and geometry coefficients. The independent circular metric regression fails before and passes after in all four cases; native `test_bc_file` and actual NEO-2 readback pass. [EQ-EXPORT-4](../equilibrium/ERRATA.md#eq-export-4-boozer-geometry-serialization).
 - **iter_tc24 completion branch, [MR !20](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20):** safeguarded native contour roots, signed GPEC toroidal flux and explicit CHEASE final-stage readback. Seven behavioral cases pass; ERRATA EQ-TC24-5/6 and EQ-D103 own the causes. No numerical alignment or sign was fitted.
 
 - **libneo signed TC24 boundary, draft [personal-fork PR3](https://github.com/krystophny/libneo/pull/3), `a9b6d96`:** orient the prescribed-flux bracket and bisection for either poloidal polarity. Two negative-polarity circular oracles fail before; all four polarity/scan cases pass after. Branch `equilibrium/tc24-signed-boozer-boundary` targets `krystophny/libneo:main`, with `075dd48` / `d5bbe6c` prerequisites stated in the PR. No new upstream submission. [EQ-TC24-2](../equilibrium/ERRATA.md#eq-tc24-2-boozer-converter-signed-prescribed-boundary).
@@ -28,10 +29,10 @@
 
 Tier 1 defects only; tier 2 (robustness, performance) awaits review.
 
-- DESC metadata: [PlasmaControl/DESC#2348](https://github.com/PlasmaControl/DESC/pull/2348), combined signed labels and units (fork #4/#5 closed).
-- DESC: [PlasmaControl/DESC#2347](https://github.com/PlasmaControl/DESC/pull/2347), failed `map_coordinates` inversions return NaN (fork #3 closed).
+- DESC metadata: [PlasmaControl/DESC#2348](https://github.com/PlasmaControl/DESC/pull/2348), signed labels and units, reduced to the metadata change without tests (fork #4/#5 closed).
+- DESC: [PlasmaControl/DESC#2347](https://github.com/PlasmaControl/DESC/pull/2347) closed: maintainers keep returning unconverged inversions as computed; our reader checks the residual instead (fork #3 closed).
 - MARS-Q: [gafusion/MARS-Q#6](https://github.com/gafusion/MARS-Q/pull/6), ISOFUN cubic FF' integral (fork #30 closed); [gafusion/MARS-Q#7](https://github.com/gafusion/MARS-Q/pull/7), SMOOTH fourth Hermite slot (fork #31 closed). MARS-only `tests/` target.
-- CHEASE: upstream requires a signed CLA and EPFL GitLab access, and asks for no public forks; `itpplasma/chease` is private since 2026-10-09. Signed CLA and four patches (box units, smoothing slot, current cutoff, interpolation status; fork #1, #4, #16, #17) drafted by e-mail to O. Sauter; `make test_chease_ci_short` passes with all four applied.
+- CHEASE: signed CLA sent to O. Sauter; SPC Developer access granted. The four mailed corrections are open directly against SPC `master`: [!93](https://gitlab.epfl.ch/spc/chease/-/merge_requests/93) (box units), [!94](https://gitlab.epfl.ch/spc/chease/-/merge_requests/94) (fourth Hermite component), [!95](https://gitlab.epfl.ch/spc/chease/-/merge_requests/95) (relative current cutoff), [!96](https://gitlab.epfl.ch/spc/chease/-/merge_requests/96) (interpolation failure propagation). Independent branches from `fb463663`; source-only diffs, self-reviewed with the PR-review skill. Three native kernel regressions fail on master and pass on their respective branches. The standard Make build and native short-CI numerical check pass with all four applied (test scratch relocated to disk); retained shifted-box controls cover !93. No performance changes submitted. Execution evidence is registered as `spc-mailed-fixes-short-20261010-01`. The research fork remains private as requested by SPC.
 
 The 2026-10-09 block below supersedes the older CHEASE, DESC and MARS CHEASE equilibrium entries further down; the dechurn pass removes those.
 
@@ -67,9 +68,9 @@ fork review, not Phase 3 equilibrium or downstream MARS Pair A/B acceptance.
 | [CHEASE #10](https://github.com/itpplasma/chease/pull/10) | ready — Validate quadrature and boundary inputs | `97eb0f74` | 9 failing subcases → all pass | #19 |
 | [CHEASE #11](https://github.com/itpplasma/chease/pull/11) | closed — consolidated into #10 — Reject the singular radial endpoint quadrature rule | `231a4259` | retired; not rerun | none |
 | [CHEASE #12](https://github.com/itpplasma/chease/pull/12) | closed — consolidated into #10 — Reject unmatched boundary angles before spline indexing | `dc2cd39d` | retired; not rerun | none |
-| [CHEASE #13](https://github.com/itpplasma/chease/pull/13) | hold — scoped PR cleanup pending — Use native interpolation for zero-tension prescribed q | `72046b42` | combined Phase 3 exact/native/consumer convergence passes; flat-PR parent retest pending | none |
+| [CHEASE #13](https://github.com/itpplasma/chease/pull/13) | ready — Use native interpolation for zero-tension prescribed q | `f98828a` | source parent fails eight zero-tension controls; fixed passes; nonzero/legacy controls, Make, shared CTest and retained inverse smoke pass | #19 |
 | [CHEASE #14](https://github.com/itpplasma/chease/pull/14) | closed — consolidated into #10 — Reject unsupported Gaussian quadrature orders before writes | `4f908476` | retired; not rerun | none |
-| [CHEASE #15](https://github.com/itpplasma/chease/pull/15) | hold — scoped PR cleanup pending — Keep the magnetic axis consistent with the smoothed flux field | `2f83bc08` | combined Phase 3 exact/native/consumer convergence passes; flat-PR parent retest pending | none |
+| [CHEASE #15](https://github.com/itpplasma/chease/pull/15) | ready — axis normalization follows the smoothed field | `d01e4a8d` | source parent fails both smoothed polynomial controls; fixed passes four; unsmoothed bytes identical; Make + native smoke pass | #19 |
 | [CHEASE #16](https://github.com/itpplasma/chease/pull/16) | ready — Use a relative flux cutoff for current smoothing | `297d28bd` | fail → pass: 3 flux spans | #19 |
 | [CHEASE #17](https://github.com/itpplasma/chease/pull/17) | ready — Propagate failed current interpolation status | `fde5a12f` | fail → pass: failed status + affine control | #19 |
 | [CHEASE #18](https://github.com/itpplasma/chease/pull/18) | ready — Define band factorization edge cases | `0c053683` | fail → pass: edge/status + dense controls | #19 |
@@ -92,7 +93,7 @@ fork review, not Phase 3 equilibrium or downstream MARS Pair A/B acceptance.
 | [MARS-Q #40](https://github.com/krystophny/MARS-Q/pull/40) | closed — superseded by #42 — Initialize missing inner coarea in CHEASE prescribed-q profiles | `5ecc6ae0` | retired; not rerun | none |
 | [MARS-Q #41](https://github.com/krystophny/MARS-Q/pull/41) | ready — axis normalization follows the smoothed field | `67c9e34` | whole NONLIN polynomial controls fail → pass; Make + native smoke pass | #46 |
 | [MARS-Q #42](https://github.com/krystophny/MARS-Q/pull/42) | ready — trace missing inner coareas about the axis | `a288ebe` | independent circle/ellipse integrals, 3 angular grids, invalid controls fail → pass; Make + smoke pass | #46 |
-| [MARS-Q #43](https://github.com/krystophny/MARS-Q/pull/43) | recommend close — source interpolant and continuous field remain inconsistent; retain defect in #44 | `ff639e23` | 48 source + 32 PROFILE + 4 legacy controls pass; combined inverse solves still fail | none |
+| [MARS-Q #43](https://github.com/krystophny/MARS-Q/pull/43) | closed — source interpolant and continuous field remain inconsistent; branch/reproducers and #44 retained | `ff639e23` | isolated axis/under-axis controls remain valid evidence; no qualified full inverse solve | none |
 | [MARS-Q #45](https://github.com/krystophny/MARS-Q/pull/45) | ready — Define CHEASE factorization status and edge cases | `459a4c0a` | fail → pass: edge/status + dense controls | #46 |
 | [MARS-Q #46](https://github.com/krystophny/MARS-Q/pull/46) | ready — Add one shared native CHEASE regression target | `dc20a4bc` | shared base: native smoke passes (no defect) | none |
 
@@ -116,8 +117,9 @@ Recommended upstream review order after human review:
 VMEC++ still has no open PRs. The DESC `equilibrium/phase1-v0173-backports` branch remains
 an existing environment pin, not a PR; it was not changed. The callback feature's closure
 does not remove that historical pin. The [Phase 3 study](../equilibrium/phase3/results/README.md)
-qualifies the combined public prescribed-q path in its sampled domains; held public #13/#15
-still need scoped PR cleanup. MARS inverse qualification remains open. MARS-K #5–29 is outside this cleanup.
+qualifies the combined public prescribed-q path in its sampled domains; held public #13
+still needs scoped PR cleanup. Public #15 now has a flat source-parent regression.
+MARS inverse qualification remains open. MARS-K #5–29 is outside this cleanup.
 
 Commands, exact final file inventories, parent/after logs and measured timings:
 `/home/ert/code/worktrees/_lanes/pr-tidy/REPORT.md` and its adjacent evidence files.

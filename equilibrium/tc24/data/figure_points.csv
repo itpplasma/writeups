@@ -813,71 +813,71 @@ inverse,Solovev_inverse_A3:wall_s,DESC,31.874250947963446,0.03782731894513373,ph
 inverse,Solovev_inverse_A3:wall_s,DESC,56.3147756990511,0.0075546685707421875,phase3/results/self_convergence.csv,27,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:36
 inverse,Solovev_inverse_A3:wall_s,DESC,60.98004129109904,0.0008190317861513593,phase3/results/self_convergence.csv,28,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:37
 inverse,Solovev_inverse_A3:wall_s,DESC,78.75426510698162,9.53023136647256e-05,phase3/results/self_convergence.csv,29,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:38
-tc24,"0,0",KIN6D,907.0,0.0003452009151896908,phase4/tc24/reference/comparison.csv,15,dof,psi_l2,identity
-tc24,"0,0",KIN6D,193.0,0.0014049262263168434,phase4/tc24/reference/comparison.csv,16,dof,psi_l2,identity
-tc24,"0,0",KIN6D,487.0,0.0006260929510593112,phase4/tc24/reference/comparison.csv,17,dof,psi_l2,identity
-tc24,"0,0",KIN6D,2080.0,0.00013033026482123916,phase4/tc24/reference/comparison.csv,18,dof,psi_l2,identity
-tc24,"0,0",KIN6D,3667.0,5.758469320187689e-05,phase4/tc24/reference/comparison.csv,20,dof,psi_l2,identity
-tc24,"0,0",KIN6D,8479.0,2.8669124861041993e-05,phase4/tc24/reference/comparison.csv,22,dof,psi_l2,identity
-tc24,"0,0",CHEASE public,2048.0,0.0019790933644339894,phase4/tc24/reference/comparison.csv,1,dof,psi_l2,identity
-tc24,"0,0",CHEASE public,8192.0,0.0001412250038751404,phase4/tc24/reference/comparison.csv,2,dof,psi_l2,identity
-tc24,"0,0",CHEASE public,32768.0,2.291601269307761e-05,phase4/tc24/reference/comparison.csv,3,dof,psi_l2,identity
-tc24,"0,0",CHEASE MARS,8192.0,0.00014055823500308404,phase4/tc24/reference/comparison.csv,8,dof,psi_l2,identity
-tc24,"0,0",CHEASE MARS,2048.0,0.001973655694503931,phase4/tc24/reference/comparison.csv,9,dof,psi_l2,identity
-tc24,"0,0",CHEASE MARS,32768.0,2.3152048094801058e-05,phase4/tc24/reference/comparison.csv,10,dof,psi_l2,identity
-tc24,"0,0",CHEASE MARS,131072.0,3.4368343447706164e-07,phase4/tc24/reference/comparison.csv,11,dof,psi_l2,identity
-tc24,"0,0",VMEC++,1617.0,0.0011136749216136856,phase4/tc24/reference/comparison.csv,24,dof,psi_l2,identity
-tc24,"0,0",VMEC++,4745.0,0.00034217147380688495,phase4/tc24/reference/comparison.csv,25,dof,psi_l2,identity
-tc24,"0,0",VMEC++,12513.0,0.00014221844983596625,phase4/tc24/reference/comparison.csv,26,dof,psi_l2,identity
-tc24,"0,0",DESC,460.0,0.013132590652639317,phase4/tc24/reference/comparison.csv,38,dof,psi_l2,identity
-tc24,"0,1",KIN6D,287.6642703311518,0.0003452009151896908,phase4/tc24/reference/comparison.csv,15,wall_s,psi_l2,identity
-tc24,"0,1",KIN6D,122.36878209700808,0.0014049262263168434,phase4/tc24/reference/comparison.csv,16,wall_s,psi_l2,identity
-tc24,"0,1",KIN6D,141.30326167703606,0.0006260929510593112,phase4/tc24/reference/comparison.csv,17,wall_s,psi_l2,identity
-tc24,"0,1",KIN6D,165.1429056059569,0.00013033026482123916,phase4/tc24/reference/comparison.csv,18,wall_s,psi_l2,identity
-tc24,"0,1",KIN6D,175.2219569340814,5.758469320187689e-05,phase4/tc24/reference/comparison.csv,20,wall_s,psi_l2,identity
-tc24,"0,1",KIN6D,230.49101070896722,2.8669124861041993e-05,phase4/tc24/reference/comparison.csv,22,wall_s,psi_l2,identity
-tc24,"0,1",CHEASE public,5.530711616855115,0.0019790933644339894,phase4/tc24/reference/comparison.csv,1,wall_s,psi_l2,identity
-tc24,"0,1",CHEASE public,9.734091769903898,0.0001412250038751404,phase4/tc24/reference/comparison.csv,2,wall_s,psi_l2,identity
-tc24,"0,1",CHEASE public,36.43745898688212,2.291601269307761e-05,phase4/tc24/reference/comparison.csv,3,wall_s,psi_l2,identity
-tc24,"0,1",CHEASE MARS,5.173483195016161,0.00014055823500308404,phase4/tc24/reference/comparison.csv,8,wall_s,psi_l2,identity
-tc24,"0,1",CHEASE MARS,2.2427208400331438,0.001973655694503931,phase4/tc24/reference/comparison.csv,9,wall_s,psi_l2,identity
-tc24,"0,1",CHEASE MARS,32.380299393087626,2.3152048094801058e-05,phase4/tc24/reference/comparison.csv,10,wall_s,psi_l2,identity
-tc24,"0,1",CHEASE MARS,78.84009281988256,3.4368343447706164e-07,phase4/tc24/reference/comparison.csv,11,wall_s,psi_l2,identity
-tc24,"0,1",VMEC++,3.7430986729450524,0.0011136749216136856,phase4/tc24/reference/comparison.csv,24,wall_s,psi_l2,identity
-tc24,"0,1",VMEC++,13.7533174471464,0.00034217147380688495,phase4/tc24/reference/comparison.csv,25,wall_s,psi_l2,identity
-tc24,"0,1",VMEC++,72.49572130315937,0.00014221844983596625,phase4/tc24/reference/comparison.csv,26,wall_s,psi_l2,identity
-tc24,"0,1",DESC,143.68891942501068,0.013132590652639317,phase4/tc24/reference/comparison.csv,38,wall_s,psi_l2,identity
-tc24,"1,0",KIN6D,907.0,0.004505034065341315,phase4/tc24/reference/comparison.csv,15,dof,bpol_l2,identity
-tc24,"1,0",KIN6D,193.0,0.010853920312477098,phase4/tc24/reference/comparison.csv,16,dof,bpol_l2,identity
-tc24,"1,0",KIN6D,487.0,0.00560650273791981,phase4/tc24/reference/comparison.csv,17,dof,bpol_l2,identity
-tc24,"1,0",KIN6D,2080.0,0.0029810240196329186,phase4/tc24/reference/comparison.csv,18,dof,bpol_l2,identity
-tc24,"1,0",KIN6D,3667.0,0.0019779647774475642,phase4/tc24/reference/comparison.csv,20,dof,bpol_l2,identity
-tc24,"1,0",KIN6D,8479.0,0.0013677187428278001,phase4/tc24/reference/comparison.csv,22,dof,bpol_l2,identity
-tc24,"1,0",CHEASE public,2048.0,0.029568596042293043,phase4/tc24/reference/comparison.csv,1,dof,bpol_l2,identity
-tc24,"1,0",CHEASE public,8192.0,0.004203118519581474,phase4/tc24/reference/comparison.csv,2,dof,bpol_l2,identity
-tc24,"1,0",CHEASE public,32768.0,0.0011211497930016068,phase4/tc24/reference/comparison.csv,3,dof,bpol_l2,identity
-tc24,"1,0",CHEASE MARS,8192.0,0.004173159290069291,phase4/tc24/reference/comparison.csv,8,dof,bpol_l2,identity
-tc24,"1,0",CHEASE MARS,2048.0,0.029463127131914645,phase4/tc24/reference/comparison.csv,9,dof,bpol_l2,identity
-tc24,"1,0",CHEASE MARS,32768.0,0.0011173819962889847,phase4/tc24/reference/comparison.csv,10,dof,bpol_l2,identity
-tc24,"1,0",CHEASE MARS,131072.0,3.0516837682741746e-05,phase4/tc24/reference/comparison.csv,11,dof,bpol_l2,identity
-tc24,"1,0",VMEC++,1617.0,0.00851256121720571,phase4/tc24/reference/comparison.csv,24,dof,bpol_l2,identity
-tc24,"1,0",VMEC++,4745.0,0.0037146481768458627,phase4/tc24/reference/comparison.csv,25,dof,bpol_l2,identity
-tc24,"1,0",VMEC++,12513.0,0.0019613626836988457,phase4/tc24/reference/comparison.csv,26,dof,bpol_l2,identity
-tc24,"1,0",DESC,460.0,0.03334347428819727,phase4/tc24/reference/comparison.csv,38,dof,bpol_l2,identity
-tc24,"1,1",KIN6D,287.6642703311518,0.004505034065341315,phase4/tc24/reference/comparison.csv,15,wall_s,bpol_l2,identity
-tc24,"1,1",KIN6D,122.36878209700808,0.010853920312477098,phase4/tc24/reference/comparison.csv,16,wall_s,bpol_l2,identity
-tc24,"1,1",KIN6D,141.30326167703606,0.00560650273791981,phase4/tc24/reference/comparison.csv,17,wall_s,bpol_l2,identity
-tc24,"1,1",KIN6D,165.1429056059569,0.0029810240196329186,phase4/tc24/reference/comparison.csv,18,wall_s,bpol_l2,identity
-tc24,"1,1",KIN6D,175.2219569340814,0.0019779647774475642,phase4/tc24/reference/comparison.csv,20,wall_s,bpol_l2,identity
-tc24,"1,1",KIN6D,230.49101070896722,0.0013677187428278001,phase4/tc24/reference/comparison.csv,22,wall_s,bpol_l2,identity
-tc24,"1,1",CHEASE public,5.530711616855115,0.029568596042293043,phase4/tc24/reference/comparison.csv,1,wall_s,bpol_l2,identity
-tc24,"1,1",CHEASE public,9.734091769903898,0.004203118519581474,phase4/tc24/reference/comparison.csv,2,wall_s,bpol_l2,identity
-tc24,"1,1",CHEASE public,36.43745898688212,0.0011211497930016068,phase4/tc24/reference/comparison.csv,3,wall_s,bpol_l2,identity
-tc24,"1,1",CHEASE MARS,5.173483195016161,0.004173159290069291,phase4/tc24/reference/comparison.csv,8,wall_s,bpol_l2,identity
-tc24,"1,1",CHEASE MARS,2.2427208400331438,0.029463127131914645,phase4/tc24/reference/comparison.csv,9,wall_s,bpol_l2,identity
-tc24,"1,1",CHEASE MARS,32.380299393087626,0.0011173819962889847,phase4/tc24/reference/comparison.csv,10,wall_s,bpol_l2,identity
-tc24,"1,1",CHEASE MARS,78.84009281988256,3.0516837682741746e-05,phase4/tc24/reference/comparison.csv,11,wall_s,bpol_l2,identity
-tc24,"1,1",VMEC++,3.7430986729450524,0.00851256121720571,phase4/tc24/reference/comparison.csv,24,wall_s,bpol_l2,identity
-tc24,"1,1",VMEC++,13.7533174471464,0.0037146481768458627,phase4/tc24/reference/comparison.csv,25,wall_s,bpol_l2,identity
-tc24,"1,1",VMEC++,72.49572130315937,0.0019613626836988457,phase4/tc24/reference/comparison.csv,26,wall_s,bpol_l2,identity
-tc24,"1,1",DESC,143.68891942501068,0.03334347428819727,phase4/tc24/reference/comparison.csv,38,wall_s,bpol_l2,identity
+tc24,"0,0",KIN6D,907.0,0.0003452009151896908,phase4/tc24/reference/comparison_historical.csv,15,dof,psi_l2,identity
+tc24,"0,0",KIN6D,193.0,0.0014049262263168434,phase4/tc24/reference/comparison_historical.csv,16,dof,psi_l2,identity
+tc24,"0,0",KIN6D,487.0,0.0006260929510593112,phase4/tc24/reference/comparison_historical.csv,17,dof,psi_l2,identity
+tc24,"0,0",KIN6D,2080.0,0.00013033026482123916,phase4/tc24/reference/comparison_historical.csv,18,dof,psi_l2,identity
+tc24,"0,0",KIN6D,3667.0,5.758469320187689e-05,phase4/tc24/reference/comparison_historical.csv,20,dof,psi_l2,identity
+tc24,"0,0",KIN6D,8479.0,2.8669124861041993e-05,phase4/tc24/reference/comparison_historical.csv,22,dof,psi_l2,identity
+tc24,"0,0",CHEASE public,2048.0,0.0019790933644339894,phase4/tc24/reference/comparison_historical.csv,1,dof,psi_l2,identity
+tc24,"0,0",CHEASE public,8192.0,0.0001412250038751404,phase4/tc24/reference/comparison_historical.csv,2,dof,psi_l2,identity
+tc24,"0,0",CHEASE public,32768.0,2.291601269307761e-05,phase4/tc24/reference/comparison_historical.csv,3,dof,psi_l2,identity
+tc24,"0,0",CHEASE MARS,8192.0,0.00014055823500308404,phase4/tc24/reference/comparison_historical.csv,8,dof,psi_l2,identity
+tc24,"0,0",CHEASE MARS,2048.0,0.001973655694503931,phase4/tc24/reference/comparison_historical.csv,9,dof,psi_l2,identity
+tc24,"0,0",CHEASE MARS,32768.0,2.3152048094801058e-05,phase4/tc24/reference/comparison_historical.csv,10,dof,psi_l2,identity
+tc24,"0,0",CHEASE MARS,131072.0,3.4368343447706164e-07,phase4/tc24/reference/comparison_historical.csv,11,dof,psi_l2,identity
+tc24,"0,0",VMEC++,1617.0,0.0011136749216136856,phase4/tc24/reference/comparison_historical.csv,24,dof,psi_l2,identity
+tc24,"0,0",VMEC++,4745.0,0.00034217147380688495,phase4/tc24/reference/comparison_historical.csv,25,dof,psi_l2,identity
+tc24,"0,0",VMEC++,12513.0,0.00014221844983596625,phase4/tc24/reference/comparison_historical.csv,26,dof,psi_l2,identity
+tc24,"0,0",DESC,460.0,0.013132590652639317,phase4/tc24/reference/comparison_historical.csv,38,dof,psi_l2,identity
+tc24,"0,1",KIN6D,287.6642703311518,0.0003452009151896908,phase4/tc24/reference/comparison_historical.csv,15,wall_s,psi_l2,identity
+tc24,"0,1",KIN6D,122.36878209700808,0.0014049262263168434,phase4/tc24/reference/comparison_historical.csv,16,wall_s,psi_l2,identity
+tc24,"0,1",KIN6D,141.30326167703606,0.0006260929510593112,phase4/tc24/reference/comparison_historical.csv,17,wall_s,psi_l2,identity
+tc24,"0,1",KIN6D,165.1429056059569,0.00013033026482123916,phase4/tc24/reference/comparison_historical.csv,18,wall_s,psi_l2,identity
+tc24,"0,1",KIN6D,175.2219569340814,5.758469320187689e-05,phase4/tc24/reference/comparison_historical.csv,20,wall_s,psi_l2,identity
+tc24,"0,1",KIN6D,230.49101070896722,2.8669124861041993e-05,phase4/tc24/reference/comparison_historical.csv,22,wall_s,psi_l2,identity
+tc24,"0,1",CHEASE public,5.530711616855115,0.0019790933644339894,phase4/tc24/reference/comparison_historical.csv,1,wall_s,psi_l2,identity
+tc24,"0,1",CHEASE public,9.734091769903898,0.0001412250038751404,phase4/tc24/reference/comparison_historical.csv,2,wall_s,psi_l2,identity
+tc24,"0,1",CHEASE public,36.43745898688212,2.291601269307761e-05,phase4/tc24/reference/comparison_historical.csv,3,wall_s,psi_l2,identity
+tc24,"0,1",CHEASE MARS,5.173483195016161,0.00014055823500308404,phase4/tc24/reference/comparison_historical.csv,8,wall_s,psi_l2,identity
+tc24,"0,1",CHEASE MARS,2.2427208400331438,0.001973655694503931,phase4/tc24/reference/comparison_historical.csv,9,wall_s,psi_l2,identity
+tc24,"0,1",CHEASE MARS,32.380299393087626,2.3152048094801058e-05,phase4/tc24/reference/comparison_historical.csv,10,wall_s,psi_l2,identity
+tc24,"0,1",CHEASE MARS,78.84009281988256,3.4368343447706164e-07,phase4/tc24/reference/comparison_historical.csv,11,wall_s,psi_l2,identity
+tc24,"0,1",VMEC++,3.7430986729450524,0.0011136749216136856,phase4/tc24/reference/comparison_historical.csv,24,wall_s,psi_l2,identity
+tc24,"0,1",VMEC++,13.7533174471464,0.00034217147380688495,phase4/tc24/reference/comparison_historical.csv,25,wall_s,psi_l2,identity
+tc24,"0,1",VMEC++,72.49572130315937,0.00014221844983596625,phase4/tc24/reference/comparison_historical.csv,26,wall_s,psi_l2,identity
+tc24,"0,1",DESC,143.68891942501068,0.013132590652639317,phase4/tc24/reference/comparison_historical.csv,38,wall_s,psi_l2,identity
+tc24,"1,0",KIN6D,907.0,0.004505034065341315,phase4/tc24/reference/comparison_historical.csv,15,dof,bpol_l2,identity
+tc24,"1,0",KIN6D,193.0,0.010853920312477098,phase4/tc24/reference/comparison_historical.csv,16,dof,bpol_l2,identity
+tc24,"1,0",KIN6D,487.0,0.00560650273791981,phase4/tc24/reference/comparison_historical.csv,17,dof,bpol_l2,identity
+tc24,"1,0",KIN6D,2080.0,0.0029810240196329186,phase4/tc24/reference/comparison_historical.csv,18,dof,bpol_l2,identity
+tc24,"1,0",KIN6D,3667.0,0.0019779647774475642,phase4/tc24/reference/comparison_historical.csv,20,dof,bpol_l2,identity
+tc24,"1,0",KIN6D,8479.0,0.0013677187428278001,phase4/tc24/reference/comparison_historical.csv,22,dof,bpol_l2,identity
+tc24,"1,0",CHEASE public,2048.0,0.029568596042293043,phase4/tc24/reference/comparison_historical.csv,1,dof,bpol_l2,identity
+tc24,"1,0",CHEASE public,8192.0,0.004203118519581474,phase4/tc24/reference/comparison_historical.csv,2,dof,bpol_l2,identity
+tc24,"1,0",CHEASE public,32768.0,0.0011211497930016068,phase4/tc24/reference/comparison_historical.csv,3,dof,bpol_l2,identity
+tc24,"1,0",CHEASE MARS,8192.0,0.004173159290069291,phase4/tc24/reference/comparison_historical.csv,8,dof,bpol_l2,identity
+tc24,"1,0",CHEASE MARS,2048.0,0.029463127131914645,phase4/tc24/reference/comparison_historical.csv,9,dof,bpol_l2,identity
+tc24,"1,0",CHEASE MARS,32768.0,0.0011173819962889847,phase4/tc24/reference/comparison_historical.csv,10,dof,bpol_l2,identity
+tc24,"1,0",CHEASE MARS,131072.0,3.0516837682741746e-05,phase4/tc24/reference/comparison_historical.csv,11,dof,bpol_l2,identity
+tc24,"1,0",VMEC++,1617.0,0.00851256121720571,phase4/tc24/reference/comparison_historical.csv,24,dof,bpol_l2,identity
+tc24,"1,0",VMEC++,4745.0,0.0037146481768458627,phase4/tc24/reference/comparison_historical.csv,25,dof,bpol_l2,identity
+tc24,"1,0",VMEC++,12513.0,0.0019613626836988457,phase4/tc24/reference/comparison_historical.csv,26,dof,bpol_l2,identity
+tc24,"1,0",DESC,460.0,0.03334347428819727,phase4/tc24/reference/comparison_historical.csv,38,dof,bpol_l2,identity
+tc24,"1,1",KIN6D,287.6642703311518,0.004505034065341315,phase4/tc24/reference/comparison_historical.csv,15,wall_s,bpol_l2,identity
+tc24,"1,1",KIN6D,122.36878209700808,0.010853920312477098,phase4/tc24/reference/comparison_historical.csv,16,wall_s,bpol_l2,identity
+tc24,"1,1",KIN6D,141.30326167703606,0.00560650273791981,phase4/tc24/reference/comparison_historical.csv,17,wall_s,bpol_l2,identity
+tc24,"1,1",KIN6D,165.1429056059569,0.0029810240196329186,phase4/tc24/reference/comparison_historical.csv,18,wall_s,bpol_l2,identity
+tc24,"1,1",KIN6D,175.2219569340814,0.0019779647774475642,phase4/tc24/reference/comparison_historical.csv,20,wall_s,bpol_l2,identity
+tc24,"1,1",KIN6D,230.49101070896722,0.0013677187428278001,phase4/tc24/reference/comparison_historical.csv,22,wall_s,bpol_l2,identity
+tc24,"1,1",CHEASE public,5.530711616855115,0.029568596042293043,phase4/tc24/reference/comparison_historical.csv,1,wall_s,bpol_l2,identity
+tc24,"1,1",CHEASE public,9.734091769903898,0.004203118519581474,phase4/tc24/reference/comparison_historical.csv,2,wall_s,bpol_l2,identity
+tc24,"1,1",CHEASE public,36.43745898688212,0.0011211497930016068,phase4/tc24/reference/comparison_historical.csv,3,wall_s,bpol_l2,identity
+tc24,"1,1",CHEASE MARS,5.173483195016161,0.004173159290069291,phase4/tc24/reference/comparison_historical.csv,8,wall_s,bpol_l2,identity
+tc24,"1,1",CHEASE MARS,2.2427208400331438,0.029463127131914645,phase4/tc24/reference/comparison_historical.csv,9,wall_s,bpol_l2,identity
+tc24,"1,1",CHEASE MARS,32.380299393087626,0.0011173819962889847,phase4/tc24/reference/comparison_historical.csv,10,wall_s,bpol_l2,identity
+tc24,"1,1",CHEASE MARS,78.84009281988256,3.0516837682741746e-05,phase4/tc24/reference/comparison_historical.csv,11,wall_s,bpol_l2,identity
+tc24,"1,1",VMEC++,3.7430986729450524,0.00851256121720571,phase4/tc24/reference/comparison_historical.csv,24,wall_s,bpol_l2,identity
+tc24,"1,1",VMEC++,13.7533174471464,0.0037146481768458627,phase4/tc24/reference/comparison_historical.csv,25,wall_s,bpol_l2,identity
+tc24,"1,1",VMEC++,72.49572130315937,0.0019613626836988457,phase4/tc24/reference/comparison_historical.csv,26,wall_s,bpol_l2,identity
+tc24,"1,1",DESC,143.68891942501068,0.03334347428819727,phase4/tc24/reference/comparison_historical.csv,38,wall_s,bpol_l2,identity

@@ -183,7 +183,29 @@ PLAN quantity against the same public-CHEASE samples, including its export
 uncertainty. A100/A300 M18 warm costs are 168.88/140.71 s plus
 57.03/37.98 s for calibrated stopping, on CPU6 with one thread. They include
 load/JAX compilation, exclude readback, and supplement the unchanged original
-campaign cost curves. A10/A30 M18 controls are registered separately.
+campaign cost curves.
+
+The additional A30 M18 state meets all physical norms. After another 200
+iterations at gtol=1e-8 (still capped), psi L2 is 2.14e-7, Bpol L2/max
+2.50e-6/6.91e-6, Btor L2 6.56e-7 and axis 1.63e-7. q/Phi transfer and
+volume pass. Its measured gradient is 6.55e-8; case-specific gtol=1e-7 accepts
+this existing state at iteration zero. This changes stopping qualification,
+not physical accuracy; every norm is checked again on the saved native state.
+The intermediate control costs 152.01 s and the final stopping check 32.86 s.
+A10's M18 axis error remains 1.316e-6 after two 200-iteration controls;
+further same-resolution iteration improves it by only 6.3%.
+Its warm M18/continuation costs are 122.37/129.51 s; A30 warm M18 costs
+166.72 s, on CPU6 with one thread and the same scope as the high-A controls.
+
+A10 refinement to L=M=20 closes its remaining target cell:
+axis error falls to 3.91e-7, psi L2 to 1.63e-7, Bpol L2/max to
+1.45e-6/4.95e-6 and Btor L2/max to 3.82e-7/1.39e-6. Volume is within
+4.44e-16; prescribed q/Phi transfer is within 1.96e-10/zero. The unchanged
+pressure/q/Phi/boundary deck uses the retained M18 strict state as its seed.
+Case-specific gtol=1e-9 stops natively after 121 iterations (gradient 3.96e-10),
+with ftol=xtol=1e-12, maxiter=200. Every physical norm was checked afterward.
+The native warm solve costs 156.77 s on CPU6, one thread, including load/JAX
+and excluding readback. The original cost curves stay unchanged.
 The original caps remain in `runs.csv`/`failures.csv`. The continuation-input
 repair is recorded in [EQ-CYL-1](../../ERRATA.md#eq-cyl-1-desc-continuation-and-omitted-zero-modes).
 
@@ -238,8 +260,10 @@ Generated plots/PDFs stay outside Git; `artifacts.json` owns their hashes/URLs.
 The collection tag `cyl20261009_kinp3` includes the retained historical failures
 and the new `_profiles`/`_refine` runs. Fresh tags must be added to `--tags`.
 The finite-A KIN6D profile/F/q route is qualified on the successful ladders.
-The coarse readback failures are closed by the retained-input replays. DESC's original capped L=M=16 outputs retain their failure flags; the
-additional A100/A300 M18 controls qualify native stopping and sampled accuracy. These limitations and the consumer-path exclusions above prevent
+The coarse readback failures are closed by the retained-input replays.
+DESC's original capped L=M=16 outputs retain their failure flags; the
+additional A30/A100/A300 M18 and A10 M20 controls qualify native stopping
+and sampled accuracy. The consumer-path exclusions above still prevent
 claiming closure of the entire equilibrium slice.
 
 Chris&AI

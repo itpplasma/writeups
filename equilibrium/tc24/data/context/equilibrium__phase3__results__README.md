@@ -76,6 +76,63 @@ No profile, phase, sign, gain or geometry is fitted to reduce comparison error.
 | Solovev / VMEC++ | ns257 | 8.40e-5 | 1.89e-6 | 8.79e-4 | 5.70e-7 | 26.8 |
 | Solovev / DESC | L12 | 1.48e-5 | 2.95e-7 | 1.10e-4 | 3.01e-13 | 78.8 |
 
+### Selected sampled target-passing states
+
+The table selects the least-cost retained **passing** state for each code/case,
+rather than its finest state. Both codes use the same 600 physical points,
+R-weighted field norms and 40 q queries. E1/E2 use the same KIN6D n81 inverse
+reference; Solovev uses the exact state. Public fields use the corrected native
+NOUT readback; KIN6D readback reproduces its native samples exactly. All listed
+states meet psi L2 1e-6, Bpol/Btor L2 1e-5 and max 1e-4, q max 1e-5, and axis,
+volume and signed Phi relative error 1e-6 on these sampled domains.
+
+| Case / retained row | DOF | psi L2 | Bpol L2 / max | Btor L2 / max | q max | Axis / volume rel. | Phi rel. | Producer s |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| [E1 / KIN6D n37](E1_constant_q_A10_kin6d_1.json) | 1489 | 1.53e-07 | 3.09e-06 / 3.14e-05 | 2.45e-07 / 2.44e-07 | 3.16e-06 | 1.30e-07 / 2.45e-07 | 3.69e-12 | 6.038 |
+| [E1 / public CHEASE NS=NT=16](E1_constant_q_A10_chease_public_0.json) | 1088 | 1.25e-07 | 1.31e-06 / 3.08e-06 | 2.09e-08 / 3.69e-08 | 8.79e-06 | 9.71e-09 / 1.02e-08 | 9.94e-11 | 14.740 |
+| [E2 / KIN6D n55](E2_constant_q_A10_kin6d_2.json) | 3262 | 5.03e-08 | 1.77e-06 / 6.46e-06 | 4.15e-08 / 4.11e-08 | 1.82e-06 | 8.55e-07 / 4.14e-08 | 4.44e-16 | 33.556 |
+| [E2 / public CHEASE NS=NT=64](E2_constant_q_A10_chease_public_2.json) | 16640 | 1.54e-08 | 5.03e-07 / 1.91e-06 | 5.00e-09 / 5.05e-09 | 4.74e-06 | 1.64e-07 / 1.02e-08 | 1.13e-10 | 103.565 |
+| [Solovev / KIN6D n48](Solovev_inverse_A3_kin6d_1.json) | 2854 | 2.67e-07 | 8.30e-06 / 4.32e-05 | 2.47e-07 / 2.42e-07 | 2.94e-06 | 1.68e-08 / 1.04e-07 | 1.78e-15 | 2.423 |
+| [Solovev / public CHEASE NS=NT=64](Solovev_inverse_A3_chease_public_2.json) | 16640 | 1.76e-07 | 7.09e-06 / 1.58e-05 | 6.61e-09 / 6.46e-09 | 5.99e-06 | 1.56e-08 / 1.01e-10 | 1.26e-10 | 79.707 |
+
+[passing_states_common_reference.csv](passing_states_common_reference.csv) owns
+these recomputed numeric cells at full precision, with the native sample path,
+point-file identity and reference identity. The linked JSONs own resolution,
+time and raw roots; they do not contain these common-reference errors.
+Reproduce the errors with the existing analyzer from the repository root:
+
+```sh
+mkdir -p /DISK/phase3-common
+cp equilibrium/phase3/results/*_kin6d_?.json equilibrium/phase3/results/*_chease_public_?.json equilibrium/phase3/results/*_points.npz /DISK/phase3-common/
+python -m equilibrium.phase3.analyze --output /DISK/phase3-common
+```
+
+Select from the resulting `comparison.csv` the six `(case, code, level)` keys
+in the selection CSV. Both circular KIN6D level-3 rows must be present so that
+the analyzer uses their common reference; including only public rows chooses
+a different reference. Retained native-state and readback files must be available.
+
+Native stopping is retained: KIN6D nonlinear_tolerance=1e-10 (recorded residuals
+2.30e-14 to 4.99e-14); public CHEASE EPSLON=1e-11, RELAX=0.3, with accepted
+native convergence on every flux-root trial. E2 KIN6D n37 misses the axis target
+(2.15e-6); public NS32 misses q (2.20e-5), so neither is selected.
+
+Times retain KIN6D `ccabcc5` (binary SHA256 `a32c4ee0…`) and public CHEASE
+`b179fc6` (`3f5a914a…`); full pins stay in the linked raw manifests. Both ran on
+`mailuefterl`, CPU12/thread1, in different execution windows. Concurrent host
+load was not recorded or controlled, and these timings have no repeats.
+The common producer timer sums `worker.run` calls: one KIN6D call versus
+two/three/two public flux-root trials for E1/E2/Solovev. Its broad scope aligns:
+input/mesh preparation, solve, native export and native profile/state readback
+are included; KIN6D's estimator is included and CHEASE has no matching stage.
+Export products differ (KIN6D mesh/profile files versus CHEASE NOUT/EQDSK).
+Oracle field sampling and subsequent consumer conversions are excluded.
+Original timing pins, cost curves and 300-s-per-native-solve caps are retained.
+Thus these are passing-state producer measurements, not matched pure-solver
+benchmarks or a fastest-code claim. Uncontrolled contention, finite circular
+reference uncertainty and the excluded edge shell prevent a reproducible speed
+ranking or an absolute whole-domain accuracy claim.
+
 Solovev errors use the exact answer. The original E1/E2 tables use public NS128 native
 NOUT references; the KIN6D supplement compares against them. Reference zeros in
 the CSV are not accuracy measurements. The public last-triplet Bpol refinement
@@ -189,19 +246,25 @@ unused converter. KIN6D inverse NEO-2 and native-contour Hamada checks are in
 
 ## MARS disposition and reproducibility
 
-All twelve MARS case/resolution attempts fail in nonlinear mapping/source
-iteration; three NS32 controls without #43 also fail. The initial alternate
-NCSCAL pilot fails too. These decks show NaNs or invalid mapped psi, not a new
-isolated reproduction of the historical negative-TMF-squared branch. This is
-an unresolved inverse-variant failure/defect candidate, not demonstrated
-correct-limit numerical convergence. No small additional fix was established.
+MARS has no accepted prescribed-q equilibrium. Historical failures retain their
+executed patch sets; [EQ-D88](../../ERRATA.md#eq-d88) distinguishes omitted known
+fixes from the residual failure in the fully corrected source. The NS64 warm
+Solovev comparator includes qualified fork PR30/31/37/39/41/42/45 and excludes PR43,
+the zero-moment regression, the public-algorithm port and superseded axis extrapolation.
+Its owning native gates pass, but both NINSCA=100 and NINSCA=1 fail the coupled solve.
 
-Fork PRs #39/#41/#42 were reduced to one fix and one flat regression each,
-retested against their source parents and made ready for scoped review. #43's
-isolated source/profile/parser controls pass, but its continuous TMF/source
-representations remain inconsistent and it does not cure the full solve:
-recommend closure while issue #44 retains the unresolved reproducer. Current
-heads, prerequisites and dispositions have one owner: [UPSTREAM_PRS](../../../review/UPSTREAM_PRS.md).
+The independently checked first constrained GS linear solve has relative residual
+1.054e-12. Exact-source replay locates most of the first departure in near-axis
+prescribed-q/coarea differentiation. Compatible retained forward fields reduce
+the inferred source error strongly with physical mesh refinement, but its irregular
+rate remains unqualified; [EQ-D88](../../ERRATA.md#eq-d88) owns the controls and
+limits. Failed states supply failure evidence, not convergence or cost-to-target data.
+
+Fork PR39/41/42 and public PR15 have scoped source-parent regressions. PR43 is
+closed with its branch, complete reproducers and isolated axis/under-axis controls
+retained; its continuous TMF/source representations remain inconsistent. Issue44
+retains the unresolved inverse failure. Current heads, prerequisites and dispositions
+are owned by [UPSTREAM_PRS](../../../review/UPSTREAM_PRS.md).
 MARS Pair A/B and full inverse qualification are not claimed.
 
 The [run registry](../../../results/run_registry.json) owns job IDs, commits,

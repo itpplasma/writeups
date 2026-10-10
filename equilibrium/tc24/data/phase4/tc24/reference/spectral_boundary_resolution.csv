@@ -1,0 +1,6 @@
+M,sampled_nearest_curve_max_m,truncated_to_pinned_rms_m,pinned_to_truncated_rms_m,samples_per_curve,pinned_boundary,method
+10,0.16150421530564704,0.023197424255131178,0.02672190936655928,131072,reference_boundary.csv; all128modes,bidirectional nearest polyline segments; RMS weighted by arclength
+12,0.12093256316867089,0.016540922100212876,0.018546867545733762,131072,reference_boundary.csv; all128modes,bidirectional nearest polyline segments; RMS weighted by arclength
+32,0.01905276352839403,0.002415009690194933,0.0024564640061706913,131072,reference_boundary.csv; all128modes,bidirectional nearest polyline segments; RMS weighted by arclength
+33,0.017662171366772957,0.0022394511137023643,0.0022746210506940103,131072,reference_boundary.csv; all128modes,bidirectional nearest polyline segments; RMS weighted by arclength
+48,0.005949435714296908,0.0007777045643876962,0.0007808710590770406,131072,reference_boundary.csv; all128modes,bidirectional nearest polyline segments; RMS weighted by arclength

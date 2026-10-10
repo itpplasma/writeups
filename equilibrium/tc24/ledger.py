@@ -68,6 +68,7 @@ def main():
     status_names = {'fixed on main': 'fixed', 'PR open': 'PR open', 'PR on hold': 'held PR',
                     'open candidate': 'candidate', 'open': 'open', 'explained': 'limit',
                     'limitation: converging boundary truncation': 'limit',
+                    'limitation: targets reached at M32': 'limit',
                     'PR open; closure recommended': 'held PR',
                     'PR open (TC24 path); other producers open': 'partial PR'}
     lines = [r'\begingroup\fontsize{8}{9}\selectfont', r'\setlength{\tabcolsep}{3pt}', r'\renewcommand{\arraystretch}{1.02}',
@@ -96,7 +97,7 @@ def main():
         ('EQ-D20 / TC24 DESC', 'Open qualification', 'Native iteration caps and unresolved physical accuracy prevent admission of the retained TC24 states.'),
         ('EQ-D24 / Phase 3', 'Input path blocked', 'Mixed P1 geometry and smooth gradients are rejected. Curved P3 inverse fields, diagnostic stability and actual consumers are measured; coupled nonlinear reliability and geometric consistency remain open.'),
         ('EQ-D25', 'Model domain', 'The separatrix X-point is outside the nested-surface problem. The common interior TC24 boundary needs per-code representation checks.'),
-        ('EQ-D88 / Phase 3', 'Open inverse candidate', 'MARS mapping/source iteration still fails. KIN6D inverse is on main; its nonlinear estimator remains a frozen-source diagnostic.'),
+        ('EQ-D88 / Phase 3', 'Open inverse candidate', 'The first constrained linear solve passes; near-axis prescribed-q/coarea source reconstruction and the coupled solve remain unqualified. PR43 is closed with reproducers retained.'),
         ('EQ-P2-1', 'Radial / stopping limits', 'Three circular VMEC++ cases miss combined targets. Tighter tolerance removes high-aspect-ratio plateaus; capped attempts remain failures.'),
         ('E4 / VMEC++', 'Radial discretization', 'Refinement decreases field and axis differences, but the delivered states remain above the combined targets.'),
         ('E4 / DESC', 'Stopping limit', 'Both laws have sampled passing states. A finite-beta warm restart meets targets and calibrated native stopping; historical capped states and costs remain unchanged.'),
@@ -106,7 +107,7 @@ def main():
         ('Spectral producers', 'Input transfer', 'Prescribed q and toroidal flux are transfer checks, not independent predictions. Their downstream converters remain unused.'),
         ('Phase 4b / Phase 5', 'Open candidates', 'Curved-P3 source laws and coarse Lundquist readback repairs are delivered. TC24 rates, target accuracy and geometric consistency remain unresolved.'),
         ('Phase 5 / finite A', 'Physical difference', 'Raw cylinder differences include toroidicity. Fixed-period first-order corrections and fixed-aspect resolution differences separate the effects.'),
-        ('Phase 5 / DESC', 'Stopping qualification', 'M18 native continuation passes sampled targets and calibrated stopping at A100/A300. Final A10/A30 controls remain open; historical capped states are excluded.'),
+        ('Phase 5 / DESC', 'Stopping qualification', 'All four aspect ratios pass sampled targets and calibrated stopping after native continuation; A10 requires M20. Historical capped states and cost curves are retained.'),
         ('MARS Hamada', 'Metric discretization', 'Jacobian refinement follows the expected second-order behavior on both exact cases. Perturbations and exterior vacuum fields were not measured.'),
     ]
     with (DATA / 'limitations.csv').open('w') as f:

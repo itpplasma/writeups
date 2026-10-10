@@ -52,10 +52,21 @@ CHEASE 4/3, VMEC++ radial Bpol order 1, and exponential DESC convergence.
 KIN6D and both CHEASE variants meet the field predictions; VMEC++ Bpol
 matches the first-order radial prediction.
 CHEASE's finer below-target differences do not justify further diagnosis.
-KIN6D's axis remains an open candidate under [EQ-D15](../../ERRATA.md#eq-d15).
+KIN6D's historical axis errors are repaired by the local quartic recovery
+recorded under [EQ-D15](../../ERRATA.md#eq-d15).
 VMEC++ sampled Bpol-max orders are 0.56/0.71 (A3/Cerfon). Its near-axis
 maxima and DESC shaped boundary truncation retain the
 method/representation classifications in [EQ-D20](../../ERRATA.md#eq-d20).
+
+Cerfon retained-input checks exclude a pressure/iota or flux-sign mismatch:
+at NS257 the executed half-grid pressure and iota errors against the exact
+physical laws are 1.24e-9 and 6.13e-10 relative (pressure is in Pa). Full-grid
+`presf`/`iotaf` reconstruct adjacent half-grid values with endpoint extrapolation;
+their errors decrease at order 2, rather than measuring the input spline error.
+The native axis agrees between `rmnc` and `raxis_cc`; its signed error crosses
+-0.244 to +0.222 mm on NS129→257, with axis self-difference order 1.61. Thus the
+small last absolute-error reduction does not demonstrate a wrong-limit plateau;
+a fixed-angular or stopping floor remains unclassified, without a demonstrated defect.
 
 The original shaped DESC ladder reaches L=M=16 at 280.10 s, with Bpol L2
 6.597e-4; the cold M18 attempt exceeded its 300 s cap. Same-profile/Phi

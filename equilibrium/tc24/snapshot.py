@@ -9,39 +9,8 @@ from pathlib import Path
 import subprocess
 
 HERE = Path(__file__).resolve().parent
-TC24 = "d37ae2cc4"
+TC24 = "6019d8e4fb1b4b57f71c35c728aa51c872236160"
 KIN6D = "3c851d7"
-REFRESH = "014ff0caee2bea5a130400c4111aab4104ac7e73"
-REFRESH_PATHS = {
-    'equilibrium/phase3/results/kin6d_consumers_gpec.csv',
-    'equilibrium/phase3/results/kin6d_consumers_hamada.csv',
-    'equilibrium/phase3/results/kin6d_consumers_neo2.csv',
-    'equilibrium/phase3/results/kin6d_consumers_neo2_controls.csv',
-    'equilibrium/phase3/results/kin6d_effectivity_native_circular.csv',
-    'equilibrium/phase3/results/kin6d_effectivity_native_solovev.csv',
-    'equilibrium/phase3/results/README.md',
-    'equilibrium/phase3/results/kin6d.md',
-    'equilibrium/phase5/results/README.md',
-}
-
-SECOND_REFRESH = '37db1276be1045ae1ffafc73b8e6bc9777e0044a'
-SECOND_PATHS = {
-    'equilibrium/phase1/results/desc_target_controls.csv',
-    'equilibrium/phase3/results/desc_target_controls.csv',
-    'equilibrium/phase4/results/desc_stopping.csv',
-    'equilibrium/phase5/results/desc_target_controls.csv',
-    'equilibrium/phase4/tc24/reference/kin6d_controls.csv',
-    'equilibrium/phase4/tc24/reference/reference_uncertainty.csv',
-    'equilibrium/phase4/tc24/reference/exports.csv',
-    'equilibrium/phase4/tc24/reference/consumers.csv',
-    'equilibrium/phase4/tc24/reference/execution.csv',
-    'equilibrium/phase1/results/README.md',
-    'equilibrium/phase3/results/README.md',
-    'equilibrium/phase4/results/README.md',
-    'equilibrium/phase5/results/README.md',
-    'equilibrium/phase4/tc24/README.md',
-    'equilibrium/phase4/tc24/EXPORTS.md',
-}
 
 
 def git(repo, *args):
@@ -58,10 +27,6 @@ def main():
     sources = []
 
     def read(repo, rev, path, destination=None):
-        if repo == args.tc24 and path in REFRESH_PATHS:
-            rev = REFRESH
-        if repo == args.tc24 and path in SECOND_PATHS:
-            rev = SECOND_REFRESH
         full = git(repo, "rev-parse", rev).decode().strip()
         raw = git(repo, "show", f"{full}:{path}")
         if raw.startswith(b"version https://git-lfs.github.com/spec/"):
@@ -114,21 +79,36 @@ def main():
     files += [f"phase3/results/{f}.csv" for f in
               ["comparison", "finest", "self_convergence", "exports", "consumers",
                "boozer", "boozer_m48", "failures", "kin6d_comparison",
-               "kin6d_finest", "kin6d_self_convergence", "kin6d_exports",
-               "kin6d_consumers_gpec", "kin6d_consumers_hamada", "kin6d_consumers_neo2",
-               "kin6d_consumers_neo2_controls", "kin6d_effectivity_native_circular",
-               "kin6d_effectivity_native_solovev"]]
+               "kin6d_finest", "kin6d_self_convergence", "kin6d_exports"]]
     files += [f"phase4/tc24/reference/{f}.csv" for f in
               ["comparison", "convergence", "runs", "replay", "variants", "exports", "consumers", "execution"]]
     files += ["phase4/tc24/reference/reference_case.json",
               "phase4/tc24/kin6d_performance/timings.csv",
               "phase4/tc24/kin6d_performance/convergence-fine.csv"]
-    files += ["phase1/results/desc_target_controls.csv", "phase3/results/desc_target_controls.csv",
-              "phase4/results/desc_stopping.csv", "phase5/results/desc_target_controls.csv",
-              "phase4/tc24/reference/kin6d_controls.csv",
-              "phase4/tc24/reference/reference_uncertainty.csv"]
+    files += [
+        'phase3/results/kin6d_consumers_gpec.csv',
+        'phase3/results/kin6d_consumers_hamada.csv',
+        'phase3/results/kin6d_consumers_neo2.csv',
+        'phase3/results/kin6d_consumers_neo2_controls.csv',
+        'phase3/results/kin6d_effectivity_native_circular.csv',
+        'phase3/results/kin6d_effectivity_native_solovev.csv',
+        'phase3/results/passing_states_common_reference.csv',
+        'phase1/results/desc_target_controls.csv',
+        'phase3/results/desc_target_controls.csv',
+        'phase4/results/desc_stopping.csv',
+        'phase5/results/desc_target_controls.csv',
+        'phase2/results/kin6d_current_cost.csv',
+        'phase4/tc24/reference/kin6d_controls.csv',
+        'phase4/tc24/reference/reference_uncertainty.csv',
+        'phase4/tc24/reference/vmecpp_controls.csv',
+        'phase4/tc24/reference/vmecpp_self_convergence.csv',
+        'phase4/tc24/reference/vmecpp_boundary_truncation.csv',
+        'phase4/tc24/reference/spectral_boundary_resolution.csv',
+    ]
     for path in files:
         read(args.tc24, TC24, "equilibrium/" + path, path)
+    read(args.tc24, "d37ae2cc4", "equilibrium/phase4/tc24/reference/comparison.csv",
+         "phase4/tc24/reference/comparison_historical.csv")
     read(args.kin6d, KIN6D, "benchmarks/gs-phase1/p2-p3.csv", "kin6d/p2-p3.csv")
     read(args.kin6d, KIN6D, "benchmarks/gs-phase1/README.md", "context/kin6d-p2-p3.md")
 
@@ -158,12 +138,12 @@ def main():
         writer.writeheader()
         writer.writerows(parameters)
     support = []
-    for revision in ["99fa2c8", "82d4d1f", "fa5c388", "451fa5b", "a50f8b6", "2d8142a", "5dfb9df", "313cde5", "60bef4c", "fde93a9", "f1d1791"]:
+    for revision in ["99fa2c8", "82d4d1f", "fa5c388", "451fa5b", "a50f8b6", "2d8142a", "5dfb9df", "313cde5", "60bef4c", "fde93a9", "f1d1791", "f6a33c9"]:
         support.append({"commit": git(args.kin6d, "rev-parse", revision).decode().strip(),
                         "subject": git(args.kin6d, "show", "-s", "--format=%s", revision).decode().strip()})
     manifest = {"description": "Committed inputs for the consolidated Phase 6 report; executed pins remain historical.",
                 "tc24_commit": git(args.tc24, "rev-parse", TC24).decode().strip(),
-                "kin6d_current_main": git(args.kin6d, "rev-parse", "f1d1791").decode().strip(), "kin6d_data_commit": git(args.kin6d, "rev-parse", KIN6D).decode().strip(),
+                "kin6d_current_main": git(args.kin6d, "rev-parse", "f6a33c9").decode().strip(), "kin6d_data_commit": git(args.kin6d, "rev-parse", KIN6D).decode().strip(),
                 "kin6d_support_history": support, "sources": sources}
     (HERE / "sources.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"Copied {len(sources)} committed sources; {len(parameters)} scalar input rows.")

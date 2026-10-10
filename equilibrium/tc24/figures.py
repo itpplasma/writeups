@@ -200,7 +200,7 @@ def inverse():
 
 
 def tc24():
-    rows=read('phase4/tc24/reference/comparison.csv')
+    rows=read('phase4/tc24/reference/comparison_historical.csv')
     rows=[r for r in rows if r['name']=='reference' and yes(r['native_converged']) and yes(r['readback_complete'])]
     fig,axes=plt.subplots(2,2,figsize=(7,4.8))
     for i,(metric,ylabel,target) in enumerate([('psi_l2',r'Relative $\psi$ difference',1e-6),('bpol_l2',r'Relative $B_{pol}$ difference',1e-5)]):

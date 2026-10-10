@@ -128,6 +128,67 @@ reconstruction remains an unresolved defect candidate; no global sign or
 normalization mismatch was found. The previous precise 513 result remains frozen
 in the main table rather than being replaced by this mixed improvement.
 
+Two tolerance-only discriminators hold the native1025 input and all chart
+settings fixed, changing the actual adaptive tracer tolerance from 1e-9 to
+1e-11 and 1e-12 in scratch source objects. Boozer Bpol L2 improves 1.874e-4→1.979e-5;
+full NEO-2 internal geometric Jacobian mismatch improves 3.038e-2→1.091e-3,
+and geometric/native mismatch improves 2.948e-2→1.087e-3. Native physical
+Jacobian error is 1.088e-5. The full-vector field passes its L2/max targets
+(3.554e-6/4.985e-5), as does psi L2 (3.591e-7); q max is 1.305e-5 and the
+separate Bpol L2/max metrics are 2.061e-5/2.304e-4. The export wrapper/vector reader take
+230.18/41.10 seconds on CPU7. Thus tracer accuracy explains much of the
+geometric derivative sensitivity; the remaining error is unqualified, and the
+1e-11→1e-12 comparison reaches a floor rather than closing the targets. The changed
+constant is a diagnostic, not a product feature or promoted solver repair.
+Original/candidate source and binary hashes are retained in the raw root.
+The final 1e-12 point gives internal Jacobian mismatch 1.092e-3, native
+Jacobian error 1.088e-5, full Bpol L2/max 2.060e-5/2.303e-4 and q max
+1.303e-5, unchanged from 1e-11. It takes 204.79 seconds for the export wrapper and
+67.78 seconds for the vector reader. The full-vector B/psi targets pass, but q remains
+above target and geometric derivative consistency remains unqualified.
+
+Earlier export-wrapper wall times include EQDSK/scalar readbacks and native
+contour oracles as well as conversion; they are not converter-only timings.
+Producer solver timings are separate and unchanged.
+
+The Fortran/Python APIs expose `nstep` as an integration-step count, but the
+adaptive implementation explicitly ignores it and fixes `relerr=1e-9` internally.
+There is no existing tolerance input to select the demonstrated accurate trace;
+`nstep` should not silently be reinterpreted as a tolerance. A generic accuracy
+configuration would require a deliberate API change, which is not included in
+these scratch diagnostics.
+
+A final held-tolerance radial-map control doubles only nlabel2048→4096;
+native1025, tolerance1e-12, angles8192, m512, output4096, separatrix scan4096
+and reader2048 remain fixed. It uses the same native/original-exterior EQDSK
+representation. The converter uses four-node cubic radial interpolation;
+its nodes surrounding s_tor=.98 lie inside the map, so there is no radial
+edge extrapolation. NEO-2 also uses cubic Fourier-coefficient interpolation
+inside its 4096 midpoint surfaces. The underlying whole-row/column EQDSK
+quintic splines still include the exterior continuation.
+
+| Held tolerance1e-12, nlabel2048→4096 | Interior .05–.89545 | Outer .98 |
+|---|---:|---:|
+| Internal geometric Jacobian relative max | 8.264e-5→4.839e-5 | 1.092e-3→1.654e-3 |
+| Physical Jacobian/native relative max | 4.729e-6→4.731e-6 | 1.088e-5→1.088e-5 |
+| q relative max | 4.323e-6→4.278e-6 | 1.303e-5→1.321e-5 |
+| Full-reader Bpol relative L2 | 1.385e-5→1.376e-5 | 5.651e-5→4.834e-5 |
+| Full-vector B relative L2 | 2.401e-6→2.386e-6 | 9.048e-6→7.723e-6 |
+
+Each split uses its own R-weighted native field norm; relative Jacobian and
+q maxima are pointwise. The outer Jacobian peak stays at theta_B=3.0034,
+R=4.2964m,Z=.1653m. Smooth cubic radial interpolation would give third-order
+derivative error if it dominated, suggesting about eightfold reduction under
+doubling. The interior maximum decreases only 1.71-fold and changes angular
+location; the outer maximum increases 1.52-fold. These quotients do not establish
+an asymptotic rate. The remaining outer chart/q floor stays unclassified;
+unchanged or worse refinement is not itself proof of a defect or full-domain
+consumer qualification.
+The direct converter takes 143.20 seconds on CPU4; vector readback takes 50.77
+seconds. Offline scalar readback/native oracle time is excluded from both.
+Boozer contour-volume Bpol L2/max is 1.773e-5/1.969e-4, and scalar q max
+is 8.288e-7; these do not remove the outer full-reader q/Jacobian floor.
+
 Refining only KIN6D's EQDSK grid gave a 5.59e-2 Bpol readback
 error; refining the Boozer map/angles/modes together reduced it to 5.56e-4.
 This demonstrates resolution sensitivity, not target closure. The intermediate

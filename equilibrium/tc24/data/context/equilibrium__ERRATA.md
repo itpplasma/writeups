@@ -27,6 +27,7 @@ code defect under the [PLAN criterion](../PLAN.md#defect-closure-cross-cutting).
 | iter_tc24 / Phase 3 analysis | [EQ-P3X-2](#eq-p3x-2-provenance-metadata-in-result-collection) | Source-provenance index treated as a solver result, aborting reproducible analysis | PR open | [MR20 / e230623ee](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20); exact-field metadata regression |
 | iter_tc24 / DESC producer | [EQ-CYL-1](#eq-cyl-1-desc-continuation-and-omitted-zero-modes) | Continuation rejects a valid symmetric deck with omitted zero Fourier families | fixed on main | `test_desc_continuation_accepts_omitted_zero_fourier_families` |
 | libneo | [EQ-EXPORT-1](#eq-export-1-libneo-efit-python-wrapper-kind-map) | EFIT Python wrapper passes float arguments to double Fortran routines | PR open | [libneo #422](https://github.com/itpplasma/libneo/pull/422), `1b867ec` |
+| libneo | [EQ-EXPORT-4](#eq-export-4-boozer-geometry-serialization) | Eight-digit geometry coefficients corrupt radial derivative readback | PR open | [fork PR5](https://github.com/krystophny/libneo/pull/5), `08ace36`; independent circular metric regression |
 | NEO-2 | [EQ-EXPORT-3](#eq-export-3-neo-2-multiple-surface-initialization) | Full magnetic reader aborts on the second surface | PR open | [PR193](https://github.com/itpplasma/NEO-2/pull/193), `a0b7039` |
 | KIN6D | [EQ-P4A-1](#eq-p4a-1) | Valid P3 functional estimate discarded at recovery iteration cap | fixed on main | [99fa2c8](https://github.com/itpplasma/kin6d/commit/99fa2c8) |
 | FortNum | [EQ-OH-1](#eq-oh-1) | Brent root finder rejected interpolation steps and fell back to bisection | fixed on main | [fortnum 5f166bc](https://github.com/lazy-fortran/fortnum/commit/5f166bc); kin6d `82d4d1f` pins it |
@@ -42,10 +43,10 @@ code defect under the [PLAN criterion](../PLAN.md#defect-closure-cross-cutting).
 | FortFEM | [EQ-D75](#eq-d75) | Piola derivative invalid-map success status | fixed on main | [aa05f2c](https://github.com/lazy-fortran/fortfem/commit/aa05f2c) |
 | FortFEM | [EQ-D90](#eq-d70) | Large-origin P2 geometry cancellation | fixed on main | [9d0994b](https://github.com/lazy-fortran/fortfem/commit/9d0994b) |
 | FortFEM | [EQ-D93](#eq-d75) | Invalid NURBS geometry accepted | fixed on main | [054822d](https://github.com/lazy-fortran/fortfem/commit/054822d) |
-| Public CHEASE | [EQ-D14](#eq-d14) | Vertical box mixes SI/normalized units | PR open | [PR1](https://github.com/itpplasma/chease/pull/1) |
-| Public CHEASE | [EQ-D23](#eq-d23) | Thin-flux smoothing has too few knots; failed spline status overwritten | PR open | [PR16](https://github.com/itpplasma/chease/pull/16) (cutoff), [PR17](https://github.com/itpplasma/chease/pull/17) (status); PR2 superseded |
+| Public CHEASE | [EQ-D14](#eq-d14) | Vertical box mixes SI/normalized units | PR open | [SPC !93](https://gitlab.epfl.ch/spc/chease/-/merge_requests/93) |
+| Public CHEASE | [EQ-D23](#eq-d23) | Thin-flux smoothing has too few knots; failed spline status overwritten | PR open | [SPC !95](https://gitlab.epfl.ch/spc/chease/-/merge_requests/95) (cutoff), [SPC !96](https://gitlab.epfl.ch/spc/chease/-/merge_requests/96) (status); PR2 superseded |
 | Public CHEASE | [EQ-D30](#eq-d30) | Band counts and addresses overflow int32 | PR open | [PR3](https://github.com/itpplasma/chease/pull/3) |
-| Public CHEASE | [EQ-D46](#eq-d46) | Fourth smoothed-jet slot duplicated | PR open | [PR4](https://github.com/itpplasma/chease/pull/4) |
+| Public CHEASE | [EQ-D46](#eq-d46) | Fourth smoothed-jet slot duplicated | PR open | [SPC !94](https://gitlab.epfl.ch/spc/chease/-/merge_requests/94) |
 | Public CHEASE | [EQ-D59](#eq-d59) | Singleton/zero-pivot factorization errors | PR open | [PR18](https://github.com/itpplasma/chease/pull/18), split from performance PR5 |
 | Public CHEASE | [EQ-D72](#eq-d72) | Effective quadrature count/capacity mismatch | PR open | [PR10](https://github.com/itpplasma/chease/pull/10) |
 | Public CHEASE | [EQ-D72](#eq-d72) | Radial endpoint uses singular axis operator | PR open | [PR10](https://github.com/itpplasma/chease/pull/10) |
@@ -63,14 +64,14 @@ code defect under the [PLAN criterion](../PLAN.md#defect-closure-cross-cutting).
 | MARS CHEASE | [EQ-D84](#eq-d84) | Prescribed-q source-current sign wrong | PR open | [PR39](https://github.com/krystophny/MARS-Q/pull/39) |
 | MARS CHEASE | [EQ-D87](#eq-d87) | Undefined/incorrect inner coarea | PR open | [PR42](https://github.com/krystophny/MARS-Q/pull/42); PR40 closed |
 | MARS CHEASE | [EQ-D88](#eq-d88) | Axis normalization predates smoothing | PR open | [PR41](https://github.com/krystophny/MARS-Q/pull/41) |
-| MARS CHEASE | [EQ-D88](#eq-d88) | Singular F² source/current primitive | PR open; closure recommended | [PR43](https://github.com/krystophny/MARS-Q/pull/43); continuous-field/full-iteration repair unqualified |
+| MARS CHEASE | [EQ-D88](#eq-d88) | Singular F² source/current primitive | open candidate; unqualified PR closed | [PR43](https://github.com/krystophny/MARS-Q/pull/43) branch and isolated regressions retained; [issue44](https://github.com/krystophny/MARS-Q/issues/44) |
 | MARS CHEASE | [EQ-D88](#eq-d88) | Remaining inverse failure is unexplained | open candidate | [issue44](https://github.com/krystophny/MARS-Q/issues/44) |
 | VMEC++ | [EQ-D12](#eq-d12) | Unexplained boundary/force convergence; candidate only | open candidate | No native solver repair established |
 | VMEC++ / readers | [EQ-D22](#eq-d22), [EQ-D29](#eq-d22) | Incorrect odd-mode/axis reconstruction | fixed on main | [Retained reader revisions](data/vmecpp_axis_readback_20261007/manifest.json) |
 | DESC / readers | [EQ-D19](#eq-d19) | External profile converts a JAX tracer with NumPy | fixed on main | iter_tc24 `8a2830829` |
 | DESC | [EQ-D33](#eq-d19) | Incorrect signed basis labels/units (metadata only) | PR open | [PR2348](https://github.com/PlasmaControl/DESC/pull/2348); fork PR4/5 closed |
-| DESC | [DESC-D01](#eq-d19) | Failed coordinate inversion returns boundary fields instead of NaN | PR open | [PR2347](https://github.com/PlasmaControl/DESC/pull/2347); fork PR3 closed |
-| DESC | [EQ-D20](#eq-d20) | Shaped Cerfon case above target (3.5e-3 Bpol at L=M=14) | limitation: converging boundary truncation | see EQ-D20 |
+| DESC | [DESC-D01](#eq-d19) | Unconverged coordinate inversion returned as computed; docstring promises NaN | fixed on main (reader) | Residual check in `desc_physical_points.py`; upstream PR2347 closed (maintainers keep the behavior) |
+| DESC | [EQ-D20](#eq-d20) | Shaped Cerfon boundary truncation | limitation: targets reached at M32 | [Native refinement/stopping controls](phase1/results/desc_target_controls.csv) |
 | DESC | [EQ-D20](#eq-d20) | Unexplained unconverged TC24 accuracy | open candidate | No native solver defect established |
 | INTERPOS / readers | [EQ-D23](#eq-d23) | Spline failure overwritten by later success | PR open | [MR1](https://gitlab.tugraz.at/plasma/libs/interpos/-/merge_requests/1) |
 | INTERPOS / readers | [EQ-D03](#eq-d03) | Valid omitted-E exponent rejected | fixed on main | iter_tc24 `06a0c32ca` |
@@ -82,7 +83,7 @@ code defect under the [PLAN criterion](../PLAN.md#defect-closure-cross-cutting).
 | INTERPOS / readers | [EQ-D35](#eq-d35) | Inner sample reported as domain-wide force | fixed on main | [Corrected outer readback](data/tc24_shared_force_20261007/README.md) |
 | INTERPOS / readers | [EQ-D60](#eq-d35) | Indexwise grids/dimensional tolerance mixed | fixed on main | iter_tc24 `81ab49ff5` |
 | INTERPOS / readers | [EQ-D69](#eq-d35) | Vertex-only boundary maximum mislabeled | open candidate | Historical field unchanged; whole-edge correction retained |
-| INTERPOS / readers | [EQ-D102](#eq-d88) | Standalone/forward EXPEQ headers invalid | PR open | [PR43](https://github.com/krystophny/MARS-Q/pull/43); separate local forward fix retained |
+| INTERPOS / readers | [EQ-D102](#eq-d88) | Generated standalone/forward EXPEQ headers invalid | corrected reproducer retained | closed [PR43](https://github.com/krystophny/MARS-Q/pull/43) branch preserves generated-input fix; separate local forward fix retained |
 | INTERPOS / readers | [EQ-D103](#eq-d103) | Pre/post-normalization fields combined | PR open (TC24 path); other producers open | [MR20 / e76ae302e](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20); logged-stage polynomial regression |
 | INTERPOS / readers | [EQ-D105](#eq-d35) | Nonfinite cylinder references accepted | fixed on main | [Versioned v2 harness](data/periodic_cylinder_native_kim_20261008_v2/README.md) |
 | INTERPOS / readers | [EQ-D107](#eq-d35) | Sample RMS mislabeled as volume RMS | fixed on main | iter_tc24 `ef464e4ca` |
@@ -91,7 +92,7 @@ code defect under the [PLAN criterion](../PLAN.md#defect-closure-cross-cutting).
 | FortSym | [EQ-D111](#eq-d111) | Generated real64 alias shadows legal arguments | fixed on main | [f749e65](https://github.com/lazy-fortran/fortsym/commit/f749e65) |
 | KIN6D | [EQ-KINV-1](#eq-kinv-1-exported-central-field-used-the-nominal-input-f) | Nominal F used in the producer EQDSK header | PR open | [MR20 / afbd61e90](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20); manufactured profile regression |
 | FortNum | [EQ-KINV-2](#eq-kinv-2-brent-rejected-convergence-on-its-last-permitted-update) | Convergence rejected on the last allowed Brent update | fixed on main | [901aae0](https://github.com/lazy-fortran/fortnum/commit/901aae0); KIN6D `fde93a9` pin |
-| KIN6D | [EQ-CYL-2](#eq-cyl-2-kin6d-coarse-p3-readback-failures) | Coarse Lundquist P3 axis/readback rejection | open candidate | [Retained failures](phase5/results/failures.csv); finer convergence does not explain coarse rejection |
+| KIN6D | [EQ-CYL-2](#eq-cyl-2-kin6d-coarse-p3-readback-failures) | Coarse Lundquist P3 axis/readback rejection | fixed on main | KIN6D `bb2ec06` / `0e56e29`; both retained inputs replay successfully |
 | iter_tc24 | [EQ-TC24-1](#eq-tc24-1-signed-boozer-comparison-readback) | Unsigned Boozer comparison drops poloidal polarity | PR open | [MR20 / 0e9f8d1b5](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20); analytic polarity regressions |
 | libneo | [EQ-TC24-2](#eq-tc24-2-boozer-converter-signed-prescribed-boundary) | Prescribed Boozer boundary assumes increasing psi | PR open | [PR3](https://github.com/krystophny/libneo/pull/3) |
 | iter_tc24 | [EQ-TC24-3](#eq-tc24-3-wrong-absolute-psi-tc24-setup) | Absolute-psi setup selects a different TC24 problem | PR open | [MR20 / e76ae302e](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20); explicit normalized-current contract |
@@ -185,7 +186,7 @@ input-equivalence gate; [profile models](PROFILE_MODELS.md) and
 
 Class: defect; affected: public CHEASE psibox. Mixing the SI axis height with normalized extrema enlarges the
 TC24 export box from about 7.35 m to 13.91 m; MARS does not share this error. Fix: use normalized RZMAG before
-SI conversion, [CHEASE PR1](https://github.com/itpplasma/chease/pull/1), `9ac358d`. Status: PR open; shifted
+SI conversion, [SPC !93](https://gitlab.epfl.ch/spc/chease/-/merge_requests/93), `24647f3`. Status: PR open; shifted
 exact-case controls fail before and pass after, with the native equilibrium unchanged. This fixes coordinates,
 not field convergence.
 
@@ -214,33 +215,36 @@ a separate candidate (EQ-CYL-2).
 
 Class: defect; affected: project DESC profile adapter and diagnostic metadata.
 JAX-compatible profile knots fixed the tracer conversion on main `8a2830829`.
-Signed helical labels and units have unchanged numerical formulas and behavioral
-regressions in open [upstream PR2348](https://github.com/PlasmaControl/DESC/pull/2348);
-fork PR2/4/5 are closed. The accepted-step callback PR1 is a closed feature,
-retained only in historical execution pins. Failed physical coordinate inversions
-return NaN in open [upstream PR2347](https://github.com/PlasmaControl/DESC/pull/2347)
-(DESC-D01; fork PR3 closed). Parent-failing coordinate tests pass after the fix.
-These repairs do not close TC24 convergence.
+Signed helical labels and units (metadata only; numerical formulas unchanged) are in
+open [upstream PR2348](https://github.com/PlasmaControl/DESC/pull/2348); fork PR2/4/5 are
+closed. The accepted-step callback PR1 is a closed feature, retained only in historical
+execution pins. DESC-D01: `map_coordinates` returns unconverged (e.g. exterior)
+inversions as computed although its docstring promises NaN; DESC maintainers keep
+that behavior for optimization, so [PR2347](https://github.com/PlasmaControl/DESC/pull/2347)
+is closed. Our reader now accepts a point only if the `full_output` root-finding residual
+is at most 1e-9 (exterior control: residual 1.6, interior 7e-15). These repairs do not
+close TC24 convergence.
 
 <a id="eq-d20"></a>
 
 ## EQ-D20: DESC TC24 convergence
 
-Class: unexplained; affected: DESC TC24 controls. The retained L24/M23 state stops at its iteration cap with
-reconstructed force/gradp about 0.225; later checkpointed runs also hit their caps. No code defect follows
-from these unconverged states, and their chart-weighted ratios cannot rank solvers. Fix/PR: none for the
-unresolved accuracy; status: open Phase 4 refinement and stopping qualification. [Native
-data](data/desc_20261007/README.md); withdrawn GVEC observations remain in the archive.
+Class: unresolved accuracy; affected: DESC TC24 controls. The current modx03
+decks truncate the pinned boundary substantially, and the L24/M12 warm restart
+hits its time cap without a saved refined state. The [TC24 study](phase4/tc24/README.md)
+owns geometric distances and executed stopping. This establishes a boundary
+mismatch, but does not assign every field deviation to it or establish a native
+solver defect. Earlier contract observations remain in the archived data.
 
 <a id="eq-d22"></a>
 
-Phase 1 shaped case (2026-10-09): explained as boundary representation, not a defect. DESC carries
-the fixed boundary in the same poloidal basis as the solution, and the producer fits boundary modes m<=M in
-the sample parametrization. The truncated boundary deviates from the exact contour by 1.3e-2, 4.6e-3,
-1.6e-3 and 8.1e-4 of a at M=8, 10, 12, 14, tracking the measured Bpol L2 errors 3.4e-2, 1.5e-2, 9.9e-3,
-3.5e-3. Truncation reaches 6e-5 at M=20 and 1.7e-6 at M=30, so the target needs M of about 25-30 at
-higher cost. VMEC++ near-axis maximum-error rates (0.56-0.71, peaking in the first two radial cells) are
-the known axis behaviour of radial finite differences in s and are classified as a method limitation.
+Phase 1 shaped case: boundary representation is a numerical limitation.
+DESC uses the same poloidal basis for the fixed boundary and solution.
+Refining its exact-boundary representation to M24/M32 reduces Bpol L2 to
+2.68e-5/1.31e-6. At M32 every sampled target and native stopping pass with
+case-specific gtol=1e-9; no solver patch is needed. The
+[exact-case study](phase1/results/README.md) owns the norms and warm-start
+costs, which do not replace the original cold timing curve.
 
 ## EQ-D22: VMEC parity and axis readback
 
@@ -270,8 +274,8 @@ same defect. MR2 is a fixture-path repair, not another numerical defect;
 
 <a id="eq-d24"></a>
 
-Split 2026-10-09: [PR16](https://github.com/itpplasma/chease/pull/16) uses a flux-relative cutoff with at
-least four knots; [PR17](https://github.com/itpplasma/chease/pull/17) preserves failed interpolation status
+Split: [SPC !95](https://gitlab.epfl.ch/spc/chease/-/merge_requests/95) uses a flux-relative cutoff with at
+least four knots; [SPC !96](https://gitlab.epfl.ch/spc/chease/-/merge_requests/96) preserves failed interpolation status
 through export. Each has a native test that fails on the parent and passes after; PR2 is superseded.
 Phase 1 note: public axis-q extrapolation error falls from 8e-6 to 6e-7 (E0, NS16 to 64) and q on
 0.05<=s_tor<=0.98 passes; no axis extrapolation repair is justified at the current target.
@@ -347,7 +351,7 @@ evidence](data/chease_lane_closure_20261007/README.md).
 ## EQ-D46: CHEASE smoothing permutation
 
 Class: defect; affected: both CHEASE SMOOTH routines. The fourth write repeats the third slot, corrupting
-cached angular/mixed derivatives. [CHEASE PR4](https://github.com/itpplasma/chease/pull/4), `d0e4b3d`, and
+cached angular/mixed derivatives. [SPC !94](https://gitlab.epfl.ch/spc/chease/-/merge_requests/94), `b4ed34f`, and
 [MARS PR7](https://github.com/gafusion/MARS-Q/pull/7) (fork PR31 closed), historical `e14c6d1`, pass parent-failing four-jet controls.
 Status: PR open; inspected physical paths read another array, so this confirmed typo does not explain the
 retained force or edge-q discrepancies. MARS Pair A/B remains pending.
@@ -451,7 +455,11 @@ input fluxes were rounded.
 
 Class: defect; affected: both CHEASE variants. Public zero-tension NSTTP5 requests an unsupported INTERPOS
 boundary combination and ignores failure; [CHEASE PR13](https://github.com/itpplasma/chease/pull/13) uses the
-native interpolation branch. MARS NSTTP4 gives its source-current coefficient the wrong sign; [MARS
+native interpolation branch. Its full native ISOFUN regression fails eight zero-tension
+polynomial/mapping cases on the source parent and passes after repair; nonzero-tension
+and legacy-selector controls, Make, shared CTest and the retained NS16 inverse smoke pass.
+The scoped PR uses the existing shared test target and removes the standalone test packet.
+MARS NSTTP4 gives its source-current coefficient the wrong sign; [MARS
 PR39](https://github.com/krystophny/MARS-Q/pull/39) restores the native GS chain rule. Status: PR open, with
 parent-failing interpolation and signed circle/ellipse controls passing after. Public mixed-stage metrics are
 superseded by EQ-D103; MARS full prescribed-q convergence remains unresolved under EQ-D88.
@@ -472,21 +480,80 @@ the full pilot still fails later, so neither PR is a complete inverse-equilibriu
 
 ## EQ-D88: CHEASE axis normalization and MARS inverse failure
 
-Class: defect for stale axis normalization; unexplained for the remaining MARS iteration failure. SMOOTH
-changes the field after MAGAXE fixes its axis normalization. [CHEASE
-PR15](https://github.com/itpplasma/chease/pull/15)/[MARS PR41](https://github.com/krystophny/MARS-Q/pull/41)
-repair that order. MARS #39/#41/#42 are ready for scoped fork review after source-parent failures,
-passing repaired native tests and Make/smoke controls; current heads are in the PR index.
-[MARS PR43](https://github.com/krystophny/MARS-Q/pull/43) supplies finite F² primitives at its direct API/knots
-and corrects standalone headers (EQ-D102), but leaves continuous TMF field interpolation inconsistent.
-Its isolated controls pass; closure is recommended because the full iteration is still unqualified.
+Class: defect for stale axis normalization; unexplained for the remaining MARS
+prescribed-q iteration failure. [Public CHEASE PR15](https://github.com/itpplasma/chease/pull/15)
+and [MARS PR41](https://github.com/krystophny/MARS-Q/pull/41) move SMOOTH before
+MAGAXE so the field and its axis normalization agree. Both have source-parent
+failures, passing repaired polynomial controls and native Make/smoke checks.
+Current heads and prerequisites are owned by [UPSTREAM_PRS](../review/UPSTREAM_PRS.md).
 
-The [Phase 3 study](phase3/results/README.md) retains twelve failed MARS native prescribed-q resolutions
-and three NS32 controls without #43. Both source choices fail in mapping/source iteration (NaN or
-invalid mapped psi); the literal historical negative-TMF² branch was not re-isolated by these decks.
-The remaining inverse-variant failure stays an unexplained candidate in
-[issue44](https://github.com/krystophny/MARS-Q/issues/44), not demonstrated correct-limit numerical
-convergence. No small additional defect fix was established. Empty final outputs are failed equilibria.
+The fully corrected warm NS64/NISO100 Solovev comparator contains qualified
+fork PR30/31/37/39/41/42/45, checked against actual source changes and eight owning native
+test groups. It fails after 39.98 s with mapping residual 1.000035 and positive
+psi. Changing only NINSCA=100 to 1 also fails after 2.32 s: the first field update
+matches, immediate coarea refresh gives residual 0.999979, and the second field
+becomes positive. Prolonged iteration with frozen coareas is therefore not the
+sole cause. Neither run supplies an admitted equilibrium.
+
+Independent multiplication of the retained first constrained GS matrix by the
+unrelaxed solution gives relative residual 1.054e-12 and normwise backward error
+3.324e-16; center expansion, numbering and boundary constraints agree. The seed
+has residual 0.005122 against that same load. Independent load assembly agrees
+with the retained native load to 2.13e-7 relative. Using exact Solovev pprime=-4/3
+and FFprime=0 on the same operator reduces the seed residual to 4.42e-6, locating
+most of the first departure in prescribed-q source reconstruction. The largest
+FFprime error, 12.51, occurs at Gauss radius 0.000937 below the first coarea knot
+0.00505. CURENT differentiates separate rho splines and divides by rho.
+
+With exact analytic coarea data and the same 1025-point q input, native endpoint
+differentiation errors fall 2.419e-3 → 2.490e-4 → 2.291e-5 on 100/199/397 knots,
+at orders 3.28/3.44. That smooth-data numerical error is too small to explain the
+retained state. Compatible exact-source forward NS32/64/128 fields instead give
+inferred FFprime errors 37.14 → 11.18 → 0.236 at fixed probes; changing angular
+quadrature 256→512 affects them by at most 1.62e-5. Physical mesh refinement
+therefore strongly reduces the field/coarea differentiation error, but irregular
+orders 1.73/5.57 do not qualify an asymptotic rate. No further defect or repair is
+established. The failed coupled inverse iteration remains open in
+[issue44](https://github.com/krystophny/MARS-Q/issues/44). Offline inputs, source
+hashes and oracle results are retained in
+`/mnt/storage/codex-equilibrium-20261010/mars_inverse/scratch/runs/solovev-qualified-firstlinear64/`.
+
+Earlier controls retain their actual patch sets. The fork PR30/31/39/41 plus superseded
+axis-extrapolation control omitted PR42. The separate PR39/41/42 control omitted
+PR30/31; its negative-F-squared abort is explained by the existing PR30 cubic-primitive
+defect. It does not establish a new defect in the fully patched source. With that fix,
+the frozen continuous q/coarea resplining discrepancy decreases at third order;
+that numerical investigation is closed. Native coarea also agrees with independent
+physical-contour integration on the sampled post-update field.
+
+[MARS PR43](https://github.com/krystophny/MARS-Q/pull/43) is closed, with its branch
+and isolated axis/under-axis regressions retained. Its direct finite-source API
+does not make continuous TMF interpolation consistent with the differentiated
+F-squared representation, and it has no qualified full inverse solve. Its header
+corrections affect generated test inputs (EQ-D102), not the production parser.
+The separate local forward-header fix remains retained. The earlier `450d4d8`
+zero-moment regression and unqualified public-algorithm port are also excluded:
+the native mode-4 identity is `CID2=1/CIDQ`; BASIS4 does not accumulate the
+Bp-squared moment used by the rejected regression.
+
+Leonardo's February 10, 2025 package explicitly distinguishes public and MARS
+namelists. Its executed DEMO EXPEQ decks/logs use `NSTTP=2, NCSCAL=4,
+NSMOOTH=1`; the EQDSK import runs internally as NSTTP=1. Controller replay of
+the supplied EXPEQ profiles with NS/NT changed from 80 to 32 completes on
+both untouched MARS and the minimal corrected source in 11.53/10.84 s.
+Printed Ip=18.0295556 MA and psi_axis=-21.1905375 Wb/rad agree; q_axis changes
+from 1.07349502 to 1.07349744 (2.25 ppm). This checks the working forward path,
+not the inverse-q contract. Supplier input SHA-256 is
+`cd05519ac95734b8b4b389410a642974a767b3c9c7e87bff34d3f6585cbf893e`;
+the original deck is `plasma/data:DEMO/MARS/DEMO_2019_EQUIL_Boozer/CHEASE/DATABASE/EXPEQ.OUT_Istarnew_CS/run_0/INPUTS/chease_namelist`.
+All controller inputs, source/binary hashes and outcomes are in the run registry
+under `mars-regression-20261010-*`; raw files share its single registered root.
+
+The retained public-algorithm pilot `w2dqmom` reaches residual 7.22e-12 but
+q=1.997–2.718 instead of 1.5, so it remains rejected. Its integrated toroidal
+flux is 6.41823 Wb versus public 6.43094 Wb; `2*pi*psi_axis` is a poloidal
+flux offset. No further source fix is qualified. Full inverse states remain unqualified;
+empty final outputs are failed equilibria.
 
 <a id="eq-d89"></a>
 
@@ -641,8 +708,11 @@ Class: defect; affected: GPEC direct_fl_int's error message. Its 65-character fo
 overflowed a 64-character buffer, hiding the intended integration failure with End of record;
 five-digit step counts also exceeded the I4 format. Fork [PR1](https://github.com/krystophny/GPEC/pull/1)
 uses a sufficient buffer and unrestricted integer fields. A test executes the production formatter,
-failing on both earlier versions and passing at `bb3f02a4`. This repairs diagnostics only: the KIN6D
-export's GPEC field-line step limit remains visible and unqualified.
+failing on both earlier versions and passing at `bb3f02a4`. This repairs diagnostics only.
+The same KIN6D export completes with integration tolerance 1e-8 instead of
+1e-10 and the unchanged step cap; its measured field/q errors remain above
+target. The [consumer study](phase4/tc24/EXPORTS.md) owns this configuration
+control. No underlying GPEC solver defect is established.
 
 ## EQ-TC24-8: libneo Python EQDSK four-digit dimensions
 
@@ -651,6 +721,18 @@ four-digit grid dimensions in a valid 3I4 header. Fixed-width parsing with the l
 fallback is in fork [PR4](https://github.com/krystophny/libneo/pull/4), `f27ee06`. Generated 1025×9 and
 9×1025 numerical round trips fail before and pass after; all 11 reader/writer tests pass. The fixed
 reader enables the TC24 1025² export refinement; no source equilibrium or global installation changed.
+
+## EQ-TC24-9: Finite stalled Newton preconditioner rejected
+
+Class: defect; affected: KIN6D nonlinear GS response. Inner diagonal-CG can
+reach a roundoff floor before its tolerance, making a usable preconditioner
+reject the Newton solve. Fixed on main at
+[af84393](https://github.com/itpplasma/kin6d/commit/af84393): retain finite
+iteration-limited responses only in preconditioning, and accept stalled outer
+GMRES only after an independent physical Jacobian residual check. Other
+linear-response callers retain their strict failure behavior. The retained
+95k-DOF TC24 reproducer converges; the integrated CPU and Debug presets each
+pass all 96 tests. The configurable solve wall limit defaults to 300 s.
 
 <a id="eq-d116"></a>
 
@@ -670,9 +752,9 @@ routine arguments become C `float` despite double-precision Fortran storage.
 An exactly representable quadratic field returns wrong components. The fork
 fix passes the existing `.f2py_f2cmap` explicitly and makes it a generation
 dependency. Its field round-trip test fails before and passes after at 2e-13 T.
-Status: [fork PR1](https://github.com/krystophny/libneo/pull/1) open, commit
+Status: [upstream PR422](https://github.com/itpplasma/libneo/pull/422) open, commit
 `1b867ec`; the Phase 1 export study uses that fixed local build. Native Fortran
-executables do not cross this Python ABI. No upstream PR or merge was made.
+executables do not cross this Python ABI. Fork PR1 was closed in favor of PR422.
 
 ## EQ-EXPORT-2: Boozer flux boundary and header precision
 
@@ -700,6 +782,19 @@ and metric outputs. [NEO-2 PR193](https://github.com/itpplasma/NEO-2/pull/193),
 the fix; numerical evidence belongs to [the export table](phase1/results_export/README.md).
 
 <a id="eq-p2-1"></a>
+
+## EQ-EXPORT-4: Boozer geometry serialization
+
+Class: export defect; affected: libneo `efit_to_boozer` surface records and
+Fourier geometry coefficients. Eight-digit output loses precision needed by
+the consumer's radial derivatives. Six wider formats retain double precision;
+an independent analytic-circle Jacobian regression fails before and passes after
+for all four boundary/polarity cases. Native file readback and actual NEO-2
+accept the format. Status: [fork PR5](https://github.com/krystophny/libneo/pull/5)
+open, `08ace36`, with PR3 prerequisites stated. The
+[inverse consumer controls](phase3/results/kin6d.md) own measured improvement
+and the remaining unexplained geometric determinant residual. This fix does
+not close that residual or establish its proposed tracing-tolerance cause.
 
 ## EQ-P2-1: circular-ladder radial and stopping limits
 
@@ -749,19 +844,19 @@ coefficients are preserved. No DESC solver source change or upstream PR.
 
 ## EQ-CYL-2: KIN6D coarse P3 readback failures
 
-Class: open readback defect candidate; cause unconfirmed. KIN6D `2d8142a`
-completes the nonlinear solve but exits with `readback status: 4` for the Phase 5
-Lundquist A=100 and 300 cases at 16 boundary nodes. The registered runs
-`cyl20261009_kinp3_profiles_kin6d_lundquist_A100_00` and
-`cyl20261009_kinp3_profiles_kin6d_lundquist_A300_00` retain executable, inputs
-and logs under `/home/ert/data/iter_tc24/phase1/kin6d/runs/`. The P3 axis-candidate
-routine uses status 4 when it cannot admit an isolated cell-interior minimum;
-the exact failing return site has not been instrumented. The unchanged physical
-cases pass at 32/64/128 nodes, with approximately third-order field convergence
-and finest field differences below target. This does not explain the coarse
-failure. No KIN6D edit or PR from this lane, as requested; controller disposition
-remains open. Reproduce with the Phase 5 driver, a fresh tag, `--codes kin6d
---families lundquist --aspects 100 300` and the default ladder.
+Class: confirmed axis-search defect, fixed on KIN6D main `bb2ec06` (P3 damped
+Newton) and `0e56e29` (shared-entity axes). The coarse Lundquist minimum lies
+near a cell corner; the undamped first Newton step left that cell, losing its
+valid minimum. The native regression compares the recovered minimum against
+an independent P3 polynomial fit and checks refinement. Shared-node/edge
+minimum handling has separate behavioral coverage.
+
+Both retained A=100/300, n=16 input/profile requests replay successfully on
+main `af84393`, with finite native contour readback and unchanged physical
+inputs. [Replay metrics](phase5/results/kin6d_coarse_readback.csv) record source,
+binary, wall time and field/q errors. These coarse meshes remain below the
+accuracy of the already-delivered fine ladder; solving them closes the reader
+failure, not a coarse accuracy claim. Original aborted outputs remain retained.
 
 <a id="eq-oh-1"></a>
 

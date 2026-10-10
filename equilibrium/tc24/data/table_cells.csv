@@ -140,6 +140,14 @@ phase2_reference:E2_A3p1,psi_richardson,7.587619397298394e-10,identity,phase2/re
 phase2_reference:E2_A3p1,bpol_richardson,6.496658175438065e-08,identity,phase2/results/reference_errors.csv:7
 phase2_reference:E2_A3p1,majorant_relative,8.172049516052556e-08,identity,phase2/results/reference_errors.csv:7
 phase2_reference:E2_A3p1,majorant_to_richardson,1.2578850995960735,identity,phase2/results/reference_errors.csv:7
+phase2_current_cost:E1_A40,current_wall_s,0.4168844032101333,identity,phase2/results/kin6d_current_cost.csv:4
+phase2_current_cost:E1_A20,current_wall_s,0.41872923192568123,identity,phase2/results/kin6d_current_cost.csv:2
+phase2_current_cost:E1_A10,current_wall_s,0.4227339911740273,identity,phase2/results/kin6d_current_cost.csv:1
+phase2_current_cost:E1_A3p1,current_wall_s,1.6949740659911186,identity,phase2/results/kin6d_current_cost.csv:3
+phase2_current_cost:E2_A40,current_wall_s,0.41186648281291127,identity,phase2/results/kin6d_current_cost.csv:8
+phase2_current_cost:E2_A20,current_wall_s,0.4128650559578091,identity,phase2/results/kin6d_current_cost.csv:6
+phase2_current_cost:E2_A10,current_wall_s,0.4275288099888712,identity,phase2/results/kin6d_current_cost.csv:5
+phase2_current_cost:E2_A3p1,current_wall_s,0.4180480958893895,identity,phase2/results/kin6d_current_cost.csv:7
 phase4_cost:E4_E1,wall_s,4.850773198995739,identity,phase4/results/best_cost.csv:1
 phase4_cost:E4_E1,wall_s,21.212267010007054,identity,phase4/results/best_cost.csv:2
 phase4_cost:E4_E1,wall_s,21.223168759141117,identity,phase4/results/best_cost.csv:4
@@ -300,6 +308,18 @@ inverse_export:E2_constant_q_A10,psi_l2,1.0082304403583878e-09,identity,phase3/r
 inverse_export:E2_constant_q_A10,bpol_l2,2.7316013846023415e-07,identity,phase3/results/kin6d_exports.csv:9
 inverse_export:Solovev_inverse_A3,psi_l2,9.41186679009022e-10,identity,phase3/results/kin6d_exports.csv:15
 inverse_export:Solovev_inverse_A3,bpol_l2,5.331501029647469e-08,identity,phase3/results/kin6d_exports.csv:15
+inverse_passing:E1_constant_q_A10kin6d,bpol_l2,3.0914599512561623e-06,identity,phase3/results/passing_states_common_reference.csv:1
+inverse_passing:E1_constant_q_A10chease_public,bpol_l2,1.3085864306774438e-06,identity,phase3/results/passing_states_common_reference.csv:2
+inverse_passing:E1_constant_q_A10kin6d,wall_s,6.038145076017827,identity,phase3/results/passing_states_common_reference.csv:1
+inverse_passing:E1_constant_q_A10chease_public,wall_s,14.740307549247518,identity,phase3/results/passing_states_common_reference.csv:2
+inverse_passing:E2_constant_q_A10kin6d,bpol_l2,1.7668061044624123e-06,identity,phase3/results/passing_states_common_reference.csv:3
+inverse_passing:E2_constant_q_A10chease_public,bpol_l2,5.028664884198642e-07,identity,phase3/results/passing_states_common_reference.csv:4
+inverse_passing:E2_constant_q_A10kin6d,wall_s,33.555840339977294,identity,phase3/results/passing_states_common_reference.csv:3
+inverse_passing:E2_constant_q_A10chease_public,wall_s,103.56513335811906,identity,phase3/results/passing_states_common_reference.csv:4
+inverse_passing:Solovev_inverse_A3kin6d,bpol_l2,8.295393367087575e-06,identity,phase3/results/passing_states_common_reference.csv:5
+inverse_passing:Solovev_inverse_A3chease_public,bpol_l2,7.092214740862775e-06,identity,phase3/results/passing_states_common_reference.csv:6
+inverse_passing:Solovev_inverse_A3kin6d,wall_s,2.4229468151461333,identity,phase3/results/passing_states_common_reference.csv:5
+inverse_passing:Solovev_inverse_A3chease_public,wall_s,79.70660678204149,identity,phase3/results/passing_states_common_reference.csv:6
 inverse_consumer:E1_constant_q_A10GPEC,bpol_l2,1.6835328853649228e-06,identity,phase3/results/kin6d_consumers_gpec.csv:2
 inverse_consumer:E1_constant_q_A10GPEC,q_max_rel,1.3918562880022023e-07,identity,phase3/results/kin6d_consumers_gpec.csv:2
 inverse_consumer:E1_constant_q_A10GPEC,phi_edge_rel,6.7146801452366844e-09,identity,phase3/results/kin6d_consumers_gpec.csv:2
@@ -348,30 +368,30 @@ replay,current_MA,15.5438362,current_A / 1e6,phase4/tc24/reference/replay.csv:2
 replay,source_bpol_l2,0.009235065350078566,identity,phase4/tc24/reference/replay.csv:2
 SourceHeaderCurrent,native_Ip_MA,15.56391265,identity,phase4/tc24/reference/variants.csv:1
 ReplayLogCurrent,received_log_current_A,15.5614975,divide by 1e6,phase4/tc24/reference/replay.csv:1
-tc24:kin6d,dof,8479,identity,phase4/tc24/reference/comparison.csv:22
-tc24:kin6d,psi_l2,2.8669124861041993e-05,identity,phase4/tc24/reference/comparison.csv:22
-tc24:kin6d,bpol_l2,0.0013677187428278001,identity,phase4/tc24/reference/comparison.csv:22
-tc24:kin6d,q_max,0.0037651702200194315,identity,phase4/tc24/reference/comparison.csv:22
-tc24:kin6d,wall_s,230.49101070896722,identity,phase4/tc24/reference/comparison.csv:22
-tc24:chease_public,dof,131072,identity,phase4/tc24/reference/comparison.csv:4
-tc24:chease_public,wall_s,190.93653823784553,identity,phase4/tc24/reference/comparison.csv:4
-tc24:chease_mars,dof,131072,identity,phase4/tc24/reference/comparison.csv:11
-tc24:chease_mars,psi_l2,3.4368343447706164e-07,identity,phase4/tc24/reference/comparison.csv:11
-tc24:chease_mars,bpol_l2,3.0516837682741746e-05,identity,phase4/tc24/reference/comparison.csv:11
-tc24:chease_mars,q_max,1.2150485759754304e-06,identity,phase4/tc24/reference/comparison.csv:11
-tc24:chease_mars,wall_s,78.84009281988256,identity,phase4/tc24/reference/comparison.csv:11
-tc24:vmecpp,dof,12513,identity,phase4/tc24/reference/comparison.csv:26
-tc24:vmecpp,psi_l2,0.00014221844983596625,identity,phase4/tc24/reference/comparison.csv:26
-tc24:vmecpp,bpol_l2,0.0019613626836988457,identity,phase4/tc24/reference/comparison.csv:26
-tc24:vmecpp,q_max,0.0005199651321243781,identity,phase4/tc24/reference/comparison.csv:26
-tc24:vmecpp,wall_s,72.49572130315937,identity,phase4/tc24/reference/comparison.csv:26
-tc24:desc,dof,460,identity,phase4/tc24/reference/comparison.csv:38
-tc24:desc,psi_l2,0.013132590652639317,identity,phase4/tc24/reference/comparison.csv:38
-tc24:desc,bpol_l2,0.03334347428819727,identity,phase4/tc24/reference/comparison.csv:38
-tc24:desc,q_max,6.7145469184737294e-09,identity,phase4/tc24/reference/comparison.csv:38
-tc24:desc,wall_s,143.68891942501068,identity,phase4/tc24/reference/comparison.csv:38
-TcKinBRate,apparent_bpol_l2_order,2.0749521286755925,identity,phase4/tc24/reference/convergence.csv:11
-TcKinPsiRate,apparent_psi_l2_order,3.5316526119797795,identity,phase4/tc24/reference/convergence.csv:11
+tc24:kin6d,dof,60367,identity,phase4/tc24/reference/comparison.csv:32
+tc24:kin6d,psi_l2,7.907946162018807e-06,identity,phase4/tc24/reference/comparison.csv:32
+tc24:kin6d,bpol_l2,0.00068373673971075,identity,phase4/tc24/reference/comparison.csv:32
+tc24:kin6d,q_max,0.002906176505038882,identity,phase4/tc24/reference/comparison.csv:32
+tc24:kin6d,wall_s,183.19025643798523,identity,phase4/tc24/reference/comparison.csv:32
+tc24:chease_public,dof,524288,identity,phase4/tc24/reference/comparison.csv:12
+tc24:chease_public,wall_s,475.68749052495696,identity,phase4/tc24/reference/comparison.csv:12
+tc24:chease_mars,dof,131072,identity,phase4/tc24/reference/comparison.csv:16
+tc24:chease_mars,psi_l2,3.4368343447706164e-07,identity,phase4/tc24/reference/comparison.csv:16
+tc24:chease_mars,bpol_l2,3.0516837682741746e-05,identity,phase4/tc24/reference/comparison.csv:16
+tc24:chease_mars,q_max,1.2150485759754304e-06,identity,phase4/tc24/reference/comparison.csv:16
+tc24:chease_mars,wall_s,78.84009281988256,identity,phase4/tc24/reference/comparison.csv:16
+tc24:vmecpp,dof,12513,identity,phase4/tc24/reference/comparison.csv:43
+tc24:vmecpp,psi_l2,0.00014221844983596625,identity,phase4/tc24/reference/comparison.csv:43
+tc24:vmecpp,bpol_l2,0.0019613626836988457,identity,phase4/tc24/reference/comparison.csv:43
+tc24:vmecpp,q_max,0.0005199651321243781,identity,phase4/tc24/reference/comparison.csv:43
+tc24:vmecpp,wall_s,72.49572130315937,identity,phase4/tc24/reference/comparison.csv:43
+tc24:desc,dof,460,identity,phase4/tc24/reference/comparison.csv:55
+tc24:desc,psi_l2,0.013132590652639317,identity,phase4/tc24/reference/comparison.csv:55
+tc24:desc,bpol_l2,0.03334347428819727,identity,phase4/tc24/reference/comparison.csv:55
+tc24:desc,q_max,6.7145469184737294e-09,identity,phase4/tc24/reference/comparison.csv:55
+tc24:desc,wall_s,143.68891942501068,identity,phase4/tc24/reference/comparison.csv:55
+TcKinBRate,apparent_bpol_l2_order,1.0923230003859068,identity,phase4/tc24/reference/convergence.csv:14
+TcKinPsiRate,apparent_psi_l2_order,1.187255723156751,identity,phase4/tc24/reference/convergence.csv:14
 TcPublicBRate,apparent_bpol_l2_order,1.8684392619484202,identity,phase4/tc24/reference/convergence.csv:3
 TcPublicPsiRate,apparent_psi_l2_order,2.663639179985501,identity,phase4/tc24/reference/convergence.csv:3
 tc_export,bpol_l2,0.0001445090347556813,identity,phase4/tc24/reference/exports.csv:53
@@ -443,13 +463,23 @@ desc_control:E4 finite beta,gtol,1e-10,identity,phase4/results/desc_stopping.csv
 desc_control:E4 finite beta,psi_l2,1.9666237373548053e-08,identity,phase4/results/desc_stopping.csv:2
 desc_control:E4 finite beta,bpol_l2,8.793330680162449e-08,identity,phase4/results/desc_stopping.csv:2
 desc_control:E4 finite beta,axis_rel,2.226759203010857e-08,identity,phase4/results/desc_stopping.csv:2
-desc_control:Lundquist A100,M,18,identity,phase5/results/desc_target_controls.csv:2
-desc_control:Lundquist A100,gtol,1e-07,identity,phase5/results/desc_target_controls.csv:2
-desc_control:Lundquist A100,psi_l2,3.832007630581285e-07,identity,phase5/results/desc_target_controls.csv:2
-desc_control:Lundquist A100,bpol_l2,3.915616728905612e-06,identity,phase5/results/desc_target_controls.csv:2
-desc_control:Lundquist A100,axis_rel,9.155604911714457e-08,identity,phase5/results/desc_target_controls.csv:2
-desc_control:Lundquist A300,M,18,identity,phase5/results/desc_target_controls.csv:4
-desc_control:Lundquist A300,gtol,1e-08,identity,phase5/results/desc_target_controls.csv:4
-desc_control:Lundquist A300,psi_l2,3.448231507927579e-07,identity,phase5/results/desc_target_controls.csv:4
-desc_control:Lundquist A300,bpol_l2,3.4180008246983026e-06,identity,phase5/results/desc_target_controls.csv:4
-desc_control:Lundquist A300,axis_rel,1.860867055819118e-08,identity,phase5/results/desc_target_controls.csv:4
+desc_control:Lundquist A30,M,18,identity,phase5/results/desc_target_controls.csv:5
+desc_control:Lundquist A30,gtol,1e-07,identity,phase5/results/desc_target_controls.csv:5
+desc_control:Lundquist A30,psi_l2,2.1415258129687717e-07,identity,phase5/results/desc_target_controls.csv:5
+desc_control:Lundquist A30,bpol_l2,2.4964340797614593e-06,identity,phase5/results/desc_target_controls.csv:5
+desc_control:Lundquist A30,axis_rel,1.6260110439259352e-07,identity,phase5/results/desc_target_controls.csv:5
+desc_control:Lundquist A100,M,18,identity,phase5/results/desc_target_controls.csv:7
+desc_control:Lundquist A100,gtol,1e-07,identity,phase5/results/desc_target_controls.csv:7
+desc_control:Lundquist A100,psi_l2,3.832007630581285e-07,identity,phase5/results/desc_target_controls.csv:7
+desc_control:Lundquist A100,bpol_l2,3.915616728905612e-06,identity,phase5/results/desc_target_controls.csv:7
+desc_control:Lundquist A100,axis_rel,9.155604911714457e-08,identity,phase5/results/desc_target_controls.csv:7
+desc_control:Lundquist A300,M,18,identity,phase5/results/desc_target_controls.csv:9
+desc_control:Lundquist A300,gtol,1e-08,identity,phase5/results/desc_target_controls.csv:9
+desc_control:Lundquist A300,psi_l2,3.448231507927579e-07,identity,phase5/results/desc_target_controls.csv:9
+desc_control:Lundquist A300,bpol_l2,3.4180008246983026e-06,identity,phase5/results/desc_target_controls.csv:9
+desc_control:Lundquist A300,axis_rel,1.860867055819118e-08,identity,phase5/results/desc_target_controls.csv:9
+desc_control:Lundquist A10,M,20,identity,phase5/results/desc_target_controls.csv:10
+desc_control:Lundquist A10,gtol,1e-09,identity,phase5/results/desc_target_controls.csv:10
+desc_control:Lundquist A10,psi_l2,1.631368825719871e-07,identity,phase5/results/desc_target_controls.csv:10
+desc_control:Lundquist A10,bpol_l2,1.4509439390810951e-06,identity,phase5/results/desc_target_controls.csv:10
+desc_control:Lundquist A10,axis_rel,3.910951987423867e-07,identity,phase5/results/desc_target_controls.csv:10
