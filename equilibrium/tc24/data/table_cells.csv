@@ -374,6 +374,9 @@ tc24:kin6d,bpol_l2,0.00068373673971075,identity,phase4/tc24/reference/comparison
 tc24:kin6d,q_max,0.002906176505038882,identity,phase4/tc24/reference/comparison.csv:32
 tc24:kin6d,wall_s,183.19025643798523,identity,phase4/tc24/reference/comparison.csv:32
 tc24:chease_public,dof,524288,identity,phase4/tc24/reference/comparison.csv:12
+tc24:chease_public,psi_l2,7.624281798191677e-06,identity,phase4/tc24/reference/comparison.csv:12
+tc24:chease_public,bpol_l2,0.0006217541062348063,identity,phase4/tc24/reference/comparison.csv:12
+tc24:chease_public,q_max,9.912819910573578e-05,identity,phase4/tc24/reference/comparison.csv:12
 tc24:chease_public,wall_s,475.68749052495696,identity,phase4/tc24/reference/comparison.csv:12
 tc24:chease_mars,dof,131072,identity,phase4/tc24/reference/comparison.csv:16
 tc24:chease_mars,psi_l2,3.4368343447706164e-07,identity,phase4/tc24/reference/comparison.csv:16

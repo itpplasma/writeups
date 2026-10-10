@@ -343,7 +343,7 @@ KIN current replays the same selected inputs, DOFs and references after
 the Brent and performance repairs. The execution windows are not
 contemporaneous, and the historical curves are unchanged.}
 \end{center}
-\dataref{phase2/results/best\_cost.csv}.
+\dataref{phase2/results/best\_cost.csv, kin6d\_current\_cost.csv}.
 
 With $\epsilon=1/A$, the checked disk expansion predicts
 \[
@@ -742,7 +742,8 @@ fix dimensional primitive profiles while rescaling the field. The
 owns the boundary, current and signed edge values.
 
 Public and MARS CHEASE and KIN6D solve this forward problem. VMEC++ and DESC
-receive pressure, rotational transform and flux from the finest public state;
+receive pressure, rotational transform and flux from the historical public
+NS128 state;
 their $q$ errors measure transfer. This finite-reference inverse transfer
 limits cross-code equivalence. DESC's accepted state uses VMEC geometry as an
 initial guess; producing that seed costs additional time.
@@ -750,8 +751,10 @@ initial guess; producing that seed costs additional time.
 \begin{center}\small
 \input{build/tc24_values.tex}
 \captionof{table}{Finest completed modx03 states with complete physical
-readback, compared with public CHEASE's finest state. ``ref.'' is a comparator,
-not an exact equilibrium. Norms are sampled interior relative errors.
+readback, compared with the common historical public CHEASE NS128 state.
+Public NS256's nonzero differences measure finite-reference uncertainty.
+Later controls against NS256 are reported separately. Norms are sampled
+interior relative errors.
 Wall times include process setup but exclude comparison and the DESC seed.
 Source: \texttt{phase4/tc24/reference/comparison.csv}.}
 \end{center}

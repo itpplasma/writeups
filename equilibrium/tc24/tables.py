@@ -271,7 +271,7 @@ def tc24_tables():
         r = max([r for r in rows if r['name']=='reference' and r['code']==code
                  and yes(r['native_converged']) and yes(r['readback_complete'])],key=lambda r: float(r['dof']))
         vals.append([tex(LABELS[code]),cell('tc24:'+code,r,'dof',6)] +
-                    [('ref.' if code=='chease_public' else cell('tc24:'+code,r,f)) for f in ['psi_l2','bpol_l2','q_max']] +
+                    [cell('tc24:'+code,r,f) for f in ['psi_l2','bpol_l2','q_max']] +
                     [cell('tc24:'+code,r,'wall_s')])
     table('tc24_values', ['Code','DOF',r'$\psi$ $L^2$',r'$B_p$ $L^2$','$q$ max','Time (s)'], vals)
     convergence = read(base+'convergence.csv')

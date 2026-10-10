@@ -5,11 +5,9 @@ circular, shaped, prescribed-q, received TC24 and cylinder studies, with
 native and actual-consumer accuracy and the current defect dispositions.
 The report source now includes the completed 10 October accuracy, native-stopping,
 consumer and current-cost controls. Scientific slice closure remains open.
-The refreshed native build has 27 pages. The artifact manifest still identifies
-the previously published build; the
-controller publishes the refreshed PDF and figures after source integration.
+The refreshed native build has 27 pages.
 
-[artifacts.json](artifacts.json) owns the published PDF and ten figure URLs,
+[artifacts.json](artifacts.json) owns the most recently published PDF and figure URLs,
 hashes, source revision and reproduction commands. Slopbox links expire after
 three days. Generated files stay under ignored `build/`; the committed inputs
 and scripts are the durable reproduction path.
