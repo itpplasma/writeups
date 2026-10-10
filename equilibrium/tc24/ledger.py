@@ -100,7 +100,7 @@ def main():
         ('EQ-D88 / Phase 3', 'Open inverse candidate', 'The first constrained linear solve passes; near-axis prescribed-q/coarea source reconstruction and the coupled solve remain unqualified. PR43 is closed with reproducers retained.'),
         ('EQ-P2-1', 'Radial / stopping limits', 'Two circular VMEC++ cases miss combined targets. E2 A10 passes after a strict same-resolution restart. Tighter tolerance removes high-aspect-ratio plateaus; capped attempts remain failures.'),
         ('E4 / VMEC++', 'Radial discretization', 'Refinement decreases field and axis differences, but the delivered states remain above the combined targets.'),
-        ('E4 / DESC', 'Stopping limit', 'Both laws have sampled passing states. A finite-beta warm restart meets targets and calibrated native stopping; historical capped states and costs remain unchanged.'),
+        ('E4 / DESC', 'Stopping limit', 'Both laws have sampled passing states. Finite-beta warm and seed-free cold routes meet targets and calibrated native stopping; historical capped states and costs remain unchanged.'),
         ('EQ-P4A-1', 'Estimator sharpness', 'Finite recovery at the cap supplies the functional estimate. Ordinary quadrature and represented-domain error remain separate from geometry error.'),
         ('EQ-EXPORT-2', 'Export limits; improved', 'Regular-boundary scan refinement and header precision remove the measured flux/q gap; other boundary exits retain their margin.'),
         ('Export studies', 'Sampling / conversion', 'Pooled and per-surface norms differ. No outer-shell or vacuum accuracy is established. Some below-target conversion errors level off.'),

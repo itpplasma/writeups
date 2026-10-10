@@ -31,8 +31,12 @@ Public CHEASE executes NSTTP=5/NCSCAL=1; MARS executes NSTTP=4/NCSCAL=4.
 Public QSPEC normalizes axis q; MARS reads q from EXPEQ and NCSCAL=4
 does not apply QSPEC normalization. The adapter preserves q when changing
 the native field normalization. A scalar root in F_edge enforces the declared
-Phi while holding physical p_prime fixed; all native trials are retained and
-included in cost. VMEC++ uses ncurr=0, prescribed iota=+1/q on its negative-signgs
+Phi while holding the input physical p_prime fixed; all native trials are retained
+and included in cost. The final mapped NCSCAL=1 correction scales the delivered
+p_prime as well as psi/Bpol. At NS=NT128, final SCALE is 1.00000056 (E1),
+1.00000267 (E2) and 0.999997522 (Solovev); the latter two delivered pressure
+derivatives depart from the fixed contract by these factors. This is the
+executed q-axis/edge-F normalization, not an unrecorded reader gain. VMEC++ uses ncurr=0, prescribed iota=+1/q on its negative-signgs
 branch. DESC uses iota=-1/q under its recorded angle map. Their pressure and
 iota tables use s_tor obtained by integrating q, not by identifying psi with Phi.
 
@@ -64,42 +68,56 @@ of the sampled field; FFprime is inferred from that current and the prescribed
 p_prime. Total current independently uses signed LCFS Ampere circulation.
 No profile, phase, sign, gain or geometry is fitted to reduce comparison error.
 
+EQ-D103: current CSV metrics use final-stage native fields. The shared NOUT
+reader applies the logged final SCALE to all Hermite jets and axis psi before
+combining them with delivered F. These corrected independent readbacks replace
+the previous metrics; frozen raw NOUT, EQDSK, consumer files and sample NPZs
+remain unchanged. All 12 scaled native axes agree with final EQDSK axes within
+printed precision. Consumer and export metrics were recomputed offline at the
+unchanged physical queries, without solver or consumer reruns.
+
 | Case / solver | Finest | Bpol rel. L2 | F rel. L2 | j_phi rel. L2 | q rel. max | Producer s |
 |---|---|---:|---:|---:|---:|---:|
-| E1 / public CHEASE | NS128 | reference | reference | reference | 5.59e-7 | 176.7 |
-| E1 / VMEC++ | ns257 | 1.82e-6 | 2.80e-9 | 7.93e-6 | 0 | 16.8 |
-| E1 / DESC | L10 | 3.10e-9 | 1.37e-9 | 2.92e-7 | 0 | 58.3 |
-| E2 / public CHEASE | NS128 | reference | reference | reference | 2.68e-6 | 277.5 |
-| E2 / VMEC++ | ns513 | 4.63e-6 | 4.83e-9 | 1.90e-5 | 0 | 164.9 |
-| E2 / DESC | L10 | 1.09e-8 | 3.49e-9 | 1.19e-6 | 0 | 66.1 |
-| Solovev / public CHEASE | NS128 | 8.24e-7 | 2.42e-9 | 8.88e-5 | 2.48e-6 | 221.9 |
-| Solovev / VMEC++ | ns257 | 8.40e-5 | 1.89e-6 | 8.79e-4 | 5.70e-7 | 26.8 |
-| Solovev / DESC | L12 | 1.48e-5 | 2.95e-7 | 1.10e-4 | 3.01e-13 | 78.8 |
+| E1 / public CHEASE | NS128 | reference | reference | reference | 5.59e-07 | 176.7 |
+| E1 / VMEC++ | ns257 | 1.91e-06 | 2.80e-09 | 7.96e-06 | 0.00e+00 | 16.8 |
+| E1 / DESC | L10 | 5.61e-07 | 1.37e-09 | 6.20e-07 | 0.00e+00 | 58.3 |
+| E2 / public CHEASE | NS128 | reference | reference | reference | 2.68e-06 | 277.5 |
+| E2 / VMEC++ | ns513 | 5.35e-06 | 4.83e-09 | 1.93e-05 | 0.00e+00 | 164.9 |
+| E2 / DESC | L10 | 2.67e-06 | 3.49e-09 | 2.92e-06 | 0.00e+00 | 66.1 |
+| Solovev / public CHEASE | NS128 | 2.61e-06 | 2.42e-09 | 8.89e-05 | 2.48e-06 | 221.9 |
+| Solovev / VMEC++ | ns257 | 8.40e-05 | 1.89e-06 | 8.79e-04 | 5.70e-07 | 26.8 |
+| Solovev / DESC | L12 | 1.48e-05 | 2.95e-07 | 1.10e-04 | 3.01e-13 | 78.8 |
 
 ### Selected sampled target-passing states
 
-The table selects the least-cost retained **passing** state for each code/case,
-rather than its finest state. Both codes use the same 600 physical points,
-R-weighted field norms and 40 q queries. E1/E2 use the same KIN6D n81 inverse
-reference; Solovev uses the exact state. Public fields use the corrected native
-NOUT readback; KIN6D readback reproduces its native samples exactly. All listed
-states meet psi L2 1e-6, Bpol/Btor L2 1e-5 and max 1e-4, q max 1e-5, and axis,
-volume and signed Phi relative error 1e-6 on these sampled domains.
+The table selects the least-cost retained sampled passing state after final-stage
+readback correction. E1/E2 use the KIN6D n81 inverse reference; Solovev uses
+the exact state. Targets are psi L2 1e-6, Bpol/Btor L2 1e-5 and max 1e-4,
+q max 1e-5, and axis, volume and signed Phi relative error 1e-6.
+No retained public E2 or Solovev state meets the psi target; their finest errors
+are 2.66e-6 against common KIN6D and 2.47e-6 against exact Solovev. The former
+public selections are superseded, not retained as passing observations.
 
 | Case / retained row | DOF | psi L2 | Bpol L2 / max | Btor L2 / max | q max | Axis / volume rel. | Phi rel. | Producer s |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| [E1 / KIN6D n37](E1_constant_q_A10_kin6d_1.json) | 1489 | 1.53e-07 | 3.09e-06 / 3.14e-05 | 2.45e-07 / 2.44e-07 | 3.16e-06 | 1.30e-07 / 2.45e-07 | 3.69e-12 | 6.038 |
-| [E1 / public CHEASE NS=NT=16](E1_constant_q_A10_chease_public_0.json) | 1088 | 1.25e-07 | 1.31e-06 / 3.08e-06 | 2.09e-08 / 3.69e-08 | 8.79e-06 | 9.71e-09 / 1.02e-08 | 9.94e-11 | 14.740 |
-| [E2 / KIN6D n55](E2_constant_q_A10_kin6d_2.json) | 3262 | 5.03e-08 | 1.77e-06 / 6.46e-06 | 4.15e-08 / 4.11e-08 | 1.82e-06 | 8.55e-07 / 4.14e-08 | 4.44e-16 | 33.556 |
-| [E2 / public CHEASE NS=NT=64](E2_constant_q_A10_chease_public_2.json) | 16640 | 1.54e-08 | 5.03e-07 / 1.91e-06 | 5.00e-09 / 5.05e-09 | 4.74e-06 | 1.64e-07 / 1.02e-08 | 1.13e-10 | 103.565 |
-| [Solovev / KIN6D n48](Solovev_inverse_A3_kin6d_1.json) | 2854 | 2.67e-07 | 8.30e-06 / 4.32e-05 | 2.47e-07 / 2.42e-07 | 2.94e-06 | 1.68e-08 / 1.04e-07 | 1.78e-15 | 2.423 |
-| [Solovev / public CHEASE NS=NT=64](Solovev_inverse_A3_chease_public_2.json) | 16640 | 1.76e-07 | 7.09e-06 / 1.58e-05 | 6.61e-09 / 6.46e-09 | 5.99e-06 | 1.56e-08 / 1.01e-10 | 1.26e-10 | 79.707 |
+| [E1 / public CHEASE NS=NT=64](E1_constant_q_A10_chease_public_2.json) | 16640 | 4.57e-07 | 4.73e-07 / 5.53e-07 | 1.09e-08 / 1.17e-08 | 4.68e-07 | 1.00e-08 / 1.02e-08 | 9.75e-11 | 67.991 |
+| [E1 / KIN6D](E1_constant_q_A10_kin6d_1.json) | 1489 | 1.53e-07 | 3.09e-06 / 3.14e-05 | 2.45e-07 / 2.44e-07 | 3.16e-06 | 1.30e-07 / 2.45e-07 | 3.69e-12 | 6.038 |
+| [E2 / KIN6D](E2_constant_q_A10_kin6d_2.json) | 3262 | 5.03e-08 | 1.77e-06 / 6.46e-06 | 4.15e-08 / 4.11e-08 | 1.82e-06 | 8.55e-07 / 4.14e-08 | 4.44e-16 | 33.556 |
+| [Solovev / KIN6D](Solovev_inverse_A3_kin6d_1.json) | 2854 | 2.67e-07 | 8.30e-06 / 4.32e-05 | 2.47e-07 / 2.42e-07 | 2.94e-06 | 1.68e-08 / 1.04e-07 | 1.78e-15 | 2.423 |
 
 [passing_states_common_reference.csv](passing_states_common_reference.csv) owns
-these recomputed numeric cells at full precision, with the native sample path,
-point-file identity and reference identity. The linked JSONs own resolution,
-time and raw roots; they do not contain these common-reference errors.
-Reproduce the errors with the existing analyzer from the repository root:
+these numeric cells. For public CHEASE, samples_path/hash identify raw NOUT
+from which the corrected independent readback is evaluated; frozen sample NPZs
+predate final-stage correction. KIN6D entries retain their native sample identity.
+The linked JSONs own resolution, time and raw roots. The maintained analyzer
+re-evaluates CHEASE raw NOUT at retained NPZ queries and recomputes its native
+LCFS current without altering historical NPZ/current files. It does not scale
+cached fields, so new final-stage outputs are not scaled twice. Export comparison
+uses this same readback for native candidates and finite references while keeping
+actual delivered-reader fields fixed. Boozer/consumer references and mapped-cell
+effectivity use the shared native reader directly.
+
+Reproduce the common-reference table with both circular KIN6D level-3 inputs:
 
 ```sh
 mkdir -p /DISK/phase3-common
@@ -107,15 +125,9 @@ cp equilibrium/phase3/results/*_kin6d_?.json equilibrium/phase3/results/*_chease
 python -m equilibrium.phase3.analyze --output /DISK/phase3-common
 ```
 
-Select from the resulting `comparison.csv` the six `(case, code, level)` keys
-in the selection CSV. Both circular KIN6D level-3 rows must be present so that
-the analyzer uses their common reference; including only public rows chooses
-a different reference. Retained native-state and readback files must be available.
-
-Native stopping is retained: KIN6D nonlinear_tolerance=1e-10 (recorded residuals
-2.30e-14 to 4.99e-14); public CHEASE EPSLON=1e-11, RELAX=0.3, with accepted
-native convergence on every flux-root trial. E2 KIN6D n37 misses the axis target
-(2.15e-6); public NS32 misses q (2.20e-5), so neither is selected.
+Select the passing `(case, code, level)` keys from the resulting corrected
+comparison CSV. The original other-code comparison uses only the 38 retained
+public/VMEC++/DESC JSON keys, so E1/E2 retain their public finite reference.
 
 Times retain KIN6D `ccabcc5` (binary SHA256 `a32c4ee0…`) and public CHEASE
 `b179fc6` (`3f5a914a…`); full pins stay in the linked raw manifests. Both ran on
@@ -128,17 +140,17 @@ are included; KIN6D's estimator is included and CHEASE has no matching stage.
 Export products differ (KIN6D mesh/profile files versus CHEASE NOUT/EQDSK).
 Oracle field sampling and subsequent consumer conversions are excluded.
 Original timing pins, cost curves and 300-s-per-native-solve caps are retained.
-Thus these are passing-state producer measurements, not matched pure-solver
+Thus these are retained producer measurements, not matched pure-solver
 benchmarks or a fastest-code claim. Uncontrolled contention, finite circular
 reference uncertainty and the excluded edge shell prevent a reproducible speed
 ranking or an absolute whole-domain accuracy claim.
 
 Solovev errors use the exact answer. The original E1/E2 tables use public NS128 native
 NOUT references; the KIN6D supplement compares against them. Reference zeros in
-the CSV are not accuracy measurements. The public last-triplet Bpol refinement
-estimates are 2.81e-9 (E1) and 1.34e-8 (E2), with measured orders 2.96/2.98.
-Across the study, CHEASE field/current refinement is consistent with the
-expected cubic/quadratic rates, VMEC++ field differences decrease approximately
+the CSV are not accuracy measurements. The corrected public last-triplet
+Bpol differences do not establish an
+asymptotic reference-error bound: final q-axis normalization contributes a
+resolution-dependent field gain. VMEC++ field differences decrease approximately
 as h^1.5 (at least its expected first-order radial rate), and DESC has geometric
 degree convergence. [self_convergence.csv](self_convergence.csv) reports
 successive differences and last-triplet estimates; DESC's `richardson` column
@@ -150,7 +162,8 @@ KIN6D a posteriori estimator.
 `python -m equilibrium.phase3.kin6d_effectivity`, compare the whole-domain
 majorant with componentwise field errors on the existing interior point sets.
 The ratios are 1.33–1.44 against exact inverse Solovev, 1.42–4.21 for E1/E2,
-and 16–60 for the two TC24 ladders. The excluded edge shell means these ratios
+and 16–60 for the two TC24 ladders. The sampled E1/E2 script uses the KIN6D
+level-3 reference and is unaffected by the public NOUT correction. The excluded edge shell means these ratios
 are upper estimates of whole-domain effectivity; they cannot establish that
 the estimator never underestimates the full error. Finite-reference Richardson
 corrections assume
@@ -166,33 +179,56 @@ native mesh. At 658, 2,854, 11,575 and 46,558 free DOF, majorant/error is 1.178,
 Raising quadrature order from 8 to 12 changes the error norm by at most 1.6e-11
 relative; the reader reproduces all retained field samples exactly. The status-4
 majorant remains a frozen-source diagnostic, not a nonlinear error bound.
-[Full-domain circular measurements](kin6d_effectivity_native_circular.csv) use the
-same mapped-cell quadrature against the independently solved public CHEASE NS128
-native field, including every cell. Across levels 0/1/2, majorant/error is
-1.108–1.125 (E1) and 1.129–1.138 (E2); measured field-energy orders are
-3.31–3.62 / 3.29–3.26. Raising quadrature from 8 to 12 changes the norm by at
-most 6.92e-6 relative. The independent P3 differentiation and native reader
-agree within 5.82e-12; no retained sample is rejected. The finite CHEASE reference
-contributes unbounded reference uncertainty, so these are measured diagnostic
-stability ratios, not a proof of reliability. This establishes empirical stability
-for all three inverse ladders. TC24 whole-domain stability and nonlinear bounds
-remain open. Reader and solve identities are distinct
-in the CSV. Reproduce with a verified absolute `FO_DRIVER` and optional
+[Full-domain circular measurements](kin6d_effectivity_native_circular.csv) now
+use the corrected public NS128 native field at identical mapped-cell quadrature
+nodes. Maintained native readback gives majorant/error 1.1044/1.1058/1.0218
+for E1 and 1.1179/1.0786/0.7857 for E2 across levels 0/1/2. Thus the fine E2
+ratio is below one. The finite reference has unbounded reference uncertainty,
+so this is neither proof of estimator failure nor continuous reliability.
+These remain frozen-source diagnostics. Raising quadrature 8 to 12 changes the norm by at most
+5.91e-6; independent P3 gradients agree with native fields within 5.82e-12,
+and all retained samples are reproduced. Reader f6a33c9/build66037bab is recorded
+separately from solve identity. The original raw runs remain unchanged; logged
+SCALE is part of the reference input identity. Reproduce with a verified absolute `FO_DRIVER` and optional
 `FO_DRIVER_SHA256`, `KIN6D_ROOT` and `FO_CMAKE_BUILD_DIR`, then run
 `python -m equilibrium.phase3.mesh_quadrature`; circular cases additionally use
 `--case E1_constant_q_A10 --reference equilibrium/phase3/results/E1_constant_q_A10_chease_public_3.json --out E1-effectivity.csv`
 (and the corresponding E2 paths and output filename). Native readback uses
 `fo exec --no-build`, without changing or rerunning the stored solves.
 
-Exact signed Solovev current is -12.785832252 MA. Public/VMEC++/DESC relative
-current errors are 1.55e-10/1.78e-6/1.33e-6. Public E1/E2 currents are
--1.101494001/-1.111790400 MA. Solovev recovered FFprime RMS is
-5.72e-4/5.88e-3/7.30e-4 T for public/VMEC++/DESC; it tends toward the exact zero
-with the differentiated-field error. The CSVs also retain psi, axis, volume,
-field maxima, current quadrature differences and force balance.
+Exact signed Solovev current is -12.785832252 MA. Corrected public NS128
+relative current error is 2.48e-06; recovered FFprime RMS is
+5.73e-04 T. The CSVs retain current, curl, force, axis and
+volume measurements; final mapped normalization is included in field/current
+errors and is not removed to match exact truth.
 
 VMEC++ Solovev still misses psi, Bpol and axis targets; ns513 hits the 300 s cap.
-VMEC++ E2 reaches the field target but its axis error is 2.02e-6, above 1e-6.
+VMEC++ E2 reaches the field target at NS513 but its axis error is 2.02e-6
+against the retained public-CHEASE reference, or 2.184e-6 against the common
+KIN6D inverse level 3 reference. A single unchanged-physics native continuation
+NS513→897 at M24 and ftol=1e-18 is retained in
+[vmecpp_target_controls.csv](vmecpp_target_controls.csv). It costs 236.61 s on
+CPU1/thread1, separately from the retained 164.91 s seed-production cost,
+and exhausts its configured 16000-iteration native budget: fsqr=3.538e-17.
+The saved state passes every
+physical field/flux/volume gate against both references, but its axis error is
+9.750e-7 against public CHEASE and 1.140e-6 against common KIN6D. Their native
+axis offset is 1.645e-7 relative, so the public comparison does not close the
+common-reference gate. Observed radial axis reduction against public CHEASE
+has order 1.30, consistent with the prior ladder; the warm state remains
+unqualified at the common target and native stopping. E2 has a numerical
+resolution/cost classification with finite-reference sensitivity; no native
+defect is established. q/Phi are input-transfer checks. The existing samples and common references are reused without a solve.
+
+| Inverse case | Retained VMEC++ result | Remaining target/budget |
+|---|---|---|
+| E1 constant-q | NS257, 16.79 s; common-KIN axis 7.136e-7 | Sampled targets and native stopping pass. |
+| E2 constant-q | NS897, additional 236.61 s; common-KIN axis 1.140e-6 | Axis and strict native stopping remain open; observed per-iteration cost would make a 40000-iteration NS897 budget about 590 s, without guaranteeing convergence. |
+| Exact Solovev | NS257, 26.83 s; axis 1.472e-4, Bpol L2 8.404e-5 | Expected-rate radial convergence; NS513 already timed out at 300 s. Extrapolating the latest axis rate needs order 17000 radial surfaces, not an affordable target control. |
+
+The axis/resolution and iteration-budget projections are estimates, not executed
+fine-grid results or matched costs. All native inputs, saved states and capped
+attempts remain retained; historical curves and timing pins are unchanged.
 The original DESC Solovev L12 curve misses psi, Bpol and axis targets. The
 retained L14/400 state already meets all sampled exact targets but exhausts its
 `gtol=1e-12` budget. A same-input warm restart with `gtol=1e-9` stops after two
@@ -222,9 +258,9 @@ identical quadratures to the producer norms above.
 
 | Finest public input / reader | E1 Bpol L2 | E2 Bpol L2 | Solovev Bpol L2 |
 |---|---:|---:|---:|
-| EQDSK / actual libneo | 5.56e-7 | 2.67e-6 | 2.55e-6 |
-| GPEC/DCON | 9.19e-7 | 2.85e-6 | 2.86e-6 |
-| Full NEO-2 | 5.67e-7 | 2.68e-6 | 2.49e-6 |
+| EQDSK / actual libneo | 8.91e-09 | 9.94e-09 | 2.55e-06 |
+| GPEC/DCON | 8.00e-07 | 1.54e-06 | 2.86e-06 |
+| Full NEO-2 | 6.22e-08 | 6.91e-08 | 2.49e-06 |
 
 On the frozen Solovev NS128 export, m24 Boozer truncation leaves a worst-surface
 Bpol L2 error of 5.48e-5 and s_tor error 2.46e-5. Refining only Fourier m to48

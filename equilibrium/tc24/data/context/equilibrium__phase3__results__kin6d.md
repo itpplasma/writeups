@@ -115,9 +115,9 @@ covers four retained native curved-P3 resolutions of Solovev_inverse_A3
 (658 to 46,558 DOFs). Reader-computed energy error against the exact oracle
 decreases at approximately h³ (DOF slopes −1.55 to −1.65), with order-8 to
 order-12 quadrature drift below 1.6e-11. Diagnostic effectivity stays between
-1.161 and 1.178. This establishes measured stability for Solovev; E1/E2
-full-domain diagnostic stability against native public CHEASE is now measured for
-E1/E2 as well ([results](README.md)); a nonlinear reliability bound remains unavailable. The GPEC/DCON EQDSK
+1.161 and 1.178. This establishes measured effectivity for Solovev. E1/E2
+full-domain comparisons use corrected final-stage public CHEASE fields
+([results](README.md)); their finite-reference uncertainty precludes a nonlinear reliability claim. The GPEC/DCON EQDSK
 consumer readback of a KIN6D inverse export is measured and on target (above);
 [NEO-2 vector readback](kin6d_consumers_neo2.csv) now uses the existing libneo
 EQDSK-to-Boozer converter on the same six canonical exports. [Scalar and spectral

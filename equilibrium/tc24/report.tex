@@ -11,7 +11,7 @@
 \setlength{\parskip}{5pt plus 1pt}
 \setlength{\emergencystretch}{2em}
 \captionsetup{font=small,labelfont=bf,skip=4pt}
-\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/6019d8e4/}
+\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/b6047b7ba/}
 \newcommand{\tcfile}[2]{\href{\tcroot#1}{#2}}
 \newcommand{\kincommit}[2]{\href{https://github.com/itpplasma/kin6d/commit/#1}{#2}}
 \newcommand{\dataref}[1]{{\footnotesize CSV source: \texttt{#1}}}
@@ -73,7 +73,7 @@ Phase & Delivered evidence & Remaining qualification \\
 1: exact & Field/flux convergence, cost, P2/P3 comparison and actual consumers & VMEC++ targets; matched cold DESC boundary cost \\
 2: circular & Both source laws across the aspect-ratio ladder; numerical references and large-aspect-ratio check & Two VMEC++ target gaps; selected consumer paths absent \\
 3: inverse & Three contracts, KIN6D and reference-code fields/current/cost & MARS failure; nonlinear reliability and geometric consistency \\
-4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ targets; matched cold DESC cost \\
+4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ targets; repeated matched cost \\
 4b: TC24 & modx03 provenance, exact replay, five-code study and exports & Target accuracy and reader failures \\
 5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & Matched cold DESC cost \\
 \bottomrule
@@ -82,7 +82,7 @@ Phase & Delivered evidence & Remaining qualification \\
 
 The reader is Chris and, after revision, the TC24 collaborators. All empirical
 figures and numerical tables are generated from committed CSVs. The primary
-data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 6019d8e4}}. The retained
+data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 b6047b7ba}}. The retained
 README files explain how the runs were made; where they lag the numerical
 tables, this report follows the CSV rows and their settings. KIN6D's earlier
 owner study is labeled separately. No new solver run was made for this report.
@@ -396,6 +396,15 @@ cost is kept separate from the historical cold cost ladder. E4's Fourier boundar
 well below its field error, so the exact Cerfon boundary limitation does not
 explain this case.
 
+A seed-free cold M4-to-M12 route with explicit $g_{tol}=10^{-9}$ and
+maximum 200 iterations also meets every sampled target and native stopping.
+Its 54.86-second subprocess time includes imports, JIT compilation, both
+solves and native save. The subsequent 0.454-second state load and common
+oracle evaluation are excluded. This single replay qualifies the cold route;
+it does not supply a contemporaneous all-code E4 speed ranking. The earlier
+strict cold route remains a native stopping failure.
+\dataref{phase4/results/desc\_cold\_cost.csv}.
+
 \begin{center}
 \includegraphics[width=.94\textwidth]{build/shaped.pdf}
 \captionof{figure}{E4 zero- and finite-pressure laws versus DOF and producer
@@ -661,13 +670,15 @@ kin6d\_consumers\_hamada.csv, kin6d\_consumers\_neo2.csv}.
 
 Whole-domain mapped-cell integration measures the status-4 frozen-source
 estimator on all three inverse ladders. Majorant/error ratios are
-1.161--1.178 against exact Solov'ev fields, 1.108--1.125 for E1 and
-1.129--1.138 for E2 against native public CHEASE. Field-energy error decreases
-approximately at the predicted cubic rate. Raising quadrature order from
-8 to 12 changes the Solov'ev norm by at most $1.6\times10^{-11}$ relative,
-and the circular norms by at most $6.92\times10^{-6}$.
-These are measured diagnostic stability ratios. Circular comparisons contain finite-reference error and do not supply
-a reliability bound for the coupled inverse problem. Sources: \texttt{kin6d\_effectivity\_native\_solovev.csv} and
+1.161--1.178 against exact Solov'ev fields. With corrected final-stage public
+CHEASE references, E1 ratios at successive levels are 1.1044, 1.1058 and
+1.0218; E2 ratios are 1.1179, 1.0786 and 0.7857. The finest E2 ratio is below
+one. These frozen-source diagnostics contain finite-reference error and
+provide neither a coupled inverse reliability bound nor proof of estimator
+failure. The exact Solov'ev norm changes by at most $1.6\times10^{-11}$
+relative when quadrature order increases from 8 to 12; the corrected circular
+norms change by at most $5.91\times10^{-6}$. Sources:
+\texttt{kin6d\_effectivity\_native\_solovev.csv} and
 \texttt{kin6d\_effectivity\_native\_circular.csv}.
 
 The separate NEO-2 geometric determinant exposed insufficient precision in

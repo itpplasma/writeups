@@ -173,6 +173,33 @@ The n256→n320 Bpol difference is 2.412e-4, psi 1.398e-6 and q 3.670e-5.
 That comparison changes quadrature tolerance as well as mesh resolution;
 it does not establish a clean spatial convergence rate.
 
+The [held-quadrature refinement](reference/kin6d_refinement.csv) uses the same
+physics and quadrature 1e-5 at n256/320/384. The n320 source remains the retained
+rank candidate; n256 and n384 use promoted main `f6a33c9`. At n256, the change
+from its original 1e-7 quadrature gives only Bpol L2 1.418e-7 and psi L2 2.807e-8.
+The new ladder gives generalized Bpol order 3.66 (predicted 3), and psi 3.57
+(predicted 4, with finest psi already below target). Median cell flux spans in
+the outer pedestal are 0.02236/0.01840/0.01534; its source variation scale is
+about 0.017. The original low rates were preasymptotic numerical resolution.
+98.94% of the last squared Bpol difference lies at s_pol>0.9.
+
+Against finite public CHEASE NS320/NT640, KIN6D n384 gives psi L2 3.744e-7,
+Bpol L2 6.031e-5 and Bpol max 4.700e-4: Bpol remains about six times its L2
+target. The full-B L2/max values 1.040e-5/1.021e-4 do not replace the component
+gates. Axis relative error is 3.002e-5, about thirty times target; public
+NS256→320 axis uncertainty is only 1.098e-9. Volume/Phi differences are
+5.302e-9/3.652e-8. The public Bpol difference 5.336e-5 remains finite-reference
+uncertainty, separate from KIN6D self-convergence. Native q qualification uses
+the consumer's separately pinned refined profile readback.
+
+The completed n384 process takes 448.66 s, including 396.88 s for mesh,
+assembly/solve/current normalization together and 47.70 s for the estimator;
+contour and area readback take 0.50/2.36 s. Five Newton iterations converged,
+but linear-iteration and phase counters were not recorded, so no finer timing
+breakdown is asserted. These concurrent-lane times remain exploratory. The
+recovery again stops at 6000 iterations with status 4: its frozen-source
+estimate is not minimized and does not establish nonlinear reliability.
+
 [Finite-reference controls](reference/reference_uncertainty.csv) compare
 the retained public CHEASE NS128/NT256 and NS256/NT512 states on the same
 original samples, with norms normalized by NS256. Their differences are
@@ -188,6 +215,15 @@ the newer comparison still does not qualify KIN6D at the targets.
 The candidate n320 state versus NS256 gives psi L2 7.853e-7, Bpol L2
 1.112e-4 and q max 2.934e-3 using the original readback configuration.
 
+The larger [public NS320 reference](reference/reference_uncertainty_n320.csv)
+completes in 1133.66 s, with 37.50 GiB peak resident memory. NS256→320 differences
+on the same 1200 points are psi L2 4.944e-7, Bpol L2/max 5.336e-5/2.383e-4
+and q max 1.129e-5. The largest Bpol difference lies in the interior at
+s_pol=0.295. Unequal-grid apparent rates are 3.13 for psi and 2.62 for Bpol,
+but successive difference vectors are poorly aligned; these estimates do not
+establish a Richardson error bound. Bpol and q reference uncertainty still
+exceed their targets.
+
 Saved-state readback controls hold the n256 mesh, field and profile law fixed.
 The original 129-radial/160-angular readback is reproduced byte for byte;
 257/320 and 2049/320 reduce the q gap against public NS256 at held s_tor
@@ -201,6 +237,13 @@ an asymptotic rate. The remaining producer/reference gap exceeds the 1e-5 target
 and remains unqualified. Executed settings and raw roots are in
 [the control table](reference/kin6d_controls.csv); original producer costs and
 finite-reference comparisons remain unchanged.
+
+The same 2049/320 saved-state readback on KIN6D n384 takes 14.65 s. Its q gap
+at held s_tor is 5.224e-5 against public NS256 and 5.866e-5 against NS320;
+the latter is 6.573e-5 at common physical points. Native q at fixed psi and
+edge toroidal flux are unchanged to round-off. Matching fine readback on
+n256 and n384 reduces the q gap, but a third mesh with matching readback is
+absent, so no spatial q rate is inferred. The remaining gap exceeds target.
 
 ## Received variants
 

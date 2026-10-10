@@ -24,6 +24,7 @@ Public CHEASE,EQ-D23,Thin-flux smoothing has too few knots; failed spline status
 Public CHEASE,EQ-D30,Band counts and addresses overflow int32,PR open,PR open,[PR3](https://github.com/itpplasma/chease/pull/3),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D46,Fourth smoothed-jet slot duplicated,PR open,PR open,[SPC !94](https://gitlab.epfl.ch/spc/chease/-/merge_requests/94),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D59,Singleton/zero-pivot factorization errors,PR open,PR open,"[PR18](https://github.com/itpplasma/chease/pull/18), split from performance PR5",,equilibrium/ERRATA.md
+Public CHEASE,EQ-D112,Final pivot tested against an unrelated matrix scale,PR open,PR open,"[PR20](https://github.com/itpplasma/chease/pull/20), `d9262bc`",,equilibrium/ERRATA.md
 Public CHEASE,EQ-D72,Effective quadrature count/capacity mismatch,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D72,Radial endpoint uses singular axis operator,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D85,Unmatched boundary angle uses unset index,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
@@ -34,6 +35,7 @@ Public CHEASE,EQ-D08/EQ-D31,Unexplained export/force accuracy; candidate only,op
 MARS CHEASE,EQ-D39,Cubic profile primitive factor/sign wrong,PR open,PR open,[PR6](https://github.com/gafusion/MARS-Q/pull/6); fork PR30 closed,,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D46,Fourth smoothed-jet slot duplicated,PR open,PR open,[PR7](https://github.com/gafusion/MARS-Q/pull/7); fork PR31 closed,,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D59,Factorization edge errors/unset success status,PR open,PR open,"[PR45](https://github.com/krystophny/MARS-Q/pull/45), split from performance PR32",,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D112,Final pivot tested against an unrelated matrix scale,PR open,PR open,"[PR49](https://github.com/krystophny/MARS-Q/pull/49), `fcc2a02`",,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D63,Axis F uses TMF as interpolation coordinate,PR open,PR open,[PR35](https://github.com/krystophny/MARS-Q/pull/35),,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D72,Quadrature count/capacity mismatch,PR open,PR open,[PR37](https://github.com/krystophny/MARS-Q/pull/37),,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D72,Radial endpoint uses singular axis operator,PR open,PR open,[PR37](https://github.com/krystophny/MARS-Q/pull/37),,equilibrium/ERRATA.md
@@ -52,15 +54,15 @@ DESC,EQ-D20,Unexplained unconverged TC24 accuracy,open candidate,open candidate,
 INTERPOS / readers,EQ-D23,Spline failure overwritten by later success,PR open,PR open,[MR1](https://gitlab.tugraz.at/plasma/libs/interpos/-/merge_requests/1),,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D03,Valid omitted-E exponent rejected,fixed on main,fixed on main,[06a0c32ca](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/06a0c32ca),,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D54,Incomplete producer-aware COCOS conversion,fixed on main,fixed on main,[3837efd2f](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/3837efd2f),,equilibrium/ERRATA.md
-INTERPOS / readers,EQ-D57,VMEC chart fixture/flux map wrong,open candidate,open candidate,Repair checked; publication revision unrecorded,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D57,VMEC chart fixture/flux map wrong,fixed on main,fixed on main,[fa50b6027](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/fa50b6027); physical chart-reversal regression,,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D24,Mixed P1/smooth inverse-profile construction,fixed on main,fixed on main,[d393327fa](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/d393327fa); unsafe ingress blocked,,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D38,Nonfinite/incomplete radial maps accepted,fixed on main,fixed on main,[5e9204e34](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/5e9204e34),,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D78,Mesh version/connectivity ignored,fixed on main,fixed on main,[d393327fa](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/d393327fa),,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D35,Inner sample reported as domain-wide force,fixed on main,fixed on main,[3115ca5e9](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/3115ca5e9); coverage correction,,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D60,Indexwise grids/dimensional tolerance mixed,fixed on main,fixed on main,[81ab49ff5](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/81ab49ff5),,equilibrium/ERRATA.md
-INTERPOS / readers,EQ-D69,Vertex-only boundary maximum mislabeled,open candidate,open candidate,Historical field unchanged; whole-edge correction retained,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D69,Vertex-only boundary maximum mislabeled,corrected historical diagnostic,corrected historical diagnostic,[Whole-edge correction](ERRATA_ARCHIVE.md#eq-d69-kin6d-e0-boundary-diagnostic-samples-vertices-only); current studies do not use the frozen field,,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D102,Generated standalone/forward EXPEQ headers invalid,corrected reproducer retained,corrected reproducer retained,closed [PR43](https://github.com/krystophny/MARS-Q/pull/43) branch preserves generated-input fix; separate local forward fix retained,,equilibrium/ERRATA.md
-INTERPOS / readers,EQ-D103,Pre/post-normalization fields combined,PR open (TC24 path); other producers open,PR open (TC24 path); other producers open,[MR20 / e76ae302e](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20); logged-stage polynomial regression,,equilibrium/ERRATA.md
+INTERPOS / readers,EQ-D103,Pre/post-normalization fields combined,PR open; shared reader corrected,PR open; shared reader corrected,[MR20](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20); final-stage polynomial and cached-readback regression,,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D105,Nonfinite cylinder references accepted,fixed on main,fixed on main,[eaaf2f7f9](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/eaaf2f7f9); native NaN rejection,,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D107,Sample RMS mislabeled as volume RMS,fixed on main,fixed on main,[ef464e4ca](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/ef464e4ca),,equilibrium/ERRATA.md
 INTERPOS / readers,EQ-D109,Pressure oracle mixed reference interpolations,fixed on main,fixed on main,[ece8d6bf4](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/ece8d6bf4),,equilibrium/ERRATA.md
@@ -77,4 +79,4 @@ iter_tc24,EQ-TC24-6,GPEC comparison drops signed toroidal flux,PR open,PR open,[
 GPEC,EQ-TC24-7,Field-line failure formatter overflows its buffer,PR open,PR open,[PR1](https://github.com/krystophny/GPEC/pull/1); underlying step-limit failure remains open,,equilibrium/ERRATA.md
 libneo,EQ-TC24-8,Four-digit EQDSK dimensions fail whitespace parsing,PR open,PR open,[PR4](https://github.com/krystophny/libneo/pull/4),,equilibrium/ERRATA.md
 libneo,EQ-EXPORT-2,Regular boundary scan and low-precision header limit exported flux,PR open,PR open,[PR423](https://github.com/itpplasma/libneo/pull/423); personal-fork PR2 closed,,equilibrium/ERRATA.md
-KIN6D / TC24,EQ-TC24-3,modx03 Bpol rates and nonlinear estimator stability unqualified,open candidate,open candidate,[Convergence](phase4/tc24/reference/convergence.csv); status-4 estimate is diagnostic,,equilibrium/ERRATA.md
+KIN6D / TC24,EQ-TC24-3,Preasymptotic modx03 Bpol error,numerical limitation; targets open,numerical limitation; targets open,[Held-quadrature refinement](phase4/tc24/reference/kin6d_refinement.csv) gives order 3.66; status-4 estimate remains diagnostic,,equilibrium/ERRATA.md

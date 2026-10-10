@@ -99,12 +99,12 @@ and DESC remain the references; FreeGS, original VMEC and GVEC stay withdrawn.
 |---|---|---|
 | 0 Dechurn | Done | Archives, PR/status cleanup and the replacement brain section are delivered; raw figure inputs remain preserved. |
 | 1 Exact | Open | Five-code curves and P2/P3 rates delivered; DESC reaches all sampled targets by spectral refinement; VMEC++ targets and matched DESC cold cost remain. |
-| 2 Circular | Open | Eight-case comparison and current KIN6D cost refresh pass sampled targets; three VMEC++ target gaps and selected consumer exclusions remain. |
-| 3 Inverse | Open | Three diagnostic estimator ladders and actual consumers delivered; DESC targets pass; MARS failure, VMEC++ targets and geometric determinant consistency remain. |
+| 2 Circular | Open | Eight-case comparison and current KIN6D cost refresh pass sampled targets; two VMEC++ target gaps and selected consumer exclusions remain. |
+| 3 Inverse | Open | Final-stage readback corrected; public E2/Solovev lose psi qualification. MARS failure, VMEC++ targets, nonlinear bounds and consumer geometry remain open. |
 | 4a E4 | Open | Two laws, five codes and consumer comparisons delivered; finite-beta DESC accuracy/stopping passes; VMEC++ targets remain. |
-| 4b TC24 | Open | Boundary, finite-reference, quadrature and q readback effects measured; rates, target accuracy and converter geometry remain unresolved; GPEC executes with recorded tolerance. |
+| 4b TC24 | Open | KIN6D held-quadrature Bpol rate 3.66 matches prediction; finite-reference uncertainty, target accuracy and converter geometry remain open. |
 | 5 Cylinder | Open | Five-code curves and KIM ingress delivered; coarse KIN6D repaired; DESC accuracy/stopping passes at all four aspect ratios; selected consumer paths remain excluded. |
-| 6 Report | Done (report) | The 21-page report and ten figures are published in writeups PR1; scientific slice closure remains open. |
+| 6 Report | Done (report) | The 27-page report and ten figures are published in writeups PR1; scientific slice closure remains open. |
 
 ## Phase 0 — Dechurn (do first; time-box about 2 working days)
 
@@ -167,8 +167,8 @@ Each phase measures accuracy after export and actual consumer readback.
 
 ## Phase 2 — Circular toroidal ladder without an exact solution
 
-- [Eight-case comparison and export study](equilibrium/phase2/results/README.md) delivered; three VMEC++ target gaps and the stated consumer exclusions remain.
-- KIN6D P3 Richardson Bpol errors are 7e-9 to 7e-8; majorant/Richardson 1.3–3.0. Shift/q remainders follow A^-3/A^-4. Current selected-state costs are 0.412–1.695 s; other-code timing windows remain historical.
+- [Eight-case comparison and export study](equilibrium/phase2/results/README.md) delivered; two VMEC++ target gaps and the stated consumer exclusions remain.
+- KIN6D P3 Richardson Bpol errors are 7e-9 to 7e-8; majorant/Richardson 1.3–3.0. Shift/q remainders follow A^-3/A^-4. In 72 matched selected-state calls, KIN6D beats both CHEASE variants in all eight cases; DESC/VMEC++ timings remain historical.
 - Self-convergence per code (Richardson estimate of the error at reference
   resolution) plus the KIN6D estimator, then cross-code difference at converged
   resolution. Cross-code differences above target need a cause.
@@ -177,7 +177,7 @@ Each phase measures accuracy after export and actual consumer readback.
 
 ## Phase 3 — Inverse (prescribed-q) cases
 
-- [Three-case inverse study](equilibrium/phase3/results/README.md) and [KIN6D supplement](equilibrium/phase3/results/kin6d.md) deliver F, current, fields, q and cost. Public and KIN6D sampled passing states are available; MARS remains an open defect candidate; VMEC++ target gaps remain and DESC reaches its sampled targets with calibrated stopping.
+- [Three-case inverse study](equilibrium/phase3/results/README.md) and [KIN6D supplement](equilibrium/phase3/results/kin6d.md) deliver F, current, fields, q and cost. KIN6D and public E1 have sampled passing states; public E2/Solovev miss psi after final-stage correction. MARS remains a candidate; VMEC++ target gaps remain and DESC reaches its sampled targets with calibrated stopping.
 - KIN6D inverse is on main `60bef4c`; the three contracts have curved-P3
   convergence and signed EQDSK/libneo readback. Inverse estimator diagnostic stability is measured on all three ladders;
   E1/E2 Hamada and actual NEO-2/GPEC field/q/flux readback are delivered; internal geometric consistency remains open.
@@ -206,7 +206,7 @@ No perturbation solve is part of it.
 
 ## Phase 6 — Report and close
 
-- [Writeups PR1](https://github.com/itpplasma/writeups/pull/1) owns the report; [ARTIFACTS](equilibrium/ARTIFACTS.md) owns its latest PDF and figure links. The complete Phase 3/4b update is built and published (21 pages).
+- [Writeups PR1](https://github.com/itpplasma/writeups/pull/1) owns the report; [ARTIFACTS](equilibrium/ARTIFACTS.md) owns its latest PDF and figure links.
 - Deliver case definitions, rate/cost figures, cross-code tables and linked fixes
   in one LaTeX report; publish PDF/plots on slopbox. Close only at the gates below.
 
@@ -264,10 +264,10 @@ Current gate assessment (2026-10-10):
 
 | Gate | Status | Evidence or remaining condition |
 |---|---|---|
-| Each case: matching inputs, rates and agreement | Open | Phase 3 MARS failure; TC24 finite-reference transfer/rates; remaining solver target and reader gaps. |
+| Each case: matching inputs, rates and agreement | Open | Phase 3 MARS failure; TC24 finite-reference transfer/accuracy; remaining solver target and reader gaps. |
 | Defects fixed with behavioral regressions | Open | ERRATA retains unexplained candidates, held repairs and own-code fixes awaiting MR !20. Published scoped PRs alone do not close those gaps. |
-| KIN6D accuracy and cost qualification | Partial | Generic P2/P3, exact rates, forward estimator and per-case measurements delivered; continuous nonlinear/inverse reliability, current matched cost and TC24 rates/accuracy remain open. |
-| Reproducibility and publication | Met for delivered studies | Committed inputs/scripts/registry and report source; 21-page latexmk build, source-row indexes and slopbox PDF/figures. |
+| KIN6D accuracy and cost qualification | Partial | Generic P2/P3, expected rates, forward estimator and matched circular CHEASE costs delivered; nonlinear/inverse reliability, remaining current cost comparisons and TC24 accuracy remain open. |
+| Reproducibility and publication | Met for delivered studies | Committed inputs/scripts/registry and report source; native latexmk build, source-row indexes and slopbox PDF/figures. |
 
 ## Authorities
 

@@ -66,7 +66,29 @@ their errors decrease at order 2, rather than measuring the input spline error.
 The native axis agrees between `rmnc` and `raxis_cc`; its signed error crosses
 -0.244 to +0.222 mm on NS129→257, with axis self-difference order 1.61. Thus the
 small last absolute-error reduction does not demonstrate a wrong-limit plateau;
-a fixed-angular or stopping floor remains unclassified, without a demonstrated defect.
+the fixed-angular contribution remains unclassified, without a demonstrated defect.
+Retained `solovev_cerfon_iter_ns*_mp32_tight` attempts hold NS, mpol=32,
+ntheta=128 and physical inputs fixed while changing ftol from 1e-14 to 1e-18.
+At NS257 the Bpol maximum changes by 2.07e-8 and axis relative error by
+1.53e-9, far below the respective 2.36e-3 and 3.41e-5 gaps. Only NS33
+passes the tighter native stop; NS65/129/257 exhaust the 40000-iteration
+budget with fsql=2.06e-17/2.90e-16/2.15e-16 and remain diagnostic states.
+Thus stopping is not the dominant observed error; these attempts do not
+qualify a tight-tolerance production ladder. Native JSON and metrics are
+retained beside each registered raw run under `phase1/vmecpp/runs/`.
+The [fixed-NS257 angular control](vmecpp_cerfon_angular_control.csv) increases
+mpol32→48 and ntheta128→192 while preserving profiles and every boundary
+coefficient (added boundary modes are zero). It converges at ftol=1e-14 in
+101.49 native seconds: Bpol L2 changes 3.19638e-4→3.19524e-4 and maximum
+2.35775e-3→2.35791e-3 at the same near-axis sample (s_pol=0.0084962).
+The signed axis error changes by only 8.60 nm. Solution angular resolution
+and stopping therefore do not explain the dominant retained gap. Fixed
+boundary truncation is not tested by this control. Bulk radial convergence
+remains expected first order; the slower near-axis maximum remains an open
+axis discretization/readback candidate, not an established solver defect.
+The scratch `compare_cerfon_angular.py` uses the existing `measure`, `Exact`
+and fixed-point reader; `comparison.json` beside the new raw run retains
+all quantities and native settings. This control is not a matched cost curve.
 
 The original shaped DESC ladder reaches L=M=16 at 280.10 s, with Bpol L2
 6.597e-4; the cold M18 attempt exceeded its 300 s cap. Same-profile/Phi
@@ -96,6 +118,33 @@ CHEASE input preparation, process and native export; VMEC++ input mapping,
 process and native export; DESC input mapping, cold JAX compilation and all
 continuation stages. KIN6D contour readback and every producer's common
 metric evaluation are excluded. Driver elapsed time is retained in manifests.
+
+## Remaining VMEC++ accuracy targets
+
+The remaining VMEC++ target gaps have the following scheduling estimates.
+They hold angular settings and physics fixed and extrapolate retained rates;
+the projected fine-grid solutions and timings have not been measured.
+The cold-cost estimates assume quadratic radial cost and do not qualify a
+native restart route. Shared load and different CPU assignments preclude a
+speed ranking. No listed projected large grid was launched.
+
+| Phase/case | Retained NS / process s | Controlling gap | Rate used | Estimated target NS / cold s |
+|---|---:|---|---:|---:|
+| 1 A3 | 257 / 24.21 | near-axis Bpol maximum 1.160e-3 | 0.56 | ~20000 / >300 |
+| 1 Cerfon | 257 / 53.45 | near-axis Bpol maximum 2.358e-3 | 0.71 | ~22000 / >300 |
+| 2 E1/A3.1 | 513 / 20.37 | axis 6.261e-6 | 1.260 | ~2200 / ~375 |
+| 2 E2/A10 | 769 / 264.54 + 1.09 | all sampled gates pass after strict restart | measured | 769 / 265.63 |
+| 2 E2/A3.1 | 513 / 18.38 | axis 2.652e-5 | 1.278 | ~6700 / ~3100 |
+| 4a E4/E1 | 257 / 8.65 | axis 3.672e-5 | 1.201 | ~5100 / ~3500 |
+| 4a E4/E2 | 257 / 10.52 | axis 8.969e-5 | 1.191 | ~11200 / ~20000 |
+
+Bulk Bpol rates meet VMEC++'s at-least-first-order radial prediction. The slower
+near-axis maxima retain EQ-D20's axis-treatment classification; these sampled
+target gaps remain open. Cerfon's signed axis crossing supports self-convergence,
+but does not classify a possible angular/stopping floor or justify an absolute
+axis-error extrapolation. E2/A10's strict saved-state continuation is measured in
+[Phase 2 controls](../../phase2/results/vmecpp_target_controls.csv); original
+Phase 1/2/4a curves and source pins remain unchanged.
 
 ## Reproduction
 

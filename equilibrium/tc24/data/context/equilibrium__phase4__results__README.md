@@ -92,6 +92,30 @@ statistical ranking. DOF definitions remain producer-specific: KIN6D free
 nodal coefficients, CHEASE 4*NS*(NT+1), VMEC++ NS*(3*MPOL-2), DESC optimizer
 variables. Exact zeros are omitted on logarithmic plots.
 
+The current cold DESC finite-beta controls are retained separately in
+[desc_cold_cost.csv](desc_cold_cost.csv). The qualified route runs native
+coarse M4 then M12 from no retained seed, with explicit `gtol=1e-9`,
+`ftol=xtol=1e-12`, `maxiter=200`, on CPU7 with one numerical thread and a 300s
+cap. Source is 2888389d. Its 54.864s cold subprocess cost includes imports,
+JIT, every coarse/final optimization and native save. Native stopping passes
+at 12 final iterations plus 11 coarse iterations (optimality 9.59e-10).
+All existing sampled physical gates pass: psi L2 2.13e-8, Bpol L2/max
+1.02e-7/3.98e-7, axis 2.27e-8. The subsequent HDF5 load 0.454s and sampled
+oracle are auxiliary measurements, excluded from this cold cost; their
+execution window differs from the producer's quiet window. Peak producer
+resident memory is2.339GiB. This single cold replay qualifies the E4 finite-beta
+route and does not supply contemporaneous costs for every code or case.
+
+The earlier cold attempt remains in the same CSV: maxiter 200/default gtol 1e-12
+exhausted 200 iterations despite passing physical targets, so its 68.889s is
+excluded from qualified costs. Its preparation description incorrectly
+claimed maxiter 100/gtol 1e-10; original preregistered actual input bytes and
+hashes remain intact. The qualified control explicitly verified the expanded
+settings and identical physics before execution. Raw inputs, manifests,
+commands, outputs and hashes for both controls are under
+`/mnt/storage/codex-equilibrium-20261010/remaining_exports/scratch/current_cost_prep`.
+The retained warm accuracy rows and historical figures/costs are unchanged.
+
 Above-target differences have these cause classes:
 
 - **VMEC++: radial discretization.** At NS=257, psi/Bpol L2 differences are
@@ -189,5 +213,7 @@ Figures on slopbox; [artifacts.json](artifacts.json) retains all hashes and URLs
 |---|---|---|---|
 | Zero beta | [PNG](https://box.sloppy.at/5a506.png) / [PDF](https://box.sloppy.at/0b51f.pdf) | [PNG](https://box.sloppy.at/7bb12.png) / [PDF](https://box.sloppy.at/8c82b.pdf) | [PNG](https://box.sloppy.at/5226a.png) / [PDF](https://box.sloppy.at/8abc9.pdf) |
 | Finite beta | [PNG](https://box.sloppy.at/336be.png) / [PDF](https://box.sloppy.at/11bb7.pdf) | [PNG](https://box.sloppy.at/21f75.png) / [PDF](https://box.sloppy.at/9cdec.pdf) | [PNG](https://box.sloppy.at/18457.png) / [PDF](https://box.sloppy.at/e4352.pdf) |
+
+
 
 Chris&AI

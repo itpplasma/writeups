@@ -9,7 +9,7 @@ from pathlib import Path
 import subprocess
 
 HERE = Path(__file__).resolve().parent
-TC24 = "6019d8e4fb1b4b57f71c35c728aa51c872236160"
+TC24 = "b6047b7bad7bc8aa6cdc0a9b88153ad9c193003e"
 KIN6D = "3c851d7"
 
 
@@ -96,6 +96,7 @@ def main():
         'phase1/results/desc_target_controls.csv',
         'phase3/results/desc_target_controls.csv',
         'phase4/results/desc_stopping.csv',
+        'phase4/results/desc_cold_cost.csv',
         'phase5/results/desc_target_controls.csv',
         'phase2/results/kin6d_current_cost.csv',
         'phase2/results/matched_current_cost_runs.csv',

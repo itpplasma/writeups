@@ -2,7 +2,7 @@
 
 Eight circular cases, five codes, at least four resolutions per code. E1/E2
 use A=40,20,10; `E1_A3p1` and `E2_A3p1` are the two E3 source-law variants.
-The study is delivered; three VMEC++ cases remain outside the sampled PLAN
+The study is delivered; two VMEC++ cases remain outside the sampled PLAN
 targets. No exact toroidal interior solution is used.
 
 [Cases](../cases.json) are generated from the authoritative contract by
@@ -121,14 +121,67 @@ and contour/profile readback. The original solve-only time is retained as
 for every code. The common forward reference construction is excluded from
 VMEC++/DESC timings. Runs use one pinned logical CPU on a Ryzen 9 5950X, with
 one thread in numerical libraries; concurrent lanes make these single timings
-indicative. KIN6D does not yet beat public CHEASE across this ladder when its
-estimator/readback cost is included.
+indicative. The historical ladder does not establish a current cross-code speed ranking.
+
+
+The matched current-cost block is retained in
+[matched_current_cost_runs.csv](matched_current_cost_runs.csv) (72 measured calls)
+and [matched_current_cost_summary.csv](matched_current_cost_summary.csv)
+(24 selected states). Three repeats of each eight-case/code combination ran
+sequentially on CPU7, with cyclic code order and one numerical thread, while
+other campaign heavy jobs paused. The native inputs, DOF, frozen reference,
+sample points and existing accuracy gates were held fixed; all 72 calls pass
+native stopping and all sampled gates. These are medians [minimum,maximum]
+in producer seconds, not a new resolution search:
+
+| Case | KIN6D P3 | CHEASE public | CHEASE MARS |
+|---|---:|---:|---:|
+| E1_A10 | 0.417 [0.417,0.428] | 1.168 [1.165,1.171] | 1.971 [1.916,2.718] |
+| E1_A20 | 0.411 [0.409,0.429] | 1.168 [1.166,1.169] | 1.918 [1.918,1.989] |
+| E1_A3p1 | 1.696 [1.696,1.712] | 2.421 [2.319,2.523] | 2.674 [2.620,2.732] |
+| E1_A40 | 0.414 [0.411,0.426] | 1.168 [1.167,1.265] | 1.919 [1.918,1.968] |
+| E2_A10 | 0.425 [0.422,0.431] | 1.168 [1.167,1.171] | 1.969 [1.919,1.971] |
+| E2_A20 | 0.430 [0.415,0.444] | 1.168 [1.168,1.439] | 2.021 [1.970,2.076] |
+| E2_A3p1 | 0.422 [0.417,0.424] | 2.371 [2.319,2.422] | 5.784 [5.781,5.885] |
+| E2_A40 | 0.414 [0.410,0.416] | 1.167 [1.165,1.168] | 1.967 [1.870,2.023] |
+
+KIN6D has the lowest cost among these three measured codes in all eight cases;
+the measured ranges do not overlap. This comparison does not rank DESC or
+VMEC++, whose costs above remain historical. Desktop/background activity was
+not excluded, and three repeats do not establish a statistical confidence bound.
+The producer timer includes native setup/solve/export/readback and KIN6D's
+estimator, but excludes worker-module startup and the subsequent sampled oracle.
+All process costs and full sampled metrics remain in the 72-row CSV.
+
+Pins are KIN6D `f6a33c91610e49e7eba63c0b4f8dcc099e8a77e1`/binary
+`66037bab`, public CHEASE `b942066c`/binary `d7a21f4e`, and the locally
+snapshotted qualified MARS composite `a97e2afb`/binary `fc3889fd`.
+The MARS snapshot contains base 8824bb18 plus correctness fixes 6/7/37/39/41/42/45
+and terminal-pivot repair fcc2a02; it is a comparison source state, not a solver
+promotion. Full source/binary hashes are in the CSV. Observed peak resident
+memory was 88.2 MiB (KIN6D), 207.9 MiB (public) and 3.54 GiB (MARS), exceeding
+the initial 2 GiB MARS estimate. Raw inputs, pre-execution manifest, commands,
+outputs and output hashes are retained under
+`/mnt/storage/codex-equilibrium-20261010/remaining_exports/scratch/current_cost_prep`;
+parent PID 1343231 completed all 72 calls with exit status 0. Historical cost
+curves and `best_cost.csv` are unchanged.
 
 Remaining numerical limitations are owned by [ERRATA EQ-P2-1](../../ERRATA.md#eq-p2-1).
 A targeted E2/A10 NS=1025, mpol=16, ftol=1e-18 repeat also exceeds
 300 s (`vmecpp_phase2_E2_A10_ns1025_20261010_01`); its input, native log and
 reference-evaluator pin are retained in the registry. It supplies no passing
-accuracy row; the NS513 axis gap remains unqualified.
+accuracy row. A separate [NS769 radial continuation and strict restart](vmecpp_target_controls.csv)
+closes E2/A10's sampled target cell. The unchanged M16 pressure/iota/Phi/boundary
+contract first passes every physical gate at NS769 but exhausts its configured
+40000-iteration native cap. Restarting that saved native state at the same final ftol=1e-18
+stops after 38 iterations and retains axis error 9.426e-7, psi L2 3.304e-7 and
+Bpol L2/max 1.392e-6/8.908e-6; every other PLAN quantity also passes. These are
+input-transfer checks for q/Phi, independent physical outputs for fields/axis.
+The CPU1/thread1 process costs are 264.536 s plus 1.092 s; readbacks cost
+2.369 s plus 1.718 s separately. This complete route is a single observation
+under load, not the restart cost alone or a replacement of the historical
+cold curves. Both native states and the capped NS1025 attempt are retained.
+
 Public CHEASE E1/A3.1 NS=128 also reports a magnetic-axis minimizer warning;
 its field differences are below target, but it is excluded from qualification.
 NS=64 passes. Crosses in the cost figures mark native stopping failures.
@@ -188,7 +241,7 @@ and the existing common metrics/readers/producers. KIN6D P3 majorant's exact
 behavioral test failed before its extension and passes with effectivity 1.14;
 P2/P3 native convergence CTests pass (2/2). Focused Ruff and diff checks pass. No new confirmed third-party solver defect
 was found. Controller: integrate KIN6D `b2e8c97`, this lane, and exporter
-`ade9cb8ac`; retain the three VMEC++ target gaps and the consumer exclusions.
+`ade9cb8ac`; retain the two VMEC++ target gaps and the consumer exclusions.
 
 Artifact URLs and SHA256 values: [artifacts.json](artifacts.json).
 

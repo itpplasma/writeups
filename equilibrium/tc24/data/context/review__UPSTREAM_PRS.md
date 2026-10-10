@@ -5,7 +5,7 @@
 - **GPEC failure diagnostic:** draft personal-fork [PR1](https://github.com/krystophny/GPEC/pull/1), `bb3f02a4`, branch `equilibrium/fieldline-error-message` against fork main (baseline `e68d7ac2`). Executes the actual Fortran formatter; fixes its buffer overflow and five-digit step counts. The integration tolerance control and remaining accuracy gaps are in [EQ-TC24-7](../equilibrium/ERRATA.md#eq-tc24-7-gpec-field-line-failure-diagnostic); this PR changes diagnostics only.
 - **libneo four-digit EQDSK reader:** draft personal-fork [PR4](https://github.com/krystophny/libneo/pull/4), `f27ee06`, branch `equilibrium/eqdsk-four-digit-grid` against fork main. Both 1025-point dimension round trips fail before; 11 reader/writer tests pass after, including legacy whitespace headers. The copied fixed reader is used for the 1025² TC24 preparation; no global installation changed.
 - **libneo Boozer geometry precision:** draft personal-fork [PR5](https://github.com/krystophny/libneo/pull/5), `08ace36`, branch `equilibrium/boozer-geometry-precision` against fork main, with PR3 prerequisites stated. Six format changes retain double precision in surface data and geometry coefficients. The independent circular metric regression fails before and passes after in all four cases; native `test_bc_file` and actual NEO-2 readback pass. [EQ-EXPORT-4](../equilibrium/ERRATA.md#eq-export-4-boozer-geometry-serialization).
-- **iter_tc24 completion branch, [MR !20](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20):** safeguarded native contour roots, signed GPEC toroidal flux and explicit CHEASE final-stage readback. Seven behavioral cases pass; ERRATA EQ-TC24-5/6 and EQ-D103 own the causes. No numerical alignment or sign was fitted.
+- **iter_tc24 completion branch, [MR !20](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/merge_requests/20):** safeguarded native contour roots, signed GPEC toroidal flux and shared CHEASE final-stage readback. The corrected analyzer regenerates native fields/current without changing frozen outputs or double scaling caches. Independent field/polarity regressions pass; ERRATA EQ-TC24-5/6 and EQ-D103 own the causes. No numerical alignment or sign was fitted.
 
 - **libneo signed TC24 boundary, draft [personal-fork PR3](https://github.com/krystophny/libneo/pull/3), `a9b6d96`:** orient the prescribed-flux bracket and bisection for either poloidal polarity. Two negative-polarity circular oracles fail before; all four polarity/scan cases pass after. Branch `equilibrium/tc24-signed-boozer-boundary` targets `krystophny/libneo:main`, with `075dd48` / `d5bbe6c` prerequisites stated in the PR. No new upstream submission. [EQ-TC24-2](../equilibrium/ERRATA.md#eq-tc24-2-boozer-converter-signed-prescribed-boundary).
 - **iter_tc24 own code, `lane/cylinder`:** [EQ-CYL-1](../equilibrium/ERRATA.md#eq-cyl-1-desc-continuation-and-omitted-zero-modes) fixed with a failing-before/passing-after continuation input test. Integrated on main; no third-party PR.
@@ -75,6 +75,7 @@ fork review, not Phase 3 equilibrium or downstream MARS Pair A/B acceptance.
 | [CHEASE #17](https://github.com/itpplasma/chease/pull/17) | ready — Propagate failed current interpolation status | `fde5a12f` | fail → pass: failed status + affine control | #19 |
 | [CHEASE #18](https://github.com/itpplasma/chease/pull/18) | ready — Define band factorization edge cases | `0c053683` | fail → pass: edge/status + dense controls | #19 |
 | [CHEASE #19](https://github.com/itpplasma/chease/pull/19) | ready — Add one shared native CHEASE regression target | `bb29c950` | shared base: native smoke passes (no defect) | none |
+| [CHEASE #20](https://github.com/itpplasma/chease/pull/20) | draft — Use the final pivot's own rejection scale | `d9262bc` | parent rejects scaled diagonal; fixed componentwise solve, singular controls, native Make and smoke pass | #19 → #18 |
 | [DESC #1](https://github.com/itpplasma/DESC/pull/1) | closed — callback feature; no scoped dependency (defects retained in #3/#4/#5) — Expose accepted-step callbacks in least-squares wrapper | `22aff5f1` | retired; not rerun | none |
 | [DESC #2](https://github.com/itpplasma/DESC/pull/2) | closed — superseded by #4 + #5 — Correct helical basis component labels and norm units | `c3fe2957` | retired; not rerun | none |
 | [DESC #3](https://github.com/itpplasma/DESC/pull/3) | closed — superseded by upstream #2347; tested scope: Return NaN for failed physical coordinate inversions | `ea635b48` | 2 fail → 2 pass | none |
@@ -85,7 +86,7 @@ fork review, not Phase 3 equilibrium or downstream MARS Pair A/B acceptance.
 | [MARS-Q #32](https://github.com/krystophny/MARS-Q/pull/32) | ready — Use contiguous tiles for CHEASE band factorization | `fa8fd09a` | parent + PR pass: exact native byte equality; dense factors too | #45 → #32 |
 | [MARS-Q #33](https://github.com/krystophny/MARS-Q/pull/33) | hold — folded ordering/axis-q qualification — CHEASE: opt-in folded band ordering with a center Schur border | `154292d7` | not rerun; hold unchanged | none |
 | [MARS-Q #34](https://github.com/krystophny/MARS-Q/pull/34) | ready — Clear only active CHEASE band-matrix columns | `2ae67699` | parent + PR pass: exact native byte equality | #46 |
-| [MARS-Q #35](https://github.com/krystophny/MARS-Q/pull/35) | hold — axis-F result change — CHEASE: use radial coordinate in axis-field interpolation | `0e129cf9` | not rerun; hold unchanged | none |
+| [MARS-Q #35](https://github.com/krystophny/MARS-Q/pull/35) | draft — scoped CHEASE axis-F coordinate repair | `00790d2d` | parent 4/16 → fixed 16/16; native Make and default-dimension smoke pass | frozen-input MARS gates do not exercise K=1 |
 | [MARS-Q #36](https://github.com/krystophny/MARS-Q/pull/36) | ready — Compute each CHEASE spline-query radius once | `81a69b56` | parent + PR pass: exact native byte equality | #46 |
 | [MARS-Q #37](https://github.com/krystophny/MARS-Q/pull/37) | ready — Validate CHEASE quadrature inputs | `fc47045c` | 6 failing subcases → all pass | #46 |
 | [MARS-Q #38](https://github.com/krystophny/MARS-Q/pull/38) | closed — consolidated into #37 — Reject CHEASE radial endpoint quadrature at the polar axis | `94f789f0` | retired; not rerun | none |
@@ -96,6 +97,7 @@ fork review, not Phase 3 equilibrium or downstream MARS Pair A/B acceptance.
 | [MARS-Q #43](https://github.com/krystophny/MARS-Q/pull/43) | closed — source interpolant and continuous field remain inconsistent; branch/reproducers and #44 retained | `ff639e23` | isolated axis/under-axis controls remain valid evidence; no qualified full inverse solve | none |
 | [MARS-Q #45](https://github.com/krystophny/MARS-Q/pull/45) | ready — Define CHEASE factorization status and edge cases | `459a4c0a` | fail → pass: edge/status + dense controls | #46 |
 | [MARS-Q #46](https://github.com/krystophny/MARS-Q/pull/46) | ready — Add one shared native CHEASE regression target | `dc20a4bc` | shared base: native smoke passes (no defect) | none |
+| [MARS-Q #49](https://github.com/krystophny/MARS-Q/pull/49) | draft — Use the final pivot's own rejection scale | `fcc2a02c` | parent rejects scaled diagonal; fixed componentwise solve, singular controls, native Make and smoke pass; NS256 forward completes | #46 → #45 |
 
 CHEASE #10 consolidates #10/#11/#12/#14 with one validation test module; MARS #37
 consolidates #37/#38. Each rejected input was demonstrated to cause an overrun, undefined
@@ -166,7 +168,7 @@ All eight standalone native parent/fixed oracles pass under the controller. Pres
   PRs are closed feature/autodiff work. No defect PR needs splitting or
   superseding. Phase 1 uses release 0.8.1 / `a4150a4`; no native defect fix is
   established. The canonical-flux reader correction is own-code commit
-  `35583217c` (EQ-D57), with a failing-before chart-reversal regression.
+  `fa50b6027` on main (EQ-D57), with a failing-before chart-reversal regression.
 
 - [CHEASE #1](https://github.com/itpplasma/chease/pull/1): default vertical export box mixes normalized/SI units; shifted exact-case regression. PR open against unchanged fork main.
 - [CHEASE #2](https://github.com/itpplasma/chease/pull/2): superseded for correctness review by [#16](https://github.com/itpplasma/chease/pull/16) (flux-relative current cutoff, `018afb4`) and [#17](https://github.com/itpplasma/chease/pull/17) (interpolation failure propagation, `23d03a0`). Each isolated native test fails on the parent and passes after its fix; both Make builds pass. Leave #2 open for controller action.
@@ -188,7 +190,7 @@ All eight standalone native parent/fixed oracles pass under the controller. Pres
 - [MARS-Q #33](https://github.com/krystophny/MARS-Q/pull/33), draft: independent opt-in folded angular band with center Schur border, head154292d against fork main8824bb18. Native matrix oracle and full Make pass; combined E0 timing/core fields retained, axis-q diagnostic and Pair A/B gates remain open.
 - [CHEASE #8](https://github.com/itpplasma/chease/pull/8): active matrix-column clearing, independent headfa72085. Exact-E0 output-byte oracle and native Make pass.
 - [MARS-Q #34](https://github.com/krystophny/MARS-Q/pull/34), draft: same active-column clearing, independent head57f72f2. NS64/NT2569.370→6.174s, seven native files byte-identical; Pair A/B pending.
-- [MARS-Q #35](https://github.com/krystophny/MARS-Q/pull/35), draft: axis-F coordinate typo, independent head0e129cf. Actual native-call baseline2/8→8/8; ordinary source-integral gate repaired with unchanged psi/q/nonaxis profiles. Pair A/B pending.
+- [MARS-Q #35](https://github.com/krystophny/MARS-Q/pull/35), draft: axis-F coordinate typo, head `00790d2d`, stacked on shared-test PR46. One coordinate replacement and one flat native polynomial/unit-scaling regression, parent 4/16→fixed 16/16; native Make and default-dimension smoke pass. Standard MARS export uses unaffected K=2; frozen-OUTRMAR Pair A/B cannot test the corrected K=1 call. Earlier ordinary source-integral evidence retains unchanged psi/q/nonaxis profiles.
 - Case/force/sign and alternative explanations: [equilibrium errata](../equilibrium/ERRATA.md). Fork fixes await human review before merge/upstream transfer.
 
 ## MARS delivery candidates

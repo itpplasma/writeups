@@ -195,6 +195,45 @@ This demonstrates resolution sensitivity, not target closure. The intermediate
 files and failures remain in the execution inventory. No OUTRMAR/Hamada chain
 or downstream perturbation/torque solve is included.
 
+A held-chart output-surface control doubles only the Fourier file surfaces
+4096→8192, retaining native1025, tolerance1e-12, nlabel2048, angles8192,
+m512 and reader2048. The reader uses cubic radial coefficient splines; a
+smooth interpolation-dominated derivative error would decrease about eightfold.
+Instead the internal Jacobian maximum changes 8.264e-5→8.248e-5 in the
+interior and 1.092e-3→1.055e-3 at .98; outer q remains 1.303e-5.
+Thus file surface spacing does not dominate the floor. Native physical
+Jacobian error remains 1.088e-5; full B L2/max passes at 3.556e-6/4.984e-5.
+The converter/reader take 221.03/108.79 seconds, with peak memory
+2.93/1.98 GiB. These timings exclude the offline native oracle.
+At unchanged labels the reader q agrees with the native profile within
+7.78e-7 in the interior and 1.55e-6 at .98; its larger physical-point q
+error follows the chart flux displacement. The physical-point criterion
+and the existing validation domain remain unchanged.
+
+A subsequent mode-only control holds native1025, tolerance1e-12,
+nlabel2048, angles8192 and output4096, increasing m512→1024. Direct
+Fourier evaluation at the same 12×256 label/angle samples improves
+physical-point q 1.304e-5→7.268e-6, but geometric/native Jacobian
+1.106e-3→2.750e-3 worsens. Thus the retained outer Fourier tail affects
+the field representation without establishing derivative convergence.
+Paired actual NEO-2 readers use 4096 angular knots for both files:
+
+| Held-chart mode control | m512 | m1024 |
+|---|---:|---:|
+| q relative max | 1.304e-5 | 7.323e-6 |
+| Full B relative L2/max | 3.555e-6 / 4.982e-5 | 2.735e-6 / 5.491e-5 |
+| Bpol relative L2/max | 2.061e-5 / 2.303e-4 | 1.585e-5 / 2.536e-4 |
+| Physical Jacobian/native relative max | 1.088e-5 | 2.887e-6 |
+| Internal geometric Jacobian relative max | 1.110e-3 | 2.591e-3 |
+
+The m1024 file passes q, psi L2 (1.349e-7), full B and physical
+Jacobian targets. Bpol and geometric derivative consistency remain
+unqualified; the latter worsens in both interior (2.341e-4) and outer
+(2.591e-3) samples. These controls do not establish a converter defect
+or expected-rate derivative convergence. The converter takes 198.30 s;
+paired readers take 58.29/87.31 s, excluding offline native oracles.
+Peak converter/reader memory is 2.93/2.73 GiB.
+
 ## Reproduction and retained history
 
 The converter is libneo a9b6d9674f82e6e1bdac5146fddc732097bece9d, with the
