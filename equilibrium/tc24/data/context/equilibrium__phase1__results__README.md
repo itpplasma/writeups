@@ -57,11 +57,22 @@ VMEC++ sampled Bpol-max orders are 0.56/0.71 (A3/Cerfon). Its near-axis
 maxima and DESC shaped boundary truncation retain the
 method/representation classifications in [EQ-D20](../../ERRATA.md#eq-d20).
 
-The shaped DESC ladder reaches L=M=16 at 280.10 s, with Bpol L2
-6.597e-04. The next attempted L=M=18 exceeded the 300-second native
-worker cap. Its failure log and inputs remain registered and archived; no
-metric row or convergence claim was invented for it. These are budget-limited
-results for the documented boundary representation, not a spectral accuracy floor.
+The original shaped DESC ladder reaches L=M=16 at 280.10 s, with Bpol L2
+6.597e-4; the cold M18 attempt exceeded its 300 s cap. Same-profile/Phi
+native warm controls refine the exact sampled boundary to M24/M32 and reduce
+Bpol L2 to 2.675e-5/1.311e-6, a factor of about 20 per eight added modes.
+The final M32 state meets every sampled PLAN quantity: psi L2 8.99e-8,
+Bpol max 5.31e-6, Btor L2 7.83e-9, axis 7.22e-9 and volume 8.95e-13.
+q and Phi check prescribed input transfer. The strict warm controls cap at
+200/150 iterations. With case-specific gtol=1e-9, the same M32 state stops
+natively after one iteration; every physical norm was checked again afterward.
+This closes the shaped DESC sampled accuracy/stopping cell through spectral
+refinement, without a producer or solver defect. The tolerance does not change
+producer defaults. [Target controls](desc_target_controls.csv) retain the full
+measurement rows. Warm solve costs are 83.28 s (M24), 185.87 s (M32) and
+37.60 s (calibrated stop), including load/JAX and excluding readback on CPU6,
+one thread. These supplement the original CPU10 cost curve; they are not a
+matched cold time-to-target measurement. Original failed runs remain archived.
 
 CHEASE fields here are G-EQDSK readback; KIN6D uses native FE readback,
 VMEC++ native wout coefficients and DESC native HDF5. q and Phi for the

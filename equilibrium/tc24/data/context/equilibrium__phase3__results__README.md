@@ -136,10 +136,15 @@ field maxima, current quadrature differences and force balance.
 
 VMEC++ Solovev still misses psi, Bpol and axis targets; ns513 hits the 300 s cap.
 VMEC++ E2 reaches the field target but its axis error is 2.02e-6, above 1e-6.
-DESC Solovev still misses psi, Bpol and axis targets; L14 exhausts 200 and 400
-iterations without native stopping. These attempts remain excluded from error
-curves, with logs in [failures.csv](failures.csv). Increasing a budget is a
-controller decision, not evidence that those points converged.
+The original DESC Solovev L12 curve misses psi, Bpol and axis targets. The
+retained L14/400 state already meets all sampled exact targets but exhausts its
+`gtol=1e-12` budget. A same-input warm restart with `gtol=1e-9` stops after two
+iterations: psi L2=2.91e-7, Bpol L2/max=2.08e-6/5.16e-6, Btor L2=3.72e-8,
+axis=5.84e-9 and volume=3.11e-14. Prescribed q/Phi transfer errors are
+3.11e-13/0. [Native stopping controls](desc_target_controls.csv) retain both
+states and settings. The additional 34.03 s on CPU6 is a warm restart cost;
+the original CPU14 timing and historical capped flags remain unchanged.
+This closes DESC's sampled target and stopping gap without a solver fix.
 
 The plotted KIN6D P3 forward point is an existing Phase 1 n=48 result with
 2854 DOF, Bpol error 7.83e-6 and mean producer time 0.272 s across three timing

@@ -377,16 +377,20 @@ TcPublicPsiRate,apparent_psi_l2_order,2.663639179985501,identity,phase4/tc24/ref
 tc_export,bpol_l2,0.0001445090347556813,identity,phase4/tc24/reference/exports.csv:53
 tc_export,bpol_l2,0.0005067253637031825,identity,phase4/tc24/reference/exports.csv:54
 tc_export,bpol_l2,0.0005554618948636549,identity,phase4/tc24/reference/consumers.csv:36
-tc_export,jacobian_geometry_max_rel,0.3126938851194141,identity,phase4/tc24/reference/consumers.csv:36
-tc_export,bpol_l2,9.110485864675069e-05,identity,phase4/tc24/reference/exports.csv:2
-tc_export,bpol_l2,0.0003198903344639324,identity,phase4/tc24/reference/exports.csv:3
-tc_export,bpol_l2,0.0005102539031085924,identity,phase4/tc24/reference/consumers.csv:21
-tc_export,jacobian_geometry_max_rel,0.2631971556626649,identity,phase4/tc24/reference/consumers.csv:21
+tc_export,jacobian_native_max_rel,0.00046087709859121695,identity,phase4/tc24/reference/consumers.csv:36
+tc_export,geometric_jacobian_native_max_rel,0.2381675431491268,identity,phase4/tc24/reference/consumers.csv:36
+tc_export,bpol_l2,0.0009347175310432747,identity,phase4/tc24/reference/consumers.csv:44
+tc_export,bpol_l2,9.110485864675069e-05,identity,phase4/tc24/reference/exports.csv:62
+tc_export,bpol_l2,8.127792913610177e-05,identity,phase4/tc24/reference/exports.csv:63
+tc_export,bpol_l2,8.801179323063082e-05,identity,phase4/tc24/reference/consumers.csv:40
+tc_export,jacobian_native_max_rel,2.0944806436773433e-05,identity,phase4/tc24/reference/consumers.csv:40
+tc_export,geometric_jacobian_native_max_rel,0.01743591070002537,identity,phase4/tc24/reference/consumers.csv:40
 tc_export,bpol_l2,8.747461619458765e-05,identity,phase4/tc24/reference/consumers.csv:2
 tc_export,bpol_l2,5.224168333160664e-05,identity,phase4/tc24/reference/exports.csv:20
 tc_export,bpol_l2,0.0003200896536037123,identity,phase4/tc24/reference/exports.csv:21
 tc_export,bpol_l2,0.0005095333974890584,identity,phase4/tc24/reference/consumers.csv:23
-tc_export,jacobian_geometry_max_rel,0.26063459837965897,identity,phase4/tc24/reference/consumers.csv:23
+tc_export,jacobian_native_max_rel,0.0002852757024578434,identity,phase4/tc24/reference/consumers.csv:23
+tc_export,geometric_jacobian_native_max_rel,0.3528970567331162,identity,phase4/tc24/reference/consumers.csv:23
 tc_export,bpol_l2,8.072032045429218e-05,identity,phase4/tc24/reference/consumers.csv:4
 tc_perf,n,48,identity,phase4/tc24/kin6d_performance/timings.csv:1
 tc_perf,dof,2107,identity,phase4/tc24/kin6d_performance/timings.csv:1
@@ -424,3 +428,28 @@ tc_perf,baseline_s,nan,identity,phase4/tc24/kin6d_performance/timings.csv:6
 tc_perf,solve_s,222.224341205,identity,phase4/tc24/kin6d_performance/timings.csv:6
 tc_perf,estimator_s,93.007943917,identity,phase4/tc24/kin6d_performance/timings.csv:6
 tc_perf,total_s,nan,identity,phase4/tc24/kin6d_performance/timings.csv:6
+desc_control:Cerfon,M,32,identity,phase1/results/desc_target_controls.csv:3
+desc_control:Cerfon,gtol,1e-09,identity,phase1/results/desc_target_controls.csv:3
+desc_control:Cerfon,psi_l2,8.990012437962152e-08,identity,phase1/results/desc_target_controls.csv:3
+desc_control:Cerfon,bpol_l2,1.3107438527308959e-06,identity,phase1/results/desc_target_controls.csv:3
+desc_control:Cerfon,axis_rel,7.217435091739221e-09,identity,phase1/results/desc_target_controls.csv:3
+desc_control:Inverse Solovev,M,14,identity,phase3/results/desc_target_controls.csv:2
+desc_control:Inverse Solovev,gtol,1e-09,identity,phase3/results/desc_target_controls.csv:2
+desc_control:Inverse Solovev,psi_l2,2.907857111161487e-07,identity,phase3/results/desc_target_controls.csv:2
+desc_control:Inverse Solovev,bpol_l2,2.0811465720415387e-06,identity,phase3/results/desc_target_controls.csv:2
+desc_control:Inverse Solovev,axis_rel,5.843342154229679e-09,identity,phase3/results/desc_target_controls.csv:2
+desc_control:E4 finite beta,M,12,identity,phase4/results/desc_stopping.csv:2
+desc_control:E4 finite beta,gtol,1e-10,identity,phase4/results/desc_stopping.csv:2
+desc_control:E4 finite beta,psi_l2,1.9666237373548053e-08,identity,phase4/results/desc_stopping.csv:2
+desc_control:E4 finite beta,bpol_l2,8.793330680162449e-08,identity,phase4/results/desc_stopping.csv:2
+desc_control:E4 finite beta,axis_rel,2.226759203010857e-08,identity,phase4/results/desc_stopping.csv:2
+desc_control:Lundquist A100,M,18,identity,phase5/results/desc_target_controls.csv:2
+desc_control:Lundquist A100,gtol,1e-07,identity,phase5/results/desc_target_controls.csv:2
+desc_control:Lundquist A100,psi_l2,3.832007630581285e-07,identity,phase5/results/desc_target_controls.csv:2
+desc_control:Lundquist A100,bpol_l2,3.915616728905612e-06,identity,phase5/results/desc_target_controls.csv:2
+desc_control:Lundquist A100,axis_rel,9.155604911714457e-08,identity,phase5/results/desc_target_controls.csv:2
+desc_control:Lundquist A300,M,18,identity,phase5/results/desc_target_controls.csv:4
+desc_control:Lundquist A300,gtol,1e-08,identity,phase5/results/desc_target_controls.csv:4
+desc_control:Lundquist A300,psi_l2,3.448231507927579e-07,identity,phase5/results/desc_target_controls.csv:4
+desc_control:Lundquist A300,bpol_l2,3.4180008246983026e-06,identity,phase5/results/desc_target_controls.csv:4
+desc_control:Lundquist A300,axis_rel,1.860867055819118e-08,identity,phase5/results/desc_target_controls.csv:4

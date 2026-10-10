@@ -100,6 +100,9 @@ whole field comparison; no failed points are omitted from a reported norm.
 NOUT psi/BR/BZ receive CHEASE's explicitly logged final SCALE before combining
 with delivered F; this is the executed PRNORM map, not a fitted normalization.
 
+This table retains the original study's binary pins and timings; the later
+KIN6D controls below do not relabel those measurements.
+
 | Code / finest completed state | Wall / s | Bpol L2 difference | psi L2 difference | q max difference |
 |---|---:|---:|---:|---:|
 | Public CHEASE, 128×256 | 190.94 | comparator | comparator | comparator |
@@ -113,15 +116,71 @@ VMEC++ ns257/mpol49 and DESC L24/M12 hit the time limit. DESC's lower default
 seeds hit iteration caps and had nonfinite readback points; the VMEC seed
 improves stopping but does not qualify its fields. Finest VMEC++ current is
 0.301% below the prescribed-forward target in magnitude; DESC is 8.56% below.
+The retained spectral decks also truncate the pinned 128-mode boundary.
+[Geometric distances](reference/spectral_boundary_resolution.csv), measured
+between both curves on 131072-point closed polylines, give maximum nearest-curve
+distances of 161.50/120.93 mm at DESC M=10/12 and 19.05 mm at VMEC++ max m=32
+(mpol=33). These are geometric distances; tangential parameter differences do
+not determine them. Thus the field comparisons include substantial boundary
+error. A native L24/M12 restart from retained DESC L20/M10 also hits the 300 s
+cap before saving a state; it supplies no refined accuracy point. DESC's target
+qualification remains open, and no native solver defect is established.
+
+The [fixed-angular VMEC controls](reference/vmecpp_controls.csv) retain the
+same NS128 reference p/iota/Phi transfer, tcon0=0 and ftol=1e-12, while fixing
+mpol=33 and refining NS=33/65/129. [Successive differences](reference/vmecpp_self_convergence.csv)
+give Bpol radial order 1.30 and psi order 1.74, consistent with the predicted
+at-least-first-order radial convergence. Absolute Bpol differences remain
+2.71e-3/2.06e-3/1.96e-3. The [boundary truncation](reference/vmecpp_boundary_truncation.csv)
+is substantial: mpol=17/25/33/49 miss the pinned 128-mode curve by
+76.5/36.5/19.2/6.00 mm maximum (11.67/5.15/2.62/0.834 mm RMS). These
+are different physical domains, so the absolute difference and current gap
+cannot establish a native solver defect. At fixed NS65, mpol49 fails native
+stopping after 157.45 s: fsql=1.31e-10 exceeds ftol=1e-12 despite small R/Z
+residuals. Its failed input and log are retained. No angular target or wrong-limit
+claim follows. New controls use CPU5, one thread; their single-run times do not
+replace the earlier cost ladder or establish a matched hardware ranking.
 
 For resolved smooth fields, the predicted cubic FE rates are psi O(h⁴),
 Bpol O(h³). Adjacent CHEASE differences give apparent Bpol rates 2.81 then
-1.87; KIN6D's latest generalized three-grid rate is 2.07 (psi 3.53).
+1.87; KIN6D's original generalized three-grid rate is 2.07 (psi 3.53).
+The retained n128/192/256 ladder instead gives 1.09 for Bpol and 1.19 for psi
+on its last three grids. Its n192→256 Bpol difference is 3.514e-4.
 These do not yet establish the required asymptotic regime. The finite-reference
 and mixed radial/angular VMEC ladder also preclude a target-level extrapolation.
 Do not use cross-code agreement as a replacement for these missing error bounds.
 KIN6D's recovered-flux estimates fall from 1.97 to 0.678 Wb m⁻¹ᐟ²; status 4
 identifies a frozen-source estimate, not a proved nonlinear stability bound.
+
+[Unchanged-main controls](reference/kin6d_controls.csv) use KIN6D `af84393`,
+the same modx03 inputs and nonlinear tolerance 1e-9. At n96, changing only
+the source quadrature tolerance from 1e-7 to 1e-5 reduces process wall time
+from 33.13 to 13.93 seconds (native solve 31.86 to 12.46 seconds). On the
+same 1200 field points and 80 q points, the changes are psi L2 1.692e-7,
+Bpol L2 1.455e-6, Bpol max 2.169e-5 and q max 6.535e-7. This is a measured
+tolerance sensitivity, separate from spatial error. Both unchanged-main
+n320 tolerances hit the 300-second cap. These single-core timings overlap
+other lanes and remain exploratory; they establish no fastest-code claim.
+
+The isolated rank-one Newton-response candidate `1996a4e` completes the same
+n320, 1e-5-quadrature input in 197.05 seconds, versus unchanged main's
+300-second cap: an observed bounded speed ratio greater than 1.52 under
+these conditions. Its residual is 1.381e-10; full CPU/Debug qualification
+is pending. The estimator takes 35.95 seconds and its recovery reaches
+the 6000-iteration cap, so its frozen-source estimate is not minimized.
+The n256→n320 Bpol difference is 2.412e-4, psi 1.398e-6 and q 3.670e-5.
+That comparison changes quadrature tolerance as well as mesh resolution;
+it does not establish a clean spatial convergence rate.
+
+[Finite-reference controls](reference/reference_uncertainty.csv) compare
+the retained public CHEASE NS128/NT256 and NS256/NT512 states on the same
+original samples, with norms normalized by NS256. Their differences are
+psi L2 7.624e-6, Bpol L2 6.218e-4 and q max 9.914e-5. KIN6D n256 versus
+that NS256 state gives psi L2 1.653e-6, Bpol L2 2.578e-4 and q max 2.912e-3.
+Thus the older NS128 comparison contains appreciable reference uncertainty;
+the newer comparison still does not qualify KIN6D at the targets.
+The candidate n320 state versus NS256 gives psi L2 7.853e-7, Bpol L2
+1.112e-4 and q max 2.934e-3; the q and field qualification gaps remain.
 
 ## Received variants
 

@@ -265,25 +265,45 @@ def tc24_tables():
         macro('Tc'+name+'PsiRate',r['apparent_psi_l2_order'],[r],'apparent_psi_l2_order')
     exports = read(base+'exports.csv'); consumers=read(base+'consumers.csv'); vals=[]
     for code in CODES[:3]:
-        # The committed package selects the highest-resolution export of the finest producer.
         selected=[r for r in exports if r['name']=='reference' and r['code']==code]
-        if code=='kin6d': selected=[r for r in selected if 'n96_' in r['producer'] and r['mpol']=='256']
-        else: selected=[r for r in selected if 'n128_' in r['producer']]
+        if code=='chease_public':
+            selected=[r for r in selected if 'public128_precision_' in r['export_root']]
+        elif code=='kin6d':
+            selected=[r for r in selected if 'n96_' in r['producer'] and r['mpol']=='256']
+        else:
+            selected=[r for r in selected if 'n128_' in r['producer']]
         eq=next(r for r in selected if r['path']=='EQDSK_libneo'); boo=next(r for r in selected if r['path']=='Boozer')
         neo=next(r for r in consumers if r['kind']=='neo2' and r['export']==eq['export_root'])
         gpec=[r for r in consumers if r['kind']=='gpec' and r['producer']==eq['producer'] and r['bpol_l2']]
         vals.append([tex(LABELS[code]),cell('tc_export',eq,'bpol_l2'),cell('tc_export',boo,'bpol_l2'),
-                     cell('tc_export',neo,'bpol_l2'),cell('tc_export',neo,'jacobian_geometry_max_rel'),
+                     cell('tc_export',neo,'bpol_l2'),cell('tc_export',neo,'jacobian_native_max_rel'),
+                     cell('tc_export',neo,'geometric_jacobian_native_max_rel'),
                      cell('tc_export',gpec[-1],'bpol_l2') if gpec else 'failed'])
-    table('tc24_exports',['Producer','EQDSK $B_p$','Boozer $B_p$','NEO-2 $B_p$','NEO-2 $J$ max','GPEC $B_p$'], vals)
+    table('tc24_exports',['Producer','EQDSK $B_p$','Boozer $B_p$','NEO-2 $B_p$', '$J/J_n$ max', '$J_g/J_n$ max', 'GPEC $B_p$'], vals)
     timings=read('phase4/tc24/kin6d_performance/timings.csv')
     table('tc24_performance', ['$n$','DOF','Prior solve (s)','New solve (s)','Estimator (s)','Full run (s)'],
           [[cell('tc_perf',r,k,6 if k=='dof' else 3) for k in ['n','dof','baseline_s','solve_s','estimator_s','total_s']] for r in timings])
 
 
+def completed_controls():
+    vals=[]
+    for path, label in [('phase1/results/desc_target_controls.csv', 'Cerfon'),
+                        ('phase3/results/desc_target_controls.csv', 'Inverse Solovev'),
+                        ('phase4/results/desc_stopping.csv', 'E4 finite beta'),
+                        ('phase5/results/desc_target_controls.csv', 'Cylinder')]:
+        for r in read(path):
+            if not yes(r['native_converged']):
+                continue
+            case = r['case'] if label == 'Cylinder' else label
+            vals.append([tex(case),cell('desc_control:'+case,r,'M'),cell('desc_control:'+case,r,'gtol'),
+                         cell('desc_control:'+case,r,'psi_l2'),cell('desc_control:'+case,r,'bpol_l2'),
+                         cell('desc_control:'+case,r,'axis_rel')])
+    table('desc_controls', ['Case', '$M$', '$g_{tol}$', r'$\psi$ $L^2$', '$B_p$ $L^2$', 'Axis'], vals, 'lrrrrr')
+
+
 def main():
     OUT.mkdir(exist_ok=True)
-    exact_tables(); toroidal_tables(); consumer_tables(); other_tables(); inverse_tables(); tc24_tables()
+    exact_tables(); toroidal_tables(); consumer_tables(); other_tables(); inverse_tables(); tc24_tables(); completed_controls()
     (OUT / 'numbers.tex').write_text('\n'.join(MACROS) + '\n')
     with (DATA / 'table_cells.csv').open('w') as f:
         writer = csv.DictWriter(f, fieldnames=list(TRACE[0]), lineterminator='\n')

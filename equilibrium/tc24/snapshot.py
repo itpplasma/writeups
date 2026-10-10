@@ -24,6 +24,25 @@ REFRESH_PATHS = {
     'equilibrium/phase5/results/README.md',
 }
 
+SECOND_REFRESH = '37db1276be1045ae1ffafc73b8e6bc9777e0044a'
+SECOND_PATHS = {
+    'equilibrium/phase1/results/desc_target_controls.csv',
+    'equilibrium/phase3/results/desc_target_controls.csv',
+    'equilibrium/phase4/results/desc_stopping.csv',
+    'equilibrium/phase5/results/desc_target_controls.csv',
+    'equilibrium/phase4/tc24/reference/kin6d_controls.csv',
+    'equilibrium/phase4/tc24/reference/reference_uncertainty.csv',
+    'equilibrium/phase4/tc24/reference/exports.csv',
+    'equilibrium/phase4/tc24/reference/consumers.csv',
+    'equilibrium/phase4/tc24/reference/execution.csv',
+    'equilibrium/phase1/results/README.md',
+    'equilibrium/phase3/results/README.md',
+    'equilibrium/phase4/results/README.md',
+    'equilibrium/phase5/results/README.md',
+    'equilibrium/phase4/tc24/README.md',
+    'equilibrium/phase4/tc24/EXPORTS.md',
+}
+
 
 def git(repo, *args):
     return subprocess.check_output(["git", "-C", str(repo), *args])
@@ -41,6 +60,8 @@ def main():
     def read(repo, rev, path, destination=None):
         if repo == args.tc24 and path in REFRESH_PATHS:
             rev = REFRESH
+        if repo == args.tc24 and path in SECOND_PATHS:
+            rev = SECOND_REFRESH
         full = git(repo, "rev-parse", rev).decode().strip()
         raw = git(repo, "show", f"{full}:{path}")
         if raw.startswith(b"version https://git-lfs.github.com/spec/"):
@@ -102,6 +123,10 @@ def main():
     files += ["phase4/tc24/reference/reference_case.json",
               "phase4/tc24/kin6d_performance/timings.csv",
               "phase4/tc24/kin6d_performance/convergence-fine.csv"]
+    files += ["phase1/results/desc_target_controls.csv", "phase3/results/desc_target_controls.csv",
+              "phase4/results/desc_stopping.csv", "phase5/results/desc_target_controls.csv",
+              "phase4/tc24/reference/kin6d_controls.csv",
+              "phase4/tc24/reference/reference_uncertainty.csv"]
     for path in files:
         read(args.tc24, TC24, "equilibrium/" + path, path)
     read(args.kin6d, KIN6D, "benchmarks/gs-phase1/p2-p3.csv", "kin6d/p2-p3.csv")

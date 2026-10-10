@@ -65,12 +65,12 @@ performance control below records the later assembly and solve improvements.
 \toprule
 Phase & Delivered evidence & Remaining qualification \\
 \midrule
-1: exact & Field/flux convergence, cost, P2/P3 comparison and actual consumers & VMEC++ targets; DESC shaped boundary cost \\
+1: exact & Field/flux convergence, cost, P2/P3 comparison and actual consumers & VMEC++ targets; matched cold DESC boundary cost \\
 2: circular & Both source laws across the aspect-ratio ladder; numerical references and large-aspect-ratio check & Three VMEC++ target gaps; selected consumer paths absent \\
 3: inverse & Three contracts, KIN6D and reference-code fields/current/cost & MARS failure; nonlinear reliability and geometric consistency \\
-4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ targets; DESC stopping \\
+4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ targets; matched cold DESC cost \\
 4b: TC24 & modx03 provenance, exact replay, five-code study and exports & Rates, target accuracy and reader failures \\
-5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & DESC stopping \\
+5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & Remaining DESC A10/A30 controls \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -249,12 +249,15 @@ $\log e=-\alpha M+c$. Public CHEASE's flagged A3 state is excluded.
 VMEC++ shows the expected bulk radial rate, while its near-axis maximum
 converges more slowly. DESC's exact shaped boundary is truncated in the same
 poloidal basis as its solution. Refinement improves the boundary and the field
-together; its capped next attempt supplies no extra accuracy row.
+together; its capped cold next attempt supplies no extra accuracy row.
+Separate warm $M=24/32$ controls resolve this boundary truncation.
 
 For the selected P3 states, poloidal-field errors are
 \PthreeAthreeError{} and \PthreeCerfonError{} on A3 and Cerfon. Both CHEASE
 variants also reach the sampled targets. VMEC++ does not within the recorded
-exact-case ladders. DESC passes on A3; its shaped ladder remains above target.
+exact-case ladders. DESC passes on A3. Additional shaped native continuation at $M=32$
+reaches every sampled target with calibrated native stopping; the historical
+cold shaped ladder remains above target.
 These are interior sampled statements, with the field/readback paths labeled
 in the figure captions.
 
@@ -361,9 +364,10 @@ coefficients and behavioral checks are owned by \texttt{phase2/expansion.py}.}
 Both E4 laws use the same explicit Miller boundary. KIN6D P3 and both CHEASE
 variants reach the sampled targets. VMEC++ differences decrease with radial
 refinement but remain too large in the delivered ladder. DESC's zero-pressure
-case has a passing state; finer states in both laws hit the stopping cap.
-The finest finite-pressure field differences are small, but the stopping
-failure prevents qualification. E4's Fourier boundary is already resolved
+case has a passing state; the historical finer states in both laws hit the
+stopping cap. A same-state finite-pressure restart with $g_{tol}=10^{-10}$
+now stops natively and meets every sampled target. Its additional restart
+cost is kept separate from the historical cold cost ladder. E4's Fourier boundary is already resolved
 well below its field error, so the exact Cerfon boundary limitation does not
 explain this case.
 
@@ -539,8 +543,10 @@ Source: \texttt{phase5/results/finest.csv}.}
 \end{center}
 
 CHEASE refinement resolves the toroidal continuation. Strong-twist Lundquist
-requires additional DESC spectral refinement; its finest capped states remain
-unqualified despite improved fields. KIN6D's exact Gold--Hoyle evaluator
+requires additional DESC spectral refinement. Native $M=18$ continuation
+passes all sampled targets at $A=100$ and $300$ after calibrated stopping.
+The historical capped states remain excluded; final $A=10/30$ controls are
+not yet included here. KIN6D's exact Gold--Hoyle evaluator
 and the KIM code's actual native profile reader/ODE pass the signed analytic
 controls. Those checks supply equilibrium ingress for later KIM work, not a
 PDE convergence curve or a kinetic-response calculation. The committed
@@ -618,9 +624,8 @@ estimator on all three inverse ladders. Majorant/error ratios are
 approximately at the predicted cubic rate. Raising quadrature order from
 8 to 12 changes the Solov'ev norm by at most $1.6\times10^{-11}$ relative,
 and the circular norms by at most $6.92\times10^{-6}$.
-These are measured diagnostic stability ratios. The finite circular reference
-has unbounded reference uncertainty, and nonlinear inverse reliability remains
-unproved. Sources: \texttt{kin6d\_effectivity\_native\_solovev.csv} and
+These are measured diagnostic stability ratios. Circular comparisons contain finite-reference error and do not supply
+a reliability bound for the coupled inverse problem. Sources: \texttt{kin6d\_effectivity\_native\_solovev.csv} and
 \texttt{kin6d\_effectivity\_native\_circular.csv}.
 
 The separate NEO-2 geometric determinant exposed insufficient precision in
@@ -637,7 +642,9 @@ Scoped sign, coarea and normalization fixes have passing regressions, but the
 full solve remains an open defect candidate in
 \href{https://github.com/krystophny/MARS-Q/issues/44}{MARS issue 44}.
 Public CHEASE and KIN6D have sampled passing states; VMEC++ and DESC retain
-some geometry/field target gaps and capped attempts. These outcomes do not
+some geometry/field target gaps and capped attempts. DESC inverse Solov'ev
+now meets all sampled exact targets and native stopping at $M=14$,
+$g_{tol}=10^{-9}$, using a warm restart from the retained strict state. These outcomes do not
 close the inverse phase. The \tcfile{equilibrium/phase3/results/README.md}{study}
 and \tcfile{equilibrium/phase3/results/kin6d.md}{KIN6D supplement} own the
 executed settings, failures and consumer details.
@@ -740,19 +747,38 @@ residual closes the accuracy gate.
 \begin{center}\small
 \input{build/tc24_exports.tex}
 \captionof{table}{TC24 export-only errors relative to each native producer.
-Field columns are relative $L^2$ norms; $J$ is the full NEO-2 geometric-Jacobian
-identity maximum. The selected finest exports still exceed working targets.
+Field columns are relative $L^2$ norms. $J_n$ is the native-contour
+Jacobian, $J$ the physical NEO-2 Jacobian and $J_g$ the geometry-derived
+determinant; Jacobian columns report maximum relative differences from $J_n$.
+The selected exports still exceed working targets.
 Sources: \texttt{phase4/tc24/reference/exports.csv} and \texttt{consumers.csv}.}
 \end{center}
 
-The GPEC/DCON reader exhausts its field-line integration budget on the KIN6D
-export. A repaired error formatter now exposes that failure; it does not
-repair the integration. Joint refinement of the Boozer map, angles and modes
-improves the NEO-2 readback, but vector/geometry consistency remains
-unqualified. The current package contains measured candidate EQDSK and Boozer
-files, the four received states and their manifests. No TC24 export is
-admitted for production perturbation calculations. Native MARS/Hamada and
-VMEC++/DESC downstream conversion are not measured here.
+The same KIN6D EQDSK completes GPEC/DCON readback at recorded integration
+tolerance $10^{-8}$, after exhausting its field-line budget at $10^{-10}$.
+Its fields and safety factor remain above target. Public-CHEASE coupled
+Boozer refinement reduces internal vector/geometry mismatch from 0.263 to
+0.0289 and then 0.0175; sixteen-digit output leaves 0.0177, so writer rounding
+is not the dominant TC24 residual. Native-NOUT sampling at $513^2/1025^2$
+reduces EQDSK poloidal-field $L^2$ error from $4.50\times10^{-5}$ to
+$6.27\times10^{-6}$, while downstream Boozer geometry and safety-factor
+errors worsen. The control holds the original exterior continuation, which
+participates in libneo's global quintic splines. The chart residual remains
+unqualified; no production perturbation admission follows. Native MARS/Hamada
+and VMEC++/DESC downstream conversion remain unused in this package.
+
+At n96, changing only KIN6D source quadrature tolerance from $10^{-7}$ to
+$10^{-5}$ reduces process time from 33.13 to 13.93 seconds; the field change
+is $1.46\times10^{-6}$ in poloidal-field $L^2$. Both unchanged-main n320
+attempts hit the 300-second cap. The isolated candidate \texttt{1996a4e}
+completes n320 at $10^{-5}$ quadrature in 197.05 seconds, with full CPU/Debug
+gates pending. These concurrent single-core observations provide a bounded
+speed ratio greater than 1.52 for that input, without a fastest-code claim.
+Against public CHEASE n256, its poloidal-field difference is
+$1.11\times10^{-4}$; public n128/n256 differ by $6.22\times10^{-4}$.
+The finite comparator and changed quadrature prevent a clean spatial-rate
+or target-accuracy conclusion. Sources: \texttt{kin6d\_controls.csv} and
+\texttt{reference\_uncertainty.csv}.
 
 \subsection*{KIN6D performance on the historical control}
 The performance change now on main caches profile quadrature work, reuses
@@ -777,6 +803,22 @@ normalized-current and inverse studies retain status 4. Main \texttt{f1d1791}
 also contains the prescribed-$q$ port and the FortNum \texttt{901aae0} update-limit
 repair. Integration does not change the executed revisions or replace the
 recorded cost/error curves with an unmeasured performance claim.
+
+\pageheading{Completed spectral and stopping controls}
+The spectral equilibrium code DESC reaches the sampled targets in these
+additional native-state controls. Its pressure, rotational transform and
+edge flux remain prescribed input transfers. The controls refine the
+boundary or calibrate native stopping on retained states; their additional
+warm-solve times do not replace the historical cold cost curves.
+\begin{center}\small
+\input{build/desc_controls.tex}
+\captionof{table}{Completed DESC target and stopping controls. All rows stop
+natively and pass the full sampled working targets, including field maxima,
+volume and flux transfer. Cylinder errors use the retained finite-toroidal
+reference, not the exact-cylinder limit. Nonlinear equilibrium and downstream
+consumer accuracy remain separate qualifications. Sources: Phase 1, 3 and 5
+\texttt{desc\_target\_controls.csv} and Phase 4 \texttt{desc\_stopping.csv}.}
+\end{center}
 
 \pageheading{Defect ledger}
 The table preserves every row of the reconciled live ERRATA ledger. ``Fixed''
@@ -845,11 +887,11 @@ is the durable reproduction path.
 \begin{itemize}
 \item Resolve MARS prescribed-$q$ iteration and the held repair scopes; finish
 own-code review in MR !20 and the linked third-party PRs.
-\item Establish TC24 asymptotic rates and target accuracy, inverse/nonlinear
-estimator stability, and the remaining VMEC++/DESC target or stopping gaps.
-\item Explain coarse KIN6D cylinder readback rejection; qualify TC24 GPEC
-integration and NEO-2 vector/Jacobian consistency, plus consumer paths needed
-for later use.
+\item Establish TC24 asymptotic rates and target accuracy, coupled nonlinear
+estimator reliability, and the remaining VMEC++/DESC target or stopping gaps.
+\item Qualify TC24 consumer field accuracy and NEO-2 vector/Jacobian consistency,
+plus consumer paths needed for later use. The coarse KIN6D cylinder readback
+repair and retained-input replays are delivered.
 \item Refresh matched-cost measurements before extending historical timing
 claims to current main. Independent scientific review and downstream NTV
 sensitivity are separate from this report build.

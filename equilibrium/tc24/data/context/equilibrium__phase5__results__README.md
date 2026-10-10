@@ -6,7 +6,7 @@ have finite-A results, including native KIN6D P3 nonlinear solves. Its exact
 Gold–Hoyle evaluator remains separate from the PDE convergence study.
 
 Figure: [PNG](https://box.sloppy.at/272c9.png), [PDF](https://box.sloppy.at/baeda.pdf).
-The registry contains 150 cylinder executions: 143 completed and seven retained
+The original campaign contains 150 cylinder executions: 143 completed and seven retained
 failures. The comparison CSV has 132 result rows; 130 report native convergence
 and two are DESC iteration-cap outputs. This KIN6D increment adds 26 successful
 runs and two coarse readback failures. Its 34 selected Python tests pass.
@@ -164,20 +164,28 @@ main. Both exact retained requests now solve and read back successfully; see
 [coarse replay metrics](kin6d_coarse_readback.csv). Fine-ladder accuracy and
 historical timings above keep their original executable pins.
 
-DESC's optimizer success flag does not imply field accuracy: Lundquist at
-L=M=4 or 6 still has significant discretization error. The additional spectral
-refinement is retained rather than treating that flag as an accuracy gate.
-At L=M=12, the DESC-to-public-CHEASE field differences are 1.15e-4–1.97e-4
-(L2). The A300 cold L=M=16 result reduces this to 6.39e-6 L2 and 1.68e-5 max,
-but hits 200 iterations. A repeat initialized by a native L=M=12 solve also
-hits 200 iterations (1.06e-5 L2). Both stay marked `native_converged=false`
-and are excluded from the finest-converged curves, while remaining in
-`runs.csv`/`failures.csv`. This demonstrates decreasing discretization error;
-it does not close DESC's stopping-criterion qualification for this strong-twist
-case. `B_to_public_L2/max` use the same physical points and include the
-CHEASE reference/export uncertainty (adjacent-resolution L2 difference ~1e-7).
-The continuation-input defect found during this check is fixed locally:
-[EQ-CYL-1](../../ERRATA.md#eq-cyl-1-desc-continuation-and-omitted-zero-modes).
+DESC's optimizer success flag does not imply field accuracy. The original
+Lundquist L=M=12 states remain above the field target. At A300, L=M=16
+reduces total-B L2 to 6.39e-6 but still misses the separate psi and Bpol
+targets and exhausts 200 iterations. Another 100 strict iterations barely
+change the total-B error (6.36e-6), so relaxing stopping alone is insufficient.
+
+Same-contract native warm refinement to L=M=18 closes the A100/A300 cells:
+psi L2 is 3.83e-7/3.45e-7; Bpol L2 is 3.92e-6/3.42e-6 and max
+1.43e-5/1.08e-5; Btor L2 is 8.53e-7/7.93e-7. Axis and volume meet 1e-6.
+q (1.34e-10/1.36e-10) and Phi (zero discrepancy) check prescribed input
+transfer. The strict M18 solves cap at 200/150 iterations, already meeting
+all these physical norms. Case-specific gradient tolerances 1e-7/1e-8 then
+stop natively in two iterations, with the physical norms rechecked afterward.
+These tolerances apply to these cases; they do not change producer defaults.
+[Native target controls](desc_target_controls.csv) retain settings and every
+PLAN quantity against the same public-CHEASE samples, including its export
+uncertainty. A100/A300 M18 warm costs are 168.88/140.71 s plus
+57.03/37.98 s for calibrated stopping, on CPU6 with one thread. They include
+load/JAX compilation, exclude readback, and supplement the unchanged original
+campaign cost curves. A10/A30 M18 controls are registered separately.
+The original caps remain in `runs.csv`/`failures.csv`. The continuation-input
+repair is recorded in [EQ-CYL-1](../../ERRATA.md#eq-cyl-1-desc-continuation-and-omitted-zero-modes).
 
 ## Signed controls and KIM input
 
@@ -230,8 +238,8 @@ Generated plots/PDFs stay outside Git; `artifacts.json` owns their hashes/URLs.
 The collection tag `cyl20261009_kinp3` includes the retained historical failures
 and the new `_profiles`/`_refine` runs. Fresh tags must be added to `--tags`.
 The finite-A KIN6D profile/F/q route is qualified on the successful ladders.
-The coarse readback failures are closed by the retained-input replays. DESC's two capped L=M=16 outputs remain unqualified as converged
-native solves. These limitations and the consumer-path exclusions above prevent
+The coarse readback failures are closed by the retained-input replays. DESC's original capped L=M=16 outputs retain their failure flags; the
+additional A100/A300 M18 controls qualify native stopping and sampled accuracy. These limitations and the consumer-path exclusions above prevent
 claiming closure of the entire equilibrium slice.
 
 Chris&AI
