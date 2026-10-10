@@ -42,7 +42,7 @@ and scripts are the durable reproduction path.
   variants three times in one execution window, with the same inputs, DOFs
   and references. VMEC++ and DESC are outside that window. Inverse diagnostic
   stability and actual consumers are measured; coupled nonlinear reliability,
-  TC24 targets and geometric consistency, and MARS inverse iteration stay open.
+  TC24 targets and geometric consistency, and MARS full-inner coupled convergence stay open.
 
 ## Build and publish
 
