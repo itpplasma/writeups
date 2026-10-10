@@ -1,0 +1,5 @@
+mpol,boundary_max_m,boundary_rms_m,reference_modes,comparison
+17,0.07654042751278917,0.011673356849730681,128,same pinned curve;16384 same-parameter samples
+25,0.03647364669576527,0.005154298989930225,128,same pinned curve;16384 same-parameter samples
+33,0.019203741512211155,0.002622286258067788,128,same pinned curve;16384 same-parameter samples
+49,0.005995692537808403,0.0008339461094871442,128,same pinned curve;16384 same-parameter samples

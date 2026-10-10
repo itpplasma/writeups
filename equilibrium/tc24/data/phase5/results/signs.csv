@@ -1,0 +1,5 @@
+code,family,aspect,twist,reversal,BR_relative,BZ_relative,Bphi_relative,q_relative
+vmecpp,gold_hoyle,30.0,-1,1,0.0,0.0,0.0,0.0
+vmecpp,gold_hoyle,30.0,1,-1,0.0,0.0,0.0,0.0
+desc,gold_hoyle,30.0,-1,1,0.0,0.0,0.0,0.0
+desc,gold_hoyle,30.0,1,-1,0.0,0.0,0.0,0.0

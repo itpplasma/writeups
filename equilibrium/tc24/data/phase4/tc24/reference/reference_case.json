@@ -1,0 +1,29 @@
+{
+  "id": "E5_tc24_reference",
+  "source_path": "received/xingting/20260527/gfiles/ngfile_p1_run_eq_modx03_20260527",
+  "source_sha256": "fbf1b1c06253647263869efe7842e4c60214f2a1844197d2306e5b80d95833f2",
+  "source_cocos": 2,
+  "cocos": 3,
+  "R0": 6.2,
+  "F_edge": -32.852174128250105,
+  "pressure_edge": 10534.893931500577,
+  "psi_edge": 0.0,
+  "source_axis_psi": -11.8233814567503,
+  "current_A": -15481528.84405147,
+  "source_cutoff": 0.995,
+  "source_cutoff_psi": -0.0594139771499993,
+  "source": {
+    "kind": "cubic_profiles",
+    "coordinate": "normalized s_pol",
+    "constraints": "derivative shapes plus signed total current"
+  },
+  "boundary": {
+    "modes": 128,
+    "extraction_samples": 4096,
+    "axis_RZ_m": [
+      6.4109039689007705,
+      0.5240827765873189
+    ]
+  },
+  "reference_role": "collaborator reference"
+}

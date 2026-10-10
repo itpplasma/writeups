@@ -1,0 +1,3 @@
+degree,returncode,native_status,elapsed_s,source_commit,raw_root,outcome
+2,0,0,0.3306019988376647,5d17831faaafbabde12a2451cc89e9d16779674c,/home/ert/data/iter_tc24/phase1/kin6d/runs/phase4b_profile_probe_20261009T114119485371_p2,oracle passed
+3,1,20,0.11298527987673879,5d17831faaafbabde12a2451cc89e9d16779674c,/home/ert/data/iter_tc24/phase1/kin6d/runs/phase4b_profile_probe_20261009T114119485371_p3,"native profile solve rejected, status=20"

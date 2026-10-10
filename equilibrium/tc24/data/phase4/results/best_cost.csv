@@ -1,0 +1,8 @@
+case,code,dof,wall_s,bpol_l2,psi_l2,workdir
+E4_E1,kin6d,16885,4.850773198995739,3.6727481777196564e-07,1.5579698496599457e-08,/home/ert/data/iter_tc24/phase1/kin6d/runs/phase4a_20261009_v3_kin6d_E4_E1_02/native
+E4_E1,chease_public,66048,21.212267010007054,1.5392726740003149e-06,1.710640375990942e-08,/home/ert/data/iter_tc24/phase1/chease_public/runs/phase4a_20261009_v3_chease_public_E4_E1_03/native
+E4_E1,desc,48,61.11989927198738,9.858308590768398e-07,1.7776210438449786e-07,/home/ert/data/iter_tc24/phase1/desc/runs/phase4a_20261009_v3_desc_E4_E1_01/native
+E4_E1,chease_mars,66048,21.223168759141117,2.0210633580352707e-06,2.0848980540332062e-08,/home/ert/data/iter_tc24/phase1/chease_mars/runs/phase4a_20261009_v3_chease_mars_E4_E1_03/native
+E4_E2,kin6d,4231,1.5930387780535966,8.529065343633219e-06,4.355650684811943e-07,/home/ert/data/iter_tc24/phase1/kin6d/runs/phase4a_20261009_v3_kin6d_E4_E2_01/native
+E4_E2,chease_public,66048,21.978888811077923,1.6222587466467045e-06,2.333566056877008e-08,/home/ert/data/iter_tc24/phase1/chease_public/runs/phase4a_20261009_v3_chease_public_E4_E2_03/native
+E4_E2,chease_mars,66048,21.13422296778299,2.1510663819607543e-06,2.685813910359502e-08,/home/ert/data/iter_tc24/phase1/chease_mars/runs/phase4a_20261009_v3_chease_mars_E4_E2_03/native
