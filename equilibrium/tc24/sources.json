@@ -1,6 +1,6 @@
 {
   "description": "Committed inputs for the consolidated Phase 6 report; executed pins remain historical.",
-  "tc24_commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+  "tc24_commit": "d62873837da7d14681e7c8938598a69690417a77",
   "kin6d_current_main": "f6a33c91610e49e7eba63c0b4f8dcc099e8a77e1",
   "kin6d_data_commit": "3c851d71a4d5636dd9e92c4dd5b2b77a011e3ad2",
   "kin6d_support_history": [
@@ -56,15 +56,15 @@
   "sources": [
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "PLAN.md",
-      "sha256": "6ba1426a316c3de2c4516f81c765693c7834f1ea31abb60e67bf457ebc2029fd",
-      "git_blob": "89da428059c3f31f757b7d242584abe02288face",
+      "sha256": "7b5b1e0bf053c2bfed173d0d6e41431fe31a77502051b695eb8ba57aaee21e23",
+      "git_blob": "3e2475408288fb6d3713ac8d723c94016fa4cb4f",
       "snapshot": "context/PLAN.md"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/CASE_CONTRACT.md",
       "sha256": "82ec6ca4ac3bb1a0fc56ee19dabbeabcba400e5f1477c66aeefe7292a2754bd9",
       "git_blob": "63f767125560e4d2678322ee18d5700b0830a4fb",
@@ -72,17 +72,17 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/ERRATA.md",
-      "sha256": "bc7114f8e1761a03c75f52baf8e6023f60e86d370530f5d9b2bae68d5db59b9b",
-      "git_blob": "6a9429f2d783e4cc9647577d017e4131f301979b",
+      "sha256": "518c3d3dbb60b88f0a5fa5beb765fd72c5bf5ea48b71afb903df1ccc2d2b292a",
+      "git_blob": "c07d0008d47c95f6e88fd235b0bf3c97d7d2afae",
       "snapshot": "context/equilibrium__ERRATA.md",
-      "snapshot_sha256": "464e74cf42a3b22d356985b5b783c88abdb353e6c80647f55cb1cd666f0b3e34",
+      "snapshot_sha256": "6ec9976ec15383b6846045f4166cf4df6a348c8dd3469fd46070ecfcc902bee6",
       "snapshot_transform": "remove trailing blank lines from context text only"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "review/UPSTREAM_PRS.md",
       "sha256": "507712c8fd359d9d8f7ac51a3226b7391313e568ed7885d934891c88a0dfc4d8",
       "git_blob": "37a804e3c00bab636234ab09815241ff3a0f4be4",
@@ -90,7 +90,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/README.md",
       "sha256": "b01d7d3052feedee822fdd13b0ed03a925a75d847f1d8df37edb3b4b2a4abd06",
       "git_blob": "2cd61ae99686e227dabf755ac007b6150333d2bb",
@@ -98,15 +98,15 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/results/README.md",
-      "sha256": "4b8f4a6c772483e3eea4d983c65c81a238c00916e8437cab20ff0caec98b9404",
-      "git_blob": "97840b28e6ff8d66ca9b5e7203cae818e99f5f99",
+      "sha256": "671c2490fc06ab89aef45abfa2fbc8f67d6308642df970a3d8290ecb5fe82a7f",
+      "git_blob": "60c6a7aece0fac98d0dcfdccaf78ded9543e739b",
       "snapshot": "context/equilibrium__phase1__results__README.md"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/results_export/README.md",
       "sha256": "6e822a042a365244881ede55bbf66ffaedcca0c9c7c75398b189118d80a59be3",
       "git_blob": "3cae67f76bca1a9e57e2f2ea121be307f60b4b1f",
@@ -114,7 +114,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/README.md",
       "sha256": "398de02cec096e5063728b15808c9bcd6c7cdd67bd5b1c04d8500cb37fe7a888",
       "git_blob": "2b359bdd7d6b5b148817668d33f1fc35516f5c95",
@@ -122,7 +122,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/README.md",
       "sha256": "43442e1de2dcdd4f78cc49410b6429942582ea4e00d891ad925bb5fa120259a7",
       "git_blob": "e6a082884e8782336ff5dc729e0cde4508d54483",
@@ -130,7 +130,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/README.md",
       "sha256": "7974694443d573e918ad225106dcd545141897b5ae751aa321ff9a04a5944a63",
       "git_blob": "2d9cda0bf92b99a158a0ddabae460f208a46d537",
@@ -138,7 +138,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/EQUILIBRIUM_PROVENANCE.md",
       "sha256": "b50a0c637c358074386dad941758264ec5aec8049060ab87aab86bdaa0b20b8c",
       "git_blob": "7bfdfcb66646fbd4b0837575ddbbf1ab1361b806",
@@ -146,15 +146,15 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/EXPORTS.md",
-      "sha256": "87eb8f52010a874f580e5a12781db71b2b6c867ccebbf93efd5bea566af4ea35",
-      "git_blob": "e2a04bb86f11bdc636d0c3de27b49f9930ac9898",
+      "sha256": "d3db79e53b7bdf5a8f81fd5544a768f7fbcb5c8a1f1ad3e8f9413a178267f0e4",
+      "git_blob": "52e5023ce89e9f3e948c453f25e2390cf0b423f5",
       "snapshot": "context/equilibrium__phase4__tc24__EXPORTS.md"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/kin6d_performance/README.md",
       "sha256": "4e798e5b44cfd0c90d31f0b9f88652dac738bc9e3f281ea55cdfc8c4b7411c89",
       "git_blob": "689e5be61c3e70feb4b0cd42a0a531fad9d74c4c",
@@ -162,7 +162,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/README.md",
       "sha256": "88b40e681f49378f94f64b21b8f0e4f515c156838eed758b00e44b751817fabe",
       "git_blob": "64290bd0e560dec951f1ac330db30ea052acf6bc",
@@ -170,15 +170,15 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d.md",
-      "sha256": "3d932ff56501a64ec5bc6482f1d5420f021a4c9061f55ba0d4ae00e43f90daba",
-      "git_blob": "5572b2ce19f87c5c79f7b1e6c04e19a33ed4a272",
+      "sha256": "17b196b1016e6b2a1781f9ec30fad12fe5d766fff32a1a64dec9db85baf0bd14",
+      "git_blob": "bdae156daf2bcd26b3250812f3a5818789d5a067",
       "snapshot": "context/equilibrium__phase3__results__kin6d.md"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/README.md",
       "sha256": "12569b066460bcfa6ce102c7dc591f19a0761a48dd53e840d7de757f4bc05342",
       "git_blob": "54740dff198ab799ec7df19ffa9301537c137f3a",
@@ -186,7 +186,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/results/solovev_lcfs_A3.csv",
       "sha256": "5d4754aeb48099891beed6964346dce701066ae3892fc63916d5072127a1e655",
       "git_blob": "ed58fc58e338ef7876aaea20d7f37157565537aa",
@@ -195,7 +195,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/results/solovev_cerfon_iter.csv",
       "sha256": "ac0114b9f0f83df1d9a44ce17edaee3bab12b3cfe79ce2328505f8260caa8be2",
       "git_blob": "3f66380510812e4b3eba55c1c748bbc25eeb1e58",
@@ -204,7 +204,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/results_export/summary.csv",
       "sha256": "acf836451e28a8e7bc44f3eb321fff9fd380c99bfd8394458e60e1a9e9cf1bc5",
       "git_blob": "622643517ab5e1af9651456e97e6ebf8e24685f8",
@@ -213,7 +213,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E1_A40.csv",
       "sha256": "5fcc0c909dcbe9cd0daf884c90b055a22c9143fd9c086a65e4f582437155f8ca",
       "git_blob": "feb2012e61e46351844eb54aab2c5cbb57852099",
@@ -222,7 +222,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E1_A20.csv",
       "sha256": "baa4a2e2921ac93b617b016d0d95ecd5abfce150589ccdce2f835d2e4b87a28f",
       "git_blob": "d4e88bde4372813ab862b71376f323d03deaa8e5",
@@ -231,7 +231,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E1_A10.csv",
       "sha256": "edc03a9685dc7d519859da9fcc324065bf0ad702d93c84b48342d12db4aba80d",
       "git_blob": "262a6a052e18f51eb5ea1b729bb50136bb202d68",
@@ -240,7 +240,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E1_A3p1.csv",
       "sha256": "76eceee1e74456778ae36ca9ebef4b9a03594b354cd83370c30c34ce9c2bce31",
       "git_blob": "ed15167a091a8e38f82a7e173ddbe69b744e3b45",
@@ -249,7 +249,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E2_A40.csv",
       "sha256": "c04cd179ec19ea21922ce7bdb7aa5d94984b97db9b4ee3c68efaa2f3093d8d65",
       "git_blob": "5be0c05756968f96635351df3087bd545bc1f6aa",
@@ -258,7 +258,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E2_A20.csv",
       "sha256": "056073178a19aad61c10755b55eeca359f6cbe0515632bf1d27d3714f702871d",
       "git_blob": "520e91baf81142ca37a91fcc2a3b224bb36ecc6d",
@@ -267,7 +267,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E2_A10.csv",
       "sha256": "41f43795a48a2270ffa0d88e7e88f58e2069d8eeb50adb5904e18180699e29f3",
       "git_blob": "f5e62b201c8e80fa75e120350182e0bbdc4c3d48",
@@ -276,7 +276,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/E2_A3p1.csv",
       "sha256": "f793e9a63c92480a1abd85c4e1239471fa93561c5c3d9db438a3c6ef9cbe83f3",
       "git_blob": "d7b53cb9941baa390d13e2b4dfaee482e0668906",
@@ -285,7 +285,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/best_cost.csv",
       "sha256": "4e1cc58f292d132966bbe251513bfaa23f3f08a9b1846cb7cf0bb8b411660818",
       "git_blob": "aca902183b1ed82c5c2d99998e6bb7c28966ac4d",
@@ -294,7 +294,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/finest.csv",
       "sha256": "e87dfe8154a11349a8a4e1ced4f435d7adbf8c8f0bc5d4dcf8fecee18ac0c300",
       "git_blob": "b105835f14086c2f5f76bd5d62543f13a2aaed87",
@@ -303,7 +303,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/qualified.csv",
       "sha256": "fdb2283e040d94af1538e5e451c233b5033ee874cae6adab38de96eb95b1968e",
       "git_blob": "9c55263253fb8d8d82cc7f638f8691032749e881",
@@ -312,7 +312,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/rates.csv",
       "sha256": "106c7327cc1332e68fc7cd8b912d26d1f65db98cd458f2980f49558fe09a2ca0",
       "git_blob": "292570d0a53064622b702ee27d3402b3f384ac23",
@@ -321,7 +321,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/reference_errors.csv",
       "sha256": "80e32a522ec0a10a2eb52c1a3b97a48f4846e2c2db0940ee4c2e68246a58cf3f",
       "git_blob": "50409c214950b188edd12aa38703d9020c827965",
@@ -330,7 +330,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/exports.csv",
       "sha256": "9332d5ba6bebd9cc87ab7c220495174b57dca69b001a267eb2b0ed933d882dbc",
       "git_blob": "50560e72dfea31811b8a112365925ea2ad2dd29a",
@@ -339,7 +339,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/boozer.csv",
       "sha256": "32187f807b67c00449a608e66a93b116624a77d5064834c54839f4665f1e7b24",
       "git_blob": "be5a4b64bb6ebfce9b869c834cb905026a0663ce",
@@ -348,7 +348,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/boozer_volume.csv",
       "sha256": "3ba5c4608e9dc2c5068e2c4349c3b3785472bf2b8c11db6abddbb9b5ba4e0f7f",
       "git_blob": "a5cf1b36cc063d7fa125f7da50bc9904542546bb",
@@ -357,7 +357,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/E4_E1.csv",
       "sha256": "ced600c9bac39eb1bf83aaa359d59de8966d29b2edcae35f45033505c87fd6ec",
       "git_blob": "d63121e3e212344966e9c0a51a6ed3a55e5cfa31",
@@ -366,7 +366,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/E4_E2.csv",
       "sha256": "95ae060dd8209665d301644ea665ce2ef1179d21ffaccdbb1c0d98a789dab841",
       "git_blob": "ff83327f4d45afb922d6d2f3e9ea8e07970aba50",
@@ -375,7 +375,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/best_cost.csv",
       "sha256": "3ae242241eb4182da7d3a5c460a173f05aa699f5a8e93c2b2b1144f2264bc0d1",
       "git_blob": "a00e4d0b4e2da855c8944273ea2425a57a08debc",
@@ -384,7 +384,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/finest.csv",
       "sha256": "cbc39466cae615f5d80c8d03f583b194bb70d52e6c1aa1e52e90762ce0774bae",
       "git_blob": "6a036c599bd2d63cfe52a85a0010a1310b3474d1",
@@ -393,7 +393,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/qualified.csv",
       "sha256": "5ae99aaa52f9bd77935d049939217027dd9a3b624122187686f73e7cb8ac754a",
       "git_blob": "4adec81693614b64c6033dbb5216b6c2f5a805c8",
@@ -402,7 +402,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/rates.csv",
       "sha256": "e49b25a29b148fb8efa14ca3fd0b50ad93564b30091b882376086066977f23e6",
       "git_blob": "11019cb3c4887b9babfe873b2230d367c0d8c08f",
@@ -411,7 +411,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/reference_errors.csv",
       "sha256": "b52af947e27130407b63d8b527b560ed4fd0774342d4dfff99f74dd8d7a6cf82",
       "git_blob": "090e6e3e4a141db91a67b960d99718153174573f",
@@ -420,7 +420,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/exports.csv",
       "sha256": "8f85fcd44d01941e7ac4aa7761175a459f1f69dd1df201293fb9f75ab2934adf",
       "git_blob": "ffdab3eb923e20ed68a9ffce9b7ed290e48ab7fb",
@@ -429,7 +429,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/boozer.csv",
       "sha256": "8b0d7f273a28812a3b54b753385a708f866544c88d906402d61625769e5f0eb9",
       "git_blob": "1e11fe7c5a541c90ed2b8b110e2337cb957ebcb1",
@@ -438,7 +438,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/boozer_volume.csv",
       "sha256": "dfff3bb1e07db30c0f1c7e740b8092ccd87f7d5cf8edaeefaf5152c317810e44",
       "git_blob": "7ebc3a1381d9e29ffcada0d98b3e57ba5ca848ef",
@@ -447,7 +447,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/physics.csv",
       "sha256": "26bd0cd17829be6307fe0580c6c85f0258abe61cc015f9ac86f558ad9692e96a",
       "git_blob": "4b11bd94ab927d4333af85f118de8cce12b4ce91",
@@ -456,7 +456,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/cost_by_bpol.csv",
       "sha256": "7f83408f2ec82cbf3fd415a87f371dd99daf6d7bed33709f99af85dfc5379a1d",
       "git_blob": "5933c31810e232501d1360310e807cb8670ce5ab",
@@ -465,7 +465,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/source_consistency.csv",
       "sha256": "6568afd384ccabc29117c4d29490d4c916626d384992d044718c866a721d73ac",
       "git_blob": "1961393d4a15eee2d26a9813ce10879d62b2965d",
@@ -474,7 +474,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/capability.csv",
       "sha256": "d6b06de80521c659ff808c37448e3cd74959a45b27204ab9e458cd38f1b2ab27",
       "git_blob": "1ab3a7e1493165e9ccefa17fe43bd31dae5b8534",
@@ -483,7 +483,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/runs.csv",
       "sha256": "5392474f770d2d3a0d2513208da89fb14734cdbc1a3513d1d740969e51ffce5d",
       "git_blob": "44399fb7f3747cf1aee728beaea8f459d6a05b2b",
@@ -492,7 +492,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/finest.csv",
       "sha256": "9d3dc29c2d8fa22ecd62cfb896036ed7f2fbee3dcbb2cf9eb5da4377c3d536b8",
       "git_blob": "0c1389d456417a98a5a2aad7f25a7ee19ba82994",
@@ -501,7 +501,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/aspect_rates.csv",
       "sha256": "03e89fe82b688aabd719fd6045234ac72169a807b6c68c6c9a046ebf6a2e447c",
       "git_blob": "c2479d5b6daab8f74ca8bf655b3f36969a0eef3b",
@@ -510,7 +510,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/resolution.csv",
       "sha256": "32fa1411974f4036968d3706b1123e944d5680e98f69d44dc9eec62a26b1d6d3",
       "git_blob": "1ff755f59cff6bc7cb3e78e9e2ba8147c58a7c8a",
@@ -519,7 +519,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/signs.csv",
       "sha256": "6368993a27f1f292c414c3d1ba79b837f67fea758a2894631dd5555b2ce1f0a5",
       "git_blob": "f4d54b86095d45cc95efa78a45135299277091d3",
@@ -528,7 +528,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/failures.csv",
       "sha256": "3c6b93bd7edbb30d4769b08d39bb448bd70ed9c7dcd40019d81316cc4e6aeb7d",
       "git_blob": "fa492ef566993b5d2e30103055803318b282eff9",
@@ -537,7 +537,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/comparison.csv",
       "sha256": "50b1ef14adbba38b9e30f9923f800c3a77653f8953fbc663f0e4b79abf9a1886",
       "git_blob": "ccd297895c7a5bf8de7c0910aaae4131b1ac0631",
@@ -546,7 +546,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/finest.csv",
       "sha256": "5da4378ff026c8f08d50e6b0a02894c0dd624372e0c63f8ca0034d8fdda18f14",
       "git_blob": "b50fc72eed474d19d60dca84f4f4f05dfed8eac0",
@@ -555,7 +555,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/self_convergence.csv",
       "sha256": "364bda260a7e98f90b97f88979f17595b23bfd4352ccea5da5887fa48cd2459c",
       "git_blob": "42ab4b90a533a6afd41c29e8a2670e9790c1316f",
@@ -564,7 +564,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/exports.csv",
       "sha256": "321e44efc17f8f5b92159e07c3e83f917f89ce6a9fc3d6f0bb03b4bc43906902",
       "git_blob": "36527347864dcefcb42d56020cb2486fdce9e563",
@@ -573,7 +573,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/consumers.csv",
       "sha256": "2278ed8446d8a0473997d6fd285e452fb6cb7d5a93c6e6626d1ee87e20249913",
       "git_blob": "793557f459b621b3ba0a7baa9afadb4e929e3593",
@@ -582,7 +582,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/boozer.csv",
       "sha256": "77e5b0b087071422c9a0b0a08a1c79a100d0c5dbad97eec7ceb852ef61d26192",
       "git_blob": "3d3c9a4b3983dec7b6121853f27640c1e84c0d63",
@@ -591,7 +591,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/boozer_m48.csv",
       "sha256": "740c44c1123af8b33771476a2e1499a5dbd0d697457fea83416a66541b6b7cf4",
       "git_blob": "2e3a801df43245f8ea35dc06297dcb94aebbaa40",
@@ -600,7 +600,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/failures.csv",
       "sha256": "1bd68948e2d793bc4e6121f4e117c4eab03c59d836d08408ab2f8d5f1522e1ab",
       "git_blob": "0acd52f68f82fcc87f9a2a1883567eb168d2f513",
@@ -609,7 +609,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_comparison.csv",
       "sha256": "92faacdd5b1074b2f119d4b561402e1d77de0a09b58849de1fdd8176a544de80",
       "git_blob": "b6788a9799c6975b857c1cc53d5b4b4899248bd8",
@@ -618,7 +618,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_finest.csv",
       "sha256": "48f80dfbd99342f9474092b37fd7357bd45e607cb24ae2803cb63d740c3cc795",
       "git_blob": "6d9f9e0e2e0f48da97a5cfe743423c5e13814503",
@@ -627,7 +627,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_self_convergence.csv",
       "sha256": "575d85e3f156a84c43030b19b8dbfc756b9f1233047aaac9c4f2d2b87135b553",
       "git_blob": "3ae679d5cd6264e373254e29da9bbd4806d7bfa2",
@@ -636,7 +636,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_exports.csv",
       "sha256": "69330b3fbf51f5cea24ea867d6d85ebca1eb95ec44b90986cb2372a7787b491b",
       "git_blob": "34067fc55c1a4e3fba238748bb029c4606e57fb0",
@@ -645,7 +645,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/comparison.csv",
       "sha256": "c5ed54c277a15ab696c2d9d1f73171d3d63112ba18e91abf76cd69bb5d2625f4",
       "git_blob": "e8d295b197d5043ee7215f0b605cc14b7e78c0d7",
@@ -654,7 +654,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/convergence.csv",
       "sha256": "d181f4c542571d06fc2322fc8b5155cad029a72e19c3b7f7334251bdee9a2241",
       "git_blob": "36762df4b72156e411b0a5e46e6fd983b58d96ec",
@@ -663,7 +663,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/runs.csv",
       "sha256": "09923c1f3978c4d3301edd1c0d6991985b8d312b6355f671a23ba391c3213c34",
       "git_blob": "514e0290615dac4c0601e3478abdcfcea7d9f609",
@@ -672,7 +672,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/replay.csv",
       "sha256": "3fae9ef2834e1fe00ca82771577e4dd3a37eca7195cb20b5bd7758b48f6a053c",
       "git_blob": "4550ee0ee874e787c5fa516fe380493b0fb9c3e5",
@@ -681,7 +681,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/variants.csv",
       "sha256": "342c68bff2305b8a32dcbdd4e1d58a32d1bcde39e25a8e7bfc7c5f4b95849db8",
       "git_blob": "3720d5055fd13cc74465eb8731df3591077e1f02",
@@ -690,7 +690,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/exports.csv",
       "sha256": "7e12517ab41b29c9c7579528395447ef69312832494d9dbbeb0498422b0a6e7c",
       "git_blob": "d68ea743da1d5bdb8837b60d0c11c1ec667fa018",
@@ -699,7 +699,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/consumers.csv",
       "sha256": "67837b7f64c99fa70bcf0a69381668f125d760c1fc01537e83b2963250ab3b23",
       "git_blob": "d636a744cca30f57c6fdc6fcfdca9e931af0fc48",
@@ -708,16 +708,16 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/execution.csv",
-      "sha256": "04aac334f7501da85871991ca65a4cfe5d4b8f65660dcd7b8d0451b3d8bcc241",
-      "git_blob": "31f14af5913754812c6e6ecb4ed3aaa6beadbffd",
+      "sha256": "aabd4fba1f12e99f0bc24b84901637cd155b94baba482388bc5a173cf0940451",
+      "git_blob": "605f4a7d552e4a2a2addf639e4105e0a25be2523",
       "snapshot": "phase4/tc24/reference/execution.csv",
-      "rows": 142
+      "rows": 143
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/reference_case.json",
       "sha256": "d6971b2895dd42fa8db7ae1d4257d2660ae2d6523df38e8664789012d667fe15",
       "git_blob": "4fdf7c0209ac8c65f6b498d56501e4fc42cf57a4",
@@ -725,7 +725,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/kin6d_performance/timings.csv",
       "sha256": "9d5e7d1bdb9859f584668eb50bfaed6a2650501127eb860ae9b0b2a76b1c9376",
       "git_blob": "0dae015e17ff0caad1e52c12f6acc5542f37c3f4",
@@ -734,7 +734,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/kin6d_performance/convergence-fine.csv",
       "sha256": "6471f3d0b0a59cf5e6e8d73dbc165ab5c8f853dc633a9072ec440b84e6b9f869",
       "git_blob": "dae55d2d2d525a163cdeeaa3310f7addee156b49",
@@ -743,7 +743,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_consumers_gpec.csv",
       "sha256": "643c746e501fa4a647c7e79443e09ab1609e5b9cecb87883eac3a8536aded950",
       "git_blob": "abbd213d484500aa8f63d79f0efaa12a5cdbd700",
@@ -752,7 +752,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_consumers_hamada.csv",
       "sha256": "5d0cedaada29dd6e7acbc1c288e3609738ad3ef618483418abe829461abf22e2",
       "git_blob": "4a3f294ac4e05050f8f75637ee3faedd603e8350",
@@ -761,7 +761,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_consumers_neo2.csv",
       "sha256": "a4cb8c51364e8b78573722137db4aac5a5736b3c740e8b67c20934ee5166d275",
       "git_blob": "1a9a103375e69269dd81fd1e0378ce02292c1bac",
@@ -770,7 +770,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_consumers_neo2_controls.csv",
       "sha256": "68f8d4ece4c3439e5678bdadb1096b436e5741a56477cc24301ae51b06711bbb",
       "git_blob": "dba346426650a59e1e90e4fbf1f64cdb77e51e3e",
@@ -779,7 +779,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_effectivity_native_circular.csv",
       "sha256": "087e1d05549abeb847ddbd48260e6810e11071e45bd30dd4f73ad1fd28383c47",
       "git_blob": "672dcff43f9984f85346db838ef20f2809aa3f73",
@@ -788,7 +788,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/kin6d_effectivity_native_solovev.csv",
       "sha256": "116cbc4122c24b36471a09f304de7369f3735e584dccc36cd766cfa8c114534b",
       "git_blob": "12346fb8b81189c2d1c7ec7fdd61f39a066e9242",
@@ -797,7 +797,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/passing_states_common_reference.csv",
       "sha256": "5c42232c146eebf9a3032bb2e0cdd115bdea24613294e3ea489add926066a64b",
       "git_blob": "26fa59c09de3e86866b47ea0b0551b7d48b45c1f",
@@ -806,7 +806,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/results/desc_target_controls.csv",
       "sha256": "a637171a11c81c78f9e4e1881f453115cee7fc5f7eff310e7d7141a123a94ac3",
       "git_blob": "1c8e8d7c4a78d4426d54c79e0307c110c2bc4043",
@@ -815,7 +815,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/desc_target_controls.csv",
       "sha256": "7f2ed55b73ff2e717c90e6935e5a7fef0ef41e6df7d8aca6b83f7d2eb603677f",
       "git_blob": "fc7b58e57dfa841291fd7c82eae5208ed90bbaec",
@@ -824,7 +824,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/desc_stopping.csv",
       "sha256": "8a62480a13cb14d83c310c4907936de71e5fdb9150913816b03e110da708ea0b",
       "git_blob": "2ef86118e6b16497e8f931e83c4dccb88897a1e8",
@@ -833,7 +833,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/results/desc_cold_cost.csv",
       "sha256": "b4417426d41bcf30c31750836f910ac37245afb1710be76e6fd47fc0744edb80",
       "git_blob": "5a62b59cb5eeba04253462f4a60be22ce318ff2e",
@@ -842,7 +842,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/results/desc_target_controls.csv",
       "sha256": "ad88e673a9df35f5e6715a077b447d29bf343ae9a582cf390463394ef569dcc4",
       "git_blob": "845ae457d487bc9aaa424be52d0cc79d9b68e80f",
@@ -851,7 +851,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/kin6d_current_cost.csv",
       "sha256": "286e9c53f9273beb53e57faa23af4820d61551e52212cb67455facc23aafcc51",
       "git_blob": "14e78d1b99292fff5827a623b7b11ff171ec8228",
@@ -860,7 +860,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/matched_current_cost_runs.csv",
       "sha256": "fa6ae9a633c1399d1b1dfe7e4f58402607ffed373299716cc33a87021e38f5e3",
       "git_blob": "5eae88ed65e07e42c7afff03187cfe9e7f4889d5",
@@ -869,7 +869,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/matched_current_cost_summary.csv",
       "sha256": "a537f0ea3d0110a27d3ddf1bb446a3cfa3bceea1db5928fd1e7ba14c61bf6254",
       "git_blob": "a61918e7268771844532cf3c1faa1189d43d8352",
@@ -878,7 +878,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/results/vmecpp_target_controls.csv",
       "sha256": "53d0fa61c6c1f17862905e4bda150d9c72b76eb04f351bbc17f749ed74b99da2",
       "git_blob": "9214fce981644dfdf7c2423fdece1d2aec17179f",
@@ -887,7 +887,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/vmecpp_target_controls.csv",
       "sha256": "27ae9827b3affbbcf4b467f48867da6d8ad64cd03918d62d10b5ad6f6cced141",
       "git_blob": "11ca3857546232b47129831737e7825c1805db31",
@@ -896,7 +896,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/results/pressure_contract_control.csv",
       "sha256": "d6f077d40e97ed95607079ad546eb11cbf1f67e74f8918630d115d6f266e171a",
       "git_blob": "cd7907942dabe26bd593de348010a5722979d460",
@@ -905,7 +905,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/results/vmecpp_cerfon_angular_control.csv",
       "sha256": "af7e0e42a82e878eb949acd2949c8343901854d0f238aae1a73b733b2e1a71d4",
       "git_blob": "09494249b0a22743ef669948f239a154f2408e83",
@@ -914,7 +914,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/kin6d_q_convergence.csv",
       "sha256": "a9c5e8ed3220cf13851988c996dce7e00fe5f85b877d217c5dbed33b69087507",
       "git_blob": "ec0be1b0e47f0ca31766b8d94be8311a5b0e9867",
@@ -923,7 +923,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/kin6d_controls.csv",
       "sha256": "75c95e7edf20d94bc7d9f479a1220544de947f510a0d69025c98f5750b1b41a8",
       "git_blob": "2013f166fbc7310a205086be7b8f655d3ae6567e",
@@ -932,7 +932,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/kin6d_refinement.csv",
       "sha256": "073ec59bd6a89f33795a25c766d94e0ef4e6a6437ace00d72f4d1de725e4fcbe",
       "git_blob": "df4b011e9892150bf9120437be5498f54a166d32",
@@ -941,7 +941,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/reference_uncertainty.csv",
       "sha256": "598f3e565d83dbf8bd5aff25e3706c96773bee7f60547c6a9f987bbe11f477bd",
       "git_blob": "cebd465ab145c1641824ec4ef3c5a7ab7969692d",
@@ -950,7 +950,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/reference_uncertainty_n320.csv",
       "sha256": "de10e0069e9b41c87b71fc164c90a3cc00d344461b38e09a2a97fe16087a9cac",
       "git_blob": "36d82c062f46ee158466ba975b48f416438a9e02",
@@ -959,7 +959,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/vmecpp_controls.csv",
       "sha256": "88857142f130fa50867fa2ebe7d8825eda705b0ccc9874c9732723167a79be7e",
       "git_blob": "b1539f0da630793e8c2ec7287ea87645e54cf20c",
@@ -968,7 +968,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/vmecpp_self_convergence.csv",
       "sha256": "1848c903cb856e1a28aeff4a1cf3805948413c3ecb3b67f35874235a85ef2b4c",
       "git_blob": "79db4ec965deedf0f06eb0d19ba668307e050a86",
@@ -977,7 +977,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/vmecpp_boundary_truncation.csv",
       "sha256": "3c2a53988c73108a4d02210e65c728309f275b292fdb2f3e6a620612605ca314",
       "git_blob": "3e842d087c59fbdaa07850a9c46c6e4cc9b0872a",
@@ -986,7 +986,7 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/tc24/reference/spectral_boundary_resolution.csv",
       "sha256": "aa4b0ceb81bf1f2cc662f216eca77e5e1cbc9730a790f0990a46c6872c40c92a",
       "git_blob": "1aa0f5b1bf917f9007ac5b66c1f59d548771ef6c",
@@ -1021,35 +1021,35 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase1/cases.json",
       "sha256": "771c875afcb697bb27b9b59ef929633b47718359eb7e0bee044d0569c0922729",
       "git_blob": "9881d9f3b594a0dca2cc3a2f9b172716ca91f782"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase2/cases.json",
       "sha256": "1a5debd10c4b1a987de88076c7c5353178bdd48cd146c6a5ead1eeba7ae7df71",
       "git_blob": "2ba5823948102ec96ce3bd91cca44e910be6d6be"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase3/cases.json",
       "sha256": "7f224d3bda9301869f71c01ff646bb713b90b70db78f7a29d6e08bb6b1e16d76",
       "git_blob": "f7579d7b862daca1c46fc653f6fc528d2363f9c7"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase4/cases.json",
       "sha256": "93d5fd5a18e6d7af9fa6b295de2355d8ebe820cc3e48866cbc5b8b7962cbdc54",
       "git_blob": "6fc0fe2443f5a57db9bbeb31acf2f2751e2c6a49"
     },
     {
       "repository": "iter_tc24",
-      "commit": "b57921512ccb4cdc5de67b44ae678a80e2d85972",
+      "commit": "d62873837da7d14681e7c8938598a69690417a77",
       "path": "equilibrium/phase5/cases.json",
       "sha256": "ac167fc07ff55403c4c89664c4cc747971ed33144c08bc50ca27a3b47653f241",
       "git_blob": "36cef5f7b1d825550926586d6b0d58d477b551be"

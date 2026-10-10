@@ -9,7 +9,7 @@ from pathlib import Path
 import subprocess
 
 HERE = Path(__file__).resolve().parent
-TC24 = "b57921512ccb4cdc5de67b44ae678a80e2d85972"
+TC24 = "d62873837da7d14681e7c8938598a69690417a77"
 KIN6D = "3c851d7"
 
 

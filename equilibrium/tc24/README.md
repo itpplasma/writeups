@@ -14,7 +14,7 @@ and scripts are the durable reproduction path.
 
 ## Data and interpretation
 
-- Snapshot: iter_tc24 `b57921512ccb4cdc5de67b44ae678a80e2d85972`.
+- Snapshot: iter_tc24 `d62873837da7d14681e7c8938598a69690417a77`.
   [sources.json](sources.json) pins every imported source, Git blob, SHA256 and
   CSV row count. No solver was rerun for this report.
 - KIN6D current main is `f6a33c9`, including curved P2/P3, cubic profiles,

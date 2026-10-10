@@ -244,6 +244,20 @@ with 5.56 GiB peak RSS; actual reader 86.48 s. Timing excludes offline oracles.
 Raw roots are `tc24cons_export_public128_native1025_tol12_m1024t16384_20261010_01`
 and `tc24cons_neo2_public128_native1025_tol12_m1024t16384a4096_20261010_01`.
 
+A scratch-only pre-Fourier diagnostic captures 309 existing map points on six
+surfaces s=.97937–.98059 around the fixed theta_B=3.4452 peak (160 kB).
+At identical captured points, the existing map determinant/current Jacobian
+residual is 1.4903e-4, versus 2.7447e-3 after serialized Fourier reconstruction
+with modes≤999. Serialized geometry differs from the mapped determinant by
+2.6744e-3; the current-based Jacobians differ only 6.5249e-7. The explicit
+left-handed angle chain rule agrees with the converter's Fourier integration
+weight to 4.9860e-9. The Boozer output is byte-identical to the uninstrumented
+control. This localizes the dominant residual to projection/serialized
+derivative representation, with a smaller mapping residual still present;
+no expected truncation rate or generic defect is established. Instrumented
+converter 326.86 s/5.56 GiB excludes offline comparison. Raw root:
+`tc24cons_export_public128_prefourier_peak_20261010_01`.
+
 ## Reproduction and retained history
 
 The converter is libneo a9b6d9674f82e6e1bdac5146fddc732097bece9d, with the

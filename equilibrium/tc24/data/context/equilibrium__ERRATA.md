@@ -171,9 +171,12 @@ in Phase 4, including the EQ-D11/EQ-D36 controls. Preserve distinct native covar
 
 - **Phase 1 classification:** the [common comparison](phase1/results/README.md) gives Bpol L2 orders
   1.15 (E0 A3) and 0.97 (Cerfon) over the finest three radial grids, consistent with first-order bulk
-  convergence. Maximum errors peak in the first two radial cells; their slower rates (A3 0.56, Cerfon 0.71)
-  have the axis finite-difference method classification in EQ-D20. The historical TC24 residual remains an
-  open Phase 4 candidate; this Phase 1 result does not resolve it.
+  convergence. Maximum errors peak in the first two radial cells; their slower
+  rates (A3 0.56, Cerfon 0.71) remain unclassified. Leading exact-circle geometry
+  is reproduced by the native-staggering oracle, so staggering alone does not
+  establish a half-order prediction. Fixed-probe behavior beyond the first radial
+  cells is still missing. The historical TC24 residual remains a separate open
+  Phase 4 candidate.
 
 ## EQ-D13: CHEASE source-law interpolation
 

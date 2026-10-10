@@ -264,7 +264,7 @@ Current gate assessment (2026-10-10):
 
 | Gate | Status | Evidence or remaining condition |
 |---|---|---|
-| Each case: matching inputs, rates and agreement | Open | Phase 3 MARS failure; TC24 finite-reference transfer/accuracy; remaining solver target and reader gaps. |
+| Each case: matching inputs, rates and agreement | Open | Phase 3 MARS coupled convergence; TC24 finite-reference transfer/accuracy; remaining solver target and reader gaps. |
 | Defects fixed with behavioral regressions | Open | ERRATA retains unexplained candidates, held repairs and own-code fixes awaiting MR !20. Published scoped PRs alone do not close those gaps. |
 | KIN6D accuracy and cost qualification | Partial | Generic P2/P3, expected rates, forward estimator and matched circular CHEASE costs delivered; nonlinear/inverse reliability, remaining current cost comparisons and TC24 accuracy remain open. |
 | Reproducibility and publication | Met for delivered studies | Committed inputs/scripts/registry and report source; native latexmk build, source-row indexes and slopbox PDF/figures. |

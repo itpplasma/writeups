@@ -54,9 +54,10 @@ matches the first-order radial prediction.
 CHEASE's finer below-target differences do not justify further diagnosis.
 KIN6D's historical axis errors are repaired by the local quartic recovery
 recorded under [EQ-D15](../../ERRATA.md#eq-d15).
-VMEC++ sampled Bpol-max orders are 0.56/0.71 (A3/Cerfon). Its near-axis
-maxima and DESC shaped boundary truncation retain the
-method/representation classifications in [EQ-D20](../../ERRATA.md#eq-d20).
+VMEC++ sampled Bpol-max orders are 0.56/0.71 (A3/Cerfon). These slower
+near-axis maxima remain unexplained under [EQ-D12](../../ERRATA.md#eq-d12);
+radial staggering alone does not establish a half-order prediction.
+DESC shaped-boundary truncation is classified in [EQ-D20](../../ERRATA.md#eq-d20).
 
 Cerfon retained-input checks exclude a pressure/iota or flux-sign mismatch:
 at NS257 the executed half-grid pressure and iota errors against the exact
@@ -139,10 +140,9 @@ speed ranking. No listed projected large grid was launched.
 | 4a E4/E2 | 257 / 10.52 | axis 8.969e-5 | 1.191 | ~11200 / ~20000 |
 
 Bulk Bpol rates meet VMEC++'s at-least-first-order radial prediction. The slower
-near-axis maxima retain EQ-D20's axis-treatment classification; these sampled
-target gaps remain open. Cerfon's signed axis crossing supports self-convergence,
-but does not classify a possible angular/stopping floor or justify an absolute
-axis-error extrapolation. E2/A10's strict saved-state continuation is measured in
+near-axis maxima remain unclassified; the fixed probes have not yet left the
+first radial cells. Cerfon's signed axis crossing supports self-convergence,
+but does not justify an absolute axis-error extrapolation. E2/A10's strict saved-state continuation is measured in
 [Phase 2 controls](../../phase2/results/vmecpp_target_controls.csv); original
 Phase 1/2/4a curves and source pins remain unchanged.
 

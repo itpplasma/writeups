@@ -11,7 +11,7 @@
 \setlength{\parskip}{5pt plus 1pt}
 \setlength{\emergencystretch}{2em}
 \captionsetup{font=small,labelfont=bf,skip=4pt}
-\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/b57921512/}
+\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/d62873837/}
 \newcommand{\tcfile}[2]{\href{\tcroot#1}{#2}}
 \newcommand{\kincommit}[2]{\href{https://github.com/itpplasma/kin6d/commit/#1}{#2}}
 \newcommand{\dataref}[1]{{\footnotesize CSV source: \texttt{#1}}}
@@ -82,7 +82,7 @@ Phase & Delivered evidence & Remaining qualification \\
 
 The reader is Chris and, after revision, the TC24 collaborators. All empirical
 figures and numerical tables are generated from committed CSVs. The primary
-data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 b57921512}}. The retained
+data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 d62873837}}. The retained
 README files explain how the runs were made; where they lag the numerical
 tables, this report follows the CSV rows and their settings. KIN6D's earlier
 owner study is labeled separately. No new solver run was made for this report.
@@ -667,8 +667,9 @@ KIN6D inverse exports at two producer resolutions. The finest results are:
 \captionof{table}{Actual inverse consumer readback. Fields, safety factor,
 edge toroidal flux and physical Jacobian use exact Solov'ev references or
 same-level native KIN6D references for E1/E2. Circular rows measure transfer
-accuracy; their absolute equilibrium accuracy rests on self-convergence and
-independent public-CHEASE comparisons. GPEC's Hamada Jacobian uses independent
+accuracy. E1 has self-convergence and an independent public-CHEASE cross-check;
+E2 retains KIN6D convergence evidence, while a public fine ladder enforcing
+the same delivered-pressure contract remains pending. GPEC's Hamada Jacobian uses independent
 native contour quadrature. NEO-2's geometry determinant is a separate diagnostic.}
 \end{center}
 \dataref{phase3/results/kin6d\_consumers\_gpec.csv,
@@ -890,10 +891,29 @@ A held-$10^{-12}$ radial-map control doubles only the map labels from
 to $4.84\times10^{-5}$ on the interior surfaces, but worsens from
 $1.09\times10^{-3}$ to $1.65\times10^{-3}$ at the outer surface.
 Neither quotient establishes the expected cubic-interpolation derivative rate.
-The outer chart and safety-factor floor remains unclassified. The converter
+In this radial-map control, the outer geometry and safety-factor gaps
+remain unqualified. The converter
 and vector readback take 143.20 and 50.77 seconds; scalar readback and the
 native oracle are excluded. These controls retain the same exterior
 continuation and are separate from producer-cost curves.
+
+A later m1024 export meets the safety-factor, flux, full-vector field and
+physical-Jacobian targets, but its poloidal-field and geometric-derivative
+errors remain unqualified. Doubling only converter angles from 8192 to
+16384 leaves the geometric mismatch at $2.591\times10^{-3}$.
+A pre-Fourier diagnostic then compares identical captured map points near
+the outer peak: the map determinant/current-Jacobian residual is
+$1.490\times10^{-4}$, versus $2.745\times10^{-3}$ after serialized geometry
+reconstruction. Current-based Jacobians differ by only $6.525\times10^{-7}$,
+and the signed angle-chain-rule weight agrees within $4.986\times10^{-9}$.
+The dominant discrepancy therefore arises in projected and serialized
+geometry derivatives, including radial reconstruction; Fourier truncation
+alone is not isolated. A smaller mapping residual remains, and no expected
+truncation rate or generic defect is established. The instrumented Boozer
+file is byte-identical to the retained control. Raw root:
+\texttt{tc24cons\_export\_public128\_prefourier\_peak\_20261010\_01};
+\tcfile{equilibrium/phase4/tc24/EXPORTS.md}{the export owner} retains the
+settings, identical-point comparison and original outputs.
 
 At n96, changing only KIN6D source quadrature tolerance from $10^{-7}$ to
 $10^{-5}$ reduces process time from 33.13 to 13.93 seconds; the field change

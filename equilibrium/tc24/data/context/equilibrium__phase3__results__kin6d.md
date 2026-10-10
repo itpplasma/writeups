@@ -50,11 +50,12 @@ executed law, with an 8/10-point quadrature comparison; the sampled jphi
 column separately uses the common finite-difference curl. The latter has
 lower regularity across FE faces and is not the recovered FFprime law.
 
-Finest public CHEASE and KIN6D Bpol differences are 7.66e-8 (E1) and
-4.95e-7 (E2); the corresponding F differences are 1.08e-8 and 7.70e-9.
-Public CHEASE and DESC therefore agree with the inverse KIN6D reference
-within the field targets. Existing bounded VMEC++/DESC target gaps on the
-other cases are unchanged by this port.
+The [main Phase 3 results](README.md) own the corrected final-stage public
+CHEASE comparisons. Zero-pressure E1 is unaffected by the delivered-pressure
+contract correction. Historical E2 public rows have finite pressure drift and
+cannot qualify absolute agreement on the declared contract; the adapter now
+enforces delivered pressure and Phi, but a corrected fine E2 ladder is pending.
+The KIN6D convergence and exact Solovev checks above remain valid.
 
 ## Export and scope
 
@@ -95,8 +96,9 @@ the export and GPEC readback of psi, BR, BZ, Bphi, q, s_pol, s_tor and Phi_edge,
 [Hamada contour measurements](kin6d_consumers_hamada.csv) trace the retained native
 FE flux contours and integrate the volume angle independently of EQDSK/GPEC.
 Their finest spectrum/Jacobian errors are below 1.7e-7; these are transfer errors
-relative to each native state, not independent absolute equilibrium errors. Absolute E1/E2 field accuracy rests on the
-self-convergence and public-CHEASE cross-checks above. The pinned ccabcc5 executable is
+relative to each native state, not independent absolute equilibrium errors. Absolute E1/E2 accuracy must be assessed separately from these transfer errors:
+KIN6D self-convergence remains measured, while the corrected public cross-check
+and E2 pressure-contract limitation are recorded in the [main results](README.md). The pinned ccabcc5 executable is
 no longer on disk; the native readback used the `kin6d` build at af84393 (`gs_phase1`
 SHA-256 `b3042f67…`), whose `read_gs_mesh`, `sample_gs`, `sample_gs_many`,
 `gs_profile_f` and `read_gs_profile_law` are byte-identical to ccabcc5 and which
