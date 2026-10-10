@@ -26,7 +26,7 @@ and scripts are the durable reproduction path.
   historical use nor agreement with the finite public comparator proves accuracy.
 - Inverse circular KIN6D rows use its own finest reference; historical other-code
   rows use public CHEASE. The figure uses adjacent differences to avoid mixing
-  those references. The additional six-row passing-state selection uses common
+  those references. The corrected four-row passing-state selection uses common
   circular references and exact Solovev, with its original timing caveats.
   Comparator zeros are not error measurements.
 - [figure_points.csv](data/figure_points.csv) records each plotted point and its
@@ -38,10 +38,11 @@ and scripts are the durable reproduction path.
   effects, model restrictions and unresolved candidates. Remote PR state was
   checked during consolidation; publication does not qualify a solver state.
 - Historical circular cost curves retain their original pins. The current
-  eight-state KIN6D cost table uses the same inputs, DOFs and references, but
-  other-code execution windows are not contemporaneous. Inverse diagnostic
+  matched cost table repeats eight selected states for KIN6D and both CHEASE
+  variants three times in one execution window, with the same inputs, DOFs
+  and references. VMEC++ and DESC are outside that window. Inverse diagnostic
   stability and actual consumers are measured; coupled nonlinear reliability,
-  TC24 rates/targets and geometric consistency, and MARS inverse iteration stay open.
+  TC24 targets and geometric consistency, and MARS inverse iteration stay open.
 
 ## Build and publish
 

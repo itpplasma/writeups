@@ -118,13 +118,20 @@ def toroidal_tables():
                            [cell(f'{phase}_reference:{case}', r, f) for f in
                             ['psi_richardson', 'bpol_richardson', 'majorant_relative', 'majorant_to_richardson']])
         headers = ['Case', 'KIN6D P3', 'Public', 'MARS', 'VMEC++', 'DESC']
-        if phase == 'phase2':
-            current = read('phase2/results/kin6d_current_cost.csv')
-            for row, case in zip(rows, cases):
-                r = next(r for r in current if r['case'] == case)
-                row.insert(2, cell('phase2_current_cost:'+case, r, 'current_wall_s'))
-            headers = ['Case', 'KIN old', 'KIN current', 'Public', 'MARS', 'VMEC++', 'DESC']
         table(phase + '_cost', headers, rows)
+        if phase == 'phase2':
+            current = read('phase2/results/matched_current_cost_summary.csv')
+            matched = []
+            for case in cases:
+                values = []
+                for code in ['kin6d', 'chease_public', 'chease_mars']:
+                    r = next(r for r in current if r['case'] == case and r['code'] == code)
+                    obj = 'phase2_matched_cost:'+case+code
+                    median, low, high = [cell(obj, r, 'producer_'+stat+'_s')
+                                         for stat in ['median', 'min', 'max']]
+                    values.append(f'{median} ({low}--{high})')
+                matched.append([tex(case.replace('_', '/').replace('3p1', '3.1'))]+values)
+            table('phase2_matched_cost', ['Case', 'KIN6D', 'Public CHEASE', 'MARS CHEASE'], matched)
         table(phase + '_reference', ['Case', r'$\psi$ Rich.', r'$B_{pol}$ Rich.', 'Rel. majorant', 'Ratio'], refrows)
         if phase == 'phase4':
             for r in refs:
@@ -228,10 +235,11 @@ def inverse_tables():
     passing = read('phase3/results/passing_states_common_reference.csv')
     vals = []
     for case, label in cases:
-        selected = [next(r for r in passing if r['case'] == case and r['code'] == code)
-                    for code in ['kin6d', 'chease_public']]
-        vals.append([label] + [cell('inverse_passing:'+case+r['code'], r, 'bpol_l2') for r in selected]
-                    + [cell('inverse_passing:'+case+r['code'], r, 'wall_s') for r in selected])
+        selected = {r['code']: r for r in passing if r['case'] == case}
+        vals.append([label] + [cell('inverse_passing:'+case+code, selected[code], field)
+                              if code in selected else '---'
+                              for field in ['bpol_l2', 'wall_s']
+                              for code in ['kin6d', 'chease_public']])
     table('inverse_passing', ['Case', 'KIN6D $B_p$', 'Public $B_p$', 'KIN6D (s)', 'Public (s)'], vals, 'lrrrr')
 
 
@@ -274,6 +282,14 @@ def tc24_tables():
                     [cell('tc24:'+code,r,f) for f in ['psi_l2','bpol_l2','q_max']] +
                     [cell('tc24:'+code,r,'wall_s')])
     table('tc24_values', ['Code','DOF',r'$\psi$ $L^2$',r'$B_p$ $L^2$','$q$ max','Time (s)'], vals)
+    refinement = read(base+'kin6d_refinement.csv')
+    table('tc24_refinement', ['$n$', 'DOF', r'$\psi$ $L^2$', r'$B_p$ $L^2$', 'Axis', 'Process (s)'],
+          [[cell('tc_refinement:'+r['boundary_nodes'], r, field, 6 if field == 'dof' else 3)
+            for field in ['boundary_nodes', 'dof', 'psi_l2', 'bpol_l2', 'axis_rel', 'process_wall_s']]
+           for r in refinement])
+    fine = max(refinement, key=lambda r: int(r['boundary_nodes']))
+    macro('TcHeldKinPsiRate', fine['generalized_psi_rate'], [fine], 'generalized_psi_rate')
+    macro('TcHeldKinBRate', fine['generalized_bpol_rate'], [fine], 'generalized_bpol_rate')
     convergence = read(base+'convergence.csv')
     for code,name in [('kin6d','Kin'),('chease_public','Public')]:
         r=max([r for r in convergence if r['code']==code],key=lambda r:float(r['fine_dof']))
