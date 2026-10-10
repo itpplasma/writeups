@@ -55,7 +55,8 @@ code defect under the [PLAN criterion](../PLAN.md#defect-closure-cross-cutting).
 | Public CHEASE | [EQ-D84](#eq-d84) | Zero-tension q interpolation ignores failure | PR open | [PR13](https://github.com/itpplasma/chease/pull/13) |
 | Public CHEASE | [EQ-D85](#eq-d72) | Unsupported Gaussian order uses unset weights | PR open | [PR10](https://github.com/itpplasma/chease/pull/10) |
 | Public CHEASE | [EQ-D88](#eq-d88) | Axis normalization predates smoothing | PR open | [PR15](https://github.com/itpplasma/chease/pull/15) |
-| Public CHEASE | [EQ-D08](#eq-d08), [EQ-D31](#eq-d31) | Unexplained export/force accuracy; candidate only | open candidate | No numerical-code PR established |
+| Public CHEASE | [EQ-D08](#eq-d08) | Outer-surface q depends on export extrapolation | controlled configuration limitation | NEQDXTPO=4 brings the retained contour-q check below target; native equilibrium unchanged |
+| Public CHEASE | [EQ-D31](#eq-d31) | Historical native strong-force residual does not converge as expected | open candidate | No numerical-code PR established; distinct from the current modx03 contract |
 | MARS CHEASE | [EQ-D39](#eq-d39) | Cubic profile primitive factor/sign wrong | PR open | [PR6](https://github.com/gafusion/MARS-Q/pull/6); fork PR30 closed |
 | MARS CHEASE | [EQ-D46](#eq-d46) | Fourth smoothed-jet slot duplicated | PR open | [PR7](https://github.com/gafusion/MARS-Q/pull/7); fork PR31 closed |
 | MARS CHEASE | [EQ-D59](#eq-d59) | Factorization edge errors/unset success status | PR open | [PR45](https://github.com/krystophny/MARS-Q/pull/45), split from performance PR32 |
@@ -67,7 +68,7 @@ code defect under the [PLAN criterion](../PLAN.md#defect-closure-cross-cutting).
 | MARS CHEASE | [EQ-D87](#eq-d87) | Undefined/incorrect inner coarea | PR open | [PR42](https://github.com/krystophny/MARS-Q/pull/42); PR40 closed |
 | MARS CHEASE | [EQ-D88](#eq-d88) | Axis normalization predates smoothing | PR open | [PR41](https://github.com/krystophny/MARS-Q/pull/41) |
 | MARS CHEASE | [EQ-D88](#eq-d88) | Singular F² source/current primitive | open candidate; unqualified PR closed | [PR43](https://github.com/krystophny/MARS-Q/pull/43) branch and isolated regressions retained; [issue44](https://github.com/krystophny/MARS-Q/issues/44) |
-| MARS CHEASE | [EQ-D88](#eq-d88) | Remaining inverse failure is unexplained | open candidate | [issue44](https://github.com/krystophny/MARS-Q/issues/44) |
+| MARS CHEASE | [EQ-D88](#eq-d88) | Prescribed-q convergence remains unqualified | open candidate | [issue44](https://github.com/krystophny/MARS-Q/issues/44) |
 | VMEC++ | [EQ-D12](#eq-d12) | Unexplained boundary/force convergence; candidate only | open candidate | No native solver repair established |
 | VMEC++ / readers | [EQ-D22](#eq-d22), [EQ-D29](#eq-d22) | Incorrect odd-mode/axis reconstruction | fixed on main | [Retained reader revisions](data/vmecpp_axis_readback_20261007/manifest.json) |
 | DESC / readers | [EQ-D19](#eq-d19) | External profile converts a JAX tracer with NumPy | fixed on main | iter_tc24 `8a2830829` |
@@ -134,11 +135,14 @@ EQ-TC24-3; derivative reconstruction alone never made that problem a faithful so
 
 ## EQ-D08: CHEASE export interpolation
 
-Class: unexplained; affected: public CHEASE GEQDSK reconstruction. The retained E0 default export gives
-reconstructed q error 1.67e-5 at normalized poloidal flux 0.95, versus 1.35e-8 with NEQDXTPO=4; native q is
-already much more accurate. Exterior treatment and nonlocal smoothing both affect interior values, so a solver
-defect is not established. Fix/PR: none; retain the explicit export selector and test its refinement in Phase
-1. Status: open export-accuracy attribution; [original controls](../review/EQUILIBRIUM_CHEASE.md).
+Class: export configuration limitation; affected: public CHEASE GEQDSK reconstruction.
+At retained E0 NS64, NEQDXTPO=1→4 reduces reconstructed q error at s_pol=0.95
+from 1.67e-5 to 1.35e-8 without changing native psi/q. Current Phase 1 used
+field paths also converge below target ([export data](phase1/results_export/summary.csv)).
+Those CSV q values read the delivered profile, so they do not independently repeat
+the contour-q check. Status: controlled by the explicit selector; no PDE defect or
+wrong-limit claim for the default selector follows. The [original controls](../review/EQUILIBRIUM_CHEASE.md)
+preserve both configurations.
 
 <a id="eq-d09"></a>
 
@@ -317,13 +321,17 @@ pair](data/chease_band64_e0_pair_20261007/prelaunch.json).
 
 ## EQ-D31: CHEASE native and exported force
 
-Class: unexplained; affected: both CHEASE variants' TC24 field reconstructions. Raw and smoothed-export
-derivatives have different errors; angular refinement reduces the public raw GS/source residual from about
-25.1% to 11.2% but has not established the expected convergence rate. Exact-E0 interpolation controls explain
-much of that separate case's finite-bicubic error. Fix/PR: none established for the remaining TC24
-discrepancy; status: open Phase 4 convergence finding. A nonzero weak residual is not itself a confirmed
-implementation defect. [Native/export controls](data/chease_native_hermite_audit_20261007/README.md);
-historical local-bound analyses are archived.
+Class: unexplained; affected: the historical public-CHEASE source-family reconstruction.
+On the same 1913 physical points, native Hermite strong GS residual/source RMS is
+27.49→25.11→25.08% for NS=NT64→128→256. The diagnostic evaluates the executed
+cubic source from NOUT, with CPRESS=CFBAL=SCALE=1; it is not a comparison with
+the inconsistent JINTRAC derivative columns. A separate angular refinement reduces
+about 25.1% to 11.2%, without establishing the expected rate. Native stopping and
+strong second-derivative convergence remain unqualified. No PDE defect or repair
+is established. The current modx03 field-reference comparison uses a different
+contract and quantity, so it cannot close this finding. [Retained native/export
+controls](data/chease_native_hermite_audit_20261007/README.md) own the original inputs
+and measurements; historical local-bound analyses are archived.
 
 <a id="eq-d35"></a>
 
@@ -517,11 +525,22 @@ retained state. After the terminal-pivot repair [EQ-D112](#eq-d112), the compati
 NS256 forward solve completes in 158.16 s. Independent physical-contour coarea
 on NS128/256 reduces inferred near-axis FFprime error from 0.24017 to 0.023658
 at fixed rho/q inputs (order 3.34; angular uncertainty at most 1.24e-6).
-This is consistent with the expected cubic source-reconstruction convergence;
-it does not qualify the coupled prescribed-q iteration. That failure remains open in
-[issue44](https://github.com/krystophny/MARS-Q/issues/44). Offline inputs, source
-hashes and oracle results are retained in
-`/mnt/storage/codex-equilibrium-20261010/mars_inverse/scratch/runs/solovev-qualified-firstlinear64/`.
+This is consistent with the expected cubic source-reconstruction convergence.
+It does not qualify the coupled prescribed-q iteration.
+
+The NS256 one-inner control refreshes its source before meeting EPSLON=1e-11
+and diverges. Its first-refresh snapshot reproduces native CIDQ with independent
+physical-contour integration to 4.60e-10 relative, and refreshed FFprime to
+5.85e-9 on the maximum source scale. The large source is supported by that
+updated geometry, excluding the suspected coarea/source-chain defect in this
+control. Restoring only NINSCA=50, the native default, reaches the 300 s cap
+with finite axis flux -0.03964517 rather than the one-inner exponential blowup.
+Surviving inner residuals decrease from 1.762e-7 to 1.061e-11; changed raw
+moments prove a source refresh occurred, but buffered logs lost its exact
+stopping receipt at the cap. This is an incomplete full-inner control, not a
+demonstrated general native failure. Coupled convergence remains open in
+[issue44](https://github.com/krystophny/MARS-Q/issues/44); manifests and raw
+locations are owned by the run registry.
 
 Earlier controls retain their actual patch sets. The fork PR30/31/39/41 plus superseded
 axis-extrapolation control omitted PR42. The separate PR39/41/42 control omitted
@@ -617,6 +636,13 @@ export, consumer and effectivity metrics. Public E1 passes at NS64; no retained
 public E2 or Solovev state passes psi after correction. Native NCSCAL=1 also
 scales delivered pressure derivatives, leaving a measured finite-grid contract
 departure. This is intentional normalization, not another demonstrated solver bug.
+The Phase 3 adapter now updates its input pressure amplitude and requires both
+final SI pressure and Phi errors below 1e-9, with q and boundary unchanged.
+The unchanged-source NS=NT16 Solovev control passes in four trials (pressure
+error 1.50e-10, Phi error 2.95e-10). Historical E2/Solovev rows retain their
+pressure drift; the zero-pressure E1 contract is unaffected. The
+[control data](phase3/results/pressure_contract_control.csv) do not qualify a
+fine-grid equilibrium.
 Phase 1/2 unit-scale results, TC24's already-corrected fields and the Phase 5
 final-EQDSK comparison are unchanged. Status: repaired on the completion branch,
 MR20 open; raw histories remain intact.

@@ -290,6 +290,11 @@ def tc24_tables():
     fine = max(refinement, key=lambda r: int(r['boundary_nodes']))
     macro('TcHeldKinPsiRate', fine['generalized_psi_rate'], [fine], 'generalized_psi_rate')
     macro('TcHeldKinBRate', fine['generalized_bpol_rate'], [fine], 'generalized_bpol_rate')
+    qrows = read(base+'kin6d_q_convergence.csv')
+    table('tc24_q_refinement', ['$n$', '$q$ held labels', '$q$ physical', 'Readback (s)'],
+          [[cell('tc_q_refinement:'+r['n'], r, field) for field in
+            ['n', 'q_gap_public320_held_stor', 'q_gap_public320_physical', 'readback_wall_s']]
+           for r in qrows])
     convergence = read(base+'convergence.csv')
     for code,name in [('kin6d','Kin'),('chease_public','Public')]:
         r=max([r for r in convergence if r['code']==code],key=lambda r:float(r['fine_dof']))

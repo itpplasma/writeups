@@ -11,7 +11,7 @@
 \setlength{\parskip}{5pt plus 1pt}
 \setlength{\emergencystretch}{2em}
 \captionsetup{font=small,labelfont=bf,skip=4pt}
-\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/b6047b7ba/}
+\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/b57921512/}
 \newcommand{\tcfile}[2]{\href{\tcroot#1}{#2}}
 \newcommand{\kincommit}[2]{\href{https://github.com/itpplasma/kin6d/commit/#1}{#2}}
 \newcommand{\dataref}[1]{{\footnotesize CSV source: \texttt{#1}}}
@@ -82,7 +82,7 @@ Phase & Delivered evidence & Remaining qualification \\
 
 The reader is Chris and, after revision, the TC24 collaborators. All empirical
 figures and numerical tables are generated from committed CSVs. The primary
-data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 b6047b7ba}}. The retained
+data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 b57921512}}. The retained
 README files explain how the runs were made; where they lag the numerical
 tables, this report follows the CSV rows and their settings. KIN6D's earlier
 owner study is labeled separately. No new solver run was made for this report.
@@ -256,6 +256,12 @@ converges more slowly. DESC's exact shaped boundary is truncated in the same
 poloidal basis as its solution. Refinement improves the boundary and the field
 together; its capped cold next attempt supplies no extra accuracy row.
 Separate warm $M=24/32$ controls resolve this boundary truncation.
+At fixed NS257, VMEC++ M32-to-M48 angular refinement changes the Cerfon
+axis by only 8.6 nm and leaves the near-axis field maximum unchanged.
+This excludes solution angular truncation at the fixed represented boundary;
+it does not exclude boundary truncation or reader errors. The near-axis
+maximum remains unclassified.
+\dataref{phase1/results/vmecpp\_cerfon\_angular\_control.csv}.
 
 For the selected P3 states, poloidal-field errors are
 \PthreeAthreeError{} and \PthreeCerfonError{} on A3 and Cerfon. Both CHEASE
@@ -645,14 +651,14 @@ consumer conversions and common oracle evaluation are excluded. Source:
 \end{center}
 
 \subsection*{Inverse readback and remaining limits}
-\begin{center}\small
+\begin{center}\begin{minipage}{\textwidth}\small
 \input{build/inverse_exports.tex}
 \captionof{table}{Finest KIN6D inverse EQDSK read through the actual libneo
 magnetic-field reader. Circular errors are relative to the native finest
 KIN6D state; Solov'ev uses exact fields. Source:
 \texttt{phase3/results/kin6d\_exports.csv}, finest level and
 \texttt{EQDSK\_libneo} rows.}
-\end{center}
+\end{minipage}\end{center}
 
 The stability code GPEC and drift-kinetic code NEO-2 now read all six retained
 KIN6D inverse exports at two producer resolutions. The finest results are:
@@ -690,14 +696,17 @@ Further EQDSK-grid and radial-map controls do not establish convergence of the
 remaining determinant discrepancy; that qualification gap stays open.
 Source: \texttt{kin6d\_consumers\_neo2\_controls.csv}.
 
-MARS has no accepted prescribed-$q$ state. The fully corrected retained
-Solov'ev controls include the qualified sign, normalization and source-parent
-repairs; both long and immediate coarea refresh fail the coupled iteration.
-An independent check gives relative residual $1.054\times10^{-12}$ for the
-first constrained linear solve. Exact-source load replay instead locates most
-of the first departure in near-axis prescribed-$q$/coarea differentiation.
-Ideal coarea data converge, while compatible forward-field physical mesh
-controls reduce source error at an irregular, still unqualified rate.
+MARS has no accepted prescribed-$q$ state. The independent first constrained
+GS solve has relative residual $1.054\times10^{-12}$. Qualified source and
+terminal-pivot repairs complete the NS256 forward solve; inferred source
+error has order 3.34, consistent with cubic reconstruction. The NS256 inverse
+with NINSCA=1 diverges after refreshing an unconverged inner field. Independent
+physical-contour integration reproduces that refreshed coarea and source,
+excluding the suspected source-chain defect in this control. Restoring
+NINSCA=50 reaches the 300-second cap with a finite field, but buffered logs
+omit its final stopping receipt. This control is incomplete, not a demonstrated
+general native failure. Neither state supplies inverse cost-to-target data.
+
 The remaining inverse failure stays open in
 \href{https://github.com/krystophny/MARS-Q/issues/44}{MARS issue 44}.
 Fork PR43 is closed with its branch and reproducers retained; it supplies no
@@ -706,6 +715,17 @@ are scoped prerequisites, not closure of MARS's coupled inverse problem.
 KIN6D passes all three sampled inverse contracts; public CHEASE passes only
 E1. Correct final-stage flux scaling raises the finest public Solov'ev
 flux error to $2.475\times10^{-6}$, above its $10^{-6}$ target.
+Historical public E2 and Solov'ev states also contain delivered-pressure drift:
+NSTTP=5 normalization rescales pressure while the old adapter roots only
+edge toroidal flux. Their fields do not qualify the same pressure contract;
+zero-pressure E1 is unaffected. The corrected adapter updates pressure
+amplitude and roots flux, rejecting either final constraint error above
+$10^{-9}$. A coarse NS16 Solov'ev control closes both constraints in four
+trials (pressure error $1.50\times10^{-10}$, flux error
+$2.95\times10^{-10}$). Its GEQDSK field errors remain coarse-grid errors,
+not fine-resolution qualification.
+\dataref{phase3/results/pressure\_contract\_control.csv}.
+
 VMEC++ and DESC retain
 some geometry/field target gaps and capped attempts. DESC inverse Solov'ev
 now meets all sampled exact targets and native stopping at $M=14$,
@@ -828,7 +848,6 @@ The normalized-source KIN6D estimate remains status 4, a frozen-source
 diagnostic. Neither agreement with a finite comparator nor a small native
 residual closes the accuracy gate. Coupled nonlinear reliability remains open.
 
-\clearpage
 \subsection*{Exported candidates}
 \begin{center}\small
 \input{build/tc24_exports.tex}
@@ -907,14 +926,22 @@ $4.700\times10^{-4}$; its axis error is $3.002\times10^{-5}$.
 Public NS256 and NS320 themselves differ by $5.336\times10^{-5}$ in
 poloidal-field $L^2$. This finite-reference uncertainty is material and
 is not a Richardson error bound.
-A separate saved-state n384 readback gives a safety-factor difference of
-$5.866\times10^{-5}$ at common toroidal flux against public NS320
-($6.573\times10^{-5}$ on physical surfaces), taking 14.65 seconds.
-The corresponding fine n256 readback differs by $2.352\times10^{-4}$.
-No fine n320 safety-factor readback was executed, so these controls do not
-establish a three-grid safety-factor rate or qualify its target.
-\dataref{phase4/tc24/reference/reference\_uncertainty\_n320.csv,
-kin6d\_controls.csv}.
+Matched saved-state readback uses 2049 radial and 320 angular points for
+all three fixed-quadrature n256/320/384 states. Its safety-factor gaps against
+public NS320 decrease, but remain above $10^{-5}$:
+\begin{center}\small
+\input{build/tc24_q_refinement.tex}
+\captionof{table}{Maximum safety-factor differences at held toroidal-flux
+labels and physical points, with readback-only times excluding PDE production.}
+\end{center}
+Adjacent held-label changes fall from $1.204\times10^{-4}$ to
+$5.610\times10^{-5}$. Their signed profiles do not support a common leading
+mode (73\% residual and only 45\% matching signs), so no Richardson order
+is inferred. Public NS256-to-NS320 differences are $1.129\times10^{-5}$ on
+held labels and $1.152\times10^{-5}$ at physical points; these finite-reference
+differences are not exact-error bounds. The saved fields are unchanged.
+\dataref{phase4/tc24/reference/kin6d\_q\_convergence.csv,
+reference\_uncertainty\_n320.csv}.
 
 \subsection*{KIN6D performance on the historical control}
 The performance change now on main caches profile quadrature work, reuses

@@ -5,7 +5,7 @@ EQ-D09,Iteration error; controlled,RELAX=0 removes retained coarse derivative er
 EQ-D12 / D31,Open candidates,Historical TC24 VMEC++ and CHEASE force/boundary discrepancies lack expected-rate closure; no native repair is inferred.
 EQ-D15,Discretization,P1 field and polygon-boundary errors improve under refinement. Curved P2/P3 evidence replaces that representation for current comparisons.
 EQ-D20 / exact DESC,Boundary representation,The shaped exact contour is truncated at the solution degree. M32 native continuation and calibrated stopping meet sampled targets; matched cold cost remains unmeasured.
-EQ-D20 / VMEC++,Method limitation,Bulk radial convergence is first order; maxima in the first radial cells converge more slowly under the native axis treatment.
+EQ-D20 / VMEC++,Method limitation,Bulk radial convergence is first order; the near-axis maximum remains unclassified. Fixed-boundary angular refinement excludes solution angular truncation only.
 EQ-D20 / TC24 DESC,Open qualification,Native iteration caps and unresolved physical accuracy prevent admission of the retained TC24 states.
 EQ-D24 / Phase 3,Input path blocked,"Mixed P1 geometry and smooth gradients are rejected. Curved P3 inverse fields, diagnostic stability and actual consumers are measured; coupled nonlinear reliability and geometric consistency remain open."
 EQ-D25,Model domain,The separatrix X-point is outside the nested-surface problem. The common interior TC24 boundary needs per-code representation checks.

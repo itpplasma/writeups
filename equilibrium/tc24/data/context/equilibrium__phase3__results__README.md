@@ -1,6 +1,9 @@
 # Phase 3: prescribed-q equilibria
 
-Public CHEASE, VMEC++ and DESC converge on the same three inverse contracts.
+VMEC++ and DESC target the three inverse contracts. Historical public CHEASE
+rows with nonzero pressure enforce Phi but contain delivered-pressure drift;
+they do not qualify the same pressure contract. The zero-pressure E1 case is
+unaffected by that drift.
 MARS CHEASE does not produce an accepted inverse equilibrium. The KIN6D lane
 now supplies [curved P3 inverse results](kin6d.md) on these same contracts.
 These results fill PLAN Phase 3's recovered F, current, fields and q versus
@@ -30,13 +33,19 @@ There are 1025 radial profile knots and 2048 boundary/angular samples.
 Public CHEASE executes NSTTP=5/NCSCAL=1; MARS executes NSTTP=4/NCSCAL=4.
 Public QSPEC normalizes axis q; MARS reads q from EXPEQ and NCSCAL=4
 does not apply QSPEC normalization. The adapter preserves q when changing
-the native field normalization. A scalar root in F_edge enforces the declared
-Phi while holding the input physical p_prime fixed; all native trials are retained
-and included in cost. The final mapped NCSCAL=1 correction scales the delivered
-p_prime as well as psi/Bpol. At NS=NT128, final SCALE is 1.00000056 (E1),
-1.00000267 (E2) and 0.999997522 (Solovev); the latter two delivered pressure
-derivatives depart from the fixed contract by these factors. This is the
-executed q-axis/edge-F normalization, not an unrecorded reader gain. VMEC++ uses ncurr=0, prescribed iota=+1/q on its negative-signgs
+the native field normalization. The historical scalar root in F_edge enforces Phi while holding input physical
+p_prime fixed. Final PRNORM scales delivered p_prime as well as psi/Bpol:
+at NS=NT128 its factor is 1.00000267 (E2) and 0.999997522 (Solovev).
+The maintained adapter now updates the input pressure amplitude from the delivered
+SI p_prime profile and roots Phi, retaining the seven-trial cap and rejecting either
+constraint error above 1e-9. The current three constant pressure laws make the
+profile interpolation exact; no variable-pressure contract is qualified here.
+[The coarse Solovev control](pressure_contract_control.csv), using unchanged
+b179fc6 source and archived binary, closes both constraints in four trials:
+Phi relative error 2.95e-10 and pressure profile error 1.50e-10, versus historical
+pressure drift 1.18e-4. Its delivered GEQDSK field errors remain coarse-grid errors
+(psi L2 2.58e-4, Bpol L2 1.24e-3); this is no fine-resolution qualification.
+All historical rows and raw outputs remain unchanged. VMEC++ uses ncurr=0, prescribed iota=+1/q on its negative-signgs
 branch. DESC uses iota=-1/q under its recorded angle map. Their pressure and
 iota tables use s_tor obtained by integrating q, not by identifying psi with Phi.
 
@@ -291,10 +300,16 @@ Its owning native gates pass, but both NINSCA=100 and NINSCA=1 fail the coupled 
 
 The independently checked first constrained GS linear solve has relative residual
 1.054e-12. Exact-source replay locates most of the first departure in near-axis
-prescribed-q/coarea differentiation. Compatible retained forward fields reduce
-the inferred source error strongly with physical mesh refinement, but its irregular
-rate remains unqualified; [EQ-D88](../../ERRATA.md#eq-d88) owns the controls and
-limits. Failed states supply failure evidence, not convergence or cost-to-target data.
+prescribed-q/coarea differentiation. The qualified source plus terminal-pivot PR49
+completes the NS256 forward solve; NS128→256 inferred source error has order 3.34,
+consistent with cubic reconstruction. The NS256 inverse with NINSCA=1 diverges
+after refreshing an unconverged inner field. Independent physical-contour
+integration reproduces that refreshed coarea/source, excluding the suspected
+source-chain defect in this control. Restoring NINSCA=50 reaches the 300 s cap
+with a finite field; buffered logs omit its final stopping receipt. This full-inner
+control is incomplete, not a demonstrated general native failure.
+[EQ-D88](../../ERRATA.md#eq-d88) owns the quantitative controls and limitations.
+Neither failed nor incomplete states supply inverse cost-to-target data.
 
 Fork PR39/41/42 and public PR15 have scoped source-parent regressions. PR43 is
 closed with its branch, complete reproducers and isolated axis/under-axis controls

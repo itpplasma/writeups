@@ -5,7 +5,7 @@ circular, shaped, prescribed-q, received TC24 and cylinder studies, with
 native and actual-consumer accuracy and the current defect dispositions.
 The report source now includes the completed 10 October accuracy, native-stopping,
 consumer and current-cost controls. Scientific slice closure remains open.
-The refreshed native build has 27 pages.
+The refreshed native build has 29 pages.
 
 [artifacts.json](artifacts.json) owns the most recently published PDF and figure URLs,
 hashes, source revision and reproduction commands. Slopbox links expire after
@@ -14,7 +14,7 @@ and scripts are the durable reproduction path.
 
 ## Data and interpretation
 
-- Snapshot: iter_tc24 `b6047b7bad7bc8aa6cdc0a9b88153ad9c193003e`.
+- Snapshot: iter_tc24 `b57921512ccb4cdc5de67b44ae678a80e2d85972`.
   [sources.json](sources.json) pins every imported source, Git blob, SHA256 and
   CSV row count. No solver was rerun for this report.
 - KIN6D current main is `f6a33c9`, including curved P2/P3, cubic profiles,

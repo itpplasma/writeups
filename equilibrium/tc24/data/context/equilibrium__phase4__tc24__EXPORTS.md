@@ -234,6 +234,16 @@ or expected-rate derivative convergence. The converter takes 198.30 s;
 paired readers take 58.29/87.31 s, excluding offline native oracles.
 Peak converter/reader memory is 2.93/2.73 GiB.
 
+A held angular-map control doubles only converter angles 8192→16384 at
+native 1025/map 2048/m1024/output 4096/tolerance 1e-12 and actual reader 4096.
+Geometric Jacobian mismatch stays 2.59065e-3→2.59058e-3 (interior
+2.34055e-4→2.34035e-4, outer s=.98 above), q 7.32333e-6→7.32332e-6,
+and Bpol maximum 2.53602e-4→2.53600e-4. No expected convergence rate is
+established; geometry/Bpol remain an unclassified floor. Converter 331.90 s
+with 5.56 GiB peak RSS; actual reader 86.48 s. Timing excludes offline oracles.
+Raw roots are `tc24cons_export_public128_native1025_tol12_m1024t16384_20261010_01`
+and `tc24cons_neo2_public128_native1025_tol12_m1024t16384a4096_20261010_01`.
+
 ## Reproduction and retained history
 
 The converter is libneo a9b6d9674f82e6e1bdac5146fddc732097bece9d, with the

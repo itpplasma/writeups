@@ -31,7 +31,8 @@ Public CHEASE,EQ-D85,Unmatched boundary angle uses unset index,PR open,PR open,[
 Public CHEASE,EQ-D84,Zero-tension q interpolation ignores failure,PR open,PR open,[PR13](https://github.com/itpplasma/chease/pull/13),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D85,Unsupported Gaussian order uses unset weights,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D88,Axis normalization predates smoothing,PR open,PR open,[PR15](https://github.com/itpplasma/chease/pull/15),,equilibrium/ERRATA.md
-Public CHEASE,EQ-D08/EQ-D31,Unexplained export/force accuracy; candidate only,open candidate,open candidate,No numerical-code PR established,,equilibrium/ERRATA.md
+Public CHEASE,EQ-D08,Outer-surface q depends on export extrapolation,controlled configuration limitation,controlled configuration limitation,NEQDXTPO=4 brings the retained contour-q check below target; native equilibrium unchanged,,equilibrium/ERRATA.md
+Public CHEASE,EQ-D31,Historical native strong-force residual does not converge as expected,open candidate,open candidate,No numerical-code PR established; distinct from the current modx03 contract,,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D39,Cubic profile primitive factor/sign wrong,PR open,PR open,[PR6](https://github.com/gafusion/MARS-Q/pull/6); fork PR30 closed,,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D46,Fourth smoothed-jet slot duplicated,PR open,PR open,[PR7](https://github.com/gafusion/MARS-Q/pull/7); fork PR31 closed,,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D59,Factorization edge errors/unset success status,PR open,PR open,"[PR45](https://github.com/krystophny/MARS-Q/pull/45), split from performance PR32",,equilibrium/ERRATA.md
@@ -43,7 +44,7 @@ MARS CHEASE,EQ-D84,Prescribed-q source-current sign wrong,PR open,PR open,[PR39]
 MARS CHEASE,EQ-D87,Undefined/incorrect inner coarea,PR open,PR open,[PR42](https://github.com/krystophny/MARS-Q/pull/42); PR40 closed,,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D88,Axis normalization predates smoothing,PR open,PR open,[PR41](https://github.com/krystophny/MARS-Q/pull/41),,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D88,Singular F² source/current primitive,open candidate; unqualified PR closed,open candidate; unqualified PR closed,[PR43](https://github.com/krystophny/MARS-Q/pull/43) branch and isolated regressions retained; [issue44](https://github.com/krystophny/MARS-Q/issues/44),,equilibrium/ERRATA.md
-MARS CHEASE,EQ-D88,Remaining inverse failure is unexplained,open candidate,open candidate,[issue44](https://github.com/krystophny/MARS-Q/issues/44),,equilibrium/ERRATA.md
+MARS CHEASE,EQ-D88,Prescribed-q convergence remains unqualified,open candidate,open candidate,[issue44](https://github.com/krystophny/MARS-Q/issues/44),,equilibrium/ERRATA.md
 VMEC++,EQ-D12,Unexplained boundary/force convergence; candidate only,open candidate,open candidate,No native solver repair established,,equilibrium/ERRATA.md
 VMEC++ / readers,EQ-D22/EQ-D29,Incorrect odd-mode/axis reconstruction,fixed on main,fixed on main,[Retained reader revisions](data/vmecpp_axis_readback_20261007/manifest.json); [35583217c](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/35583217c),,equilibrium/ERRATA.md
 DESC / readers,EQ-D19,External profile converts a JAX tracer with NumPy,fixed on main,fixed on main,[8a2830829](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/8a2830829),,equilibrium/ERRATA.md

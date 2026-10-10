@@ -740,9 +740,9 @@ cylinder,lundquist:aspect,Public: first-order remainder,300.0,2.1204681602794874
 inverse,E1_constant_q_A10:dof,KIN6D,1489.0,1.1910970091956971e-05,phase3/results/kin6d_self_convergence.csv,1,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:2
 inverse,E1_constant_q_A10:dof,KIN6D,3262.0,3.1820075318636065e-06,phase3/results/kin6d_self_convergence.csv,2,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:3
 inverse,E1_constant_q_A10:dof,KIN6D,7102.0,4.002852211200086e-07,phase3/results/kin6d_self_convergence.csv,3,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:4
-inverse,E1_constant_q_A10:dof,CHEASE public,4224.0,1.3307069747675873e-06,phase3/results/self_convergence.csv,1,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:2
-inverse,E1_constant_q_A10:dof,CHEASE public,16640.0,1.4889518618317818e-07,phase3/results/self_convergence.csv,2,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:3
-inverse,E1_constant_q_A10:dof,CHEASE public,66048.0,1.9089825012706396e-08,phase3/results/self_convergence.csv,3,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:4
+inverse,E1_constant_q_A10:dof,CHEASE public,4224.0,6.753457327346458e-06,phase3/results/self_convergence.csv,1,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:2
+inverse,E1_constant_q_A10:dof,CHEASE public,16640.0,1.6267844321138623e-06,phase3/results/self_convergence.csv,2,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:3
+inverse,E1_constant_q_A10:dof,CHEASE public,66048.0,1.012819780423013e-07,phase3/results/self_convergence.csv,3,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:4
 inverse,E1_constant_q_A10:dof,VMEC++,4550.0,3.3288860445859586e-05,phase3/results/self_convergence.csv,4,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:6
 inverse,E1_constant_q_A10:dof,VMEC++,9030.0,1.0957158950653951e-05,phase3/results/self_convergence.csv,5,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:7
 inverse,E1_constant_q_A10:dof,VMEC++,17990.0,3.710913770068942e-06,phase3/results/self_convergence.csv,6,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:8
@@ -752,9 +752,9 @@ inverse,E1_constant_q_A10:dof,DESC,75.0,1.6393145149947273e-09,phase3/results/se
 inverse,E1_constant_q_A10:wall_s,KIN6D,6.038145076017827,1.1910970091956971e-05,phase3/results/kin6d_self_convergence.csv,1,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:2
 inverse,E1_constant_q_A10:wall_s,KIN6D,7.691218125168234,3.1820075318636065e-06,phase3/results/kin6d_self_convergence.csv,2,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:3
 inverse,E1_constant_q_A10:wall_s,KIN6D,20.717464006040245,4.002852211200086e-07,phase3/results/kin6d_self_convergence.csv,3,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:4
-inverse,E1_constant_q_A10:wall_s,CHEASE public,30.666230109054595,1.3307069747675873e-06,phase3/results/self_convergence.csv,1,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:2
-inverse,E1_constant_q_A10:wall_s,CHEASE public,67.990793740144,1.4889518618317818e-07,phase3/results/self_convergence.csv,2,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:3
-inverse,E1_constant_q_A10:wall_s,CHEASE public,176.6672354529146,1.9089825012706396e-08,phase3/results/self_convergence.csv,3,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:4
+inverse,E1_constant_q_A10:wall_s,CHEASE public,30.666230109054595,6.753457327346458e-06,phase3/results/self_convergence.csv,1,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:2
+inverse,E1_constant_q_A10:wall_s,CHEASE public,67.990793740144,1.6267844321138623e-06,phase3/results/self_convergence.csv,2,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:3
+inverse,E1_constant_q_A10:wall_s,CHEASE public,176.6672354529146,1.012819780423013e-07,phase3/results/self_convergence.csv,3,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:4
 inverse,E1_constant_q_A10:wall_s,VMEC++,2.6940758330747485,3.3288860445859586e-05,phase3/results/self_convergence.csv,4,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:6
 inverse,E1_constant_q_A10:wall_s,VMEC++,5.383082466199994,1.0957158950653951e-05,phase3/results/self_convergence.csv,5,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:7
 inverse,E1_constant_q_A10:wall_s,VMEC++,16.78720069397241,3.710913770068942e-06,phase3/results/self_convergence.csv,6,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:8
@@ -764,9 +764,9 @@ inverse,E1_constant_q_A10:wall_s,DESC,58.27462767995894,1.6393145149947273e-09,p
 inverse,E2_constant_q_A10:dof,KIN6D,1489.0,2.944073859052578e-05,phase3/results/kin6d_self_convergence.csv,4,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:6
 inverse,E2_constant_q_A10:dof,KIN6D,3262.0,7.503578922330604e-06,phase3/results/kin6d_self_convergence.csv,5,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:7
 inverse,E2_constant_q_A10:dof,KIN6D,7102.0,1.7668061044624123e-06,phase3/results/kin6d_self_convergence.csv,6,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:8
-inverse,E2_constant_q_A10:dof,CHEASE public,4224.0,6.2101524605906346e-06,phase3/results/self_convergence.csv,10,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:14
-inverse,E2_constant_q_A10:dof,CHEASE public,16640.0,7.23430917718635e-07,phase3/results/self_convergence.csv,11,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:15
-inverse,E2_constant_q_A10:dof,CHEASE public,66048.0,9.186262239946206e-08,phase3/results/self_convergence.csv,12,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:16
+inverse,E2_constant_q_A10:dof,CHEASE public,4224.0,6.765650916100468e-05,phase3/results/self_convergence.csv,10,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:14
+inverse,E2_constant_q_A10:dof,CHEASE public,16640.0,1.7161996978554638e-05,phase3/results/self_convergence.csv,11,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:15
+inverse,E2_constant_q_A10:dof,CHEASE public,66048.0,2.068603564618706e-06,phase3/results/self_convergence.csv,12,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:16
 inverse,E2_constant_q_A10:dof,VMEC++,4550.0,0.00022474902530063602,phase3/results/self_convergence.csv,13,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:18
 inverse,E2_constant_q_A10:dof,VMEC++,9030.0,7.659829739197945e-05,phase3/results/self_convergence.csv,14,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:19
 inverse,E2_constant_q_A10:dof,VMEC++,17990.0,2.6527265330767105e-05,phase3/results/self_convergence.csv,15,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:20
@@ -777,9 +777,9 @@ inverse,E2_constant_q_A10:dof,DESC,75.0,7.440448417119816e-08,phase3/results/sel
 inverse,E2_constant_q_A10:wall_s,KIN6D,15.905558897880837,2.944073859052578e-05,phase3/results/kin6d_self_convergence.csv,4,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:6
 inverse,E2_constant_q_A10:wall_s,KIN6D,33.555840339977294,7.503578922330604e-06,phase3/results/kin6d_self_convergence.csv,5,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:7
 inverse,E2_constant_q_A10:wall_s,KIN6D,66.3526847390458,1.7668061044624123e-06,phase3/results/kin6d_self_convergence.csv,6,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:8
-inverse,E2_constant_q_A10:wall_s,CHEASE public,47.5213980327826,6.2101524605906346e-06,phase3/results/self_convergence.csv,10,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:14
-inverse,E2_constant_q_A10:wall_s,CHEASE public,103.56513335811906,7.23430917718635e-07,phase3/results/self_convergence.csv,11,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:15
-inverse,E2_constant_q_A10:wall_s,CHEASE public,277.5147193418816,9.186262239946206e-08,phase3/results/self_convergence.csv,12,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:16
+inverse,E2_constant_q_A10:wall_s,CHEASE public,47.5213980327826,6.765650916100468e-05,phase3/results/self_convergence.csv,10,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:14
+inverse,E2_constant_q_A10:wall_s,CHEASE public,103.56513335811906,1.7161996978554638e-05,phase3/results/self_convergence.csv,11,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:15
+inverse,E2_constant_q_A10:wall_s,CHEASE public,277.5147193418816,2.068603564618706e-06,phase3/results/self_convergence.csv,12,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:16
 inverse,E2_constant_q_A10:wall_s,VMEC++,2.4645372049417347,0.00022474902530063602,phase3/results/self_convergence.csv,13,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:18
 inverse,E2_constant_q_A10:wall_s,VMEC++,5.329492917982861,7.659829739197945e-05,phase3/results/self_convergence.csv,14,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:19
 inverse,E2_constant_q_A10:wall_s,VMEC++,16.591072051087394,2.6527265330767105e-05,phase3/results/self_convergence.csv,15,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:20
@@ -790,9 +790,9 @@ inverse,E2_constant_q_A10:wall_s,DESC,66.076466439059,7.440448417119816e-08,phas
 inverse,Solovev_inverse_A3:dof,KIN6D,2854.0,7.730514032793748e-05,phase3/results/kin6d_self_convergence.csv,7,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:10
 inverse,Solovev_inverse_A3:dof,KIN6D,11575.0,8.402281926573041e-06,phase3/results/kin6d_self_convergence.csv,8,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:11
 inverse,Solovev_inverse_A3:dof,KIN6D,46558.0,7.854306729976109e-07,phase3/results/kin6d_self_convergence.csv,9,dof,bpol_l2,adjacent-state difference; dof from phase3/results/kin6d_comparison.csv:12
-inverse,Solovev_inverse_A3:dof,CHEASE public,4224.0,0.0012219065619654699,phase3/results/self_convergence.csv,20,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:27
-inverse,Solovev_inverse_A3:dof,CHEASE public,16640.0,7.318266303421406e-05,phase3/results/self_convergence.csv,21,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:28
-inverse,Solovev_inverse_A3:dof,CHEASE public,66048.0,7.249497738632062e-06,phase3/results/self_convergence.csv,22,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:29
+inverse,Solovev_inverse_A3:dof,CHEASE public,4224.0,0.001227829874200557,phase3/results/self_convergence.csv,20,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:27
+inverse,Solovev_inverse_A3:dof,CHEASE public,16640.0,7.719918337801838e-05,phase3/results/self_convergence.csv,21,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:28
+inverse,Solovev_inverse_A3:dof,CHEASE public,66048.0,1.110754366132417e-05,phase3/results/self_convergence.csv,22,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:29
 inverse,Solovev_inverse_A3:dof,VMEC++,4550.0,0.0013537401410900266,phase3/results/self_convergence.csv,23,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:31
 inverse,Solovev_inverse_A3:dof,VMEC++,9030.0,0.00045974466990039714,phase3/results/self_convergence.csv,24,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:32
 inverse,Solovev_inverse_A3:dof,VMEC++,17990.0,0.00016500915185193086,phase3/results/self_convergence.csv,25,dof,bpol_l2,adjacent-state difference; dof from phase3/results/comparison.csv:33
@@ -803,9 +803,9 @@ inverse,Solovev_inverse_A3:dof,DESC,108.0,9.53023136647256e-05,phase3/results/se
 inverse,Solovev_inverse_A3:wall_s,KIN6D,2.4229468151461333,7.730514032793748e-05,phase3/results/kin6d_self_convergence.csv,7,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:10
 inverse,Solovev_inverse_A3:wall_s,KIN6D,15.495575634995475,8.402281926573041e-06,phase3/results/kin6d_self_convergence.csv,8,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:11
 inverse,Solovev_inverse_A3:wall_s,KIN6D,102.8367682818789,7.854306729976109e-07,phase3/results/kin6d_self_convergence.csv,9,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/kin6d_comparison.csv:12
-inverse,Solovev_inverse_A3:wall_s,CHEASE public,34.11581685394049,0.0012219065619654699,phase3/results/self_convergence.csv,20,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:27
-inverse,Solovev_inverse_A3:wall_s,CHEASE public,79.70660678204149,7.318266303421406e-05,phase3/results/self_convergence.csv,21,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:28
-inverse,Solovev_inverse_A3:wall_s,CHEASE public,221.85183623898774,7.249497738632062e-06,phase3/results/self_convergence.csv,22,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:29
+inverse,Solovev_inverse_A3:wall_s,CHEASE public,34.11581685394049,0.001227829874200557,phase3/results/self_convergence.csv,20,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:27
+inverse,Solovev_inverse_A3:wall_s,CHEASE public,79.70660678204149,7.719918337801838e-05,phase3/results/self_convergence.csv,21,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:28
+inverse,Solovev_inverse_A3:wall_s,CHEASE public,221.85183623898774,1.110754366132417e-05,phase3/results/self_convergence.csv,22,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:29
 inverse,Solovev_inverse_A3:wall_s,VMEC++,2.5479510580189526,0.0013537401410900266,phase3/results/self_convergence.csv,23,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:31
 inverse,Solovev_inverse_A3:wall_s,VMEC++,5.780096402857453,0.00045974466990039714,phase3/results/self_convergence.csv,24,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:32
 inverse,Solovev_inverse_A3:wall_s,VMEC++,26.830310492077842,0.00016500915185193086,phase3/results/self_convergence.csv,25,wall_s,bpol_l2,adjacent-state difference; wall_s from phase3/results/comparison.csv:33

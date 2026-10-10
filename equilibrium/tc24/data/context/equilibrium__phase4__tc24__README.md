@@ -192,6 +192,22 @@ NS256→320 axis uncertainty is only 1.098e-9. Volume/Phi differences are
 uncertainty, separate from KIN6D self-convergence. Native q qualification uses
 the consumer's separately pinned refined profile readback.
 
+The [matched fine-q readback](reference/kin6d_q_convergence.csv) holds the
+saved q5 n256/320/384 PDE states and uses 2049 radial/320 angular points for
+all three. Against the same public NS320 state, max q gaps on held s_tor
+labels 0.05–0.98 are 2.352e-4/1.148e-4/5.866e-5; at the original physical
+points they are 2.439e-4/1.106e-4/6.573e-5. The separate public NS256→320
+changes are 1.129e-5 on held labels and 1.152e-5 at physical points. These
+finite-reference differences are not exact-error bounds; q is not yet
+qualified at 1e-5. Adjacent held-label changes, with fixed NS320 normalization,
+fall from 1.204e-4 to 5.610e-5. No Richardson q order is inferred: the signed
+difference profiles have a 73% residual after fitting a common leading mode,
+and only 45% of sampled labels have the same difference sign. The independent
+n256 q5/q7 fine-readback sensitivity is only 7.104e-8. Readback-only costs are
+9.40/12.60/14.65 s; they exclude the original PDE producers. Saved fields are
+unchanged, and original coarse-readback timings and conclusions retain their
+original scope.
+
 The completed n384 process takes 448.66 s, including 396.88 s for mesh,
 assembly/solve/current normalization together and 47.70 s for the estimator;
 contour and area readback take 0.50/2.36 s. Five Newton iterations converged,
@@ -237,13 +253,6 @@ an asymptotic rate. The remaining producer/reference gap exceeds the 1e-5 target
 and remains unqualified. Executed settings and raw roots are in
 [the control table](reference/kin6d_controls.csv); original producer costs and
 finite-reference comparisons remain unchanged.
-
-The same 2049/320 saved-state readback on KIN6D n384 takes 14.65 s. Its q gap
-at held s_tor is 5.224e-5 against public NS256 and 5.866e-5 against NS320;
-the latter is 6.573e-5 at common physical points. Native q at fixed psi and
-edge toroidal flux are unchanged to round-off. Matching fine readback on
-n256 and n384 reduces the q gap, but a third mesh with matching readback is
-absent, so no spatial q rate is inferred. The remaining gap exceeds target.
 
 ## Received variants
 

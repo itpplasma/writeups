@@ -100,7 +100,7 @@ and DESC remain the references; FreeGS, original VMEC and GVEC stay withdrawn.
 | 0 Dechurn | Done | Archives, PR/status cleanup and the replacement brain section are delivered; raw figure inputs remain preserved. |
 | 1 Exact | Open | Five-code curves and P2/P3 rates delivered; DESC reaches all sampled targets by spectral refinement; VMEC++ targets and matched DESC cold cost remain. |
 | 2 Circular | Open | Eight-case comparison and current KIN6D cost refresh pass sampled targets; two VMEC++ target gaps and selected consumer exclusions remain. |
-| 3 Inverse | Open | Final-stage readback corrected; public E2/Solovev lose psi qualification. MARS failure, VMEC++ targets, nonlinear bounds and consumer geometry remain open. |
+| 3 Inverse | Open | Final-stage readback and delivered-pressure root corrected; historical public E2/Solovev remain unqualified. MARS full-inner convergence, VMEC++ targets, nonlinear bounds and consumer geometry remain open. |
 | 4a E4 | Open | Two laws, five codes and consumer comparisons delivered; finite-beta DESC accuracy/stopping passes; VMEC++ targets remain. |
 | 4b TC24 | Open | KIN6D held-quadrature Bpol rate 3.66 matches prediction; finite-reference uncertainty, target accuracy and converter geometry remain open. |
 | 5 Cylinder | Open | Five-code curves and KIM ingress delivered; coarse KIN6D repaired; DESC accuracy/stopping passes at all four aspect ratios; selected consumer paths remain excluded. |
