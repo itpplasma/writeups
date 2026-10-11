@@ -11,7 +11,7 @@
 \setlength{\parskip}{5pt plus 1pt}
 \setlength{\emergencystretch}{2em}
 \captionsetup{font=small,labelfont=bf,skip=4pt}
-\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/d8745dd06/}
+\newcommand{\tcroot}{https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/blob/5f267d12c/}
 \newcommand{\tcfile}[2]{\href{\tcroot#1}{#2}}
 \newcommand{\kincommit}[2]{\href{https://github.com/itpplasma/kin6d/commit/#1}{#2}}
 \newcommand{\dataref}[1]{{\footnotesize CSV source: \texttt{#1}}}
@@ -40,9 +40,9 @@ the circular and shaped references. Export studies now exercise actual readers
 in the magnetic-coordinate library libneo, the stability codes GPEC and MARS,
 and the drift-kinetic codes NEO-RT and NEO-2. Exact-case paths support the working targets inside the sampled plasma.
 Prescribed-safety-factor and collaborator-reference TC24 studies are now included.
-The slice remains open: MARS full-inner coupled convergence and TC24 finite-reference target
-accuracy remain unqualified, and several solver settings miss accuracy or stopping
-targets. The report stops before perturbations and transport.
+The slice remains open because MARS full-inner coupled convergence, TC24 reference
+uncertainty and native spectral qualification remain unresolved. Several solver
+settings still miss accuracy or stopping targets. The report stops before perturbations and transport.
 \end{abstract}
 
 \section{Results and scope}
@@ -74,7 +74,7 @@ Phase & Delivered evidence & Remaining qualification \\
 2: circular & Both source laws across the aspect-ratio ladder; numerical references and large-aspect-ratio check & Two VMEC++ target gaps \\
 3: inverse & Three contracts, KIN6D and reference-code fields/current/cost & MARS full-inner convergence; nonlinear reliability \\
 4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ target-level cost unqualified \\
-4b: TC24 & modx03 provenance, exact replay, five-code study and exports & Target accuracy and finite-reference uncertainty \\
+4b: TC24 & modx03 provenance, exact replay, five-code study and exports & Finite-reference uncertainty; native spectral qualification \\
 5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & Delivered at sampled targets \\
 \bottomrule
 \end{tabular}
@@ -82,7 +82,7 @@ Phase & Delivered evidence & Remaining qualification \\
 
 The reader is Chris and, after revision, the TC24 collaborators. All empirical
 figures and numerical tables are generated from committed CSVs. The primary
-data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 d8745dd06}}. The retained
+data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 5f267d12c}}. The retained
 README files explain how the runs were made; where they lag the numerical
 tables, this report follows the CSV rows and their settings. KIN6D's earlier
 owner study is labeled separately. No new solver run was made for this report.
@@ -949,17 +949,21 @@ establish a wrong solver limit or inverse reliability bound.
 The current finest n384 field difference against public NS320 is
 $6.031\times10^{-5}$ in poloidal-field $L^2$, with maximum
 $4.700\times10^{-4}$; its axis error is $3.002\times10^{-5}$.
-Generic interior mesh seeds improve the n384 comparison against the finite
-public NS384 reference: poloidal-field $L^2$/maximum differences are
-\TcSeedB{}/\TcSeedBMax{}, flux $L^2$ is
-\TcSeedPsi{} and axis difference is \TcSeedAxis{}.
-The field $L^2$ target remains narrowly unmet. Public NS320 and NS384
-already differ by $2.149\times10^{-5}$ in poloidal-field $L^2$;
-this reference uncertainty is material and is not a Richardson error bound.
-\dataref{phase4/tc24/reference/kin6d\_refinement.csv,
-reference\_uncertainty\_n384.csv}.
-The held-map public NS512/NT1024 reference remains pending; no value from
-that unfinished job enters the figures or target assessment.
+The saved two-band seeded n384 KIN6D state now meets all nine sampled
+working targets against the finite public NS512/NT1024 reference on the same
+1200 physical points and 80 flux labels. Poloidal-field $L^2$/maximum
+differences are \TcSeedB{}/\TcSeedBMax{}, $q$ maximum is \TcSeedQ{},
+flux $L^2$ is \TcSeedPsi{} and axis difference is \TcSeedAxis{}.
+The executed KIN6D state and source \texttt{d568170} are unchanged;
+only the finite comparator has been refined.
+Public NS384-to-NS512 poloidal-field $L^2$ difference is \TcReferenceBStep{}.
+Adjacent reference difference vectors have cosine $-0.0370$, so scalar
+Richardson subtraction would be unjustified. Reference uncertainty and
+absolute equilibrium accuracy remain open despite the sampled passing state.
+The native NS512 solve took 13212 seconds with 71.7 GiB peak resident memory
+on aCluster; these costs are separate from workstation comparisons.
+\dataref{phase4/tc24/reference/reference\_uncertainty\_n512.csv}.
+
 Matched saved-state readback uses 2049 radial and 320 angular points for
 all three fixed-quadrature n256/320/384 states. Its safety-factor gaps against
 public NS320 decrease, but remain above $10^{-5}$:
@@ -1094,7 +1098,7 @@ is the durable reproduction path.
 \begin{itemize}
 \item Qualify MARS full-inner prescribed-$q$ convergence and the held repair scopes; finish
 own-code review in MR !20 and the linked third-party PRs.
-\item Establish TC24 target accuracy and coupled nonlinear
+\item Bound TC24 reference uncertainty and coupled nonlinear
 estimator reliability, and the remaining VMEC++/DESC target or stopping gaps.
 \item Preserve the qualified consumer scopes and convergent geometric-map
 limits when selecting inputs for later use; finite-reference TC24 equilibrium

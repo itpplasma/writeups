@@ -14,7 +14,7 @@ and scripts are the durable reproduction path.
 
 ## Data and interpretation
 
-- Snapshot: iter_tc24 `d8745dd06`.
+- Snapshot: iter_tc24 `5f267d12c`.
   [sources.json](sources.json) pins every imported source, Git blob, SHA256 and
   CSV row count. No solver was rerun for this report.
 - KIN6D current main is `648e544`, including curved P2/P3, cubic profiles,
@@ -47,8 +47,9 @@ and scripts are the durable reproduction path.
   targets. Strict inverse Solovev pressure transfer also passes; MARS coupled
   convergence remains open. Measured consumer projection defects are repaired and their
   geometric approximation limits are qualified separately from equilibrium
-  accuracy. Seeded TC24 fields approach a finite NS384 reference whose own
-  uncertainty remains material; nonlinear reliability remains open.
+  accuracy. The unchanged seeded TC24 state passes all nine sampled targets against
+  finite NS512; reference uncertainty and absolute accuracy remain open,
+  as does nonlinear reliability.
 
 ## Build and publish
 

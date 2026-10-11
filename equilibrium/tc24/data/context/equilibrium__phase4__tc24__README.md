@@ -298,11 +298,13 @@ concurrent timing. Four Newton steps reach residual 8.541e-10; estimator status
 A second mesh retains those seeds and adds 19386 native-psi-selected triangle
 centroids in s_pol=0.30–0.40 and 0.92–0.988. Qualified main `d568170` reaches
 412903 free DOF / 91884 triangles with unchanged physics, quadrature and
-stopping. Against finite public NS384, Bpol L2 falls to 1.211e-5, still 21%
-above target; Bpol max 6.169e-5 and q max 6.936e-6 now pass. Psi L2 7.706e-8,
-Btor L2/max 2.400e-8/4.622e-7, axis 5.832e-8, volume 5.302e-9 and Phi 3.706e-8
-also pass. The same frozen points/state remain available for NS512; these are
-cross-code gaps, not exact-error bounds or a nonuniform-mesh Richardson claim.
+stopping. Against the [finite public NS512 reference](reference/reference_uncertainty_n512.csv),
+the saved state passes all nine sampled targets: Bpol L2/max 6.801e-6/5.731e-5,
+q max 6.801e-6, psi L2 4.245e-8, Btor L2/max 2.406e-8/4.628e-7, axis 5.731e-8,
+volume 5.302e-9 and Phi 3.888e-8. The same 1200 physical points and 80 flux
+labels are held fixed. The earlier NS384 comparison remains in
+[kin6d_refinement.csv](reference/kin6d_refinement.csv). These are cross-code
+differences; the reference uncertainty below prevents an absolute-error claim.
 Total exploratory producer cost is 2504.69 s on CPU1 (mesh/solve 2262.75 s,
 estimator 210.31 s); four Newton steps reach residual 6.534e-10. Estimator
 status 4 and the 6000-iteration recovery cap remain unqualified for reliability.
@@ -336,11 +338,19 @@ Its cluster time is not part of the workstation ranking. NS320→384 changes
 psi L2 by 1.786e-7, Bpol L2/max by 2.149e-5/1.066e-4, and q by 2.349e-6.
 The three-grid norm rates are 3.97 for psi and 3.45 for Bpol, compatible with
 the predicted orders. Successive Bpol difference vectors have cosine -0.025;
-scalar Richardson subtraction would therefore be unjustified. The seeded
-KIN6D state versus NS384 has Bpol L2/max 2.598e-5/2.280e-4 and q 1.014e-5;
+scalar Richardson subtraction would therefore be unjustified. The first,
+outer-layer seeded KIN6D state versus NS384 has Bpol L2/max 2.598e-5/2.280e-4 and q 1.014e-5;
 all other sampled targets pass. These replace its passing-q statement only
-for the newer finite reference. Poloidal field and finite-reference uncertainty
-remain open. A held-map NS512/NT1024 reference is registered separately.
+for the newer finite reference.
+
+The held-map [NS512/NT1024 reference](reference/reference_uncertainty_n512.csv)
+passes native stopping on aCluster in 13212 s, with 71.70 GiB peak solver RSS.
+NS384→512 changes psi L2 by 7.047e-8, Bpol L2/max by 1.083e-5/6.408e-5 and
+q by 2.196e-6 on the same samples. The Bpol L2 step remains above the 1e-5
+target; adjacent difference vectors have cosine -0.037, so scalar Richardson
+subtraction remains unjustified. Reference uncertainty stays open despite the
+two-band KIN6D state's sampled agreement with NS512. Cluster timing is kept
+separate from workstation costs.
 
 Saved-state readback controls hold the n256 mesh, field and profile law fixed.
 The original 129-radial/160-angular readback is reproduced byte for byte;

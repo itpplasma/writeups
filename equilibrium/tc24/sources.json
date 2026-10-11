@@ -1,6 +1,6 @@
 {
   "description": "Committed inputs for the consolidated Phase 6 report; executed pins remain historical.",
-  "tc24_commit": "d8745dd06bea2adef0c08a31e163c4e0921909b3",
+  "tc24_commit": "5f267d12c9994a77c51fe80bdd376a6bd24e35e6",
   "kin6d_current_main": "648e544c389e9286749a3c4009bb7023a3ebfe8a",
   "kin6d_data_commit": "3c851d71a4d5636dd9e92c4dd5b2b77a011e3ad2",
   "kin6d_support_history": [
@@ -60,10 +60,10 @@
   "sources": [
     {
       "repository": "iter_tc24",
-      "commit": "d8745dd06bea2adef0c08a31e163c4e0921909b3",
+      "commit": "5f267d12c9994a77c51fe80bdd376a6bd24e35e6",
       "path": "PLAN.md",
-      "sha256": "bbeaddac55c6478b0cd1a9af38ff88f8483442ed9e0ee771b2fe388a45559462",
-      "git_blob": "065841aac2e3dc6888bd5754695276de12a38151",
+      "sha256": "9bc9205ff609dc9b201fed3a6f0cf30fa333da120a0974fd90c06b49ef974cf0",
+      "git_blob": "158820091db859c13fba3e5d1f9337f859407531",
       "snapshot": "context/PLAN.md"
     },
     {
@@ -134,10 +134,10 @@
     },
     {
       "repository": "iter_tc24",
-      "commit": "d8745dd06bea2adef0c08a31e163c4e0921909b3",
+      "commit": "5f267d12c9994a77c51fe80bdd376a6bd24e35e6",
       "path": "equilibrium/phase4/tc24/README.md",
-      "sha256": "b418d835195fae07cb390fdee9634a9dd61182576adf1b13298006145dc75215",
-      "git_blob": "1e67e68b5defd673337c3629b3ae070120f94cb0",
+      "sha256": "d0547dc25a69569021249b1225c8737ca7a077c2d0f1bdabba8b12c24e0bafe2",
+      "git_blob": "39659944dff44afdf8ab6c7969e3c2032f28f66b",
       "snapshot": "context/equilibrium__phase4__tc24__README.md"
     },
     {
@@ -1173,6 +1173,15 @@
       "path": "equilibrium/phase5/cases.json",
       "sha256": "ac167fc07ff55403c4c89664c4cc747971ed33144c08bc50ca27a3b47653f241",
       "git_blob": "36cef5f7b1d825550926586d6b0d58d477b551be"
+    },
+    {
+      "repository": "iter_tc24",
+      "commit": "5f267d12c9994a77c51fe80bdd376a6bd24e35e6",
+      "path": "equilibrium/phase4/tc24/reference/reference_uncertainty_n512.csv",
+      "sha256": "c1c7214e28ea9b4cfe7454a8083e2e9981d0ddf5ddd491bd9aefa346d2d37070",
+      "git_blob": "6fabcbfb58d92c60388e37bf4e84fba95db14684",
+      "snapshot": "phase4/tc24/reference/reference_uncertainty_n512.csv",
+      "rows": 2
     }
   ]
 }

@@ -301,10 +301,13 @@ def tc24_tables():
                key=lambda r: int(r['boundary_nodes']))
     macro('TcHeldKinPsiRate', fine['generalized_psi_rate'], [fine], 'generalized_psi_rate')
     macro('TcHeldKinBRate', fine['generalized_bpol_rate'], [fine], 'generalized_bpol_rate')
-    seeded = next(r for r in refinement if 'seed384_bands' in r['run_tag'])
+    n512 = read(base+'reference_uncertainty_n512.csv')
+    seeded = next(r for r in n512 if r['comparison'] == 'kin_seed384_bands_to_public512')
     for field, name in [('psi_l2', 'TcSeedPsi'), ('bpol_l2', 'TcSeedB'),
-                        ('bpol_max', 'TcSeedBMax'), ('axis_rel', 'TcSeedAxis')]:
+                        ('bpol_max', 'TcSeedBMax'), ('axis_rel', 'TcSeedAxis'), ('q_max', 'TcSeedQ')]:
         macro(name, seeded[field], [seeded], field)
+    reference = next(r for r in n512 if r['comparison'] == 'public384_to_public512')
+    macro('TcReferenceBStep', reference['bpol_l2'], [reference], 'bpol_l2')
     qrows = read(base+'kin6d_q_convergence.csv')
     table('tc24_q_refinement', ['$n$', '$q$ held labels', '$q$ physical', 'Readback (s)'],
           [[cell('tc_q_refinement:'+r['n'], r, field) for field in

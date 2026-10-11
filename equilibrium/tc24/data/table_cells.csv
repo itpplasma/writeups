@@ -521,10 +521,12 @@ tc_refinement:384,axis_rel,3.001522612318654e-05,identity,phase4/tc24/reference/
 tc_refinement:384,process_wall_s,448.6565680759959,identity,phase4/tc24/reference/kin6d_refinement.csv:3
 TcHeldKinPsiRate,generalized_psi_rate,3.568899393196756,identity,phase4/tc24/reference/kin6d_refinement.csv:3
 TcHeldKinBRate,generalized_bpol_rate,3.6617332562251286,identity,phase4/tc24/reference/kin6d_refinement.csv:3
-TcSeedPsi,psi_l2,7.705937522520635e-08,identity,phase4/tc24/reference/kin6d_refinement.csv:5
-TcSeedB,bpol_l2,1.2113052317895344e-05,identity,phase4/tc24/reference/kin6d_refinement.csv:5
-TcSeedBMax,bpol_max,6.16890456519751e-05,identity,phase4/tc24/reference/kin6d_refinement.csv:5
-TcSeedAxis,axis_rel,5.832454148630997e-08,identity,phase4/tc24/reference/kin6d_refinement.csv:5
+TcSeedPsi,psi_l2,4.245092927695523e-08,identity,phase4/tc24/reference/reference_uncertainty_n512.csv:2
+TcSeedB,bpol_l2,6.801464011936829e-06,identity,phase4/tc24/reference/reference_uncertainty_n512.csv:2
+TcSeedBMax,bpol_max,5.730531531229171e-05,identity,phase4/tc24/reference/reference_uncertainty_n512.csv:2
+TcSeedAxis,axis_rel,5.73128565754009e-08,identity,phase4/tc24/reference/reference_uncertainty_n512.csv:2
+TcSeedQ,q_max,6.801126947730829e-06,identity,phase4/tc24/reference/reference_uncertainty_n512.csv:2
+TcReferenceBStep,bpol_l2,1.0834077108660082e-05,identity,phase4/tc24/reference/reference_uncertainty_n512.csv:1
 tc_q_refinement:256,n,256,identity,phase4/tc24/reference/kin6d_q_convergence.csv:1
 tc_q_refinement:256,q_gap_public320_held_stor,0.00023517560732078113,identity,phase4/tc24/reference/kin6d_q_convergence.csv:1
 tc_q_refinement:256,q_gap_public320_physical,0.00024394635008817556,identity,phase4/tc24/reference/kin6d_q_convergence.csv:1

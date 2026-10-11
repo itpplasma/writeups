@@ -98,13 +98,13 @@ and DESC remain the references; FreeGS, original VMEC and GVEC stay withdrawn.
 | Phase | Status | Remaining reason or delivered item |
 |---|---|---|
 | 0 Dechurn | Done | Archives, PR/status cleanup and the replacement brain section are delivered; raw figure inputs remain preserved. |
-| 1 Exact | Open | Five-code curves, P2/P3 rates and target-passing DESC cold costs delivered; VMEC++ fixed probes approach first order, with a slower near-axis maximum envelope retained. Final figure refresh remains. |
+| 1 Exact | Done (comparison) | Five-code figures, P2/P3 rates and target-passing DESC cold costs delivered; VMEC++ fixed probes approach first order, with a slower above-target maximum envelope retained. |
 | 2 Circular | Done (comparison) | Five-code curves, 120 matched cost calls and all used consumer paths delivered; two VMEC++ A3.1 states retain expected first-order axis error above target and no qualified cost. |
 | 3 Inverse | Open | KIN6D, public CHEASE and DESC have sampled passing states; E1/E2 consumer geometry is qualified. MARS coupled convergence, VMEC++ target gaps and nonlinear reliability remain open. |
 | 4a E4 | Done (comparison) | Two laws, five-code curves and used consumer readbacks delivered. DESC stopping passes; VMEC++'s remaining above-target radial errors have expected rates and no qualified all-quantity cost. |
-| 4b TC24 | Open | KIN6D Bpol rate 3.66 and converter map rate 2.90 match prediction; reference uncertainty, KIN6D field targets and native VMEC++/DESC convergence remain open. |
+| 4b TC24 | Open | Saved KIN6D passes sampled targets against NS512; Bpol/map rates 3.66/2.90 match prediction. Reference uncertainty and native VMEC++/DESC convergence remain open. |
 | 5 Cylinder | Done | Five-code curves and native KIM equilibrium ingress delivered; coarse KIN6D repaired; DESC accuracy/stopping passes at all four aspect ratios. Toroidal NTV consumers are outside the exact-cylinder contract. |
-| 6 Report | Done (report) | The corrected 29-page report and ten figures are published in writeups PR1; scientific slice closure remains open. |
+| 6 Report | Done (report) | The updated 29-page report and ten figures are published on writeups main; scientific slice closure remains open. |
 
 ## Phase 0 — Dechurn (do first; time-box about 2 working days)
 
@@ -206,7 +206,7 @@ No perturbation solve is part of it.
 
 ## Phase 6 — Report and close
 
-- [Writeups PR1](https://github.com/itpplasma/writeups/pull/1) owns the report; [ARTIFACTS](equilibrium/ARTIFACTS.md) owns its latest PDF and figure links.
+- [Writeups main](https://github.com/itpplasma/writeups/tree/main/equilibrium/tc24) owns the report; [ARTIFACTS](equilibrium/ARTIFACTS.md) owns its latest PDF and figure links.
 - Deliver case definitions, rate/cost figures, cross-code tables and linked fixes
   in one LaTeX report; publish PDF/plots on slopbox. Close only at the gates below.
 
