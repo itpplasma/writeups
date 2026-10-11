@@ -29,13 +29,13 @@ def yes(value):
     return str(value).lower() in {"true", "1", "1.0"}
 
 
-def draw(ax, rows, xkey, ykey, figure, panel, label, color, **kwargs):
+def draw(ax, rows, xkey, ykey, figure, panel, label, color, point_label=None, **kwargs):
     points = []
     for r in rows:
         x, y = float(r[xkey]), float(r[ykey])
         if np.isfinite(x) and np.isfinite(y) and x > 0 and y > 0:
             points.append((x, y, r))
-            POINTS.append(dict(figure=figure, panel=panel, series=label, x=x, y=y,
+            POINTS.append(dict(figure=figure, panel=panel, series=point_label or label, x=x, y=y,
                                source=r['_file'], data_row=r['_row'], x_column=xkey,
                                y_column=ykey, transform=r.get('_transform', 'identity')))
     if points:
@@ -171,6 +171,72 @@ def exports():
     finish(fig, 'consumer_exact')
 
 
+def ladder_consumers(phase, cases, name, figsize):
+    exports = read(f'{phase}/results/exports.csv')
+    states = {}
+    for case in cases:
+        for state in read(f'{phase}/results/{case}.csv'):
+            key = case, state['code'], int(float(state['dof']))
+            if key in states:
+                raise ValueError(f'duplicate producer state for native-stop join: {key}')
+            states[key] = state
+
+    nrows = (len(cases) + 1) // 2
+    fig, axes = plt.subplots(nrows, 2, figsize=figsize, sharex=True, sharey=True,
+                             squeeze=False)
+    for i, case in enumerate(cases):
+        ax = axes.flat[i]
+        for code in CODES[:3]:
+            native_path = 'FE' if code == 'kin6d' else 'NOUT'
+            for path, path_label, linestyle in [
+                    (native_path, 'native', '-'),
+                    ('EQDSK_libneo', 'EQDSK/libneo', '--')]:
+                selected = []
+                failed = []
+                for row in exports:
+                    if (row['case'], row['code'], row['path']) != (case, code, path):
+                        continue
+                    state = states[(case, code, int(float(row['dof'])))]
+                    item = dict(row)
+                    status = 'passed native stopping' if yes(state['native_converged']) else 'failed native stopping'
+                    item['_transform'] = (
+                        f'{path}; {status} per {state["_file"]} row {state["_row"]}; '
+                        'relative to the case KIN6D reference on its physical-point grid')
+                    (selected if yes(state['native_converged']) else failed).append(item)
+                label = f'{LABELS[code]} {path_label}'
+                draw(ax, selected, 'dof', 'bpol_l2', name, case, label,
+                     COLORS[code], marker=MARKERS[code], linestyle=linestyle)
+                # Retain finite output from failed producer stops as crosses,
+                # while keeping them out of the qualified refinement line.
+                for item in failed:
+                    draw(ax, [item], 'dof', 'bpol_l2', name, case, '_nolegend_',
+                         COLORS[code], point_label=f'{LABELS[code]} {path_label} failed-stop',
+                         marker='x', linestyle='None')
+        if phase == 'phase2':
+            law, aspect = case.split('_')
+            aspect = '3.1' if aspect == 'A3p1' else aspect[1:]
+            title = f'{law}, A={aspect}'
+        else:
+            title = "E4 E1 ($p'=0$)" if case == 'E4_E1' else "E4 E2 ($FF'=0$)"
+        ax.set_title(title, fontsize=9)
+        ax.set_xscale('log')
+        ax.set_yscale('log')
+        ax.grid(True, which='major', color='.86', linewidth=.5)
+        ax.grid(True, which='minor', color='.94', linewidth=.35)
+        if i % 2:
+            ax.tick_params(labelleft=False)
+    for ax in axes.flat[len(cases):]:
+        ax.set_visible(False)
+    fig.supxlabel('Producer DOF')
+    fig.supylabel(r'Relative $B_{pol}$ $L^2$ difference', x=.012)
+    handles, labels = axes.flat[0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='upper center', ncol=3, frameon=False,
+               bbox_to_anchor=(.5, .995), fontsize=7.5)
+    fig.tight_layout(rect=(.10, .06, .99, .90))
+    fig.savefig(OUT / f'{name}.pdf', metadata={'CreationDate': None, 'ModDate': None})
+    plt.close(fig)
+
+
 def cylinder():
     fine = read('phase5/results/finest.csv'); resolution = read('phase5/results/resolution.csv')
     fig, axes = plt.subplots(2, 2, figsize=(7, 4.9))
@@ -187,6 +253,62 @@ def cylinder():
         style(axes[i, 0], 'Aspect ratio A', 'Field difference from cylinder')
         style(axes[i, 1], 'Coarser producer DOF', 'Adjacent field difference')
     finish(fig, 'cylinder')
+
+
+def cylinder_time():
+    runs = read('phase5/results/runs.csv')
+    pairs = read('phase5/results/resolution.csv')
+    families = [('gold_hoyle', 'Gold–Hoyle'), ('lundquist', 'Lundquist')]
+    aspects = [10, 30, 100, 300]
+    fig, axes = plt.subplots(len(aspects), 2, figsize=(7, 8.1),
+                             sharex=True, sharey=True)
+    for i, aspect in enumerate(aspects):
+        for j, (family, family_label) in enumerate(families):
+            ax = axes[i, j]
+            for code in CODES:
+                selected = []
+                for pair in pairs:
+                    if (pair['code'] != code or pair['family'] != family
+                            or float(pair['aspect']) != aspect
+                            or pair['twist'] != '1' or pair['reversal'] != '1'):
+                        continue
+                    fine_n = int(float(pair['next_n']))
+                    candidates = [r for r in runs
+                                  if r['code'] == code and r['family'] == family
+                                  and float(r['aspect']) == aspect
+                                  and r['twist'] == '1' and r['reversal'] == '1'
+                                  and int(float(r['n'])) == fine_n
+                                  and yes(r['native_converged'])]
+                    if len(candidates) != 1:
+                        raise ValueError(
+                            f"expected one converged finer run for {family} A={aspect} "
+                            f"{code} n={fine_n}, found {len(candidates)}")
+                    # The fine-state producer time is paired with the existing
+                    # adjacent-resolution field difference; no time is summed.
+                    fine = candidates[-1]
+                    selected.append(dict(
+                        pair,
+                        wall_s=fine['wall_s'],
+                        _transform=(
+                            f"adjacent n={pair['n']} to {pair['next_n']}; "
+                            f"wall_s from {fine['_file']} row {fine['_row']}"),
+                    ))
+                draw(ax, selected, 'wall_s', 'B_discretization_difference',
+                     'cylinder_time', f'{family}:A{aspect}', LABELS[code],
+                     COLORS[code])
+            ax.set_title(f'{family_label}, A={aspect}', fontsize=9)
+            style(ax, '', '')
+            if i == len(aspects) - 1:
+                ax.set_xlabel('Finer-run producer wall time [s]')
+
+    handles, labels = axes[0, 0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='upper center', ncol=5, frameon=False,
+               bbox_to_anchor=(.5, .99), fontsize=8)
+    fig.supylabel(r'Adjacent relative field $L^2$ change', x=.012)
+    fig.tight_layout(rect=(.08, .03, .99, .94))
+    fig.savefig(OUT / 'cylinder_time.pdf',
+                metadata={'CreationDate': None, 'ModDate': None})
+    plt.close(fig)
 
 
 def inverse():
@@ -228,11 +350,16 @@ def main():
     for law in ['E1', 'E2']:
         toroidal('phase2', [f'{law}_A{a}' for a in ['40', '20', '10', '3p1']], 'circular_' + law.lower())
     toroidal('phase4', ['E4_E1', 'E4_E2'], 'shaped')
-    physics(); exports(); cylinder(); inverse(); tc24()
+    physics(); exports()
+    ladder_consumers('phase2', [f'{law}_A{aspect}' for aspect in ['40', '20', '10', '3p1']
+                                for law in ['E1', 'E2']],
+                     'circular_consumers', (7.1, 8.2))
+    ladder_consumers('phase4', ['E4_E1', 'E4_E2'], 'e4_consumers', (7.1, 3.8))
+    cylinder(); cylinder_time(); inverse(); tc24()
     with (DATA / 'figure_points.csv').open('w') as f:
         writer = csv.DictWriter(f, fieldnames=list(POINTS[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(POINTS)
-    print(f"Ten figures; {len(POINTS)} plotted points indexed by source CSV and data row.")
+    print(f"Thirteen figures; {len(POINTS)} plotted points indexed by source CSV and data row.")
 
 
 if __name__ == '__main__':

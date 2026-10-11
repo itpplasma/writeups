@@ -3,8 +3,10 @@
 Consolidated Phase 6 report for Chris and the TC24 collaborators: exact,
 circular, shaped, prescribed-q, received TC24 and cylinder studies, with
 native and actual-consumer accuracy and the current defect dispositions.
-The report source now includes the completed 11 October accuracy, native-stopping,
-consumer and current-cost controls. Scientific slice closure remains open.
+This draft adds thirteen indexed assessment figures from retained data. It does
+not include the later 11 October K5 consumer replays, DESC warm restart, MARS
+same-checkpoint diagnostic, pending NS640/K6 results or historical GPEC replays.
+Scientific slice closure and final publication remain open.
 The native build regenerates its figures and numerical source-row indexes.
 
 [artifacts.json](artifacts.json) owns the most recently published PDF and figure URLs,
@@ -16,8 +18,9 @@ and scripts are the durable reproduction path.
 
 - Snapshot: iter_tc24 `5f267d12c`.
   [sources.json](sources.json) pins every imported source, Git blob, SHA256 and
-  CSV row count. No solver was rerun for this report.
-- KIN6D current main is `648e544`, including curved P2/P3, cubic profiles,
+  CSV row count. The five-row Phase 3 passing-state table is pinned separately
+  to iter_tc24 `2018e9fa1`. No solver was rerun for this report.
+- KIN6D current main is `c5b7c80`, including curved P2/P3, cubic profiles,
   normalized current, prescribed q, performance and FortNum repairs.
   All 96 CPU and 96 Debug native preset checks pass.
   Every executed study retains its own source/binary pin and timing scope.
@@ -26,7 +29,7 @@ and scripts are the durable reproduction path.
   historical use nor agreement with the finite public comparator proves accuracy.
 - Inverse circular KIN6D rows use its own finest reference; historical other-code
   rows use public CHEASE. The figure uses adjacent differences to avoid mixing
-  those references. The corrected four-row passing-state selection uses common
+  those references. The five-row passing-state selection uses common
   circular references and exact Solovev, with its original timing caveats.
   Comparator zeros are not error measurements.
 - [figure_points.csv](data/figure_points.csv) records each plotted point and its
@@ -53,12 +56,12 @@ and scripts are the durable reproduction path.
 
 ## Build and publish
 
-Requirements: Python with NumPy and Matplotlib, plus `latexmk` and pdfLaTeX
+Requirements: Python with NumPy, Matplotlib and pypdf, plus `latexmk` and pdfLaTeX
 with the usual AMS, Latin Modern, geometry, caption, booktabs, longtable and
 hyperref packages. Use disk scratch:
 
 ```sh
-export TMPDIR=/home/ert/code/worktrees/_lanes/consolidate/tmp
+export TMPDIR=/mnt/storage/codex-equilibrium-20261011/finish/report_tmp
 bash equilibrium/tc24/build.sh
 ```
 
@@ -82,8 +85,10 @@ python equilibrium/tc24/publish.py \
   --uploader /home/ert/code/prompts/skills/slopbox/scripts/upload.sh
 ```
 
-The publisher uploads each PDF separately and writes the artifact manifest.
-It leaves the report source and scientific data unchanged. Publication does
-not merge a solver fix or promote an equilibrium for perturbation use.
+The publisher rebuilds a case-indexed figure booklet and a ZIP of standalone
+figure PDFs with the plotted-point index, then uploads the report and those two
+figure bundles. It writes the artifact manifest and leaves scientific data
+unchanged. Publication does not merge a solver fix or promote an equilibrium
+for perturbation use.
 
 Chris&AI

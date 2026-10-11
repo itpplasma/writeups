@@ -241,16 +241,18 @@ def inverse_tables():
 
     passing = read('phase3/results/passing_states_common_reference.csv')
     passing += [r for r in read('phase3/results/pressure_contract_fine.csv')
-                if yes(r['native_converged']) and yes(r['accuracy_passed'])
-                and yes(r['contract_passed'])]
+                if yes(r['native_converged']) and yes(r['physical_targets_passed'])
+                and yes(r['accuracy_passed']) and yes(r['contract_passed'])]
     vals = []
     for case, label in cases:
-        selected = {r['code']: r for r in passing if r['case'] == case}
-        vals.append([label] + [cell('inverse_passing:'+case+code, selected[code], field)
-                              if code in selected else '---'
-                              for field in ['bpol_l2', 'wall_s']
-                              for code in ['kin6d', 'chease_public']])
-    table('inverse_passing', ['Case', 'KIN6D $B_p$', 'Public $B_p$', 'KIN6D (s)', 'Public (s)'], vals, 'lrrrr')
+        for code in ['kin6d', 'chease_public', 'vmecpp']:
+            selected = next((r for r in passing if r['case'] == case and r['code'] == code), None)
+            if selected is None:
+                continue
+            obj = f'inverse_passing:{case}:{code}'
+            vals.append([label, tex(LABELS[code]), cell(obj, selected, 'bpol_l2'),
+                         cell(obj, selected, 'wall_s')])
+    table('inverse_passing', ['Case', 'Code', r'$B_p$ $L^2$', 'Recorded time (s)'], vals, 'llrr')
 
 
 

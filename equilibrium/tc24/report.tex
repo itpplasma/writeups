@@ -23,7 +23,7 @@
 \begin{center}
 {\LARGE TC24 axisymmetric equilibrium benchmark\par}
 \vspace{5pt}
-{\large Consolidated equilibrium-slice report\par}
+{\large Consolidated equilibrium-slice report --- draft\par}
 \vspace{4pt}
 Chris\&AI \quad 11 October 2026
 \end{center}
@@ -82,7 +82,10 @@ Phase & Delivered evidence & Remaining qualification \\
 
 The reader is Chris and, after revision, the TC24 collaborators. All empirical
 figures and numerical tables are generated from committed CSVs. The primary
-data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 5f267d12c}}. The retained
+data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 5f267d12c}}, with the five-row
+inverse passing-state table pinned separately to \texttt{2018e9fa1}.
+Later K5 consumer corrections, solver diagnostics and pending NS640/K6
+results await the next report revision. The retained
 README files explain how the runs were made; where they lag the numerical
 tables, this report follows the CSV rows and their settings. KIN6D's earlier
 owner study is labeled separately. No new solver run was made for this report.
@@ -177,7 +180,7 @@ for DESC, conditional on boundary representation and native stopping
 \toprule
 Code / measured version & Discretization and executed path & Pin and scope \\
 \midrule
-KIN6D & Curved P2/P3; \texttt{gs\_phase1}; native FE readback & Current main \texttt{648e544}; executed Phase 1 \texttt{fa5c388}, TC24 \texttt{5dfb9df}, inverse \texttt{ccabcc5}; cubic profiles and current constraints included \\
+KIN6D & Curved P2/P3; \texttt{gs\_phase1}; native FE readback & Snapshot main \texttt{648e544}; executed Phase 1 \texttt{fa5c388}, TC24 \texttt{5dfb9df}, inverse \texttt{ccabcc5}; cubic profiles and current constraints included \\
 CHEASE public & Hermite; forward constant sources; EQDSK readback & \texttt{b942066c}; dense boundary, folded ordering, \texttt{RELAX=0}, explicit export selector \\
 CHEASE MARS & Hermite; same forward law; separate native MARS export & \texttt{104053d5}; no interchange of prescribed-$q$ selectors with public CHEASE \\
 VMEC++ & Native \texttt{wout}; parity-aware physical-point reader & \texttt{a4150a4e}; radial and Fourier settings recorded per row \\
@@ -529,6 +532,43 @@ Sources: \texttt{phase2/results/boozer\_volume.csv} and
 \texttt{phase4/results/boozer\_volume.csv}.}
 \end{center}
 
+The following figures pair each retained producer-native field with the same
+state after EQDSK export and actual libneo field readback. Both representations
+use the case reference and physical-point sample, so their plotted errors share
+a norm. GPEC/Hamada and native MARS/Hamada retain their own reader-specific
+samples and remain summarized separately below.
+
+\begin{center}
+\includegraphics[width=.96\textwidth]{build/circular_consumers.pdf}
+\captionof{figure}{Eight-case circular native and libneo readback. Each facet
+shows relative $B_{pol}$ $L^2$ differences from the retained KIN6D numerical
+reference on the fixed physical-point sample. Solid lines are native KIN6D FE
+or CHEASE NOUT; dashed lines are the corresponding EQDSK fields read by the
+libneo Fortran field reader. Color and marker shape identify the producer.
+Only producer states passing native stopping are connected; crosses mark
+finite readbacks from failed stops. The KIN6D reference-native zero is omitted
+from the logarithmic axis. Curves compare two representations with the same
+reference and do not isolate additive conversion error. Source:
+\texttt{phase2/results/exports.csv}, joined to the case CSVs for native-stop
+status.}
+\end{center}
+
+\begin{center}
+\includegraphics[width=.96\textwidth]{build/e4_consumers.pdf}
+\captionof{figure}{Two-law E4 native and libneo readback. Facets separate the
+zero-pressure E1 and finite-pressure E2 laws. The axis is relative $B_{pol}$
+$L^2$ difference from each law's retained KIN6D numerical reference on its
+fixed physical-point sample. Solid lines are native KIN6D FE or CHEASE NOUT;
+dashed lines are the corresponding EQDSK fields read by the libneo Fortran
+field reader. Color and marker shape identify the producer. Only producer
+states passing native stopping are connected; crosses mark finite readbacks
+from failed stops. The KIN6D reference-native zero is omitted from the
+logarithmic axis. Curves compare two representations with the same reference
+and do not isolate additive conversion error. Source:
+\texttt{phase4/results/exports.csv}, joined to the E4 case CSVs for native-stop
+status.}
+\end{center}
+
 The circular study also measures all sixteen selected GPEC and native-MARS
 field/Hamada paths. Their sampled fields pass the targets; native Hamada
 metric refinement follows the predicted second-order rate.
@@ -598,6 +638,20 @@ now uses the same absolute-flux laws on curved elements. Sources:
 \texttt{phase5/results/finest.csv} and \texttt{resolution.csv}.}
 \end{center}
 
+\begin{center}
+\includegraphics[width=.94\textwidth]{build/cylinder_time.pdf}
+\captionof{figure}{Cylinder adjacent-resolution field change versus producer
+time, with one panel per family and aspect ratio. Each point is the retained
+relative field $L^2$ change from a resolution to its next finer state, plotted
+against that finer solve's wall time; it is a convergence indicator, not an
+absolute error bound. Producer times include setup and source-map iterations
+but exclude common sample evaluation. Runs are single-thread observations with
+per-run CPU affinity in different environments, so the view supports no
+cross-code speed ranking. CHEASE uses EQDSK readback; other codes use native
+fields. Sources: \texttt{phase5/results/resolution.csv} and
+\texttt{runs.csv}.}
+\end{center}
+
 \begin{center}\small
 \input{build/cylinder_values.tex}
 \captionof{table}{Finest public-CHEASE comparison at the largest aspect
@@ -619,6 +673,10 @@ PDE convergence curve or a kinetic-response calculation. The committed
 \tcfile{equilibrium/phase5/results/README.md}{cylinder study} retains the
 successful retained-input replays of the repaired coarse KIN6D readback
 and the capped DESC states.
+The maximum relative field error across the three signed KIM reader/ODE
+controls is $7.37\times10^{-15}$ for Gold--Hoyle and $3.46\times10^{-10}$ for
+Lundquist. These fixed analytic controls test signed ingress, not PDE
+convergence. Source: \tcfile{equilibrium/phase5/results/native_checks.json}{KIM native checks}.
 
 \pageheading{Prescribed safety factor}
 The inverse cases test whether prescribing the safety factor recovers the
@@ -665,14 +723,14 @@ and the corresponding comparison rows.}
 \input{build/inverse_passing.tex}
 \captionof{table}{Selected inverse states passing every sampled target and
 native stopping against common references: finest inverse KIN6D for E1/E2,
-exact Solov'ev for the analytic case. A dash means no qualifying public
-CHEASE state; corrected E1, E2 and Solov'ev qualify.
-Poloidal-field errors are relative $L^2$.
-Times retain the original producer pins and include preparation, solve,
-estimator where present, native export and native state/profile readback.
-Public CHEASE includes its flux-root trials. Different execution windows,
-uncontrolled host load and absent repeats prevent a statistical speed ranking;
-consumer conversions and common oracle evaluation are excluded. Source:
+exact Solov'ev for the analytic case. The E1 VMEC++ row is the selected NS257
+state. Poloidal-field errors are relative $L^2$.
+Times are recorded single observations, not matched cold costs: KIN6D, VMEC++
+and E1 public CHEASE list selected-state producer times, while corrected public
+CHEASE E2 and Solov'ev list full four- and nine-call pressure/Phi root-route
+totals, including their root trials. Different timing scopes and execution
+conditions preclude a speed ranking; consumer conversions and common oracle
+evaluation are excluded. Source:
 \texttt{phase3/results/passing\_states\_common\_reference.csv} and
 \texttt{pressure\_contract\_fine.csv}.}
 \end{center}
@@ -1000,7 +1058,7 @@ The optimized source was integrated on main as \texttt{313cde5}.}
 The opt-in absolute-flux estimator adds a numerical linearized-stability
 factor and returns status 5. It is conditional on that estimate; nonlinear
 remainder, existence, geometry and input uncertainty are not bounded. The
-normalized-current and inverse studies retain status 4. Main \texttt{648e544}
+normalized-current and inverse studies retain status 4. Snapshot main \texttt{648e544}
 also contains the prescribed-$q$ port and the FortNum \texttt{901aae0} update-limit
 repair. Integration does not change the executed revisions or replace the
 recorded cost/error curves with an unmeasured performance claim.
