@@ -1,6 +1,6 @@
 {
   "title": "TC24 Phase 6 consolidated report",
-  "source_commit": "622bc4c84cee299b5aa83e625903966698f7b9ce",
+  "source_commit": "4058356077d1f35b45133a4e3c00fa0b2795e97b",
   "source_base": "fabe9256db7d1fa965ad7055faaa22d7f35c9e56",
   "source_branch": "equilibrium/report-cost-refresh-20261011",
   "input_manifest_sha256": "191d6409f8e240cafa557527beaf272be9efe142fbd36237e38075ab991898eb",
@@ -149,7 +149,7 @@
     "equilibrium/tc24/figures.py": "862d72a019686a4c893d5fc9aeec0607ea34340a5b4c3da6df121458623c5f48",
     "equilibrium/tc24/ledger.py": "aa1c5c1704f115f6f0bfef6aec998c9cccbed25c43f14953ac6a1b1ab6d1f602",
     "equilibrium/tc24/publish.py": "789069374aba550749cdc467c44b4832fb1c352b94a71fd3e5257398ea86a92e",
-    "equilibrium/tc24/report.tex": "47f619e9cc62ffcbf9d722b3a9df23dc46048ccaacabaee3b4361fe2f9e0516f",
+    "equilibrium/tc24/report.tex": "4bee5475b497fcea45915e36199ffc02076840605766dce3cf3a5b9590577fbc",
     "equilibrium/tc24/snapshot.py": "e869114355f5b908c8c0db3d14a8a046708ebe0256142587da6d84f1ce53facc",
     "equilibrium/tc24/sources.json": "191d6409f8e240cafa557527beaf272be9efe142fbd36237e38075ab991898eb",
     "equilibrium/tc24/tables.py": "74b542c0ac82a4da787b0fa1491ac7e5e60678d636f5060a94f1a4b1c605866a",
@@ -160,11 +160,11 @@
       "id": "report",
       "file": "report.pdf",
       "description": "TC24 axisymmetric equilibrium benchmark, consolidated report",
-      "url": "https://box.sloppy.at/f9313.pdf",
-      "bytes": 861679,
-      "sha256": "f6d687772df581c1811104ac30ed886d49e6631093b7e44d074e6086528c6d41",
-      "uploaded_at": "2026-10-11T05:18:17.280929+00:00",
-      "expires_at": "2026-10-14T05:18:17.280929+00:00"
+      "url": "https://box.sloppy.at/1e5d7.pdf",
+      "bytes": 861693,
+      "sha256": "ab46577fac6eae4151ffb3f4317448182f1384dc7807eb9f05b2beef5cac8dc4",
+      "uploaded_at": "2026-10-11T05:19:55.270501+00:00",
+      "expires_at": "2026-10-14T05:19:55.270501+00:00"
     },
     {
       "id": "exact_a3",
