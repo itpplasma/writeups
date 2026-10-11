@@ -38,13 +38,48 @@ p_prime fixed. Final PRNORM scales delivered p_prime as well as psi/Bpol:
 at NS=NT128 its factor is 1.00000267 (E2) and 0.999997522 (Solovev).
 The maintained adapter now updates the input pressure amplitude from the delivered
 SI p_prime profile and roots Phi, retaining the seven-trial cap and rejecting either
-constraint error above 1e-9. The current three constant pressure laws make the
+constraint error above the recorded transfer tolerance (default 1e-9). The current three constant pressure laws make the
 profile interpolation exact; no variable-pressure contract is qualified here.
 [The coarse Solovev control](pressure_contract_control.csv), using unchanged
 b179fc6 source and archived binary, closes both constraints in four trials:
 Phi relative error 2.95e-10 and pressure profile error 1.50e-10, versus historical
 pressure drift 1.18e-4. Its delivered GEQDSK field errors remain coarse-grid errors
 (psi L2 2.58e-4, Bpol L2 1.24e-3); this is no fine-resolution qualification.
+[Corrected fine controls](pressure_contract_fine.csv) retain the original NS64/128
+1e-9 verdicts and all [executed amplitude/flux trials](pressure_contract_trials.csv).
+The complete NS128/NISO400 roots use an explicit 1e-8 numerical transfer budget:
+E2 closes pressure/Phi in four calls (1.50e-10/1.07e-11), and exact Solovev in
+three (2.20e-9/3.82e-10). Native convergence passes, but psi L2 remains
+1.35e-6 and 1.76e-6; all other sampled PLAN targets pass. The producer totals
+are 777.364 and 707.518 s, including all native normalization calls, without a
+matched-cost claim. Source b179fc6 and binary 3f5a914a remain unchanged. The held-map
+NS192/NISO400 refinement preserves NPSI=NCHI=512 and the same physical inputs.
+E2 closes both transfers in four native calls: pressure 2.58e-9, Phi 1.03e-10;
+psi L2 improves to 9.03e-7 and every sampled target passes. Solovev also passes:
+an interior secant from opposite-sign pressure states reaches pressure 1.50e-10
+and Phi 7.63e-13 at unchanged EPSLON=1e-11; psi L2 is 8.94e-7 and every sampled
+physical target passes. Both use the unchanged 1e-8 transfer gate. The failed
+seven-call root and tighter-stopping EPSLON=1e-12 control remain retained.
+Producer totals are 1688.491 s for E2 and 4536.829 s for all nine Solovev native
+calls, including those failed controls and the 454.932 s final solve. These are
+accuracy campaigns, not cold matched-cost points. Parent times are separate:
+1695.275 s for E2, 3512.514 s for the original Solovev root and 456.899 s for its
+secant; the tighter-stopping control has no separately recorded parent time.
+
+The transfer budget is a chosen numerical allowance, not an exact-pressure claim.
+EQDSK pressure serialization has relative half-width 3.42e-10; the separately
+logged final SCALE has absolute half-width about 5e-9. Pressure is checked from
+delivered SI profiles, not the rounded SCALE log. The old 1e-9 fine-root failures
+remain failures. The held E2 NISO100→200 control reduces the normalization offset,
+but also changes delivered pressure before rerooting; it does not establish a
+convergence rate or qualify the coupled pressure problem. NISO400 final SCALE
+is 1.00000136/1.00000181 (E2/Solovev), so the remaining physical psi gap is larger
+than output precision. No solver output format was changed. A held E2 final NPSI512→1024 control leaves
+psi L2 1.35e-6→1.34e-6 and SCALE 1.00000136→1.00000135, rejecting final-map
+axis sampling as the dominant remaining error at NS128/NISO400. Its unchanged
+pressure amplitude delivers 1.18e-8 drift; this single native control is not a
+pressure-root qualification.
+
 All historical rows and raw outputs remain unchanged. VMEC++ uses ncurr=0, prescribed iota=+1/q on its negative-signgs
 branch. DESC uses iota=-1/q under its recorded angle map. Their pressure and
 iota tables use s_tor obtained by integrating q, not by identifying psi with Phi.
@@ -103,13 +138,18 @@ The table selects the least-cost retained sampled passing state after final-stag
 readback correction. E1/E2 use the KIN6D n81 inverse reference; Solovev uses
 the exact state. Targets are psi L2 1e-6, Bpol/Btor L2 1e-5 and max 1e-4,
 q max 1e-5, and axis, volume and signed Phi relative error 1e-6.
-No retained public E2 or Solovev state meets the psi target; their finest errors
-are 2.66e-6 against common KIN6D and 2.47e-6 against exact Solovev. The former
-public selections are superseded, not retained as passing observations.
+Corrected public E2 NS192 meets all physical and declared transfer targets.
+Solovev NS192 now meets every physical and declared transfer target against the
+exact state after one bracketed secant; its earlier failed root and tighter-stopping
+control remain excluded from the qualified selections. The original public selections
+remain superseded. All previous failure flags are preserved in the fine-control
+CSV; this table requires native, physical and declared transfer gates together.
 
 | Case / retained row | DOF | psi L2 | Bpol L2 / max | Btor L2 / max | q max | Axis / volume rel. | Phi rel. | Producer s |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
 | [E1 / public CHEASE NS=NT=64](E1_constant_q_A10_chease_public_2.json) | 16640 | 4.57e-07 | 4.73e-07 / 5.53e-07 | 1.09e-08 / 1.17e-08 | 4.68e-07 | 1.00e-08 / 1.02e-08 | 9.75e-11 | 67.991 |
+| [E2 / corrected public CHEASE NS=NT=192, NISO400](pressure_contract_fine.csv) | 148224 | 9.03e-07 | 1.03e-06 / 2.05e-06 | 1.03e-08 / 1.11e-08 | 9.13e-07 | 1.69e-07 / 1.02e-08 | 1.03e-10 | 1688.491 |
+| [Solovev / corrected public CHEASE NS=NT=192, NISO400](pressure_contract_fine.csv) | 148224 | 8.94e-07 | 9.39e-07 / 9.49e-07 | 9.35e-09 / 1.28e-08 | 9.27e-07 | 4.76e-08 / 1.01e-10 | 7.63e-13 | 4536.829 |
 | [E1 / KIN6D](E1_constant_q_A10_kin6d_1.json) | 1489 | 1.53e-07 | 3.09e-06 / 3.14e-05 | 2.45e-07 / 2.44e-07 | 3.16e-06 | 1.30e-07 / 2.45e-07 | 3.69e-12 | 6.038 |
 | [E2 / KIN6D](E2_constant_q_A10_kin6d_2.json) | 3262 | 5.03e-08 | 1.77e-06 / 6.46e-06 | 4.15e-08 / 4.11e-08 | 1.82e-06 | 8.55e-07 / 4.14e-08 | 4.44e-16 | 33.556 |
 | [Solovev / KIN6D](Solovev_inverse_A3_kin6d_1.json) | 2854 | 2.67e-07 | 8.30e-06 / 4.32e-05 | 2.47e-07 / 2.42e-07 | 2.94e-06 | 1.68e-08 / 1.04e-07 | 1.78e-15 | 2.423 |
@@ -234,6 +274,16 @@ defect is established. q/Phi are input-transfer checks. The existing samples and
 | E1 constant-q | NS257, 16.79 s; common-KIN axis 7.136e-7 | Sampled targets and native stopping pass. |
 | E2 constant-q | NS897, additional 236.61 s; common-KIN axis 1.140e-6 | Axis and strict native stopping remain open; observed per-iteration cost would make a 40000-iteration NS897 budget about 590 s, without guaranteeing convergence. |
 | Exact Solovev | NS257, 26.83 s; axis 1.472e-4, Bpol L2 8.404e-5 | Expected-rate radial convergence; NS513 already timed out at 300 s. Extrapolating the latest axis rate needs order 17000 radial surfaces, not an affordable target control. |
+
+The native inverse decks vary only NS at fixed MPOL24 and ftol=1e-18.
+Axis self-difference orders on the retained ladders are 1.225/1.168 (E1),
+1.194/1.222/1.242 (E2), and 1.102/1.132 (exact Solovev), meeting the
+predicted radial first order. Last psi/Bpol L2 self-difference orders are
+1.760/1.562, 1.821/1.518, and 1.760/1.478 respectively. Solovev's above-target
+Bpol maximum has last exact-error order 1.231; its slower Btor maximum is
+already below target. Circular absolute errors retain finite-reference
+sensitivity; these native rates do not turn the capped E2 control or the
+above-target Solovev state into qualified cost observations.
 
 The axis/resolution and iteration-budget projections are estimates, not executed
 fine-grid results or matched costs. All native inputs, saved states and capped

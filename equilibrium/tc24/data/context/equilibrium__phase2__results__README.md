@@ -124,47 +124,64 @@ one thread in numerical libraries; concurrent lanes make these single timings
 indicative. The historical ladder does not establish a current cross-code speed ranking.
 
 
-The matched current-cost block is retained in
-[matched_current_cost_runs.csv](matched_current_cost_runs.csv) (72 measured calls)
-and [matched_current_cost_summary.csv](matched_current_cost_summary.csv)
-(24 selected states). Three repeats of each eight-case/code combination ran
-sequentially on CPU7, with cyclic code order and one numerical thread, while
-other campaign heavy jobs paused. The native inputs, DOF, frozen reference,
-sample points and existing accuracy gates were held fixed; all 72 calls pass
-native stopping and all sampled gates. These are medians [minimum,maximum]
-in producer seconds, not a new resolution search:
+The current matched-cost block is [matched_allfive_cost_runs.csv](matched_allfive_cost_runs.csv)
+(120 fresh cold routes) and [matched_allfive_cost_summary.csv](matched_allfive_cost_summary.csv)
+(40 selected states, three repeats). All five codes ran sequentially on CPU 7
+with cyclic code order, one numerical thread and unchanged selected inputs,
+DOF, common references, sample points and physical gates. All 120 native stops
+pass; 114 calls meet every sampled accuracy gate. Only the two expected
+VMEC++ A3.1 states fail accuracy in each repeat. They are not time-to-target.
+The previous 72-call CSVs and pins remain historical inputs from a separate
+window; they are not combined with this current comparison.
 
-| Case | KIN6D P3 | CHEASE public | CHEASE MARS |
-|---|---:|---:|---:|
-| E1_A10 | 0.417 [0.417,0.428] | 1.168 [1.165,1.171] | 1.971 [1.916,2.718] |
-| E1_A20 | 0.411 [0.409,0.429] | 1.168 [1.166,1.169] | 1.918 [1.918,1.989] |
-| E1_A3p1 | 1.696 [1.696,1.712] | 2.421 [2.319,2.523] | 2.674 [2.620,2.732] |
-| E1_A40 | 0.414 [0.411,0.426] | 1.168 [1.167,1.265] | 1.919 [1.918,1.968] |
-| E2_A10 | 0.425 [0.422,0.431] | 1.168 [1.167,1.171] | 1.969 [1.919,1.971] |
-| E2_A20 | 0.430 [0.415,0.444] | 1.168 [1.168,1.439] | 2.021 [1.970,2.076] |
-| E2_A3p1 | 0.422 [0.417,0.424] | 2.371 [2.319,2.422] | 5.784 [5.781,5.885] |
-| E2_A40 | 0.414 [0.410,0.416] | 1.167 [1.165,1.168] | 1.967 [1.870,2.023] |
+Qualified producer seconds are median [minimum, maximum]; a dash means no
+qualified state. The complete raw measured cost remains in the CSV even for
+a failed target:
 
-KIN6D has the lowest cost among these three measured codes in all eight cases;
-the measured ranges do not overlap. This comparison does not rank DESC or
-VMEC++, whose costs above remain historical. Desktop/background activity was
-not excluded, and three repeats do not establish a statistical confidence bound.
-The producer timer includes native setup/solve/export/readback and KIN6D's
-estimator, but excludes worker-module startup and the subsequent sampled oracle.
-All process costs and full sampled metrics remain in the 72-row CSV.
+| Case | KIN6D P3 | Public CHEASE | MARS CHEASE | VMEC++ | DESC |
+|---|---:|---:|---:|---:|---:|
+| E1_A10 | 0.471 [0.462,0.632] | 1.283 [1.228,1.448] | 3.137 [2.460,3.297] | 7.942 [7.440,8.143] | 43.925 [34.520,45.215] |
+| E1_A20 | 0.457 [0.448,0.495] | 1.289 [1.279,1.450] | 2.434 [2.027,3.991] | 9.169 [9.018,10.226] | 41.885 [38.843,47.158] |
+| E1_A3p1 | 1.804 [1.785,1.905] | 2.482 [2.433,2.575] | 3.439 [3.087,3.637] | — | 74.946 [67.270,92.954] |
+| E1_A40 | 0.437 [0.431,0.496] | 1.224 [1.170,1.501] | 2.428 [2.043,4.257] | 5.958 [5.415,7.639] | 36.941 [29.717,51.499] |
+| E2_A10 | 0.465 [0.442,0.521] | 1.228 [1.224,1.367] | 2.295 [2.087,2.335] | 296.992 [251.927,321.372] | 40.031 [37.487,42.056] |
+| E2_A20 | 0.466 [0.443,0.470] | 1.296 [1.170,1.786] | 2.703 [2.055,3.903] | 85.109 [84.734,102.942] | 40.052 [39.212,42.471] |
+| E2_A3p1 | 0.473 [0.443,0.681] | 2.583 [2.434,3.959] | 6.948 [6.549,11.018] | — | 74.867 [61.308,83.645] |
+| E2_A40 | 0.471 [0.443,0.489] | 1.279 [1.235,1.343] | 3.644 [3.037,4.246] | 60.477 [57.964,62.584] | 40.328 [35.733,52.945] |
 
-Pins are KIN6D `f6a33c91610e49e7eba63c0b4f8dcc099e8a77e1`/binary
-`66037bab`, public CHEASE `b942066c`/binary `d7a21f4e`, and the locally
-snapshotted qualified MARS composite `a97e2afb`/binary `fc3889fd`.
-The MARS snapshot contains base 8824bb18 plus correctness fixes 6/7/37/39/41/42/45
-and terminal-pivot repair fcc2a02; it is a comparison source state, not a solver
-promotion. Full source/binary hashes are in the CSV. Observed peak resident
-memory was 88.2 MiB (KIN6D), 207.9 MiB (public) and 3.54 GiB (MARS), exceeding
-the initial 2 GiB MARS estimate. Raw inputs, pre-execution manifest, commands,
-outputs and output hashes are retained under
-`/mnt/storage/codex-equilibrium-20261010/remaining_exports/scratch/current_cost_prep`;
-parent PID 1343231 completed all 72 calls with exit status 0. Historical cost
-curves and `best_cost.csv` are unchanged.
+KIN6D has the lowest qualified producer cost in all eight cases; its measured
+range does not overlap the other qualified ranges. This is a comparison of
+these selected states under observed background load, not a confidence bound
+or a general solver ranking. Historical resolution/cost curves and
+`best_cost.csv` remain unchanged.
+
+The producer clock excludes worker-module startup and the subsequent common
+sampled accuracy oracle. It includes native input preparation, solve, save and
+the producer readback: KIN6D mesh/assembly/estimator/export/profile contours;
+CHEASE native setup/export/readback; VMEC++ native process and wout load;
+DESC fresh native child imports/JIT/continuation/solve/save and H5 load.
+Forward-reference preparation is excluded. Full subprocess time, every
+physical metric, native stopping verdict and peak RSS are retained separately.
+Each repeat starts without a retained equilibrium seed; operating-system page
+caches were not purged. No other users' processes were controlled.
+
+E2_A10 VMEC++ uses fresh 129→257→513→769 stages plus exactly one strict
+same-basis restart at unchanged ftol=1e-18. The entire route is timed:
+251.927, 296.992, 321.372 s; cold stage stopping alone fails, final strict restart
+passes. Cold child caps are 300 s for repeats 1/2 and preregistered 450 s for
+repeat 3; strict restart 300 s and outer 600 s are unchanged. No capped observation
+or retained seed is substituted for any of these costs.
+
+Pins are KIN6D `05d962b` / immutable binary `4ae1496b`; public CHEASE `b942066c` /
+binary `d7a21f4e`; qualified MARS composite `a97e2afb` / binary `fc3889fd`;
+VMEC++ `a4150a4e` / native extension `3b49cdc1`; DESC `2888389d` / Python `3008abbb`
+with scientific source and loaded libraries pinned in the manifest. The MARS
+snapshot retains its existing correctness fixes; this timing is not promotion.
+Maximum RSS was 88.1 MiB KIN6D, 208.0 MiB public, 3.54 GiB MARS, 268.8 MiB
+VMEC++ and 4.21 GiB DESC, all below 12 GiB. Observed one-minute load ranged
+7.37–20.10. The 120 processes total 4776.76 s (79.6 minutes). Raw requests,
+both preregistered manifest versions, native receipts, logs and output hashes
+remain under `/mnt/storage/codex-equilibrium-20261010/remaining_exports/scratch/current_cost_prep/allfive_20261010`.
 
 Remaining numerical limitations are owned by [ERRATA EQ-P2-1](../../ERRATA.md#eq-p2-1).
 A targeted E2/A10 NS=1025, mpol=16, ftol=1e-18 repeat also exceeds
@@ -177,10 +194,26 @@ contract first passes every physical gate at NS769 but exhausts its configured
 stops after 38 iterations and retains axis error 9.426e-7, psi L2 3.304e-7 and
 Bpol L2/max 1.392e-6/8.908e-6; every other PLAN quantity also passes. These are
 input-transfer checks for q/Phi, independent physical outputs for fields/axis.
-The CPU1/thread1 process costs are 264.536 s plus 1.092 s; readbacks cost
-2.369 s plus 1.718 s separately. This complete route is a single observation
+The original CPU1/thread1 control process costs are 264.536 s plus 1.092 s; readbacks cost
+2.369 s plus 1.718 s separately. That original control is a single observation
 under load, not the restart cost alone or a replacement of the historical
 cold curves. Both native states and the capped NS1025 attempt are retained.
+
+The two A3.1 axis gaps are radial numerical limitations, with sampled target
+qualification still open. On the held NS=33,65,129,257,513 chain, native axis
+successive-difference orders are 1.145,1.169,1.204 (E1) and
+1.179,1.189,1.200 (E2), exceeding the predicted radial first order. Errors
+against the independent KIN6D FE axis decrease monotonically with last orders
+1.260/1.278. Only NS and stopping tolerance vary in the native decks; the
+first four states hold tolerance fixed, and pressure/iota/Phi, axis seed and
+boundary coefficients are identical throughout. The axis output is native
+`rmnc[0,0]`, not the prescribed iota. The last KIN6D axis mesh changes are
+3.55e-8/1.48e-8 relative, while both finest CHEASE axis differences are below
+2.67e-9, much smaller than the remaining VMEC++ errors. This is expected-rate
+convergence toward an independently checked reference, without a demonstrated
+wrong limit. E1 still misses the axis target; E2 still misses axis and psi/Bpol
+L2 targets. Their time-to-target cells remain unqualified; no extrapolated
+state is counted as a passing run.
 
 Public CHEASE E1/A3.1 NS=128 also reports a magnetic-axis minimizer warning;
 its field differences are below target, but it is excluded from qualification.
@@ -218,8 +251,27 @@ pending exporter from `ade9cb8ac`, saved and hashed beside each readback, withou
 merging its lane. The reader binaries reuse the export lane's archived libneo
 fork fixes; their executed hashes are in each readback manifest. VMEC++/DESC
 are measured through their native wout/HDF5 states; their downstream converters
-are unused under the explicit [consumer inventory](../../phase1/results_export/README.md#consumer-inventory-and-bounded-gaps). Native MARS Fourier/Hamada and standalone GPEC reconstruction
-remain outside this measured package, as recorded by the export lane.
+are unused under the explicit [consumer inventory](../../phase1/results_export/README.md#consumer-inventory-and-bounded-gaps). Actual GPEC reconstruction now covers public CHEASE NS64/128 for all eight
+cases using the retained canonical inputs and unchanged radial256/angular512
+reader. On its actual physical samples, maximum psi L2 is 1.804e-8,
+Bpol L2 2.619e-6 / maximum 3.790e-5, q relative maximum 3.804e-8 and
+signed toroidal-flux error 7.727e-10. All pass the physical targets.
+Input transfer and reader/native differences remain separate in raw errors;
+no q/sign normalization is fitted. The immutable maintained KIN6D observer
+reproduces the reference's retained sample fields exactly. The existing native contour/volume-angle oracle also gives Hamada spectrum
+relative error <=2.789e-8 and Jacobian maximum <=3.835e-8 across all sixteen
+readbacks ([gpec_hamada.csv](gpec_hamada.csv)), taking 15.7–19.3 s per oracle.
+These targets pass. GPEC reader-only times are 0.18–0.40 s; oracle work is excluded.
+Raw package: `/mnt/storage/codex-equilibrium-20261010/tc24_consumers/scratch/phase2_gpec`.
+
+Actual MARS Fourier/Hamada readback is also measured for all eight cases at
+NS=64/128 in [mars_native.csv](mars_native.csv). It replays the same EXPEQ
+and source law with `NIDEAL=0,NFFTOPT=0`, then calls MARS `READTOR`,
+`GETQPLS`, `FFTDRIVER` and its Hamada routines. Both laws pass the sampled
+field, q and flux targets: worst Bpol L2/max is 1.70e-6/2.97e-6 and q
+maximum is 3.00e-8. Hamada spectrum error is at most 2.28e-6; Jacobian
+maximum error decreases by factors 3.997–4.001, matching its second-order
+prediction. Final output SCALE is 1 in all sixteen logs.
 
 Reproduction: generate cases with `python -m equilibrium.phase2.cases`; run
 `python -m equilibrium.phase2.compare --tag UNIQUE --cases E1_A40 --cpu 12`

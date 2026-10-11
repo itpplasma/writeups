@@ -117,7 +117,23 @@ covers four retained native curved-P3 resolutions of Solovev_inverse_A3
 (658 to 46,558 DOFs). Reader-computed energy error against the exact oracle
 decreases at approximately h³ (DOF slopes −1.55 to −1.65), with order-8 to
 order-12 quadrature drift below 1.6e-11. Diagnostic effectivity stays between
-1.161 and 1.178. This establishes measured effectivity for Solovev. E1/E2
+1.161 and 1.178. This establishes measured effectivity for Solovev.
+The same CSV now evaluates a continuous bound on error to the analytic Solovev
+state: the frozen-source functional receives a recovered-source mismatch term
+and an explicit lifting of the analytic trace on the curved mesh boundary.
+The conservative bound formula decreases from 7.90e-3 to 4.51e-6 Wb/m^0.5;
+its finest source/lifting terms are 1.22e-8 and 4.44e-6. The derivation accounts
+for inverse Jacobian and R weights; positive determinant Bernstein controls were
+measured on every cell. Ordinary quadrature and control arithmetic make these
+numerical evaluations, not guaranteed numerical upper enclosures. The replay's
+stable storage path and hash are retained in the CSV. This exact-target theorem
+includes input/source discrepancy without proving uniqueness or stability of
+the coupled prescribed-q problem; E1/E2 and TC24 reliability remain open.
+The [reviewed E1 linear estimate](https://github.com/itpplasma/kin6d/blob/648e544/docs/gs-inverse.md)
+controls flux energy and profile L2 about a constructed smooth disk state.
+Smooth inverse solvability, higher profile/axis derivatives, the nonlinear
+remainder and finite-element domain transport remain separate hypotheses.
+E1/E2
 full-domain comparisons use corrected final-stage public CHEASE fields
 ([results](README.md)); their finite-reference uncertainty precludes a nonlinear reliability claim. The GPEC/DCON EQDSK
 consumer readback of a KIN6D inverse export is measured and on target (above);
@@ -132,14 +148,18 @@ a separate radial-geometry serialization defect: eight-digit Fourier coefficient
 produce an internal geometric-determinant residual of 5.58e-4 on frozen E1; the
 full-precision writer (libneo `08ace36`, independent analytic-circle regression)
 reduces it to 1.14e-5 without changing physics, mapping resolution or consumer.
-This diagnostic is distinct from the physical Jacobian error, which falls from
-5.48e-8 to 1.81e-8. Increasing only EQDSK grid257→513 gives 1.65e-5; increasing
-only precise radial map512→1024 gives 4.36e-5. Thus the residual geometry metric
-is not yet qualified by expected-rate convergence. Source inspection identifies
-fixed adaptive tracing tolerance `relerr=1e-9` (the input `nstep` is ignored) as
-a remaining floor candidate; these measurements do not establish that cause.
-The actual physical field/q/flux/Jacobian reader columns above pass independently
-of this internal derivative diagnostic. No additional E1 refinements are claimed.
+This diagnostic is distinct from the native-current physical Jacobian error.
+A held E1 control with the corrected executed-angle projection weight (libneo
+fork PR6) reduces internal geometric-J mismatch 1.14e-5→4.48e-7. The new E2
+precision-writer plus projection control reaches 4.72e-6. E1 retains
+map512/angles1024/m48, E2 map256/angles512/m24, both output2000/reader513;
+the original 1e-9 tracer tolerance is unchanged. Bpol L2 is 3.85e-7 / 6.52e-7,
+q maximum 1.52e-7 / 1.83e-7 and native-current Jacobian error
+1.82e-8 / 3.98e-8. All affected physical and geometric targets pass.
+The unchanged native oracle reproduces retained sample fields exactly.
+No further E1/E2 chart refinement is needed. Original passing rows remain
+retained. Repaired raw package:
+`/mnt/storage/codex-equilibrium-20261010/tc24_consumers/scratch/phase3_projection`.
 
 Raw charts, reader outputs and native contour measurements are under
 `/mnt/storage/codex-equilibrium-20261010/remaining_exports/scratch/runs/kin6d-consumers-20261010`.

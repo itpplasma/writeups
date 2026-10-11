@@ -9,8 +9,9 @@ from pathlib import Path
 import subprocess
 
 HERE = Path(__file__).resolve().parent
-TC24 = "d62873837da7d14681e7c8938598a69690417a77"
+TC24 = "d8745dd06"
 KIN6D = "3c851d7"
+KIN6D_CURRENT = "648e544"
 
 
 def git(repo, *args):
@@ -101,6 +102,18 @@ def main():
         'phase2/results/kin6d_current_cost.csv',
         'phase2/results/matched_current_cost_runs.csv',
         'phase2/results/matched_current_cost_summary.csv',
+        'phase2/results/matched_allfive_cost_runs.csv',
+        'phase2/results/matched_allfive_cost_summary.csv',
+        'phase1/results/desc_cold_cost.csv',
+        'phase2/results/gpec_hamada.csv',
+        'phase2/results/mars_native.csv',
+        'phase4/results/consumer_readback.csv',
+        'phase4/results/native_mars_controls.csv',
+        'phase4/results/vmecpp_target_controls.csv',
+        'phase3/results/pressure_contract_fine.csv',
+        'phase3/results/pressure_contract_trials.csv',
+        'phase4/tc24/reference/desc_native_controls.csv',
+        'phase4/tc24/reference/reference_uncertainty_n384.csv',
         'phase2/results/vmecpp_target_controls.csv',
         'phase3/results/vmecpp_target_controls.csv',
         'phase3/results/pressure_contract_control.csv',
@@ -121,6 +134,7 @@ def main():
          "phase4/tc24/reference/comparison_historical.csv")
     read(args.kin6d, KIN6D, "benchmarks/gs-phase1/p2-p3.csv", "kin6d/p2-p3.csv")
     read(args.kin6d, KIN6D, "benchmarks/gs-phase1/README.md", "context/kin6d-p2-p3.md")
+    read(args.kin6d, KIN6D_CURRENT, "docs/gs-inverse.md", "context/kin6d-gs-inverse.md")
 
     # Keep scalar input definitions as rows; boundary arrays remain at their owner.
     parameters = []
@@ -148,12 +162,12 @@ def main():
         writer.writeheader()
         writer.writerows(parameters)
     support = []
-    for revision in ["99fa2c8", "82d4d1f", "fa5c388", "451fa5b", "a50f8b6", "2d8142a", "5dfb9df", "313cde5", "60bef4c", "fde93a9", "f1d1791", "f6a33c9"]:
+    for revision in ["99fa2c8", "82d4d1f", "fa5c388", "451fa5b", "a50f8b6", "2d8142a", "5dfb9df", "313cde5", "60bef4c", "fde93a9", "f1d1791", "f6a33c9", KIN6D_CURRENT]:
         support.append({"commit": git(args.kin6d, "rev-parse", revision).decode().strip(),
                         "subject": git(args.kin6d, "show", "-s", "--format=%s", revision).decode().strip()})
     manifest = {"description": "Committed inputs for the consolidated Phase 6 report; executed pins remain historical.",
                 "tc24_commit": git(args.tc24, "rev-parse", TC24).decode().strip(),
-                "kin6d_current_main": git(args.kin6d, "rev-parse", "f6a33c9").decode().strip(), "kin6d_data_commit": git(args.kin6d, "rev-parse", KIN6D).decode().strip(),
+                "kin6d_current_main": git(args.kin6d, "rev-parse", KIN6D_CURRENT).decode().strip(), "kin6d_data_commit": git(args.kin6d, "rev-parse", KIN6D).decode().strip(),
                 "kin6d_support_history": support, "sources": sources}
     (HERE / "sources.json").write_text(json.dumps(manifest, indent=2) + "\n")
     print(f"Copied {len(sources)} committed sources; {len(parameters)} scalar input rows.")

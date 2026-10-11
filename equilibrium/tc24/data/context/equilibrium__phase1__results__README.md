@@ -54,8 +54,14 @@ matches the first-order radial prediction.
 CHEASE's finer below-target differences do not justify further diagnosis.
 KIN6D's historical axis errors are repaired by the local quartic recovery
 recorded under [EQ-D15](../../ERRATA.md#eq-d15).
-VMEC++ sampled Bpol-max orders are 0.56/0.71 (A3/Cerfon). These slower
-near-axis maxima remain unexplained under [EQ-D12](../../ERRATA.md#eq-d12);
+The original VMEC++ sampled Bpol-max orders are 0.56/0.71 (A3/Cerfon).
+The [fixed physical point continuation](vmecpp_nearaxis_controls.csv) retains
+NS257/513/1025 and the same 4000-point clouds and exact references. A3
+NS513→1025 gives maximum order 0.925 and Bpol L2 order 1.100; the original
+NS257 maximizer, held at the same physical point, gives order 1.331 as its
+native radial coordinate moves from cell 1.98 to 3.99. This supports expected
+first-order numerical convergence, despite maximum 4.027e-4 remaining above
+target. Cerfon's maximum remains unclassified under [EQ-D12](../../ERRATA.md#eq-d12);
 radial staggering alone does not establish a half-order prediction.
 DESC shaped-boundary truncation is classified in [EQ-D20](../../ERRATA.md#eq-d20).
 
@@ -85,8 +91,39 @@ coefficient (added boundary modes are zero). It converges at ftol=1e-14 in
 The signed axis error changes by only 8.60 nm. Solution angular resolution
 and stopping therefore do not explain the dominant retained gap. Fixed
 boundary truncation is not tested by this control. Bulk radial convergence
-remains expected first order; the slower near-axis maximum remains an open
-axis discretization/readback candidate, not an established solver defect.
+remains expected first order. The new Cerfon NS513→1025 continuation gives
+Bpol L2 order 1.004 and order 1.183 at the original NS257 maximizer
+(cells 3.30→6.63). The NS513/1025 maximizer is the same fixed physical point,
+index 2759, 0.18439 m from the exact axis. Its relative error decreases
+1.646e-3→1.005e-3→6.786e-4 on NS513/1025/1537, giving orders 0.712 then
+0.968 as it moves from cells 1.92→3.84→5.77. At the original NS257
+maximizer, NS1025→1537 gives order 1.690 (cells 6.63→9.96); bulk Bpol L2
+gives order 1.072. Both resolved fixed physical probes therefore support
+expected first-order radial convergence. The retained-cloud maximum changes
+to a closer physical point, index 1755, at NS1537: radius 0.11770 m,
+cell 2.66, relative error 7.655e-4. Its maximum-envelope order is 0.671;
+that new point's own error gives order 0.625 from cells 1.78→2.66. The slower
+envelope continues to sample the first few radial cells and is not evidence
+for a universal half-order law, an attained maximum target, or a native defect.
+The original persistent-probe rate is explained as preasymptotic radial
+behavior; the current maximum envelope is explicitly retained as a limitation.
+
+Both serialized NS513 restart and uninterrupted NS257→513→1025 attempts
+with DELT=0.9 fail with repeated bad Jacobians at NS1025. The same saved
+NS513 state with DELT=0.1 converges at the original ftol=1e-14 in 981.87
+native seconds (984.05 process seconds), 32745 iterations, fsqr=9.979e-15,
+fsqz=5.688e-15 and fsql=6.918e-16. Thus the failed refinement is an iteration
+configuration limitation, rather than loss of serialized restart state or
+an inherently invalid refined geometry. Failed states remain in the CSV and
+raw roots but are excluded from rates. A3's successful additional NS513/1025
+solves cost 35.54/121.98 native seconds. These warm costs preserve the original
+cold cost curves and do not support a matched speed ranking. Cerfon's additional
+NS1025→1537 solve converges at the same tolerance in 923.80 native seconds,
+20208 iterations, fsqr=9.980e-15, fsqz=3.668e-15 and fsql=6.598e-16.
+These controls use CPU5/thread1 under ambient workstation load. The retained
+scratch `nearaxis_curve.py` reproduces the CSV using `WoutField`, `Exact`
+and the existing points; input/binary hashes and native histories are beside
+each registered raw root.
 The scratch `compare_cerfon_angular.py` uses the existing `measure`, `Exact`
 and fixed-point reader; `comparison.json` beside the new raw run retains
 all quantities and native settings. This control is not a matched cost curve.
@@ -107,6 +144,31 @@ measurement rows. Warm solve costs are 83.28 s (M24), 185.87 s (M32) and
 37.60 s (calibrated stop), including load/JAX and excluding readback on CPU6,
 one thread. These supplement the original CPU10 cost curve; they are not a
 matched cold time-to-target measurement. Original failed runs remain archived.
+
+The [current cold DESC replays](desc_cold_cost.csv) now qualify both exact
+cases on CPU7/one thread with unchanged physical decks and no retained seed
+or persistent JIT cache. Each row is one observation, not a matched five-code
+speed comparison. Producer cost includes the separately measured existing
+input preparation, cold native imports/JIT/all continuation/solve/save, and
+native H5 load; common physical-oracle evaluation and sample serialization
+are excluded. Every PLAN physical norm and the actual final stopping receipt
+is retained in the CSV and registered raw roots. q/Phi remain input-transfer
+checks. The historical curves and warm-control costs are unchanged.
+
+| Case | L=M | Preparation / s | Cold native process / s | H5 load / s | Producer / s | Native stop | All physical targets |
+|---|---:|---:|---:|---:|---:|---|---|
+| A3 | 14 | 0.0747 | 229.6282 | 0.5323 | 230.2352 | gtol1e-12;225 final+306 seed iterations | pass |
+| Cerfon | 32 | 23.9916 | 455.7538 | 0.5189 | 480.2642 | gtol1e-9;12 final+648 seed iterations | pass |
+
+A3 uses the retained native 4/6/8/10/12 continuation and maxiter 400.
+Cerfon uses 4/6/8/10/12/14/16/24, maxiter 200, strict1e-12 coarse stopping
+and case-specific final gtol1e-9. Its M16/M24 intermediate stages hit their
+200-iteration caps; the subsequent M32 state satisfies native stopping and
+all targets. No intermediate capped seed is admitted as an equilibrium.
+Peak native RSS is 4.349/4.233GiB. Background load is recorded at both ends;
+other processes were not controlled. Physical-oracle evaluations take
+113.94/769.01 s separately; their immutable existing math was not changed.
+
 
 CHEASE fields here are G-EQDSK readback; KIN6D uses native FE readback,
 VMEC++ native wout coefficients and DESC native HDF5. q and Phi for the
@@ -131,17 +193,19 @@ speed ranking. No listed projected large grid was launched.
 
 | Phase/case | Retained NS / process s | Controlling gap | Rate used | Estimated target NS / cold s |
 |---|---:|---|---:|---:|
-| 1 A3 | 257 / 24.21 | near-axis Bpol maximum 1.160e-3 | 0.56 | ~20000 / >300 |
-| 1 Cerfon | 257 / 53.45 | near-axis Bpol maximum 2.358e-3 | 0.71 | ~22000 / >300 |
+| 1 A3 | 1025 / 122.83 additional | Bpol maximum 4.027e-4 | 0.925 | Expected-rate numerical closure; no target-forcing run |
+| 1 Cerfon | 1537 / 925.48 additional | Bpol maximum 7.655e-4; persistent probe 6.786e-4 | 0.671 envelope / 0.968 fixed probe | Expected-rate fixed-probe closure; no maximum target extrapolation |
 | 2 E1/A3.1 | 513 / 20.37 | axis 6.261e-6 | 1.260 | ~2200 / ~375 |
 | 2 E2/A10 | 769 / 264.54 + 1.09 | all sampled gates pass after strict restart | measured | 769 / 265.63 |
 | 2 E2/A3.1 | 513 / 18.38 | axis 2.652e-5 | 1.278 | ~6700 / ~3100 |
 | 4a E4/E1 | 257 / 8.65 | axis 3.672e-5 | 1.201 | ~5100 / ~3500 |
 | 4a E4/E2 | 257 / 10.52 | axis 8.969e-5 | 1.191 | ~11200 / ~20000 |
 
-Bulk Bpol rates meet VMEC++'s at-least-first-order radial prediction. The slower
-near-axis maxima remain unclassified; the fixed probes have not yet left the
-first radial cells. Cerfon's signed axis crossing supports self-convergence,
+Bulk Bpol rates meet VMEC++'s at-least-first-order radial prediction. A3 is
+an expected-rate numerical limitation. Cerfon's persistent physical probe at
+cell 5.77 gives order 0.968; the new maximizing point remains at cell 2.66.
+Fixed-probe convergence and the slower maximum envelope are kept distinct.
+Cerfon's signed axis crossing supports self-convergence,
 but does not justify an absolute axis-error extrapolation. E2/A10's strict saved-state continuation is measured in
 [Phase 2 controls](../../phase2/results/vmecpp_target_controls.csv); original
 Phase 1/2/4a curves and source pins remain unchanged.

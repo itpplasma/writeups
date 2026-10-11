@@ -14,7 +14,9 @@ DATA = HERE / "data"
 OUT = HERE / "build"
 CODES = ["kin6d", "chease_public", "chease_mars", "vmecpp", "desc"]
 LABELS = dict(zip(CODES, ["KIN6D", "CHEASE public", "CHEASE MARS", "VMEC++", "DESC"]))
-COLORS = dict(zip(CODES, ["#176b43", "#2166ac", "#b36a12", "#9b3d89", "#bc3939"]))
+# Okabe--Ito palette; exact-case series also use distinct markers/line styles.
+COLORS = dict(zip(CODES, ["#009E73", "#0072B2", "#E69F00", "#CC79A7", "#D55E00"]))
+MARKERS = dict(zip(CODES, ["o", "s", "^", "v", "P"]))
 POINTS = []
 
 
@@ -39,7 +41,7 @@ def draw(ax, rows, xkey, ykey, figure, panel, label, color, **kwargs):
     if points:
         points.sort(key=lambda p: p[0])
         ax.loglog([p[0] for p in points], [p[1] for p in points],
-                  label=label, color=color, marker="o", markersize=3, linewidth=1.2, **kwargs)
+                  label=label, color=color, marker=kwargs.pop("marker", next((MARKERS[c] for c in CODES if label == LABELS[c]), "o")), markersize=3, linewidth=1.2, **kwargs)
 
 
 def finish(fig, name, handles=None, labels=None):
@@ -65,6 +67,8 @@ def exact():
                         ("solovev_cerfon_iter", "Cerfon exact LCFS")]:
         name = "exact_" + ("a3" if "A3" in case else "cerfon")
         rows = read(f"phase1/results/{case}.csv")
+        cold = [dict(r, wall_s=r["producer_s"]) for r in read("phase1/results/desc_cold_cost.csv")
+                if r["case"] == case and yes(r["qualified"])]
         fig, axes = plt.subplots(2, 2, figsize=(7, 4.6))
         for i, (metric, title_y, target) in enumerate(
                 [("psi_l2", r"Relative $\psi$ $L^2$ error", 1e-6),
@@ -76,7 +80,12 @@ def exact():
                                 and (degree is None or json.loads(r['resolution']).get('degree', 2) == degree)]
                     draw(ax, selected, x, metric, name, f"{i},{j}",
                          LABELS[code] + (f" P{degree}" if degree else ''),
-                         '#559e88' if degree == 2 else COLORS[code], linestyle='--' if degree == 2 else '-')
+                         COLORS[code], linestyle='--' if degree == 2 else '-',
+                         marker='x' if degree == 2 else MARKERS[code])
+                for r in cold:
+                    r["_transform"] = "wall_s=producer_s; fresh cold target-passing replay"
+                draw(ax, cold, x, metric, name, f"{i},{j}", "DESC cold target replay",
+                     COLORS["desc"], linestyle="None", marker="D")
                 style(ax, title_x, title_y, target)
         finish(fig, name)
 
@@ -155,7 +164,7 @@ def exports():
                     POINTS.append(dict(figure='consumer_exact', panel=f'{i},{j}', series=LABELS[code],
                                        x=k, y=y, source=r['_file'], data_row=r['_row'],
                                        x_column='path', y_column=field, transform='categorical path'))
-                ax.semilogy(range(len(paths)), points, 'o-', color=COLORS[code], label=LABELS[code], markersize=4)
+                ax.semilogy(range(len(paths)), points, marker=MARKERS[code], color=COLORS[code], label=LABELS[code], markersize=4)
             ax.set_xticks(range(len(paths)), [p[1] for p in paths])
             ax.set_title(('A3' if i == 0 else 'Cerfon') + (' / finer producer' if higher else ' / coarser producer'), fontsize=9)
             style(ax, '', r"Relative $B_{pol}$ $L^2$ error", 1e-5)

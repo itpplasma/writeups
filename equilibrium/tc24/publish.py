@@ -48,7 +48,8 @@ def main():
     manifest = {
         'title': 'TC24 Phase 6 consolidated report', 'source_commit': revision,
         'source_base': 'fabe9256db7d1fa965ad7055faaa22d7f35c9e56',
-        'source_branch': 'equilibrium/slice-report-20261009',
+        'source_branch': subprocess.check_output(
+            ['git', '-C', str(repo), 'branch', '--show-current'], text=True).strip(),
         'input_manifest_sha256': sha(HERE / 'sources.json'),
         'data_pin': json.loads((HERE / 'sources.json').read_text())['tc24_commit'],
         'commands': ['TMPDIR=<disk-directory> bash equilibrium/tc24/build.sh'],

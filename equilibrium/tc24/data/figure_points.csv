@@ -23,6 +23,7 @@ exact_a3,"0,0",DESC,48.0,0.00026828113137186693,phase1/results/solovev_lcfs_A3.c
 exact_a3,"0,0",DESC,75.0,2.171982681840584e-05,phase1/results/solovev_lcfs_A3.csv,15,dof,psi_l2,identity
 exact_a3,"0,0",DESC,108.0,2.078434736435223e-06,phase1/results/solovev_lcfs_A3.csv,16,dof,psi_l2,identity
 exact_a3,"0,0",DESC,147.0,2.387771519093465e-07,phase1/results/solovev_lcfs_A3.csv,17,dof,psi_l2,identity
+exact_a3,"0,0",DESC cold target replay,147.0,2.387771519093465e-07,phase1/results/desc_cold_cost.csv,1,dof,psi_l2,wall_s=producer_s; fresh cold target-passing replay
 exact_a3,"0,1",KIN6D P2,0.009639631,4.652419741054638e-05,phase1/results/solovev_lcfs_A3.csv,18,wall_s,psi_l2,identity
 exact_a3,"0,1",KIN6D P2,0.050669832,5.668566174081835e-06,phase1/results/solovev_lcfs_A3.csv,19,wall_s,psi_l2,identity
 exact_a3,"0,1",KIN6D P2,0.348859832,6.841624376383717e-07,phase1/results/solovev_lcfs_A3.csv,20,wall_s,psi_l2,identity
@@ -47,6 +48,7 @@ exact_a3,"0,1",DESC,58.94480562210083,0.00026828113137186693,phase1/results/solo
 exact_a3,"0,1",DESC,55.862824375974014,2.171982681840584e-05,phase1/results/solovev_lcfs_A3.csv,15,wall_s,psi_l2,identity
 exact_a3,"0,1",DESC,140.90418553492054,2.078434736435223e-06,phase1/results/solovev_lcfs_A3.csv,16,wall_s,psi_l2,identity
 exact_a3,"0,1",DESC,200.39605920598842,2.387771519093465e-07,phase1/results/solovev_lcfs_A3.csv,17,wall_s,psi_l2,identity
+exact_a3,"0,1",DESC cold target replay,230.2352465102449,2.387771519093465e-07,phase1/results/desc_cold_cost.csv,1,wall_s,psi_l2,wall_s=producer_s; fresh cold target-passing replay
 exact_a3,"1,0",KIN6D P2,1253.0,0.001089572605896379,phase1/results/solovev_lcfs_A3.csv,18,dof,bpol_l2,identity
 exact_a3,"1,0",KIN6D P2,5113.0,0.0002635468670563956,phase1/results/solovev_lcfs_A3.csv,19,dof,bpol_l2,identity
 exact_a3,"1,0",KIN6D P2,20629.0,6.431489744897406e-05,phase1/results/solovev_lcfs_A3.csv,20,dof,bpol_l2,identity
@@ -71,6 +73,7 @@ exact_a3,"1,0",DESC,48.0,0.0008508394896905822,phase1/results/solovev_lcfs_A3.cs
 exact_a3,"1,0",DESC,75.0,0.00010043129448691069,phase1/results/solovev_lcfs_A3.csv,15,dof,bpol_l2,identity
 exact_a3,"1,0",DESC,108.0,1.2909300708450366e-05,phase1/results/solovev_lcfs_A3.csv,16,dof,bpol_l2,identity
 exact_a3,"1,0",DESC,147.0,1.7413358451622164e-06,phase1/results/solovev_lcfs_A3.csv,17,dof,bpol_l2,identity
+exact_a3,"1,0",DESC cold target replay,147.0,1.7413358451622164e-06,phase1/results/desc_cold_cost.csv,1,dof,bpol_l2,wall_s=producer_s; fresh cold target-passing replay
 exact_a3,"1,1",KIN6D P2,0.009639631,0.001089572605896379,phase1/results/solovev_lcfs_A3.csv,18,wall_s,bpol_l2,identity
 exact_a3,"1,1",KIN6D P2,0.050669832,0.0002635468670563956,phase1/results/solovev_lcfs_A3.csv,19,wall_s,bpol_l2,identity
 exact_a3,"1,1",KIN6D P2,0.348859832,6.431489744897406e-05,phase1/results/solovev_lcfs_A3.csv,20,wall_s,bpol_l2,identity
@@ -95,6 +98,7 @@ exact_a3,"1,1",DESC,58.94480562210083,0.0008508394896905822,phase1/results/solov
 exact_a3,"1,1",DESC,55.862824375974014,0.00010043129448691069,phase1/results/solovev_lcfs_A3.csv,15,wall_s,bpol_l2,identity
 exact_a3,"1,1",DESC,140.90418553492054,1.2909300708450366e-05,phase1/results/solovev_lcfs_A3.csv,16,wall_s,bpol_l2,identity
 exact_a3,"1,1",DESC,200.39605920598842,1.7413358451622164e-06,phase1/results/solovev_lcfs_A3.csv,17,wall_s,bpol_l2,identity
+exact_a3,"1,1",DESC cold target replay,230.2352465102449,1.7413358451622164e-06,phase1/results/desc_cold_cost.csv,1,wall_s,bpol_l2,wall_s=producer_s; fresh cold target-passing replay
 exact_cerfon,"0,0",KIN6D P2,409.0,0.000555571623881127,phase1/results/solovev_cerfon_iter.csv,18,dof,psi_l2,identity
 exact_cerfon,"0,0",KIN6D P2,1797.0,5.066286516615551e-05,phase1/results/solovev_cerfon_iter.csv,19,dof,psi_l2,identity
 exact_cerfon,"0,0",KIN6D P2,7501.0,5.114444356596971e-06,phase1/results/solovev_cerfon_iter.csv,20,dof,psi_l2,identity
@@ -120,6 +124,7 @@ exact_cerfon,"0,0",DESC,75.0,0.004059919657772653,phase1/results/solovev_cerfon_
 exact_cerfon,"0,0",DESC,108.0,0.0025927274625315916,phase1/results/solovev_cerfon_iter.csv,15,dof,psi_l2,identity
 exact_cerfon,"0,0",DESC,147.0,0.0007379103616915114,phase1/results/solovev_cerfon_iter.csv,16,dof,psi_l2,identity
 exact_cerfon,"0,0",DESC,192.0,7.771974321712537e-05,phase1/results/solovev_cerfon_iter.csv,17,dof,psi_l2,identity
+exact_cerfon,"0,0",DESC cold target replay,768.0,8.961612919561586e-08,phase1/results/desc_cold_cost.csv,2,dof,psi_l2,wall_s=producer_s; fresh cold target-passing replay
 exact_cerfon,"0,1",KIN6D P2,0.004020595,0.000555571623881127,phase1/results/solovev_cerfon_iter.csv,18,wall_s,psi_l2,identity
 exact_cerfon,"0,1",KIN6D P2,0.01730921,5.066286516615551e-05,phase1/results/solovev_cerfon_iter.csv,19,wall_s,psi_l2,identity
 exact_cerfon,"0,1",KIN6D P2,0.084039009,5.114444356596971e-06,phase1/results/solovev_cerfon_iter.csv,20,wall_s,psi_l2,identity
@@ -145,6 +150,7 @@ exact_cerfon,"0,1",DESC,76.64768914692104,0.004059919657772653,phase1/results/so
 exact_cerfon,"0,1",DESC,158.65547338710167,0.0025927274625315916,phase1/results/solovev_cerfon_iter.csv,15,wall_s,psi_l2,identity
 exact_cerfon,"0,1",DESC,200.4894186798483,0.0007379103616915114,phase1/results/solovev_cerfon_iter.csv,16,wall_s,psi_l2,identity
 exact_cerfon,"0,1",DESC,280.09678402519785,7.771974321712537e-05,phase1/results/solovev_cerfon_iter.csv,17,wall_s,psi_l2,identity
+exact_cerfon,"0,1",DESC cold target replay,480.26419723709114,8.961612919561586e-08,phase1/results/desc_cold_cost.csv,2,wall_s,psi_l2,wall_s=producer_s; fresh cold target-passing replay
 exact_cerfon,"1,0",KIN6D P2,409.0,0.006162464591160395,phase1/results/solovev_cerfon_iter.csv,18,dof,bpol_l2,identity
 exact_cerfon,"1,0",KIN6D P2,1797.0,0.00123168192869186,phase1/results/solovev_cerfon_iter.csv,19,dof,bpol_l2,identity
 exact_cerfon,"1,0",KIN6D P2,7501.0,0.0002486376212591176,phase1/results/solovev_cerfon_iter.csv,20,dof,bpol_l2,identity
@@ -170,6 +176,7 @@ exact_cerfon,"1,0",DESC,75.0,0.014765519928639854,phase1/results/solovev_cerfon_
 exact_cerfon,"1,0",DESC,108.0,0.009899853053618402,phase1/results/solovev_cerfon_iter.csv,15,dof,bpol_l2,identity
 exact_cerfon,"1,0",DESC,147.0,0.0035461714635893807,phase1/results/solovev_cerfon_iter.csv,16,dof,bpol_l2,identity
 exact_cerfon,"1,0",DESC,192.0,0.0006596586206271687,phase1/results/solovev_cerfon_iter.csv,17,dof,bpol_l2,identity
+exact_cerfon,"1,0",DESC cold target replay,768.0,1.307707863614542e-06,phase1/results/desc_cold_cost.csv,2,dof,bpol_l2,wall_s=producer_s; fresh cold target-passing replay
 exact_cerfon,"1,1",KIN6D P2,0.004020595,0.006162464591160395,phase1/results/solovev_cerfon_iter.csv,18,wall_s,bpol_l2,identity
 exact_cerfon,"1,1",KIN6D P2,0.01730921,0.00123168192869186,phase1/results/solovev_cerfon_iter.csv,19,wall_s,bpol_l2,identity
 exact_cerfon,"1,1",KIN6D P2,0.084039009,0.0002486376212591176,phase1/results/solovev_cerfon_iter.csv,20,wall_s,bpol_l2,identity
@@ -195,6 +202,7 @@ exact_cerfon,"1,1",DESC,76.64768914692104,0.014765519928639854,phase1/results/so
 exact_cerfon,"1,1",DESC,158.65547338710167,0.009899853053618402,phase1/results/solovev_cerfon_iter.csv,15,wall_s,bpol_l2,identity
 exact_cerfon,"1,1",DESC,200.4894186798483,0.0035461714635893807,phase1/results/solovev_cerfon_iter.csv,16,wall_s,bpol_l2,identity
 exact_cerfon,"1,1",DESC,280.09678402519785,0.0006596586206271687,phase1/results/solovev_cerfon_iter.csv,17,wall_s,bpol_l2,identity
+exact_cerfon,"1,1",DESC cold target replay,480.26419723709114,1.307707863614542e-06,phase1/results/desc_cold_cost.csv,2,wall_s,bpol_l2,wall_s=producer_s; fresh cold target-passing replay
 circular_e1,E1_A40:dof,KIN6D,595.0,2.07509027269452e-05,phase2/results/E1_A40.csv,17,dof,bpol_l2,identity
 circular_e1,E1_A40:dof,KIN6D,2422.0,1.7217840120904502e-06,phase2/results/E1_A40.csv,18,dof,bpol_l2,identity
 circular_e1,E1_A40:dof,KIN6D,9946.0,1.079148807082049e-07,phase2/results/E1_A40.csv,19,dof,bpol_l2,identity

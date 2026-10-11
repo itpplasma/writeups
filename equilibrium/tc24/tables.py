@@ -102,6 +102,10 @@ def exact_tables():
                            cell(obj, chosen, 'psi_l2'), cell(obj, chosen, 'bpol_l2'), cell(obj, chosen, 'wall_s')])
     table('exact_rates', ['Case', 'Code', r'$p_\psi$ / $\alpha_\psi$', r'$p_B$ / $\alpha_B$', r'$B_{pol}$ $L^2$', 'Time (s)', 'Gate'], rows, 'llrrrrl')
     table('p3_cost', ['Case', 'Degree', '$n$', 'DOF', r'$\psi$ $L^2$', r'$B_{pol}$ $L^2$', 'Solve (s)'], p3rows, 'llrrrrr')
+    for r in read('phase1/results/desc_cold_cost.csv'):
+        name = 'Athree' if r['case'] == 'solovev_lcfs_A3' else 'Cerfon'
+        macro('DescCold' + name + 'Time', r['producer_s'], [r], 'producer_s', digits=5)
+
 
 
 def toroidal_tables():
@@ -120,18 +124,21 @@ def toroidal_tables():
         headers = ['Case', 'KIN6D P3', 'Public', 'MARS', 'VMEC++', 'DESC']
         table(phase + '_cost', headers, rows)
         if phase == 'phase2':
-            current = read('phase2/results/matched_current_cost_summary.csv')
+            current = read('phase2/results/matched_allfive_cost_summary.csv')
             matched = []
             for case in cases:
                 values = []
-                for code in ['kin6d', 'chease_public', 'chease_mars']:
+                for code in CODES:
                     r = next(r for r in current if r['case'] == case and r['code'] == code)
+                    if not yes(r['all_qualified']):
+                        values.append('---')
+                        continue
                     obj = 'phase2_matched_cost:'+case+code
                     median, low, high = [cell(obj, r, 'producer_'+stat+'_s')
                                          for stat in ['median', 'min', 'max']]
                     values.append(f'{median} ({low}--{high})')
                 matched.append([tex(case.replace('_', '/').replace('3p1', '3.1'))]+values)
-            table('phase2_matched_cost', ['Case', 'KIN6D', 'Public CHEASE', 'MARS CHEASE'], matched)
+            table('phase2_matched_cost', ['Case', 'KIN6D', 'Public', 'MARS', 'VMEC++', 'DESC'], matched)
         table(phase + '_reference', ['Case', r'$\psi$ Rich.', r'$B_{pol}$ Rich.', 'Rel. majorant', 'Ratio'], refrows)
         if phase == 'phase4':
             for r in refs:
@@ -233,6 +240,9 @@ def inverse_tables():
     table('inverse_exports', ['Case', r'libneo $\psi$ $L^2$', r'libneo $B_p$ $L^2$'], vals)
 
     passing = read('phase3/results/passing_states_common_reference.csv')
+    passing += [r for r in read('phase3/results/pressure_contract_fine.csv')
+                if yes(r['native_converged']) and yes(r['accuracy_passed'])
+                and yes(r['contract_passed'])]
     vals = []
     for case, label in cases:
         selected = {r['code']: r for r in passing if r['case'] == case}
@@ -286,10 +296,15 @@ def tc24_tables():
     table('tc24_refinement', ['$n$', 'DOF', r'$\psi$ $L^2$', r'$B_p$ $L^2$', 'Axis', 'Process (s)'],
           [[cell('tc_refinement:'+r['boundary_nodes'], r, field, 6 if field == 'dof' else 3)
             for field in ['boundary_nodes', 'dof', 'psi_l2', 'bpol_l2', 'axis_rel', 'process_wall_s']]
-           for r in refinement])
-    fine = max(refinement, key=lambda r: int(r['boundary_nodes']))
+           for r in refinement if 'seed' not in r['run_tag']])
+    fine = max([r for r in refinement if r['generalized_bpol_rate']],
+               key=lambda r: int(r['boundary_nodes']))
     macro('TcHeldKinPsiRate', fine['generalized_psi_rate'], [fine], 'generalized_psi_rate')
     macro('TcHeldKinBRate', fine['generalized_bpol_rate'], [fine], 'generalized_bpol_rate')
+    seeded = next(r for r in refinement if 'seed384_bands' in r['run_tag'])
+    for field, name in [('psi_l2', 'TcSeedPsi'), ('bpol_l2', 'TcSeedB'),
+                        ('bpol_max', 'TcSeedBMax'), ('axis_rel', 'TcSeedAxis')]:
+        macro(name, seeded[field], [seeded], field)
     qrows = read(base+'kin6d_q_convergence.csv')
     table('tc24_q_refinement', ['$n$', '$q$ held labels', '$q$ physical', 'Readback (s)'],
           [[cell('tc_q_refinement:'+r['n'], r, field) for field in

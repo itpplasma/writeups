@@ -4,6 +4,7 @@ iter_tc24 / Phase 3 analysis,EQ-P3X-2,"Source-provenance index treated as a solv
 iter_tc24 / DESC producer,EQ-CYL-1,Continuation rejects a valid symmetric deck with omitted zero Fourier families,fixed on main,fixed on main,[25d20db2d](https://gitlab.tugraz.at/plasma/proj/ntv/iter_tc24/-/commit/25d20db2d); continuation regression,,equilibrium/ERRATA.md
 libneo,EQ-EXPORT-1,EFIT Python wrapper passes float arguments to double Fortran routines,PR open,PR open,"[libneo #422](https://github.com/itpplasma/libneo/pull/422), `1b867ec`",,equilibrium/ERRATA.md
 libneo,EQ-EXPORT-4,Eight-digit geometry coefficients corrupt radial derivative readback,PR open,PR open,"[fork PR5](https://github.com/krystophny/libneo/pull/5), `08ace36`; independent circular metric regression",,equilibrium/ERRATA.md
+libneo,EQ-EXPORT-5,Fourier weight differs from the derivative of the executed interpolated angle,PR open,PR open,"[fork PR6](https://github.com/krystophny/libneo/pull/6), `dbf0993`; independent noncircular map regression",,equilibrium/ERRATA.md
 NEO-2,EQ-EXPORT-3,Full magnetic reader aborts on the second surface,PR open,PR open,"[PR193](https://github.com/itpplasma/NEO-2/pull/193), `a0b7039`",,equilibrium/ERRATA.md
 KIN6D,EQ-P4A-1,Valid P3 functional estimate discarded at recovery iteration cap,fixed on main,fixed on main,[99fa2c8](https://github.com/itpplasma/kin6d/commit/99fa2c8),,equilibrium/ERRATA.md
 FortNum,EQ-OH-1,Brent root finder rejected interpolation steps and fell back to bisection,fixed on main,fixed on main,[fortnum 5f166bc](https://github.com/lazy-fortran/fortnum/commit/5f166bc); kin6d `82d4d1f` pins it,,equilibrium/ERRATA.md
@@ -15,6 +16,7 @@ KIN6D,EQ-D99,Profile cuts aliased by polynomial source quadrature,fixed on main,
 KIN6D,EQ-D110,Directional load error/gauge omitted,fixed on main,fixed on main,[60bef4c](https://github.com/itpplasma/kin6d/commit/60bef4c) ports the reviewed inverse repair,,equilibrium/ERRATA.md
 KIN6D,EQ-D116,Outside reference point accepted,fixed on main,fixed on main,[a262675](https://github.com/itpplasma/kin6d/commit/a262675); PR6 closed after integration,,equilibrium/ERRATA.md
 KIN6D,EQ-D15,Curved P2 magnetic-axis recovery has irregular refinement,fixed on main,fixed on main,[451fa5b](https://github.com/itpplasma/kin6d/commit/451fa5b); local quartic recovery and refinement tests,,equilibrium/ERRATA.md
+KIN6D,EQ-D15,Broad recovery displaces the native cubic magnetic axis,fixed on main,fixed on main,[05d962b](https://github.com/itpplasma/kin6d/commit/05d962b); independent represented-cubic oracle,,equilibrium/ERRATA.md
 FortFEM,EQ-D70,P2 Hessians omit product terms,fixed on main,fixed on main,[25975b3](https://github.com/lazy-fortran/fortfem/commit/25975b3),,equilibrium/ERRATA.md
 FortFEM,EQ-D75,Piola derivative invalid-map success status,fixed on main,fixed on main,[aa05f2c](https://github.com/lazy-fortran/fortfem/commit/aa05f2c),,equilibrium/ERRATA.md
 FortFEM,EQ-D90,Large-origin P2 geometry cancellation,fixed on main,fixed on main,[9d0994b](https://github.com/lazy-fortran/fortfem/commit/9d0994b),,equilibrium/ERRATA.md
@@ -25,6 +27,7 @@ Public CHEASE,EQ-D30,Band counts and addresses overflow int32,PR open,PR open,[P
 Public CHEASE,EQ-D46,Fourth smoothed-jet slot duplicated,PR open,PR open,[SPC !94](https://gitlab.epfl.ch/spc/chease/-/merge_requests/94),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D59,Singleton/zero-pivot factorization errors,PR open,PR open,"[PR18](https://github.com/itpplasma/chease/pull/18), split from performance PR5",,equilibrium/ERRATA.md
 Public CHEASE,EQ-D112,Final pivot tested against an unrelated matrix scale,PR open,PR open,"[PR20](https://github.com/itpplasma/chease/pull/20), `d9262bc`",,equilibrium/ERRATA.md
+Public CHEASE,EQ-RESTART-1,Restart remap leaves derivative DOFs stale with NSMOOTH=0,PR open,PR open,"[PR21](https://github.com/itpplasma/chease/pull/21), `08d055fa`",,equilibrium/ERRATA.md
 Public CHEASE,EQ-D72,Effective quadrature count/capacity mismatch,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D72,Radial endpoint uses singular axis operator,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
 Public CHEASE,EQ-D85,Unmatched boundary angle uses unset index,PR open,PR open,[PR10](https://github.com/itpplasma/chease/pull/10),,equilibrium/ERRATA.md
@@ -37,6 +40,7 @@ MARS CHEASE,EQ-D39,Cubic profile primitive factor/sign wrong,PR open,PR open,[PR
 MARS CHEASE,EQ-D46,Fourth smoothed-jet slot duplicated,PR open,PR open,[PR7](https://github.com/gafusion/MARS-Q/pull/7); fork PR31 closed,,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D59,Factorization edge errors/unset success status,PR open,PR open,"[PR45](https://github.com/krystophny/MARS-Q/pull/45), split from performance PR32",,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D112,Final pivot tested against an unrelated matrix scale,PR open,PR open,"[PR49](https://github.com/krystophny/MARS-Q/pull/49), `fcc2a02`",,equilibrium/ERRATA.md
+MARS CHEASE,EQ-RESTART-1,Restart remap leaves derivative DOFs stale with NSMOOTH=0,PR open,PR open,"[PR50](https://github.com/krystophny/MARS-Q/pull/50), `464965c`",,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D63,Axis F uses TMF as interpolation coordinate,PR open,PR open,[PR35](https://github.com/krystophny/MARS-Q/pull/35),,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D72,Quadrature count/capacity mismatch,PR open,PR open,[PR37](https://github.com/krystophny/MARS-Q/pull/37),,equilibrium/ERRATA.md
 MARS CHEASE,EQ-D72,Radial endpoint uses singular axis operator,PR open,PR open,[PR37](https://github.com/krystophny/MARS-Q/pull/37),,equilibrium/ERRATA.md

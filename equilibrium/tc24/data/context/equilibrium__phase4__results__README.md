@@ -1,7 +1,8 @@
 # Phase 4(a): E4 shaped forward equilibria
 
 Two E4 source laws, five codes, four resolutions per code: 40 completed
-producer runs and 24 KIN6D/CHEASE export-to-consumer paths. This is the explicit
+producer runs and 24 KIN6D/CHEASE export-to-consumer paths, followed by actual
+GPEC/DCON and native MARS readbacks. This is the explicit
 Miller case, distinct from TC24. VMEC++ remains above the sampled targets over
 the tested radial ladder. Finite-beta DESC reaches the physical targets and
 native stopping with a target-calibrated warm restart; the historical capped
@@ -120,8 +121,8 @@ Above-target differences have these cause classes:
 
 - **VMEC++: radial discretization.** At NS=257, psi/Bpol L2 differences are
   3.48e-6/2.02e-5 (zero beta) and 8.58e-6/3.95e-5 (finite beta); axis errors
-  are 3.67e-5 / 8.97e-5. All decrease under radial refinement. The known slower
-  axis behaviour is recorded in EQ-D20; no wrong-limit defect is established.
+  are 3.67e-5 / 8.97e-5. All decrease under radial refinement; the measured
+  axis self-differences meet the predicted first-order rate below.
 - **DESC: spectral discretization, then stopping limit.** Zero beta passes
   the combined gate at M=8. Finite beta M=8 gives Bpol=8.96e-6, psi=1.62e-6,
   axis=1.57e-6. M=10/12 reduce these below the field targets but stop at 200
@@ -141,6 +142,22 @@ Above-target differences have these cause classes:
 - **CHEASE and KIN6D: mesh discretization.** The measured rates and numerical
   reference estimates decrease past the targets. No further reconstruction
   or precision investigation is needed at this accuracy.
+
+The E4 native decks vary only NS: MPOL24, NTHETA96, ftol=1e-16 and all
+physical input arrays are held fixed. On NS33..257, axis self-difference orders
+are 1.125/1.128 (E4_E1) and 1.122/1.126 (E4_E2), meeting radial first order;
+Bpol self-maximum orders are 1.217/1.157 and 1.172/1.202. E4_E1's above-target
+reference-error maximum had last order 0.772, versus 1.226 for E4_E2.
+The held [NS513 control](vmecpp_target_controls.csv) reduces E4_E1's maximum
+from 1.148e-4 to 6.668e-5, below its 1e-4 target (error order 0.784).
+This closes that sampled maximum gap by reaching target, without claiming
+first-order convergence of its error envelope. The reference's last mesh
+maximum change is 2.41e-6, an estimate rather than a bound. Native stopping
+passes in 3598 iterations; producer/process times are 30.21/32.10 s, a single
+accuracy control rather than matched cost data. Bpol L2 is 8.832e-6; psi L2
+1.009e-6 and axis 1.531e-5 still miss their targets. Both all-quantity
+native target/cost cells remain unqualified; no held angular-rate study is
+available. Earlier finite rows and historical cost curves are unchanged.
 
 The Cerfon boundary limitation in [EQ-D20](../../ERRATA.md#eq-d20) is not
 transferred to this Miller parameterization. Its relative Fourier boundary
@@ -168,9 +185,45 @@ These measured paths meet the corresponding working targets. The finite-beta
 Boozer pooled errors level off below target with conversion settings held
 fixed (EQDSK 257², Boozer nlabel=256, ntheta_int=512, mpol=24). No outer-shell
 or finer-accuracy claim is made. The case CSVs also report force-balance RMS,
-which has no PLAN gate. VMEC++/DESC downstream converters are unused; native
-MARS Fourier/Hamada and standalone GPEC reconstruction remain outside this
-measured package, as in Phase 2.
+which has no PLAN gate. VMEC++/DESC downstream converters are unused.
+
+[Actual consumer rows](consumer_readback.csv) add GPEC/DCON `read_eq_efit` plus
+the Hamada chart and native MARS `OUTRMAR`/`OUTVMAR` Fourier and Hamada reader
+for E4. MARS CHEASE was replayed with the original EXPEQ and physics settings;
+only output controls changed to `NIDEAL=0`, `NFFTOPT=0`, `MSMAX=1`,
+`NPSI=4 NS`, `NCHI=max(128,4 NS)`, `NV=32`. The retained reader requires
+`NCHI>=120`; [same-physics checks](native_mars_controls.csv) compare both
+native stages on the 4000 fixed E4 points. At fine resolution, native MARS
+Bpol L2 is 5.34e-6 / 4.24e-6, Hamada Bmn relative error is 1.59e-6 /
+1.49e-6, and Hamada Jacobian maximum relative error is 6.96e-6 / 6.55e-6
+(E4_E1 / E4_E2).
+
+GPEC reconstructs `BR,BZ` from derivatives of its Hamada geometry. At its
+original `etol=1e-8`, raising the chart grid from 128 to 256 to 512 radial
+points raised fine KIN6D Bpol L2 on the same 4864 physical `R,Z` points:
+1.89e-5, 3.81e-5, 7.71e-5 for E4_E1 and 1.89e-5, 3.00e-5, 6.56e-5 for
+E4_E2. The native LSODE tolerance was too loose for derivative refinement.
+The existing reader's `etol=1e-10` option at 512×1024 chart points lowers
+those fixed-point errors to 3.57e-6 / 3.16e-6. These inputs complete below
+the unchanged 16384-step cap; the tighter tolerance is an executed reader
+configuration, not a producer or GPEC source change. The raw roots retain
+both tolerances, grids, input and binary hashes, and the fixed-point analyses.
+
+| Law | GPEC input | Bpol L2 | q maximum relative | Hamada Bmn relative | Hamada Jacobian maximum relative |
+|---|---|---:|---:|---:|---:|
+| E4_E1 | KIN6D | 3.84e-6 | 4.61e-9 | 1.07e-8 | 5.91e-9 |
+| E4_E1 | CHEASE public | 3.91e-6 | 8.43e-8 | 3.64e-8 | 6.96e-8 |
+| E4_E1 | CHEASE MARS | 3.12e-6 | 1.90e-7 | 4.21e-8 | 1.57e-7 |
+| E4_E2 | KIN6D | 4.08e-6 | 1.71e-8 | 9.42e-9 | 1.07e-8 |
+| E4_E2 | CHEASE public | 2.74e-6 | 1.60e-7 | 3.22e-8 | 1.32e-7 |
+| E4_E2 | CHEASE MARS | 3.32e-6 | 3.55e-7 | 4.41e-8 | 2.98e-7 |
+
+All six finest GPEC and both fine native MARS paths meet the sampled psi,
+Bpol/Btor L2 and maximum, q and edge-flux working targets.
+GPEC's positive internal flux-span/F convention is mapped to the declared
+COCOS-3 signs; no sign is fitted. The fixed-point checks use each path's
+128-point baseline physical grid, excluding only its two radial endpoints
+for chart inversion. Their Newton residual is below 6e-15 m.
 
 The two reference JSONs identify the KIN6D native directories. Their
 `export_readback/canonical.g` (COCOS 3) and

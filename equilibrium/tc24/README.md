@@ -3,9 +3,9 @@
 Consolidated Phase 6 report for Chris and the TC24 collaborators: exact,
 circular, shaped, prescribed-q, received TC24 and cylinder studies, with
 native and actual-consumer accuracy and the current defect dispositions.
-The report source now includes the completed 10 October accuracy, native-stopping,
+The report source now includes the completed 11 October accuracy, native-stopping,
 consumer and current-cost controls. Scientific slice closure remains open.
-The refreshed native build has 29 pages.
+The native build regenerates its figures and numerical source-row indexes.
 
 [artifacts.json](artifacts.json) owns the most recently published PDF and figure URLs,
 hashes, source revision and reproduction commands. Slopbox links expire after
@@ -14,12 +14,12 @@ and scripts are the durable reproduction path.
 
 ## Data and interpretation
 
-- Snapshot: iter_tc24 `d62873837da7d14681e7c8938598a69690417a77`.
+- Snapshot: iter_tc24 `d8745dd06`.
   [sources.json](sources.json) pins every imported source, Git blob, SHA256 and
   CSV row count. No solver was rerun for this report.
-- KIN6D current main is `f6a33c9`, including curved P2/P3, cubic profiles,
+- KIN6D current main is `648e544`, including curved P2/P3, cubic profiles,
   normalized current, prescribed q, performance and FortNum repairs.
-  All 106 CPU and 106 Debug tests pass.
+  All 96 CPU and 96 Debug native preset checks pass.
   Every executed study retains its own source/binary pin and timing scope.
 - The modx03 normalized-current study is separate from exact supplied-deck
   replay and the historical absolute-psi JINTRAC performance control. Neither
@@ -37,12 +37,18 @@ and scripts are the durable reproduction path.
   [limitations.csv](data/limitations.csv) separates correct-limit numerical
   effects, model restrictions and unresolved candidates. Remote PR state was
   checked during consolidation; publication does not qualify a solver state.
-- Historical circular cost curves retain their original pins. The current
-  matched cost table repeats eight selected states for KIN6D and both CHEASE
-  variants three times in one execution window, with the same inputs, DOFs
-  and references. VMEC++ and DESC are outside that window. Inverse diagnostic
-  stability and actual consumers are measured; coupled nonlinear reliability,
-  TC24 targets and geometric consistency, and MARS full-inner coupled convergence stay open.
+- Historical circular cost curves retain their original pins. The matched
+  five-code table repeats eight selected states three times on CPU7 with one
+  numerical thread: 120 native passes and 114 sampled physical passes. The
+  six VMEC++ A3.1 misses supply no qualified cost. KIN6D has the lowest
+  observed qualified range in every case; this compares selected states under
+  background load. Exact-case fresh cold DESC replays appear separately.
+- Corrected public CHEASE E2 NS192 passes its physical and declared transfer
+  targets. Strict inverse Solovev pressure transfer also passes; MARS coupled
+  convergence remains open. Measured consumer projection defects are repaired and their
+  geometric approximation limits are qualified separately from equilibrium
+  accuracy. Seeded TC24 fields approach a finite NS384 reference whose own
+  uncertainty remains material; nonlinear reliability remains open.
 
 ## Build and publish
 

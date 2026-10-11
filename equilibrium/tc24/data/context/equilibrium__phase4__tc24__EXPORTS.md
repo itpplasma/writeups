@@ -244,19 +244,58 @@ with 5.56 GiB peak RSS; actual reader 86.48 s. Timing excludes offline oracles.
 Raw roots are `tc24cons_export_public128_native1025_tol12_m1024t16384_20261010_01`
 and `tc24cons_neo2_public128_native1025_tol12_m1024t16384a4096_20261010_01`.
 
-A scratch-only pre-Fourier diagnostic captures 309 existing map points on six
-surfaces s=.97937–.98059 around the fixed theta_B=3.4452 peak (160 kB).
-At identical captured points, the existing map determinant/current Jacobian
-residual is 1.4903e-4, versus 2.7447e-3 after serialized Fourier reconstruction
-with modes≤999. Serialized geometry differs from the mapped determinant by
-2.6744e-3; the current-based Jacobians differ only 6.5249e-7. The explicit
-left-handed angle chain rule agrees with the converter's Fourier integration
-weight to 4.9860e-9. The Boozer output is byte-identical to the uninstrumented
-control. This localizes the dominant residual to projection/serialized
-derivative representation, with a smaller mapping residual still present;
-no expected truncation rate or generic defect is established. Instrumented
-converter 326.86 s/5.56 GiB excludes offline comparison. Raw root:
-`tc24cons_export_public128_prefourier_peak_20261010_01`.
+The identical-point pre-Fourier control localized the dominant discrepancy
+between the mapped geometry and its projected coefficients. A six-surface
+projection control then found the concrete defect: Fourier phases use the
+interpolated angle theta+G/q, but quadrature used an independently interpolated
+physical Jacobian. Their global mismatch reaches 1.91e-6 and contaminates
+geometry derivatives. Using the derivative of the executed angle reduces the
+same-point projected/map determinant discrepancy to 8.34e-6; the existing
+map/current residual remains 1.49e-4. Physical covariant-current quadrature
+retains its original weight. An independent noncircular analytic map exercises
+the actual converter application and fails before this correction.
+
+The corrected actual NEO-2 reader, retaining modes 0..999 and angular 4096,
+has Bpol L2 6.030e-6 and maximum 1.0577e-4, q maximum 2.855e-6,
+psi L2 2.197e-8 and maximum 4.030e-7. Interior geometric-J mismatch is
+6.822e-6; the outer s=.98 maximum is 4.280e-4. Thus the projection defect
+is repaired, while the remaining outer mapping approximation and the narrowly
+failed Bpol maximum still require qualification. These metrics use the signed
+modx03 NOUT field; the same oracle reproduces the frozen baseline to roundoff.
+Converter 393.32 s / 5.52 GiB and reader 112.87 s / 2.73 GiB are separate
+process timings and exclude offline oracles. Raw roots:
+`tc24cons_export_public128_phaseweight_fixed_20261010_01` and
+`tc24cons_neo2_public128_phaseweight_fixed_20261010_01`.
+
+The single held radial-map refinement nlabel2048→2800 reduces the outer
+geometric-J residual 4.280e-4→1.7285e-4, factor 2.476 versus the smooth
+cubic-interpolant derivative prediction 2.556 (observed order 2.90).
+Interior maximum 9.124e-6 remains small. This qualifies the remaining outer
+mapping discrepancy as a numerical approximation; no further map control is
+needed. q maximum is 2.106e-6 and psi maximum 1.326e-7. Bpol L2 is
+5.979e-6, but maximum remains 1.0577e-4 at s=.05/theta=3.29794.
+At the same physical samples, the retained native1025 EQDSK input already
+has Bpol maximum 1.2516e-4 versus signed native NOUT. This input representation
+limit remains just above the physical target and is separate from the repaired
+projection defect and convergent outer map. Converter 404.07 s / 7.49 GiB;
+actual reader 137.73 s. Raw tags end `phaseweight_fixed_n2800_20261010_01`.
+
+The final held native-input refinement 1025→2049 qualifies the physical reader
+cell. Offline input sampling on the same retained physical points reduces
+Bpol maximum 1.2516e-4→2.8914e-5. Native C1 bicubic element interfaces may
+limit pointwise interpolation order; below-target accuracy is the criterion.
+The corrected actual NEO-2 reader gives Bpol L2 1.3801e-6 / maximum 2.2140e-5,
+q maximum 1.8669e-6, psi L2 6.2311e-9 / maximum 1.1968e-7, and signed
+Phi error 6.3134e-8. All physical targets pass. The separately qualified
+radial-map approximation remains outer geometric-J 1.7101e-4 / interior 9.7942e-6;
+its measured order 2.90 establishes numerical convergence. No further TC24
+chart/input refinement is needed. The nominal 2049 `_01` converter retained an
+absolute 1025 input path and is configuration-invalid for grid comparison;
+its outputs remain archived. The corrected `_02` uses the local 2049 input.
+Converter 384.16 s / peak 8.39 GiB (admitted 10 GiB ceiling); reader 107.60 s / 2.73 GiB,
+excluding offline sampling/oracles. Valid raw tags:
+`tc24cons_export_public128_native2049_phaseweight_fixed_n2800_20261010_02`
+and `tc24cons_neo2_public128_native2049_phaseweight_fixed_n2800_20261010_02`.
 
 ## Reproduction and retained history
 

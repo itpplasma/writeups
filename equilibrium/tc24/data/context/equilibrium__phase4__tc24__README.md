@@ -122,24 +122,88 @@ between both curves on 131072-point closed polylines, give maximum nearest-curve
 distances of 161.50/120.93 mm at DESC M=10/12 and 19.05 mm at VMEC++ max m=32
 (mpol=33). These are geometric distances; tangential parameter differences do
 not determine them. Thus the field comparisons include substantial boundary
-error. A native L24/M12 restart from retained DESC L20/M10 also hits the 300 s
-cap before saving a state; it supplies no refined accuracy point. DESC's target
-qualification remains open, and no native solver defect is established.
+error. Applying the M12 boundary constraints folds the copied M10 seed before
+force optimization; the earlier nesting check examines the unprojected seed.
+Native GoodCoordinates and VMEC import provide nested constrained states.
+The VMEC-import M12 state reaches native stopping after a 37-iteration restart
+(99.96 process seconds), with all 1200 physical points valid. Bpol L2 is 2.908%,
+psi L2 1.164% and current difference 7.523%; stopping does not qualify accuracy.
 
-The [fixed-angular VMEC controls](reference/vmecpp_controls.csv) retain the
-same NS128 reference p/iota/Phi transfer, tcon0=0 and ftol=1e-12, while fixing
-mpol=33 and refining NS=33/65/129. [Successive differences](reference/vmecpp_self_convergence.csv)
-give Bpol radial order 1.30 and psi order 1.74, consistent with the predicted
-at-least-first-order radial convergence. Absolute Bpol differences remain
-2.71e-3/2.06e-3/1.96e-3. The [boundary truncation](reference/vmecpp_boundary_truncation.csv)
-is substantial: mpol=17/25/33/49 miss the pinned 128-mode curve by
-76.5/36.5/19.2/6.00 mm maximum (11.67/5.15/2.62/0.834 mm RMS). These
-are different physical domains, so the absolute difference and current gap
-cannot establish a native solver defect. At fixed NS65, mpol49 fails native
-stopping after 157.45 s: fsql=1.31e-10 exceeds ftol=1e-12 despite small R/Z
-residuals. Its failed input and log are retained. No angular target or wrong-limit
-claim follows. New controls use CPU5, one thread; their single-run times do not
-replace the earlier cost ladder or establish a matched hardware ranking.
+Native first-order perturbation supplies a nested constrained L32/M16 seed
+while preserving pressure, iota, Phi and the original boundary parameterization.
+Its maximum boundary distance is 76.14 mm. Two 220-iteration force stages stay
+nested but fail the unchanged 1e-12 stopping criteria. After 440 iterations,
+Bpol L2 is 1.419%, psi L2 0.410% and current difference 4.288%. The second
+stage still changes Bpol L2 by 0.329% on identical physical points, above the
+PLAN target; no physical convergence or numerical-limitation claim follows.
+Perturbation, initial force and restart process times are 96.64, 415.74 and
+457.29 s, separately retained warm costs. [Native controls](reference/desc_native_controls.csv)
+preserve every saved state. Boundary representation and M16 convergence remain
+open; no force-operator defect is established.
+
+The [fixed-angular VMEC controls](reference/vmecpp_controls.csv) preserve the
+NS128 reference p/iota/Phi transfer and ftol=1e-12. At mpol33, NS=33/65/129
+[successive differences](reference/vmecpp_self_convergence.csv) give Bpol/psi
+radial orders 1.30/1.74, consistent with the predicted at-least-first order.
+Absolute Bpol differences remain 2.71e-3/2.06e-3/1.96e-3. The
+[boundary truncation](reference/vmecpp_boundary_truncation.csv) is substantial:
+mpol17/25/33/49 miss the pinned curve by 76.5/36.5/19.2/6.00 mm maximum
+(11.67/5.15/2.62/0.834 mm RMS). Comparisons on different physical domains
+cannot establish a native solver defect.
+
+At NS65, extending the mpol49 iteration budget from 10000 to 40000 does not
+resolve native lambda stopping. The following controls retain the same
+boundary coefficients, zero-padding mpol49→65 where specified; all 1200
+physical sample points are valid. Each row still fails ftol=1e-12.
+
+| Control, 40000-iteration budget | fsqr | fsql | Bpol L2 difference from public NS128 |
+|---|---:|---:|---:|
+| mpol49, DELT=0.9, tcon0=0 | 1.182e-19 | 1.118e-10 | 1.009e-3 |
+| mpol65, DELT=0.9, tcon0=0 | 1.910e-9 | 1.334e-10 | 9.992e-4 |
+| mpol65, DELT=0.1, tcon0=0, restart | 2.028e-9 | 1.324e-10 | 9.993e-4 |
+| mpol65, DELT=0.1, tcon0=1, restart | 8.836e-15 | 1.343e-7 | 1.611e-3 |
+| mpol65, DELT=0.1, tcon0=0, native mpol33 continuation | 9.652e-12 | 4.042e-10 | 9.875e-4 |
+
+The mpol49→65 change is consequential (Bpol L2 2.670e-4), whereas DELT=0.1
+changes it by 1.708e-6. Neither failed state establishes angular convergence.
+The default tcon0=1 reduces the current difference 1.656e-3→8.476e-4 and
+independent physical curl(B)/mu0×B−gradp relative to gradp 0.293397→0.259163,
+but worsens Bpol and native lambda stopping. Halving the Cartesian force
+stencil from 1 mm to 0.5 mm changes its vector by 5.52e-4/7.48e-5 of the fine
+RMS. The raw root retains `physical_force_comparison.json`. Older
+[tcon controls](../../data/tc24_force_multi_code_20261007/README.md) use another
+boundary, profile transfer and binary and cannot supply a correction here.
+
+Direct native force evaluation of saved states reproduces fsql without taking
+iteration steps. For mpol49/tcon0, 99.50% of squared lambda force lies in the
+highest eight modes, mainly m43/45 at s=1/64 and m44/46 at s=2/64; the edge
+contribution is below 8e-15. The preconditioner multiplies inverse lambda
+stiffness by sqrt(s)^min((m/16)^2,8), only 3.001e-7 at the dominant m43
+coefficient. Centered force derivatives at two step sizes agree and give a
+preconditioned diagonal response of magnitude 7.968e-8 (tcon1: 1.908e-8).
+A diagnostic one-coefficient Newton displacement reduces fsql, establishing
+local restoring stiffness despite the suppressed native step. This identifies
+slow near-axis high-mode stopping; it does not establish whole-system
+convergence or justify removing the stability damping.
+The exposed `lambda_preconditioner_scale` changes only its overall scale;
+no native input removes the high-mode exponent. First-interior coefficients
+remain active unknowns. Supported `interpolate_solution` continuation from
+converged mpol33 to the held mpol65 target also misses stopping after 40000
+iterations (612.51 native seconds). Direct terminal evaluation places 90.50%
+of squared lambda force at s<=0.25 and 95.34% in m>=32. Its Bpol change from
+the prior failed mpol65 state is 1.357e-4; the supported initialization does
+not qualify convergence within this budget.
+
+Executed half-grid pressure/iota match the input splines to 1.46e-11 Pa/0.
+Full-grid output instead uses native averaging/extrapolation. Native fsql is
+the unpreconditioned Fourier-force square sum normalized by the covariant-field
+square sum and lamscale², distinct from the physical force diagnostic. All 417
+installed wheel RECORD entries verify, and packaged sources match a4150a4.
+The linked raw roots and sibling scratch retain `native_force_probe.npz`,
+`tc24_native_force_probe.json` and `tc24_lambda_local.json`. Boundary accuracy
+and native stopping remain separate open limitations; no source defect or
+wrong-limit claim is established. These single-core exploratory controls do
+not replace the cost ladder or establish a matched hardware ranking.
 
 For resolved smooth fields, the predicted cubic FE rates are psi O(h⁴),
 Bpol O(h³). Adjacent CHEASE differences give apparent Bpol rates 2.81 then
@@ -216,6 +280,33 @@ breakdown is asserted. These concurrent-lane times remain exploratory. The
 recovery again stops at 6000 iterations with status 4: its frozen-source
 estimate is not minimized and does not establish nonlinear reliability.
 
+The targeted outer-layer seeded mesh uses clean KIN6D `8c9c01b`, including
+native P3 stationary-point axis extraction and generic optional interior points.
+It has 235666 free DOF / 52498 triangles; cells across s_pol=0.90–0.98 are
+about 2.3 times finer than n384, at 1.73 times its nodes. With unchanged q5
+physics/stopping and native 2049/320 readback, its finite NS320 gaps are psi
+L2 2.046e-7, Btor L2/max 2.423e-8/4.636e-7, q max 8.029e-6 on held s_tor,
+axis 1.593e-8, volume 5.302e-9 and Phi 3.665e-8; these meet their targets.
+Bpol L2/max 3.279e-5/2.201e-4 remain above target against that finite reference.
+The original n384 axis discrepancy came from quartic patch recovery rather
+than its native cubic stationary point; historical producer summaries retain
+that readback. No rate is inferred from the new nonuniform mesh. Total producer
+cost is 863.85 s (mesh/solve 700.98 s, estimator 139.82 s), an exploratory
+concurrent timing. Four Newton steps reach residual 8.541e-10; estimator status
+4 and its 6000-iteration recovery limitation remain explicit.
+
+A second mesh retains those seeds and adds 19386 native-psi-selected triangle
+centroids in s_pol=0.30–0.40 and 0.92–0.988. Qualified main `d568170` reaches
+412903 free DOF / 91884 triangles with unchanged physics, quadrature and
+stopping. Against finite public NS384, Bpol L2 falls to 1.211e-5, still 21%
+above target; Bpol max 6.169e-5 and q max 6.936e-6 now pass. Psi L2 7.706e-8,
+Btor L2/max 2.400e-8/4.622e-7, axis 5.832e-8, volume 5.302e-9 and Phi 3.706e-8
+also pass. The same frozen points/state remain available for NS512; these are
+cross-code gaps, not exact-error bounds or a nonuniform-mesh Richardson claim.
+Total exploratory producer cost is 2504.69 s on CPU1 (mesh/solve 2262.75 s,
+estimator 210.31 s); four Newton steps reach residual 6.534e-10. Estimator
+status 4 and the 6000-iteration recovery cap remain unqualified for reliability.
+
 [Finite-reference controls](reference/reference_uncertainty.csv) compare
 the retained public CHEASE NS128/NT256 and NS256/NT512 states on the same
 original samples, with norms normalized by NS256. Their differences are
@@ -237,8 +328,19 @@ on the same 1200 points are psi L2 4.944e-7, Bpol L2/max 5.336e-5/2.383e-4
 and q max 1.129e-5. The largest Bpol difference lies in the interior at
 s_pol=0.295. Unequal-grid apparent rates are 3.13 for psi and 2.62 for Bpol,
 but successive difference vectors are poorly aligned; these estimates do not
-establish a Richardson error bound. Bpol and q reference uncertainty still
-exceed their targets.
+establish a Richardson error bound.
+
+The collected [NS384 reference](reference/reference_uncertainty_n384.csv)
+passes native stopping on aCluster: 4362 s, 33.89 GiB peak solver RSS.
+Its cluster time is not part of the workstation ranking. NS320→384 changes
+psi L2 by 1.786e-7, Bpol L2/max by 2.149e-5/1.066e-4, and q by 2.349e-6.
+The three-grid norm rates are 3.97 for psi and 3.45 for Bpol, compatible with
+the predicted orders. Successive Bpol difference vectors have cosine -0.025;
+scalar Richardson subtraction would therefore be unjustified. The seeded
+KIN6D state versus NS384 has Bpol L2/max 2.598e-5/2.280e-4 and q 1.014e-5;
+all other sampled targets pass. These replace its passing-q statement only
+for the newer finite reference. Poloidal field and finite-reference uncertainty
+remain open. A held-map NS512/NT1024 reference is registered separately.
 
 Saved-state readback controls hold the n256 mesh, field and profile law fixed.
 The original 129-radial/160-angular readback is reproduced byte for byte;
