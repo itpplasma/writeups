@@ -1,10 +1,10 @@
 {
   "title": "TC24 Phase 6 consolidated report",
-  "source_commit": "18380f78176a489579b6dc8e43445a374b9441f6",
+  "source_commit": "622bc4c84cee299b5aa83e625903966698f7b9ce",
   "source_base": "fabe9256db7d1fa965ad7055faaa22d7f35c9e56",
   "source_branch": "equilibrium/report-cost-refresh-20261011",
-  "input_manifest_sha256": "2b9245f0ff78ec499d569878f5b4030438f191e92d7a8678083bfb32bf3ce1a6",
-  "data_pin": "d8745dd06bea2adef0c08a31e163c4e0921909b3",
+  "input_manifest_sha256": "191d6409f8e240cafa557527beaf272be9efe142fbd36237e38075ab991898eb",
+  "data_pin": "5f267d12c9994a77c51fe80bdd376a6bd24e35e6",
   "commands": [
     "TMPDIR=<disk-directory> bash equilibrium/tc24/build.sh"
   ],
@@ -16,9 +16,9 @@
   },
   "source_sha256": {
     "equilibrium/tc24/.gitignore": "c7cd0fc55d4b88bc4ed87b1cdc33670d9046174ab762188a0f2ce10290bb56e0",
-    "equilibrium/tc24/README.md": "d691eb181b1f97e2cda6c997d6fbab1755f656ba28056b2a33492fbea0eb8e54",
+    "equilibrium/tc24/README.md": "155a623affb6c9355cf5b8fb2718991d2100b352c69e0712679ee4d1402f5a3f",
     "equilibrium/tc24/build.sh": "3c3b47a31f089d2f4ac84c099814748f796e8c8971a6f561367582bbd414f019",
-    "equilibrium/tc24/data/context/PLAN.md": "bbeaddac55c6478b0cd1a9af38ff88f8483442ed9e0ee771b2fe388a45559462",
+    "equilibrium/tc24/data/context/PLAN.md": "9bc9205ff609dc9b201fed3a6f0cf30fa333da120a0974fd90c06b49ef974cf0",
     "equilibrium/tc24/data/context/equilibrium__CASE_CONTRACT.md": "82ec6ca4ac3bb1a0fc56ee19dabbeabcba400e5f1477c66aeefe7292a2754bd9",
     "equilibrium/tc24/data/context/equilibrium__ERRATA.md": "7ad953c0b2a4a8ed1ef44cbfb69967cdb0307619259c9b017ac74670ed27bd3e",
     "equilibrium/tc24/data/context/equilibrium__phase1__README.md": "b01d7d3052feedee822fdd13b0ed03a925a75d847f1d8df37edb3b4b2a4abd06",
@@ -30,7 +30,7 @@
     "equilibrium/tc24/data/context/equilibrium__phase4__results__README.md": "ba2842deb3d665c65780c223c0eccf4e911ad5b2132d8b2c7e68d08af659d1ca",
     "equilibrium/tc24/data/context/equilibrium__phase4__tc24__EQUILIBRIUM_PROVENANCE.md": "b50a0c637c358074386dad941758264ec5aec8049060ab87aab86bdaa0b20b8c",
     "equilibrium/tc24/data/context/equilibrium__phase4__tc24__EXPORTS.md": "693403b6002ea7032e7d60c9ebbb88d2aee330b05c155a618534055feae349b3",
-    "equilibrium/tc24/data/context/equilibrium__phase4__tc24__README.md": "b418d835195fae07cb390fdee9634a9dd61182576adf1b13298006145dc75215",
+    "equilibrium/tc24/data/context/equilibrium__phase4__tc24__README.md": "d0547dc25a69569021249b1225c8737ca7a077c2d0f1bdabba8b12c24e0bafe2",
     "equilibrium/tc24/data/context/equilibrium__phase4__tc24__kin6d_performance__README.md": "4e798e5b44cfd0c90d31f0b9f88652dac738bc9e3f281ea55cdfc8c4b7411c89",
     "equilibrium/tc24/data/context/equilibrium__phase5__results__README.md": "12569b066460bcfa6ce102c7dc591f19a0761a48dd53e840d7de757f4bc05342",
     "equilibrium/tc24/data/context/kin6d-gs-inverse.md": "1327623f561508127d18a0d1f27dc5515ebae217e8346c3fd6f7c4aaba1a35d9",
@@ -39,7 +39,7 @@
     "equilibrium/tc24/data/defects.csv": "5af6d88dd0e1a5e02334c16884043bb096fddca1f7cdaa24ec50412026972617",
     "equilibrium/tc24/data/figure_points.csv": "e743561e9bad35ba4a69d53b0b67820d4ee1be554396dade14d92716b3d24795",
     "equilibrium/tc24/data/kin6d/p2-p3.csv": "6ad4d8965c50a5b5886884691e11e1942c3707c943304f58555702b255f1c3ba",
-    "equilibrium/tc24/data/limitations.csv": "b2f72a63fd657b088b5124ce0207c28eeefd7dfde0ca9136e4da324242dc4269",
+    "equilibrium/tc24/data/limitations.csv": "a1af9d88297288e8e8c9d7ead324b89a15b812afe6914831050c2b50db30ba38",
     "equilibrium/tc24/data/metrics.csv": "ae2da0b3d0ca2fa1d62b03d3fc9f58a6c14374d621d6408430a06b1c75c15d5a",
     "equilibrium/tc24/data/parameters.csv": "7380e32fa9a279e9cc4e656f2fb65e79b325ddf2fc9f5e212113d76779291669",
     "equilibrium/tc24/data/phase1/results/desc_cold_cost.csv": "86d1278cd77bf8b23b8b3abcc1588dc40500bab740f9fdd980efb8d7379ad678",
@@ -145,25 +145,26 @@
     "equilibrium/tc24/data/phase5/results/resolution.csv": "32fa1411974f4036968d3706b1123e944d5680e98f69d44dc9eec62a26b1d6d3",
     "equilibrium/tc24/data/phase5/results/runs.csv": "5392474f770d2d3a0d2513208da89fb14734cdbc1a3513d1d740969e51ffce5d",
     "equilibrium/tc24/data/phase5/results/signs.csv": "6368993a27f1f292c414c3d1ba79b837f67fea758a2894631dd5555b2ce1f0a5",
-    "equilibrium/tc24/data/table_cells.csv": "0b09591a6942534f32dab39dbb80c7069e5fd881016178e4cde87ece50c5b51a",
+    "equilibrium/tc24/data/table_cells.csv": "9a279f7562cfc8a18d59d0ba1d2534613f750c1a517f1efb41e9920c5d0d1ab3",
     "equilibrium/tc24/figures.py": "862d72a019686a4c893d5fc9aeec0607ea34340a5b4c3da6df121458623c5f48",
-    "equilibrium/tc24/ledger.py": "0caa7a479428b120cc652944a8c0e856ad27603c5188ad8ff2e6f7e820b761b0",
+    "equilibrium/tc24/ledger.py": "aa1c5c1704f115f6f0bfef6aec998c9cccbed25c43f14953ac6a1b1ab6d1f602",
     "equilibrium/tc24/publish.py": "789069374aba550749cdc467c44b4832fb1c352b94a71fd3e5257398ea86a92e",
-    "equilibrium/tc24/report.tex": "53c3073604a267e6e09c803119a166ee27eb3a7199cb1fb103306d0096259cd3",
-    "equilibrium/tc24/snapshot.py": "06fe2e5f8901efbf660dda6cbb9172e1ffa39b0380cd1531d2165883078258a4",
-    "equilibrium/tc24/sources.json": "2b9245f0ff78ec499d569878f5b4030438f191e92d7a8678083bfb32bf3ce1a6",
-    "equilibrium/tc24/tables.py": "eceb4aa96cd84077645dd75a6b24b7af0c97cffb4c258f5391f7e5dfc551ffe2"
+    "equilibrium/tc24/report.tex": "47f619e9cc62ffcbf9d722b3a9df23dc46048ccaacabaee3b4361fe2f9e0516f",
+    "equilibrium/tc24/snapshot.py": "e869114355f5b908c8c0db3d14a8a046708ebe0256142587da6d84f1ce53facc",
+    "equilibrium/tc24/sources.json": "191d6409f8e240cafa557527beaf272be9efe142fbd36237e38075ab991898eb",
+    "equilibrium/tc24/tables.py": "74b542c0ac82a4da787b0fa1491ac7e5e60678d636f5060a94f1a4b1c605866a",
+    "equilibrium/tc24/data/phase4/tc24/reference/reference_uncertainty_n512.csv": "c1c7214e28ea9b4cfe7454a8083e2e9981d0ddf5ddd491bd9aefa346d2d37070"
   },
   "artifacts": [
     {
       "id": "report",
       "file": "report.pdf",
       "description": "TC24 axisymmetric equilibrium benchmark, consolidated report",
-      "url": "https://box.sloppy.at/91b3e.pdf",
-      "bytes": 861271,
-      "sha256": "867c15eb4800ebae5417205e9550a721940dab5eb228ea85a9b7a729fd8025f0",
-      "uploaded_at": "2026-10-11T01:11:02.158557+00:00",
-      "expires_at": "2026-10-14T01:11:02.158557+00:00"
+      "url": "https://box.sloppy.at/f9313.pdf",
+      "bytes": 861679,
+      "sha256": "f6d687772df581c1811104ac30ed886d49e6631093b7e44d074e6086528c6d41",
+      "uploaded_at": "2026-10-11T05:18:17.280929+00:00",
+      "expires_at": "2026-10-14T05:18:17.280929+00:00"
     },
     {
       "id": "exact_a3",
