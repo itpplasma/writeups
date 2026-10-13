@@ -1,0 +1,9 @@
+equilibrium,n3,n6,source
+hard 0.990,-0.047,,iter_tc24 eb6848388 PLAN.md edge-cut decision
+hard 0.995,-0.105,,iter_tc24 eb6848388 PLAN.md edge-cut decision
+hard 0.997,-0.097,,iter_tc24 eb6848388 PLAN.md edge-cut decision
+hard 0.999,-0.009,,iter_tc24 eb6848388 PLAN.md edge-cut decision
+full LCFS,0.059,0.006,iter_tc24 eb6848388 PLAN.md edge-cut decision
+FB-taper 0.997 w0.0228 (FreeGS),0.206,0.103,iter_tc24 eb6848388 PLAN.md edge-cut decision
+FB-taper 0.997 w0.0228 (KIN6D),0.205,0.102,iter_tc24 eb6848388 PLAN.md edge-cut decision
+FB-taper 0.995 w0.0276 (KIN6D),0.253,0.124,iter_tc24 eb6848388 PLAN.md edge-cut decision

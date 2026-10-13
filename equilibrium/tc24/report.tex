@@ -18,6 +18,7 @@
 \newcommand{\pageheading}[1]{\clearpage\section{#1}}
 \newcommand{\Bpol}{B_{\mathrm{pol}}}
 \newcommand{\Btor}{B_{\mathrm{tor}}}
+\newcommand{\pending}[1]{\textcolor{red!70!black}{\textbf{[pending: #1]}}}
 \input{build/numbers.tex}
 \begin{document}
 \begin{center}
@@ -25,7 +26,7 @@
 \vspace{5pt}
 {\large Consolidated equilibrium-slice report --- draft\par}
 \vspace{4pt}
-Chris\&AI \quad 11 October 2026
+Chris\&AI \quad 13 October 2026 (revision draft)
 \end{center}
 
 \begin{abstract}
@@ -40,9 +41,14 @@ the circular and shaped references. Export studies now exercise actual readers
 in the magnetic-coordinate library libneo, the stability codes GPEC and MARS,
 and the drift-kinetic codes NEO-RT and NEO-2. Exact-case paths support the working targets inside the sampled plasma.
 Prescribed-safety-factor and collaborator-reference TC24 studies are now included.
-The slice remains open because MARS full-inner coupled convergence, TC24 reference
-uncertainty and native spectral qualification remain unresolved. Several solver
-settings still miss accuracy or stopping targets. The report stops before perturbations and transport.
+Against the public CHEASE NS640 reference, KIN6D reaches the TC24 working targets
+($B_{\rm pol}$ $L^2$ $2.0\times10^{-6}$, reference budget $6.1\times10^{-6}$) and passes
+GPEC and NEO-2 readback. MARS CHEASE, VMEC++ and DESC are documented limitations on
+this case; GVEC is boundary-mode limited, best $3.0\times10^{-5}$ (\texttt{gvec\_tc24\_fixed\_ladder\_20261012\_01}). The revision adds the edge-cut and
+ideal-stability findings, a linear-response comparison of GPEC and MARS-F at identical
+edge cuts and coils, the free-boundary reference states and the first agreement between
+a nonlinear 3D equilibrium and linear response in the small-amplitude limit.
+MARS full-inner coupled convergence remains open. The report stops before transport.
 \end{abstract}
 
 \section{Results and scope}
@@ -74,7 +80,7 @@ Phase & Delivered evidence & Remaining qualification \\
 2: circular & Both source laws across the aspect-ratio ladder; numerical references and large-aspect-ratio check & Two VMEC++ target gaps \\
 3: inverse & Three contracts, KIN6D and reference-code fields/current/cost & MARS full-inner convergence; nonlinear reliability \\
 4a: E4 & Both Miller-boundary laws, all solvers, export and reader comparisons & VMEC++ target-level cost unqualified \\
-4b: TC24 & modx03 provenance, exact replay, five-code study and exports & Finite-reference uncertainty; native spectral qualification \\
+4b: TC24 & modx03 provenance, exact replay, NS640 reference, KIN6D K6 and inverse I3, consumer readback & VMEC++/DESC/MARS documented limitations; GVEC boundary-mode limited \\
 5: cylinder & Five-code finite-$A$ curves, signed controls and KIM ingress & Delivered at sampled targets \\
 \bottomrule
 \end{tabular}
@@ -84,8 +90,10 @@ The reader is Chris and, after revision, the TC24 collaborators. All empirical
 figures and numerical tables are generated from committed CSVs. The primary
 data pin is \tcfile{PLAN.md}{\texttt{iter\_tc24 5f267d12c}}, with the five-row
 inverse passing-state table pinned separately to \texttt{2018e9fa1}.
-Later K5 consumer corrections, solver diagnostics and pending NS640/K6
-results await the next report revision. The retained
+The sections from ``TC24 benchmark cells against NS640'' onward read finished job
+roots registered in iter\_tc24 at \texttt{eb6848388}
+(\texttt{extract\_20261013.py}, \texttt{data/tc24\_20261013/sources.json});
+values that await a running job are marked \pending{job}. The retained
 README files explain how the runs were made; where they lag the numerical
 tables, this report follows the CSV rows and their settings. KIN6D's earlier
 owner study is labeled separately. No new solver run was made for this report.
@@ -878,6 +886,9 @@ for historical use are owned by the
 Identity and historical use do not establish accuracy.
 
 \pageheading{TC24 convergence and consumer accuracy}
+This section and the next two retain the historical NS128--NS512 comparison.
+The cell status is superseded by Section~\ref{sec:ns640}.
+
 The common problem uses the smooth interior boundary at received
 $s_{\rm pol}=0.995$ and excludes the X-point. The modx03 COCOS-2 to COCOS-3 map
 has negative $F$, current, toroidal flux and $q$, with an axis minimum of $\psi$.
@@ -1089,6 +1100,8 @@ consumer accuracy remain separate qualifications. Sources: Phase 1, 3 and 5
 \texttt{desc\_target\_controls.csv} and Phase 4 \texttt{desc\_stopping.csv}.}
 \end{center}
 
+\input{revision_20261013.tex}
+
 \pageheading{Defect ledger}
 The table preserves every row of the reconciled live ERRATA ledger. ``Fixed''
 means the recorded own-code integration, ``PR open'' a published scoped fix,
@@ -1156,8 +1169,15 @@ is the durable reproduction path.
 \begin{itemize}
 \item Qualify MARS full-inner prescribed-$q$ convergence and the held repair scopes; finish
 own-code review in MR !20 and the linked third-party PRs.
-\item Quantify TC24 reference uncertainty and establish coupled nonlinear
-estimator reliability; close the remaining VMEC++/DESC target or stopping gaps.
+\item TC24: VMEC++ free boundary at ns257 against the KIN6D forward references
+\pending{vmecpp\_\allowbreak{}fb\_\allowbreak{}fwdref\_\allowbreak{}ns257\_\allowbreak{}20261013\_\allowbreak{}01}; MEPHIT sheet-current comparison and
+the $q=3$ excess \pending{mephit\_\allowbreak{}full\_\allowbreak{}n3\_\allowbreak{}bl2\_\allowbreak{}20261013\_\allowbreak{}04}; GVEC elongation-start state
+\pending{gvec\_\allowbreak{}fb\_\allowbreak{}taper\_\allowbreak{}offset\_\allowbreak{}return\_\allowbreak{}20261013\_\allowbreak{}01}; 3D RMP roots
+\pending{gvec3d\_\allowbreak{}fb\_\allowbreak{}rmp\_\allowbreak{}cut0997\_\allowbreak{}20261013\_\allowbreak{}04}. The GVEC fixed-boundary ladder, the KIN6D
+coil-inverse parity (passes at both cuts) and the hard-cut corner miss (FreeGS grid error)
+are closed.
+\item Establish coupled nonlinear estimator reliability; the VMEC++, DESC and MARS CHEASE
+TC24 cells remain documented limitations.
 \item Preserve the qualified consumer scopes and convergent geometric-map
 limits when selecting inputs for later use; finite-reference TC24 equilibrium
 accuracy remains separate from consumer transfer accuracy.

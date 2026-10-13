@@ -1,0 +1,33 @@
+{
+ "description": "Raw-root inputs of the 13 October 2026 TC24 revision",
+ "iter_tc24_revision": "eb6848388",
+ "files": {
+  "/mnt/storage/codex-equilibrium-20261011/finish/mars_native/jobs/tc24_mars_native_ns640_20261012_01/inputs/public_ladder_vs_ns640.json": "85013fd93c1f317c16f542be7bff8685cf21503611e43e3a6c66a3cafbbd409e",
+  "/mnt/storage/codex-equilibrium-20261011/finish/kin_refine_luna/tc24k6_modx03_seed384_global_edge_midpoints_q5_k3direct_20261012_01/analysis/ns512_ns640_k6_vs_640.json": "c712d5aca21f23917630fcd6ff8dc2c029fa0ca79928500b19737f1965735464",
+  "/mnt/storage/codex-equilibrium-20261011/finish/mars_native/jobs/tc24_mars_native_ns640_20261012_01/runs/ns64/result.json": "8783f8fdab41a48a6d5072c7ef710163c4b461092830ad783e32aa228b40b2f5",
+  "/mnt/storage/codex-equilibrium-20261011/finish/mars_native/jobs/tc24_mars_native_ns640_20261012_01/runs/ns96/result.json": "66c9e768630b25e1c71b56978883dda3662142b14df5497391a6928616d9f272",
+  "/mnt/storage/codex-equilibrium-20261011/finish/mars_native/jobs/tc24_mars_native_ns640_20261012_01/runs/ns128/result.json": "683941473a5b653da77dfd91a3de3b8c19fc18d35a5452dfe960504a55bbeaff",
+  "/mnt/storage/codex-equilibrium-20261011/finish/mars_native/jobs/tc24_mars_native_ns640_20261012_01/runs/ns140/result.json": "68ae7218be3e45dea41d4a97aae3be33bd677b1c2b58085ba522f1d395bed46a",
+  "/mnt/storage/codex-equilibrium-20261011/finish/vmec_cond/vmecpp_tc24_ns640prof_cond_20261012_01/classification.csv": "0d3695f09c09d06e2a3b06b88c7915e1b8dbdf0d4eb758c26e64810020745419",
+  "/mnt/storage/codex-equilibrium-20261011/finish/vmec_cond/vmecpp_tc24_ns640prof_cond_nsladder_20261012_01/classification.csv": "6255748324606c2d35e6445950804fc461b601d73ede8deb786da21a36dc38cd",
+  "/mnt/storage/codex-equilibrium-20261011/finish/desc_cond/desc_tc24_condradial_ladder_20261012_02/classification.csv": "14ca826a7ed67c2efad8f97301bcacfc41fb85aeec330389c03910fb3fa6e1f0",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/c0990_phi000/summary.json": "a4552f9fb4038e22ea9748362eb942883332884e3294d6b73a3676c0c5efe61f",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/c0990_phi010/summary.json": "769bd657e4d7a309606edad9e502755c9ed6fcbd8ed4e21bfb7332ce5f03fa77",
+  "/mnt/storage/codex-equilibrium-20261011/mephit_gpec_cut0995/gpec_cut0995_n3_bl2_20261012_01/cases/phi000/summary.json": "dc90f77db5b3b337d813f49a0343fe77e58e14415f2bc4a3a1d47583374a81de",
+  "/mnt/storage/codex-equilibrium-20261011/mephit_gpec_cut0995/gpec_cut0995_n3_bl2_20261012_01/cases/phi010/summary.json": "45b7ca0f7df875ff938d5f5386b8c67a748a0a5e14c57c0175793aec10414c45",
+  "/mnt/storage/codex-equilibrium-20261011/mephit_gpec_cut0997/gpec_cut0997_n3_bl2_20261012_02/cases/phi000/summary.json": "eccd5c10afc493fd574e4d260e5457f3205c2abfdc95e2a15108d248e60e351d",
+  "/mnt/storage/codex-equilibrium-20261011/mephit_gpec_cut0997/gpec_cut0997_n3_bl2_20261012_02/cases/phi010/summary.json": "ae9ef99cc5977d82f003b60c0d4db0764b6cab2114145d93b5f0b68ea9d512b5",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/c0999_phi000/summary.json": "1a491a89648b644edcb94e235a8753c983477cc98d390f1495c7308ba5131e10",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/c0999_phi010/summary.json": "c76584034852744a4595ad21fa1deb86a2729daed1a48defdf969aef32fef425",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullA_phi000/summary.json": "db2b7246768809da412715677047e5891ff094265305568c9bc18d58851d0b9f",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullA_phi010/summary.json": "082d228a6daf19469d2e28e45c83f29db0a18271673dacb2d95ed0672ac09479",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullD_phi000/summary.json": "f9a63db0924692550f557fec476ec9c65fba5bdfcc8c55698818171c21c15a4a",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullD_phi010/summary.json": "fc3503f3b223479d57af8dbe3db93e414ad6348a4e3c3eaa05c9205062787aff",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullE_phi000/summary.json": "8a3ce8a214dad7cc041d43eb02d5cd9afa749ca62af670f0a1192284b904c3d1",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullE_phi010/summary.json": "6b7bb733202601ae9e8f6371eac96a225a9e7ad7dbb5022a3722d33c6a1aab87",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullF_phi000/summary.json": "bc1c10e6ce2917d716bf5cf88b603b4bdfd08e32915abe39d21b807d596fca8f",
+  "/mnt/storage/codex-equilibrium-20261011/gpec_edge_scan/gpec_edgescan_n3_bl2_20261013_01/cases/fullF_phi010/summary.json": "94afe511b7860c841516c5165738ca34671b7dc5b0af41e7a913e0798467d780",
+  "/mnt/storage/codex-equilibrium-20261011/marsf_cuts/marsf_n3_bl2_cuts_20261013_01/comparison.json": "3d65dd0fabb3babbfbf4f96fdb9833d20ca7d92d25b71ee922395c2f70118218",
+  "/mnt/storage/codex-equilibrium-20261011/gvec3d/gvec3d_fx_rmp_cut0995_ntor1_20261013_01/analysis.json": "f0045c87724b911c1618a2100b7033296cdb9a3dd53f9ebe5f2ea2087f63c73c"
+ }
+}

@@ -1,0 +1,269 @@
+% TC24 state of 13 October 2026. Values marked \pending await a running job (tag shown).
+% Data: data/tc24_20261013/*.csv, frozen from registered job roots by extract_20261013.py.
+\pageheading{TC24 benchmark cells against NS640}\label{sec:ns640}
+The reference is public CHEASE at NS640 on the condensed $s_{\rm pol}=0.995$ boundary,
+sampled at the same 1200 physical points and 80 flux labels as before. The public
+NS384/512/640 ladder has observed $B_{\rm pol}$ order 2.95; the NS512-to-NS640 step is
+$3.9\times10^{-6}$ and the assumed-order NS640 remainder is $4.1\times10^{-6}$.
+
+\begin{center}\small
+\begin{tabular}{p{22mm}p{20mm}p{110mm}}
+\toprule
+Code & Cell & Evidence against NS640 \\
+\midrule
+KIN6D & accepted (K6) & 1.55M DOF, direct sparse Cholesky, 98 s on 48 threads.
+$B_{\rm pol}$ $L^2$ $1.97\times10^{-6}$ (max $1.38\times10^{-5}$), $q$ $2.5\times10^{-6}$,
+$\psi$ $1.9\times10^{-8}$; reference budget $6.1\times10^{-6}$ against $10^{-5}$.
+K5: $5.67\times10^{-6}$. Consumer readback of the K6 EQDSK: GPEC $1.38\times10^{-6}$
+(max $1.55\times10^{-5}$), NEO-2 $3.80\times10^{-6}$ (max $7.45\times10^{-5}$). \\
+public CHEASE & reference & NS640. Export readback at box 2049, mpsi 1024:
+$B_{\rm pol}$ $L^2$ $3.82\times10^{-6}$, max $5.72\times10^{-5}$, $q$ $1.4\times10^{-7}$. \\
+MARS CHEASE & limitation & Equals public CHEASE at equal NS ($1.430/1.429\times10^{-3}$ at NS64,
+$6.45/6.37\times10^{-4}$ at NS128); NS140 $2.3\times10^{-4}$. The compiled dimensions
+(NPS=NPT=280) cap NS at 140; the target needs NS of order 600. Export readback
+$6.6\times10^{-6}$ at box 1025. \\
+VMEC++ & limitation & Condensed boundary and NS640 profiles stop natively up to ns129:
+$B_{\rm pol}$ $1.74$--$2.0\times10^{-4}$, radial order 1.38--1.55. ns257/513 reach the
+iteration cap; ns1025 fails with a bad Jacobian, so ns2049 never ran (EQ-TC24-17).
+$B_{\rm pol}$ plateaus at 1.6--4.7$\times10^{-4}$; $q$ follows order 2 to
+$8.7\times10^{-6}$ at ns1025. \\
+DESC & limitation & $L=M=24$ stops on $g_{\rm tol}$ at $4.85\times10^{-3}$; cold $L\ge36$
+folds the Jacobian (0.15). Profile smoothing ($\sigma=0.02/0.05$) lowers $L=24$ to
+$2.0/1.7\times10^{-3}$, ten times above KIN6D on the same smoothed profiles; warm
+$L=32/40/48$ stay unfolded at $3.2/2.0/1.25\times10^{-3}$, but $L=40/48$ stop at the
+1500-iteration cap. Mainly a solver/stopping limitation with a partial representation
+share; not profile-limited (EQ-D20). \\
+GVEC & limitation & Fixed boundary on upstream \texttt{develop} with NS640 spline
+profiles: 17 of 19 cells stop natively at tolerance $10^{-9}$ (the two $10^{-10}$ controls
+hit the cap, errors unchanged to 0.3\,\%); none reaches $10^{-5}$. $B_{\rm pol}$ $L^2$ is
+flat in radial elements and degree (M32: E64 $1.0\times10^{-4}$, E128 $8.2\times10^{-5}$,
+E256 and E512 $8.1\times10^{-5}$; degree 3/5/7 and a uniform grid within 5\,\%), so there
+is no radial order, and falls only with boundary modes at E256: M16 $4.7\times10^{-4}$,
+M32 $8.1\times10^{-5}$, M64 $7.4\times10^{-5}$, M96 $5.8\times10^{-5}$, M128
+$3.0\times10^{-5}$ ($\psi$ $3.5\times10^{-7}$, passing). The plateau is the condensed-boundary
+truncation. Best cell M128/E256/D5 (2.0 h, 4 threads) is the most accurate fixed-boundary
+3D-capable code here but misses the target
+(\texttt{gvec\_tc24\_fixed\_ladder\_20261012\_01}). \\
+\bottomrule
+\end{tabular}
+\captionof{table}{TC24 cell status. ``Limitation'' means a documented termination or
+resolution limit with its cause class in ERRATA; such codes are excluded from the
+agreement and cost ranking.}
+\end{center}
+
+\begin{center}
+\includegraphics[width=.96\textwidth]{build/tc24_ns640.pdf}
+\captionof{figure}{TC24 errors against public CHEASE NS640 versus recorded wall time.
+Filled markers stop natively; open markers hit an iteration cap or fold the Jacobian.
+Thread counts differ (CHEASE 1, VMEC++ 8--16, DESC 8, KIN6D K5 1 and K6 48; NS512 on
+aCluster), so the abscissa is not a matched cost. DESC $q$ is a prescribed-$\iota$
+readback and is omitted. GVEC cells are tabulated above, not plotted.
+\dataref{tc24\_20261013/tc24\_ns640.csv}}
+\end{center}
+
+\subsection*{KIN6D TC24 inverse (I3)}
+With $p'$ and $q$ prescribed from the NS640 law, KIN6D solves the inverse problem at the
+full pedestal law (256 boundary nodes, 182 axis-graded knot intervals, discrepancy-level
+$FF'$ regularisation $\lambda=4.14\times10^{-8}$) in 47 min on 48 threads with inverse
+status 0. The check-grid $q$ error is $2.2\times10^{-4}$, below the reference law's own
+discretisation defect bound $10^{-3}$. Against NS640: $\psi_{\rm axis}$
+$4.0\times10^{-7}$, $q$ maximum $4.0\times10^{-4}$ (at the axis) and RMS
+$5.0\times10^{-5}$, $FF'$ maximum $2.6\times10^{-3}$ of $\max|FF'|$ (RMS
+$5\times10^{-4}$). I3 qualifies (\texttt{kin6d\_tc24\_i3\_inverse\_20261013\_01}).
+
+\pageheading{Edge treatment, ideal stability and linear response}
+The axisymmetric benchmark uses the $s_{\rm pol}=0.995$ cut. For the linear $n=3$
+response the edge treatment matters more than any equilibrium difference above. DCON
+without a wall finds every hard cut $n=3$ ideal-unstable; the full LCFS is stable.
+The drive is the finite edge current density at the cut facing vacuum: DCON uses only
+$p'$, and the pressure-offset cut reproduces GPEC to $10^{-8}$. A linear response of an
+unstable plasma is not a benchmark, so the linear lane uses the full LCFS (psihigh
+0.999999, no wall), which is also what the collaborators' MARS-F and MARS-K runs solved.
+Lanes that need a cut (free boundary, VMEC-type codes, nonlinear 3D) use the FB-taper
+family: modx03 $p'$ and $FF'$ times a smooth taper reaching zero with zero slope at
+$s_c$ over width $w$, re-solved free-boundary.
+
+\begin{center}\small
+\begin{tabular}{lrr}
+\toprule
+Equilibrium & $n=3$ & $n=6$ \\
+\midrule
+hard cut 0.990 / 0.995 / 0.997 / 0.999 & $-0.047$ / $-0.105$ / $-0.097$ / $-0.009$ & unstable \\
+full LCFS & $+0.059$ & $+0.006$ \\
+FB-taper(0.997, $w=0.0228$), FreeGS / KIN6D map & $+0.206$ / $+0.205$ & $+0.103$ / $+0.102$ \\
+FB-taper(0.995, $w=0.0276$), KIN6D map & $+0.253$ & $+0.124$ \\
+\bottomrule
+\end{tabular}
+\captionof{table}{DCON least-stable eigenvalue without wall (negative: unstable).
+FB-taper(0.997) is the adopted free-boundary and nonlinear-3D member: profiles unchanged
+up to $s=0.974$, $I_p$ 15.255 MA ($-2.0$\,\% against modx03), $q_{\rm edge}$ 3.749.
+\dataref{tc24\_20261013/dcon\_stability.csv}}
+\end{center}
+
+\begin{center}
+\includegraphics[width=.94\textwidth]{build/edge_scan.pdf}
+\captionof{figure}{GPEC $n=3$ resonant flux $|$singflx$|$ with the canonical bl2 coils
+at 90 kAt versus edge treatment. Full-LCFS points are the median and range over four
+DCON stop points (dmlim 0.05--0.19, within 6\,\%); psihigh 0.9999 instead of 0.999999
+changes $q=3$ by $3.5\times$ and is excluded. $q=11/3$ ($s_{\rm pol}=0.9989$) exists
+only on the full LCFS.
+\dataref{tc24\_20261013/gpec\_edge\_scan.csv}}
+\end{center}
+
+The edge condition changes the resonant flux even at $q=3$ ($s_{\rm pol}\approx0.935$)
+by a factor 5--10, non-monotonically in the cut. Every code comparison below therefore
+uses an identical edge, and any comparison with the collaborators' runs carries this
+sensitivity.
+
+\subsection*{RMP coil set}
+GPEC \texttt{iter\_bl2\{u,m,l\}.dat} is canonical: $I_k=90\,{\rm kA}\cos(3\phi_c+\phi_{\rm row})$
+with $\phi_c$ each coil's centroid and $\phi_{\rm row}=(0,0,0)$ or $(0,\pi,0)$, $n=+3$
+(MARS \texttt{RNTOR=-3} is the conjugate). The middle row sits $-3.3^\circ$ off the
+others; $\pm3.3^\circ$ changes the $(0,0,0)$ resonant flux by about $\mp27$\,\%.
+Xingting's coil polylines, used in MARS-F and NTVTOK, give 1.6 times the bl2 resonant
+flux for $(0,0,0)$ and 1.1 times for $(0,\pi,0)$, so up to $1.7\times$ of the historical
+GPEC/MARS gap is coil geometry. The KIN6D L3 Biot--Savart vacuum $b_{mn}$ matches the
+GPEC real-space spectrum to about four digits; the MARS-F bl2 sheet-coil model matches
+L3 to 1--2\,\% after row factors 1.070/1.022/0.970 (U/M/L).
+
+\subsection*{GPEC, MARS-F and MEPHIT at identical cuts}
+Our MARS-F reproduces Xingting's \texttt{BPLASMA} on her inputs to $10^{-8}$ (vacuum)
+and 0.5\,\% (plasma); resonant flux agrees within 1--3\,\%. With bl2 coils and identical
+cuts, the ideal limit is ETA 0 with ROTE $10^{-4}$; the total resonant $b_{\rm Boozer}$
+changes by at most 15\,\% against ROTE $10^{-5}$ on every cut, while sheet and jump
+quantities do not converge in rotation and are not compared.
+
+\begin{center}
+\includegraphics[width=.62\textwidth]{build/linear_response.pdf}
+\captionof{figure}{MARS-F ideal total resonant $b_{\rm Boozer}$ divided by GPEC
+\texttt{bno} (Boozer, peak) at identical cuts and coils
+(\texttt{marsf\_n3\_bl2\_cuts\_20261013\_01}). The cuts are $n=3$ ideal-unstable
+in DCON.
+\dataref{tc24\_20261013/marsf\_gpec.csv}}
+\end{center}
+
+At the 0.995 and 0.997 cuts MARS-F exceeds GPEC by factors 1.08--1.43 at $q=3$ and
+$10/3$; the single outlier, 2.9 at 0.997 $(0,0,0)$ $q=10/3$, is the cell where the
+GPEC amplitude is smallest. On the full LCFS the ratio is 0.40--0.61. Both codes show
+the same non-monotone cut trend (0.997 lowest, full LCFS highest). A cylindrical
+sheet-current estimate from MARS-F is 1.3--3 times GPEC singflx and is indicative only.
+
+MEPHIT ideal $n=3$ runs are complete on the 0.995 and 0.997 cuts and on the full LCFS
+(edge-resonance mesh refinement, MEPHIT \texttt{5bab300}). Their resonant quantities
+need the GPEC convention map: GPEC singflx is the area-normalised flux driven by the
+shielding sheet current alone, whereas MEPHIT's total field is shielded (about zero at
+the resonance) and its plasma part includes the sheet. The sheet-only flux is not in
+the standard output; the sheet-output reruns supply it. MEPHIT singflx against GPEC:
+\pending{\texttt{mephit\_full\_n3\_bl2\_20261013\_04}, \texttt{mephit\_cut0995\_n3\_bl2\_20261013\_01}, \texttt{mephit\_cut0997\_n3\_bl2\_20261013\_01}}.
+The MEPHIT excess at $q=3$ is open:
+\pending{factor and cause: same MEPHIT roots}.
+
+\pageheading{Free boundary and the first 3D comparison}
+\subsection*{Reference states}
+The free-boundary benchmark is a forward problem at fixed coil currents (EQ-TC24-19).
+The earlier FB-cut ladder took its PF/CS currents from a FreeGS version that evaluated
+the free-boundary flux at a fixed 1 cm outside the box (FreeGS issue 169, PR 170): its
+flux map is off by 1.1/4.0 mm (rms/max) and does not converge with grid, and its CS
+currents are off by 0.4--0.7 MA-turn although the LCFS shape is right to 0.3 mm.
+VMEC++ and GVEC fed those currents solved a different equilibrium. With the fixed
+FreeGS (\texttt{a6baea4}, $n_x=513$; fixed Hagenow and exact boundary condition agree to
+0.03 MA-turn), KIN6D \texttt{gs\_free} at those currents is the reference: mesh-converged
+to 0.004 mm, offset starts return to 0.002 mm, and an independent Green's-function check
+gives 0.08/0.37 mm (0.997) and 0.03/0.14 mm (0.995). FreeGS approaches it with grid
+(0.997: 2.7/14.9 to 1.7/9.2 mm from $n_x=257$ to 513), largest at the ill-conditioned
+lower corner where $|\nabla\psi|$ is one seventh of its median.
+
+On the FB-taper family the KIN6D P3 and FreeGS ($n_x=513$) LCFS agree to 0.10/0.21 mm
+(0.997) and 0.11/0.30 mm (0.995), $I_p$ to $2\times10^{-6}$; KIN6D mesh refinement moves
+the LCFS by 0.009 mm and offset starts return to 0.0004 mm. With the P2 quadrature and status-18 fixes (\texttt{gs\_free} 6924230;
+\texttt{kin6d\_fbtaper0997\_w023n\_fwdref\_20261013\_02}, \texttt{kin6d\_fbtaper0995\_w028n\_fwdref\_20261013\_02}),
+P3 levels 3/4 reproduce the first run to $3.3\times10^{-8}$ in $I_p$ and 0.0002 mm in the LCFS,
+and P2 level 4 agrees with P3 level 4 to 0.0022/0.0073 mm rms/max (0.997) and
+0.0016/0.0064 mm (0.995), $I_p$ $1.2\times10^{-7}$ and $4.4\times10^{-8}$; the P3
+$q$ readback now succeeds ($q_{\rm edge}$ 3.7491 and 3.7499). Coil-limit feasibility is reported, not imposed: on the
+hard FB-cut, the unconstrained FreeGS fit exceeds the CS1U, CS1L and CS2L limits, and the
+bounded variants stay within limits at a shape cost of 0.1--0.4 mm (shape rms 6.2--7.1 mm
+to the modx03 cut contour, grid-converged to 0.02 mm). KIN6D coil-inverse parity against FreeGS passes at both cuts for the feasible variant 2
+(\texttt{kin6d\_iter\_fbcut\_parity\_20261012\_01}; six P2 noise-floor failures rerun as
+\texttt{kin6d\_iter\_fbcut\_p2rerun\_20261013\_01}). The FreeGS objective at the KIN6D optimum
+is 374 at 0.995 against 524 (0.995) and 557 (0.997) for the FreeGS currents in the KIN6D
+field; P3 levels 2--3 agree to $<0.1$ mm and $I_p$ to $10^{-4}$, P2 to 0.018 mm. On the design
+objective the shape rms is 5.02 against 6.48 mm (0.995) and 5.55 against 7.03 mm (0.997);
+on FreeGS's own objective it is 6.61/7.17 against 6.48/7.03 mm, within 0.15 mm. Variant 3
+(different active-set rule) fails shape and is reported only. This is axisymmetric
+feasibility, not a benchmark admission.
+
+\subsection*{Free-boundary codes}
+\begin{center}\small
+\begin{tabular}{p{18mm}p{136mm}}
+\toprule
+Code & Result \\
+\midrule
+GVEC & The earlier 0.034/0.12 mm agreement was the fixed-boundary solve on the FreeGS contour
+(EQ-TC24-18: absolute stops ended the loop after one update and the offset starts were reset).
+Gradient descent fails at fixed currents (unstable vertical mode, near-neutral shape mode,
+tangential gauge directions); a Newton update (finite-difference Jacobian plus Broyden) on
+normal displacements with an edge-refined radial grid converges. The first Newton residual
+carried the spectral-condensation term and biased shapes by about 0.4 mm: on FB-taper it
+agreed with KIN6D to 0.38/1.27 mm, returned from a $-15$ mm $Z$ start to 0.10 mm, and the
+$+2$\,\% elongation start converged to a different state (4 mm, $I_p$ $+0.26$\,\%). With
+the fix (fork \texttt{a507bd82}) the contour start lands 0.04/0.22 mm from KIN6D. Offset
+returns and the elongation start on the fixed build:
+\pending{\texttt{gvec\_fb\_taper\_offset\_return\_20261013\_01}}. Relative stops upstream as MR 188. \\
+VMEC++ & With the defective ladder currents all solver stages are start-independent: contour,
+$\pm15$ mm and $+2$\,\% elongation starts return to one state within 0.03--0.28 mm for NESTOR
+and BIEST. Vacuum fields agree to $7\times10^{-5}$, but NESTOR (12.6 mm at 0.997, 9.2 mm at
+0.995, native stop) and BIEST (2.7--4.0 and 5.0--5.2 mm) converge to states 4--9 mm apart,
+which implicates NESTOR's vacuum accuracy near the lower corner. With corrected currents
+NESTOR misses by 1.6 mm rms, with a 10 mm lower-corner miss. Against the KIN6D forward
+references at ns129, every cell returns from the offset starts (0.02--0.34 mm), and the
+miss rms/max (mm) is: hard cut 0.995 BIEST 0.87/1.30, NESTOR 1.07/8.80 (lower X-point
+corner; \texttt{vmecpp\_fb\_fwdref\_cut0995\_20261013\_01}); hard cut 0.997 BIEST 1.16/1.76,
+NESTOR 1.73/12.4 (\texttt{\_cut0997\_}); FB-taper 0.995 BIEST 2.05/4.33, NESTOR 1.29/8.41
+(\texttt{\_fbtaper0995\_w028n\_}); FB-taper 0.997 BIEST 2.24/4.55, NESTOR 1.48/10.3
+(\texttt{\_fbtaper0997\_w023n\_}). The ns65 cells do not all converge natively (BIEST 0.997 max
+5.7 mm falls to 1.8 mm at ns129). The runs stop at the iteration cap with $f_{\rm sq}$
+$10^{-13}$--$10^{-11}$, short of the native $10^{-12}$ on some cells. The maximum miss exceeds the 1 mm
+rule in every case; the taper miss has plateaued. Whether ns257 reaches the reference:
+\pending{\texttt{vmecpp\_fb\_fwdref\_ns257\_20261013\_01}}. \\
+DESC & Fails before its free-boundary stage (no converged fixed-boundary state on TC24). \\
+KIN6D & Reference (above). On the hard FB-cut, GVEC and FreeGS agree within 1.2 mm while
+KIN6D sits 9--10 mm off at the lower corner. This is the FreeGS grid error, inherited by GVEC
+through its FreeGS start contour: at the same currents the corner gap falls 14.9, 9.2,
+3.0 mm at $n_x=257$, 513, 1025, and KIN6D variants agree to 0.03 mm. \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Axisymmetric free-boundary status, RMP off. Acceptance for every code:
+offset starts ($\pm15$ mm in $R$ and $Z$, $+2$\,\% elongation) return to one state
+within 1 mm.}
+\end{center}
+
+\subsection*{Nonlinear 3D against linear response}
+A finite-amplitude 3D equilibrium is not assumed to equal the linear response. The
+comparison scales the RMP current down until the response per unit current converges.
+Nested GVEC equilibria exist only up to a few per cent of 90 kAt (vacuum edge
+displacement about 0.18 m at full current for $(0,\pi,0)$). On the 0.995 cut with a
+fixed boundary displaced by the coils' vacuum normal field (ntor 1, tolerance $10^{-9}$),
+the $n=3$ response per unit amplitude is constant to 1\,\% $(0,0,0)$ and 5\,\%
+$(0,\pi,0)$ between 1 and 10\,\% of 90 kAt, at the radial discretisation floor
+(ne32 against ne48: 3--9\,\%). Against GPEC with the same boundary condition
+(\texttt{fixed\_boundary\_flag}) the harmonics on $\psi_N\le0.8$ agree to 3--7\,\%
+($\delta B\cdot n$) and 4--14\,\% ($\xi\cdot n$) for $(0,0,0)$ and 7--11/12--16\,\% for
+$(0,\pi,0)$, with amplitude ratio 1.0 and phase offset about $1^\circ$; the $\xi$ jump
+across $q=3$ agrees to a ratio 0.7--1.4. This is the first nonlinear-3D against
+linear agreement in the small-amplitude limit. Free-boundary GPEC is not comparable
+here: its edge response is 2--4 times vacuum on this $n=3$-unstable hard cut.
+
+\begin{center}
+\includegraphics[width=.62\textwidth]{build/gvec3d_gpec.pdf}
+\captionof{figure}{Relative difference between GVEC fixed-boundary 3D (1\,\% of 90 kAt,
+mpol 33, ntor 1, ne32) and fixed-boundary GPEC $n=3$ harmonics per flux surface, 0.995
+cut (\texttt{gvec3d\_fx\_rmp\_cut0995\_ntor1\_20261013\_01}).
+\dataref{tc24\_20261013/gvec3d\_gpec.csv}}
+\end{center}
+
+The FB-taper(0.997) 3D roots with ntor $\ge2$ (which include $n=6$) and the VMEC++ 3D
+free-boundary root are running: \pending{\texttt{gvec3d\_fx\_rmp\_cut0997\_20261013\_01}},
+\pending{\texttt{vmecpp\_fb3d\_rmp\_cut0997\_20261013\_01}}. The GVEC 3D free-boundary root
+on the fixed build is \pending{\texttt{gvec3d\_fb\_rmp\_cut0997\_20261013\_04}}
+(\texttt{\_02} and \texttt{\_03} aborted).
