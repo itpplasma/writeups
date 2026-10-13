@@ -168,7 +168,25 @@ roots to 0.6\,\% per $m$ (full LCFS) and 0.4\,\% (0.995); the 0.997 root deviate
 1.6\,\% $(0,0,0)$ and 5.7\,\% $(0,\pi,0)$ at $m=5$--8, cause unverified (MEPHIT main change
 of mesh and X-point snap). The $q=3$ excess therefore depends strongly on the layer width (10--23 falling to 1.2--2.9 at
 the fixed width) and is not a settled factor. The physical-width ladder
-\pending{\texttt{mephit\_full\_n3\_bl2\_20261013\_05}} decides it.
+(\texttt{mephit\_full\_n3\_bl2\_20261013\_05}, resistive Alfv\'en-resonance layer width
+$\delta_\eta$ from the Spitzer resistivity, factors 0.25--4) leaves the $q=3$ ($m=9$) excess
+at about $10\times$ GPEC at the physical width; the quoted ladder value is read from the
+completed run by hand, not from a frozen extract. A mesh test of this excess is running
+and not yet registered.
+
+\subsection*{Plasma-response qualification on a circular family}
+GPEC and MARS-F are qualified on a large-aspect circular family before the TC24 comparison,
+against an analytic cylinder reference with an edge-current correction. GPEC's ideal
+response reproduces the cylinder to 0.2--0.5\,\% (extrapolated;
+\texttt{gpec\_lar\_cyl\_shield\_20261013\_01}) and its rdcon $\Delta'$ to 0.2--0.7\,\% on six gated
+surfaces (\texttt{gpec\_lar\_cyl\_deltaprime\_20261013\_01}). The torus reduces to the cylinder to
+0.06--0.19\,\% (\texttt{resp\_lar\_tor\_c0\_20261013\_01}). On a common drive
+(\texttt{resp\_lar\_tor\_c1\_20261013\_01}, 14 cases, MARS-F windowed sheet-current jump)
+MARS-F and GPEC agree within tolerance in 9 of 11 comparable cases; the $A=3$ cases and the
+near-kink cases fail and are reported as findings. Finite differences of neighbouring
+surfaces are not the observable: they caused an earlier factor 3--10 in the MARS-F sheet
+estimate, which the windowed fit removes. The rungs exposed two GPEC defects, filed upstream with regression
+tests (spline endpoint, PR 308; rdcon LU scaling, PR 309).
 
 \pageheading{Free boundary and the first 3D comparison}
 \subsection*{Reference states}
@@ -219,9 +237,13 @@ normal displacements with an edge-refined radial grid converges. The first Newto
 carried the spectral-condensation term and biased shapes by about 0.4 mm: on FB-taper it
 agreed with KIN6D to 0.38/1.27 mm, returned from a $-15$ mm $Z$ start to 0.10 mm, and the
 $+2$\,\% elongation start converged to a different state (4 mm, $I_p$ $+0.26$\,\%). With
-the fix (fork \texttt{a507bd82}) the contour start lands 0.04/0.22 mm from KIN6D. Offset
-returns and the elongation start on the fixed build:
-\pending{\texttt{gvec\_fb\_taper\_offset\_return\_20261013\_02}} (\texttt{\_01} never started). Relative stops upstream as MR 188. \\
+the fix (fork \texttt{a507bd82}) the contour start lands 0.04/0.22 mm from KIN6D. On the
+fixed build (\texttt{gvec\_fb\_taper\_offset\_return\_20261013\_02}, FB-taper 0.997, all native
+stops) the $+15$ mm $R$ and $-15$ mm $Z$ starts return to the contour state within 0.80 and
+1.02 mm (max), but the $+2$\,\% elongation and the old K+ starts stop natively in a different
+state, 5.0 and 4.6 mm from it ($|g|$ $2.1\times10^{-3}$ and $1.5\times10^{-3}$): the
+relative stop cannot resolve it. The lane is over its job budget and stops here; GVEC does not
+meet the 1 mm offset-return acceptance, a documented limitation. Relative stops upstream as MR 188. \\
 VMEC++ & With the defective ladder currents all solver stages are start-independent: contour,
 $\pm15$ mm and $+2$\,\% elongation starts return to one state within 0.03--0.28 mm for NESTOR
 and BIEST. Vacuum fields agree to $7\times10^{-5}$, but NESTOR (12.6 mm at 0.997, 9.2 mm at
@@ -236,8 +258,11 @@ NESTOR 1.73/12.4 (\texttt{\_cut0997\_}); FB-taper 0.995 BIEST 2.05/4.33, NESTOR 
 (\texttt{\_fbtaper0997\_w023n\_}). The ns65 cells do not all converge natively (BIEST 0.997 max
 5.7 mm falls to 1.8 mm at ns129). The runs stop at the iteration cap with $f_{\rm sq}$
 $10^{-13}$--$10^{-11}$, short of the native $10^{-12}$ on some cells. The maximum miss exceeds the 1 mm
-rule in every case; the taper miss has plateaued. Whether ns257 reaches the reference:
-\pending{\texttt{vmecpp\_fb\_fwdref\_ns257\_20261013\_01}}. \\
+rule in every case; the taper miss has plateaued. At ns257 (\texttt{vmecpp\_fb\_fwdref\_ns257\_20261013\_01}) BIEST reaches the KIN6D
+reference within 1 mm at all four cuts (maximum 0.06--0.08/0.17--0.21 mm on the hard cuts
+0.995/0.997 and 0.60--0.64 mm on the tapers, $f_{\rm sq}\le4\times10^{-13}$) and every offset
+start returns (0.07--0.77 mm): the ns129 miss was radial resolution. NESTOR stays 6.3--8.2 mm
+at the lower corner, a vacuum-accuracy limitation. \\
 DESC & Fails before its free-boundary stage (no converged fixed-boundary state on TC24). \\
 KIN6D & Reference (above). On the hard FB-cut, GVEC and FreeGS agree within 1.2 mm while
 KIN6D sits 9--10 mm off at the lower corner. This is the FreeGS grid error, inherited by GVEC
@@ -274,11 +299,18 @@ cut (\texttt{gvec3d\_fx\_rmp\_cut0995\_ntor1\_20261013\_01}).
 \dataref{tc24\_20261013/gvec3d\_gpec.csv}}
 \end{center}
 
-The FB-taper(0.997) 3D roots with ntor $\ge2$ (which include $n=6$) and the VMEC++ 3D
-free-boundary root are running: \pending{\texttt{gvec3d\_fx\_rmp\_cut0997\_20261013\_01}},
-\pending{\texttt{vmecpp\_fb3d\_rmp\_cut0997\_20261013\_01}}. The GVEC 3D free-boundary root
-on the fixed build is \pending{\texttt{gvec3d\_fb\_rmp\_cut0997\_20261013\_05}}
-(\texttt{\_02}--\texttt{\_04} aborted; \texttt{\_04} never started).
+The GVEC 3D fixed-boundary lane on FB-taper(0.997) with ntor $\ge2$ (which includes
+$n=6$) is resonant-layer limited: the near-rational fields do not converge in element count
+(\texttt{gvec3d\_fx\_rmp\_cut0997\_20261013\_01} is recorded aborted). The readback of its five
+finished states (\texttt{gvec3d\_fx\_rmp\_cut0997\_ne\_jump\_20261013\_02}, no new solve) takes
+the window jump of $\xi_n$ across each rational ($w\ge0.04\rho$, ne 32/48/64); the converged
+$n=3$, $m=7$--9 jumps agree with fixed-boundary GPEC to about 5\,\%, while the full-spectrum
+and $n=6$ jumps stay unconverged. VMEC++ 3D free boundary
+(\texttt{vmecpp\_fb3d\_rmp\_cut0997\_20261013\_01}, BIEST and NESTOR, ntor 1--2) did not stop
+natively at ns65 (iteration cap), so no linearity claim is made; the ns257 rerun
+\pending{\texttt{vmecpp\_fb3d\_rmp\_cut0997\_ns257\_20261013\_01}} is running. The GVEC 3D
+free-boundary root \pending{\texttt{gvec3d\_fb\_rmp\_cut0997\_20261013\_05}} is still registered
+running; the GVEC free-boundary lane is otherwise stopped (\texttt{\_02}--\texttt{\_04} aborted).
 
 \subsection*{Exact 3D benchmark (Landreman)}
 Landreman's analytic non-axisymmetric equilibria have closed-form $B$, $p$ and volume
