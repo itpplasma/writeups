@@ -7,7 +7,7 @@ The 13 October revision draft adds the NS640 cell status, edge-cut and
 linear-response comparisons, free-boundary references and the first 3D comparison
 (seventeen indexed figures). [extract_20261013.py](extract_20261013.py) freezes those
 inputs from registered job roots into `data/tc24_20261013/` with SHA256 in its
-`sources.json`; values awaiting running jobs are marked `pending` in the PDF.
+`sources.json`; values awaiting running jobs are marked `pending` in the PDF; the NTV stage-1 and response-qualification subsections follow the 2026-10-13 registry and worker handoffs (unregistered numbers are labelled).
 Scientific slice closure and final publication remain open.
 The native build regenerates its figures and numerical source-row indexes.
 

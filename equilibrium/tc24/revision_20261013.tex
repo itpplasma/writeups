@@ -180,13 +180,114 @@ against an analytic cylinder reference with an edge-current correction. GPEC's i
 response reproduces the cylinder to 0.2--0.5\,\% (extrapolated;
 \texttt{gpec\_lar\_cyl\_shield\_20261013\_01}) and its rdcon $\Delta'$ to 0.2--0.7\,\% on six gated
 surfaces (\texttt{gpec\_lar\_cyl\_deltaprime\_20261013\_01}). The torus reduces to the cylinder to
-0.06--0.19\,\% (\texttt{resp\_lar\_tor\_c0\_20261013\_01}). On a common drive
-(\texttt{resp\_lar\_tor\_c1\_20261013\_01}, 14 cases, MARS-F windowed sheet-current jump)
-MARS-F and GPEC agree within tolerance in 9 of 11 comparable cases; the $A=3$ cases and the
-near-kink cases fail and are reported as findings. Finite differences of neighbouring
-surfaces are not the observable: they caused an earlier factor 3--10 in the MARS-F sheet
-estimate, which the windowed fit removes. The rungs exposed two GPEC defects, filed upstream with regression
-tests (spline endpoint, PR 308; rdcon LU scaling, PR 309).
+0.06--0.19\,\% (\texttt{resp\_lar\_tor\_c0\_20261013\_01}). On a common drive, MARS-F's windowed
+sheet-current jump is compared with GPEC's resonant flux through the observable $J$ (jump over
+applied edge flux). Finite differences of neighbouring surfaces are not the observable: they caused an
+earlier factor 3--10 in the MARS-F sheet estimate, which the windowed fit removes.
+
+The first run (c1, \texttt{resp\_lar\_tor\_c1\_20261013\_01}, 14 cases) failed its pre-declared gate on
+the drive purity at $A=3$ (residual edge sideband 2.35 and 4.0\,\%) and on the kink cases. The rerun c2
+(\texttt{resp\_lar\_tor\_c2\_20261013\_01}) used a wider drive purification for $A\le5$ and a report-only
+rule for near-marginal kink cases (DCON free energy $W_{\rm free}<0.1$: $q_0=2.2$, $A=3$--$7$), which was
+fixed after c1 on the same equilibria, so it does not test the cut. One c2 case ($q_0=2.2$, $A=20$) failed
+for an intermittent MARS-Q defect (uninitialised half-mesh arrays read at the edge node; reproduced by
+poisoning the array, upstream texts prepared, not filed) and was rerun with the same binary
+(\texttt{resp\_lar\_tor\_c2\_20261013\_02}): $J_{\rm MARS}/J_{\rm GPEC}=1.0066$ (tolerance 3.35\,\%), cylinder
+gate $+0.33$\,\%. \textbf{The toroidal circular family is complete}: every gated case agrees within 2.1\,\%
+except $q_0=1.55$, $A=3$, where $J_{\rm MARS}/J_{\rm GPEC}=0.931$; with the drive purified, the remaining
+6.9\,\% is a toroidal MARS/GPEC difference (or a feature of GPEC's pure-harmonic drive at $A=3$), accepted
+as a finding. The near-kink cases are reported only. The rungs exposed GPEC defects, filed upstream with
+regression tests (spline endpoint, PR 308; rdcon LU scaling, PR 309).
+
+The KIN6D finite-pressure resistive per-$n$ response (L5), which matched a layer closure to the outer
+solution at finite $\mu$, is falsified by its pre-declared test: for the $(0,1,0)$ phasing the net layer
+current does not fall like $\delta^{\epsilon}$ (fitted exponent $-0.23$ and $-0.83$ at $q=10/3$, $\epsilon=0.247$;
+$-0.94$ and $-1.24$ at $q=3$, $\epsilon=0.053$), and the $q=3$ $J_\infty$ differs by a factor of 10 between
+two layer-width ratios (0.167 and 0.017). This result has no registry root; it is taken from the worker
+handoff. Matching at finite $\mu$ is stopped. The replacement, a resolved resistive strip (R-B1,
+KIN6D main \texttt{c9be7ef}), passes its four pre-declared cylinder rules in a local run: the growth rate
+agrees with the resistive-inertial layer dispersion to $1.05\times10^{-4}$ over $S=10^6$--$10^{10}$, the
+resistive kink to $2.3\times10^{-3}$, the ideal limit to $4.1\times10^{-6}$ and the steady response to
+$3\times10^{-5}$; the cluster confirmation is not recorded here. R-B2 (torus, FEEC outer Schur complement, the
+TC24 cases $q=3$ and $q=10/3$ at full pressure without a fit) is next.
+
+\pagebreak
+\pageheading{NTV stage 1: frozen circular field}\label{sec:ntvs1}
+Stage 1 compares the torque codes on a frozen analytic circular torus before any TC24 field is used:
+six surfaces $s=0.01$--$0.36$ ($\epsilon=0.010$--$0.060$), a non-resonant base field $nq=6.5$ (the earlier
+$q=2$ field is resonant on every surface), and the analytic regimes (superbanana plateau at $E_r=0$ =
+``sbp0'', $1/\nu$, $\nu$--$\sqrt\nu$). One decision rule is shared by all codes: a gated sbp0 row passes if
+$|{\rm ratio}-1|\le\max(0.10,3\epsilon)$; the trend $a+b\epsilon$ has $|a-1|\le\max(0.05,2\sigma_a)$ with at
+least four gated rows at $\epsilon<0.05$. These are diagnostic verdicts, not TC24 torques.
+
+\subsection*{Finite orbit width: two model lanes}
+The thin-orbit bounce average (Shaing's superbanana plateau) drops the oscillating binormal drift phase
+of the trapped orbit, $n\Phi\sim nq^2\rho/(r\sqrt\epsilon)$. At 2\,keV deuterium this is of order one for
+$\epsilon\le0.03$. A direct orbit integration of the trapped channel (not a registered job; checked against
+an independent ODE solution to $3\times10^{-4}$, where the thin-orbit value is off by order one) gives the
+ratio of the trapped $\ell=0$ channel with the drift phase to the thin-orbit reference:
+
+\begin{center}\small
+\begin{tabular}{lccccc}
+\toprule
+$s$ & 0.01 & 0.04 & 0.09 & 0.16 & 0.36 \\
+$\epsilon$ & 0.010 & 0.020 & 0.030 & 0.040 & 0.060 \\
+$\ell=0$ with drift phase / thin & 0.05 & 0.43 & 0.81 & 0.92 & 0.98 \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Trapped $\ell=0$ superbanana-plateau channel with the oscillating drift phase over the
+thin-orbit reference (worker analysis, repository code ratios 0.053, 0.433, 0.805, 0.919, 0.978).}
+\end{center}
+
+The missing weight is in the bounce sidebands $\ell\ne0$ and the modulated passing channel. Radial orbit excursion
+is dropped by all three local models (NEO-RT, NEO-2, ARES) and is not in the reference. Hence two lanes,
+never mixed in one gate. Lane (a), thin orbit: reference is the unmodulated trapped $\ell=0$ torque
+(NEO-RT default, ARES Shaing, PENTRC). Lane (b), full phase: reference is all trapped $\ell$ with the drift
+phase plus the modulated passing channel (NEO-RT with \texttt{drift\_phase}, NEO-2 total). The lane (b)
+rule equals the lane (a) rule and was fixed from theory before any lane (b) evaluation.
+
+\begin{center}\small
+\begin{tabular}{p{15mm}p{8mm}p{18mm}p{102mm}}
+\toprule
+Code & Lane & Verdict & Evidence \\
+\midrule
+NEO-RT & (a) & pass & \texttt{ntv\_s1\_frozen\_neort\_20261013\_04}: trapped $m_\theta=0$ over reference 1.018, 1.029, 1.047,
+1.062, 1.068, 1.093; intercept $1.0012\pm0.0016$, slope 1.52 (the slope is open). \\
+NEO-RT & (b) & pass & \texttt{ntv\_s1\_frozen\_neort\_dphase\_20261013\_01}: total over \texttt{torque\_ref\_fullphase} 0.992, 0.935,
+0.945, 1.094, 0.984, 1.176, all within tolerance; intercept $0.889\pm0.067$ (passes only through the $2\sigma_a$
+allowance), slope 3.9. The passing channel over its modulated reference falls with $\epsilon$:
+0.95, 0.83, 0.73, 0.62, 0.55, 0.34 (reported, not gated). \\
+ARES & (a) & Shaing pass; KNTV=21 fail & \texttt{ntv\_s1\_frozen\_ares\_shaing\_20261013\_04}: sbp0 0.972 to 0.910 (intercept
+$0.979\pm0.005$), $1/\nu$ off 0.984 to 0.915, $\nu$--$\sqrt\nu$ slope 1.59--1.61 on all surfaces; the Krook route
+(KNTV=21) gives 0.069--0.085 and is not a validation. The earlier $q=13/6$ miss was an input defect (one
+harmonic instead of the full spectrum), not an ARES error. \\
+PENTRC & (a) & $1/\nu$ pass, sbp0 fail & \texttt{ntv\_s1\_frozen\_pentrc\_lar\_20261013\_03}: $1/\nu$ off (against a Krook reference with PENTRC's
+collision rate) 1.005, 0.995, 0.986, 0.982, 0.979; sbp0 $\ell=0$ 0.971, 0.880, 0.884, 0.794 at $\epsilon=0.03$--$0.06$
+(trend and the $\epsilon=0.06$ row fail; part of the torque sits in neighbouring $\ell$). \\
+NEO-2 & (a) & pass with caveats & \texttt{ntv\_s1\_frozen\_neo2\_20261013\_04}: $1/\nu$ off intercept $1.011\pm0.006$; sbp0 $\ell=0$ on
+the rows $\epsilon=0.03$--$0.045$ (selected after the diagnostics) intercept $0.952\pm0.024$. \\
+NEO-2 & (b) & trend fails & Offline evaluation of the same outputs, \emph{not a registered result}: total over reference 0.96--0.99,
+0.904, 0.932, 0.979, 1.002, 1.062; all rows in tolerance, intercept 0.888, $\sigma_a=0.034$. \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Stage-1 verdicts per code and lane. Ratios at $s=0.01,\dots,0.36$ unless stated.}
+\end{center}
+
+MARS-K reproduces the stage-1 reference only after two corrections. Its KNTV=20/21 torque is
+$-2\,{\rm RNTOR}\,{\rm Im}\,{\rm DWKA}$, twice $n\,{\rm Im}\,\delta W_K$ (ratio 2.0000 on upstream master, 1.0000
+with the factor corrected, filed as gafusion/MARS-Q issue 21 and PR 22), and the writer must pass
+$\omega_E$ with MARS's sign ($\Phi'$ convention). With both, an offline evaluation (not registered) gives the
+resonant MARS ion torque over the reference as 1.07, 1.05, 1.04, 1.09 at $s=0.04$, 0.09, 0.16, 0.36; a residual
+$+4$--$9\,\%$ remains.
+
+\subsection*{POTATO full-orbit check}
+POTATO includes the binormal drift phase and the radial excursion. Zenz's rung-3 benchmark matches NEO-RT in
+absolute units in the thin limit. The prepared stage-1 POTATO array is not launched and has no registry entry.
+A single smoke run at $s=0.09$ ($\epsilon=0.03$) gave $|T_{\rm POTATO}|/$\texttt{torque\_ref\_fullphase}
+$=4.49$ (4.91 against the thin-orbit reference), outside the pre-declared expectation of about 1.2. It agrees
+with no reference. The factor of about 4 is under investigation in our input conversion (equilibrium and
+perturbation files, force rescaling, box conversion); it is not a POTATO defect. If the absolute scale stays
+unpinned, the pre-declared fallback is the six-surface shape $T(s)/T(0.36)$.
 
 \pageheading{Free boundary and the first 3D comparison}
 \subsection*{Reference states}
@@ -307,8 +408,14 @@ the window jump of $\xi_n$ across each rational ($w\ge0.04\rho$, ne 32/48/64); t
 $n=3$, $m=7$--9 jumps agree with fixed-boundary GPEC to about 5\,\%, while the full-spectrum
 and $n=6$ jumps stay unconverged. VMEC++ 3D free boundary
 (\texttt{vmecpp\_fb3d\_rmp\_cut0997\_20261013\_01}, BIEST and NESTOR, ntor 1--2) did not stop
-natively at ns65 (iteration cap), so no linearity claim is made; the ns257 rerun
-\pending{\texttt{vmecpp\_fb3d\_rmp\_cut0997\_ns257\_20261013\_01}} is running. The GVEC 3D
+natively at ns65 (iteration cap), so no linearity claim is made. The ns257 ntor-1 rerun
+(\texttt{vmecpp\_fb3d\_rmp\_cut0997\_ns257\_20261013\_01}) is not linear-limit-qualified for any
+of its four ladders (BIEST and NESTOR, phasing 000 and 010): no task reached the native target (B0 fsq
+$2.7\times10^{-11}$ BIEST, $1.5\times10^{-10}$ NESTOR against $10^{-12}$), the BIEST response per unit
+amplitude changes by 1.7--2.2\,\% between $a=0.01$ and $0.02$ but by 8--9\,\% at $a=0.05$, NESTOR is not
+linear (17--36\,\%), and offset starts do not return to the same state. No value enters the KIN6D comparison;
+at $a=0.01$ the $\xi_3/a$ values (BIEST 17.8 and 39.9\,mm, NESTOR 16.5 and 43.2\,mm for the two
+phasings, against KIN6D 15.114\,mm per unit $a$) are indicative only. The GVEC 3D
 free-boundary root \pending{\texttt{gvec3d\_fb\_rmp\_cut0997\_20261013\_05}} is still registered
 running; the GVEC free-boundary lane is otherwise stopped (\texttt{\_02}--\texttt{\_04} aborted).
 
