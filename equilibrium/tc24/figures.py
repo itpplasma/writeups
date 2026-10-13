@@ -342,6 +342,126 @@ def tc24():
     finish(fig,'tc24')
 
 
+OCT13 = "tc24_20261013"
+COLORS_13 = dict(COLORS, gvec="#56B4E9")
+LABELS_13 = dict(LABELS, gvec="GVEC")
+MARKERS_13 = dict(MARKERS, gvec="D")
+
+
+def record(figure, panel, series, x, y, r, xkey, ykey):
+    POINTS.append(dict(figure=figure, panel=panel, series=series, x=x, y=y, source=r['_file'],
+                       data_row=r['_row'], x_column=xkey, y_column=ykey, transform='identity'))
+
+
+def tc24_ns640():
+    """TC24 cell against public CHEASE NS640; filled = native stop, open = no native stop."""
+    rows = [r for r in read(f'{OCT13}/tc24_ns640.csv') if r['status'] != 'pending'
+            and r['status'] != 'control' and r['wall_s']]
+    fig, axes = plt.subplots(1, 2, figsize=(7, 3.1))
+    for j, (metric, ylabel, target) in enumerate([('bpol_l2', r'Relative $B_{pol}$ $L^2$ vs NS640', 1e-5),
+                                                   ('q_max', r'Max relative $q$ vs NS640', 1e-5)]):
+        ax = axes[j]
+        for code in ['kin6d', 'chease_public', 'chease_mars', 'vmecpp', 'desc', 'gvec']:
+            sel = [r for r in rows if r['code'] == code and r[metric]]
+            # q is a prescribed-iota readback for DESC (8.6e-8 by construction): not a solver error.
+            if code == 'desc' and metric == 'q_max':
+                continue
+            for stop in [True, False]:
+                pts = sorted([r for r in sel if yes(r['native_stop']) == stop], key=lambda r: float(r['wall_s']))
+                if not pts:
+                    continue
+                for r in pts:
+                    record('tc24_ns640', f'0,{j}', LABELS_13[code], float(r['wall_s']), float(r[metric]),
+                           r, 'wall_s', metric)
+                ax.loglog([float(r['wall_s']) for r in pts], [float(r[metric]) for r in pts],
+                          # Only the single-thread CHEASE ladders are joined; other points differ in threads/settings.
+                          linestyle='-' if stop and code.startswith('chease') else 'none',
+                          marker=MARKERS_13[code], markersize=4, linewidth=1.0, color=COLORS_13[code],
+                          markerfacecolor=COLORS_13[code] if stop else 'white',
+                          label=LABELS_13[code] if stop else None)
+        style(ax, 'Recorded wall time [s] (thread counts differ)', ylabel, target)
+    axes[0].plot([], [], marker='o', color='.3', markerfacecolor='white', linestyle='none',
+                 label='no native stop / folded')
+    finish(fig, 'tc24_ns640')
+
+
+def edge_scan():
+    """GPEC n=3 resonant flux versus edge treatment."""
+    rows = read(f'{OCT13}/gpec_edge_scan.csv')
+    order = ['0.990', '0.995', '0.997', '0.999', 'full']
+    fig, axes = plt.subplots(1, 2, figsize=(7, 2.9), sharey=True)
+    qs = [('3.0', 'q=3', '#0072B2', 'o'), ('3.333', 'q=10/3', '#E69F00', 's'), ('3.667', 'q=11/3', '#D55E00', '^')]
+    for j, (ph, title) in enumerate([('000', '(0,0,0)'), ('010', r'(0,$\pi$,0)')]):
+        ax = axes[j]
+        for q, lab, col, mk in qs:
+            xs, ys, lo, hi = [], [], [], []
+            for i, cut in enumerate(order):
+                sel = [r for r in rows if r['phasing'] == ph and r['q'] == q and r['cut'].startswith(cut)]
+                if not sel:
+                    continue
+                vals = [float(r['singflx_T']) for r in sel]
+                for r in sel:
+                    record('edge_scan', f'0,{j}', lab, i, float(r['singflx_T']), r, 'cut', 'singflx_T')
+                xs.append(i); ys.append(np.median(vals)); lo.append(min(vals)); hi.append(max(vals))
+            ax.errorbar(xs, ys, yerr=[np.array(ys) - lo, np.array(hi) - ys], color=col, marker=mk,
+                        markersize=4, linewidth=1.0, capsize=2, label=lab)
+        ax.set_yscale('log')
+        ax.set_xticks(range(len(order)), ['0.990', '0.995', '0.997', '0.999', 'full\nLCFS'])
+        ax.set_title(f'phasing {title}', fontsize=8)
+        style(ax, r'Edge: hard cut $s_{pol}$ or full LCFS', r'GPEC $|$singflx$|$ [T]' if j == 0 else '')
+    finish(fig, 'edge_scan')
+
+
+def linear_response():
+    """MARS-F ideal resonant b_Boozer against GPEC bno at identical cuts and bl2 coils."""
+    rows = read(f'{OCT13}/marsf_gpec.csv')
+    order = ['c0995', 'c0997', 'full']
+    fig, ax = plt.subplots(figsize=(4.6, 3.0))
+    style_q = {'3': ('#0072B2', 'o'), '10/3': ('#E69F00', 's'), '11/3': ('#D55E00', '^')}
+    for q, (col, mk) in style_q.items():
+        for ph, fill, dx in [('000', True, -0.08), ('010', False, 0.08)]:
+            sel = [r for r in rows if r['q'] == q and r['phasing'] == ph]
+            xs = [order.index(r['cut']) + dx for r in sel]
+            ys = [float(r['ratio']) for r in sel]
+            for r, x, y in zip(sel, xs, ys):
+                record('linear_response', '0,0', f'q={q} {ph}', x, y, r, 'cut', 'ratio')
+            ax.plot(xs, ys, linestyle='none', marker=mk, color=col, markersize=5,
+                    markerfacecolor=col if fill else 'white',
+                    label=f'q={q}, ' + ('(0,0,0)' if ph == '000' else r'(0,$\pi$,0)'))
+    ax.axhline(1, color='.45', linestyle=':', linewidth=.8)
+    ax.set_yscale('log')
+    ax.set_xticks(range(3), ['cut 0.995', 'cut 0.997', 'full LCFS'])
+    style(ax, 'Edge treatment (identical in both codes)', r'MARS-F $b_{\rm Boozer}$ / GPEC bno')
+    ax.legend(fontsize=6.5, frameon=False, ncol=2, loc='lower left')
+    fig.tight_layout()
+    fig.savefig(OUT / 'linear_response.pdf', metadata={'CreationDate': None, 'ModDate': None})
+    plt.close(fig)
+
+
+def gvec3d_gpec():
+    """GVEC nonlinear fixed-boundary 3D (1 % of 90 kAt) against fixed-boundary GPEC, 0.995 cut."""
+    rows = read(f'{OCT13}/gvec3d_gpec.csv')
+    fig, ax = plt.subplots(figsize=(4.6, 3.0))
+    for qty, lab, col in [('bn_E', r'$\delta B\cdot n$', '#0072B2'), ('xi_n', r'$\xi\cdot n$', '#D55E00')]:
+        for ph, ls, mk in [('000', '-', 'o'), ('010', '--', 's')]:
+            sel = sorted([r for r in rows if r['quantity'] == qty and r['phasing'] == ph],
+                         key=lambda r: float(r['psiN']))
+            for r in sel:
+                record('gvec3d_gpec', '0,0', f'{qty} {ph}', float(r['psiN']), float(r['rel_diff']), r,
+                       'psiN', 'rel_diff')
+            ax.plot([float(r['psiN']) for r in sel], [float(r['rel_diff']) for r in sel], color=col,
+                    linestyle=ls, marker=mk, markersize=3.5, linewidth=1.0,
+                    label=lab + (' (0,0,0)' if ph == '000' else r' (0,$\pi$,0)'))
+    ax.axvline(0.935, color='.6', linewidth=.6)
+    ax.text(0.936, 0.42, 'q=3', fontsize=6.5, color='.4')
+    ax.set_ylim(0, 0.45)
+    style(ax, r'$\psi_N$', 'Relative difference of $n=3$ harmonics')
+    ax.legend(fontsize=6.5, frameon=False, loc='upper left')
+    fig.tight_layout()
+    fig.savefig(OUT / 'gvec3d_gpec.pdf', metadata={'CreationDate': None, 'ModDate': None})
+    plt.close(fig)
+
+
 def main():
     OUT.mkdir(exist_ok=True)
     plt.rcParams.update({'font.size': 8, 'axes.spines.top': False, 'axes.spines.right': False,
@@ -356,10 +476,11 @@ def main():
                      'circular_consumers', (7.1, 8.2))
     ladder_consumers('phase4', ['E4_E1', 'E4_E2'], 'e4_consumers', (7.1, 3.8))
     cylinder(); cylinder_time(); inverse(); tc24()
+    tc24_ns640(); edge_scan(); linear_response(); gvec3d_gpec()
     with (DATA / 'figure_points.csv').open('w') as f:
         writer = csv.DictWriter(f, fieldnames=list(POINTS[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(POINTS)
-    print(f"Thirteen figures; {len(POINTS)} plotted points indexed by source CSV and data row.")
+    print(f"Seventeen figures; {len(POINTS)} plotted points indexed by source CSV and data row.")
 
 
 if __name__ == '__main__':

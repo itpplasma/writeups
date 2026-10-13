@@ -3,9 +3,11 @@
 Consolidated Phase 6 report for Chris and the TC24 collaborators: exact,
 circular, shaped, prescribed-q, received TC24 and cylinder studies, with
 native and actual-consumer accuracy and the current defect dispositions.
-This draft adds thirteen indexed assessment figures from retained data. It does
-not include the later 11 October K5 consumer replays, DESC warm restart, MARS
-same-checkpoint diagnostic, pending NS640/K6 results or historical GPEC replays.
+The 13 October revision draft adds the NS640 cell status, edge-cut and
+linear-response comparisons, free-boundary references and the first 3D comparison
+(seventeen indexed figures). [extract_20261013.py](extract_20261013.py) freezes those
+inputs from registered job roots into `data/tc24_20261013/` with SHA256 in its
+`sources.json`; values awaiting running jobs are marked `pending` in the PDF.
 Scientific slice closure and final publication remain open.
 The native build regenerates its figures and numerical source-row indexes.
 

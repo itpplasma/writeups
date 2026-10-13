@@ -1205,3 +1205,139 @@ tc24,"1,1",VMEC++,3.7430986729450524,0.00851256121720571,phase4/tc24/reference/c
 tc24,"1,1",VMEC++,13.7533174471464,0.0037146481768458627,phase4/tc24/reference/comparison_historical.csv,25,wall_s,bpol_l2,identity
 tc24,"1,1",VMEC++,72.49572130315937,0.0019613626836988457,phase4/tc24/reference/comparison_historical.csv,26,wall_s,bpol_l2,identity
 tc24,"1,1",DESC,143.68891942501068,0.03334347428819727,phase4/tc24/reference/comparison_historical.csv,38,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",KIN6D,98.4662,1.965942609956506e-06,tc24_20261013/tc24_ns640.csv,11,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",KIN6D,2262.75,5.67e-06,tc24_20261013/tc24_ns640.csv,12,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE public,5.5307,0.029587475990001878,tc24_20261013/tc24_ns640.csv,1,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE public,9.7341,0.004353240675940871,tc24_20261013/tc24_ns640.csv,2,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE public,36.4375,0.0014294416311855043,tc24_20261013/tc24_ns640.csv,3,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE public,190.9365,0.0006366885497996417,tc24_20261013/tc24_ns640.csv,4,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE public,475.6875,5.859456181559723e-05,tc24_20261013/tc24_ns640.csv,5,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE public,13212.0,3.909049864143361e-06,tc24_20261013/tc24_ns640.csv,6,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE MARS,17.58875646814704,0.001429678496432205,tc24_20261013/tc24_ns640.csv,7,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE MARS,34.6108268275857,0.0007615965406211139,tc24_20261013/tc24_ns640.csv,8,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE MARS,72.76295302808285,0.0006444982874150482,tc24_20261013/tc24_ns640.csv,9,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",CHEASE MARS,92.9877382479608,0.00023443057376259713,tc24_20261013/tc24_ns640.csv,10,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,2.582162003032863,0.0005201546071653877,tc24_20261013/tc24_ns640.csv,13,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,4.3592101850081235,0.0005110622333049584,tc24_20261013/tc24_ns640.csv,15,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,5.807459098985419,0.00019986009843216354,tc24_20261013/tc24_ns640.csv,14,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,9.102881720056757,0.00017422946825952502,tc24_20261013/tc24_ns640.csv,16,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,28.38984923507087,0.0002820840547684056,tc24_20261013/tc24_ns640.csv,17,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,44.44991222023964,0.00015860022372558708,tc24_20261013/tc24_ns640.csv,20,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,261.04332173010334,0.00018469552679614037,tc24_20261013/tc24_ns640.csv,18,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,418.82184936106205,0.0004653770008010112,tc24_20261013/tc24_ns640.csv,21,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,908.2535648001358,0.0001675977254286682,tc24_20261013/tc24_ns640.csv,19,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",VMEC++,1548.794745285064,0.0002813434768306782,tc24_20261013/tc24_ns640.csv,22,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",DESC,205.6011218354106,0.004849898724905703,tc24_20261013/tc24_ns640.csv,23,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",DESC,790.5168151240796,0.007899958948555285,tc24_20261013/tc24_ns640.csv,26,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",DESC,3044.288821659051,0.1715141342403624,tc24_20261013/tc24_ns640.csv,28,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",DESC,4344.864493103931,0.14743728332938721,tc24_20261013/tc24_ns640.csv,29,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",DESC,5943.077566643013,0.16353761162012956,tc24_20261013/tc24_ns640.csv,27,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",DESC,5965.817039385438,0.1584990304879609,tc24_20261013/tc24_ns640.csv,24,wall_s,bpol_l2,identity
+tc24_ns640,"0,0",DESC,9258.713865689933,0.15274707946537636,tc24_20261013/tc24_ns640.csv,25,wall_s,bpol_l2,identity
+tc24_ns640,"0,1",KIN6D,98.4662,2.5174467235267173e-06,tc24_20261013/tc24_ns640.csv,11,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE public,5.5307,0.012115777443164721,tc24_20261013/tc24_ns640.csv,1,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE public,9.7341,0.0036844727180223025,tc24_20261013/tc24_ns640.csv,2,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE public,36.4375,0.0008474983836036509,tc24_20261013/tc24_ns640.csv,3,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE public,190.9365,0.00011439898585963171,tc24_20261013/tc24_ns640.csv,4,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE public,475.6875,1.525944658853362e-05,tc24_20261013/tc24_ns640.csv,5,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE public,13212.0,4.543066045581412e-07,tc24_20261013/tc24_ns640.csv,6,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE MARS,17.58875646814704,0.0008487728146681084,tc24_20261013/tc24_ns640.csv,7,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE MARS,34.6108268275857,0.00031066733047169226,tc24_20261013/tc24_ns640.csv,8,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE MARS,72.76295302808285,0.00011422570006880406,tc24_20261013/tc24_ns640.csv,9,wall_s,q_max,identity
+tc24_ns640,"0,1",CHEASE MARS,92.9877382479608,0.00010874270523697493,tc24_20261013/tc24_ns640.csv,10,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,2.582162003032863,0.001988230851067918,tc24_20261013/tc24_ns640.csv,13,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,4.3592101850081235,0.001988230851067918,tc24_20261013/tc24_ns640.csv,15,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,5.807459098985419,0.0005611007909246402,tc24_20261013/tc24_ns640.csv,14,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,9.102881720056757,0.0005611007909246402,tc24_20261013/tc24_ns640.csv,16,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,28.38984923507087,0.00013864511188799167,tc24_20261013/tc24_ns640.csv,17,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,44.44991222023964,0.00013864511188799167,tc24_20261013/tc24_ns640.csv,20,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,261.04332173010334,3.4777453940204595e-05,tc24_20261013/tc24_ns640.csv,18,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,418.82184936106205,3.4777453940204595e-05,tc24_20261013/tc24_ns640.csv,21,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,908.2535648001358,8.699844192494588e-06,tc24_20261013/tc24_ns640.csv,19,wall_s,q_max,identity
+tc24_ns640,"0,1",VMEC++,1548.794745285064,8.699844192494588e-06,tc24_20261013/tc24_ns640.csv,22,wall_s,q_max,identity
+edge_scan,"0,0",q=3,0,0.0006895863011074837,tc24_20261013/gpec_edge_scan.csv,1,cut,singflx_T,identity
+edge_scan,"0,0",q=3,1,0.00026893977173307333,tc24_20261013/gpec_edge_scan.csv,5,cut,singflx_T,identity
+edge_scan,"0,0",q=3,2,0.00017673430718665036,tc24_20261013/gpec_edge_scan.csv,9,cut,singflx_T,identity
+edge_scan,"0,0",q=3,3,0.00014213678250362785,tc24_20261013/gpec_edge_scan.csv,13,cut,singflx_T,identity
+edge_scan,"0,0",q=3,4,0.00030059784354139005,tc24_20261013/gpec_edge_scan.csv,17,cut,singflx_T,identity
+edge_scan,"0,0",q=3,4,0.00029293252193228627,tc24_20261013/gpec_edge_scan.csv,23,cut,singflx_T,identity
+edge_scan,"0,0",q=3,4,0.00028125881634064536,tc24_20261013/gpec_edge_scan.csv,29,cut,singflx_T,identity
+edge_scan,"0,0",q=3,4,0.000274434706814243,tc24_20261013/gpec_edge_scan.csv,35,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,0,0.0019094174812993429,tc24_20261013/gpec_edge_scan.csv,2,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,1,0.0005108301100134723,tc24_20261013/gpec_edge_scan.csv,6,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,2,0.00032962466466420143,tc24_20261013/gpec_edge_scan.csv,10,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,3,0.0006613685791323377,tc24_20261013/gpec_edge_scan.csv,14,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,4,0.0012354001785858761,tc24_20261013/gpec_edge_scan.csv,18,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,4,0.0012141486221528784,tc24_20261013/gpec_edge_scan.csv,24,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,4,0.0011805304711460102,tc24_20261013/gpec_edge_scan.csv,30,cut,singflx_T,identity
+edge_scan,"0,0",q=10/3,4,0.0011632877538403474,tc24_20261013/gpec_edge_scan.csv,36,cut,singflx_T,identity
+edge_scan,"0,0",q=11/3,4,0.0054569130641532355,tc24_20261013/gpec_edge_scan.csv,19,cut,singflx_T,identity
+edge_scan,"0,0",q=11/3,4,0.005355383847906164,tc24_20261013/gpec_edge_scan.csv,25,cut,singflx_T,identity
+edge_scan,"0,0",q=11/3,4,0.005197987658499656,tc24_20261013/gpec_edge_scan.csv,31,cut,singflx_T,identity
+edge_scan,"0,0",q=11/3,4,0.005174755891284995,tc24_20261013/gpec_edge_scan.csv,37,cut,singflx_T,identity
+edge_scan,"0,1",q=3,0,0.005024543251527416,tc24_20261013/gpec_edge_scan.csv,3,cut,singflx_T,identity
+edge_scan,"0,1",q=3,1,0.00214217561513017,tc24_20261013/gpec_edge_scan.csv,7,cut,singflx_T,identity
+edge_scan,"0,1",q=3,2,0.0015059873155283928,tc24_20261013/gpec_edge_scan.csv,11,cut,singflx_T,identity
+edge_scan,"0,1",q=3,3,0.00047891551241151345,tc24_20261013/gpec_edge_scan.csv,15,cut,singflx_T,identity
+edge_scan,"0,1",q=3,4,0.0015260766286287419,tc24_20261013/gpec_edge_scan.csv,20,cut,singflx_T,identity
+edge_scan,"0,1",q=3,4,0.0014755238172636756,tc24_20261013/gpec_edge_scan.csv,26,cut,singflx_T,identity
+edge_scan,"0,1",q=3,4,0.001398555921323117,tc24_20261013/gpec_edge_scan.csv,32,cut,singflx_T,identity
+edge_scan,"0,1",q=3,4,0.0013529821023003312,tc24_20261013/gpec_edge_scan.csv,38,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,0,0.01283368303629374,tc24_20261013/gpec_edge_scan.csv,4,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,1,0.0034288919004584807,tc24_20261013/gpec_edge_scan.csv,8,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,2,0.0022525217591948515,tc24_20261013/gpec_edge_scan.csv,12,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,3,0.0044833986043713555,tc24_20261013/gpec_edge_scan.csv,16,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,4,0.008268105778298228,tc24_20261013/gpec_edge_scan.csv,21,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,4,0.008129407272512964,tc24_20261013/gpec_edge_scan.csv,27,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,4,0.007911963699029868,tc24_20261013/gpec_edge_scan.csv,33,cut,singflx_T,identity
+edge_scan,"0,1",q=10/3,4,0.007798222079627033,tc24_20261013/gpec_edge_scan.csv,39,cut,singflx_T,identity
+edge_scan,"0,1",q=11/3,4,0.03615607150444545,tc24_20261013/gpec_edge_scan.csv,22,cut,singflx_T,identity
+edge_scan,"0,1",q=11/3,4,0.035491871025197436,tc24_20261013/gpec_edge_scan.csv,28,cut,singflx_T,identity
+edge_scan,"0,1",q=11/3,4,0.03447431716785236,tc24_20261013/gpec_edge_scan.csv,34,cut,singflx_T,identity
+edge_scan,"0,1",q=11/3,4,0.034328797651883416,tc24_20261013/gpec_edge_scan.csv,40,cut,singflx_T,identity
+linear_response,"0,0",q=3 000,-0.08,1.2201365080271032,tc24_20261013/marsf_gpec.csv,1,cut,ratio,identity
+linear_response,"0,0",q=3 000,0.92,1.4299210710893857,tc24_20261013/marsf_gpec.csv,5,cut,ratio,identity
+linear_response,"0,0",q=3 000,1.92,0.5845996186462781,tc24_20261013/marsf_gpec.csv,9,cut,ratio,identity
+linear_response,"0,0",q=3 010,0.08,1.39767930590411,tc24_20261013/marsf_gpec.csv,3,cut,ratio,identity
+linear_response,"0,0",q=3 010,1.08,1.084384690775662,tc24_20261013/marsf_gpec.csv,7,cut,ratio,identity
+linear_response,"0,0",q=3 010,2.08,0.6100378395721343,tc24_20261013/marsf_gpec.csv,12,cut,ratio,identity
+linear_response,"0,0",q=10/3 000,-0.08,1.293490946187254,tc24_20261013/marsf_gpec.csv,2,cut,ratio,identity
+linear_response,"0,0",q=10/3 000,0.92,2.91800896937129,tc24_20261013/marsf_gpec.csv,6,cut,ratio,identity
+linear_response,"0,0",q=10/3 000,1.92,0.5779235873475481,tc24_20261013/marsf_gpec.csv,10,cut,ratio,identity
+linear_response,"0,0",q=10/3 010,0.08,1.2420666448961752,tc24_20261013/marsf_gpec.csv,4,cut,ratio,identity
+linear_response,"0,0",q=10/3 010,1.08,1.2338971183669096,tc24_20261013/marsf_gpec.csv,8,cut,ratio,identity
+linear_response,"0,0",q=10/3 010,2.08,0.5648969594891183,tc24_20261013/marsf_gpec.csv,13,cut,ratio,identity
+linear_response,"0,0",q=11/3 000,1.92,0.41386947690976655,tc24_20261013/marsf_gpec.csv,11,cut,ratio,identity
+linear_response,"0,0",q=11/3 010,2.08,0.40123028093099156,tc24_20261013/marsf_gpec.csv,14,cut,ratio,identity
+gvec3d_gpec,"0,0",bn_E 000,0.3,0.13743809521451147,tc24_20261013/gvec3d_gpec.csv,9,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 000,0.5,0.052432212431797354,tc24_20261013/gvec3d_gpec.csv,10,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 000,0.7,0.030329964373044412,tc24_20261013/gvec3d_gpec.csv,11,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 000,0.8,0.028610186002106092,tc24_20261013/gvec3d_gpec.csv,12,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 000,0.9,0.03985859399098444,tc24_20261013/gvec3d_gpec.csv,13,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 000,0.95,0.0531961369306207,tc24_20261013/gvec3d_gpec.csv,14,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 000,0.97,0.12493063212490649,tc24_20261013/gvec3d_gpec.csv,15,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 000,0.99,0.09707177650260339,tc24_20261013/gvec3d_gpec.csv,16,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.3,0.164252048062497,tc24_20261013/gvec3d_gpec.csv,25,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.5,0.10729178410165896,tc24_20261013/gvec3d_gpec.csv,26,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.7,0.06935170449082816,tc24_20261013/gvec3d_gpec.csv,27,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.8,0.06971084676162942,tc24_20261013/gvec3d_gpec.csv,28,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.9,0.12820443898344158,tc24_20261013/gvec3d_gpec.csv,29,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.95,0.1313600295883995,tc24_20261013/gvec3d_gpec.csv,30,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.97,0.24978583703595525,tc24_20261013/gvec3d_gpec.csv,31,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",bn_E 010,0.99,0.13648292987962013,tc24_20261013/gvec3d_gpec.csv,32,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.3,0.1403095503929419,tc24_20261013/gvec3d_gpec.csv,1,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.5,0.08545459924681359,tc24_20261013/gvec3d_gpec.csv,2,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.7,0.04874162955909212,tc24_20261013/gvec3d_gpec.csv,3,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.8,0.04000782715818324,tc24_20261013/gvec3d_gpec.csv,4,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.9,0.07750722208902325,tc24_20261013/gvec3d_gpec.csv,5,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.95,0.14509921468576772,tc24_20261013/gvec3d_gpec.csv,6,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.97,0.26829298956147574,tc24_20261013/gvec3d_gpec.csv,7,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 000,0.99,0.3556855409636451,tc24_20261013/gvec3d_gpec.csv,8,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.3,0.15786693255694526,tc24_20261013/gvec3d_gpec.csv,17,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.5,0.1557581612575578,tc24_20261013/gvec3d_gpec.csv,18,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.7,0.14313117826646138,tc24_20261013/gvec3d_gpec.csv,19,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.8,0.12490713490976418,tc24_20261013/gvec3d_gpec.csv,20,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.9,0.2540415369991203,tc24_20261013/gvec3d_gpec.csv,21,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.95,0.11401244940724967,tc24_20261013/gvec3d_gpec.csv,22,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.97,0.1997379796821688,tc24_20261013/gvec3d_gpec.csv,23,psiN,rel_diff,identity
+gvec3d_gpec,"0,0",xi_n 010,0.99,0.30131882452796205,tc24_20261013/gvec3d_gpec.csv,24,psiN,rel_diff,identity
