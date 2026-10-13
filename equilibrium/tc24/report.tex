@@ -918,13 +918,29 @@ Source: \texttt{phase4/tc24/reference/comparison.csv}.}
 
 \begin{center}
 \includegraphics[width=.94\textwidth]{build/tc24.pdf}
-\captionof{figure}{TC24 modx03 differences against the finite public-CHEASE
-comparator. Only native-stopped states with complete physical readback enter
-the curves; the comparator's zero is omitted. KIN6D uses the executed
-normalized-current binary at \texttt{5dfb9df}, preceding the later speed-up.
+\captionof{figure}{TC24 modx03 convergence and comparator error.
+(a)~KIN6D self-convergence of the later fixed-quadrature sequence
+($n=256$, 320, 384): filled markers are successive-grid $L^2$ differences,
+plotted at the finer grid (only two exist; the stored sequence holds no
+fields, so no further self-differences can be formed), open markers a
+Richardson estimate of the error at each $n$ from the $n=320$--384 difference
+with the measured orders quoted below; dotted and dash-dotted
+lines show slopes $p=3$ and 4.
+(b)~Public CHEASE ladder: open markers are differences to the NS128 state
+(NS16--64), filled markers successive-NS differences (128$\to$256,
+256$\to$320, 320$\to$384, 384$\to$512), with the fitted order 1.87.
+(c)~Differences of the historical converged states to the finite public NS128
+comparator against producer DOF (public CHEASE itself omitted). The shaded
+band lies below the comparator's own estimated error, the NS128-to-NS256
+difference ($6.2\times10^{-4}$ in $B_{pol}$); differences there are not
+resolved by this comparator. The KIN6D curve in (c) uses the historical
+normalized-current binary \texttt{5dfb9df} (three-grid $B_{pol}$ order
+\TcKinBRate, pre-asymptotic), not the binary of (a).
 Invalid DESC states and capped finer attempts remain in the execution inventory.
 Timings are single observations under load.
-Source: \texttt{phase4/tc24/reference/comparison\_historical.csv}.}
+Sources: \texttt{phase4/tc24/reference/kin6d\_refinement.csv},
+\texttt{reference\_uncertainty*.csv} and
+\texttt{comparison\_historical.csv}.}
 \end{center}
 
 The new DESC native controls evaluate all 1200 frozen physical points and
@@ -940,13 +956,16 @@ classification; DESC's native-stopping and physical-accuracy cells remain open.
 
 The historical three-grid KIN6D orders are \TcKinPsiRate{} for flux and
 \TcKinBRate{} for the poloidal field; public CHEASE's latest field order is
-\TcPublicBRate{}. They do not yet establish the expected asymptotic regime.
-A later fixed-quadrature sequence at boundary sizes 256, 320 and 384 gives
-orders \TcHeldKinPsiRate{} for flux and \TcHeldKinBRate{} for poloidal field.
-The poloidal-field order is consistent with the expected cubic-element rate;
-the finest flux difference is already below target. These measurements
-resolve the earlier rate qualification, while the poloidal-field target
-remains unmet against the finite public NS320 comparator.
+\TcPublicBRate{}. The historical KIN6D differences in panel~(c) are
+pre-asymptotic and are taken against a finite comparator. KIN6D itself
+converges: the later fixed-quadrature sequence at boundary sizes 256, 320
+and 384 gives orders \TcHeldKinPsiRate{} for flux and \TcHeldKinBRate{} for
+poloidal field, consistent with the expected cubic-element rate, and the
+finest flux difference is already below target. Differences against public
+CHEASE saturate at CHEASE's own error, not at a KIN6D limit. The statement that the
+poloidal-field target remains unmet against the finite public NS320
+comparator refers to that comparator's error, not to a lack of KIN6D
+convergence.
 
 \begin{center}\small
 \input{build/tc24_refinement.tex}

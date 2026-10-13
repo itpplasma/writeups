@@ -331,15 +331,86 @@ def inverse():
 
 
 def tc24():
-    rows=read('phase4/tc24/reference/comparison_historical.csv')
-    rows=[r for r in rows if r['name']=='reference' and yes(r['native_converged']) and yes(r['readback_complete'])]
-    fig,axes=plt.subplots(2,2,figsize=(7,4.8))
-    for i,(metric,ylabel,target) in enumerate([('psi_l2',r'Relative $\psi$ difference',1e-6),('bpol_l2',r'Relative $B_{pol}$ difference',1e-5)]):
-        for j,(x,label) in enumerate([('dof','Producer DOF'),('wall_s','Producer time [s]')]):
-            for code in CODES:
-                draw(axes[i,j],[r for r in rows if r['code']==code],x,metric,'tc24',f'{i},{j}',LABELS[code],COLORS[code])
-            style(axes[i,j],label,ylabel,target)
-    finish(fig,'tc24')
+    """Three panels: KIN6D self-convergence, comparator ladder, code differences with comparator floor."""
+    ref = 'phase4/tc24/reference/'
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 3.1))
+    # (a) KIN6D, current fixed-quadrature binary: successive differences and Richardson estimates.
+    ax = axes[0]
+    kin = read(ref + 'kin6d_refinement.csv')[:3]
+    nn = [float(r['boundary_nodes']) for r in kin]
+    for key, rate_key, name, col, mk in [('bpol_l2', 'generalized_bpol_rate', r'$B_{pol}$', '#0072B2', 'o'),
+                                         ('psi_l2', 'generalized_psi_rate', r'$\psi$', '#D55E00', 's')]:
+        adj = 'adjacent_' + key
+        pts = [(float(r['boundary_nodes']), float(r[adj]), r) for r in kin if r[adj]]
+        p = float(kin[2][rate_key])
+        ratio = nn[2] / nn[1]
+        e384 = pts[-1][1] / (ratio ** p - 1.0)
+        rich = [(n, e384 * (nn[2] / n) ** p) for n in nn]
+        for x, y, r in pts:
+            record('tc24', '0', name + ' successive difference', x, y, r, 'boundary_nodes', adj)
+        ax.loglog([x for x, _, _ in pts], [y for _, y, _ in pts], marker=mk, color=col, markersize=4,
+                  linewidth=1.2, label=name + ' successive diff.')
+        for (n, e), r in zip(rich, kin):
+            POINTS.append(dict(figure='tc24', panel='0', series=name + ' Richardson error estimate', x=n, y=e,
+                               source=r['_file'], data_row=r['_row'], x_column='boundary_nodes', y_column=adj,
+                               transform=f'Richardson, p={p:.3f}, successive difference n320-n384'))
+        ax.loglog([n for n, _ in rich], [e for _, e in rich], marker=mk, color=col, markerfacecolor='white',
+                  markersize=4, linewidth=.8, linestyle='--', label=name + ' Richardson error')
+        if key == 'bpol_l2':
+            x0, y0 = pts[-1][0], pts[-1][1]
+            xs = np.array([nn[0] * .97, nn[2] * 1.03])
+            for q, ls in [(3, ':'), (4, '-.')]:
+                ax.loglog(xs, y0 * (xs / x0) ** (-q) * 2.2, color='.4', linestyle=ls, linewidth=.8,
+                          label=f'slope $p={q}$')
+    style(ax, 'KIN6D boundary nodes $n$', r'Relative $L^2$ self-difference')
+    ax.set_title('(a) KIN6D self-convergence', fontsize=8)
+    ax.set_xticks([256, 320, 384]); ax.set_xticklabels(['256', '320', '384']); ax.minorticks_off()
+    ax.set_ylim(3e-7, 3e-2)
+    ax.legend(frameon=False, fontsize=5, loc='upper right')
+    # (b) Public CHEASE ladder: differences to NS128 (NS16-64), successive differences above.
+    ax = axes[1]
+    hist = [r for r in read(ref + 'comparison_historical.csv') if r['name'] == 'reference'
+            and r['code'] == 'chease_public' and float(r['bpol_l2']) > 0]
+    unc = read(ref + 'reference_uncertainty.csv')[:1] + read(ref + 'reference_uncertainty_n320.csv')[2:3] + \
+        read(ref + 'reference_uncertainty_n384.csv')[:1] + read(ref + 'reference_uncertainty_n512.csv')[:1]
+    ns_fin = [256, 320, 384, 512]
+    for key, col, mk, name in [('bpol_l2', '#0072B2', 'o', r'$B_{pol}$'), ('psi_l2', '#D55E00', 's', r'$\psi$')]:
+        for r in hist:
+            record('tc24', '1', name + ' vs NS128', float(r['ns']), float(r[key]), r, 'ns', key)
+        for n, r in zip(ns_fin, unc):
+            record('tc24', '1', name + ' successive', n, float(r[key]), r, 'comparison', key)
+        ax.loglog([float(r['ns']) for r in hist], [float(r[key]) for r in hist], marker=mk, color=col,
+                  markersize=4, linewidth=1.2, markerfacecolor='white', label=name + ' vs NS128')
+        ax.loglog(ns_fin, [float(r[key]) for r in unc], marker=mk, color=col, markersize=4,
+                  linewidth=1.2, label=name + ' successive NS')
+    xs = np.array([16., 512.])
+    ax.loglog(xs, 0.03 * (xs / 16) ** (-1.87), color='.4', linestyle=':', linewidth=.8, label='order 1.87')
+    style(ax, 'Public CHEASE NS', 'Relative $L^2$ difference')
+    ax.set_title('(b) public CHEASE ladder', fontsize=8)
+    ax.set_xticks([16, 32, 64, 128, 256, 512]); ax.set_xticklabels(['16', '32', '64', '128', '256', '512'])
+    ax.minorticks_off(); ax.set_ylim(3e-8, 3e-1)
+    ax.legend(frameon=False, fontsize=5, loc='upper right')
+    # (c) Code differences from the NS128 comparator; shading = comparator's own error.
+    ax = axes[2]
+    rows = [r for r in read(ref + 'comparison_historical.csv') if r['name'] == 'reference'
+            and yes(r['native_converged']) and yes(r['readback_complete'])]
+    for code in CODES:
+        if code != 'chease_public':
+            draw(ax, [r for r in rows if r['code'] == code], 'dof', 'bpol_l2', 'tc24', '2',
+                 LABELS[code], COLORS[code])
+    floor_row = unc[0]
+    floor = float(floor_row['bpol_l2'])
+    record('tc24', '2', 'NS128 error floor', 1e3, floor, floor_row, 'comparison', 'bpol_l2')
+    ax.axhspan(1e-9, floor, color='.85', zorder=0)
+    ax.axhline(floor, color='.4', linewidth=.8)
+    ax.text(1.5e3, floor * .8, 'NS128 error\n(NS128 vs NS256)', fontsize=5.5, va='top')
+    ax.set_ylim(1e-5, 5e-2)
+    ax.legend(frameon=False, fontsize=5.5, loc='upper right')
+    style(ax, 'Producer DOF', r'Relative $B_{pol}$ difference', 1e-5)
+    ax.set_title('(c) differences vs NS128', fontsize=8)
+    fig.tight_layout()
+    fig.savefig(OUT / 'tc24.pdf', metadata={"CreationDate": None, "ModDate": None})
+    plt.close(fig)
 
 
 OCT13 = "tc24_20261013"
