@@ -287,7 +287,7 @@ Current gate assessment (2026-10-10):
    fields, spectra and coordinates, including VMEC++ fixed/free-boundary 3D.
 2. **Transport:** the same cases and fields, separating model, collision and orbit
    approximations, then NTV (SFINCS, NEO-2, NEO-RT, POTATO, MARS, GPEC, Shaing,
-   ARES, KIN6D).
+   KIN6D).
 3. **Full ITER benchmark:** converge to Xingting's case and prepare reviewed
    NTVTOK packages and draft messages.
 4. **Uncertainty and sensitivity (UQ), once the pipeline reaches NTV:** propagate
