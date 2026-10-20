@@ -4,12 +4,12 @@ Citations `[@key]` refer to [writeups.bib](../writeups.bib).
 
 - Scope: GVEC's experimental free-boundary loop (plasma energy, BIEST exterior field, coil field, boundary update and termination), our fork's Newton variant, and the axisymmetric TC24 runs. Fixed-boundary conventions are in the [GVEC equilibrium correspondence](gvec_equilibrium_source_correspondence.md) and the [discrete force audit](gvec_discrete_force_audit.md).
 - Upstream: [gvec-group/gvec 7da1182fd81b1ba552142bb663319d74c7edfb8b](https://gitlab.mpcdf.mpg.de/gvec-group/gvec/-/tree/7da1182fd81b1ba552142bb663319d74c7edfb8b), branch `free_boundary_three_step` (MR !168, Draft, milestone v1.6), commit date 2026-10-19.
-- Fork: [calbert/gvec ca733fe416f0dfda95e3b943a155617e35da63b3](https://gitlab.mpcdf.mpg.de/calbert/gvec/-/tree/ca733fe416f0dfda95e3b943a155617e35da63b3), branch `equilibrium/fb-newton-gtol-20261013`. It branches from upstream 1ac00be4 (2026-10-01) with 11 commits (one merge); it does not contain upstream 93d36ae9 (I_tor profile for BIEST) or 7da1182f.
+- Fork: [itpplasma/gvec b37d82b3c3c27589061f2bddc00bbb25139e2ffe](https://github.com/itpplasma/gvec/tree/b37d82b3c3c27589061f2bddc00bbb25139e2ffe), branch `develop`, commit date 2026-10-20. It merges upstream 7da1182f (d660cb3b) and the earlier fork line `equilibrium/fb-newton-gtol-20261013` at ca733fe416f0dfda95e3b943a155617e35da63b3 (0065137c). That line branched from upstream 1ac00be4 (2026-10-01); the TC24 runs below used its commit a507bd82e825a2202e7004efb37617ba716131f9. [V]
 - Vacuum solver: [fbtools 14a5c4a7c3ff7458780edf7ebb0bd76712b44fbf](https://gitlab.mpcdf.mpg.de/nmpp-mhd-group/fhindenlang/fbtools/-/tree/14a5c4a7c3ff7458780edf7ebb0bd76712b44fbf) with submodule [BIEST 6944d5c0fb1e5e2eb12868749e1a1f829601dc63](https://github.com/dmalhotra/BIEST/tree/6944d5c0fb1e5e2eb12868749e1a1f829601dc63).
-- Paths below are relative to these trees. `free_boundary.py` is `python/gvec/core/run/free_boundary.py`; `evalfunc` is `src/functionals/mhd3d/mhd3d_evalfunc.F90`; `mhd3d.F90` is `src/functionals/mhd3d/mhd3d.F90`; `txx` is BIEST `include/biest/vacuum-field.txx`. Line numbers are for 7da1182f unless marked fork.
+- Paths below are relative to these trees. `free_boundary.py` is `python/gvec/core/run/free_boundary.py`; `evalfunc` is `src/functionals/mhd3d/mhd3d_evalfunc.F90`; `mhd3d.F90` is `src/functionals/mhd3d/mhd3d.F90`; `txx` is BIEST `include/biest/vacuum-field.txx`. Line numbers are for 7da1182f unless marked fork (b37d82b3) or given with another commit.
 - Labels: **[V]** checked against the pinned source, run record or a reference; **[D]** derived here or in the [derivation companion](gvec_free_boundary_derivation.md); **[H]** hypothesis, not tested.
-- Status: source correspondence and first-variation algebra checked. GVEC has no derivation document, no convergence argument and no free-boundary test with assertions. Nothing here proves that the GVEC iteration converges.
-- Native evidence for the convergence questions is KIN6D, not this file: `kin6d/docs/ideal-free-boundary.md` and `kin6d/docs/gs-free-boundary.md` (itpplasma/kin6d at 73891c54a71c3a080826043fd02924779a6e79a3). Their proofs are not repeated here.
+- Status: source correspondence and first-variation algebra checked. Upstream GVEC has no derivation document, no convergence argument and no free-boundary test with assertions. The fork adds free-boundary regressions with physical oracles (below). Nothing here proves that the GVEC iteration converges.
+- Native evidence for the convergence questions is KIN6D, not this file. On itpplasma/kin6d `main` at f5420f386bf9e032eec99b0df1f99016a66ac043: the formulation and proof-obligation map `docs/free-boundary-theory.md`; derivations `theory/derivations/free-boundary-first-variation.md`, `free-boundary-gauge-vertical.md`, `free-boundary-iterations.md`, `free-boundary-landreman-benchmark.md`; Lean bordering lemmas B1 and B2 in `proof/Kin6d/Bordered.lean` (`lemma_B1` :103, `lemma_B2` :565); hypothesis diagnostics (`ideal_fb_hypotheses`, slide gauge) in `src/mhd/ideal_free_boundary.f90`; measurements in `docs/ideal-free-boundary.md` and `docs/gs-free-boundary.md`. The measurements cited below are unchanged since 73891c54a71c3a080826043fd02924779a6e79a3. Proofs are not repeated here.
 
 ## Genealogy
 
@@ -81,7 +81,7 @@ Derivations are in the [companion](gvec_free_boundary_derivation.md).
 - nfp: the angular grid spans one field period with weight ×nfp (E2). BIEST replicates one period by rotations 2πj/nfp about z (`surface_op.txx` `CompleteVecField`); this equals GVEC's ζ→ζ+2π/nfp for hmap_RZ. For other hmaps (G-frame [@hindenlang2025], knots) this is not checked. [H]
 - Orientation: `clockwise_zeta` flips the toroidal index before and after BIEST (`free_boundary.py:916–933`). The winding-number test replaced an earlier geometric check after review on !168. [V]
 - 2π and μ0: GVEC stores `Phi_edge/2π` (`mhd3d.F90:140`), so `Φ′` and `χ′` carry 1/(2π) and B is in tesla. W and all forces are μ0-scaled (units T² m³); B_ext² from BIEST is in T². `mu_0 = 2e-7·2π` (`mhd3d.F90:119`). [V]
-- Sign of I: J0 is oriented along ∂_θx relative to the outward normal (`txx:142–160`); a positive circulation then corresponds to current along the orientation fixed by θ and the normal. Correct for hmap_RZ with the ζ flip [H]; the fork's Ampère circulation oracle on #96 supports it, at about 1e-3.
+- Sign of I: J0 is oriented along ∂_θx relative to the outward normal (`txx:142–160`). BIEST imposes +I along its poloidal index only when (toroidal tangent)×(poloidal tangent) points outward. Upstream passes `I_tor·mu_0` for both ζ orientations (`free_boundary.py:925–931`). This is correct for clockwise ζ (hmap_RZ, with the index flip) and has the wrong sign for counter-clockwise ζ (G-frames): circulation/(μ0 I) = −1.0000 on the N3.471 G-frame before the fork fix 8ffcd68a3c526d26f4e4053c1d49e06beb9188cc, +1.0000 after (fork `free_boundary.py:1652–1658`; regression `test_B2_exterior_counterclockwise_zeta`). [V, fork bug-hunt record]
 - Stellarator symmetry: BIEST runs with `half_period=false` (`txx:48,107`); symmetry is retained only through GVEC's sin/cos projection. [V]
 - Grid: BIEST source and target grid is GVEC's integration grid at s=1 with a half-cell offset (`free_boundary.py:903–907`); BIEST upsamples internally by `digits` (default 8). [V] The offset is harmless for a Fourier resampling [H].
 
@@ -102,14 +102,24 @@ The [derivation](gvec_free_boundary_derivation.md#8-vacuum-energy-variation) giv
 
 ## Verified defects and upstream issues
 
-| Item | Source | Status |
+Present at upstream 7da1182f. "Fixed" means a fork commit on itpplasma/gvec `develop` (b37d82b3) that adds a regression test, unless noted. Failure of that test on the parent commit was checked for 8ffcd68a, ae4b2662, bfbc57ac, 1813c5a7, 8df39023, 781b4838 and 75fce329 (a strict xfail before); for the others it is not recorded.
+
+| Item | Source (7da1182f) | Status |
 |---|---|---|
-| `reset_minimizer` can never become True in the step heuristic | `free_boundary.py:357, 518–519` (condition requires it already True) | [V] dead code |
-| Statefile check inverted and not raised | `free_boundary.py:672–673`: `if len(...) > 0: FileNotFoundError(...)` | [V] |
-| BFGS `M` stored but unused | `free_b_minimizer_BFGS.F90:30, 69–72` | [V] |
-| Absolute `ftol`/`xtol` on a 2-entry window | `:224–251, 469–471`; defaults `:37–42` | [V]; stops after one update (#99) |
-| `xnorm = xnorm_fb/dt` | `:553` | [V]; for GD this is a mode-scaled force norm, not a step length |
-| `"{i}_b_"` key without X prefix | `python/gvec/util/geometry.py:141` | [V] (#98) |
+| Plasma-current sign of the BIEST field for counter-clockwise ζ | `free_boundary.py:925–931` | [V]; fixed 8ffcd68a3c526d26f4e4053c1d49e06beb9188cc |
+| Convergence statistics set only in `__init__`; a stage after a gtol stop inherits them and makes 0 updates | `free_boundary.py:69–76` | [V]; fixed ae4b266274021758fe635017914f55d051c3ceb0 |
+| `reset_minimizer` can never become True in the step heuristic | `free_boundary.py:357, 518–519` (condition requires it already True) | [V] dead code; fixed bfbc57acf546bd2681074a4750e84c2fc94eb038 (reset when dt is held at `min_dt`; the intended semantics are a judgement call) |
+| Statefile check inverted and not raised | `free_boundary.py:672–673`: `if len(...) > 0: FileNotFoundError(...)`; also `fixed_boundary.py:101–102` | [V]; fixed bfbbfdcc07c46234a412584f38d408abbc5f567a (no test) |
+| Restart boundary mode left out of the new parameters is kept | `python/gvec/util/geometry.py:143–145` | [V]; fixed 01c5399dc51db9c3ec11ee11b4243e632e3b8013 |
+| `save_statefile` writes into the working directory, not the run directory | `python/gvec/core/minimize.py:187–190` | [V]; fixed 057050e1d8129446f197bc7cca58707969b3d024 |
+| `update_boundary` discards the step size | `python/gvec/core/minimize.py:699–701` | [V]; fixed 8df39023b120d517dc066ebceff89aacb2fe45ce |
+| Resolution proposal reads column `fb_update−1` (off by one after a full loop) | `free_boundary.py:634–638` | [V]; fixed 1813c5a743f6323f4aa07288994bbeb80bc63294 |
+| `W_MHD` uses `(γ−1)μ0 p` instead of `μ0 p/(γ−1)` | `python/gvec/quantities.py:1921` | [V]; latent, the two agree at γ=0, the only supported value; fixed 781b48383b1049191cdeac770e8645675bf73927 |
+| Current fit: iota(0) ≈ 0 instead of the finite limit of `I_tor·iota_curr_bar` | `python/gvec/core/minimize.py:342` (no axis extrapolation of the product) | [V]; fixed 75fce32918e60e528f53ad48b44fb716423a2968 (independent Ampère/flux oracle, 1e-3) |
+| BFGS `M` stored but unused | `free_b_minimizer_BFGS.F90:30, 69–72` | [V]; report only, not changed (classified as a missing feature, hypothesis) |
+| Absolute `ftol`/`xtol` on a 2-entry window | `:224–251, 469–471`; defaults `:37–42` | [V]; stops after one update (#99); fork 4e9bb9a52f9e2854469279972d564386cc16b6b1 |
+| `xnorm = xnorm_fb/dt` | `:553` | [V]; for GD this is a mode-scaled force norm, not a step length; not changed |
+| `"{i}_b_"` key without X prefix | `python/gvec/util/geometry.py:141` | [V] (#98); fork 24ae677d921a56d36314975950733647cde87468 |
 
 Issue states recorded from local GitLab dumps on 2026-10-19 (not re-queried):
 
@@ -122,22 +132,60 @@ Issue states recorded from local GitLab dumps on 2026-10-19 (not re-queried):
 
 ## Our fork
 
-Commits 1ac00be4..ca733fe4 (merge 352350f4 omitted), all 2026-10-12/13:
+All commits below are ancestors of itpplasma/gvec `develop` b37d82b3 (checked with `git merge-base --is-ancestor`).
+
+First fork line (2026-10-12/13, 1ac00be4..ca733fe4, merged at 0065137c), the #96–#100 items and the Newton update:
 
 | Commit | Change | Evidence |
 |---|---|---|
-| 1c59a5d2 | Axisymmetric states (one toroidal point); BIEST on an odd multiple of points when < 6 | 5 unit tests, `test_free_boundary_axisym.py` |
-| 62d3b53e | Biot–Savart comment μ0/(4π) | segment sum agrees to 9e-16 |
-| 24ae677d | Restart boundary read with `X{i}_b_` | `test_util.py` |
-| 4e9bb9a5 | `ftol` relative to the moving-average target; ftol/xtol only with a full window | MR !188 text |
-| 8a59ae79 | Saved parameter files carry the moved boundary | — |
-| b298321a | `method="newton"`: solve `g(y) = Pᵀ F_b(x0 + P y) = 0` for normal displacement y; FD Jacobian (interior solve + BIEST per unknown), Broyden, Levenberg–Marquardt, step limit, backtracking on \|g\| | fork `free_boundary.py:804–1027` |
-| c792c3eb | FD workers pinned to CPUs; Broyden rebuild if \|g\| drops by less than 0.5 | — |
-| 4d9fb7ae | Normal basis uses n per field period (was n·nfp² for nfp>1) | nfp=3 helical test |
-| a507bd82 | Newton residual with ε_spectral=0 | fork `src/pygvec/state.F90:388–408` |
-| ca733fe4 | `newton_gtol`: small steps do not stop above it; rejected steps rebuild Broyden first | No run uses it [V] |
+| 1c59a5d2b7a406127603138cc53a58a86ec1ab8d | Axisymmetric states (one toroidal point); BIEST on an odd multiple of points when < 6 (#96) | 5 unit tests, `test_free_boundary_axisym.py` |
+| 62d3b53e0ab3495ff892206c9bfad852148f1640 | Biot–Savart comment μ0/(4π) (#97) | segment sum agrees to 9e-16 |
+| 24ae677d921a56d36314975950733647cde87468 | Restart boundary read with `X{i}_b_` (#98) | `test_util.py` |
+| 4e9bb9a52f9e2854469279972d564386cc16b6b1 | `ftol` relative to the moving-average target; ftol/xtol only with a full window (#99) | MR !188 text |
+| 8a59ae7902575ca3e3dceeedb743aef7f3c5459f | Saved parameter files carry the moved boundary (#100) | — |
+| b298321aaf28623deb00048b59f8b40579967544 | `method="newton"`: solve `g(y) = Pᵀ F_b(x0 + P y) = 0` for normal displacement y; FD Jacobian (interior solve + BIEST per unknown), Broyden, Levenberg–Marquardt, step limit, backtracking on \|g\| | fork `free_boundary.py:779–1068` (current form) |
+| c792c3eb0db95f41c9d70fb97636e7bcd3fb7279 | FD workers pinned to CPUs; Broyden rebuild if \|g\| drops by less than 0.5 | — |
+| 4d9fb7ae74ccb1d1aa79203dc884f0e9bde284da | Normal basis uses n per field period (was n·nfp² for nfp>1) | nfp=3 helical test |
+| a507bd82e825a2202e7004efb37617ba716131f9 | Newton residual with ε_spectral=0 | fork `src/pygvec/state.F90:384–411` |
+| ca733fe416f0dfda95e3b943a155617e35da63b3 | `newton_gtol`: small steps do not stop above it; rejected steps rebuild Broyden first | used as the absolute stop in the stellarator regression (12d778df) |
 
-- The normal basis is `(n_R, n_Z) = (Z_θ, −R_θ)/|·|` per ζ plane (fork `free_boundary.py:1280–1314`), the outward normal of E5. It removes the tangential reparametrization directions, whose only stiffness in GVEC is the condensation weight (fork docstring `:813–822`). [V]
+Fixes of fork-introduced defects (2026-10-19/20), each with a regression test:
+
+| Commit | Defect fixed | Evidence |
+|---|---|---|
+| b979af8cc0e61a01d0ffb5fea10fbb477ef5a87b | Saved parameter files (8a59ae79) repeated the initial boundary perturbation on restart | R00 3.01 → 3.02 m in the test before the fix (commit message) |
+| 4b194acf75098884762445687203667510110b58 | Stale in-memory dof checkpoint survived Finalize/Init and corrupted a later state | commit message: first FD column detJ ≤ 0 |
+| 22bcccfd45870058e8c39fd2ffbcfa051acf9bc6 | Newton ignored the `totalIter` budget | parent: 50 iterations with budget 0 [V] |
+| 64fc486d70163e8b3603e79a703910ba0fd7af63 | Broyden Jacobian kept in the old basis after P was rebuilt | parent fails 2 tests [V]; superseded by 81fe6405, which never rebuilds P within a solve (`_change_jacobian_basis`, fork `free_boundary.py:1215–1220`, is now used only by its unit test) |
+| 1991c38feda10944d53ccc3af7012fb8b8e98969 | Normal basis built from X1 modes only (vertical shift unrepresentable with cos-only X1); no tangential gauge | complete X1/X2 normal-trace basis, below [V] |
+| 81fe640587e339ccb89f9647b78b057e86427591 | P rebuilt after every step while the Jacobian treated it as frozen, omitting `(∂P/∂y)ᵀ r`; forward differences | P fixed within a solve, central differences, below [V] |
+| 12d778df004f1e25494140f2efd6bbc08cdecbb9 | Stellarator regression accepted a state after one Newton update | converged-equilibrium test, below [V] |
+
+- Normal basis at b37d82b3 (`_normal_displacement_basis`, fork `free_boundary.py:1530–1582`) [V]:
+  - The sampled normal-trace map A has one column `φ_k n_var` for every allowed X1 and X2 boundary DOF, with `(n_R, n_Z) = (Z_θ, −R_θ)/|·|` per ζ plane, the outward normal of E5.
+  - SVD of A; right singular vectors with singular value > 1e-10 × the largest span the independent normal traces (P); the rest (T) are tangential nulls (`:1572–1575`).
+  - Slide gauge `Tᵀ D dx = 0`, `D_kk = m_k² + (n_k nfp)²`, applied as a correction of P along T, then QR (`:1576–1580`). D annihilates rigid shifts, so translations stay available, and the correction leaves the normal trace unchanged. `TᵀDT` is positive definite because a constant displacement cannot be tangential everywhere on a closed section (docstring `:1540–1545`) [D in the docstring; not re-derived here].
+- Newton at b37d82b3 (`_run_newton_loop`, fork `free_boundary.py:779–1068`) [V]:
+  - P is built once per solve (`basis()` `:860–865`, called once at `:866`) and not rebuilt after accepted steps, so `x = x_start + P y` and `Dg = Pᵀ (∂F_b/∂x) P` holds also for `F_b ≠ 0` (derivation §10).
+  - The FD Jacobian uses central differences with step `newton_fd_step`: two interior solves and two BIEST calls per unknown (`:887–926`, difference quotient `:907`).
+  - Merit is \|g\| with backtracking; there is no energy merit, and indefinite directions such as the fixed-current vertical saddle are handled by the residual merit only.
+  - The circulation c = μ0 I_tor(1) is taken from the state at each residual evaluation (`_boundary_residual`, `:1242–1256`).
+- Before 1991c38f/81fe6405 (e.g. at a507bd82, used for TC24) [V by source]: the basis was `{φ_k n : φ_k an X1 boundary function}`, L2-projected onto the X1/X2 coefficients (a507bd82 `free_boundary.py:1255–1288`); the FD Jacobian was a forward difference (`:886–896`); P was rebuilt after each accepted step (`:968`) while the Jacobian and Broyden updates treated it as constant. Its normal traces span only the X1 functions, so with cos-only X1 (up-down symmetric) the odd trace of a vertical shift is missing [D].
+
+### Fork regressions with physical oracles (b37d82b3)
+
+Measured by the fork lane reports of 2026-10-20 (fresh editable builds, fbtools 14a5c4a7, headless, four OpenMP threads); not re-run here.
+
+| Test | Before the fixes (at e2e3011a) | At b37d82b3 | Status |
+|---|---|---|---|
+| `test_free_boundary_offsets.py` radial return: matched current-controlled axisymmetric polygon-coil equilibrium, rigid +10 mm R start, acceptance 0.5 mm contour distance (`:156–201`) | 12.31 mm after two accepted updates (strict xfail) | 10.14 µm, 4 updates, 39.9 s | [V, report] |
+| Same, +10 mm Z start | 10.00 mm after one update (strict xfail) | 9.72 µm, 2 updates, 41.7 s | [V, report] |
+| `test_free_boundary_realcases.py` real-coil stellarator, 9×9 integration grid (`:239–261`) | Accepted after one Newton update (target 1e-2, interior tol 1e-3). Pre-fix (5fe6ba29) and fixed-basis (81fe6405) surfaces differed by 76.8 mm (symmetric max); full \|F_b\| 5.5e-2 / 4.6e-2 | Requires the convergence flag, interior force < 1e-7, Newton \|g\| < 1e-5 and full native \|F_b\| < 2e-5 (measured 9.21e-6, 7 updates); gauge-invariant volume 13.2465 m³ (±1e-3) and Z=0 ray radii (±0.3 mm) replace R00; pressure-jump RMS/max 0.033 %/0.105 % | [V, report] |
+| Same at 17×17 (`:268–299`, strict xfail) | — | Stalls at \|g\| = 2.38e-4, \|F_b\| = 2.39e-4 after 11 updates; volume −0.155 m³ and rays up to 57 mm from the 9×9 result | Open resolution item; cause [H] |
+
+- The radial-return attribution to the individual fixes (complete basis, fixed P, central differences) is not separated; the returns were measured only with all of them in place. [V for the combination, H for the split]
+- The physical FD check of `dg/dy` agrees to 2.15e-4 (matrix norm) at test inner tolerances and 7.3e-6 with tightened inner solves; along the softest direction the difference is 98 % and 5.2 %. The soft-direction sensitivity is attributed to inner-solve/fit noise [H].
+- Other oracles kept in the real-case tests: max \|B·n\|/\|B\| < 1e-6 on an independent grid, exterior Ampère circulation = μ0 I_tor with sign (1e-3), stellarator symmetry. [V, report]
 
 ### TC24 runs (FB-cut / FB-taper 0.997, ITER, axisymmetric)
 
@@ -149,7 +197,9 @@ Commits 1ac00be4..ca733fe4 (merge 352350f4 omitted), all 2026-10-12/13:
 | `.../gvec3d/gvec3d_fb_rmp_cut0997_20261013_05` (sCluster 3220235) | 3D Newton, a507bd82, m25 n2 ne48 | Both tasks COMPLETED; B0 vs KIN6D 0.041/0.224 mm; +15 mm returns 0.105 mm rms; response/a 106–111 mm (phi000), 151–158 mm (phi010) | No independent 3D free-boundary reference; `_02`–`_04` cancelled and not results |
 
 - Ip is an output (iota prescribed): 15.25–15.26 MA in the Newton runs. [V]
-- No GVEC free-boundary result exists for stellarators in our records. [V]
+- All TC24 Newton runs used a507bd82, i.e. the X1-only basis with P rebuilt after each step and a forward-difference Jacobian. Their inputs use `_sincos_` for X1 and X2 with equal `mn_max = (24, 0)` (`cases/*/F/parameter_cut0997_final.ini`), so the X1-only basis contained odd traces and the cos-only vertical gap of the fork regression does not apply directly [V for the inputs, D for the consequence]. The moving-P Jacobian inconsistency and the forward-difference error did apply [V by source].
+- The elong2 (5.04 mm max), old K+ (4.57 mm max) and dZ−15 (1.02 mm max) misses are therefore plausibly due to the moving projection and forward-difference Jacobian, which the fork fixed after these runs and whose fix took the fork's 10 mm return tests from 10–12 mm to 10 µm. This is a hypothesis: no TC24 run at 81fe6405 or later exists. The earlier reading "a different root or a flat direction" is not excluded either. [H]
+- No GVEC free-boundary stellarator result with an independent reference surface exists in our records. The fork's real-coil stellarator regression (above) is a coarse 9×9 CI case without an independent reference surface; at 17×17 it is not converged. [V]
 - The TC24 report states the GVEC free-boundary lane is stopped as a documented limitation (`equilibrium/tc24/revision_20261013.tex:329–345, 414–416`); the `_05` "running" wording there is stale. [V]
 
 ## Convergence of GVEC's scheme
@@ -160,8 +210,8 @@ Existence of non-symmetric toroidal MHD equilibria with nested surfaces is no lo
 
 1. **Descent cannot converge to a saddle of Ŵ.** [D] With fixed coil currents an elongated tokamak is vertically unstable, so its equilibrium is a saddle of Ŵ. KIN6D measures this on the same ITER cases: rigid K_Z = −5.4e6 J/m² per period on FB-cut 0.997 v2 and −5.2e6 on the FB-taper base state; n=0 Schur eigenvalue down to −3.9e-7 (`kin6d/docs/ideal-free-boundary.md`, NL-3a and solver-revision sections). Linearized at a saddle, a preconditioned descent step `δ ← (I − dt P⁻¹H)δ` has an eigenvalue `1 + dt|λ|/p > 1` along the negative direction. GD, heavy-ball mGD and the positive-definite quasi-Newton updates (Powell damping keeps dBFGS definite, `free_b_minimizer_dBFGS.F90:158–163`) all amplify that direction (derivation §9); SR1 and ADAM are not covered. So convergence is possible only from the stable manifold, or because the negative curvature is below the iteration's noise and step floor. Whether this, rather than ill-conditioning, explains the GD stalls is **[H]**: the run records cannot separate the two, and WHY_GVEC §3 ranks the [[B²]] target floor first.
 2. **Rate on soft modes.** [D] Away from the saddle the descent rate is set by `λ_min/λ_max` of `P⁻¹H`. KIN6D measures `K_R/|K_Z|` ≈ 600 on its gs_free fixture and ≈ 46 on ITER FB-cut 0.997 v2 (`K_R = +2.5e8`). WHY_GVEC estimates the position and shape forces at about 1e-5 of B² per 15 mm, against a target floor of 1–2.5e-4. Both are consistent with the 12 mm stalls [H].
-3. **Relabelling nulls.** Full boundary coefficients (X1_b, X2_b) include tangential reparametrizations of the boundary curve. The physical force is normal only (E5, E8), so these directions have zero physical gradient and zero physical stiffness; only condensation gives them stiffness [D]. Descent ignores them; Newton on full coefficients sees a near-singular Jacobian. The fork's normal basis removes them. In the interior, the fixed-boundary minimizer handles the relabelling at each solve. KIN6D shows on its gs_free fixture what a missing gauge does to Newton: drift of 1–5 cm along the n=0 slide null, a 7 mm stall when over-constrained, and return in about 3 steps once the gauge is exact (`kin6d/docs/ideal-free-boundary.md`, formulation and "Relabelling (slide) gauge" sections). Whether GVEC's interior λ/θ gauge creates a similar soft direction for the boundary Newton is **[H]**.
-4. **What a variational or gauged Newton needs.** [D] (i) The second variation of Ŵ including `D(½B_ext²)[ξ]` (derivation §9); (ii) an exact gauge for tangential and interior relabelling; (iii) a method for indefinite systems (LDLᵀ/LU or bordered vertical coordinate) instead of positive-definite quasi-Newton; (iv) for a variational merit, fixed circulation or c as an explicit unknown (root finding on the coupled map with c(X) needs neither); (v) ε_spectral=0 in the residual; (vi) an absolute residual target, since relative merit and step tests stop on soft modes. KIN6D implements (i)–(iv) and (vi) natively; on ITER FB-cut 0.997 v2 its ±15 mm R/Z offsets return within about 0.2 mm, while +2 % elongation is not converged (8.4 mm, NL-3a). The fork implements (iii) and (v) with an FD Jacobian and root finding with c taken from the state (fork `free_boundary.py:1173–1187`); elongation and K+ starts still miss by 5 mm. The fork's hypothesis that these stop at a different root or along a flat direction is untested.
+3. **Relabelling nulls.** Full boundary coefficients (X1_b, X2_b) include tangential reparametrizations of the boundary curve. The physical force is normal only (E5, E8), so these directions have zero physical gradient and zero physical stiffness; only condensation gives them stiffness [D]. Descent ignores them; Newton on full coefficients sees a near-singular Jacobian. The fork's normal basis removes them; since 1991c38f it fixes them by a slide gauge that keeps rigid translations (fork `free_boundary.py:1576–1580`), the boundary analogue of KIN6D's slide gauge (`theory/derivations/free-boundary-gauge-vertical.md`; its FB-D4 shows that a normal-only displacement plus a rigid-Z coordinate is not equivalent to stationarity, and FB-D1, with Lean lemmas B1/B2 in `proof/Kin6d/Bordered.lean`, gives nonsingularity and inertia of the bordered gauge system). Whether GVEC's gauge (a weighted least-change condition, not KIN6D's slide moments) is equivalent is not shown [H]. In the interior, the fixed-boundary minimizer handles the relabelling at each solve. KIN6D shows on its gs_free fixture what a missing gauge does to Newton: drift of 1–5 cm along the n=0 slide null, a 7 mm stall when over-constrained, and return in about 3 steps once the gauge is exact (`kin6d/docs/ideal-free-boundary.md`, formulation and "Relabelling (slide) gauge" sections). Whether GVEC's interior λ/θ gauge creates a similar soft direction for the boundary Newton is **[H]**.
+4. **What a variational or gauged Newton needs.** [D] (i) The second variation of Ŵ including `D(½B_ext²)[ξ]` (derivation §9); (ii) an exact gauge for tangential and interior relabelling; (iii) a method for indefinite systems (LDLᵀ/LU, or a residual merit) instead of positive-definite quasi-Newton; KIN6D's FB-D4 rules out a normal-only displacement plus rigid-Z coordinate as a substitute; (iv) for a variational merit, fixed circulation or c as an explicit unknown (root finding on the coupled map with c(X) needs neither); (v) ε_spectral=0 in the residual; (vi) an absolute residual target, since relative merit and step tests stop on soft modes. KIN6D implements (i)–(iv) and (vi) natively; on ITER FB-cut 0.997 v2 its ±15 mm R/Z offsets return within about 0.2 mm, while +2 % elongation is not converged (8.4 mm, NL-3a). The fork implements (iii), (v), (vi) (`newton_gtol`) and the boundary part of (ii), with a central-difference FD Jacobian in a fixed projection and root finding with c taken from the state (fork `free_boundary.py:1242–1256`). It does not form (i) analytically, and has no energy merit. On its 10 mm axisymmetric return tests it now returns to 10 µm; the TC24 elongation and K+ misses of about 5 mm predate these fixes and have not been rerun (see TC24 runs). [V for the tests, H for TC24]
 
 ## References not verified
 
@@ -169,7 +219,8 @@ Left out of `writeups.bib`: the "Lee & Kim" coil Biot–Savart reference (not id
 
 ## Open
 
-- Run the fork's `newton_gtol` (ca733fe4) on elong2/K+; compare \|g\| floor with the contour start's 2.3e-4.
+- Rerun the TC24 elong2, old K+ and dZ−15 starts at b37d82b3 (complete basis, fixed P, central differences, `newton_gtol`) to test the [H] attribution of their 1–5 mm misses.
+- Resolve the 17×17 stellarator stall (\|F_b\| ≈ 2.4e-4, strict xfail at b37d82b3): resolution, inner-solve/current-fit noise or a solver defect.
 - Measure the rigid vertical stiffness through GVEC's own boundary force (FD of F_b along a rigid Z shift) and compare its sign with KIN6D.
 - Check the 3D/general-hmap force coefficients against EvalEnergy by FD (the 16 local identities cover axisymmetric RZ only).
 - Derive the J0 normalization (`txx:150–160`) and the I sign for non-RZ hmaps.

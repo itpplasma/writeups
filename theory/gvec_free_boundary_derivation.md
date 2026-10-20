@@ -1,10 +1,10 @@
 # GVEC free-boundary residual: derivation
 
-Citations `[@key]` refer to [writeups.bib](../writeups.bib). Source pins, paths and labels as in the [source correspondence](gvec_free_boundary_source_correspondence.md): upstream gvec 7da1182fd81b1ba552142bb663319d74c7edfb8b, `evalfunc` = `src/functionals/mhd3d/mhd3d_evalfunc.F90`, `mhd3d.F90` = `src/functionals/mhd3d/mhd3d.F90`.
+Citations `[@key]` refer to [writeups.bib](../writeups.bib). Source pins, paths and labels as in the [source correspondence](gvec_free_boundary_source_correspondence.md): upstream gvec 7da1182fd81b1ba552142bb663319d74c7edfb8b, `evalfunc` = `src/functionals/mhd3d/mhd3d_evalfunc.F90`, `mhd3d.F90` = `src/functionals/mhd3d/mhd3d.F90`; fork itpplasma/gvec `develop` b37d82b3c3c27589061f2bddc00bbb25139e2ffe for §10.
 
-- Scope: fixed pressure (γ=0), frozen Φ and χ profiles, nested surfaces, J>0, maps with q3=ζ. §1–§7 derive the residual GVEC assembles; §8 gives the vacuum-energy variation a variational formulation would use; §9 the second variation and the linear descent analysis.
+- Scope: fixed pressure (γ=0), frozen Φ and χ profiles, nested surfaces, J>0, maps with q3=ζ. §1–§7 derive the residual GVEC assembles; §8 gives the vacuum-energy variation a variational formulation would use; §9 the second variation and the linear descent analysis; §10 the Jacobian of the fork's projected Newton residual.
 - Labels: **[V]** read from the pinned source; **[D]** derived here; **[H]** not shown. Continuum identities are derived for smooth fields; discrete statements say which quadrature they use.
-- Native KIN6D derivation of the coupled plasma–vacuum Lagrangian is in `kin6d/docs/ideal-free-boundary.md` (73891c54). It is not repeated here; §8 reaches the same first variation independently.
+- Native KIN6D theory (itpplasma/kin6d `main` f5420f386bf9e032eec99b0df1f99016a66ac043): formulation and obligation map `docs/free-boundary-theory.md`, first variation `theory/derivations/free-boundary-first-variation.md`, gauge, bordering and vertical saddle `theory/derivations/free-boundary-gauge-vertical.md`, Newton/descent/Picard `theory/derivations/free-boundary-iterations.md`, Lean lemmas B1/B2 `proof/Kin6d/Bordered.lean`, measurements `docs/ideal-free-boundary.md`. Not repeated here; §8 reaches the same first variation independently.
 
 ## 1. Unknowns
 
@@ -185,7 +185,7 @@ Linearization of the vacuum term in a normal direction `η = η_n n` [D]:
   - The first term is nonlocal and positive semidefinite (vacuum stiffening).
   - The second is local and carries the curvature and decay index of the external field. It has either sign.
 - GVEC's boundary preconditioner contains only part of the geometric term: `½ B_ext² ∂J_h/∂q ∂θX`, mode-diagonal (`evalfunc:1145–1163, 1289, 1372`). [V]
-- Neither of the first two terms is formed anywhere in upstream GVEC. The fork's Newton obtains all of them by forward differences: one interior solve and one BIEST call per normal mode. [V]
+- Neither of the first two terms is formed anywhere in upstream GVEC. The fork's Newton obtains all of them by finite differences of the full residual: central differences since 81fe6405 (two interior solves and two BIEST calls per normal coordinate, fork `free_boundary.py:887–926`, difference quotient `:907`), forward differences before. [V]
 
 Rigid vertical shift in axisymmetry [D]:
 
@@ -202,7 +202,23 @@ Linear descent near a stationary point b* with reduced Hessian Ĥ [D]:
 - On the positive subspace, GD converges with factor `max(|1 − dt λ_i/p_i|)`, at best `(κ−1)/(κ+1)` for condition number κ of `P⁻¹Ĥ`. For a stiff toroidal-field/area mode and a soft position or shape mode, this is slow even without a saddle. [D]
   - Which of the two limits GVEC's 12 mm stalls on TC24 is [H]. The run records do not separate them (`/mnt/storage/codex-equilibrium-20261011/gvec/WHY_GVEC.md` §2–3).
 
-## 10. Open derivation items
+## 10. Projected Newton Jacobian
+
+The fork's Newton solves `g(y) = P(x)ᵀ r(x) = 0`, `x = x_start + P y`, with r the boundary residual (§7 with ε=0) and P the normal-coordinate basis. [V for the form, fork `free_boundary.py:779–1068`]
+
+- If P depends on the current boundary, the chain rule gives [D]
+
+  ```text
+  Dg[δy] = Pᵀ Dr P δy + (DP[P δy])ᵀ r.
+  ```
+
+  The second term is first order in r. Before 81fe6405 the fork rebuilt P after each accepted step (a507bd82 `free_boundary.py:968`) but used `Pᵀ Dr P` (FD) and Broyden updates as if P were constant, so it omitted this term. An independent FD probe on the 10 mm radial-return fixture found it, largest difference 9.55e-5 in the probed column. [V, fork lane report]
+- With P fixed for a whole solve (81fe6405, P built once at `:866`), `DP = 0` and `Dg = Pᵀ Dr P` exactly, also for r ≠ 0. A rectangular regression with nonzero residual and an indefinite mode checks the FD `dg/dy` to 7.35e-15. [D, V]
+- The roots differ only through range(P): `Pᵀ r = 0` is the weak pressure balance tested on the normal traces in range(P). A basis spanning only the X1 functions (before 1991c38f) tests fewer traces; with cos-only X1 the odd trace of a rigid vertical shift is absent, so `g = 0` does not imply vertical force balance and the vertical coordinate is not an unknown. [D]
+- Whether the omitted term or the incomplete basis caused the 12.3 mm radial and 10.0 mm vertical stalls of the fork's return fixture is not separated: the 10 µm returns were measured only with both fixes and central differences in place, and no single-fix run exists. [H for the split]
+- The residual merit `|g|` has no energy-descent requirement, so the indefinite fixed-current vertical direction of §9 is admissible for the Newton step; descent methods remain covered by §9. [D]
+
+## 11. Open derivation items
 
 - FD check of `F_MHD3D = −∇W_h` for a 3D, non-RZ hmap (§3).
 - Size of the last-element remainder and of the quadrature defect in §5, under radial refinement.
