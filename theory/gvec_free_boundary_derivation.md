@@ -1,6 +1,6 @@
 # GVEC free-boundary residual: derivation
 
-Citations `[@key]` refer to [writeups.bib](../writeups.bib). Source pins, paths and labels as in the [source correspondence](gvec_free_boundary_source_correspondence.md): upstream gvec 7da1182fd81b1ba552142bb663319d74c7edfb8b, `evalfunc` = `src/functionals/mhd3d/mhd3d_evalfunc.F90`, `mhd3d.F90` = `src/functionals/mhd3d/mhd3d.F90`; fork itpplasma/gvec `develop` b37d82b3c3c27589061f2bddc00bbb25139e2ffe for §10.
+Citations `[@key]` refer to [writeups.bib](../writeups.bib). Source pins, paths and labels as in the [source correspondence](gvec_free_boundary_source_correspondence.md): upstream gvec 7da1182fd81b1ba552142bb663319d74c7edfb8b, `evalfunc` = `src/functionals/mhd3d/mhd3d_evalfunc.F90`, `mhd3d.F90` = `src/functionals/mhd3d/mhd3d.F90`; fork itpplasma/gvec `develop` 086b2b25dd1f51acceafbcdc8993c5052b3e462e for §9–§10 (fork line numbers at this commit).
 
 - Scope: fixed pressure (γ=0), frozen Φ and χ profiles, nested surfaces, J>0, maps with q3=ζ. §1–§7 derive the residual GVEC assembles; §8 gives the vacuum-energy variation a variational formulation would use; §9 the second variation and the linear descent analysis; §10 the Jacobian of the fork's projected Newton residual.
 - Labels: **[V]** read from the pinned source; **[D]** derived here; **[H]** not shown. Continuum identities are derived for smooth fields; discrete statements say which quadrature they use.
@@ -187,7 +187,7 @@ Linearization of the vacuum term in a normal direction `η = η_n n` [D]:
   - The first term is nonlocal and positive semidefinite (vacuum stiffening).
   - The second is local and carries the curvature and decay index of the external field. It has either sign.
 - GVEC's boundary preconditioner contains only part of the geometric term: `½ B_ext² ∂J_h/∂q ∂θX`, mode-diagonal (`evalfunc:1145–1163, 1289, 1372`). [V]
-- Neither of the first two terms is formed anywhere in upstream GVEC. The fork's Newton obtains all of them by finite differences of the full residual: central differences since 81fe6405 (two interior solves and two BIEST calls per normal coordinate, fork `free_boundary.py:887–926`, difference quotient `:907`), forward differences before. [V]
+- Neither of the first two terms is formed anywhere in upstream GVEC. The fork's Newton obtains all of them by finite differences of the full residual: central differences since 81fe6405 (two interior solves and two BIEST calls per normal coordinate, fork `free_boundary.py:897–936`, difference quotient `:917`), forward differences before. [V]
 
 Rigid vertical shift in axisymmetry [D]:
 
@@ -214,7 +214,7 @@ Linear descent near a stationary point b* with reduced Hessian Ĥ [D]:
 
 ## 10. Projected Newton Jacobian
 
-The fork's Newton solves `g(y) = P(x)ᵀ r(x) = 0`, `x = x_start + P y`, with r the boundary residual (§7 with ε=0) and P the normal-coordinate basis. [V for the form, fork `free_boundary.py:779–1068`]
+The fork's Newton solves `g(y) = P(x)ᵀ r(x) = 0`, `x = x_start + P y`, with r the boundary residual (§7 with ε=0) and P the normal-coordinate basis. [V for the form, fork `free_boundary.py:779–1117`]
 
 - If P depends on the current boundary, write `G(x) = P(x)ᵀ r(x)`. Its derivative along `δx = P δy` is [D]
 
@@ -225,9 +225,9 @@ The fork's Newton solves `g(y) = P(x)ᵀ r(x) = 0`, `x = x_start + P y`, with r 
   For `x = x_start + P(x) y` this is `Dg[δy]` only at the re-centred point y = 0; elsewhere δx also contains `(DP[δx]) y`. Before 81fe6405 the fork re-centred at every accepted step: a507bd82 checkpoints x and rebuilds P after it (`free_boundary.py:967–968`), so y = 0 at each linearisation and the formula applies. [V for the re-centring]
 
   The second term is first order in r. That fork used `Pᵀ Dr P` (FD) and Broyden updates as if P were constant, so it omitted this term. The omitted term vanishes at a root of g only if r = 0 there, which needs a complete basis; with the X1-only basis, r ≠ 0 at `Pᵀ r = 0` in general. [D] An independent FD probe on the 10 mm radial-return fixture found it, largest difference 9.55e-5 in the probed column. [V, fork lane report]
-- With P fixed for a whole solve (81fe6405, P built once at `:867`), `DP = 0` and `Dg = Pᵀ Dr P` exactly, also for r ≠ 0. A rectangular regression with nonzero residual and an indefinite mode checks the FD `dg/dy` to 7.35e-15. [D, V]
+- With P fixed for a whole solve (81fe6405, P built once at fork `:868`), `DP = 0` and `Dg = Pᵀ Dr P` exactly, also for r ≠ 0. A rectangular regression with nonzero residual and an indefinite mode checks the FD `dg/dy` to 7.35e-15. [D, V]
 - The roots differ only through range(P): `Pᵀ r = 0` is the weak pressure balance tested on the normal traces in range(P). A basis spanning only the X1 functions (before 1991c38f) tests fewer traces; with cos-only X1 the odd trace of a rigid vertical shift is absent, so `g = 0` does not imply vertical force balance and the vertical coordinate is not an unknown. [D]
-- Whether the omitted term or the incomplete basis caused the 12.3 mm radial and 10.0 mm vertical stalls of the fork's return fixture is not separated: the 10 µm returns were measured only with both fixes and central differences in place, and no single-fix run exists. [H for the split]
+- Whether the omitted term or the incomplete basis caused the 12.3 mm radial and 10.0 mm vertical stalls of the fork's return fixture is not separated: the returns (about 10 µm at b37d82b3 with `newton_gtol` 1e-7 and loose inner solves; 0.4–3.0 µm at 086b2b25 with tight base and return solves and `newton_gtol` 1e-9) were measured only with both fixes and central differences in place, and no single-fix run exists. [V for the returns, H for the split]
 - The residual merit `|g|` has no energy-descent requirement, so the indefinite fixed-current vertical direction of §9 is admissible for the Newton step; descent methods remain covered by §9. [D]
 
 ## 11. Open derivation items
