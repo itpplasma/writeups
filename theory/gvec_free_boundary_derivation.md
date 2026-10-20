@@ -9,7 +9,7 @@ Citations `[@key]` refer to [writeups.bib](../writeups.bib). Source pins, paths 
 ## 1. Unknowns
 
 - `X1(s,θ,ζ) = Σ_i Σ_j X1_ij N_i(s) φ_j(θ,ζ)`, the same for X2 and λ. N_i are B-splines, φ_j are `sin/cos(mθ − n nfp ζ)`. [V]
-- Boundary coefficients `b = (X1_{nBase,j}, X2_{nBase,j})`. The last B-spline is interpolatory: `N_nBase(1) = 1` and `N_i(1) = 0` otherwise (code comment `evalfunc:1563`, clamped knot vector). [V]
+- Boundary coefficients `b = (X1_{nBase,j}, X2_{nBase,j})`. The code comment `evalfunc:1563` states that the coefficient at nBase (s=1) is interpolatory [V]. With a clamped knot vector this means `N_nBase(1) = 1` and `N_i(1) = 0` otherwise [D].
 - Interior coefficients `u`: all other rows not fixed by axis constraints.
 
 ## 2. Discrete energy
@@ -63,8 +63,9 @@ R1 = c0 − ∂θcθ − ∂ζcζ − ∂s cs.
 This follows from `∫ cs N′ ds = cs(1)N(1) − ∫ ∂s cs N ds` and periodic integration by parts in θ and ζ. [D]
 
 - R1 is the strong X1 Euler–Lagrange residual. The interior solve makes it orthogonal to `N_1 … N_{nBase−1}`, not to N_nBase.
-- The remainder is supported on the last element, width h. It vanishes only when R1 = 0 pointwise there. Gauss quadrature does not reproduce the integration by parts exactly, because `1/J` is not polynomial.
-- So the boundary row equals the pressure-jump term plus an O(h·R1) last-element remainder and a quadrature defect. Their size is not measured. [H]
+- The remainder is supported on the last element, width h. It vanishes only when R1 = 0 pointwise there.
+- The discrete sums do not reproduce either integration by parts exactly. Radial Gauss quadrature is inexact because `1/J` is not polynomial. The angular trapezoid sum is inexact because the nonlinear integrand aliases above the Nyquist modes, so periodic integration by parts in θ and ζ also holds only up to aliasing.
+- So the boundary row equals the pressure-jump term plus an O(h·R1) last-element remainder and a quadrature defect (radial Gauss and angular aliasing). Their size is not measured. [H]
 
 ## 6. Normal vector for a general hmap
 
@@ -82,6 +83,7 @@ Write `x = h(q1, q2, q3)` with `q3 = ζ`. The covariant basis `a_i = ∂h/∂q_i
 [D]
 
 - For hmap_RZ, `x_θ×x_ζ = R(Z_θ e_R − R_θ e_Z)`, the outward normal when θ runs counterclockwise and J>0.
+- For a general hmap with q3 = ζ, the same determinant with δx replaced by `x_s = X1_s a1 + X2_s a2` gives `x_s·(x_θ×x_ζ) = J_h J_p = J > 0`. So `x_θ×x_ζ` points to increasing s, i.e. out of the plasma at s=1. [D]
 - Hence `J_h(δX1 ∂θX2 − δX2 ∂θX1) dθdζ = ξ_n dA`, with `ξ_n = δx·n`, n the outward unit normal and `dA = |x_θ×x_ζ| dθdζ`. [D]
 
 ## 7. Assembled boundary force
@@ -154,7 +156,7 @@ and stationarity is `[[B²/2 + μ0 p]] = 0`. [D]
 
 What the vacuum-energy variation adds to GVEC's residual:
 
-1. **At first order, nothing.** GVEC's `−½B_ext² N·δq` (E6) is exactly `d(−m)` evaluated with the current B_ext.
+1. **At first order, nothing.** GVEC's `−½B_ext² N·δq` (E6) is the vacuum part of the force `−dŴ`, i.e. `−d(−m) = dm` (the negative of the `d(−m)` above), evaluated with the current B_ext.
    - `update_boundary_MHD3D` re-evaluates the force after `set_Bext_squared` (`mhd3d.F90:1383`; `python/gvec/core/minimize.py:764–766`), so B_ext is current at every update.
    - "Frozen B_ext²" is not a missing first-order term. It means the dependence `B_ext(Γ)` is absent from the step metric and from any merit function. [D, V]
 2. **The value −m(Γ).** GVEC never evaluates it, so no update can test decrease of Ŵ. [V]
@@ -194,10 +196,18 @@ Rigid vertical shift in axisymmetry [D]:
 
 Linear descent near a stationary point b* with reduced Hessian Ĥ [D]:
 
-- GD step `b ← b − dt P⁻¹∇Ŵ`, P positive diagonal (`Precond_b`). Error map `e ← (I − dt P⁻¹Ĥ) e`. The eigenvalues of `P⁻¹Ĥ` have the signs of Ĥ's (Sylvester). A negative eigenvalue λ gives an amplification `1 + dt|λ| > 1`.
-- BFGS, dBFGS, lBFGS step `−B_k⁻¹∇Ŵ` with `B_k` symmetric positive definite; Powell damping keeps it so (`free_b_minimizer_dBFGS.F90:158–163`). `B_k⁻¹Ĥ` is similar to `B_k^{−1/2} Ĥ B_k^{−1/2}`, which has Ĥ's inertia, so again an eigenvalue `> 1`.
-- Heavy-ball momentum (mGD): the characteristic roots of `μ² − (1 + β − dt λ)μ + β = 0` include one `> 1` for λ < 0, 0 ≤ β < 1.
-- So these methods converge to a saddle only from its stable manifold, or when the negative growth stays below the step and noise floors.
+- GD step `b ← b − dt P⁻¹∇Ŵ`, P positive diagonal (`Precond_b`). Error map `e ← (I − dt P⁻¹Ĥ) e`. The eigenvalues of `P⁻¹Ĥ` have the signs of Ĥ's (Sylvester). A negative eigenvalue λ of `P⁻¹Ĥ` gives an amplification `1 + dt|λ| > 1` for fixed dt and P.
+- BFGS, dBFGS, lBFGS step `−B_k⁻¹∇Ŵ` with `B_k` symmetric positive definite; Powell damping keeps it so (`free_b_minimizer_dBFGS.F90:158–163`). `B_k⁻¹Ĥ` is similar to `B_k^{−1/2} Ĥ B_k^{−1/2}`, which has Ĥ's inertia, so each step map has an eigenvalue `> 1`.
+- Heavy-ball momentum (mGD) with fixed dt, P and β: the characteristic roots of `μ² − (1 + β − dt λ)μ + β = 0` include one `> 1` for λ < 0, 0 ≤ β < 1.
+- An eigenvalue > 1 of each step map does not settle convergence when the map changes between steps. GVEC changes dt at every update (×0.5 or ×1.1, `free_boundary.py:510–515`), the quasi-Newton `B_k` change every step, and `Precond_b` is re-evaluated with the force. A product of maps that each have an eigenvalue > 1 need not grow. The argument that covers varying steps is energy decrease. Take the quadratic model `Ŵ(e) = Ŵ(b*) + ½ eᵀĤe` in the error `e = b − b*` and a step `e⁺ = e − dt M⁻¹g`, `g = Ĥe`, M symmetric positive definite (P or `B_k`, dt and M may change every step). Then
+
+  ```text
+  Ŵ(e⁺) − Ŵ(e) = −dt gᵀM⁻¹g + ½ dt² gᵀM⁻¹ĤM⁻¹g ≤ −dt (1 − ½ dt λ_max) |g|²_{M⁻¹},
+  λ_max = largest eigenvalue of M^{−1/2} Ĥ M^{−1/2}.
+  ```
+
+  So Ŵ decreases strictly whenever `dt λ_max < 2` and g ≠ 0. A start with `Ŵ(e_0) < Ŵ(b*)` then keeps `Ŵ(e_k) < Ŵ(e_0) < Ŵ(b*)`, and by continuity the iterates cannot converge to b* (within the region where the quadratic model holds). Such starts lie arbitrarily close to b* along any negative direction of Ĥ. [D]
+- Scope. This covers GD with varying dt and P, and positive-definite quasi-Newton steps whenever each step satisfies `dt λ_max < 2`. GVEC has no sufficient-decrease test, so for unit-step BFGS, dBFGS and lBFGS the bound is a condition, not a guarantee: that these steps decrease Ŵ is [H]. For fixed dt, P and β the eigenvalue arguments above apply directly (heavy-ball included).
 - SR1 updates can be indefinite and are not covered. ADAM is nonlinear and not covered. [H]
 - On the positive subspace, GD converges with factor `max(|1 − dt λ_i/p_i|)`, at best `(κ−1)/(κ+1)` for condition number κ of `P⁻¹Ĥ`. For a stiff toroidal-field/area mode and a soft position or shape mode, this is slow even without a saddle. [D]
   - Which of the two limits GVEC's 12 mm stalls on TC24 is [H]. The run records do not separate them (`/mnt/storage/codex-equilibrium-20261011/gvec/WHY_GVEC.md` §2–3).
@@ -206,14 +216,16 @@ Linear descent near a stationary point b* with reduced Hessian Ĥ [D]:
 
 The fork's Newton solves `g(y) = P(x)ᵀ r(x) = 0`, `x = x_start + P y`, with r the boundary residual (§7 with ε=0) and P the normal-coordinate basis. [V for the form, fork `free_boundary.py:779–1068`]
 
-- If P depends on the current boundary, the chain rule gives [D]
+- If P depends on the current boundary, write `G(x) = P(x)ᵀ r(x)`. Its derivative along `δx = P δy` is [D]
 
   ```text
-  Dg[δy] = Pᵀ Dr P δy + (DP[P δy])ᵀ r.
+  DG[P δy] = Pᵀ Dr P δy + (DP[P δy])ᵀ r.
   ```
 
-  The second term is first order in r. Before 81fe6405 the fork rebuilt P after each accepted step (a507bd82 `free_boundary.py:968`) but used `Pᵀ Dr P` (FD) and Broyden updates as if P were constant, so it omitted this term. An independent FD probe on the 10 mm radial-return fixture found it, largest difference 9.55e-5 in the probed column. [V, fork lane report]
-- With P fixed for a whole solve (81fe6405, P built once at `:866`), `DP = 0` and `Dg = Pᵀ Dr P` exactly, also for r ≠ 0. A rectangular regression with nonzero residual and an indefinite mode checks the FD `dg/dy` to 7.35e-15. [D, V]
+  For `x = x_start + P(x) y` this is `Dg[δy]` only at the re-centred point y = 0; elsewhere δx also contains `(DP[δx]) y`. Before 81fe6405 the fork re-centred at every accepted step: a507bd82 checkpoints x and rebuilds P after it (`free_boundary.py:967–968`), so y = 0 at each linearisation and the formula applies. [V for the re-centring]
+
+  The second term is first order in r. That fork used `Pᵀ Dr P` (FD) and Broyden updates as if P were constant, so it omitted this term. The omitted term vanishes at a root of g only if r = 0 there, which needs a complete basis; with the X1-only basis, r ≠ 0 at `Pᵀ r = 0` in general. [D] An independent FD probe on the 10 mm radial-return fixture found it, largest difference 9.55e-5 in the probed column. [V, fork lane report]
+- With P fixed for a whole solve (81fe6405, P built once at `:867`), `DP = 0` and `Dg = Pᵀ Dr P` exactly, also for r ≠ 0. A rectangular regression with nonzero residual and an indefinite mode checks the FD `dg/dy` to 7.35e-15. [D, V]
 - The roots differ only through range(P): `Pᵀ r = 0` is the weak pressure balance tested on the normal traces in range(P). A basis spanning only the X1 functions (before 1991c38f) tests fewer traces; with cos-only X1 the odd trace of a rigid vertical shift is absent, so `g = 0` does not imply vertical force balance and the vertical coordinate is not an unknown. [D]
 - Whether the omitted term or the incomplete basis caused the 12.3 mm radial and 10.0 mm vertical stalls of the fork's return fixture is not separated: the 10 µm returns were measured only with both fixes and central differences in place, and no single-fix run exists. [H for the split]
 - The residual merit `|g|` has no energy-descent requirement, so the indefinite fixed-current vertical direction of §9 is admissible for the Newton step; descent methods remain covered by §9. [D]
