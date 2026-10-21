@@ -339,8 +339,13 @@ fixed build (\texttt{gvec\_fb\_taper\_offset\_return\_20261013\_02}, FB-taper 0.
 stops) the $+15$ mm $R$ and $-15$ mm $Z$ starts return to the contour state within 0.80 and
 1.02 mm (max), but the $+2$\,\% elongation and the old K+ starts stop natively in a different
 state, 5.0 and 4.6 mm from it ($|g|$ $2.1\times10^{-3}$ and $1.5\times10^{-3}$): the
-relative stop cannot resolve it. The lane is over its job budget and stops here; GVEC does not
-meet the 1 mm offset-return acceptance, a documented limitation. Relative stops upstream as MR 188. \\
+relative stop cannot resolve it. Those historical results do not meet the 1 mm
+offset-return acceptance. A corrected-Newton five-start rerun on the
+\href{https://github.com/itpplasma/gvec}{GVEC fork}, source \texttt{086b2b25}, is
+running as of 21 October; no new geometry or native-residual qualification is yet
+admitted. Its terminal analysis retains the 1 mm geometry gate and requires native
+residual convergence independently: a native stop or common endpoint alone cannot
+support a root claim. Relative stops were reported upstream as MR 188. \\
 VMEC++ & With the defective ladder currents all solver stages are start-independent: contour,
 $\pm15$ mm and $+2$\,\% elongation starts return to one state within 0.03--0.28 mm for NESTOR
 and BIEST. Vacuum fields agree to $7\times10^{-5}$, but NESTOR (12.6 mm at 0.997, 9.2 mm at
