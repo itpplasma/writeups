@@ -1,0 +1,115 @@
+{
+ "harmonic sums (3.3)-(3.4)": {
+  "max_relative_error": 4.64910293270667e-31,
+  "tolerance": 1e-20,
+  "pass": true
+ },
+ "closed tensor (3.15) vs harmonic quadrature (3.2)": {
+  "max_relative_error": 2.1492916405642423e-20,
+  "tolerance": 1e-12,
+  "pass": true
+ },
+ "M_j, T_j hypergeometric forms (4.12)-(4.13)": {
+  "max_relative_error": 1.6412301278996381e-31,
+  "tolerance": 1e-25,
+  "pass": true
+ },
+ "absorption series (4.16)-(4.17)": {
+  "max_relative_error": 1.0782037442747176e-31,
+  "tolerance": 1e-20,
+  "pass": true
+ },
+ "absorption normalisation (4.8) vs resonance-line integral": {
+  "max_relative_error": 8.570475520743872e-20,
+  "tolerance": 1e-12,
+  "pass": true
+ },
+ "axis limit (4.20) at eta = 1 - 1e-8": {
+  "max_relative_error": 2.4949628919480654e-08,
+  "tolerance": 1e-06,
+  "pass": true
+ },
+ "Bessel moments (8.9), (8.12)": {
+  "max_relative_error": 1.7315509724743576e-29,
+  "tolerance": 1e-25,
+  "pass": true
+ },
+ "thermal tail (5.11)": {
+  "max_relative_error": 3.538508901137813e-31,
+  "tolerance": 1e-20,
+  "pass": true
+ },
+ "G_E (8.10), G_P (8.13) vs quadrature": {
+  "max_relative_error": 7.3207562980624e-26,
+  "tolerance": 1e-15,
+  "pass": true
+ },
+ "G_table_ne_nu0_1": [
+  [
+   0.5,
+   "21.9183755763504",
+   "4.50068356387351",
+   "0.205338372280183"
+  ],
+  [
+   1.0,
+   "5.82725489950856",
+   "1.26423529313676",
+   "0.216952118096529"
+  ],
+  [
+   3.0,
+   "0.88274329488074",
+   "0.234578799433777",
+   "0.265738409789303"
+  ],
+  [
+   6.0,
+   "0.324657929980069",
+   "0.100233542362398",
+   "0.308735851203608"
+  ],
+  [
+   20.0,
+   "0.0752973371637928",
+   "0.0274522681988505",
+   "0.36458484765715"
+  ]
+ ],
+ "G_P/G_E limits 2/5 and 1/5 (8.14)": {
+  "max_relative_error": 0.00019995000874912494,
+  "tolerance": 0.001,
+  "pass": true
+ },
+ "scalar sources: b_alpha by parts (8.21)": {
+  "max_relative_error": 0.0,
+  "tolerance": 1e-10,
+  "pass": true
+ },
+ "tail bound ratio (must be <= 1)": 0.00768425068376366,
+ "harmonic tail bound (5.9) holds": {
+  "max_relative_error": 0.0,
+  "tolerance": 0,
+  "pass": true
+ },
+ "broadened cusp (7.2)": {
+  "max_relative_error": 1.2580985421839579e-31,
+  "tolerance": 1e-25,
+  "pass": true
+ },
+ "drag characteristics (11.5)": {
+  "max_relative_error": 1.2879173819281578e-31,
+  "tolerance": 1e-15,
+  "pass": true
+ },
+ "drag propagator (11.8): particle number": {
+  "max_relative_error": 0.0,
+  "tolerance": 1e-10,
+  "pass": true
+ },
+ "drag propagator (11.8): dE/dt = -nu_R <w^2>": {
+  "max_relative_error": 6.765444568292715e-09,
+  "tolerance": 1e-06,
+  "pass": true
+ }
+}
