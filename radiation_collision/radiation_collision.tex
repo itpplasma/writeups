@@ -1,0 +1,884 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+\numberwithin{equation}{section}
+\newtheorem{proposition}{Proposition}[section]
+
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\upar}{u_\parallel}
+\newcommand{\uperp}{u_\perp}
+\newcommand{\fh}{\hat f}
+\newcommand{\arsinh}{\operatorname{arsinh}}
+\newcommand{\arcosh}{\operatorname{arcosh}}
+\newcommand{\Kex}{\mathcal K_{\mathrm{ex}}}
+\newcommand{\sH}{\mathscr H}
+\usepackage{mathrsfs}
+
+\title{Relativistic radiation collisions:\\exact kernel, two-mode closure and radiation drag}
+\author{In the notation of Kasilov and Kernbichler (1996)}
+\date{28 October 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+The linearised radiation collision operator of Kasilov and Kernbichler~\cite{KK96}
+is rederived from a photon-mode variational principle. Summation over cyclotron
+harmonics and integration over photon angles give the differential (diffusion)
+tensor in closed form. The integral kernel is reduced to an absolutely
+convergent special-function series with explicit truncation bounds; its
+absorption thresholds produce local $\delta^{3/2}$ cusps. Restricting the
+self-consistent photon perturbation to temperature and parallel-drift modes
+keeps the exact diffusion tensor and turns the integral part into a rank-two
+operator whose two normalisation constants are ratios of modified Bessel
+functions. This closure conserves particles, energy and parallel momentum,
+dissipates entropy, is the minimal positive correction with these properties,
+and differs from the full operator by an exact, computable amount. Separately,
+optically thin radiation drag has closed relativistic characteristics and an
+explicit propagator. All algebraic steps are checked exactly in the fortsym
+computer algebra system, and the main analytic results numerically.
+\end{abstract}
+
+\paragraph{Results.}
+For the two-mode photon model the full kernel is
+\begin{equation}
+\begin{gathered}
+R_2^{ij'}(y,y')=\frac{D^{i\gamma}(y)\,D^{\gamma j'}(y')}{G_E}
++\frac{D^{i\upar}(y)\,D^{\upar j'}(y')}{G_P},\\
+G_E=\frac{4n_e\nu_0}{3\mu}\frac{K_3(\mu)}{K_2(\mu)},\qquad
+G_P=\frac{4n_e\nu_0}{15\mu}\frac{K_1(\mu)+K_3(\mu)}{K_2(\mu)},
+\end{gathered}
+\tag{R}\label{eq:result}
+\end{equation}
+with $\mu=mc^2/T$, $\nu_0=e^2\omega_{ce}^2/(mc^3\mu)$ and the closed tensor
+$D^{ij}$ of Eq.~\eqref{eq:Dclosed}. Applied to a distribution it needs two
+velocity moments and no photon integration. For the unchanged sharp-resonance
+model the kernel remains a convergent series, Eq.~\eqref{eq:Rkernel}.
+
+\tableofcontents
+
+%======================================================================
+\section{Setting and notation}
+
+The operator is the radiation-mediated collision operator of
+Ref.~\cite{KK96}, Sec.~IV and Eqs.~(38)--(55), not the Coulomb operator.
+Gaussian units are used; $e$ is the magnitude of the electron charge and
+temperature is in energy units. The symbol $\mu$ is the inverse
+temperature, not the magnetic moment:
+\begin{gather}
+\mathbf p=mc\,\mathbf u,\quad u=|\mathbf u|,\quad \gamma=\sqrt{1+u^2},\quad
+\mu=\frac{mc^2}{T},\quad
+\upar=u\cos\chi,\quad \uperp=u\sin\chi,\\
+f_0=\frac{n_e\mu}{4\pi(mc)^3K_2(\mu)}e^{-\mu\gamma},\qquad \fh=\frac{\delta f}{f_0}.
+\end{gather}
+$\chi$ is the particle pitch angle, $\theta$ the photon propagation angle to
+$\mathbf B$, and $K_\nu$ the modified Bessel function of the second kind. The
+kernel is written in the coordinates
+\begin{equation}
+y=(\gamma,\upar),\qquad \uperp^2=\gamma^2-\upar^2-1,\qquad
+\dd^3p=2\pi(mc)^3\gamma\,\dd\gamma\,\dd\upar=\mathcal J\,\dd\gamma\,\dd\upar .
+\end{equation}
+Ref.~\cite{KK96} sometimes writes $J=(mc)^3\gamma$, without the $2\pi$ from
+the gyrophase; the factor cancels in the divergence but not in momentum
+integrals, and is kept here. Electron and photon phase-space integrals and the
+Rayleigh--Jeans intensity are
+\begin{equation}
+\int\dd P=\sum_{n=-\infty}^{\infty}\int\dd^3p,\qquad
+\int\dd K=\sum_{M=O,X}\int_0^\infty\dd\omega\int_{4\pi}\dd\Omega,\qquad
+I_{\mathrm{RJ}}=\frac{\omega^2T}{8\pi^3c^2},\qquad C_0=\frac{4\pi^2e^2}{m^2c^3}.
+\end{equation}
+A photon mode is $(M,\omega,\theta,\phi)$; for $\omega>0$ only harmonics
+$n\ge1$ resonate. All harmonics feeding one photon mode enter its
+normalisation together.
+
+\emph{Assumptions.} Locally homogeneous field, gyrotropic electrons, classical
+soft-photon emission and absorption with vacuum O/X polarisation, small
+departures from a Maxwell--J\"uttner distribution, and a quasi-static local
+photon response. Spatial transport and wall reflection belong to the separate
+radiation-transfer problem~\cite{KK96b}. Rayleigh--Jeans applies to the
+interacting (low-energy) part of the spectrum.
+
+\emph{Related work.} Radiative electron relaxation in strong fields was treated
+by Akhiezer, Peletminskii and coworkers~\cite{Akh62,Akh63,Pel63}; their fast
+photon quasi-equilibrium may depend on the non-equilibrium electrons.
+Analytic thermal absorption~\cite{Bertelli05}, guiding-centre radiation
+reaction~\cite{Hirvijoki15}, optically thin cyclotron cooling~\cite{Kennedy21},
+self-absorption-driven thermalisation~\cite{Ghisellini88} and mixed-opacity
+models~\cite{Ochs24a,Ochs24b} address related regimes. Conservative
+finite-rank field-particle corrections are established for Coulomb
+collisions~\cite{Abel08,Sugama09}; the projection used here is the analogue
+in photon space.
+
+%======================================================================
+\section{Variational form}\label{sec:variational}
+
+With
+\begin{equation}
+s=\frac{\omega_{ce}}{\omega},\qquad \eta=\cos\theta,\qquad \sigma=1-\eta^2,\qquad
+r_n=\gamma-ns-\eta\upar,
+\end{equation}
+the derivative and polarisation factors of Ref.~\cite{KK96} are
+\begin{gather}
+\hat L_n=\frac{ns}{\uperp}\partial_{\uperp}+\eta\,\partial_{\upar},\qquad
+D_n^{(X)}=\frac{\uperp^2}{\gamma^2}J_n'(\lambda)^2,\qquad
+D_n^{(O)}=\frac{(\gamma\eta-\upar)^2}{\gamma^2\sigma}J_n(\lambda)^2,\\
+\lambda=\frac{n\uperp\sqrt\sigma}{\gamma-\eta\upar}=\frac{\uperp\sqrt\sigma}{s}
+\quad\text{on resonance.}
+\end{gather}
+On resonance ($r_n=0$) the derivative becomes harmonic-independent in
+$(\gamma,\upar)$:
+\begin{equation}
+\hat L_n=\partial_\gamma+\eta\,\partial_{\upar}\equiv L_\eta,\qquad L_\eta\gamma=1,\qquad L_\eta\upar=\eta .
+\label{eq:Leta}
+\end{equation}
+Define the resonant weight and its moments
+\begin{equation}
+A_n^{(M)}=\frac{\gamma}{\omega}D_n^{(M)}\delta(r_n)f_0I_{\mathrm{RJ}},\qquad
+N=\int\dd P\,A,\qquad B_{\fh}=\int\dd P\,A\,L_\eta\fh .
+\end{equation}
+With the photon response $q=\mu\,\delta I/I_{\mathrm{RJ}}$ the linearised
+quasilinear flux is proportional to $A(L_\eta\fh-q)$, and the quasi-static photon
+balance at each mode gives $q_*=B_{\fh}/N$. Equivalently, $q_*$ minimises
+\begin{equation}
+\mathcal Q[\fh,q]=C_0\int\dd K\int\dd P\,A\,(L_\eta\fh-q)^2 ,
+\label{eq:Q}
+\end{equation}
+and completing the square mode by mode gives the dissipation
+\begin{equation}
+\Kex[\fh]=\min_q\mathcal Q[\fh,q]
+=C_0\int\dd K\left\{\int\dd P\,A\,(L_\eta\fh)^2-\frac{B_{\fh}^2}{N}\right\}\ge0 .
+\label{eq:Kex}
+\end{equation}
+The first term is the differential part, the second the integral correction;
+bilinear forms follow by polarisation, and
+$\Kex[\hat g,\fh]=-\int\dd^3p\,\hat g\,\hat L_{\mathrm{EM}}(f_0\fh)$ with the
+operator of Eq.~\eqref{eq:operator}.
+
+\paragraph{Conservation and null space.}
+For $\psi\in\{1,\gamma,\upar\}$, $L_\eta\psi$ is constant at every mode, so
+$\Kex[\psi,\fh]=0$: with vanishing boundary flux, number, energy and parallel
+momentum are conserved. Conversely, let $\Kex[\fh]=0$ for smooth $\fh$. Then
+$L_\eta\fh$ is constant along each resonance line $\gamma-\eta\upar=ns$, whose
+tangent is $\eta\partial_\gamma+\partial_{\upar}$:
+\begin{equation}
+\eta\fh_{\gamma\gamma}+(1+\eta^2)\fh_{\gamma\upar}+\eta\fh_{\upar\upar}=0 .
+\end{equation}
+Holding for an interval of $\eta$, this forces $\fh_{\gamma\upar}=0$ and
+$\fh_{\gamma\gamma}+\fh_{\upar\upar}=0$, so locally
+$\fh=c_0+c_E\gamma+c_P\upar+\tfrac{c_2}{2}(\gamma^2-\upar^2)$. The last term has
+$L_\eta\fh=c_2ns$ besides the affine part; two harmonics resonating with one
+photon mode require $c_2=0$. Hence on the connected physical interior
+\begin{equation}
+\ker\Kex=\operatorname{span}\{1,\gamma,\upar\}.
+\end{equation}
+Keeping only one harmonic adds the spurious invariant $\gamma^2-\upar^2$, so
+truncation to the fundamental is not a uniformly valid substitute.
+
+%======================================================================
+\section{The diffusion tensor}\label{sec:D}
+
+Eliminating the frequency with the resonance delta function
+($\int\dd\omega\,\delta(r_n)=\omega_n^2/(n\omega_{ce})$,
+$\omega_n=n\omega_{ce}/(\gamma-\eta\upar)$) and integrating over the photon
+azimuth gives, with
+\begin{equation}
+\nu_0=\frac{e^2\omega_{ce}^2}{mc^3\mu},\qquad a=\frac{2\nu_0}{3},\qquad v=(1,\eta)^{\mathsf T},
+\end{equation}
+\begin{equation}
+D^{ij}=\nu_0\int_{-1}^{1}\dd\eta\,\frac{\gamma}{(\gamma-\eta\upar)^3}\sum_{n\ge1}n^2\bigl(D_n^{(X)}+D_n^{(O)}\bigr)v^iv^j .
+\label{eq:Dsum}
+\end{equation}
+Each integrand is positive semidefinite; for $\uperp>0$ the continuum of
+photon directions makes $D$ positive definite.
+
+\paragraph{Harmonic sums.} For $|z|<1$,
+\begin{equation}
+\sum_{n\ge1}n^2J_n(nz)^2=\frac{z^2(4+z^2)}{16(1-z^2)^{7/2}},\quad
+\sum_{n\ge1}n^2J_n'(nz)^2=\frac{4+3z^2}{16(1-z^2)^{5/2}} .
+\label{eq:sums}
+\end{equation}
+\emph{Proof.} Under $\vartheta=\varphi-z\sin\varphi$, the Kapteyn expansions give
+\[
+\frac{1}{1-z\cos\varphi}=1+2\sum_{n\ge1}J_n(nz)\cos n\vartheta,\qquad
+\frac{\sin\varphi}{1-z\cos\varphi}=2\sum_{n\ge1}J_n'(nz)\sin n\vartheta .
+\]
+Parseval's
+identity applied to their $\vartheta$-derivatives, transformed back to
+$\varphi$, gives
+\begin{equation}
+\sum_{n\ge1}n^2J_n(nz)^2=\frac1{4\pi}\int_0^{2\pi}\frac{z^2\sin^2\varphi}{(1-z\cos\varphi)^5}\dd\varphi,\qquad
+\sum_{n\ge1}n^2J_n'(nz)^2=\frac1{4\pi}\int_0^{2\pi}\frac{(\cos\varphi-z)^2}{(1-z\cos\varphi)^5}\dd\varphi .
+\end{equation}
+Writing the numerators as polynomials in $\Delta=1-z\cos\varphi$ and using
+$\int_0^{2\pi}(\lambda-z\cos\varphi)^{-k}\dd\varphi=\frac{(-1)^{k-1}}{(k-1)!}\partial_\lambda^{k-1}\frac{2\pi}{\sqrt{\lambda^2-z^2}}$
+at $\lambda=1$ gives Eq.~\eqref{eq:sums}. \qed
+
+In Eq.~\eqref{eq:Dsum}, $z=\uperp\sqrt\sigma/(\gamma-\eta\upar)<1$. With
+$q=\gamma-\eta\upar$ and
+\begin{equation}
+Q=q^2-\uperp^2(1-\eta^2)=u^2\Bigl(\eta-\frac{\gamma\upar}{u^2}\Bigr)^2+\frac{\uperp^2}{u^2}>0,
+\end{equation}
+so that $1-z^2=Q/q^2$, the harmonic sum leaves
+\begin{equation}
+D^{ij}=\frac{\nu_0\uperp^2}{16\gamma}\int_{-1}^{1}\dd\eta\,v^iv^j
+\left[\frac{4q^2+3\uperp^2(1-\eta^2)}{Q^{5/2}}+\frac{(\gamma\eta-\upar)^2\bigl(4q^2+\uperp^2(1-\eta^2)\bigr)}{Q^{7/2}}\right].
+\label{eq:Deta}
+\end{equation}
+
+\paragraph{Angular integration.} The integrands are polynomials in $\eta$
+over $Q^{5/2}$ and $Q^{7/2}$, with $Q$ quadratic in $\eta$. Each has an
+antiderivative $R(\eta)Q^{-(k-2)/2}+c\,L(\eta)$ with polynomial $R$ and
+\begin{equation}
+L(\eta)=\frac1u\arsinh\frac{u^2\eta-\gamma\upar}{\uperp},\qquad L'=Q^{-1/2},\qquad L(1)-L(-1)=\frac{2\arsinh u}{u} .
+\end{equation}
+At the end points $\sqrt{Q(\pm1)}=\gamma\mp\upar$. The logarithmic terms cancel
+for $j=0,1$ and survive for $j=2$ (Appendix~\ref{app:angular}). With
+\begin{align}
+F(u)&=10+\frac{3}{u^2}-\Bigl(\frac{9}{\gamma u}+\frac{3\gamma}{u^3}\Bigr)\arsinh u,\\
+G(u)&=10+\frac{15}{u^2}-\Bigl(\frac{21}{\gamma u}+\frac{15\gamma}{u^3}\Bigr)\arsinh u,\qquad
+H(u)=u^2-1-\frac{G(u)}{16},
+\end{align}
+the result is
+\begin{equation}
+\boxed{\;D^{\gamma\gamma}=a\uperp^2,\qquad
+D^{\gamma\upar}=D^{\upar\gamma}=a\frac{\upar\uperp^2}{\gamma},\qquad
+D^{\upar\upar}=a\frac{\uperp^2}{u^2}\Bigl[\frac{F(u)}{16}+H(u)\frac{\upar^2}{u^2}\Bigr].\;}
+\label{eq:Dclosed}
+\end{equation}
+
+\paragraph{Original coordinates.} In $(p,\chi)$,
+\begin{gather}
+D^{pp}=\frac{2e^2\omega_{ce}^2T}{3c^3}\gamma^2\sin^2\chi,\qquad
+D^{p\chi}=D^{\chi p}=\frac{2e^2\omega_{ce}^2T}{3c^3p}\sin\chi\cos\chi,\\
+D^{\chi\chi}=\frac{e^2\omega_{ce}^2T}{24c^3p^2}\bigl[F(u)-G(u)\cos^2\chi\bigr],
+\end{gather}
+which are Eqs.~(48)--(50) of Ref.~\cite{KK96}; Eq.~\eqref{eq:Dclosed} is their
+contravariant transformation to $(\gamma,\upar)$. The apparent poles at $u=0$
+cancel:
+\begin{equation}
+F=\tfrac{32}{5}u^2-\tfrac{176}{35}u^4+\tfrac{64}{15}u^6-\tfrac{4352}{1155}u^8+O(u^{10}),\qquad
+H=\tfrac{27}{35}u^4-\tfrac{68}{105}u^6+\tfrac{656}{1155}u^8+O(u^{10}),
+\label{eq:FHseries}
+\end{equation}
+which is the stable way to evaluate them near the origin.
+
+%======================================================================
+\section{The integral kernel}\label{sec:kernel}
+
+The operator in divergence form is
+\begin{equation}
+\hat L_{\mathrm{EM}}\delta f=\frac1{\mathcal J}\partial_i\Bigl\{\mathcal Jf_0\Bigl[D^{ij}\partial_j\fh-\int\dd^3p'\,f_0'R^{ij'}(y,y')\partial_{j'}\fh'\Bigr]\Bigr\},
+\label{eq:operator}
+\end{equation}
+where a primed index refers to the coordinate at the primed momentum. Two
+resonances $\gamma-\eta\upar=ns$ and $\gamma'-\eta\upar'=n's$ share the photon
+\begin{equation}
+\eta_*=\frac{n'\gamma-n\gamma'}{\Delta},\qquad s_*=\frac{\upar\gamma'-\gamma\upar'}{\Delta},\qquad \Delta=n'\upar-n\upar',
+\end{equation}
+and $|\partial(r_n,r'_{n'})/\partial(s,\eta)|=|\Delta|$. Only $|\eta_*|<1$, $s_*>0$
+contribute. The photon measure is $C_0\,2\pi\,(\omega_{ce}\dd s/s^2)\,I_{\mathrm{RJ}}/\omega=\nu_0\,\dd s\,\dd\eta/s^3$,
+so for non-degenerate pairs
+\begin{equation}
+\boxed{\;R^{ij'}(y,y')=P_0\sum_{M=O,X}\;\sum_{n,n'\ge1}^{\mathrm{adm}}
+\frac{\gamma\gamma'D_n^{(M)}D_{n'}^{\prime(M)}}{s_*^3|\Delta|\,S_M(s_*,\eta_*)}\,v^i(\eta_*)v^{j'}(\eta_*),\qquad
+P_0=\frac{2e^2\omega_{ce}^2K_2(\mu)}{mc^3n_e\mu^2},\;}
+\label{eq:Rkernel}
+\end{equation}
+equivalent to Eq.~(51) of Ref.~\cite{KK96}. The factor $s^{-3}$ collects the
+frequency measure and $I_{\mathrm{RJ}}/\omega$.
+
+\paragraph{Absorption normalisation.} $S_M$ is defined by
+$N=(I_{\mathrm{RJ}}/\omega)(n_e\mu/2K_2)\,S_M$, i.e.\
+$S_M=\sum_k\int\dd\gamma\,\dd\upar\,\gamma^2D_k^{(M)}\delta(\gamma-ks-\eta\upar)e^{-\mu\gamma}$.
+A harmonic $k$ absorbs only if $(ks)^2>\sigma$; its resonance line is
+\begin{equation}
+h_k=\sqrt{(ks)^2-\sigma},\quad \gamma=\frac{ks+\eta h_kx}{\sigma},\quad
+\upar=\frac{ks\eta+h_kx}{\sigma},\quad \uperp=\frac{h_k}{\sqrt\sigma}\sqrt{1-x^2},\quad -1<x<1,
+\end{equation}
+on which $\gamma\eta-\upar=-h_kx$, $\lambda=b_k\sqrt{1-x^2}$ and
+$\dd\upar=h_k\dd x/\sigma$. Hence
+\begin{gather}
+S_M(s,\eta)=\sum_{k:(ks)^2>\sigma}\frac{h_k^3}{\sigma^2}e^{-\mu ks/\sigma}F_k^{(M)}(a_k,b_k),\qquad
+a_k=\frac{\mu\eta h_k}{\sigma},\quad b_k=\frac{h_k}{s},\label{eq:SM}\\
+F_k^{(O)}(a,b)=\int_{-1}^{1}e^{-ax}x^2J_k\bigl(b\sqrt{1-x^2}\bigr)^2\dd x,\qquad
+F_k^{(X)}(a,b)=\int_{-1}^{1}e^{-ax}(1-x^2)J_k'\bigl(b\sqrt{1-x^2}\bigr)^2\dd x .
+\end{gather}
+The $x$ integrals are entire in $a,b$ and have the series (Appendix~\ref{app:series})
+\begin{gather}
+F_k^{(O)}=\sum_{\ell\ge0}(-1)^\ell A_{k\ell}\Bigl(\frac b2\Bigr)^{2k+2\ell}T_{k+\ell}(a),\qquad
+F_k^{(X)}=\frac1{b^2}\sum_{\ell\ge0}(-1)^\ell B_{k\ell}\Bigl(\frac b2\Bigr)^{2k+2\ell}M_{k+\ell}(a),\label{eq:Fseries}\\
+A_{k\ell}=\frac{(2k+2\ell)!}{\ell!\,(2k+\ell)!\,(k+\ell)!^2},\qquad
+B_{k\ell}=\bigl[2(k+\ell)^2-k^2\bigr]A_{k\ell}-4A_{k,\ell-1},\quad A_{k,-1}=0,\\
+M_j(a)=\int_{-1}^1e^{-ax}(1-x^2)^j\dd x=B\bigl(\tfrac12,j+1\bigr)\,{}_0F_1\bigl(;j+\tfrac32;\tfrac{a^2}4\bigr),\\
+T_j(a)=\int_{-1}^1x^2e^{-ax}(1-x^2)^j\dd x=B\bigl(\tfrac32,j+1\bigr)\,{}_1F_2\bigl(\tfrac32;\tfrac12,j+\tfrac52;\tfrac{a^2}4\bigr).
+\end{gather}
+These converge absolutely for all finite arguments; they remove quadrature from
+the coefficients, but the harmonic sums remain infinite, and cancellation at
+large arguments needs extended precision.
+
+\paragraph{Harmonic tail.} For $s>0$, $|\eta|<1$: $|J_k|,|J_k'|\le1$, $h_k\le ks$ and
+$ks-|\eta|h_k\ge ks(1-|\eta|)$ give, with $q=e^{-\mu s/(1+|\eta|)}<1$,
+\begin{equation}
+0\le S_X-S_{X,K}\le\frac{4s^3}{3\sigma^2}\sum_{k>K}k^3q^k,\qquad
+0\le S_O-S_{O,K}\le\frac{2s^3}{3\sigma^2}\sum_{k>K}k^3q^k .
+\end{equation}
+$S_M$ is strictly positive at every physical mode.
+
+\paragraph{Limits.} On the propagation axis only the fundamental survives, with
+$D_1^{(X)},D_1^{(O)}\to\uperp^2/(4\gamma^2)$, $\gamma-\upar=s$ and
+$\uperp^2=2s(\gamma-\gamma_{\min})$, $\gamma_{\min}=(s+s^{-1})/2$:
+\begin{equation}
+S_X(s,\pm1)=S_O(s,\pm1)=\frac{s}{2\mu^2}\exp\Bigl[-\frac\mu2(s+s^{-1})\Bigr].
+\label{eq:axis}
+\end{equation}
+In the dipole limit ($\tau=1/\mu\ll1$, fundamental only, Doppler resonance
+$1-s-\eta\upar=0$, away from $\eta=0$), $D_1^{(X)}\simeq\uperp^2/4$,
+$D_1^{(O)}\simeq\eta^2\uperp^2/4$ and the perpendicular average at fixed $\upar$,
+\begin{equation}
+\Pi F=\frac1{2\tau^2}\int_0^\infty w^3e^{-w^2/(2\tau)}F(w,\upar)\,\dd w,\qquad \Pi[w^{2j}]=(2\tau)^j(j+1)!,
+\end{equation}
+makes all polynomial moments explicit. This one-harmonic limit retains the
+spurious invariant of Sec.~\ref{sec:variational}.
+
+%======================================================================
+\section{Kernel properties}\label{sec:properties}
+
+\paragraph{Resonance degeneracy.} For fixed $y,n,n'$ let $\rho=n'/n$,
+$a_1=\gamma'-\rho\gamma$, $b_1=\upar'-\rho\upar$. Eliminating the frequency
+leaves $\delta(a_1-\eta b_1)$, so near a coincident resonance a harmonic pair
+contributes $\mathbf 1_{|a_1|<|b_1|}H(a_1/b_1,b_1)/|b_1|$ with $H$ bounded.
+The apparent pole is integrable,
+$\int_{-\epsilon}^{\epsilon}\dd b_1\int_{-|b_1|}^{|b_1|}\dd a_1/|b_1|=4\epsilon$,
+and the critical set $b_1=0$ carries no point mass; the kernel is a density
+defined almost everywhere.
+
+\paragraph{Row sum.} Integrating the primed numerator of Eq.~\eqref{eq:Rkernel}
+against $f_0'\dd^3p'$ reproduces $S_M$, so
+\begin{equation}
+\int\dd^3p'\,f_0'R^{ij'}(y,y')=D^{ij}(y).
+\label{eq:rowsum}
+\end{equation}
+Each harmonic pair is a non-negative multiple of $vv^{\mathsf T}$, hence
+$0\le R^{\upar\upar'}\le R^{\gamma\gamma'}$, $|R^{\gamma\upar'}|\le R^{\gamma\gamma'}$, and
+$\int\dd^3p'f_0'R^{\gamma\gamma'}=a\uperp^2<\infty$. By Tonelli's theorem the full
+positive harmonic series converges absolutely almost everywhere and in
+weighted $L^1_{\mathrm{loc}}$. With exchange symmetry, Eq.~\eqref{eq:rowsum} gives the
+weak form
+\begin{equation}
+\Kex[\hat g,\fh]=\frac12\iint\dd^3p\,\dd^3p'\,f_0f_0'\,
+[\nabla\hat g(y)-\nabla\hat g(y')]^{\mathsf T}R(y,y')[\nabla\fh(y)-\nabla\fh(y')],
+\end{equation}
+with the same $(\gamma,\upar)$ components on both factors.
+
+\paragraph{Harmonic truncation.} Let $w=\uperp>0$ and
+\begin{equation}
+\alpha(w)=\arsinh\frac1w-\frac1{\sqrt{1+w^2}},\qquad q_w=e^{-2\alpha(w)} .
+\end{equation}
+Over photon directions $z\le z_m=w/\sqrt{1+w^2}$, because
+$q^2-(1+w^2)\sigma=(\gamma\eta-\upar)^2\ge0$. Shifting the contour of
+$J_n(x)=\frac1{2\pi}\int_{-\pi}^{\pi}e^{i(x\sin\vartheta-n\vartheta)}\dd\vartheta$ by
+$-i\beta_m$, $\cosh\beta_m=1/z_m$, and using
+$\frac nxJ_n=\frac1{2\pi}\int\cos\vartheta\,e^{i(x\sin\vartheta-n\vartheta)}\dd\vartheta$ gives
+for $z\le z_m$
+\begin{equation}
+|J_n(nz)|\le\frac{z}{z_m}e^{-n\alpha(w)},\qquad |J_n'(nz)|\le\frac{1}{z_m}e^{-n\alpha(w)} .
+\end{equation}
+With $(\gamma\eta-\upar)^2\le q^2$ this bounds
+$n^2(D_n^{(X)}+D_n^{(O)})\le2(1+w^2)n^2q_w^n/\gamma^2$, and
+$\int_{-1}^1\dd\eta\,q^{-3}=2\gamma/(1+w^2)^2$ gives
+\begin{equation}
+D^{\gamma\gamma}_{>N}(y)\le\frac{4\nu_0}{1+w^2}\sum_{n>N}n^2q_w^n,\qquad
+\sum_{n\ge m}n^2q^n=q^m\Bigl[\frac{m^2}{1-q}+\frac{2mq}{(1-q)^2}+\frac{q(1+q)}{(1-q)^3}\Bigr].
+\label{eq:tail}
+\end{equation}
+The thermal tail is exact: with $A=\sqrt{1+W^2}$ and
+$\int\dd\upar\,e^{-\mu\sqrt{A^2+\upar^2}}=2AK_1(\mu A)$,
+\begin{equation}
+T_W=\int_{w>W}\dd^3p\,f_0w^2=\frac{n_e}{K_2(\mu)}\Bigl[W^2A^2K_2(\mu A)+\frac{2A^3}{\mu}K_3(\mu A)\Bigr].
+\end{equation}
+Since $q_w$ increases with $w$, splitting at $w=W$ gives
+$\int\dd^3p\,f_0D^{\gamma\gamma}_{>N}\le4n_e\nu_0\sum_{n>N}n^2q_W^n+aT_W$, which
+tends to zero, e.g.\ for $W\propto N^{1/4}$ ($\alpha(W)\simeq1/(3W^3)$). If
+$|\partial_\gamma\fh|+|\partial_{\upar}\fh|\le M$, truncating every mode
+consistently at harmonic $N$ satisfies
+\begin{equation}
+0\le\Kex[\fh]-\mathcal K_N[\fh]\le4M^2\int\dd^3p\,f_0D^{\gamma\gamma}_{>N}.
+\end{equation}
+At each mode $\mathcal K=C_0\,N\operatorname{Var}_A(L_\eta\fh)$; adding weight
+$\Delta N$ cannot decrease the sum of squared deviations, and evaluating it at
+the old mean, with $|L_\eta\fh-\bar L|\le2M$, increases it by at most
+$4M^2\Delta N$. These bounds concern exact arithmetic, not floating-point
+cancellation.
+
+%======================================================================
+\section{Absorption thresholds}\label{sec:thresholds}
+
+\paragraph{Local cusp.} Let $\delta=s^2-\sigma$. At the opening of the
+fundamental absorbing harmonic, Eq.~\eqref{eq:SM} gives
+\begin{equation}
+S_{X,1}=\frac{\delta^{3/2}}{\sigma^2}e^{-\mu s/\sigma}\int_{-1}^{1}e^{-\mu\eta\sqrt\delta x/\sigma}(1-x^2)
+J_1'\Bigl(\frac{\sqrt\delta}{s}\sqrt{1-x^2}\Bigr)^2\dd x
+\end{equation}
+for $\delta>0$ and zero otherwise. With $J_1(z)=z/2+O(z^3)$ and
+$J_1'(z)=1/2+O(z^2)$, odd terms integrate to zero and
+\begin{equation}
+S_{X,1}=a_X\delta_+^{3/2},\quad a_X\big|_{\delta=0}=\frac{e^{-\mu s/\sigma}}{3\sigma^2},\qquad
+S_{O,1}=a_O\delta_+^{5/2},\quad a_O\big|_{\delta=0}=\frac{e^{-\mu s/\sigma}}{15s^2\sigma^2},
+\end{equation}
+with $a_X,a_O$ analytic in the transverse coordinate. The higher harmonics are
+already open, so $B_X=\sum_{k\ge2}S_{X,k}$ is positive and smooth and
+\begin{equation}
+\frac1{S_X}=\frac1{B_X}-\frac{a_X}{B_X^2}\delta_+^{3/2}+\frac{a_X^2\delta_+^3}{B_X^2(B_X+a_X\delta_+^{3/2})},
+\end{equation}
+the last term being $C^2$. A harmonic pair with non-zero numerator therefore
+contributes a negative $\delta^{3/2}$ cusp to $R^{\gamma\gamma'}$, which the
+ordinary mode cannot cancel.
+
+\paragraph{Dense thresholds.} On the counter-streaming slice $y=(\gamma,v)$,
+$y'=(\gamma,-v)$, $v>0$, with $N=n+n'$ and $d=n'-n$, the common photon is
+$s=2\gamma/N$, $\eta=d\gamma/(Nv)$, and the fundamental threshold lies at
+\begin{equation}
+\gamma_{N,d}=\frac{Nv}{\sqrt{d^2+4v^2}},\qquad |d|<N,\quad N\equiv d\pmod2 .
+\end{equation}
+Choosing $d_j/N_j\to v/\gamma_0$ with $N_j\to\infty$ gives $\gamma_{N_j,d_j}\to\gamma_0$,
+so these thresholds are dense in $\gamma>\sqrt{1+v^2}$, each at an interior
+photon direction $|\eta|=|d|/\sqrt{d^2+4v^2}<1$.
+
+\begin{proposition}[conditional]
+Let $U$ be an open momentum region in which the thresholds $\delta_{nn'}=0$
+are dense. Suppose that on $U$
+$R^{\gamma\gamma'}=\sum_{n,n'}\bigl[G_{nn'}-A_{nn'}\delta_{nn',+}^{3/2}\bigr]$ with
+$G_{nn'},A_{nn'}\in C^2(U)$, $A_{nn'}\ge0$, $A_{nn'}>0$ on $\{\delta_{nn'}=0\}$, and
+\[
+\|G_{nn'}\|_{C^2}+\|A_{nn'}\|_{C^2}\le CN^pK^NW^{2N-8},\qquad KW^2<1,
+\]
+for $W/2<\uperp,\uperp'<W$ and $N=n+n'$. Then $R^{\gamma\gamma'}$ has no $C^2$
+representative on any open subset of $U$; in particular it is not a finite
+expression in locally analytic functions with finitely many branch loci.
+\end{proposition}
+\begin{proof}
+Transverse to a threshold, the singular part of the second derivative,
+$-\tfrac34A_{nn'}|\nabla\delta_{nn'}|^2\delta_{nn'}^{-1/2}$ on $\delta_{nn'}>0$, is
+unbounded wherever $A_{nn'}>0$. The summability bound keeps $\sum G_{nn'}$ in
+$C^2$ and every other contribution locally bounded, the singular terms share
+one sign and cannot cancel, and every open subset of $U$ meets a threshold.
+\end{proof}
+The cusp and the threshold locations are established. The derivative estimate
+assumed in the proposition requires uniform control of reciprocal absorption
+coefficients near the axis and near thresholds and is not proved here; the
+row-sum identity and pointwise convergence do not imply it. Whether a kernel
+has a ``closed form'' depends on the admissible function class, which must be
+stated. Nothing below depends on the proposition.
+
+%======================================================================
+\section{Modified physics}\label{sec:modified}
+
+\paragraph{Finite line width.} Convolving the local cusp with
+$g_\ell(x)=e^{-x^2/(2\ell^2)}/(\sqrt{2\pi}\ell)$, substituting $t=\ell y$ and
+using $\int_0^\infty t^{\nu-1}e^{-t^2/2-zt}\dd t=\Gamma(\nu)e^{z^2/4}D_{-\nu}(z)$~\cite{DLMF},
+\begin{equation}
+(g_\ell*x_+^{3/2})(x)=\frac{\Gamma(5/2)\ell^{3/2}}{\sqrt{2\pi}}e^{-x^2/(4\ell^2)}D_{-5/2}(-x/\ell),
+\end{equation}
+where $D_{-5/2}$ is the parabolic-cylinder function. This is analytic in $x$,
+so the threshold argument does not carry over; but the broadened kernel still
+contains the reciprocal of a mode-dependent absorption sum, which smoothing
+does not evaluate.
+
+\paragraph{Broadening must respect detailed balance.} Off resonance,
+\begin{equation}
+\hat L_n\gamma=\frac{ns+\eta\upar}{\gamma}=1-\frac{r_n}{\gamma},\qquad
+\hat L_nf_0+\mu f_0=\mu\frac{r_n}{\gamma}f_0 .
+\end{equation}
+The right-hand side vanishes only on the sharp resonance. Replacing
+$\delta(r_n)$ by a Gaussian or Lorentzian while keeping the drift and response
+loses the detailed-balance derivation; the broadening mechanism and its
+momentum and energy exchange must be specified. A positive broadened model can
+instead be built with $L_\eta$ throughout, keeping the invariants; its
+diffusion tensor must then be recomputed.
+
+\paragraph{Other changes.} Planck radiation with recoil changes both the
+emission--absorption balance and the normaliser. Refraction adds
+frequency-dependent polarisation and dispersion. A synchrotron continuum
+replaces the harmonic sums in the ultrarelativistic regime but leaves a
+spectrum-dependent absorption problem~\cite{Ochs24a,Ochs24b}. An imposed
+thermal photon bath keeps only the differential operator and transfers energy
+and momentum to the reservoir. None of these yields a finite kernel. The
+useful reduction acts on the photon response rather than on electron
+harmonics.
+
+%======================================================================
+\section{Two-mode closure}\label{sec:closure}
+
+\paragraph{Photon model.} Restrict the photon response to
+\begin{equation}
+V=\operatorname{span}\{1,\eta\},\qquad q_2=a_E+a_P\eta .
+\end{equation}
+In the Rayleigh--Jeans regime this is a radiation field at a slightly
+shifted temperature with a small parallel drift,
+$\delta I/I_{\mathrm{RJ}}=\delta T/T+(V_\parallel/c)\eta$. The same two coefficients
+apply to both polarisations and all interacting frequencies: the model assumes
+redistribution to a common spectral and angular equilibrium, not only fast
+absorption mode by mode. Photon number is not an invariant. In the
+absorption-weighted inner product
+\begin{equation}
+\langle r,s\rangle_N=C_0\int\dd K\,N\,rs
+\end{equation}
+all norms are finite, and minimising Eq.~\eqref{eq:Q} over $V$ gives the
+orthogonal projection $q_2=Pq_*$. With $v_E=1$, $v_P=\eta$ the normal equations are
+\begin{equation}
+\mathsf G_{\alpha\beta}a_\beta=b_\alpha[\fh],\qquad
+\mathsf G_{\alpha\beta}=\langle v_\alpha,v_\beta\rangle_N=\int\dd^3p\,f_0D^{\alpha\beta},\qquad
+b_\alpha[\fh]=\langle v_\alpha,q_*\rangle_N=\int\dd^3p\,f_0D^{\alpha j}\partial_j\fh,
+\end{equation}
+with $E\leftrightarrow\gamma$, $P\leftrightarrow\upar$. As $f_0$ is even in
+$\upar$, $\mathsf G=\operatorname{diag}(G_E,G_P)$ and $q_2=b_E/G_E+(b_P/G_P)\eta$.
+
+\paragraph{Normalisation constants.} With $\langle F\rangle_0=n_e^{-1}\int f_0F\,\dd^3p$
+and the representation
+$\int_1^\infty e^{-\mu\gamma}(\gamma^2-1)^{\nu-1/2}\dd\gamma=2^\nu\Gamma(\nu+\tfrac12)K_\nu(\mu)/(\sqrt\pi\mu^\nu)$~\cite{DLMF},
+differentiation in $\mu$ and the recurrences give
+\begin{equation}
+\langle u^2\rangle_0=\frac{3K_3(\mu)}{\mu K_2(\mu)},\qquad\langle\uperp^2\rangle_0=\frac{2K_3(\mu)}{\mu K_2(\mu)},\qquad
+\boxed{G_E=\frac{2an_e}{\mu}\frac{K_3}{K_2}=\frac{4n_e\nu_0}{3\mu}\frac{K_3(\mu)}{K_2(\mu)}.}
+\end{equation}
+For the parallel constant, average at fixed $u$ over $\xi=\cos\chi$:
+\begin{equation}
+\frac12\int_{-1}^{1}D^{\upar\upar}\dd\xi=a\Bigl(\frac F{24}+\frac{2H}{15}\Bigr)
+=\frac a{15}\Bigl[3+2u^2-\frac{3\arsinh u}{\gamma u}\Bigr].
+\end{equation}
+With $u\,\dd u/\gamma=\dd\gamma$ and one integration by parts,
+\begin{equation}
+\Bigl\langle\frac{\arsinh u}{\gamma u}\Bigr\rangle_0=\frac{\mu}{K_2}\int_1^\infty\arcosh\gamma\,e^{-\mu\gamma}\dd\gamma=\frac{K_0(\mu)}{K_2(\mu)} .
+\end{equation}
+Using $K_2-K_0=2K_1/\mu$,
+\begin{gather}
+\boxed{G_P=\frac{an_e}{15}\Bigl[3+\frac{6K_3}{\mu K_2}-\frac{3K_0}{K_2}\Bigr]=\frac{4n_e\nu_0}{15\mu}\frac{K_1(\mu)+K_3(\mu)}{K_2(\mu)},}\\
+\frac{G_P}{G_E}=\frac15\Bigl(1+\frac{K_1}{K_3}\Bigr)\to
+\begin{cases}2/5,&\mu\to\infty,\\1/5,&\mu\to0.\end{cases}
+\end{gather}
+No low-temperature expansion is involved.
+
+\paragraph{Operator.} Inserting $q_2$ into the electron flux gives the kernel
+\eqref{eq:result}, $R_2=d_Ed_E'^{\mathsf T}/G_E+d_Pd_P'^{\mathsf T}/G_P$ with
+\begin{equation}
+d_E(y)=a\begin{pmatrix}\uperp^2\\ \upar\uperp^2/\gamma\end{pmatrix},\qquad
+d_P(y)=a\begin{pmatrix}\upar\uperp^2/\gamma\\ (\uperp^2/u^2)[F/16+H\upar^2/u^2]\end{pmatrix},
+\end{equation}
+and, in the convention of Eq.~\eqref{eq:operator},
+\begin{equation}
+\boxed{\hat L_2\delta f=\frac1{\mathcal J}\partial_i\Bigl\{\mathcal Jf_0\Bigl[D^{ij}\partial_j\fh-D^{i\gamma}\frac{b_E[\fh]}{G_E}-D^{i\upar}\frac{b_P[\fh]}{G_P}\Bigr]\Bigr\}.}
+\end{equation}
+$R_2(y,y')=R_2(y',y)^{\mathsf T}$. An off-diagonal block of $R_2$ need not be
+positive semidefinite; positivity of the whole operator follows from its
+variational construction. The constants are local in space when $B$, $T$ and
+$n_e$ vary on scales compatible with the local approximation.
+
+\paragraph{Field-particle form.} Define
+$\sH_\alpha=-(\mathcal Jf_0)^{-1}\partial_i(\mathcal Jf_0D^{i\alpha})$. Direct
+differentiation gives
+\begin{equation}
+\sH_E=a\Bigl[\mu\uperp^2-\frac{2+4\uperp^2}{\gamma}\Bigr],\qquad
+\sH_P=-a\upar\Bigl[2-\frac{\mu\uperp^2}{\gamma}-\frac{F(u)}{8u^2}+\Bigl(\frac2{u^2}-\frac{4\upar^2}{u^4}\Bigr)H(u)\Bigr],
+\end{equation}
+with removable limits at the origin from Eq.~\eqref{eq:FHseries}. For regular
+gyrotropic distributions with adequate decay the boundary terms vanish (the
+$\uperp=0$ boundary carries no diffusive flux), so $b_\alpha[\fh]=\int\dd^3p\,\delta f\,\sH_\alpha$
+and the integral part is the explicit rank-two source
+\begin{equation}
+\boxed{\hat L_{I,2}\delta f=f_0\Bigl[\frac{\sH_E}{G_E}\int\dd^3p'\,\sH_E'\delta f'+\frac{\sH_P}{G_P}\int\dd^3p'\,\sH_P'\delta f'\Bigr],}
+\end{equation}
+added to the exact differential part $\hat L_D$.
+
+%======================================================================
+\section{Properties of the closure}\label{sec:closureprops}
+
+\paragraph{Structure.} The quadratic form is
+\begin{equation}
+\mathcal K_2[\fh]=\mathcal K_D[\fh]-\frac{b_E[\fh]^2}{G_E}-\frac{b_P[\fh]^2}{G_P}=\min_{q\in V}\mathcal Q[\fh,q]\ge0,
+\end{equation}
+so $\hat L_2$ is self-adjoint in the linearised entropy pairing. Since
+$b[\gamma]=(G_E,0)^{\mathsf T}$ and $b[\upar]=(0,G_P)^{\mathsf T}$,
+$\hat L_2(f_0)=\hat L_2(f_0\gamma)=\hat L_2(f_0\upar)=0$, and with the stated boundary
+conditions
+\begin{equation}
+\int\dd^3p\,(1,mc^2\gamma,mc\upar)\,\hat L_2\delta f=0,\qquad
+\frac{\dd}{\dd t}\frac12\int\dd^3p\,f_0\fh^2=-\mathcal K_2[\fh]\le0 .
+\end{equation}
+This is a linearised statement; it implies nothing about positivity of
+large-amplitude distributions. There is no extra null mode: $\mathcal K_2=0$
+requires $\partial_\gamma\fh+\eta\partial_{\upar}\fh=a_E+a_P\eta$ on every weighted
+resonance, the continuum of $\eta$ forces $\nabla\fh=(a_E,a_P)$, and
+$\ker\mathcal K_2=\operatorname{span}\{1,\gamma,\upar\}$. Unlike Sec.~\ref{sec:variational},
+$q_2$ is independent of $s$, so even a single harmonic would not add
+$\gamma^2-\upar^2$. The row sum $\int\dd^3p'f_0'R_2^{ij'}=D^{ij}$ holds exactly.
+
+\paragraph{Minimality.} Let $\mathcal A=-f_0^{-1}\hat L_Df_0$ act on $L^2(f_0\dd^3p)$
+with form $\mathcal K_D$, and $\psi_E=\gamma$, $\psi_P=\upar$; then
+$\mathcal A\psi_\alpha=\sH_\alpha$, independent (one even, one odd in $\upar$). If a
+positive self-adjoint correction $\mathcal C$ enforces $(\mathcal A-\mathcal C)\psi_\alpha=0$,
+then $\langle\psi_\alpha,\mathcal C\psi_\beta\rangle=\mathsf G_{\alpha\beta}$ and
+$\langle\psi_\alpha,\mathcal C\fh\rangle=b_\alpha[\fh]$, and Cauchy--Schwarz in the
+$\mathcal C$-seminorm gives $\langle\fh,\mathcal C\fh\rangle\ge b^{\mathsf T}\mathsf G^{-1}b$.
+The rank-two correction attains equality: it is the minimal positive
+correction, in form order, that restores the invariants with $D$ fixed. This is
+a structural optimality, not a statement about transport accuracy.
+
+\paragraph{Error identity.} Since $q_*$ is the $A$-mean at each mode,
+$\mathcal Q[\fh,q]=\Kex[\fh]+\|q-q_*\|_N^2$, and therefore
+\begin{equation}
+\boxed{\mathcal K_2[\fh]-\Kex[\fh]=\|(\mathrm{Id}-P)q_*\|_N^2\ge0 .}
+\end{equation}
+The closure is at least as dissipative as the original operator and exact for
+an input precisely when its induced photon response lies in $V$. This is an a
+posteriori diagnostic: if $\|(\mathrm{Id}-P)q_*\|_N\le\varepsilon\sqrt{\mathcal K_D[\fh]}$
+then $0\le\mathcal K_2-\Kex\le\varepsilon^2\mathcal K_D$. No uniform relative error
+holds for arbitrary distributions, and conservation is not an accuracy
+estimate. Nested photon spaces $V\subset V_3\subset V_4\subset\cdots$ give
+$\mathcal K_D\ge\mathcal K_2\ge\mathcal K_3\ge\mathcal K_4\ge\Kex$; their extra Gram
+entries can be precomputed without forming the two-electron kernel.
+
+%======================================================================
+\section{Physical interpretation}\label{sec:interpretation}
+
+\paragraph{Redistribution model.} Penalising photon components outside $V$,
+\begin{equation}
+\mathcal Q_\kappa[\fh,q]=\mathcal Q[\fh,q]+\kappa\|(\mathrm{Id}-P)q\|_N^2,\qquad\kappa\ge0,
+\end{equation}
+defines a dissipative model of additional photon redistribution whose slow
+variables are common temperature and parallel drift. It is a specified model,
+not derived from a particular scattering cross section. The minimiser is
+$q_\kappa=Pq_*+(\mathrm{Id}-P)q_*/(1+\kappa)$, and
+\begin{equation}
+\boxed{\mathcal K_\kappa=\frac{\Kex+\kappa\mathcal K_2}{1+\kappa},\qquad
+0\le\mathcal K_2-\mathcal K_\kappa=\frac{\|(\mathrm{Id}-P)q_*\|_N^2}{1+\kappa}\le\frac{\mathcal K_D}{1+\kappa}.}
+\end{equation}
+The strong-redistribution limit is the closure, with an $O(\kappa^{-1})$ form
+error. With the equilibrium absorption coefficient $\alpha_0(M,\omega,\eta)$ of
+Ref.~\cite{KK96}, $C_0N=\alpha_0I_{\mathrm{RJ}}/(mc^2\mu)$, and the stationary
+photon equation
+\begin{equation}
+0=c\alpha_0(q_*-q)-\kappa c\alpha_0(\mathrm{Id}-P)q
+\end{equation}
+has the same minimiser. $P$ is orthogonal in the $\alpha_0I_{\mathrm{RJ}}$ weight, so
+the added term exchanges no energy or parallel momentum in this description;
+its rate is $\nu_{\mathrm{red}}=\kappa c\alpha_0$.
+
+\paragraph{Applicability.} The model is closer to reality than independent
+photon modes when an actual mechanism redistributes the interacting spectrum
+and angles quickly compared with absorption and with the electron evolution,
+and conserves the same slow variables. Optical thickness alone does not
+provide this: angular scattering need not thermalise frequency, scattering by
+electrons exchanges energy and momentum with them, and walls absorb momentum.
+In a dilute tokamak the strong-redistribution condition must be checked.
+
+\paragraph{External bath.} Adding $a^{\mathsf T}\Lambda a$ with a symmetric positive
+semidefinite $2\times2$ matrix $\Lambda$ keeps the closure finite:
+\begin{equation}
+a=(\mathsf G+\Lambda)^{-1}b,\qquad R_\Lambda^{ij'}=D^{i\alpha}(y)[\mathsf G+\Lambda]^{-1}_{\alpha\beta}D^{\beta j'}(y').
+\end{equation}
+Number is conserved; energy and parallel momentum flow to the reservoir at
+the rate given by $b-\mathsf G(\mathsf G+\Lambda)^{-1}b=\Lambda(\mathsf G+\Lambda)^{-1}b$.
+Large $\Lambda$ clamps a pre-existing thermal bath and leaves the differential
+operator. This is not the vacuum escape limit, which removes the induced
+diffusion as well.
+
+%======================================================================
+\section{Optically thin limit: radiation drag}\label{sec:drag}
+
+If the optical depth is small over the emitted spectrum and incident radiation
+is negligible, reabsorption is absent and only the classical relativistic
+radiation drag of Ref.~\cite{KK96}, Eq.~(55), remains (see also
+Refs.~\cite{Kennedy21,Hirvijoki15}). Without Coulomb collisions, imposed fields
+or spatial variation, set
+\begin{equation}
+\nu_R=\frac{2e^2\omega_{ce}^2}{3mc^3}=\mu a,\qquad w=\uperp,\qquad v=\upar .
+\end{equation}
+The characteristics
+\begin{equation}
+\dot w=-\nu_R\frac{w(1+w^2)}{\gamma},\qquad \dot v=-\nu_R\frac{vw^2}{\gamma},\qquad \dot\gamma=-\nu_Rw^2
+\end{equation}
+conserve the parallel velocity:
+\begin{equation}
+\beta=\frac v\gamma,\qquad \gamma_\parallel=(1-\beta^2)^{-1/2},\qquad \gamma=\gamma_\parallel\sqrt{1+w^2}.
+\end{equation}
+With $\zeta=\arsinh(1/w)$, $\dot\zeta=\nu_R/\gamma_\parallel$ and
+\begin{equation}
+\boxed{\zeta(t)=\zeta_0+\frac{\nu_Rt}{\gamma_\parallel},\quad w=\operatorname{csch}\zeta,\quad
+\gamma=\gamma_\parallel\coth\zeta,\quad v=\beta\gamma_\parallel\coth\zeta .}
+\end{equation}
+An electron loses $mc^2[\gamma(0)-\gamma(t)]$, carried away by the radiation;
+$w=0$ is stationary.
+
+\paragraph{Propagator.} In characteristic coordinates
+\begin{equation}
+\dd^3p=\mathcal J_\zeta\,\dd\zeta\,\dd\beta,\qquad \mathcal J_\zeta=2\pi(mc)^3\gamma_\parallel^3\operatorname{csch}^2\zeta\coth^2\zeta,
+\end{equation}
+and particle conservation reads
+$\partial_t(\mathcal J_\zeta f)+\partial_\zeta(\nu_R\gamma_\parallel^{-1}\mathcal J_\zeta f)=0$.
+The speed is independent of $\zeta$, so with $\zeta_0=\zeta-\nu_Rt/\gamma_\parallel$
+\begin{equation}
+\boxed{f(\zeta,\beta,t)=\frac{\mathcal J_\zeta(\zeta_0,\beta)}{\mathcal J_\zeta(\zeta,\beta)}f_{\mathrm{in}}(\zeta_0,\beta)
+=\Bigl[\frac{\sinh\zeta}{\sinh\zeta_0}\Bigr]^2\Bigl[\frac{\coth\zeta_0}{\coth\zeta}\Bigr]^2f_{\mathrm{in}}(\zeta_0,\beta)}
+\end{equation}
+for $\zeta_0>0$, and $f=0$ for $\zeta_0\le0$ (no particles arrive from infinite
+momentum). This solves the gyrotropic drag problem for arbitrary admissible
+initial data in a uniform field. It does not conserve electron energy and does
+not solve the reabsorbing problem.
+
+%======================================================================
+\section{Verification}\label{sec:verification}
+
+\paragraph{Exact algebra.} Every algebraic step is checked with the native
+fortsym computer algebra system~\cite{fortsym} in nine scripts
+(\texttt{radiation\_collision/cas}), 128 bindings, each required to reduce to
+exactly zero:
+the resonance identities, completing the square and the null space
+(Sec.~\ref{sec:variational});
+the Parseval integrals, the summed integrand \eqref{eq:Deta}, the photon
+prefactor, the antiderivatives and end-point evaluation that produce
+\eqref{eq:Dclosed}, the tensor transformation from $(p,\chi)$ and the series
+\eqref{eq:FHseries} (Sec.~\ref{sec:D});
+the common photon, its Jacobian, $P_0$, the resonance-line parametrisation,
+the axis limit, the dipole moments, the Bessel-equation identity behind
+$B_{k\ell}$ and the coefficients $A_{k\ell},B_{k\ell}$ against Taylor series of
+$J_k^2$, $z^2J_k'^2$ (Sec.~\ref{sec:kernel});
+the degeneracy integral, the Kapteyn exponent, the $\eta$ integral and
+polarisation inequality behind \eqref{eq:tail}, the telescoping tail sum and the
+thermal-tail antiderivative (Sec.~\ref{sec:properties});
+the threshold expansions, the counter-streaming thresholds and the broadening
+substitution (Secs.~\ref{sec:thresholds}--\ref{sec:modified});
+the Bessel moments, $G_E$, $G_P$, the angular average, $\sH_E$, $\sH_P$ and the
+variational algebra of the closure and the redistribution model
+(Secs.~\ref{sec:closure}--\ref{sec:interpretation});
+the drag characteristics, trajectory, Jacobian and propagator
+(Sec.~\ref{sec:drag}). The antiderivatives in the angular integration were
+proposed with SymPy and are verified by fortsym by differentiation.
+
+\paragraph{Numerical checks.} \texttt{numeric\_checks.py} (mpmath) tests the
+non-algebraic statements independently. Results, as maximal relative errors:
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Check & Result\\
+\midrule
+%NUMERIC_TABLE%
+\bottomrule
+\end{tabular}
+\end{center}
+With $n_e=\nu_0=1$, direct quadrature reproduces
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+$\mu$ & $G_E$ & $G_P$ & $G_P/G_E$\\
+\midrule
+%G_TABLE%
+\bottomrule
+\end{tabular}
+\end{center}
+A discretisation should build its Gram matrix from the same quadrature as its
+moments and diffusion; analytic $G_E,G_P$ combined with inexact discrete
+moments do not conserve to machine precision.
+
+\paragraph{Implementation.} Evaluate $F,G,H$ and $D$ with the series
+\eqref{eq:FHseries} near the origin, $G_E,G_P$ with scaled Bessel functions for
+large $\mu$, then $\sH_E,\sH_P$, the two moments $b_E,b_P$, and add the two
+source functions to the differential operator. A weak-form discretisation with
+a consistent mass matrix, discrete gradients and a Gram matrix from the same
+diffusion bilinear form preserves the null space at any resolution.
+
+\begin{center}
+\small
+\begin{tabular}{p{3.4cm}p{4.7cm}p{5.6cm}}
+\toprule
+Model & Analytic result & Condition\\
+\midrule
+Original local operator & Convergent all-harmonic kernel; exact $D$ & No finite resummation; global obstruction conditional\\
+Finite line width & Analytic smoothing of the cusp & Detailed balance must be kept; kernel not closed\\
+Two-mode photons & Rank-two integral part, exact $D$ & Common temperature/drift response; residual is $\|(\mathrm{Id}-P)q_*\|_N^2$\\
+Strong redistribution & $O(\kappa^{-1})$ convergence to the closure & Specified added redistribution\\
+External thermal bath & Finite $2\times2$ response or differential operator only & Reservoir exchanges energy and momentum\\
+Optically thin & Closed characteristics and propagator & Drag only; energy leaves with the photons\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The central simplification keeps the relativistic electron kinematics and the
+full harmonic content of $D$ and restricts only the self-consistent photon
+perturbation to its two conservation-related modes. This removes the
+mode-by-mode reciprocal normaliser before any photon integral is done, and
+leaves only constants expressible through $K_\nu(\mu)$.
+
+%======================================================================
+\appendix
+\section{Angular integration}\label{app:angular}
+
+For $\uperp>0$ the substitution $x=(u^2\eta-\gamma\upar)/\uperp$ gives
+$Q=\uperp^2(1+x^2)/u^2$, $\dd\eta=\uperp\dd x/u^2$ and end points
+$x_\pm=(\pm u^2-\gamma\upar)/\uperp$, with $\sqrt{1+x_\pm^2}=u(\gamma\mp\upar)/\uperp$ and
+$\arsinh x_\pm=\pm\arsinh u-\arsinh(\upar/\uperp)$. The integrals
+$I_{m,p}=\int x^m(1+x^2)^{-p/2}\dd x$ (odd $p$) follow from
+\begin{gather}
+I_{m,p}=I_{m-2,p-2}-I_{m-2,p},\qquad
+I_{0,p}=\frac{x}{(p-2)(1+x^2)^{(p-2)/2}}+\frac{p-3}{p-2}I_{0,p-2},\\
+I_{1,p}=-\frac{(1+x^2)^{1-p/2}}{p-2},\qquad I_{0,1}=\arsinh x .
+\end{gather}
+The boost parameter $\arsinh(\upar/\uperp)$ cancels and the result is
+Eq.~\eqref{eq:Dclosed}. The verified form uses $\eta$ directly: for each
+integrand $\eta^jP_k/Q^{k/2}$ ($k=5,7$, $j=0,1,2$) the antiderivative is
+$(R_{kj}Q^{-(k-2)/2}+C_{kj}L)/D_{kj}$ with polynomials $R_{kj}$, $C_{kj}$, $D_{kj}$
+in $(\gamma,\upar,\eta)$, which fortsym checks through the polynomial identity
+$R'Q-\tfrac{k-2}2RQ'+CQ^{(k-1)/2}=D\eta^jP_k$. The axis limits follow
+continuously.
+
+\section{Absorption series}\label{app:series}
+
+The Bessel power series gives $J_k(z)^2=\sum_\ell(-1)^\ell A_{k\ell}(z/2)^{2k+2\ell}$.
+The Bessel equation implies
+\begin{equation}
+z^2J_k'(z)^2=\frac{z^2}2\frac{\dd^2}{\dd z^2}J_k^2+\frac z2\frac{\dd}{\dd z}J_k^2+(z^2-k^2)J_k^2,
+\end{equation}
+and equating powers gives $B_{k\ell}$. Expanding $e^{-ax}$, keeping even powers and
+using the beta integral gives $M_j$, $T_j$; the factor $x^2$ is kept in $T_j$ rather
+than written as $M_j-M_{j+1}$, which avoids one cancellation. For fixed $k,a,b$
+the Bessel series and its derivatives converge uniformly on $|z|\le|b|$, and
+$|e^{-ax}|\le e^{|a|}$ on $[-1,1]$, so termwise integration is justified. The
+coefficient ratio
+\begin{equation}
+\frac{A_{k,\ell+1}}{A_{k\ell}}=\frac{(2k+2\ell+2)(2k+2\ell+1)}{(\ell+1)(2k+\ell+1)(k+\ell+1)^2}
+\end{equation}
+tends to zero after multiplication by $(b/2)^2$, giving absolute convergence;
+$B_{k\ell}$ has only extra polynomial factors. With $M_j,T_j\le2e^{|a|}$ a
+geometric majorant bounds the tail once the ratio is below a chosen number
+less than one. For fixed $s>0$, $|\eta|<1$, the least equilibrium energy on
+harmonic $k$ obeys
+$\exp[-\frac\mu\sigma(ks-|\eta|h_k)]\le\exp[-\mu ks/(1+|\eta|)]$, and the
+remaining factors are polynomial in $k$, so the outer absorption sum
+converges.
+
+%======================================================================
+\begin{thebibliography}{99}
+\bibitem{KK96} S.~V. Kasilov and W.~Kernbichler, ``Passive cyclotron current drive efficiency for relativistic toroidal plasmas,'' Phys. Plasmas \textbf{3}, 4115--4127 (1996), doi:10.1063/1.871544. Eqs.~(38)--(43), (46)--(55).
+\bibitem{KK96b} W.~Kernbichler and S.~V. Kasilov, ``Passive cyclotron current generation with fish-scale structures,'' Phys. Plasmas \textbf{3}, 4128--4139 (1996), doi:10.1063/1.871545.
+\bibitem{Akh62} A.~I. Akhiezer, V.~F. Aleksin, V.~G. Bar'yakhtar and S.~V. Peletminskii, ``Effect of radiation on electron relaxation and plasma electrical conductivity in a strong magnetic field,'' Sov. Phys. JETP \textbf{15}, 386--393 (1962).
+\bibitem{Akh63} A.~I. Akhiezer, V.~G. Bar'yakhtar and S.~V. Peletminskii, ``Effect of radiation processes on transport phenomena in a plasma in a strong magnetic field,'' Sov. Phys. JETP \textbf{16}, 1231 (1963).
+\bibitem{Pel63} S.~V. Peletminskii, ``Relaxation of photons and plasma electrons in a strong magnetic field,'' Sov. Phys. JETP \textbf{17}, 497--501 (1963).
+\bibitem{Bertelli05} N.~Bertelli, M.~Bornatici and F.~Engelmann, ``Electron cyclotron absorption in a high-temperature plasma revisited,'' Phys. Lett. A \textbf{347}, 114--120 (2005), doi:10.1016/j.physleta.2005.06.078.
+\bibitem{Ghisellini88} G.~Ghisellini, P.~W. Guilbert and R.~Svensson, ``The synchrotron boiler,'' Astrophys. J. \textbf{334}, L5--L8 (1988), doi:10.1086/185300.
+\bibitem{Hirvijoki15} E.~Hirvijoki, J.~Decker, A.~J. Brizard and O.~Embr\'eus, ``Guiding-centre transformation of the radiation--reaction force in a non-uniform magnetic field,'' J. Plasma Phys. \textbf{81}, 475810504 (2015), doi:10.1017/S0022377815000744.
+\bibitem{Kennedy21} D.~Kennedy and P.~Helander, ``Coulomb collisions in strongly anisotropic plasmas. I. Cyclotron cooling in electron--ion plasmas,'' J. Plasma Phys. \textbf{87}, 905870107 (2021), doi:10.1017/S0022377820001622.
+\bibitem{Ochs24a} I.~E. Ochs, M.~E. Mlodik and N.~J. Fisch, ``Electron tail suppression and effective collisionality due to synchrotron emission and absorption in mildly relativistic plasmas,'' Phys. Plasmas \textbf{31}, 083303 (2024), doi:10.1063/5.0228464.
+\bibitem{Ochs24b} I.~E. Ochs, ``Synchrotron-driven instabilities in relativistic plasmas of arbitrary opacity,'' Astrophys. J. \textbf{975}, 30 (2024), doi:10.3847/1538-4357/ad76aa.
+\bibitem{Abel08} I.~G. Abel, M.~Barnes, S.~C. Cowley, W.~Dorland and A.~A. Schekochihin, ``Linearized model Fokker--Planck collision operators for gyrokinetic simulations. I. Theory,'' Phys. Plasmas \textbf{15}, 122509 (2008), doi:10.1063/1.3046067.
+\bibitem{Sugama09} H.~Sugama, T.-H. Watanabe and M.~Nunami, ``Linearized model collision operators for multiple ion species plasmas and gyrokinetic entropy balance equations,'' Phys. Plasmas \textbf{16}, 112503 (2009), doi:10.1063/1.3257907.
+\bibitem{DLMF} NIST Digital Library of Mathematical Functions, \url{https://dlmf.nist.gov/}, Chapters~10 and~12 (\S\S10.2, 10.6, 10.19, 10.29, 10.32, 12.2, 12.5).
+\bibitem{fortsym} fortsym, computer algebra for Fortran, \url{https://github.com/lazy-fortran/fortsym}; the checks use the revision recorded in \texttt{radiation\_collision/README.md}.
+\end{thebibliography}
+
+\end{document}

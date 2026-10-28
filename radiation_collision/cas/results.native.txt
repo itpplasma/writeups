@@ -1,0 +1,11 @@
+fortsym 4a04213 fortsym_wl_run, 2026-10-28
+PASS resonance_variance     9 checks
+PASS harmonic_sums          6 checks
+PASS angular_integrals     18 checks
+PASS tensor_coordinates     8 checks
+PASS kernel                31 checks
+PASS convergence           11 checks
+PASS thresholds            14 checks
+PASS closure               19 checks
+PASS drag                  12 checks
+fortsym exact checks: 128 bindings

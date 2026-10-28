@@ -50,6 +50,13 @@ sources, for example:
 Generated PDFs and plots are not committed; the sources, scripts and data
 needed to rebuild them are.
 
+## Kinetic theory
+
+- [radiation_collision/](radiation_collision/README.md): relativistic radiation
+  collision operator (Kasilov and Kernbichler 1996) with closed diffusion
+  tensor, kernel series, a conservative two-mode closure and the radiation-drag
+  propagator; exact fortsym checks in `radiation_collision/cas/`.
+
 ## NTV sources
 
 [ntv/README.md](ntv/README.md) catalogues the NTV-related writeups in this
