@@ -8,7 +8,10 @@ two-mode (temperature/drift) closure with Bessel-function constants, and the
 optically thin radiation-drag propagator.
 
 - `radiation_collision.tex`: the writeup. Render with
-  `./render.sh OUTPUT_DIR` (needs `pdflatex`). The PDF is not committed.
+  `./render.sh OUTPUT_DIR` (needs `pdflatex`, numpy, scipy, matplotlib). It
+  regenerates the six figures with `make_figures.py` and the verification
+  tables with `make_tables.py` from `numeric_results.json`. The PDF and
+  figures are not committed.
 - `cas/`: exact checks in [fortsym](https://github.com/lazy-fortran/fortsym)'s
   native Wolfram-language runner, one script per part of the derivation
   (128 bindings, each must reduce to 0). Run

@@ -6,6 +6,7 @@
 \usepackage{booktabs}
 \usepackage{microtype}
 \usepackage{xcolor}
+\usepackage{graphicx}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 
 \numberwithin{equation}{section}
@@ -269,6 +270,13 @@ H=\tfrac{27}{35}u^4-\tfrac{68}{105}u^6+\tfrac{656}{1155}u^8+O(u^{10}),
 \end{equation}
 which is the stable way to evaluate them near the origin.
 
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{fig_tensor.pdf}
+\caption{(a) The coefficients $F/u^2$ and $H/u^4$ evaluated with the series \eqref{eq:FHseries} below $u=0.1$ (thick); the thin curves are the direct closed forms in double precision, which lose all digits for $u\lesssim10^{-2}$ by cancellation. Dotted: the limits $32/5$ and $27/35$. (b) Parallel diffusion $D^{\upar\upar}/(au^2)$ against $\xi=\cos\chi$ at fixed $u$, compared with $D^{\gamma\gamma}/(au^2)=1-\xi^2$. Relativistic speeds move parallel diffusion from perpendicular towards oblique pitch angles.}
+\label{fig:tensor}
+\end{figure}
+
 %======================================================================
 \section{The integral kernel}\label{sec:kernel}
 
@@ -417,6 +425,13 @@ the old mean, with $|L_\eta\fh-\bar L|\le2M$, increases it by at most
 $4M^2\Delta N$. These bounds concern exact arithmetic, not floating-point
 cancellation.
 
+\begin{figure}[tb]
+\centering
+\includegraphics[width=0.62\textwidth]{fig_harmonics.pdf}
+\caption{Relative harmonic tail $D^{\gamma\gamma}_{>N}/D^{\gamma\gamma}$ of Eq.~\eqref{eq:Dsum} at $\upar=0.3$ (Gauss--Legendre in $\eta$, exact total from Eq.~\eqref{eq:Dclosed}) and the bound \eqref{eq:tail} (dotted, same colour). Convergence is geometric with rate $q_w=e^{-2\alpha(\uperp)}$, which approaches one as $\uperp$ grows; the floor near $10^{-14}$ is double-precision roundoff.}
+\label{fig:harmonics}
+\end{figure}
+
 %======================================================================
 \section{Absorption thresholds}\label{sec:thresholds}
 
@@ -440,6 +455,13 @@ already open, so $B_X=\sum_{k\ge2}S_{X,k}$ is positive and smooth and
 the last term being $C^2$. A harmonic pair with non-zero numerator therefore
 contributes a negative $\delta^{3/2}$ cusp to $R^{\gamma\gamma'}$, which the
 ordinary mode cannot cancel.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{fig_absorption.pdf}
+\caption{(a) Absorption normalisation $S_M(s,\eta)$, Eq.~\eqref{eq:SM}, at $\eta=0.5$, $\mu=10$. Each harmonic $k$ opens at $ks=\sqrt\sigma$ (dotted) with a kink in $S_X$ and a weaker one in $S_O$. (b) Opening of the fundamental: $S_{X,1}/a_X$ and $S_{O,1}/a_O$ against $\delta=s^2-\sigma$ follow $\delta^{3/2}$ and $\delta^{5/2}$ (dotted), Eqs.~(6.2). The $\delta^{3/2}$ onset of $S_X$ is the origin of the kernel cusp.}
+\label{fig:absorption}
+\end{figure}
 
 \paragraph{Dense thresholds.} On the counter-streaming slice $y=(\gamma,v)$,
 $y'=(\gamma,-v)$, $v>0$, with $N=n+n'$ and $d=n'-n$, the common photon is
@@ -565,6 +587,13 @@ Using $K_2-K_0=2K_1/\mu$,
 \end{gather}
 No low-temperature expansion is involved.
 
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{fig_constants.pdf}
+\caption{(a) Closure constants $\mu G_E/(n_e\nu_0)=\tfrac43K_3/K_2$ and $\mu G_P/(n_e\nu_0)=\tfrac4{15}(K_1+K_3)/K_2$. (b) Their ratio moves from $2/5$ in the nonrelativistic limit to $1/5$ in the ultrarelativistic limit, with the transition around $T\sim mc^2/10$.}
+\label{fig:constants}
+\end{figure}
+
 \paragraph{Operator.} Inserting $q_2$ into the electron flux gives the kernel
 \eqref{eq:result}, $R_2=d_Ed_E'^{\mathsf T}/G_E+d_Pd_P'^{\mathsf T}/G_P$ with
 \begin{equation}
@@ -595,6 +624,13 @@ and the integral part is the explicit rank-two source
 \boxed{\hat L_{I,2}\delta f=f_0\Bigl[\frac{\sH_E}{G_E}\int\dd^3p'\,\sH_E'\delta f'+\frac{\sH_P}{G_P}\int\dd^3p'\,\sH_P'\delta f'\Bigr],}
 \end{equation}
 added to the exact differential part $\hat L_D$.
+
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{fig_sources.pdf}
+\caption{Scalar sources of the closure at $\mu=5$ in the $(\upar,\uperp)$ plane; black contours are $f_0/f_0(0)=e^{-1},e^{-3},e^{-6}$. (a) $\sH_E/a$ is even in $\upar$ and changes sign inside the thermal bulk, so $\int f_0\sH_E=0$; (b) $\sH_P/a$ is odd in $\upar$. Together with $f_0$ these two functions are the complete integral part, Eq.~(8.12).}
+\label{fig:sources}
+\end{figure}
 
 %======================================================================
 \section{Properties of the closure}\label{sec:closureprops}
@@ -732,6 +768,13 @@ momentum). This solves the gyrotropic drag problem for arbitrary admissible
 initial data in a uniform field. It does not conserve electron energy and does
 not solve the reabsorbing problem.
 
+\begin{figure}[tb]
+\centering
+\includegraphics[width=\textwidth]{fig_drag.pdf}
+\caption{Optically thin radiation drag, Eq.~(11.4). (a) Trajectories in $(\upar,\uperp)$ from four initial points, with markers every $\nu_Rt=1$; each electron moves on its line of constant $\beta=\upar/\gamma$ towards $\uperp=0$. (b) Kinetic energy $\gamma-1$ relaxes to $\gamma_\parallel-1$; a purely perpendicular electron (dotted) loses all of it.}
+\label{fig:drag}
+\end{figure}
+
 %======================================================================
 \section{Verification}\label{sec:verification}
 
@@ -761,14 +804,22 @@ the drag characteristics, trajectory, Jacobian and propagator
 (Sec.~\ref{sec:drag}). The antiderivatives in the angular integration were
 proposed with SymPy and are verified by fortsym by differentiation.
 
-\paragraph{Numerical checks.} \texttt{numeric\_checks.py} (mpmath) tests the
-non-algebraic statements independently. Results, as maximal relative errors:
+\paragraph{Numerical checks.} \texttt{numeric\_checks.py} (mpmath, 20--30 digits)
+tests the non-algebraic statements independently: harmonic sums by direct
+summation, Eq.~\eqref{eq:Dclosed} against the $\eta$ quadrature of the unsummed
+harmonic series, the absorption series and $S_M$ against direct integration
+along the resonance line, Bessel moments, $G_E$, $G_P$ and the by-parts
+identity for $\sH_\alpha$ against two-dimensional quadrature, the tail bound at
+sample points (the entry is the excess over the bound), the broadened cusp,
+the drag trajectory against direct integration of Eq.~(11.2), and the
+propagator through particle number and the energy-loss rate. Maximal relative
+errors:
 \begin{center}
 \begin{tabular}{lr}
 \toprule
 Check & Result\\
 \midrule
-%NUMERIC_TABLE%
+\input{numeric_table}
 \bottomrule
 \end{tabular}
 \end{center}
@@ -778,7 +829,7 @@ With $n_e=\nu_0=1$, direct quadrature reproduces
 \toprule
 $\mu$ & $G_E$ & $G_P$ & $G_P/G_E$\\
 \midrule
-%G_TABLE%
+\input{g_table}
 \bottomrule
 \end{tabular}
 \end{center}

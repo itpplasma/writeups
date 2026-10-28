@@ -350,24 +350,35 @@ mp.mp.dps = 15
 
 
 def fin(z, b):
-    return mp.e**(-(z - 1)**2*4)*(1 - b**2)**3
+    """Initial data decaying at large momentum (w = csch z -> oo as z -> 0)."""
+    return mp.e**(-3*mp.csch(z)**2)*(1 - b**2)**3
 
 
 def J(z, b):
     return (1 - b**2)**mp.mpf(-1.5)/mp.sinh(z)**2*mp.coth(z)**2
 
 
-def number(t):
+def moment_t(t, weight):
+    """int dzeta dbeta J f weight at time t, on fixed quadrature nodes."""
     def inner(b):
         gp = 1/mp.sqrt(1 - b**2)
         c = nR/gp
-        return mp.quad(lambda z: J(z - c*t, b)*fin(z - c*t, b) if z - c*t > 0 else 0,
-                       [c*t, c*t + 0.2, c*t + 3, mp.inf])
-    return mp.quad(inner, [-1, 0, 1])
+        def f(z):
+            z0 = z - c*t
+            return J(z0, b)*fin(z0, b)*weight(z, gp) if z0 > 0 else 0
+        return mp.quad(f, [0, 0.4, 1, 2.5, mp.inf])
+    return mp.quad(inner, [-1, -0.5, 0, 0.5, 1])
 
 
-n0, n1 = number(0), number(mp.mpf('0.7'))
-record("drag propagator conserves particles (11.8)", rel(n1, n0), 1e-8)
+mp.mp.dps = 20
+t0, h = mp.mpf('0.6'), mp.mpf(10)**-4
+n_rel = rel(moment_t(t0, lambda z, gp: 1), moment_t(0, lambda z, gp: 1))
+energy = lambda t: moment_t(t, lambda z, gp: gp*mp.coth(z))
+dEdt = (energy(t0 + h) - energy(t0 - h))/(2*h)
+loss = -nR*moment_t(t0, lambda z, gp: mp.csch(z)**2)
+record("drag propagator (11.8): particle number", n_rel, 1e-10)
+record("drag propagator (11.8): dE/dt = -nu_R <w^2>", rel(dEdt, loss), 1e-6)
+mp.mp.dps = 30
 
 ok = all(v["pass"] for v in results.values() if isinstance(v, dict))
 if len(sys.argv) > 1:
