@@ -1,15 +1,63 @@
 # Plasma writeups
 
-- Readable theory and executable derivation companions for plasma physics and numerical methods at TU Graz.
-- Revived for the bottom-up ITER benchmark: [plan](PLAN.md), [NTV catalogue](ntv/README.md), [source inventory](ntv/catalogue.json).
-- Existing NTV torque, differential geometry, flux coordinates, guiding-centre and MHD sources remain in their historical locations; they require scientific review before reuse.
-- New plots and rendered PDFs are shared through slopbox. Source, scripts, numerical data and artifact manifests reproduce them.
-- The existing CC BY 4.0 license applies to its covered material; collected files retain their individual notices and attribution.
+Notes, derivations and slides on plasma physics and numerical methods
+from the plasma theory group at TU Graz (ITPcp), together with readable
+companions that compare equilibrium codes against their source papers.
 
-- Equilibrium slice: [GS companion](equilibrium/README.md), [KIN/FreeGS/CHEASE correspondence](theory/gs_solver_source_correspondence.md), [original VMEC](theory/vmec2000_equilibrium_source_correspondence.md), [DESC](theory/desc_equilibrium_source_correspondence.md), [GVEC](theory/gvec_equilibrium_source_correspondence.md), [GVEC free boundary](theory/gvec_free_boundary_source_correspondence.md) with its [residual derivation](theory/gvec_free_boundary_derivation.md). Checked scopes and unresolved derivations are explicit.
+Status: a working collection. Older notes are kept as written and have not
+all been reviewed again; check a derivation before reusing it.
 
-- [VMEC++ hybrid lambda correspondence](theory/vmecpp_hybrid_lambda_correspondence.md).
+## Contents
 
-- [TC24 equilibrium report](equilibrium/tc24/README.md): first Phase 6 draft with committed-data figures, consumer accuracy and the defect ledger.
+Notes and slides at the top level are LyX (`.lyx`) or LaTeX (`.tex`)
+sources, for example:
 
-- Proposed [RMP whole-model correspondence](theory/rmp_model_correspondence_plan.md): coverage, evidence and ownership for later comparisons.
+- Plasma theory: `plasma_writeup.tex`, NTV torque (`writeup_ntv.lyx`,
+  `writeup_ntv.tex`), MHD (`mhd/`), guiding-centre motion (`guiding_center/`),
+  pedestal, RMPs, reduced models (`writeup_redmod_plasma.lyx`, `redmod.lyx`).
+- Geometry and coordinates: differential geometry (`writeup_diffgeom.*`),
+  flux coordinates, symplectic structure, EFIT to Boozer coordinates
+  (`EFIT_to_Boozer.tex`).
+- Numerics and statistics: numerics, finite elements (`fem.tex`,
+  `writeup_fem.lyx`), advection, probability, regression, uncertainty
+  quantification.
+- Slides on software development and PCA (`slides_*.lyx`) and a note on
+  polymorphism and performance ([software_dev_polymorphism.md](software_dev_polymorphism.md)).
+- `scripts/`: a small Hamiltonian chaos example in Python and Fortran.
+
+## Equilibrium companions
+
+- [equilibrium/](equilibrium/README.md): a readable derivation of the
+  Grad-Shafranov equation (signed reduction, weak form, profiles, limits);
+  render it with `equilibrium/render_grad_shafranov.sh OUTPUT_DIR`
+  (needs `pdflatex`).
+- [theory/](theory/): source correspondences that map the equations in the
+  papers to the actual routines of
+  [KIN/FreeGS/CHEASE](theory/gs_solver_source_correspondence.md),
+  [VMEC2000](theory/vmec2000_equilibrium_source_correspondence.md),
+  [VMEC++](theory/vmecpp_hybrid_lambda_correspondence.md),
+  [DESC](theory/desc_equilibrium_source_correspondence.md) and
+  [GVEC](theory/gvec_equilibrium_source_correspondence.md) (including the
+  [free-boundary case](theory/gvec_free_boundary_source_correspondence.md)),
+  plus a [periodic-cylinder](theory/periodic_cylinder_correspondence.md)
+  reference. Symbolic checks are in `theory/cas/`.
+- [equilibrium/tc24/](equilibrium/tc24/README.md): draft report comparing
+  equilibrium codes on the ITER TC24 benchmark cases, built from committed
+  data with `equilibrium/tc24/build.sh`.
+- [theory/rmp_model_correspondence_plan.md](theory/rmp_model_correspondence_plan.md):
+  planned correspondence for RMP models.
+
+Generated PDFs and plots are not committed; the sources, scripts and data
+needed to rebuild them are.
+
+## NTV sources
+
+[ntv/README.md](ntv/README.md) catalogues the NTV-related writeups in this
+repository and elsewhere ([catalogue.json](ntv/catalogue.json)).
+`collections/` holds collected material with its own notices, such as the
+[libneo coordinate derivations](collections/libneo-coordinates/README.md).
+
+## License
+
+CC BY 4.0 ([LICENSE](LICENSE)) for the covered material; collected files keep
+their individual notices and attribution.
