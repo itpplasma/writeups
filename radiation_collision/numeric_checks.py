@@ -266,10 +266,20 @@ def HP(up, ua, mu):
     return -mp.mpf(2)/3*ua*(2 - mu*up**2/g - F_(u)/(8*u2) + (2/u2 - 4*ua**2/u2**2)*H_(u))
 
 
+def safe_quad(f, pts):
+    """mp.quad, re-split when its error estimate divides by an exact zero
+    (consecutive levels agreeing exactly for near-polynomial integrands)."""
+    try:
+        return mp.quad(f, pts)
+    except ZeroDivisionError:
+        a, b = pts[0], pts[-1]
+        return mp.quad(f, [a, a + (b - a)*mp.mpf('0.37'), a + (b - a)*mp.mpf('0.71'), b])
+
+
 def moment(fun, mu):
     """int d^3p f0 fun(up, ua), n_e = 1, mc = 1."""
     pref = mu/(4*mp.pi*mp.besselk(2, mu))*2*mp.pi
-    return pref*mp.quad(lambda u: u**2*mp.e**(-mu*mp.sqrt(1 + u**2))*mp.quad(
+    return pref*mp.quad(lambda u: u**2*mp.e**(-mu*mp.sqrt(1 + u**2))*safe_quad(
         lambda xi: fun(u*mp.sqrt(1 - xi**2), u*xi), [-1, 1]), [0, mp.inf])
 
 
