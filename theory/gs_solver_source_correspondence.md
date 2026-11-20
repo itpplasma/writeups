@@ -44,20 +44,18 @@
 | Lane | Exact source | Examined paths |
 |---|---|---|
 | Public | [EPFL fb4636631ac6be62eefc73b1a420508a40e7ea13](https://gitlab.epfl.ch/spc/chease/-/tree/fb4636631ac6be62eefc73b1a420508a40e7ea13) | `src-f90/{setupa,setupb,curent,matrix,pprime,ppspln,surface,psibox,cocos_module}.f90` |
-| MARS-associated | [8824bb18e1514b4a27f6357d5fe859d4fe690542](https://github.com/gafusion/MARS-Q/tree/8824bb18e1514b4a27f6357d5fe859d4fe690542/CheaseMerge) | `CheaseMerge/chease.f::{SETUPA,SETUPB,SURFACE,PPRIME,PPSPLN,PSIBOX}` |
 
-- Native CHEASE coordinates/normalizations differ from canonical SI. COCOS2→3 in the executed lane keeps psi, pprime, FFprime and reverses toroidal chart, F, q and Iphi. Public `SIGNB0XP=-1` supplies the canonical-F-positive control; MARS native positive TMF maps to canonical F-negative. Do not reverse F alone to declare a matched problem.
+- Native CHEASE coordinates/normalizations differ from canonical SI. COCOS2→3 in the executed lane keeps psi, pprime, FFprime and reverses toroidal chart, F, q and Iphi. Public `SIGNB0XP=-1` supplies the canonical-F-positive control. Do not reverse F alone to declare a matched problem.
 - Public `cocos_module.f90::COCOS`, `COCOS_values_coefficients` encode sign/2pi factors; `psibox` exports physical lengths. COCOS constants do not establish that an arbitrary imported tuple is internally consistent.
 - Native direct-source mode `NSTTP=1,NPROFZ=0`: `CURENT` calls `PPRIME/PRFUNC` and forms normalized `Jphi=-R*pprime-TTprime/R`. The negative sign is native convention/normalization, not a discrepancy with FreeGS canonical current. Profile/current-constrained branches differ; no audit of every `NSTTP` mode is claimed.
 - Public `SETUPA` calls `BASIS2`, forms transformed angular/radial gradients and assembles Gaussian weighted products with `ZCOEF=ZW*RSINT/R`; `MATRIX` calls `SETUPA` and banded LDLT. `SETUPB` evaluates prior-iterate Hermite psi, calls `CURENT`, and assembles its negative weighted source. These examined paths match the fixed-boundary weak/Picard architecture, not a compiler-level equivalence proof.
-- MARS monolithic anchors: `SETUPA` 6680, `SETUPB` 6988, `SURFACE` 9466, `PPRIME` 17043, `PSIBOX` 21147. Assembly/source genealogy is shared with public CHEASE; they are one algorithm family for independence assessment.
 - `NPPFUN=4` calls cubic `PPSPLN`; public pressure paths additionally depend on `NPP`, current/profile-coordinate selectors. `NFUNC=4` is tabulated PRFUNC input. Cubic derivative profiles on normalized flux are not our exact piecewise-linear law on absolute signed psi.
 - Executed forward controls use `NCSCAL=4` to preserve source profiles; `QSPEC` is not silently promoted to a q constraint. The physical source/F normalization and each deck are retained in TC24 manifests.
 - E5 needs a source-map fixed point as the solved psi span changes. Matching knots alone does not match between-knot laws; executed NISO/selector/output sampling and derivative discrepancies remain explicit admission gates.
 
 ## q, current and output routes must remain separate
 
-- CHEASE `SURFACE` differentiates Hermite coefficients through basis routines. It forms `ZINT2=rho*boundary_radius/(R*psi_sigma)`, Gauss-integrates CHIO, then `QPSI=TMF*CHIO/(2pi)` (MARS line 9827). Native q therefore retains a signed derivative route; it is not the FreeGS unsigned-arc estimator.
+- CHEASE `SURFACE` differentiates Hermite coefficients through basis routines. It forms `ZINT2=rho*boundary_radius/(R*psi_sigma)`, Gauss-integrates CHIO, then `QPSI=TMF*CHIO/(2pi)`. Native q therefore retains a signed derivative route; it is not the FreeGS unsigned-arc estimator.
 - Current-source and surface-integral paths in `CURENT`, `SETUPB`, `SURFACE` have been inspected. A complete SI current normalization/output correspondence for every export mode has not been proved; use per-run native Iphi and declared conversion alongside independent Ampere/current integrals.
 - `PSIBOX` constructs rectangular exports from the native FEM solution. Public exterior selector `NEQDXTPO=1` is linear; selector 4 uses derivative-based cubic continuation. Changing that selector can change reconstructed diagnostics while native equilibrium/q remain unchanged.
 - Public shifted-default-box defect: a dimensional/native-length mix moved the export box. The [fork PR 1](https://github.com/itpplasma/chease/pull/1), commit `9ac358d`, fixes geometry; independent shifted analytical controls fail before/pass after. It does not establish improved continuous GS accuracy.
@@ -90,6 +88,6 @@ The independent-period formulation, radial force derivation, exact sheared compa
 - Confirmed defects: FreeGS fixed-boundary q fallback, public CHEASE dimensional box/thin-flux current postprocessing, INTERPOS lost factorization status, original VMEC axis-storage alias, and unspecified C0 embedding. No demonstrated error in the cited physics papers is asserted here.
 - Separatrix scope: at an X-point grad(psi)=0, so a nested flux-coordinate inverse loses rank. The physical GS operator stays regular for R>0 and smooth sources. Exact-X topology and a regularized inner/Fourier boundary are distinct mathematical problems; retain both before interpreting convergence failures.
 - Open questions: signed-q handling for reversed poloidal circulation; complete CHEASE normalization/constraints and nonlinear stopping paths; absolute-psi/source-spline equivalence; near-axis/endpoint derivatives; current/flux/force reconstruction; nonlinear branch uniqueness.
-- Review both outlier-defect and shared-error hypotheses. Public/MARS CHEASE share genealogy; mapped VMEC profiles share source reconstruction; matching p/F laws share input assumptions. Count independent operators/oracles, not agreeing votes. Closure belongs to TC24 ERRATA.
+- Review both outlier-defect and shared-error hypotheses. mapped VMEC profiles share source reconstruction; matching p/F laws share input assumptions. Count independent operators/oracles, not agreeing votes. Closure belongs to TC24 ERRATA.
 
 Chris&AI
